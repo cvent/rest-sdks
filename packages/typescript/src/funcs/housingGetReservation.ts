@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Get Reservation
  *
  * @remarks
- * Get reservation details for the given reservation ID. Commonly used in response to [passkey callbacks](/docs/passkey/REST/callbacks).
+ * Get reservation details for the given reservation ID. Commonly used in response to [passkey callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks).
  */
 export function housingGetReservation(
   client: CventSDKCore,

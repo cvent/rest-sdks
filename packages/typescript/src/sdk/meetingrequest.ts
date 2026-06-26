@@ -78,9 +78,9 @@ export class MeetingRequest extends ClientSDK {
    * Create MR (Bulk)
    *
    * @remarks
-   * Creates a collection of meeting requests for a given active form. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the [Complex Questions Guide](/docs/rest-api/guides/meeting-request-complex-questions) for details.
+   * Creates a collection of meeting requests for a given active form. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the [Complex Questions Guide](https://developers.cvent.com/docs/rest-api/guides/meeting-request-complex-questions) for details.
    *
-   * **Note:** If the meeting request form is configured to auto-create an event upon submission, the `event.id` field may not be populated in the response at the time of initial creation. Event creation is processed asynchronously after the meeting request is saved. To retrieve the associated event ID once it is available, poll the [Get MR](/documentation#tag/Meeting-Request/operation/getMeetingRequestById) endpoint.
+   * **Note:** If the meeting request form is configured to auto-create an event upon submission, the `event.id` field may not be populated in the response at the time of initial creation. Event creation is processed asynchronously after the meeting request is saved. To retrieve the associated event ID once it is available, poll the [Get MR](https://developers.cvent.com/documentation#tag/Meeting-Request/operation/getMeetingRequestById) endpoint.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -99,9 +99,9 @@ export class MeetingRequest extends ClientSDK {
    * Update MR (Bulk)
    *
    * @remarks
-   * Updates a collection of meeting requests for a given form, adding information to the existing meeting requests. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the [Complex Questions Guide](/docs/rest-api/guides/meeting-request-complex-questions) for details.
+   * Updates a collection of meeting requests for a given form, adding information to the existing meeting requests. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the [Complex Questions Guide](https://developers.cvent.com/docs/rest-api/guides/meeting-request-complex-questions) for details.
    *
-   * **Note:** If the meeting request form is configured to auto-create an event upon submission, the `event.id` field may not be populated in the response at the time of the update. Event creation is processed asynchronously after the meeting request is saved. To retrieve the associated event ID once it is available, poll the [Get MR](/documentation#tag/Meeting-Request/operation/getMeetingRequestById) endpoint.
+   * **Note:** If the meeting request form is configured to auto-create an event upon submission, the `event.id` field may not be populated in the response at the time of the update. Event creation is processed asynchronously after the meeting request is saved. To retrieve the associated event ID once it is available, poll the [Get MR](https://developers.cvent.com/documentation#tag/Meeting-Request/operation/getMeetingRequestById) endpoint.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */

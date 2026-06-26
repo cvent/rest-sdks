@@ -110,7 +110,7 @@ export type EventUpdate = {
    */
   launchAfter?: Date | undefined;
   /**
-   * List of supported [timezones](/docs/rest-api/reference/api-standards#time-zones).
+   * List of supported [timezones](https://developers.cvent.com/docs/rest-api/reference/api-standards#time-zones).
    */
   timezone: string;
   /**

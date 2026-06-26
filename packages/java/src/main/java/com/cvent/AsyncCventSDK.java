@@ -136,7 +136,8 @@ public class AsyncCventSDK {
      * * Use [get bulk job](#operation/getBulkJobById) to track status
      * * Use [list bulk job results](#operation/listBulkJobResult) to get details of items uploaded
      *
-     * <p>For more details, see the [Bulk Job User Guide](/docs/rest-api/guides/bulk-api-user-guide).
+     * <p>For more details, see the [Bulk Job User
+     * Guide](https://developers.cvent.com/docs/rest-api/guides/bulk-api-user-guide).
      *
      * <p>**Note:** These bulk jobs have a TTL and will expire once they are complete or never ran. Bulk jobs
      * will expire
@@ -189,8 +190,9 @@ public class AsyncCventSDK {
      * * **Reservation Request.** Represents a request to book rooms in the housing event.
      * * **RegLink.** A feature that links Passkey events to your registration events, enabling you to sync
      * data between the two events.
-     * * **Callback.** [Passkey's callback system](/docs/passkey/REST/callbacks) allows for a push
-     * notification to be sent to your system when a reservation is created, modified or cancelled.
+     * * **Callback.** [Passkey's callback
+     * system](https://developers.cvent.com/docs/passkey/REST/callbacks) allows for a push notification to
+     * be sent to your system when a reservation is created, modified or cancelled.
      */
     private final AsyncHousing housing;
     /**
@@ -589,7 +591,8 @@ public class AsyncCventSDK {
      * * Use [get bulk job](#operation/getBulkJobById) to track status
      * * Use [list bulk job results](#operation/listBulkJobResult) to get details of items uploaded
      *
-     * <p>For more details, see the [Bulk Job User Guide](/docs/rest-api/guides/bulk-api-user-guide).
+     * <p>For more details, see the [Bulk Job User
+     * Guide](https://developers.cvent.com/docs/rest-api/guides/bulk-api-user-guide).
      *
      * <p>**Note:** These bulk jobs have a TTL and will expire once they are complete or never ran. Bulk jobs
      * will expire
@@ -648,8 +651,9 @@ public class AsyncCventSDK {
      * * **Reservation Request.** Represents a request to book rooms in the housing event.
      * * **RegLink.** A feature that links Passkey events to your registration events, enabling you to sync
      * data between the two events.
-     * * **Callback.** [Passkey's callback system](/docs/passkey/REST/callbacks) allows for a push
-     * notification to be sent to your system when a reservation is created, modified or cancelled.
+     * * **Callback.** [Passkey's callback
+     * system](https://developers.cvent.com/docs/passkey/REST/callbacks) allows for a push notification to
+     * be sent to your system when a reservation is created, modified or cancelled.
      */
     public AsyncHousing housing() {
         return housing;

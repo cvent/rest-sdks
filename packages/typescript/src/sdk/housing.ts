@@ -339,7 +339,7 @@ export class Housing extends ClientSDK {
    * Get Reservation
    *
    * @remarks
-   * Get reservation details for the given reservation ID. Commonly used in response to [passkey callbacks](/docs/passkey/REST/callbacks).
+   * Get reservation details for the given reservation ID. Commonly used in response to [passkey callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks).
    */
   async getReservation(
     request: operations.GetReservationRequest,

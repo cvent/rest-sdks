@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   title: Cvent REST APIs
-  description: "# Introduction\nThe Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily\ndiscovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here\nuse JSON-encoded request and response format, along with HTTP codes, to convey processing status of\nrequests received. The Cvent resources are protected using OAuth2.\n\n# Getting Started\n\nIf you're new to the Cvent API Platform, start by reading our\n[Developer Quickstart](/docs/rest-api/tutorials/developer-quickstart) guide. This will\ngive you an overview of how to authenticate and make requests using our APIs.\n\n## Authentication\n\nThe Cvent REST API uses [OAuth2](https://oauth.net/2/) to authorize requests to the platform. The client\ncredentials authorization flow is supported.\n\n<a name=\"oauth2-auth-code-planner-admin\"></a>\n\nAuthorization code flow is only supported for planner users with the administrator role in Cvent. Developer users\ncannot use authorization code flow.\n\n<!-- ReDoc-Inject: <security-definitions> -->\n\nHere's an example of using client credential flow to authorize. You'll supply your application's id and secret to\nmake a [Token](#operation/oauth2Token) request.\n\n```bash\ncurl --location --request POST '{hostName}/{version}/oauth2/token' \\\n--header 'Content-Type: application/x-www-form-urlencoded' \\\n--header 'Authorization: Basic {api_credentials}' \\\n--data-urlencode 'grant_type=client_credentials' \\\n--data-urlencode 'client_id={client_id}'\n```\n\n| Key               | Description                                          | Value                                                                                                        |\n| :---------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |\n| {hostName}        | https://api-platform.cvent.com                       | Location if you're account is in the North American datacenter                                               |\n|                   | https://api-platform-eur.cvent.com                   | Location if you're account is in the European data center.                                                   |\n| {version}         | ea                                                   | The version of the\_API\_you're using. Only `ea` is currently supported.                                       |\n| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id & client credentials in a\_base 64 encoded format.                                      |\n| {client_id}       | Retrieved from your\_application                      | Your\_application's client id.                                                                                |\n| {client_secret}   | Retrieved from your\_application                      | Your\_application's client secret.                                                                            |\n\nOn a successful call, you'll receive the following response:\n\n```json\n{\n  \"access_token\": \"{accessToken}\",\n  \"expires_in\": 3600,\n  \"token_type\": \"Bearer\"\n}\n```\n\nThis bearer token is valid for 3600 seconds (60 minutes) and must be used in subsequent calls.\n\n## Endpoints\n\nEndpoints start with `hostName` and `version`.\n\nThe `hostname` will depend on the region that your Cvent account is hosted in. Please see the table\nbelow to identify which hostname you should be using.\n\n| Region        |\tHostname                           |\n|:--------------|:-----------------------------------|\n| North America\t| https://api-platform.cvent.com     |\n| Europe        | https://api-platform-eur.cvent.com |\n\nThe current `version` of the Cvent API is `ea`.\n\n## Rate Limits\n\nCvent APIs enforce rate limits to ensure platform stability. Your limits depend on your tier: Free,\nStandard, or Premium.\n\n<br />\n\n### Usage Tiers\n\n| Tier     | Daily Calls | Calls per Second | Max Burst |\n| -------- | ----------- | ---------------- | --------- |\n| Free     | 1,000       | 2                | 1         |\n| Standard | 15,000      | 10               | 10        |\n| Premium  | 500,000     | 25               | 25        |\n\n- **Daily calls** define how many requests you can make in a 24-hour period. Quota\n  resets at 12 midnight (+0 GMT).\n- **Calls per second** define how many requests you can make in a 1-second window.\n- **Max Burst** defines how many requests you can make at once.\n\nIf you are unsure what usage tier applies to your account, you can check via\n[Get Current Usage Tier](#operation/getUsageTier).\n\nPlease note that these limits may change as the Cvent API Platform evolves.\n\n<br />\n\n### Handling Rate Limits\n\nSometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See\n[handling rate limits](/docs/rest-api/guides/handling-rate-limits) for best practices on how to handle this.\n\n## Pagination\n\nSome APIs use pagination to manage records. Each page of records has a token associated to identify it.\n\nIf an API uses pagination, you’ll find up to three tokens in the response:\n- **currentToken**: Describes the token of the current page.\n- **nextToken**: Provides a token for the next page of records, if one exists.\n- **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs will return\n  this token.\n\nYou specify which page of records to view via the `token` parameter in your API call. To navigate through pages,\ntake the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to get the\nrespective page of records. For example, if you made this request:\n\n```bash\ncurl -X GET {hostname}/{version}/contacts?limit=100 \\\n-H 'Accept: application/json' \\\n-H 'Authorization: Bearer {accessToken}'\n```\n\nThe response contains a paging array where you'll find the token information.\n\n```json\n{\n  \"paging\": {\n    \"currentToken\": \"90c5f062-76ad-4ea4-aa53-00eb698d9262\",\n    \"nextToken\": \"3b2359a7-4583-40ed-8afd-67e5f15373d3\",\n    \"limit\": 100,\n    \"totalCount\": 102,\n    \"_links\": {...}\n  },\n  \"data\": [...]\n}\n```\n\nTake the `nextToken` and use it in the `token` parameter on your subsequent call.\n\n```bash\ncurl -X GET {hostname}/{version}/contacts?limit=100&token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \\\n-H 'Accept: application/json' \\\n-H 'Authorization: Bearer {accessToken}'\n```\n\nWhen the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally, you might\nencounter an empty page at the end of results. This typically happens when the results were evenly divisible.\nEnsure your client code handles the possibility of receiving an empty data array when using the `nextToken`.\n\n## Filtering\n\nUse filters to narrow down results. The filter follows the pattern\n`filter='field' comparisonType 'value'`. The value can be enclosed with single\nquotes (') or double quotes (\").\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq 'Smith'\n````\n\nTo correctly pass a single quote in the filter's value, use double quotes around\nthe string.\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq \"O'Keenan\"\n```\n\nTo correctly pass a double quote in the filter's value, use double quotes around\nthe string and add an escape character `\\` to each quote that is part of the\nstring.\n\n```bash\nGET {hostName}/{version}/events?filter=eventName eq \"\\\"Yearly\\\" Conference\"\n```\n\n## Versioning\n\nChange is inevitable in API development. Planning for it is crucial. We track\nboth backward-compatible and backward-incompatible changes.\n\n<br />\n\n### Backward Compatible Changes\n\nBackward compatible changes will be made often and are intended to avoid\nany adverse impact on our customers. It is highly advisable that when reading\nJSON payloads from Cvent, you are able to handle \"unknown\" attributes that\ncan be added over time. We consider the following changes backward-compatible:\n\n- Adding new resources\n- Adding new optional request parameters to existing operations\n- Adding new attributes to requests or responses\n- Changing the length or format (not type) of resource identifiers. For example, an ID can change from\n  \"1234/1234\" to \"1234::1234\".\n- Increasing the length of string fields\n\n<br />\n\n### Backward Incompatible Changes\n\nBackward-incompatible changes are made infrequently, however, they can be\ndisruptive to consumers. Due to this, our APIs are versioned to avoid\ndisruptions to customers. We leverage a URI-based versioning scheme,\nwhich means that a version value is included in the Cvent API URL.\nWhen breaking changes occur, a new version of the API is made available\nwhile the existing version is deprecated but remains available for a\nlimited period of time. We consider the following backward-incompatible changes:\n\n- Adding a new required parameter (query string param or payload attribute)\n- Deleting API resources\n- Deleting any attribute from API responses\n- Changing the data type on any parameter or attribute\n\n## Standards\nAs you begin working with our APIs, it's essential to be aware of standards around\ncountry codes, time formats, and other important details that ensure smooth integration.\nLearn more about our [API Standards](/docs/rest-api/reference/api-standards)\n"
+  description: "# Introduction\nThe Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily\ndiscovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here\nuse JSON-encoded request and response format, along with HTTP codes, to convey processing status of\nrequests received. The Cvent resources are protected using OAuth2.\n\n# Getting Started\n\nIf you're new to the Cvent API Platform, start by reading our\n[Developer Quickstart](https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart) guide. This will\ngive you an overview of how to authenticate and make requests using our APIs.\n\n## Authentication\n\nThe Cvent REST API uses [OAuth2](https://oauth.net/2/) to authorize requests to the platform. The client\ncredentials authorization flow is supported.\n\n<a name=\"oauth2-auth-code-planner-admin\"></a>\n\nAuthorization code flow is only supported for planner users with the administrator role in Cvent. Developer users\ncannot use authorization code flow.\n\n<!-- ReDoc-Inject: <security-definitions> -->\n\nHere's an example of using client credential flow to authorize. You'll supply your application's id and secret to\nmake a [Token](#operation/oauth2Token) request.\n\n```bash\ncurl --location --request POST '{hostName}/{version}/oauth2/token' \\\n--header 'Content-Type: application/x-www-form-urlencoded' \\\n--header 'Authorization: Basic {api_credentials}' \\\n--data-urlencode 'grant_type=client_credentials' \\\n--data-urlencode 'client_id={client_id}'\n```\n\n| Key               | Description                                          | Value                                                                                                        |\n| :---------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |\n| {hostName}        | https://api-platform.cvent.com                       | Location if you're account is in the North American datacenter                                               |\n|                   | https://api-platform-eur.cvent.com                   | Location if you're account is in the European data center.                                                   |\n| {version}         | ea                                                   | The version of the\_API\_you're using. Only `ea` is currently supported.                                       |\n| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id & client credentials in a\_base 64 encoded format.                                      |\n| {client_id}       | Retrieved from your\_application                      | Your\_application's client id.                                                                                |\n| {client_secret}   | Retrieved from your\_application                      | Your\_application's client secret.                                                                            |\n\nOn a successful call, you'll receive the following response:\n\n```json\n{\n  \"access_token\": \"{accessToken}\",\n  \"expires_in\": 3600,\n  \"token_type\": \"Bearer\"\n}\n```\n\nThis bearer token is valid for 3600 seconds (60 minutes) and must be used in subsequent calls.\n\n## Endpoints\n\nEndpoints start with `hostName` and `version`.\n\nThe `hostname` will depend on the region that your Cvent account is hosted in. Please see the table\nbelow to identify which hostname you should be using.\n\n| Region        |\tHostname                           |\n|:--------------|:-----------------------------------|\n| North America\t| https://api-platform.cvent.com     |\n| Europe        | https://api-platform-eur.cvent.com |\n\nThe current `version` of the Cvent API is `ea`.\n\n## Rate Limits\n\nCvent APIs enforce rate limits to ensure platform stability. Your limits depend on your tier: Free,\nStandard, or Premium.\n\n<br />\n\n### Usage Tiers\n\n| Tier     | Daily Calls | Calls per Second | Max Burst |\n| -------- | ----------- | ---------------- | --------- |\n| Free     | 1,000       | 2                | 1         |\n| Standard | 15,000      | 10               | 10        |\n| Premium  | 500,000     | 25               | 25        |\n\n- **Daily calls** define how many requests you can make in a 24-hour period. Quota\n  resets at 12 midnight (+0 GMT).\n- **Calls per second** define how many requests you can make in a 1-second window.\n- **Max Burst** defines how many requests you can make at once.\n\nIf you are unsure what usage tier applies to your account, you can check via\n[Get Current Usage Tier](#operation/getUsageTier).\n\nPlease note that these limits may change as the Cvent API Platform evolves.\n\n<br />\n\n### Handling Rate Limits\n\nSometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See\n[handling rate limits](https://developers.cvent.com/docs/rest-api/guides/handling-rate-limits) for best practices on how to handle this.\n\n## Pagination\n\nSome APIs use pagination to manage records. Each page of records has a token associated to identify it.\n\nIf an API uses pagination, you’ll find up to three tokens in the response:\n- **currentToken**: Describes the token of the current page.\n- **nextToken**: Provides a token for the next page of records, if one exists.\n- **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs will return\n  this token.\n\nYou specify which page of records to view via the `token` parameter in your API call. To navigate through pages,\ntake the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to get the\nrespective page of records. For example, if you made this request:\n\n```bash\ncurl -X GET {hostname}/{version}/contacts?limit=100 \\\n-H 'Accept: application/json' \\\n-H 'Authorization: Bearer {accessToken}'\n```\n\nThe response contains a paging array where you'll find the token information.\n\n```json\n{\n  \"paging\": {\n    \"currentToken\": \"90c5f062-76ad-4ea4-aa53-00eb698d9262\",\n    \"nextToken\": \"3b2359a7-4583-40ed-8afd-67e5f15373d3\",\n    \"limit\": 100,\n    \"totalCount\": 102,\n    \"_links\": {...}\n  },\n  \"data\": [...]\n}\n```\n\nTake the `nextToken` and use it in the `token` parameter on your subsequent call.\n\n```bash\ncurl -X GET {hostname}/{version}/contacts?limit=100&token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \\\n-H 'Accept: application/json' \\\n-H 'Authorization: Bearer {accessToken}'\n```\n\nWhen the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally, you might\nencounter an empty page at the end of results. This typically happens when the results were evenly divisible.\nEnsure your client code handles the possibility of receiving an empty data array when using the `nextToken`.\n\n## Filtering\n\nUse filters to narrow down results. The filter follows the pattern\n`filter='field' comparisonType 'value'`. The value can be enclosed with single\nquotes (') or double quotes (\").\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq 'Smith'\n````\n\nTo correctly pass a single quote in the filter's value, use double quotes around\nthe string.\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq \"O'Keenan\"\n```\n\nTo correctly pass a double quote in the filter's value, use double quotes around\nthe string and add an escape character `\\` to each quote that is part of the\nstring.\n\n```bash\nGET {hostName}/{version}/events?filter=eventName eq \"\\\"Yearly\\\" Conference\"\n```\n\n## Versioning\n\nChange is inevitable in API development. Planning for it is crucial. We track\nboth backward-compatible and backward-incompatible changes.\n\n<br />\n\n### Backward Compatible Changes\n\nBackward compatible changes will be made often and are intended to avoid\nany adverse impact on our customers. It is highly advisable that when reading\nJSON payloads from Cvent, you are able to handle \"unknown\" attributes that\ncan be added over time. We consider the following changes backward-compatible:\n\n- Adding new resources\n- Adding new optional request parameters to existing operations\n- Adding new attributes to requests or responses\n- Changing the length or format (not type) of resource identifiers. For example, an ID can change from\n  \"1234/1234\" to \"1234::1234\".\n- Increasing the length of string fields\n\n<br />\n\n### Backward Incompatible Changes\n\nBackward-incompatible changes are made infrequently, however, they can be\ndisruptive to consumers. Due to this, our APIs are versioned to avoid\ndisruptions to customers. We leverage a URI-based versioning scheme,\nwhich means that a version value is included in the Cvent API URL.\nWhen breaking changes occur, a new version of the API is made available\nwhile the existing version is deprecated but remains available for a\nlimited period of time. We consider the following backward-incompatible changes:\n\n- Adding a new required parameter (query string param or payload attribute)\n- Deleting API resources\n- Deleting any attribute from API responses\n- Changing the data type on any parameter or attribute\n\n## Standards\nAs you begin working with our APIs, it's essential to be aware of standards around\ncountry codes, time formats, and other important details that ensure smooth integration.\nLearn more about our [API Standards](https://developers.cvent.com/docs/rest-api/reference/api-standards)\n"
   contact:
     name: Cvent Development Platform
     url: https://developers.cvent.com/
@@ -1081,7 +1081,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -1442,7 +1442,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -1532,7 +1532,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -1642,7 +1642,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -1928,7 +1928,7 @@ paths:
         description: |
           Use the filter property in the request body to limit results
           to data that matches your criteria. See
-          [Filters](/docs/rest-api/reference/filters) for details.
+          [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
           Supported fields and operators are listed below:
 
@@ -2231,7 +2231,7 @@ paths:
         description: |
           Use filter query parameters to limit results
           to data that matches your criteria. See
-          [Filters](/docs/rest-api/reference/filters) for details.
+          [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
           Supported fields and operators are listed below:
 
@@ -2565,7 +2565,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -2631,7 +2631,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -3011,7 +3011,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -3064,7 +3064,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -3305,7 +3305,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -3558,7 +3558,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -3616,7 +3616,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -4675,7 +4675,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -5937,7 +5937,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -6515,7 +6515,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -6647,7 +6647,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -6980,7 +6980,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -7079,7 +7079,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -7525,7 +7525,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -9630,7 +9630,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -9760,7 +9760,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -9928,7 +9928,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -10027,7 +10027,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -10099,7 +10099,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -10281,7 +10281,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -11060,7 +11060,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -11141,7 +11141,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -11336,7 +11336,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -11373,7 +11373,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -11429,7 +11429,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -11527,7 +11527,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -11698,7 +11698,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -12390,7 +12390,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -12808,9 +12808,9 @@ paths:
             - event/meeting-requests:write
       summary: Create MR (Bulk)
       description: |-
-        Creates a collection of meeting requests for a given active form. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the [Complex Questions Guide](/docs/rest-api/guides/meeting-request-complex-questions) for details.
+        Creates a collection of meeting requests for a given active form. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the [Complex Questions Guide](https://developers.cvent.com/docs/rest-api/guides/meeting-request-complex-questions) for details.
 
-        **Note:** If the meeting request form is configured to auto-create an event upon submission, the `event.id` field may not be populated in the response at the time of initial creation. Event creation is processed asynchronously after the meeting request is saved. To retrieve the associated event ID once it is available, poll the [Get MR](/documentation#tag/Meeting-Request/operation/getMeetingRequestById) endpoint.
+        **Note:** If the meeting request form is configured to auto-create an event upon submission, the `event.id` field may not be populated in the response at the time of initial creation. Event creation is processed asynchronously after the meeting request is saved. To retrieve the associated event ID once it is available, poll the [Get MR](https://developers.cvent.com/documentation#tag/Meeting-Request/operation/getMeetingRequestById) endpoint.
       parameters:
         - in: query
           name: skipRequiredQuestionValidation
@@ -12858,9 +12858,9 @@ paths:
             - event/meeting-requests:write
       summary: Update MR (Bulk)
       description: |-
-        Updates a collection of meeting requests for a given form, adding information to the existing meeting requests. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the [Complex Questions Guide](/docs/rest-api/guides/meeting-request-complex-questions) for details.
+        Updates a collection of meeting requests for a given form, adding information to the existing meeting requests. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the [Complex Questions Guide](https://developers.cvent.com/docs/rest-api/guides/meeting-request-complex-questions) for details.
 
-        **Note:** If the meeting request form is configured to auto-create an event upon submission, the `event.id` field may not be populated in the response at the time of the update. Event creation is processed asynchronously after the meeting request is saved. To retrieve the associated event ID once it is available, poll the [Get MR](/documentation#tag/Meeting-Request/operation/getMeetingRequestById) endpoint.
+        **Note:** If the meeting request form is configured to auto-create an event upon submission, the `event.id` field may not be populated in the response at the time of the update. Event creation is processed asynchronously after the meeting request is saved. To retrieve the associated event ID once it is available, poll the [Get MR](https://developers.cvent.com/documentation#tag/Meeting-Request/operation/getMeetingRequestById) endpoint.
       parameters:
         - in: query
           name: skipRequiredQuestionValidation
@@ -13195,7 +13195,7 @@ paths:
         - Authentication
       summary: Token
       description: |
-        Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer Quickstart](/docs/rest-api/tutorials/developer-quickstart) for an example request.
+        Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer Quickstart](https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart) for an example request.
 
         **Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
       operationId: oauth2Token
@@ -13440,7 +13440,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -14048,7 +14048,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -14287,7 +14287,7 @@ paths:
       tags:
         - Housing
       summary: Get Reservation
-      description: 'Get reservation details for the given reservation ID. Commonly used in response to [passkey callbacks](/docs/passkey/REST/callbacks). '
+      description: 'Get reservation details for the given reservation ID. Commonly used in response to [passkey callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks). '
       operationId: getReservation
       security:
         - OAuth2.clientCredentials:
@@ -14384,7 +14384,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -14463,7 +14463,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -15381,7 +15381,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -15534,7 +15534,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -16146,7 +16146,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -17154,7 +17154,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -17211,7 +17211,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -17323,7 +17323,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -17599,7 +17599,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -18405,7 +18405,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -18476,7 +18476,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -18749,7 +18749,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -18815,7 +18815,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -18873,7 +18873,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -19115,7 +19115,7 @@ paths:
           description: |
             Use filter query parameters to limit results
             to data that matches your criteria. See
-            [Filters](/docs/rest-api/reference/filters) for details.
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
             Supported fields and operators are listed below:
 
@@ -19644,7 +19644,7 @@ components:
       description: |
         Use filter query parameters to limit results
         to data that matches your criteria. See
-        [Filters](/docs/rest-api/reference/filters) for details.
+        [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
         Supported fields and operators are listed below:
 
@@ -19675,7 +19675,7 @@ components:
       description: |
         Use filter query parameters to limit results
         to data that matches your criteria. See
-        [Filters](/docs/rest-api/reference/filters) for details.
+        [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
         Supported fields and operators are listed below:
 
@@ -19976,7 +19976,7 @@ components:
       description: |
         Use filter query parameters to limit results
         to data that matches your criteria. See
-        [Filters](/docs/rest-api/reference/filters) for details.
+        [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
         Supported fields and operators are listed below:
 
@@ -19993,7 +19993,7 @@ components:
       description: |
         Use filter query parameters to limit results
         to data that matches your criteria. See
-        [Filters](/docs/rest-api/reference/filters) for details.
+        [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
         Supported fields and operators are listed below:
 
@@ -20012,7 +20012,7 @@ components:
       description: |
         Use filter query parameters to limit results
         to data that matches your criteria. See
-        [Filters](/docs/rest-api/reference/filters) for details.
+        [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
         Supported fields and operators are listed below:
 
@@ -20035,7 +20035,7 @@ components:
       description: |
         Use filter query parameters to limit results
         to data that matches your criteria. See
-        [Filters](/docs/rest-api/reference/filters) for details.
+        [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
         Supported fields and operators are listed below:
 
@@ -20428,7 +20428,7 @@ components:
       description: |
         Use filter query parameters to limit results
         to data that matches your criteria. See
-        [Filters](/docs/rest-api/reference/filters) for details.
+        [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
         Supported fields and operators are listed below:
 
@@ -21445,7 +21445,7 @@ components:
       description: |
         Use filter query parameters to limit results
         to data that matches your criteria. See
-        [Filters](/docs/rest-api/reference/filters) for details.
+        [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
         Supported fields and operators are listed below:
 
@@ -26142,32 +26142,32 @@ components:
           readOnly: true
     AttendeeContactAudit:
       title: AttendeeContactAudit
-      description: Audit information for an attendee record. To get contact audit data, please use [Get Contact](/documentation#tag/Contacts/operation/getContactById).
+      description: Audit information for an attendee record. To get contact audit data, please use [Get Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById).
       type: object
       properties:
         created:
           type: string
           format: date-time
-          description: 'The ISO 8601 zoned date time when an attendee record was created. Note: This field is deprecated. Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.'
+          description: 'The ISO 8601 zoned date time when an attendee record was created. Note: This field is deprecated. Please use the [Get Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.'
           readOnly: true
           example: '2017-01-02T02:00:00Z'
           deprecated: true
         createdBy:
           type: string
-          description: 'The identifier of the user that created this attendee record. Note: This field is deprecated. Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.'
+          description: 'The identifier of the user that created this attendee record. Note: This field is deprecated. Please use the [Get Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.'
           readOnly: true
           example: hporter
           deprecated: true
         lastModified:
           type: string
           format: date-time
-          description: 'The ISO 8601 zoned date time when this attendee record was updated. Note: This field is deprecated. Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.'
+          description: 'The ISO 8601 zoned date time when this attendee record was updated. Note: This field is deprecated. Please use the [Get Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.'
           readOnly: true
           example: '2019-02-12T03:00:00Z'
           deprecated: true
         lastModifiedBy:
           type: string
-          description: 'The identifier of the user that last updated this attendee record. Note: This field is deprecated. Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.'
+          description: 'The identifier of the user that last updated this attendee record. Note: This field is deprecated. Please use the [Get Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.'
           readOnly: true
           example: hporter
           deprecated: true
@@ -33848,7 +33848,7 @@ components:
           readOnly: true
         timezone:
           type: string
-          description: List of supported [timezones](/docs/rest-api/reference/api-standards#time-zones).
+          description: List of supported [timezones](https://developers.cvent.com/docs/rest-api/reference/api-standards#time-zones).
           maxLength: 29
           example: America/New_York
         venues:
@@ -54617,7 +54617,7 @@ tags:
       * Use [get bulk job](#operation/getBulkJobById) to track status
       * Use [list bulk job results](#operation/listBulkJobResult) to get details of items uploaded
 
-      For more details, see the [Bulk Job User Guide](/docs/rest-api/guides/bulk-api-user-guide).
+      For more details, see the [Bulk Job User Guide](https://developers.cvent.com/docs/rest-api/guides/bulk-api-user-guide).
 
       **Note:** These bulk jobs have a TTL and will expire once they are complete or never ran. Bulk jobs will expire
       1 week after creation, and this one week is refreshed when data is uploaded and the job is run. The Bulk Job
@@ -54712,7 +54712,7 @@ tags:
       * **Housing Event.** An Passkey event where invitees will be able to register and book rooms.
       * **Reservation Request.** Represents a request to book rooms in the housing event.
       * **RegLink.** A feature that links Passkey events to your registration events, enabling you to sync data between the two events.
-      * **Callback.** [Passkey's callback system](/docs/passkey/REST/callbacks) allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.
+      * **Callback.** [Passkey's callback system](https://developers.cvent.com/docs/passkey/REST/callbacks) allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.
   - name: Housing Hotels
     description: APIs for managing hotel-related operations.
   - name: Leads

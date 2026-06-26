@@ -51,7 +51,7 @@ namespace Cvent.SDK
         /// Token.
         /// </summary>
         /// <remarks>
-        /// Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the <a href="/docs/rest-api/tutorials/developer-quickstart">Developer Quickstart</a> for an example request.<br/>
+        /// Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the <a href="https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart">Developer Quickstart</a> for an example request.<br/>
         /// <br/>
         /// **Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
         /// </remarks>
@@ -236,7 +236,7 @@ namespace Cvent.SDK
         /// Token.
         /// </summary>
         /// <remarks>
-        /// Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the <a href="/docs/rest-api/tutorials/developer-quickstart">Developer Quickstart</a> for an example request.<br/>
+        /// Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the <a href="https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart">Developer Quickstart</a> for an example request.<br/>
         /// <br/>
         /// **Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
         /// </remarks>

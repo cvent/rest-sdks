@@ -105,7 +105,8 @@ public class Authentication {
      * Token
      *
      * <p>Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer
-     * Quickstart](/docs/rest-api/tutorials/developer-quickstart) for an example request.
+     * Quickstart](https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart) for an
+     * example request.
      *
      * <p>**Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
      *
@@ -119,7 +120,8 @@ public class Authentication {
      * Token
      *
      * <p>Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer
-     * Quickstart](/docs/rest-api/tutorials/developer-quickstart) for an example request.
+     * Quickstart](https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart) for an
+     * example request.
      *
      * <p>**Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
      *
@@ -135,7 +137,8 @@ public class Authentication {
      * Token
      *
      * <p>Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer
-     * Quickstart](/docs/rest-api/tutorials/developer-quickstart) for an example request.
+     * Quickstart](https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart) for an
+     * example request.
      *
      * <p>**Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
      *

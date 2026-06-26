@@ -21,28 +21,28 @@ namespace Cvent.SDK.Models.Components
     public class AttendeeContactInfo
     {
         /// <summary>
-        /// The ISO 8601 zoned date time when an attendee record was created. Note: This field is deprecated. Please use the <a href="/documentation#tag/Contacts/operation/getContactById">Get Contact</a> or <a href="/documentation#tag/Contacts/operation/listContacts">List Contact</a> endpoints for contact audit details.
+        /// The ISO 8601 zoned date time when an attendee record was created. Note: This field is deprecated. Please use the <a href="https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById">Get Contact</a> or <a href="https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts">List Contact</a> endpoints for contact audit details.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("created")]
         public DateTime? Created { get; set; }
 
         /// <summary>
-        /// The identifier of the user that created this attendee record. Note: This field is deprecated. Please use the <a href="/documentation#tag/Contacts/operation/getContactById">Get Contact</a> or <a href="/documentation#tag/Contacts/operation/listContacts">List Contact</a> endpoints for contact audit details.
+        /// The identifier of the user that created this attendee record. Note: This field is deprecated. Please use the <a href="https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById">Get Contact</a> or <a href="https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts">List Contact</a> endpoints for contact audit details.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("createdBy")]
         public string? CreatedBy { get; set; }
 
         /// <summary>
-        /// The ISO 8601 zoned date time when this attendee record was updated. Note: This field is deprecated. Please use the <a href="/documentation#tag/Contacts/operation/getContactById">Get Contact</a> or <a href="/documentation#tag/Contacts/operation/listContacts">List Contact</a> endpoints for contact audit details.
+        /// The ISO 8601 zoned date time when this attendee record was updated. Note: This field is deprecated. Please use the <a href="https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById">Get Contact</a> or <a href="https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts">List Contact</a> endpoints for contact audit details.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("lastModified")]
         public DateTime? LastModified { get; set; }
 
         /// <summary>
-        /// The identifier of the user that last updated this attendee record. Note: This field is deprecated. Please use the <a href="/documentation#tag/Contacts/operation/getContactById">Get Contact</a> or <a href="/documentation#tag/Contacts/operation/listContacts">List Contact</a> endpoints for contact audit details.
+        /// The identifier of the user that last updated this attendee record. Note: This field is deprecated. Please use the <a href="https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById">Get Contact</a> or <a href="https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts">List Contact</a> endpoints for contact audit details.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("lastModifiedBy")]

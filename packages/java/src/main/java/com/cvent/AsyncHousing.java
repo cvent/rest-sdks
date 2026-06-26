@@ -119,8 +119,9 @@ import java.util.concurrent.CompletableFuture;
  * * **Reservation Request.** Represents a request to book rooms in the housing event.
  * * **RegLink.** A feature that links Passkey events to your registration events, enabling you to sync
  * data between the two events.
- * * **Callback.** [Passkey's callback system](/docs/passkey/REST/callbacks) allows for a push
- * notification to be sent to your system when a reservation is created, modified or cancelled.
+ * * **Callback.** [Passkey's callback
+ * system](https://developers.cvent.com/docs/passkey/REST/callbacks) allows for a push notification to
+ * be sent to your system when a reservation is created, modified or cancelled.
  */
 public class AsyncHousing {
     private static final Headers _headers = Headers.EMPTY;
@@ -892,7 +893,7 @@ public class AsyncHousing {
      * Get Reservation
      *
      * <p>Get reservation details for the given reservation ID. Commonly used in response to [passkey
-     * callbacks](/docs/passkey/REST/callbacks).
+     * callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks).
      *
      * @return The async call builder
      */
@@ -904,7 +905,7 @@ public class AsyncHousing {
      * Get Reservation
      *
      * <p>Get reservation details for the given reservation ID. Commonly used in response to [passkey
-     * callbacks](/docs/passkey/REST/callbacks).
+     * callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks).
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetReservationResponse>} - The async response
@@ -918,7 +919,7 @@ public class AsyncHousing {
      * Get Reservation
      *
      * <p>Get reservation details for the given reservation ID. Commonly used in response to [passkey
-     * callbacks](/docs/passkey/REST/callbacks).
+     * callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks).
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options

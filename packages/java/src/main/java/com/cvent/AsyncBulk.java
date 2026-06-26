@@ -47,7 +47,8 @@ import java.util.concurrent.CompletableFuture;
  * * Use [get bulk job](#operation/getBulkJobById) to track status
  * * Use [list bulk job results](#operation/listBulkJobResult) to get details of items uploaded
  *
- * <p>For more details, see the [Bulk Job User Guide](/docs/rest-api/guides/bulk-api-user-guide).
+ * <p>For more details, see the [Bulk Job User
+ * Guide](https://developers.cvent.com/docs/rest-api/guides/bulk-api-user-guide).
  *
  * <p>**Note:** These bulk jobs have a TTL and will expire once they are complete or never ran. Bulk jobs
  * will expire

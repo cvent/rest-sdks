@@ -106,7 +106,8 @@ public class EventUpdate {
     private OffsetDateTime launchAfter;
 
     /**
-     * List of supported [timezones](/docs/rest-api/reference/api-standards#time-zones).
+     * List of supported
+     * [timezones](https://developers.cvent.com/docs/rest-api/reference/api-standards#time-zones).
      */
     @JsonProperty("timezone")
     private String timezone;
@@ -504,7 +505,8 @@ public class EventUpdate {
     }
 
     /**
-     * List of supported [timezones](/docs/rest-api/reference/api-standards#time-zones).
+     * List of supported
+     * [timezones](https://developers.cvent.com/docs/rest-api/reference/api-standards#time-zones).
      */
     public String timezone() {
         return this.timezone;
@@ -792,7 +794,8 @@ public class EventUpdate {
     }
 
     /**
-     * List of supported [timezones](/docs/rest-api/reference/api-standards#time-zones).
+     * List of supported
+     * [timezones](https://developers.cvent.com/docs/rest-api/reference/api-standards#time-zones).
      */
     public EventUpdate withTimezone(@Nonnull String timezone) {
         this.timezone = Utils.checkNotNull(timezone, "timezone");
@@ -1355,7 +1358,8 @@ public class EventUpdate {
         }
 
         /**
-         * List of supported [timezones](/docs/rest-api/reference/api-standards#time-zones).
+         * List of supported
+         * [timezones](https://developers.cvent.com/docs/rest-api/reference/api-standards#time-zones).
          */
         public Builder timezone(@Nonnull String timezone) {
             this.timezone = Utils.checkNotNull(timezone, "timezone");
