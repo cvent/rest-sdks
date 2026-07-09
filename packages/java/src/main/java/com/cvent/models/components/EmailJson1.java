@@ -3,16 +3,10 @@
  */
 package com.cvent.models.components;
 
-import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
@@ -20,62 +14,25 @@ import java.util.Optional;
 /**
  * EmailJson1
  *
- * <p>Email
+ * <p>Details of an email to be send.
  */
 public class EmailJson1 {
     /**
-     * The type of the email.
+     * The unique ID of the email to be sent.
      */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("type")
-    private EmailTypeJson type;
-
-    /**
-     * The email of the user.
-     */
-    @JsonProperty("value")
-    private String value;
-
-    /**
-     * True indicates the email is primary.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("primary")
-    private Boolean primary;
+    @JsonProperty("id")
+    private String id;
 
     @JsonCreator
-    public EmailJson1(
-            @JsonProperty("type") @Nullable EmailTypeJson type,
-            @JsonProperty("value") @Nonnull String value,
-            @JsonProperty("primary") @Nullable Boolean primary) {
-        this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
-        this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
-        this.primary = Optional.ofNullable(primary).orElse(Builder._SINGLETON_VALUE_Primary.value());
-    }
-
-    public EmailJson1(@Nonnull String value) {
-        this(null, value, null);
+    public EmailJson1(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
-     * The type of the email.
+     * The unique ID of the email to be sent.
      */
-    public Optional<EmailTypeJson> type() {
-        return Optional.ofNullable(this.type);
-    }
-
-    /**
-     * The email of the user.
-     */
-    public String value() {
-        return this.value;
-    }
-
-    /**
-     * True indicates the email is primary.
-     */
-    public Optional<Boolean> primary() {
-        return Optional.ofNullable(this.primary);
+    public String id() {
+        return this.id;
     }
 
     public static Builder builder() {
@@ -83,26 +40,10 @@ public class EmailJson1 {
     }
 
     /**
-     * The type of the email.
+     * The unique ID of the email to be sent.
      */
-    public EmailJson1 withType(@Nullable EmailTypeJson type) {
-        this.type = type;
-        return this;
-    }
-
-    /**
-     * The email of the user.
-     */
-    public EmailJson1 withValue(@Nonnull String value) {
-        this.value = Utils.checkNotNull(value, "value");
-        return this;
-    }
-
-    /**
-     * True indicates the email is primary.
-     */
-    public EmailJson1 withPrimary(@Nullable Boolean primary) {
-        this.primary = primary;
+    public EmailJson1 withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
         return this;
     }
 
@@ -115,66 +56,38 @@ public class EmailJson1 {
             return false;
         }
         EmailJson1 other = (EmailJson1) o;
-        return Utils.enhancedDeepEquals(this.type, other.type)
-                && Utils.enhancedDeepEquals(this.value, other.value)
-                && Utils.enhancedDeepEquals(this.primary, other.primary);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(type, value, primary);
+        return Utils.enhancedHash(id);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(EmailJson1.class, "type", type, "value", value, "primary", primary);
+        return Utils.toString(EmailJson1.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EmailTypeJson type;
-
-        private String value;
-
-        private Boolean primary;
+        private String id;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The type of the email.
+         * The unique ID of the email to be sent.
          */
-        public Builder type(@Nullable EmailTypeJson type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * The email of the user.
-         */
-        public Builder value(@Nonnull String value) {
-            this.value = Utils.checkNotNull(value, "value");
-            return this;
-        }
-
-        /**
-         * True indicates the email is primary.
-         */
-        public Builder primary(@Nullable Boolean primary) {
-            this.primary = primary;
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
             return this;
         }
 
         public EmailJson1 build() {
-            return new EmailJson1(type, value, primary);
+            return new EmailJson1(id);
         }
-
-        private static final LazySingletonValue<EmailTypeJson> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>("type", "\"work\"", new TypeReference<EmailTypeJson>() {});
-
-        private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Primary =
-                new LazySingletonValue<>("primary", "false", new TypeReference<Boolean>() {});
     }
 }

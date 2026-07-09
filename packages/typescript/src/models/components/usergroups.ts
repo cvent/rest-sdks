@@ -7,7 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { GroupJson0, GroupJson0$inboundSchema } from "./groupjson0.js";
+import { Group1, Group1$inboundSchema } from "./group1.js";
 
 /**
  * Groups
@@ -32,7 +32,7 @@ export type UserGroups = {
   /**
    * The collection of schema resources.
    */
-  resources?: Array<GroupJson0> | undefined;
+  resources?: Array<Group1> | undefined;
 };
 
 /** @internal */
@@ -45,7 +45,7 @@ export const UserGroups$inboundSchema: z.ZodType<
   itemsPerPage: z.number().int().optional(),
   startIndex: z.number().int().optional(),
   totalResults: z.number().int().optional(),
-  Resources: z.array(GroupJson0$inboundSchema).optional(),
+  Resources: z.array(Group1$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "Resources": "resources",

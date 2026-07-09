@@ -44,7 +44,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cvent:sdk:1.5.1'
+implementation 'com.cvent:sdk:1.5.2'
 ```
 
 Maven:
@@ -52,7 +52,7 @@ Maven:
 <dependency>
     <groupId>com.cvent</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.5.1</version>
+    <version>1.5.2</version>
 </dependency>
 ```
 
@@ -415,8 +415,8 @@ public class Application {
 
 ### [Authentication](docs/sdks/authentication/README.md)
 
-* [oauth2Authorize](docs/sdks/authentication/README.md#oauth2authorize) - Authorize
-* [oauth2Token](docs/sdks/authentication/README.md#oauth2token) - Token
+* [oauth2Authorize](docs/sdks/authentication/README.md#oauth2authorize) - Get Authorization Code
+* [oauth2Token](docs/sdks/authentication/README.md#oauth2token) - Get Token
 * [validateToken](docs/sdks/authentication/README.md#validatetoken) - Validate Token
 
 ### [BadgePrintJob](docs/sdks/badgeprintjob/README.md)
@@ -1297,8 +1297,8 @@ public class Application {
 many more subclasses in the JDK platform).
 
 **Inherit from [`CventSDKError`](./src/main/java/models/errors/CventSDKError.java)**:
-* [`com.cvent.models.errors.ErrorResponse2`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse2.java): Represents an error response with additional details of cascading error messages. Applicable to 18 of 448 methods.*
-* [`com.cvent.models.errors.ErrorResponseJson12`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponseJson12.java): The error response. Applicable to 11 of 448 methods.*
+* [`com.cvent.models.errors.ErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse.java): Represents an error response with additional details of cascading error messages. Applicable to 18 of 448 methods.*
+* [`com.cvent.models.errors.ErrorResponse2`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse2.java): The error response. Applicable to 11 of 448 methods.*
 * [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 448 methods.*
 * [`com.cvent.models.errors.BadRequestException`](./src/main/java/models/errors/com.cvent.models.errors.BadRequestException.java): A bad token response. Status code `400`. Applicable to 1 of 448 methods.*
 

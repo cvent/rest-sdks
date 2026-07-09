@@ -46,22 +46,22 @@ public class UsersSchema {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("attributes")
-    private List<AttributeJson> attributes;
+    private List<Attribute> attributes;
 
     /**
      * Metadata of the resource.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("meta")
-    private MetaJson meta;
+    private Meta meta;
 
     @JsonCreator
     public UsersSchema(
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("description") @Nullable String description,
-            @JsonProperty("attributes") @Nullable List<AttributeJson> attributes,
-            @JsonProperty("meta") @Nullable MetaJson meta) {
+            @JsonProperty("attributes") @Nullable List<Attribute> attributes,
+            @JsonProperty("meta") @Nullable Meta meta) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -97,14 +97,14 @@ public class UsersSchema {
     /**
      * The collection of attributes for the schema.
      */
-    public Optional<List<AttributeJson>> attributes() {
+    public Optional<List<Attribute>> attributes() {
         return Optional.ofNullable(this.attributes);
     }
 
     /**
      * Metadata of the resource.
      */
-    public Optional<MetaJson> meta() {
+    public Optional<Meta> meta() {
         return Optional.ofNullable(this.meta);
     }
 
@@ -139,7 +139,7 @@ public class UsersSchema {
     /**
      * The collection of attributes for the schema.
      */
-    public UsersSchema withAttributes(@Nullable List<AttributeJson> attributes) {
+    public UsersSchema withAttributes(@Nullable List<Attribute> attributes) {
         this.attributes = attributes;
         return this;
     }
@@ -147,7 +147,7 @@ public class UsersSchema {
     /**
      * Metadata of the resource.
      */
-    public UsersSchema withMeta(@Nullable MetaJson meta) {
+    public UsersSchema withMeta(@Nullable Meta meta) {
         this.meta = meta;
         return this;
     }
@@ -198,9 +198,9 @@ public class UsersSchema {
 
         private String description;
 
-        private List<AttributeJson> attributes;
+        private List<Attribute> attributes;
 
-        private MetaJson meta;
+        private Meta meta;
 
         private Builder() {
             // force use of static builder() method
@@ -233,7 +233,7 @@ public class UsersSchema {
         /**
          * The collection of attributes for the schema.
          */
-        public Builder attributes(@Nullable List<AttributeJson> attributes) {
+        public Builder attributes(@Nullable List<Attribute> attributes) {
             this.attributes = attributes;
             return this;
         }
@@ -241,7 +241,7 @@ public class UsersSchema {
         /**
          * Metadata of the resource.
          */
-        public Builder meta(@Nullable MetaJson meta) {
+        public Builder meta(@Nullable Meta meta) {
             this.meta = meta;
             return this;
         }

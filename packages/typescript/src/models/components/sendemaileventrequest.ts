@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  EmailJson2,
-  EmailJson2$Outbound,
-  EmailJson2$outboundSchema,
-} from "./emailjson2.js";
+  EmailJson1,
+  EmailJson1$Outbound,
+  EmailJson1$outboundSchema,
+} from "./emailjson1.js";
 import {
   EventJson6,
   EventJson6$Outbound,
@@ -25,7 +25,7 @@ export type SendEmailEventRequest = {
   /**
    * Details of an email to be send.
    */
-  email: EmailJson2;
+  email: EmailJson1;
   /**
    * True indicates this email should be resent to attendees who had already received this email previously.
    */
@@ -39,7 +39,7 @@ export type SendEmailEventRequest = {
 /** @internal */
 export type SendEmailEventRequest$Outbound = {
   event: EventJson6$Outbound;
-  email: EmailJson2$Outbound;
+  email: EmailJson1$Outbound;
   resendToPreviousRecipients: boolean;
   attendees: Array<string>;
 };
@@ -51,7 +51,7 @@ export const SendEmailEventRequest$outboundSchema: z.ZodType<
   SendEmailEventRequest
 > = z.object({
   event: EventJson6$outboundSchema,
-  email: EmailJson2$outboundSchema,
+  email: EmailJson1$outboundSchema,
   resendToPreviousRecipients: z.boolean(),
   attendees: z.array(z.string()),
 });

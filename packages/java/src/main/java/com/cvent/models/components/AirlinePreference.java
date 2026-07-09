@@ -27,7 +27,7 @@ public class AirlinePreference {
     private String airlineName;
 
     /**
-     * Any rewards code applied.
+     * Loyalty program number for the preferred airline.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rewardsCode")
@@ -53,7 +53,7 @@ public class AirlinePreference {
     }
 
     /**
-     * Any rewards code applied.
+     * Loyalty program number for the preferred airline.
      */
     public Optional<String> rewardsCode() {
         return Optional.ofNullable(this.rewardsCode);
@@ -72,7 +72,7 @@ public class AirlinePreference {
     }
 
     /**
-     * Any rewards code applied.
+     * Loyalty program number for the preferred airline.
      */
     public AirlinePreference withRewardsCode(@Nullable String rewardsCode) {
         this.rewardsCode = rewardsCode;
@@ -122,7 +122,7 @@ public class AirlinePreference {
         }
 
         /**
-         * Any rewards code applied.
+         * Loyalty program number for the preferred airline.
          */
         public Builder rewardsCode(@Nullable String rewardsCode) {
             this.rewardsCode = rewardsCode;

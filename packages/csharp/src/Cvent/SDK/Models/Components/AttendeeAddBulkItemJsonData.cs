@@ -27,17 +27,17 @@ namespace Cvent.SDK.Models.Components
 
         public string Value { get; private set; }
 
-        public static AttendeeAddBulkItemJsonDataType ZeroOneOf2
+        public static AttendeeAddBulkItemJsonDataType ZeroOneOf
         {
             get {
-                return new AttendeeAddBulkItemJsonDataType("0_OneOf_2");
+                return new AttendeeAddBulkItemJsonDataType("0_OneOf");
             }
         }
 
-        public static AttendeeAddBulkItemJsonDataType ErrorResponse2
+        public static AttendeeAddBulkItemJsonDataType ErrorResponse
         {
             get {
-                return new AttendeeAddBulkItemJsonDataType("error-response_2");
+                return new AttendeeAddBulkItemJsonDataType("error-response");
             }
         }
 
@@ -53,10 +53,10 @@ namespace Cvent.SDK.Models.Components
         {
             switch (v)
             {
-                case "0_OneOf_2":
-                    return ZeroOneOf2;
-                case "error-response_2":
-                    return ErrorResponse2;
+                case "0_OneOf":
+                    return ZeroOneOf;
+                case "error-response":
+                    return ErrorResponse;
                 default:
                     throw new ArgumentException("Invalid value for AttendeeAddBulkItemJsonDataType");
             }
@@ -85,26 +85,26 @@ namespace Cvent.SDK.Models.Components
         }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public ZeroOneOf2? ZeroOneOf2 { get; set; }
+        public ZeroOneOf? ZeroOneOf { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public Models.Components.ErrorResponse2? ErrorResponse2 { get; set; }
+        public Models.Components.ErrorResponse? ErrorResponse { get; set; }
 
         public AttendeeAddBulkItemJsonDataType Type { get; set; }
-        public static AttendeeAddBulkItemJsonData CreateZeroOneOf2(ZeroOneOf2 zeroOneOf2)
+        public static AttendeeAddBulkItemJsonData CreateZeroOneOf(ZeroOneOf zeroOneOf)
         {
-            AttendeeAddBulkItemJsonDataType typ = AttendeeAddBulkItemJsonDataType.ZeroOneOf2;
+            AttendeeAddBulkItemJsonDataType typ = AttendeeAddBulkItemJsonDataType.ZeroOneOf;
 
             AttendeeAddBulkItemJsonData res = new AttendeeAddBulkItemJsonData(typ);
-            res.ZeroOneOf2 = zeroOneOf2;
+            res.ZeroOneOf = zeroOneOf;
             return res;
         }
-        public static AttendeeAddBulkItemJsonData CreateErrorResponse2(Models.Components.ErrorResponse2 errorResponse2)
+        public static AttendeeAddBulkItemJsonData CreateErrorResponse(Models.Components.ErrorResponse errorResponse)
         {
-            AttendeeAddBulkItemJsonDataType typ = AttendeeAddBulkItemJsonDataType.ErrorResponse2;
+            AttendeeAddBulkItemJsonDataType typ = AttendeeAddBulkItemJsonDataType.ErrorResponse;
 
             AttendeeAddBulkItemJsonData res = new AttendeeAddBulkItemJsonData(typ);
-            res.ErrorResponse2 = errorResponse2;
+            res.ErrorResponse = errorResponse;
             return res;
         }
 
@@ -126,13 +126,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new AttendeeAddBulkItemJsonData(AttendeeAddBulkItemJsonDataType.ZeroOneOf2) {
-                        ZeroOneOf2 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ZeroOneOf2>(json)
+                    return new AttendeeAddBulkItemJsonData(AttendeeAddBulkItemJsonDataType.ZeroOneOf) {
+                        ZeroOneOf = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ZeroOneOf>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(ZeroOneOf2), new AttendeeAddBulkItemJsonData(AttendeeAddBulkItemJsonDataType.ZeroOneOf2), "ZeroOneOf2"));
+                    fallbackCandidates.Add((typeof(ZeroOneOf), new AttendeeAddBulkItemJsonData(AttendeeAddBulkItemJsonDataType.ZeroOneOf), "ZeroOneOf"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -145,13 +145,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new AttendeeAddBulkItemJsonData(AttendeeAddBulkItemJsonDataType.ErrorResponse2) {
-                        ErrorResponse2 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Models.Components.ErrorResponse2>(json)
+                    return new AttendeeAddBulkItemJsonData(AttendeeAddBulkItemJsonDataType.ErrorResponse) {
+                        ErrorResponse = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Models.Components.ErrorResponse>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(Models.Components.ErrorResponse2), new AttendeeAddBulkItemJsonData(AttendeeAddBulkItemJsonDataType.ErrorResponse2), "ErrorResponse2"));
+                    fallbackCandidates.Add((typeof(Models.Components.ErrorResponse), new AttendeeAddBulkItemJsonData(AttendeeAddBulkItemJsonDataType.ErrorResponse), "ErrorResponse"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -194,15 +194,15 @@ namespace Cvent.SDK.Models.Components
 
                 AttendeeAddBulkItemJsonData res = (AttendeeAddBulkItemJsonData)value;
 
-                if (res.ZeroOneOf2 != null)
+                if (res.ZeroOneOf != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.ZeroOneOf2));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.ZeroOneOf));
                     return;
                 }
 
-                if (res.ErrorResponse2 != null)
+                if (res.ErrorResponse != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.ErrorResponse2));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.ErrorResponse));
                     return;
                 }
             }

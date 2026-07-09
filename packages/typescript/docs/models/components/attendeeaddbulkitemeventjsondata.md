@@ -3,10 +3,10 @@
 
 ## Supported Types
 
-### `components.ZeroOneOf2`
+### `components.ZeroOneOf`
 
 ```typescript
-const value: components.ZeroOneOf2 = {
+const value: components.ZeroOneOf = {
   id: "a96e7faa-b23e-49de-9040-c908473ba7ac",
 };
 ```

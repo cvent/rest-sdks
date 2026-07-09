@@ -89,7 +89,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the type of the email.
         /// </summary>
         [JsonProperty("type")]
-        public EmailTypeJson1? Type { get; set; }
+        public EmailTypeJson? Type { get; set; }
 
         /// <summary>
         /// The ISO 8601 zoned date time when this email was sent.

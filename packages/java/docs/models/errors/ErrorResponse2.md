@@ -1,13 +1,13 @@
 # ErrorResponse2
 
-Represents an error response with additional details of cascading error messages.
+The error response.
 
 
 ## Fields
 
-| Field                                                      | Type                                                       | Required                                                   | Description                                                | Example                                                    |
-| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| `code`                                                     | *long*                                                     | :heavy_check_mark:                                         | The HTTP status code representing the error.               | 400                                                        |
-| `message`                                                  | *String*                                                   | :heavy_check_mark:                                         | A brief description of the error.                          | Bad Request                                                |
-| `target`                                                   | *Optional\<String>*                                        | :heavy_minus_sign:                                         | The target resource of the error.                          | example target                                             |
-| `details`                                                  | List\<[ZeroAllOf1](../../models/components/ZeroAllOf1.md)> | :heavy_minus_sign:                                         | Additional details of cascading error messages.            |                                                            |
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `schemas`                                                            | List\<*String*>                                                      | :heavy_minus_sign:                                                   | The collection of error schemas.                                     |                                                                      |
+| `status`                                                             | *long*                                                               | :heavy_check_mark:                                                   | Status code for error.                                               | 400                                                                  |
+| `detail`                                                             | *String*                                                             | :heavy_check_mark:                                                   | Details of the error.                                                | Request is unparsable, syntactically incorrect, or violates schema.  |
+| `scimType`                                                           | [Optional\<ErrorScimType>](../../models/components/ErrorScimType.md) | :heavy_minus_sign:                                                   | This is used to denote the scim type of the error.                   | invalidSyntax                                                        |

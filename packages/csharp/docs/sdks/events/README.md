@@ -573,7 +573,7 @@ SendEmailEventRequest req = new SendEmailEventRequest() {
     Event = new EventJson6() {
         Id = "a150f1ee-6c54-4b01-90e6-d701748f0851",
     },
-    Email = new EmailJson2() {
+    Email = new EmailJson1() {
         Id = "a150f1ee-6c54-4b01-90e6-d701748f0851",
     },
     ResendToPreviousRecipients = true,

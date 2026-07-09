@@ -54,7 +54,7 @@ public class UserGroups {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("Resources")
-    private List<GroupJson0> resources;
+    private List<Group1> resources;
 
     @JsonCreator
     public UserGroups(
@@ -62,7 +62,7 @@ public class UserGroups {
             @JsonProperty("itemsPerPage") @Nullable Long itemsPerPage,
             @JsonProperty("startIndex") @Nullable Long startIndex,
             @JsonProperty("totalResults") @Nullable Long totalResults,
-            @JsonProperty("Resources") @Nullable List<GroupJson0> resources) {
+            @JsonProperty("Resources") @Nullable List<Group1> resources) {
         this.schemas = schemas;
         this.itemsPerPage = itemsPerPage;
         this.startIndex = startIndex;
@@ -105,7 +105,7 @@ public class UserGroups {
     /**
      * The collection of schema resources.
      */
-    public Optional<List<GroupJson0>> resources() {
+    public Optional<List<Group1>> resources() {
         return Optional.ofNullable(this.resources);
     }
 
@@ -148,7 +148,7 @@ public class UserGroups {
     /**
      * The collection of schema resources.
      */
-    public UserGroups withResources(@Nullable List<GroupJson0> resources) {
+    public UserGroups withResources(@Nullable List<Group1> resources) {
         this.resources = resources;
         return this;
     }
@@ -201,7 +201,7 @@ public class UserGroups {
 
         private Long totalResults;
 
-        private List<GroupJson0> resources;
+        private List<Group1> resources;
 
         private Builder() {
             // force use of static builder() method
@@ -242,7 +242,7 @@ public class UserGroups {
         /**
          * The collection of schema resources.
          */
-        public Builder resources(@Nullable List<GroupJson0> resources) {
+        public Builder resources(@Nullable List<Group1> resources) {
             this.resources = resources;
             return this;
         }

@@ -35,6 +35,6 @@ namespace Cvent.SDK.Models.Components
         /// Translations for the choice texts of a custom field. This property is only applicable for custom fields with choices.
         /// </summary>
         [JsonProperty("choiceTranslations")]
-        public List<ChoiceTranslationJson>? ChoiceTranslations { get; set; }
+        public List<ChoiceTranslation>? ChoiceTranslations { get; set; }
     }
 }

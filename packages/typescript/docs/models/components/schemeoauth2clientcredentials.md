@@ -1,6 +1,6 @@
 # SchemeOAuth2ClientCredentials
 
-OAuth2 Client Credentials Flow
+OAuth2 Client Credentials Flow.
 
 ## Example Usage
 

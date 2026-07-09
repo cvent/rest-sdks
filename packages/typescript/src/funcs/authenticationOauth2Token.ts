@@ -26,10 +26,10 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Token
+ * Get Token
  *
  * @remarks
- * Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer Quickstart](https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart) for an example request.
+ * Obtains an access token and, optionally, a refresh token. Read the [Developer Quickstart](https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart) for an example request.
  *
  * **Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
  */
@@ -155,7 +155,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["400", "4XX", "5XX"],
+    errorCodes: ["400", "401", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -182,7 +182,7 @@ async function $do(
   >(
     M.json(200, operations.Oauth2TokenResponse$inboundSchema),
     M.jsonErr(400, errors.BadRequestError$inboundSchema),
-    M.fail("4XX"),
+    M.fail([401, "4XX"]),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });
   if (!result.ok) {

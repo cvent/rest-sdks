@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Type of journey.
+    /// Type of journey for an air booking.
     /// </summary>
     public enum JourneyType
     {

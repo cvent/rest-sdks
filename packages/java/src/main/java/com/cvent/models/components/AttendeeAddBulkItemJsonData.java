@@ -25,12 +25,12 @@ public class AttendeeAddBulkItemJsonData {
         this.value = value;
     }
 
-    public static AttendeeAddBulkItemJsonData of(ZeroOneOf2 value) {
+    public static AttendeeAddBulkItemJsonData of(ZeroOneOf value) {
         Utils.checkNotNull(value, "value");
         return new AttendeeAddBulkItemJsonData(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
-    public static AttendeeAddBulkItemJsonData of(ErrorResponse2 value) {
+    public static AttendeeAddBulkItemJsonData of(ErrorResponse value) {
         Utils.checkNotNull(value, "value");
         return new AttendeeAddBulkItemJsonData(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
@@ -38,8 +38,8 @@ public class AttendeeAddBulkItemJsonData {
     /**
      * Returns an instance of one of these types:
      * <ul>
-     * <li>{@code com.cvent.models.components.ZeroOneOf2}</li>
-     * <li>{@code com.cvent.models.components.ErrorResponse2}</li>
+     * <li>{@code com.cvent.models.components.ZeroOneOf}</li>
+     * <li>{@code com.cvent.models.components.ErrorResponse}</li>
      * </ul>
      *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
@@ -81,8 +81,8 @@ public class AttendeeAddBulkItemJsonData {
             super(
                     AttendeeAddBulkItemJsonData.class,
                     false,
-                    TypeReferenceWithShape.of(new TypeReference<ZeroOneOf2>() {}, JsonShape.DEFAULT),
-                    TypeReferenceWithShape.of(new TypeReference<ErrorResponse2>() {}, JsonShape.DEFAULT));
+                    TypeReferenceWithShape.of(new TypeReference<ZeroOneOf>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<ErrorResponse>() {}, JsonShape.DEFAULT));
         }
     }
 

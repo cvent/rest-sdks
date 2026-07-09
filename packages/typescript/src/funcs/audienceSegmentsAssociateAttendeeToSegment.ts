@@ -42,7 +42,7 @@ export function audienceSegmentsAssociateAttendeeToSegment(
   Result<
     void,
     | errors.SegmentsErrorResponse
-    | errors.ErrorResponse2
+    | errors.ErrorResponse
     | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
@@ -70,7 +70,7 @@ async function $do(
     Result<
       void,
       | errors.SegmentsErrorResponse
-      | errors.ErrorResponse2
+      | errors.ErrorResponse
       | errors.ErrorResponse1
       | CventSDKError
       | ResponseValidationError
@@ -177,7 +177,7 @@ async function $do(
   const [result] = await M.match<
     void,
     | errors.SegmentsErrorResponse
-    | errors.ErrorResponse2
+    | errors.ErrorResponse
     | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
@@ -190,7 +190,7 @@ async function $do(
   >(
     M.nil(204, z.void()),
     M.jsonErr(400, errors.SegmentsErrorResponse$inboundSchema),
-    M.jsonErr(422, errors.ErrorResponse2$inboundSchema),
+    M.jsonErr(422, errors.ErrorResponse$inboundSchema),
     M.jsonErr([401, 403, 404, 429], errors.ErrorResponse1$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

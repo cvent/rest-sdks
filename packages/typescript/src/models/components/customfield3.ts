@@ -4,116 +4,51 @@
 
 import * as z from "zod/v3";
 import {
-  ChoiceJson2Input,
-  ChoiceJson2Input$Outbound,
-  ChoiceJson2Input$outboundSchema,
-} from "./choicejson2input.js";
+  Choices1Input,
+  Choices1Input$Outbound,
+  Choices1Input$outboundSchema,
+} from "./choices1input.js";
 import {
-  ChoicesDisplayTypeJson,
-  ChoicesDisplayTypeJson$outboundSchema,
-} from "./choicesdisplaytypejson.js";
+  CustomFieldCategory,
+  CustomFieldCategory$outboundSchema,
+} from "./customfieldcategory.js";
 import {
-  CustomFieldCategoryJson,
-  CustomFieldCategoryJson$outboundSchema,
-} from "./customfieldcategoryjson.js";
+  CustomFieldType2,
+  CustomFieldType2$outboundSchema,
+} from "./customfieldtype2.js";
 import {
-  CustomFieldTypeJson,
-  CustomFieldTypeJson$outboundSchema,
-} from "./customfieldtypejson.js";
+  DisplayInDataTag,
+  DisplayInDataTag$outboundSchema,
+} from "./displayindatatag.js";
 import {
-  DateTimeDisplayFormatJson,
-  DateTimeDisplayFormatJson$outboundSchema,
-} from "./datetimedisplayformatjson.js";
+  OpenEndedCommentBox,
+  OpenEndedCommentBox$Outbound,
+  OpenEndedCommentBox$outboundSchema,
+} from "./openendedcommentbox.js";
 import {
-  DisplayInDataTagJson,
-  DisplayInDataTagJson$outboundSchema,
-} from "./displayindatatagjson.js";
+  OpenEndedDateTime1,
+  OpenEndedDateTime1$Outbound,
+  OpenEndedDateTime1$outboundSchema,
+} from "./openendeddatetime1.js";
 import {
-  PageVisibilityJson,
-  PageVisibilityJson$Outbound,
-  PageVisibilityJson$outboundSchema,
-} from "./pagevisibilityjson.js";
-
-/**
- * Choices for a custom field.
- */
-export type Choices = {
-  /**
-   * Choices of custom fields.
-   */
-  choices?: Array<ChoiceJson2Input> | undefined;
-  /**
-   * Display type indicating how to display the choices on UI. For 'Choice - Single Answer' custom field type, this defaults to Dropdown. For 'Choice - Multiple Answers' custom field type, this defaults to MultiSelectBox.
-   */
-  displayType?: ChoicesDisplayTypeJson | undefined;
-};
-
-/**
- * This is used to denote the open ended comment box type of custom field.
- */
-export type OpenEndedCommentBox = {
-  /**
-   * Minimum number/characters allowed.
-   */
-  minimum?: number | undefined;
-  /**
-   * Maximum number/characters allowed.
-   */
-  maximum?: number | undefined;
-};
-
-/**
- * This is used to denote the open ended date time type of custom field.
- */
-export type OpenEndedDateTime = {
-  /**
-   * The ISO 8601 zoned minimum date time accepted.
-   */
-  from?: Date | undefined;
-  /**
-   * The ISO 8601 zoned maximum date time accepted.
-   */
-  to?: Date | undefined;
-  /**
-   * This is used to denote the display format type of date time type custom field.
-   */
-  format?: DateTimeDisplayFormatJson | undefined;
-  /**
-   * Whether it needs to be pre populated with current date.
-   */
-  defaultToCurrentDate?: boolean | undefined;
-  /**
-   * True means that a pop-up calendar will be displayed to assist date selection on UI.
-   */
-  displayPopUpCalendar?: boolean | undefined;
-};
-
-/**
- * This is used to denote the open ended one line type of custom field.
- */
-export type OpenEndedOneLine = {
-  /**
-   * The supported answer formats are: General, Number, Currency, Decimal, USPhoneNumber, and EmailAddress. Custom answer formats are also supported and can be created in the Admin section of the planner UI.
-   */
-  answerFormat?: string | undefined;
-  /**
-   * Minimum number/characters allowed.
-   */
-  minimum?: number | undefined;
-  /**
-   * Maximum number/characters allowed.
-   */
-  maximum?: number | undefined;
-};
+  OpenEndedOneLine,
+  OpenEndedOneLine$Outbound,
+  OpenEndedOneLine$outboundSchema,
+} from "./openendedoneline.js";
+import {
+  PageVisibility,
+  PageVisibility$Outbound,
+  PageVisibility$outboundSchema,
+} from "./pagevisibility.js";
 
 /**
  * Type-specific details of the custom-field.
  */
 export type CustomField3Details =
   | OpenEndedOneLine
-  | OpenEndedDateTime
+  | OpenEndedDateTime1
   | OpenEndedCommentBox
-  | Choices;
+  | Choices1Input;
 
 /**
  * This is used to denote the custom field data.
@@ -122,7 +57,7 @@ export type CustomField3 = {
   /**
    * This is used to denote the category of a custom field.
    */
-  category: CustomFieldCategoryJson;
+  category: CustomFieldCategory;
   /**
    * The actual text of the custom field.
    */
@@ -138,15 +73,15 @@ export type CustomField3 = {
   /**
    * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
    */
-  type: CustomFieldTypeJson;
+  type: CustomFieldType2;
   /**
    * Type-specific details of the custom-field.
    */
   details?:
     | OpenEndedOneLine
-    | OpenEndedDateTime
+    | OpenEndedDateTime1
     | OpenEndedCommentBox
-    | Choices
+    | Choices1Input
     | undefined;
   /**
    * The help text of the custom field.
@@ -155,7 +90,7 @@ export type CustomField3 = {
   /**
    * This option allows you to choose whether to display the custom field in emails. The field name and the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to display always or only when answered. Only applicable to session custom fields.
    */
-  displayInDataTag?: DisplayInDataTagJson | undefined;
+  displayInDataTag?: DisplayInDataTag | undefined;
   /**
    * Default text in emails when a contact does not have a value answered for this custom field. Only applicable to contact custom fields.
    */
@@ -175,115 +110,15 @@ export type CustomField3 = {
   /**
    * Visibility of the custom field on various pages/forms.
    */
-  pageVisibility?: PageVisibilityJson | undefined;
+  pageVisibility?: PageVisibility | undefined;
 };
-
-/** @internal */
-export type Choices$Outbound = {
-  choices?: Array<ChoiceJson2Input$Outbound> | undefined;
-  displayType?: string | undefined;
-};
-
-/** @internal */
-export const Choices$outboundSchema: z.ZodType<
-  Choices$Outbound,
-  z.ZodTypeDef,
-  Choices
-> = z.object({
-  choices: z.array(ChoiceJson2Input$outboundSchema).optional(),
-  displayType: ChoicesDisplayTypeJson$outboundSchema.optional(),
-});
-
-export function choicesToJSON(choices: Choices): string {
-  return JSON.stringify(Choices$outboundSchema.parse(choices));
-}
-
-/** @internal */
-export type OpenEndedCommentBox$Outbound = {
-  minimum?: number | undefined;
-  maximum?: number | undefined;
-};
-
-/** @internal */
-export const OpenEndedCommentBox$outboundSchema: z.ZodType<
-  OpenEndedCommentBox$Outbound,
-  z.ZodTypeDef,
-  OpenEndedCommentBox
-> = z.object({
-  minimum: z.number().int().optional(),
-  maximum: z.number().int().optional(),
-});
-
-export function openEndedCommentBoxToJSON(
-  openEndedCommentBox: OpenEndedCommentBox,
-): string {
-  return JSON.stringify(
-    OpenEndedCommentBox$outboundSchema.parse(openEndedCommentBox),
-  );
-}
-
-/** @internal */
-export type OpenEndedDateTime$Outbound = {
-  from?: string | undefined;
-  to?: string | undefined;
-  format?: string | undefined;
-  defaultToCurrentDate?: boolean | undefined;
-  displayPopUpCalendar: boolean;
-};
-
-/** @internal */
-export const OpenEndedDateTime$outboundSchema: z.ZodType<
-  OpenEndedDateTime$Outbound,
-  z.ZodTypeDef,
-  OpenEndedDateTime
-> = z.object({
-  from: z.date().transform(v => v.toISOString()).optional(),
-  to: z.date().transform(v => v.toISOString()).optional(),
-  format: DateTimeDisplayFormatJson$outboundSchema.optional(),
-  defaultToCurrentDate: z.boolean().optional(),
-  displayPopUpCalendar: z.boolean().default(false),
-});
-
-export function openEndedDateTimeToJSON(
-  openEndedDateTime: OpenEndedDateTime,
-): string {
-  return JSON.stringify(
-    OpenEndedDateTime$outboundSchema.parse(openEndedDateTime),
-  );
-}
-
-/** @internal */
-export type OpenEndedOneLine$Outbound = {
-  answerFormat?: string | undefined;
-  minimum?: number | undefined;
-  maximum?: number | undefined;
-};
-
-/** @internal */
-export const OpenEndedOneLine$outboundSchema: z.ZodType<
-  OpenEndedOneLine$Outbound,
-  z.ZodTypeDef,
-  OpenEndedOneLine
-> = z.object({
-  answerFormat: z.string().optional(),
-  minimum: z.number().int().optional(),
-  maximum: z.number().int().optional(),
-});
-
-export function openEndedOneLineToJSON(
-  openEndedOneLine: OpenEndedOneLine,
-): string {
-  return JSON.stringify(
-    OpenEndedOneLine$outboundSchema.parse(openEndedOneLine),
-  );
-}
 
 /** @internal */
 export type CustomField3Details$Outbound =
   | OpenEndedOneLine$Outbound
-  | OpenEndedDateTime$Outbound
+  | OpenEndedDateTime1$Outbound
   | OpenEndedCommentBox$Outbound
-  | Choices$Outbound;
+  | Choices1Input$Outbound;
 
 /** @internal */
 export const CustomField3Details$outboundSchema: z.ZodType<
@@ -291,10 +126,10 @@ export const CustomField3Details$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomField3Details
 > = z.union([
-  z.lazy(() => OpenEndedOneLine$outboundSchema),
-  z.lazy(() => OpenEndedDateTime$outboundSchema),
-  z.lazy(() => OpenEndedCommentBox$outboundSchema),
-  z.lazy(() => Choices$outboundSchema),
+  OpenEndedOneLine$outboundSchema,
+  OpenEndedDateTime1$outboundSchema,
+  OpenEndedCommentBox$outboundSchema,
+  Choices1Input$outboundSchema,
 ]);
 
 export function customField3DetailsToJSON(
@@ -314,9 +149,9 @@ export type CustomField3$Outbound = {
   type: string;
   details?:
     | OpenEndedOneLine$Outbound
-    | OpenEndedDateTime$Outbound
+    | OpenEndedDateTime1$Outbound
     | OpenEndedCommentBox$Outbound
-    | Choices$Outbound
+    | Choices1Input$Outbound
     | undefined;
   helpText?: string | undefined;
   displayInDataTag: string;
@@ -324,7 +159,7 @@ export type CustomField3$Outbound = {
   consentField: boolean;
   active: boolean;
   displayInEventCreationWizard: boolean;
-  pageVisibility?: PageVisibilityJson$Outbound | undefined;
+  pageVisibility?: PageVisibility$Outbound | undefined;
 };
 
 /** @internal */
@@ -333,24 +168,24 @@ export const CustomField3$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomField3
 > = z.object({
-  category: CustomFieldCategoryJson$outboundSchema,
+  category: CustomFieldCategory$outboundSchema,
   name: z.string(),
   code: z.string(),
   required: z.boolean().default(true),
-  type: CustomFieldTypeJson$outboundSchema,
+  type: CustomFieldType2$outboundSchema,
   details: z.union([
-    z.lazy(() => OpenEndedOneLine$outboundSchema),
-    z.lazy(() => OpenEndedDateTime$outboundSchema),
-    z.lazy(() => OpenEndedCommentBox$outboundSchema),
-    z.lazy(() => Choices$outboundSchema),
+    OpenEndedOneLine$outboundSchema,
+    OpenEndedDateTime1$outboundSchema,
+    OpenEndedCommentBox$outboundSchema,
+    Choices1Input$outboundSchema,
   ]).optional(),
   helpText: z.string().optional(),
-  displayInDataTag: DisplayInDataTagJson$outboundSchema.default("No"),
+  displayInDataTag: DisplayInDataTag$outboundSchema.default("No"),
   defaultTagText: z.string().optional(),
   consentField: z.boolean().default(false),
   active: z.boolean().default(true),
   displayInEventCreationWizard: z.boolean().default(false),
-  pageVisibility: PageVisibilityJson$outboundSchema.optional(),
+  pageVisibility: PageVisibility$outboundSchema.optional(),
 });
 
 export function customField3ToJSON(customField3: CustomField3): string {

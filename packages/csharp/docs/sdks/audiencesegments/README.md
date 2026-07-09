@@ -242,7 +242,7 @@ var res = await sdk.AudienceSegments.CreateAudienceSegmentAsync(req);
 | Error Type                                    | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
 | Cvent.SDK.Models.Errors.SegmentsErrorResponse | 400                                           | application/json                              |
-| Cvent.SDK.Models.Errors.ErrorResponse2        | 422                                           | application/json                              |
+| Cvent.SDK.Models.Errors.ErrorResponse         | 422                                           | application/json                              |
 | Cvent.SDK.Models.Errors.ErrorResponse1        | 401, 403, 429                                 | application/json                              |
 | Cvent.SDK.Models.Errors.APIException          | 4XX, 5XX                                      | \*/\*                                         |
 
@@ -481,7 +481,7 @@ var res = await sdk.AudienceSegments.UpdateAudienceSegmentAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse2 | 422                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse  | 422                                    | application/json                       |
 | Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
@@ -646,7 +646,7 @@ var res = await sdk.AudienceSegments.AssociateAttendeeToSegmentAsync(req);
 | Error Type                                    | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
 | Cvent.SDK.Models.Errors.SegmentsErrorResponse | 400                                           | application/json                              |
-| Cvent.SDK.Models.Errors.ErrorResponse2        | 422                                           | application/json                              |
+| Cvent.SDK.Models.Errors.ErrorResponse         | 422                                           | application/json                              |
 | Cvent.SDK.Models.Errors.ErrorResponse1        | 401, 403, 404, 429                            | application/json                              |
 | Cvent.SDK.Models.Errors.APIException          | 4XX, 5XX                                      | \*/\*                                         |
 

@@ -231,8 +231,8 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 
 ### [Authentication](docs/sdks/authentication/README.md)
 
-* [Oauth2Authorize](docs/sdks/authentication/README.md#oauth2authorize) - Authorize
-* [Oauth2Token](docs/sdks/authentication/README.md#oauth2token) - Token
+* [Oauth2Authorize](docs/sdks/authentication/README.md#oauth2authorize) - Get Authorization Code
+* [Oauth2Token](docs/sdks/authentication/README.md#oauth2token) - Get Token
 * [ValidateToken](docs/sdks/authentication/README.md#validatetoken) - Validate Token
 
 ### [BadgePrintJob](docs/sdks/badgeprintjob/README.md)
@@ -988,8 +988,8 @@ catch (System.Net.Http.HttpRequestException ex)
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs):
-  * [`ErrorResponse2`](./src/Cvent/SDK/Models/Errors/ErrorResponse2.cs): Represents an error response with additional details of cascading error messages. Applicable to 18 of 448 methods.*
-  * [`ErrorResponseJson12`](./src/Cvent/SDK/Models/Errors/ErrorResponseJson12.cs): The error response. Applicable to 11 of 448 methods.*
+  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 18 of 448 methods.*
+  * [`ErrorResponse2`](./src/Cvent/SDK/Models/Errors/ErrorResponse2.cs): The error response. Applicable to 11 of 448 methods.*
   * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 448 methods.*
   * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 448 methods.*
   * [`ResponseValidationError`](./src/Cvent/SDK/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.

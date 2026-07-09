@@ -7,10 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  ResourceTypeJson,
-  ResourceTypeJson$inboundSchema,
-} from "./resourcetypejson.js";
+import { ResourceType, ResourceType$inboundSchema } from "./resourcetype.js";
 
 /**
  * Resource Types
@@ -35,7 +32,7 @@ export type ResourceTypes = {
   /**
    * The collection of schema resources.
    */
-  resources?: Array<ResourceTypeJson> | undefined;
+  resources?: Array<ResourceType> | undefined;
 };
 
 /** @internal */
@@ -48,7 +45,7 @@ export const ResourceTypes$inboundSchema: z.ZodType<
   itemsPerPage: z.number().int().optional(),
   startIndex: z.number().int().optional(),
   totalResults: z.number().int().optional(),
-  Resources: z.array(ResourceTypeJson$inboundSchema).optional(),
+  Resources: z.array(ResourceType$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "Resources": "resources",

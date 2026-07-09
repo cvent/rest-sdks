@@ -31,7 +31,7 @@ namespace Cvent.SDK.Models.Requests
         public string ClientId { get; set; } = default!;
 
         /// <summary>
-        /// The URL to which the authentication server redirects the browser after authorization has been granted by the user.<br/>
+        /// The URL to which the authorization server redirects the browser after authorization has been granted by the user.<br/>
         /// <br/>
         /// A redirect URI must:<br/>
         /// <br/>
@@ -62,7 +62,7 @@ namespace Cvent.SDK.Models.Requests
         /// Can be a combination of any scopes associated with a client. Scopes must be separated by spaces.<br/>
         /// Any scope used must be pre-associated with the client or it will be ignored at runtime.<br/>
         /// <br/>
-        /// **Note:** If the client doesn't request any scopes, the authentication server uses all<br/>
+        /// **Note:** If the client doesn't request any scopes, the authorization server uses all<br/>
         /// scopes associated with the client.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=scope")]

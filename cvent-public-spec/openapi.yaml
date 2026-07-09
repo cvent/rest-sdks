@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   title: Cvent REST APIs
-  description: "# Introduction\nThe Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily\ndiscovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here\nuse JSON-encoded request and response format, along with HTTP codes, to convey processing status of\nrequests received. The Cvent resources are protected using OAuth2.\n\n# Getting Started\n\nIf you're new to the Cvent API Platform, start by reading our\n[Developer Quickstart](https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart) guide. This will\ngive you an overview of how to authenticate and make requests using our APIs.\n\n## Authentication\n\nThe Cvent REST API uses [OAuth2](https://oauth.net/2/) to authorize requests to the platform. The client\ncredentials authorization flow is supported.\n\n<a name=\"oauth2-auth-code-planner-admin\"></a>\n\nAuthorization code flow is only supported for planner users with the administrator role in Cvent. Developer users\ncannot use authorization code flow.\n\n<!-- ReDoc-Inject: <security-definitions> -->\n\nHere's an example of using client credential flow to authorize. You'll supply your application's id and secret to\nmake a [Token](#operation/oauth2Token) request.\n\n```bash\ncurl --location --request POST '{hostName}/{version}/oauth2/token' \\\n--header 'Content-Type: application/x-www-form-urlencoded' \\\n--header 'Authorization: Basic {api_credentials}' \\\n--data-urlencode 'grant_type=client_credentials' \\\n--data-urlencode 'client_id={client_id}'\n```\n\n| Key               | Description                                          | Value                                                                                                        |\n| :---------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |\n| {hostName}        | https://api-platform.cvent.com                       | Location if you're account is in the North American datacenter                                               |\n|                   | https://api-platform-eur.cvent.com                   | Location if you're account is in the European data center.                                                   |\n| {version}         | ea                                                   | The version of the\_API\_you're using. Only `ea` is currently supported.                                       |\n| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id & client credentials in a\_base 64 encoded format.                                      |\n| {client_id}       | Retrieved from your\_application                      | Your\_application's client id.                                                                                |\n| {client_secret}   | Retrieved from your\_application                      | Your\_application's client secret.                                                                            |\n\nOn a successful call, you'll receive the following response:\n\n```json\n{\n  \"access_token\": \"{accessToken}\",\n  \"expires_in\": 3600,\n  \"token_type\": \"Bearer\"\n}\n```\n\nThis bearer token is valid for 3600 seconds (60 minutes) and must be used in subsequent calls.\n\n## Endpoints\n\nEndpoints start with `hostName` and `version`.\n\nThe `hostname` will depend on the region that your Cvent account is hosted in. Please see the table\nbelow to identify which hostname you should be using.\n\n| Region        |\tHostname                           |\n|:--------------|:-----------------------------------|\n| North America\t| https://api-platform.cvent.com     |\n| Europe        | https://api-platform-eur.cvent.com |\n\nThe current `version` of the Cvent API is `ea`.\n\n## Rate Limits\n\nCvent APIs enforce rate limits to ensure platform stability. Your limits depend on your tier: Free,\nStandard, or Premium.\n\n<br />\n\n### Usage Tiers\n\n| Tier     | Daily Calls | Calls per Second | Max Burst |\n| -------- | ----------- | ---------------- | --------- |\n| Free     | 1,000       | 2                | 1         |\n| Standard | 15,000      | 10               | 10        |\n| Premium  | 500,000     | 25               | 25        |\n\n- **Daily calls** define how many requests you can make in a 24-hour period. Quota\n  resets at 12 midnight (+0 GMT).\n- **Calls per second** define how many requests you can make in a 1-second window.\n- **Max Burst** defines how many requests you can make at once.\n\nIf you are unsure what usage tier applies to your account, you can check via\n[Get Current Usage Tier](#operation/getUsageTier).\n\nPlease note that these limits may change as the Cvent API Platform evolves.\n\n<br />\n\n### Handling Rate Limits\n\nSometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See\n[handling rate limits](https://developers.cvent.com/docs/rest-api/guides/handling-rate-limits) for best practices on how to handle this.\n\n## Pagination\n\nSome APIs use pagination to manage records. Each page of records has a token associated to identify it.\n\nIf an API uses pagination, you’ll find up to three tokens in the response:\n- **currentToken**: Describes the token of the current page.\n- **nextToken**: Provides a token for the next page of records, if one exists.\n- **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs will return\n  this token.\n\nYou specify which page of records to view via the `token` parameter in your API call. To navigate through pages,\ntake the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to get the\nrespective page of records. For example, if you made this request:\n\n```bash\ncurl -X GET {hostname}/{version}/contacts?limit=100 \\\n-H 'Accept: application/json' \\\n-H 'Authorization: Bearer {accessToken}'\n```\n\nThe response contains a paging array where you'll find the token information.\n\n```json\n{\n  \"paging\": {\n    \"currentToken\": \"90c5f062-76ad-4ea4-aa53-00eb698d9262\",\n    \"nextToken\": \"3b2359a7-4583-40ed-8afd-67e5f15373d3\",\n    \"limit\": 100,\n    \"totalCount\": 102,\n    \"_links\": {...}\n  },\n  \"data\": [...]\n}\n```\n\nTake the `nextToken` and use it in the `token` parameter on your subsequent call.\n\n```bash\ncurl -X GET {hostname}/{version}/contacts?limit=100&token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \\\n-H 'Accept: application/json' \\\n-H 'Authorization: Bearer {accessToken}'\n```\n\nWhen the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally, you might\nencounter an empty page at the end of results. This typically happens when the results were evenly divisible.\nEnsure your client code handles the possibility of receiving an empty data array when using the `nextToken`.\n\n## Filtering\n\nUse filters to narrow down results. The filter follows the pattern\n`filter='field' comparisonType 'value'`. The value can be enclosed with single\nquotes (') or double quotes (\").\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq 'Smith'\n````\n\nTo correctly pass a single quote in the filter's value, use double quotes around\nthe string.\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq \"O'Keenan\"\n```\n\nTo correctly pass a double quote in the filter's value, use double quotes around\nthe string and add an escape character `\\` to each quote that is part of the\nstring.\n\n```bash\nGET {hostName}/{version}/events?filter=eventName eq \"\\\"Yearly\\\" Conference\"\n```\n\n## Versioning\n\nChange is inevitable in API development. Planning for it is crucial. We track\nboth backward-compatible and backward-incompatible changes.\n\n<br />\n\n### Backward Compatible Changes\n\nBackward compatible changes will be made often and are intended to avoid\nany adverse impact on our customers. It is highly advisable that when reading\nJSON payloads from Cvent, you are able to handle \"unknown\" attributes that\ncan be added over time. We consider the following changes backward-compatible:\n\n- Adding new resources\n- Adding new optional request parameters to existing operations\n- Adding new attributes to requests or responses\n- Changing the length or format (not type) of resource identifiers. For example, an ID can change from\n  \"1234/1234\" to \"1234::1234\".\n- Increasing the length of string fields\n\n<br />\n\n### Backward Incompatible Changes\n\nBackward-incompatible changes are made infrequently, however, they can be\ndisruptive to consumers. Due to this, our APIs are versioned to avoid\ndisruptions to customers. We leverage a URI-based versioning scheme,\nwhich means that a version value is included in the Cvent API URL.\nWhen breaking changes occur, a new version of the API is made available\nwhile the existing version is deprecated but remains available for a\nlimited period of time. We consider the following backward-incompatible changes:\n\n- Adding a new required parameter (query string param or payload attribute)\n- Deleting API resources\n- Deleting any attribute from API responses\n- Changing the data type on any parameter or attribute\n\n## Standards\nAs you begin working with our APIs, it's essential to be aware of standards around\ncountry codes, time formats, and other important details that ensure smooth integration.\nLearn more about our [API Standards](https://developers.cvent.com/docs/rest-api/reference/api-standards)\n"
+  description: "# Introduction\nThe Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily\ndiscovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here\nuse JSON-encoded request and response format, along with HTTP codes, to convey processing status of\nrequests received. The Cvent resources are protected using OAuth2.\n\n# Getting Started\n\nIf you're new to the Cvent API Platform, start by reading our\n[Developer Quickstart](https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart) guide. This will\ngive you an overview of how to authenticate and make requests using our APIs.\n\n## Authentication\n\nThe Cvent REST API uses [OAuth2](https://oauth.net/2/) to authorize requests to the platform. The client\ncredentials authorization flow is supported.\n\n<a name=\"oauth2-auth-code-planner-admin\"></a>\n\nAuthorization code flow is only supported for planner users with the administrator role in Cvent. Developer users\ncannot use authorization code flow.\n\n<!-- ReDoc-Inject: <security-definitions> -->\n\nHere's an example of using client credential flow to authorize. You'll supply your application's id and secret to\nmake a [Token](#operation/oauth2Token) request.\n\n```bash\ncurl --location --request POST '{hostName}/{version}/oauth2/token' \\\n--header 'Content-Type: application/x-www-form-urlencoded' \\\n--header 'Authorization: Basic {api_credentials}' \\\n--data-urlencode 'grant_type=client_credentials' \\\n--data-urlencode 'client_id={client_id}'\n```\n\n| Key               | Description                                          | Value                                                                                                        |\n| :---------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |\n| {hostName}        | https://api-platform.cvent.com                       | Location if your account is in the North American datacenter.                                                |\n|                   | https://api-platform-eur.cvent.com                   | Location if your account is in the European data center.                                                     |\n| {version}         | ea                                                   | The version of the\_API\_you're using. Only `ea` is currently supported.                                       |\n| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id & client credentials in a\_base 64 encoded format.                                      |\n| {client_id}       | Retrieved from your\_application                      | Your\_application's client id.                                                                                |\n| {client_secret}   | Retrieved from your\_application                      | Your\_application's client secret.                                                                            |\n\nOn a successful call, you'll receive the following response:\n\n```json\n{\n  \"access_token\": \"{accessToken}\",\n  \"expires_in\": 3600,\n  \"token_type\": \"Bearer\"\n}\n```\n\nThis bearer token is valid for 3600 seconds (60 minutes) and must be used in subsequent calls.\n\n## Endpoints\n\nEndpoints start with `hostName` and `version`.\n\nThe `hostname` will depend on the region that your Cvent account is hosted in. Please see the table\nbelow to identify which hostname you should be using.\n\n| Region        |\tHostname                           |\n|:--------------|:-----------------------------------|\n| North America\t| https://api-platform.cvent.com     |\n| Europe        | https://api-platform-eur.cvent.com |\n\nThe current `version` of the Cvent API is `ea`.\n\n## Rate Limits\n\nCvent APIs enforce rate limits to ensure platform stability. Your limits depend on your tier: Free,\nStandard, or Premium.\n\n<br />\n\n### Usage Tiers\n\n| Tier     | Daily Calls | Calls per Second | Max Burst |\n| -------- | ----------- | ---------------- | --------- |\n| Free     | 1,000       | 2                | 1         |\n| Standard | 15,000      | 10               | 10        |\n| Premium  | 500,000     | 25               | 25        |\n\n- **Daily calls** define how many requests you can make in a 24-hour period. Quota\n  resets at 12 midnight (+0 GMT).\n- **Calls per second** define how many requests you can make in a 1-second window.\n- **Max Burst** defines how many requests you can make at once.\n\nIf you are unsure what usage tier applies to your account, you can check via\n[Get Current Usage Tier](#operation/getUsageTier).\n\nPlease note that these limits may change as the Cvent API Platform evolves.\n\n<br />\n\n### Handling Rate Limits\n\nSometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See\n[handling rate limits](https://developers.cvent.com/docs/rest-api/guides/handling-rate-limits) for best practices on how to handle this.\n\n## Pagination\n\nSome APIs use pagination to manage records. Each page of records has a token associated to identify it.\n\nIf an API uses pagination, you’ll find up to three tokens in the response:\n- **currentToken**: Describes the token of the current page.\n- **nextToken**: Provides a token for the next page of records, if one exists.\n- **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs will return\n  this token.\n\nYou specify which page of records to view via the `token` parameter in your API call. To navigate through pages,\ntake the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to get the\nrespective page of records. For example, if you made this request:\n\n```bash\ncurl -X GET {hostname}/{version}/contacts?limit=100 \\\n-H 'Accept: application/json' \\\n-H 'Authorization: Bearer {accessToken}'\n```\n\nThe response contains a paging array where you'll find the token information.\n\n```json\n{\n  \"paging\": {\n    \"currentToken\": \"90c5f062-76ad-4ea4-aa53-00eb698d9262\",\n    \"nextToken\": \"3b2359a7-4583-40ed-8afd-67e5f15373d3\",\n    \"limit\": 100,\n    \"totalCount\": 102,\n    \"_links\": {...}\n  },\n  \"data\": [...]\n}\n```\n\nTake the `nextToken` and use it in the `token` parameter on your subsequent call.\n\n```bash\ncurl -X GET {hostname}/{version}/contacts?limit=100&token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \\\n-H 'Accept: application/json' \\\n-H 'Authorization: Bearer {accessToken}'\n```\n\nWhen the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally, you might\nencounter an empty page at the end of results. This typically happens when the results were evenly divisible.\nEnsure your client code handles the possibility of receiving an empty data array when using the `nextToken`.\n\n## Filtering\n\nUse filters to narrow down results. The filter follows the pattern\n`filter='field' comparisonType 'value'`. The value can be enclosed with single\nquotes (') or double quotes (\").\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq 'Smith'\n````\n\nTo correctly pass a single quote in the filter's value, use double quotes around\nthe string.\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq \"O'Keenan\"\n```\n\nTo correctly pass a double quote in the filter's value, use double quotes around\nthe string and add an escape character `\\` to each quote that is part of the\nstring.\n\n```bash\nGET {hostName}/{version}/events?filter=eventName eq \"\\\"Yearly\\\" Conference\"\n```\n\n## Versioning\n\nChange is inevitable in API development. Planning for it is crucial. We track\nboth backward-compatible and backward-incompatible changes.\n\n<br />\n\n### Backward Compatible Changes\n\nBackward compatible changes will be made often and are intended to avoid\nany adverse impact on our customers. It is highly advisable that when reading\nJSON payloads from Cvent, you are able to handle \"unknown\" attributes that\ncan be added over time. We consider the following changes backward-compatible:\n\n- Adding new resources\n- Adding new optional request parameters to existing operations\n- Adding new attributes to requests or responses\n- Changing the length or format (not type) of resource identifiers. For example, an ID can change from\n  \"1234/1234\" to \"1234::1234\".\n- Increasing the length of string fields\n\n<br />\n\n### Backward Incompatible Changes\n\nBackward-incompatible changes are made infrequently, however, they can be\ndisruptive to consumers. Due to this, our APIs are versioned to avoid\ndisruptions to customers. We leverage a URI-based versioning scheme,\nwhich means that a version value is included in the Cvent API URL.\nWhen breaking changes occur, a new version of the API is made available\nwhile the existing version is deprecated but remains available for a\nlimited period of time. We consider the following backward-incompatible changes:\n\n- Adding a new required parameter (query string param or payload attribute)\n- Deleting API resources\n- Deleting any attribute from API responses\n- Changing the data type on any parameter or attribute\n\n## Standards\nAs you begin working with our APIs, it's essential to be aware of standards around\ncountry codes, time formats, and other important details that ensure smooth integration.\nLearn more about our [API Standards](https://developers.cvent.com/docs/rest-api/reference/api-standards)\n"
   contact:
     name: Cvent Development Platform
     url: https://developers.cvent.com/
@@ -4844,22 +4844,22 @@ paths:
           in: query
           required: true
           description: |
-            A filter query string narrows search results and supports the combination of logical and comparison operators.
-            The filter adheres to the pattern filter='field' comparisonType 'value'.
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
-            There are six comparison types that can be used in filter expressions:
-              * equal: eq
-              * not equal: ne
-              * greater than: gt
-              * greater or equal: ge
-              * less than: lt
-              * less than or equal: le
+            Supported fields and operators are listed below:
 
-            The following fields are filterable:
-              * id (eq|ne)
-              * category (eq) *(Required, one category can be provided at a time)*
-              * lastModified (eq|ne|lt|le|gt|ge)
-              * code (eq|ne) *(Case insensitive)*
+            | Field            | Operators                          | Notes |
+            |------------------|-------------------------------------|-------|
+            | id               | `eq`, `ne`                          | |
+            | category         | `eq`                                | Required, one category can be provided at a time |
+            | lastModified     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | |
+            | code             | `eq`, `ne`                          | Case insensitive |
+
+            The following logical operators are supported for combining filters:
+            * and
+            * or
           schema:
             type: string
             example: category eq 'Event' and lastModified gt '2021-03-19T11:30:37.909Z' and code eq 'FAVORITE_COLOR_CODE'
@@ -13075,12 +13075,9 @@ paths:
     get:
       tags:
         - Authentication
-      summary: Authorize
+      summary: Get Authorization Code
       description: |
-        The /oauth2/authorize endpoint only supports HTTPS GET. The client typically makes this request through a browser.
-
-        The authorization server requires HTTPS instead of HTTP as the protocol when accessing the authorization endpoint
-        except for http://localhost for testing purposes only.
+        Initiates the OAuth2 authorization code flow by directing the user-agent to the Cvent authorization server. The client typically triggers this request via a browser. For the `redirect_uri` HTTPS is required; `http://localhost` is permitted for local testing only. On success, the authorization server redirects the user-agent back to the client's `redirect_uri` with an authorization code. The client can then exchange that code via [Get Token](#operation/oauth2Token) to obtain an access token.
       operationId: oauth2Authorize
       parameters:
         - in: query
@@ -13108,7 +13105,7 @@ paths:
         - in: query
           name: redirect_uri
           description: |
-            The URL to which the authentication server redirects the browser after authorization has been granted by the user.
+            The URL to which the authorization server redirects the browser after authorization has been granted by the user.
 
             A redirect URI must:
 
@@ -13135,7 +13132,7 @@ paths:
             **Optional** but strongly recommended.
           schema:
             type: string
-          example: STATE
+          example: abc123xyz
           required: false
         - in: query
           name: scope
@@ -13143,7 +13140,7 @@ paths:
             Can be a combination of any scopes associated with a client. Scopes must be separated by spaces.
             Any scope used must be pre-associated with the client or it will be ignored at runtime.
 
-            **Note:** If the client doesn't request any scopes, the authentication server uses all
+            **Note:** If the client doesn't request any scopes, the authorization server uses all
             scopes associated with the client.
           schema:
             type: string
@@ -13159,13 +13156,13 @@ paths:
               description: |
                 **Positive Response**
 
-                The authentication server redirects back to your app with the authorization code and state.
+                The authorization server redirects the user-agent back to the client's redirect URI with the authorization code and state.
                 The code and state must be returned in the query string parameters.
 
                 **Negative Responses**
 
                 - If client_id and redirect_uri are valid but there are other problems with the request parameters
-                (for example, if response_type is not included), the authentication server redirects the error to
+                (for example, if response_type is not included), the authorization server redirects the error to
                 client's redirect_uri.
                   - Location: https://client_redirect_uri?error=invalid_request
 
@@ -13177,25 +13174,26 @@ paths:
                 invalid_scope to the client's redirect_uri, as follows.
                   - Location: https://client_redirect_uri?error=invalid_scope
 
-                - If there is any unexpected error in the server, the authentication server should return
+                - If there is any unexpected error in the server, the authorization server should return
                 server_error to client's redirect_uri. It should not be the HTTP 500 error displayed to
                 the end user in the browser, because this error doesn't get sent to the client.
                   - Location: https://client_redirect_uri?error=server_error
 
-                - In the rare case where authentication server encounters an exception in the communication
-                protocol while making any connection to an external identity provider, the authentication
+                - In the rare case where the authorization server encounters an exception in the communication
+                protocol while making any connection to an external identity provider, the authorization
                 server redirects the error to the client's redirect_uri with either of the following messages.
                   - Location: https://client_redirect_uri?error=invalid_request&error_description=Connection+reset
                   - Location: https://client_redirect_uri?error=invalid_request&error_description=Read+timed+out
               example: https://client_redirect_uri?code=AUTHORIZATION_CODE&state=STATE
-      deprecated: false
+        '400':
+          description: The request is missing a required parameter.
   /oauth2/token:
     post:
       tags:
         - Authentication
-      summary: Token
+      summary: Get Token
       description: |
-        Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer Quickstart](https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart) for an example request.
+        Obtains an access token and, optionally, a refresh token. Read the [Developer Quickstart](https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart) for an example request.
 
         **Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
       operationId: oauth2Token
@@ -13217,7 +13215,7 @@ paths:
               type: object
               properties:
                 grant_type:
-                  description: The grant type.
+                  description: Controls the OAuth2 grant flow used to obtain tokens.
                   enum:
                     - client_credentials
                     - authorization_code
@@ -13233,7 +13231,7 @@ paths:
                 scope:
                   description: |
                     Can be a combination of any scopes associated with a client. Any scope requested must be pre-associated with the client or it will be ignored at runtime.
-                    If the client doesn't request any scopes, the authentication server uses all scopes associated with the client.
+                    If the client doesn't request any scopes, the authorization server uses all scopes associated with the client.
 
                     **Optional** - Only used if the grant_type is client_credentials.
                   type: string
@@ -13280,7 +13278,7 @@ paths:
                     example: dn43ud8uj32nk2je
                   token_type:
                     type: string
-                    description: The token type.
+                    description: The OAuth2 token type. Always `Bearer`.
                     example: Bearer
                   expires_in:
                     type: integer
@@ -13300,7 +13298,7 @@ paths:
                 properties:
                   error_description:
                     type: string
-                    description: May be returned with additional information regarding the error.
+                    description: Additional error information, when available.
                   error:
                     type: string
                     description: |
@@ -13332,7 +13330,8 @@ paths:
                       - unauthorized_client
                       - unsupported_grant_type
                     example: invalid_request
-      deprecated: false
+        '401':
+          description: Client authentication failed. The credentials provided in the Authorization header are invalid or missing.
   /process-forms/submissions:
     get:
       tags:
@@ -14977,9 +14976,6 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests1'
   /scim/v2/Groups:
-    parameters:
-      - $ref: '#/components/parameters/startIndex'
-      - $ref: '#/components/parameters/count1'
     get:
       summary: Get SCIM Groups
       operationId: getUserGroups
@@ -15002,6 +14998,9 @@ paths:
           $ref: '#/components/responses/Forbidden18'
         '429':
           $ref: '#/components/responses/TooManyRequests18'
+      parameters:
+        - $ref: '#/components/parameters/startIndex'
+        - $ref: '#/components/parameters/count1'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15200,29 +15199,25 @@ paths:
           in: query
           required: false
           description: |
-            A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.
-            The filter adheres to the pattern filter='field' comparisonType 'value'.
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
-            The following comparison types can be used in filter expressions:
-              * equal: eq
-              * not equal: ne
-              * greater than: gt
-              * greater or equal: ge
-              * less than: lt
-              * less than or equal: le
+            Supported fields and operators are listed below:
 
-            The following fields are filterable:
-              * userName (eq|ne)
-              * groups.value (eq|ne)
-              * active (eq|ne)
-              * id (eq|nq)
-              * emails.value (eq|ne)
-              * meta.lastModified (eq|ne|lt|le|gt|ge)
-              * meta.created (eq|ne|lt|le|gt|ge)
+            | Field             | Operators                          |
+            |-------------------|------------------------------------|
+            | userName          | `eq`, `ne`                         |
+            | groups.value      | `eq`, `ne`                         |
+            | active            | `eq`, `ne`                         |
+            | id                | `eq`, `ne`                         |
+            | emails.value      | `eq`, `ne`                         |
+            | meta.lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+            | meta.created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
 
-            The following operators are available:
-              * and
-              * or
+            The following logical operators are supported for combining filters:
+            * and
+            * or
           schema:
             type: string
             example: userName eq 'john@example.com' or userName eq 'Matt@example.com'
@@ -21534,7 +21529,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/error-response.json12'
+            $ref: '#/components/schemas/ErrorResponse2'
           example:
             schemas:
               - urn:ietf:params:scim:api:messages:2.0:Error
@@ -21567,7 +21562,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/error-response.json12'
+            $ref: '#/components/schemas/ErrorResponse2'
           example:
             schemas:
               - urn:ietf:params:scim:api:messages:2.0:Error
@@ -21609,7 +21604,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/error-response.json12'
+            $ref: '#/components/schemas/ErrorResponse2'
           example:
             schemas:
               - urn:ietf:params:scim:api:messages:2.0:Error
@@ -21662,7 +21657,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/error-response.json12'
+            $ref: '#/components/schemas/ErrorResponse2'
           example:
             schemas:
               - urn:ietf:params:scim:api:messages:2.0:Error
@@ -21712,7 +21707,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/error-response.json12'
+            $ref: '#/components/schemas/ErrorResponse2'
           example:
             schemas:
               - urn:ietf:params:scim:api:messages:2.0:Error
@@ -21738,7 +21733,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/error-response.json12'
+            $ref: '#/components/schemas/ErrorResponse2'
           example:
             schemas:
               - urn:ietf:params:scim:api:messages:2.0:Error
@@ -22073,6 +22068,39 @@ components:
         - CVENT_INTERNAL
         - CUSTOMER_SANDBOX
       example: CUSTOMER
+    AccountStateCategory:
+      title: Account State Category
+      description: Cvent-specific grouping of state/province values for a country, used to determine which states/provinces are available to an account and how they are grouped in address dropdowns.
+      required:
+        - id
+        - name
+        - description
+        - countryCode
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The state category id
+          example: 1
+        name:
+          type: string
+          description: The state category name.
+          example: U.S. States
+          readOnly: true
+        description:
+          type: string
+          description: A description of the state category.
+          example: United States
+          readOnly: true
+        countryCode:
+          type: string
+          allOf:
+            - title: Country Code
+              type: string
+              example: US
+              description: The ISO 3166-1 code which represents the Country. Visit [Cvent's Country Code API Standards](https://developers.cvent.com/docs/rest-api/api-standards#country-codes) to learn more.
+          example: US
+          readOnly: true
     AccountUserRole:
       title: Account User Role
       description: Represents an account user role in Cvent. An account user role defines a set of permissions and is assigned to account users. The permissions associated with the role determine what actions the user can perform within the account.
@@ -23169,14 +23197,6 @@ components:
           type: string
           description: ISO 3166 two-letter (alpha-2) country code
           example: US
-    address-type.json:
-      title: AddressType
-      description: The type of the address.
-      enum:
-        - work
-        - home
-      type: string
-      example: work
     address.json:
       title: Address
       description: Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
@@ -23260,43 +23280,6 @@ components:
           maxLength: 2
           minLength: 2
           example: US
-    address.json2:
-      title: Address
-      description: Address
-      type: object
-      required:
-        - type
-        - primary
-      properties:
-        type:
-          $ref: '#/components/schemas/address-type.json'
-        streetAddress:
-          type: string
-          description: The street address of the user.
-          example: 100 Universal City Plaza
-          maxLength: 40
-        locality:
-          type: string
-          description: The locality/city of the user.
-          example: Hollywood
-          maxLength: 40
-        region:
-          type: string
-          description: The region/state/province of the user.
-          example: CA
-        postalCode:
-          type: string
-          description: Postal code (also known as zipcode) of the user.
-          example: '91608'
-        country:
-          type: string
-          description: The country of the user.
-          example: USA
-        primary:
-          type: boolean
-          description: True indicates the address is primary.
-          example: true
-          default: false
     Address3:
       title: Address
       description: Address details
@@ -23363,6 +23346,43 @@ components:
           example: United States of America
     Address5:
       title: Address
+      description: Address
+      type: object
+      required:
+        - type
+        - primary
+      properties:
+        type:
+          $ref: '#/components/schemas/AddressType1'
+        streetAddress:
+          type: string
+          description: The street address of the user.
+          example: 100 Universal City Plaza
+          maxLength: 40
+        locality:
+          type: string
+          description: The locality/city of the user.
+          example: Hollywood
+          maxLength: 40
+        region:
+          type: string
+          description: The region/state/province of the user.
+          example: CA
+        postalCode:
+          type: string
+          description: Postal code (also known as zipcode) of the user.
+          example: '91608'
+        country:
+          type: string
+          description: The country of the user.
+          example: USA
+        primary:
+          type: boolean
+          description: True indicates the address is primary.
+          example: true
+          default: false
+    Address6:
+      title: Address
       description: Address of the hotel.
       type: object
       allOf:
@@ -23384,7 +23404,7 @@ components:
           description: Name of the country.
           readOnly: true
           example: United States of America
-    Address6:
+    Address7:
       title: Address
       description: Address details.
       type: object
@@ -23438,6 +23458,14 @@ components:
       type: string
       description: The type of address.
       example: Home
+    AddressType1:
+      title: AddressType
+      description: The type of the address.
+      enum:
+        - work
+        - home
+      type: string
+      example: work
     admission-items-paginated-response:
       title: AdmissionItemsPaginatedResponse
       description: Paginated collection of admission items.
@@ -23476,9 +23504,9 @@ components:
         sourceChoices:
           type: array
           items:
-            $ref: '#/components/schemas/advanced-logic-choices.json'
+            $ref: '#/components/schemas/AdvancedLogicChoices'
           description: The choices of this custom field to display based on the choice selected for the source custom field, specified by choice ID.
-    advanced-logic-choices.json:
+    AdvancedLogicChoices:
       title: AdvancedLogicChoices
       type: object
       required:
@@ -23674,11 +23702,7 @@ components:
           description: Additional note from the GDS associated to the air actual.
           example: GDS note.
         journeyType:
-          type: string
-          description: Type of journey
-          enum:
-            - Oneway
-            - RoundTrip
+          $ref: '#/components/schemas/JourneyType'
         flightDetail:
           description: List of all the flight details taken by attendee and its guest
           type: array
@@ -23712,8 +23736,8 @@ components:
           example: Emirates
         rewardsCode:
           type: string
-          description: Any rewards code applied.
-          example: REWARDS_ONE
+          description: Loyalty program number for the preferred airline.
+          example: SKYWARD12345
     AirRequest:
       title: AirRequest
       description: Representation of an air request.
@@ -23776,19 +23800,9 @@ components:
         incomingLeg:
           $ref: '#/components/schemas/LegDetail'
         seatType:
-          type: string
-          description: Type of the seat.
-          enum:
-            - Aisle
-            - Window
+          $ref: '#/components/schemas/SeatType'
         ticketType:
-          type: string
-          description: Category of the passenger's ticket.
-          enum:
-            - Economy/Coach
-            - Business
-            - FirstClass
-          example: Economy/Coach
+          $ref: '#/components/schemas/TicketType'
         foodPreference:
           type: string
           description: Additional text related to the passenger's meal.
@@ -26364,6 +26378,7 @@ components:
         - Group Leader Responded Widget
         - Historical Import
         - Imported
+        - LinkedIn Registration Form
         - No Response
         - On-site Responded
         - Planner-Imported
@@ -26384,6 +26399,7 @@ components:
         - Group Leader Responded: The invitee was registered by a group leader and added to a group.
         - Historical Import: The invitee's registration was imported into the event as historical data.
         - Imported: The invitee's registration was imported into the event.
+        - LinkedIn Registration Form: The attendee was registered through LinkedIn integration.
         - No Response: The invitee has not registered.
         - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.
         - Planner-Imported: An account user imported the invitee's registration into the event.
@@ -26433,9 +26449,10 @@ components:
         - Declined
         - Pending Approval
         - Denied Approval
+        - Waitlisted
       type: string
       default: No Response
-      description: "Denotes the status of an attendee to be updated. No Response: The attendee was added to an invitation list but hasn't taken any action. Accepted: The attendee is registered for the event. Cancelled: The attendee's registration for the event is cancelled. Visited: The attendee visited the event's webpage but didn't finish registration. Declined: The attendee declined to attend the event. Pending Approval: When registration approval is enabled, this status indicates the attendee is still waiting to be approved by the planner. Denied Approval: When registration approval is enabled, this status indicates the attendee has been denied approval by the planner. <br>The following status transitions are supported by this API:<br> * No Response -> Visited <br> * No Response -> Accepted <br> * No Response -> Declined <br> * No Response -> Pending Approval <br> * Cancelled -> Accepted <br> * Cancelled -> Pending Approval <br> * Visited -> Accepted <br> * Visited -> Pending Approval <br> * Declined -> Accepted <br> * Declined -> Pending Approval <br> * Accepted -> Cancelled <br> * Pending Approval -> Accepted <br> * Pending Approval -> Denied Approval <br> * Denied Approval -> Pending Approval"
+      description: "Denotes the status of an attendee to be updated. No Response: The attendee was added to an invitation list but hasn't taken any action. Accepted: The attendee is registered for the event. Cancelled: The attendee's registration for the event is cancelled. Visited: The attendee visited the event's webpage but didn't finish registration. Declined: The attendee declined to attend the event. Pending Approval: When registration approval is enabled, this status indicates the attendee is still waiting to be approved by the planner. Denied Approval: When registration approval is enabled, this status indicates the attendee has been denied approval by the planner. Waitlisted: The attendee is on the waitlist for the event. <br>The following status transitions are supported by this API:<br> * No Response -> Visited <br> * No Response -> Accepted <br> * No Response -> Declined <br> * No Response -> Pending Approval <br> * Cancelled -> Accepted <br> * Cancelled -> Pending Approval <br> * Visited -> Accepted <br> * Visited -> Pending Approval <br> * Declined -> Accepted <br> * Declined -> Pending Approval <br> * Accepted -> Cancelled <br> * Pending Approval -> Accepted <br> * Pending Approval -> Denied Approval <br> * Denied Approval -> Pending Approval <br> * Waitlisted -> Accepted"
       example: Accepted
     AttendeeVisibility:
       title: AttendeeVisibility
@@ -26460,49 +26477,7 @@ components:
           format: uri
           description: This shortened URL, when used, allows you to decline the registration.
           example: https://example.com/123ABC?i=abcdefghijklmnopqrstuv
-    attribute-data-type.json:
-      title: AttributeDataType
-      description: This is used to denote the type of the attribute.
-      enum:
-        - string
-        - boolean
-        - decimal
-        - integer
-        - dateTime
-        - reference
-        - complex
-      type: string
-      example: string
-    attribute-reference-type.json:
-      title: Reference Type
-      description: This is used to denote the reference type of the attribute.
-      enum:
-        - User
-        - Group
-        - external
-        - uri
-      type: string
-      example: Group
-    attribute-returned-type.json:
-      title: Returned Type
-      description: This is used to denote the returned type of the attribute.
-      enum:
-        - always
-        - never
-        - default
-        - request
-      type: string
-      example: always
-    attribute-uniqueness-type.json:
-      title: Uniqueness Type
-      description: This is used to denote the uniqueness type of the attribute.
-      enum:
-        - none
-        - server
-        - global
-      type: string
-      example: global
-    attribute.json:
+    Attribute:
       title: Attribute
       description: Attribute
       type: object
@@ -26512,7 +26487,7 @@ components:
           description: The name of the attribute.
           example: userName
         type:
-          $ref: '#/components/schemas/attribute-data-type.json'
+          $ref: '#/components/schemas/AttributeDataType'
         multiValued:
           type: boolean
           description: Indicates if the attribute is multivalued.
@@ -26530,7 +26505,7 @@ components:
           description: True indicates the attribute is case sensitive.
           example: false
         mutability:
-          $ref: '#/components/schemas/mutability.json'
+          $ref: '#/components/schemas/Mutability'
         canonicalValues:
           type: array
           description: The list of canonical values of the attribute.
@@ -26538,19 +26513,32 @@ components:
             type: string
             example: work
         returned:
-          $ref: '#/components/schemas/attribute-returned-type.json'
+          $ref: '#/components/schemas/ReturnedType'
         uniqueness:
-          $ref: '#/components/schemas/attribute-uniqueness-type.json'
+          $ref: '#/components/schemas/UniquenessType'
         referenceTypes:
           type: array
           description: This is used to denote the reference type of the attribute.
           items:
-            $ref: '#/components/schemas/attribute-reference-type.json'
+            $ref: '#/components/schemas/ReferenceType'
         subAttributes:
           type: array
           description: A collection of sub-attributes. Has the same structure as this attribute object.
           items:
-            $ref: '#/components/schemas/attribute.json'
+            $ref: '#/components/schemas/Attribute'
+    AttributeDataType:
+      title: AttributeDataType
+      description: This is used to denote the type of the attribute.
+      enum:
+        - string
+        - boolean
+        - decimal
+        - integer
+        - dateTime
+        - reference
+        - complex
+      type: string
+      example: string
     audience-segment:
       title: AudienceSegment
       required:
@@ -26784,7 +26772,7 @@ components:
           description: The identifier of the user that last updated this record.
           readOnly: true
           example: hporter
-    authentication-schema.json:
+    AuthenticationSchema:
       title: Authentication Schema
       description: Authentication Schema
       type: object
@@ -27431,7 +27419,7 @@ components:
           description: Unique ID of the product.
           example: 2A941E55-3367-4C50-B21B-B6A7613DFB23
         emailType:
-          $ref: '#/components/schemas/email-type.json1'
+          $ref: '#/components/schemas/email-type.json'
         emailId:
           type: string
           format: uuid
@@ -29452,20 +29440,6 @@ components:
         - AToZ
         - AsEntered
         - Random
-    choice-translation.json:
-      title: ChoiceTranslation
-      type: object
-      description: This is used to denote that the translation for the choice text of a custom field.
-      properties:
-        choiceId:
-          type: string
-          format: uuid
-          description: The ID of the choice that this translation is associated with.
-        translatedText:
-          type: string
-          maxLength: 300
-          description: Translation for the choice text of a custom field.
-          example: Departamento de Tecnología
     choice-type.json:
       title: ChoiceType
       enum:
@@ -29487,23 +29461,6 @@ components:
           type: string
           description: Label of choice
           example: Choice A
-    choice.json2:
-      title: Choice
-      type: object
-      description: This is used to denote the choice of custom field.
-      required:
-        - text
-      properties:
-        id:
-          type: string
-          format: uuid
-          description: The ID of the custom field choice. If you supply the choice's existing ID in a PUT call, the choice keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call, this choice text will be replaced with the text supplied, and a new choice ID is created.
-          readOnly: true
-        text:
-          type: string
-          description: The text for the custom field choice.
-          example: What is your current designation?
-          minLength: 1
     Choice1:
       title: Choice
       description: A schema representing a choice object
@@ -29515,15 +29472,49 @@ components:
           type: string
           description: Label of choice
           example: Choice A
-    choices-display-type.json:
-      title: DisplayType
-      description: Display type indicating how to display the choices on UI. For 'Choice - Single Answer' custom field type, this defaults to Dropdown. For 'Choice - Multiple Answers' custom field type, this defaults to MultiSelectBox.
-      type: string
-      enum:
-        - Dropdown
-        - Vertical
-        - Horizontal
-        - MultiSelectBox
+    Choice2:
+      title: Choice
+      type: object
+      description: This is used to denote the choice of question.
+      required:
+        - text
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The ID of the question choice. If you supply the choice's existing ID in a PUT call, the choice keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call, this choice text will be replaced with the text supplied, and a new choice ID is created.
+          readOnly: true
+        text:
+          type: string
+          description: The text for the question choice.
+          example: What is your current designation?
+          minLength: 1
+    Choices1:
+      title: Choices
+      description: Choices for a custom field.
+      type: object
+      properties:
+        choices:
+          type: array
+          items:
+            $ref: '#/components/schemas/Choice2'
+          description: Choices of custom fields.
+        displayType:
+          $ref: '#/components/schemas/DisplayType1'
+    ChoiceTranslation:
+      title: ChoiceTranslation
+      type: object
+      description: This is used to denote that the translation for the choice text of a custom field.
+      properties:
+        choiceId:
+          type: string
+          format: uuid
+          description: The ID of the choice that this translation is associated with.
+        translatedText:
+          type: string
+          maxLength: 300
+          description: Translation for the choice text of a custom field.
+          example: Departamento de Tecnología
     CommentType:
       title: Comment Type
       enum:
@@ -30763,11 +30754,6 @@ components:
           description: Indicates whether the contact type is active.
           example: true
           readOnly: true
-    country-code.json:
-      title: Country Code
-      type: string
-      example: US
-      description: The ISO 3166-1 code which represents the Country. Visit [Cvent's Country Code API Standards](https://developers.cvent.com/docs/rest-api/api-standards#country-codes) to learn more.
     country.json:
       title: Country
       description: ISO 3166 two-letter (alpha-2) country codes with some additional non-standard cvent specific codes.
@@ -31798,35 +31784,6 @@ components:
             - $ref: '#/components/schemas/CustomFieldType'
             - readOnly: true
               example: MultiSelect
-    custom-field-category.json:
-      title: CustomFieldCategory
-      enum:
-        - Contact
-        - Session
-        - Event
-        - Survey
-        - Campaign
-        - Rfp
-        - Appointment
-        - Resource
-        - User
-        - Abstract
-        - Budget Item
-      type: string
-      description: This is used to denote the category of a custom field.
-      example: Contact
-    custom-field-type.json:
-      title: CustomFieldType
-      enum:
-        - Open Ended Text - Date/Time
-        - Open Ended Text - One Line
-        - Open Ended Text - Comment Box
-        - Choice - Single Answer
-        - Choice - Multiple Answers
-        - Auto-Increment
-      type: string
-      description: This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
-      example: Open Ended Text - One Line
     custom-field.json:
       title: CustomField
       description: A Custom Field
@@ -32028,35 +31985,10 @@ components:
       description: This is used to denote the custom field data.
       type: object
       allOf:
-        - title: Audit
-          description: Audit information
-          type: object
-          properties:
-            created:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date time when this record was created.
-              readOnly: true
-              example: '2017-01-02T02:00:00Z'
-            createdBy:
-              type: string
-              description: The identifier of the user that created this record.
-              readOnly: true
-              example: hporter
-            lastModified:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date time when this record was updated.
-              readOnly: true
-              example: '2019-02-12T03:00:00Z'
-            lastModifiedBy:
-              type: string
-              description: The identifier of the user that last updated this record.
-              readOnly: true
-              example: hporter
+        - $ref: '#/components/schemas/Audit'
       properties:
         category:
-          $ref: '#/components/schemas/custom-field-category.json'
+          $ref: '#/components/schemas/CustomFieldCategory'
         name:
           type: string
           description: The actual text of the custom field.
@@ -32073,75 +32005,15 @@ components:
           default: true
           example: true
         type:
-          $ref: '#/components/schemas/custom-field-type.json'
+          $ref: '#/components/schemas/CustomFieldType2'
         details:
           type: object
           description: Type-specific details of the custom-field.
           oneOf:
-            - title: OpenEndedOneLine
-              type: object
-              description: This is used to denote the open ended one line type of custom field.
-              properties:
-                answerFormat:
-                  type: string
-                  description: 'The supported answer formats are: General, Number, Currency, Decimal, USPhoneNumber, and EmailAddress. Custom answer formats are also supported and can be created in the Admin section of the planner UI.'
-                  example: General
-                minimum:
-                  type: integer
-                  description: Minimum number/characters allowed.
-                  example: 2
-                maximum:
-                  type: integer
-                  description: Maximum number/characters allowed.
-                  example: 8
-            - title: OpenEndedDateTime
-              description: This is used to denote the open ended date time type of custom field.
-              type: object
-              properties:
-                from:
-                  type: string
-                  format: date-time
-                  description: The ISO 8601 zoned minimum date time accepted.
-                  example: '2021-01-02T02:00:00Z'
-                to:
-                  type: string
-                  format: date-time
-                  description: The ISO 8601 zoned maximum date time accepted.
-                  example: '2021-02-02T02:00:00Z'
-                format:
-                  $ref: '#/components/schemas/date-time-display-format.json'
-                defaultToCurrentDate:
-                  type: boolean
-                  description: Whether it needs to be pre populated with current date.
-                  example: false
-                displayPopUpCalendar:
-                  type: boolean
-                  description: True means that a pop-up calendar will be displayed to assist date selection on UI.
-                  default: false
-                  example: false
-            - title: OpenEndedCommentBox
-              description: This is used to denote the open ended comment box type of custom field.
-              type: object
-              properties:
-                minimum:
-                  type: integer
-                  description: Minimum number/characters allowed.
-                  example: 2
-                maximum:
-                  type: integer
-                  description: Maximum number/characters allowed.
-                  example: 8
-            - title: Choices
-              description: Choices for a custom field.
-              type: object
-              properties:
-                choices:
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/choice.json2'
-                  description: Choices of custom fields.
-                displayType:
-                  $ref: '#/components/schemas/choices-display-type.json'
+            - $ref: '#/components/schemas/OpenEndedOneLine'
+            - $ref: '#/components/schemas/OpenEndedDateTime1'
+            - $ref: '#/components/schemas/OpenEndedCommentBox'
+            - $ref: '#/components/schemas/Choices1'
         order:
           type: integer
           description: The order of the custom field on the display page.
@@ -32153,7 +32025,7 @@ components:
           example: Enter your favorite color.
           maxLength: 50
         displayInDataTag:
-          $ref: '#/components/schemas/display-in-data-tag.json'
+          $ref: '#/components/schemas/DisplayInDataTag'
         defaultTagText:
           type: string
           description: Default text in emails when a contact does not have a value answered for this custom field. Only applicable to contact custom fields.
@@ -32175,7 +32047,7 @@ components:
           default: false
           example: false
         pageVisibility:
-          $ref: '#/components/schemas/page-visibility.json'
+          $ref: '#/components/schemas/PageVisibility'
     custom-fields-paginated-response:
       title: CustomFieldsPaginatedResponse
       description: The response from a request to get the list of custom fields metadata.  This includes the paging object as well as the collection of custom fields metadata.
@@ -32185,7 +32057,7 @@ components:
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
@@ -32314,7 +32186,7 @@ components:
         regionCode:
           $ref: '#/components/schemas/region-code.json'
         countryCode:
-          $ref: '#/components/schemas/country-code.json'
+          $ref: '#/components/schemas/AccountStateCategory/properties/countryCode/allOf/0'
         postalCode:
           type: string
           description: Postal Code
@@ -32456,6 +32328,23 @@ components:
           description: The order of this question in the bigger list of questions.
           example: 1
           readOnly: true
+    CustomFieldCategory:
+      title: CustomFieldCategory
+      enum:
+        - Contact
+        - Session
+        - Event
+        - Survey
+        - Campaign
+        - Rfp
+        - Appointment
+        - Resource
+        - User
+        - Abstract
+        - Budget Item
+      type: string
+      description: This is used to denote the category of a custom field.
+      example: Contact
     CustomFieldType:
       title: CustomFieldType
       enum:
@@ -32481,6 +32370,18 @@ components:
       type: string
       description: The type of data collected by a custom field.
       example: General
+    CustomFieldType2:
+      title: CustomFieldType
+      enum:
+        - Open Ended Text - Date/Time
+        - Open Ended Text - One Line
+        - Open Ended Text - Comment Box
+        - Choice - Single Answer
+        - Choice - Multiple Answers
+        - Auto-Increment
+      type: string
+      description: This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
+      example: Open Ended Text - One Line
     date-answer-format:
       type: string
       description: 'The answer format that a given date is stored in. `Date`: Answer format is stored in Date format. `DateTime`: Answer format is stored in DateTime format. `Time`: Answer format is stored in Time format.'
@@ -32489,18 +32390,6 @@ components:
         - DateTime
         - Time
       default: DateTime
-    date-time-display-format.json:
-      title: DateTimeDisplayFormat
-      enum:
-        - DateAndTimeMonthFirst12HourTime
-        - DateAndTimeMonthFirst24HourTime
-        - DateOnlyMonthFirst
-        - DateAndTimeDayFirst12HourTime
-        - DateAndTimeDayFirst24HourTime
-        - DateOnlyDayFirst
-      type: string
-      description: This is used to denote the display format type of date time type custom field.
-      example: DateOnlyMonthFirst
     date-type.json:
       type: string
       title: DateType
@@ -32614,6 +32503,18 @@ components:
           maxLength: 2500
           description: A note detailing the requirements for the dates.
           example: Flexible dates
+    DateTimeDisplayFormat:
+      title: DateTimeDisplayFormat
+      enum:
+        - DateAndTimeMonthFirst12HourTime
+        - DateAndTimeMonthFirst24HourTime
+        - DateOnlyMonthFirst
+        - DateAndTimeDayFirst12HourTime
+        - DateAndTimeDayFirst24HourTime
+        - DateOnlyDayFirst
+      type: string
+      description: This is used to denote the display format type of date time type custom field.
+      example: DateOnlyMonthFirst
     DayOfWeek:
       title: DayOfWeek
       description: DayOfWeek
@@ -32897,16 +32798,6 @@ components:
       type: string
       description: This is used to denote the type of discount
       example: Amount
-    display-in-data-tag.json:
-      title: DisplayInDataTag
-      enum:
-        - 'Yes'
-        - 'No'
-        - Only when answered
-      type: string
-      description: This option allows you to choose whether to display the custom field in emails. The field name and the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to display always or only when answered. Only applicable to session custom fields.
-      default: 'No'
-      example: 'No'
     display-rate.json:
       description: The room rate displayed to guests, which includes any fees configured to display in the hotel tax settings.
       title: DisplayRate
@@ -32922,6 +32813,25 @@ components:
         - List
         - MultiSelectBox
         - Vertical
+    DisplayInDataTag:
+      title: DisplayInDataTag
+      enum:
+        - 'Yes'
+        - 'No'
+        - Only when answered
+      type: string
+      description: This option allows you to choose whether to display the custom field in emails. The field name and the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to display always or only when answered. Only applicable to session custom fields.
+      default: 'No'
+      example: 'No'
+    DisplayType1:
+      title: DisplayType
+      description: Display type indicating how to display the choices on UI. For 'Choice - Single Answer' custom field type, this defaults to Dropdown. For 'Choice - Multiple Answers' custom field type, this defaults to MultiSelectBox.
+      type: string
+      enum:
+        - Dropdown
+        - Vertical
+        - Horizontal
+        - MultiSelectBox
     distance.json:
       description: Distance information.
       title: Distance
@@ -33283,6 +33193,28 @@ components:
           minItems: 1
           maxItems: 25
           description: Collection of E-literature documents sent to lead.
+    Email:
+      title: Email
+      description: Email
+      type: object
+      required:
+        - value
+        - type
+        - primary
+      properties:
+        type:
+          $ref: '#/components/schemas/EmailType1'
+        value:
+          type: string
+          description: The email of the user.
+          example: support@cvent.com
+          minLength: 1
+          maxLength: 80
+        primary:
+          type: boolean
+          description: True indicates the email is primary.
+          example: true
+          default: false
     email-history-paginated-response:
       title: Email History Paginated Response
       description: The response from a request to get the list of email history. This includes the paging object as well as the collection of email history.
@@ -33346,7 +33278,7 @@ components:
           description: Recipient address of the email.
           example: example@example.com
         type:
-          $ref: '#/components/schemas/email-type.json1'
+          $ref: '#/components/schemas/email-type.json'
         sent:
           type: string
           description: The ISO 8601 zoned date time when this email was sent.
@@ -33495,15 +33427,6 @@ components:
             $ref: '#/components/schemas/email-template-data.json'
           description: A list of all email templates data for an unique campaign that will help the planner to select specific email and send.
     email-type.json:
-      title: Email Type
-      description: The type of the email.
-      enum:
-        - work
-        - home
-      type: string
-      example: work
-      default: work
-    email-type.json1:
       title: EmailType
       enum:
         - Invitation
@@ -33573,28 +33496,6 @@ components:
       example: Invitation
     email.json1:
       title: Email
-      description: Email
-      type: object
-      required:
-        - value
-        - type
-        - primary
-      properties:
-        type:
-          $ref: '#/components/schemas/email-type.json'
-        value:
-          type: string
-          description: The email of the user.
-          example: support@cvent.com
-          minLength: 1
-          maxLength: 80
-        primary:
-          type: boolean
-          description: True indicates the email is primary.
-          example: true
-          default: false
-    email.json2:
-      title: Email
       description: Details of an email to be send.
       type: object
       required:
@@ -33605,6 +33506,15 @@ components:
           format: uuid
           example: a150f1ee-6c54-4b01-90e6-d701748f0851
           description: The unique ID of the email to be sent.
+    EmailType1:
+      title: Email Type
+      description: The type of the email.
+      enum:
+        - work
+        - home
+      type: string
+      example: work
+      default: work
     EncodingProfile:
       title: EncodingProfile
       enum:
@@ -33659,7 +33569,22 @@ components:
           items:
             $ref: '#/components/schemas/error-response/allOf/0'
           description: Additional details of cascading error messages.
-    error-response.json12:
+    ErrorResponse:
+      title: ErrorResponse
+      description: Represents an error response with additional details of cascading error messages.
+      allOf:
+        - $ref: '#/components/schemas/ErrorResponseBase'
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorResponseBase'
+          description: Additional details of cascading error messages.
+    ErrorResponse2:
       title: ErrorResponse
       description: The error response.
       type: object
@@ -33682,32 +33607,7 @@ components:
           example: Request is unparsable, syntactically incorrect, or violates schema.
           description: Details of the error.
         scimType:
-          $ref: '#/components/schemas/error-scim-type.json'
-    error-scim-type.json:
-      title: ErrorScimType
-      description: This is used to denote the scim type of the error.
-      enum:
-        - invalidFilter
-        - uniqueness
-        - invalidSyntax
-        - invalidValue
-      type: string
-      example: invalidSyntax
-    ErrorResponse:
-      title: ErrorResponse
-      description: Represents an error response with additional details of cascading error messages.
-      allOf:
-        - $ref: '#/components/schemas/ErrorResponseBase'
-      type: object
-      required:
-        - code
-        - message
-      properties:
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/ErrorResponseBase'
-          description: Additional details of cascading error messages.
+          $ref: '#/components/schemas/ErrorScimType'
     ErrorResponseBase:
       title: ErrorResponseBase
       type: object
@@ -33728,6 +33628,16 @@ components:
           type: string
           description: The target resource of the error.
           example: example target
+    ErrorScimType:
+      title: ErrorScimType
+      description: This is used to denote the scim type of the error.
+      enum:
+        - invalidFilter
+        - uniqueness
+        - invalidSyntax
+        - invalidValue
+      type: string
+      example: invalidSyntax
     estimated-cost.json:
       type: object
       title: EstimatedCost
@@ -35965,85 +35875,14 @@ components:
       description: This is used to denote an existing custom field.
       type: object
       allOf:
-        - title: CustomField
-          required:
-            - category
-            - name
-            - code
-            - type
-          description: This is used to denote the custom field data.
-          type: object
-          allOf:
-            - $ref: '#/components/schemas/custom-field3/allOf/0'
-          properties:
-            category:
-              $ref: '#/components/schemas/custom-field-category.json'
-            name:
-              type: string
-              description: The actual text of the custom field.
-              example: What is a your favorite color?
-              maxLength: 300
-            code:
-              type: string
-              description: Code to uniquely identify custom field.
-              example: FAVORITE_COLOR_CODE
-              maxLength: 50
-            required:
-              type: boolean
-              description: Whether answer to custom field is mandatory or not.
-              default: true
-              example: true
-            type:
-              $ref: '#/components/schemas/custom-field-type.json'
-            details:
-              type: object
-              description: Type-specific details of the custom-field.
-              oneOf:
-                - $ref: '#/components/schemas/custom-field3/properties/details/oneOf/0'
-                - $ref: '#/components/schemas/custom-field3/properties/details/oneOf/1'
-                - $ref: '#/components/schemas/custom-field3/properties/details/oneOf/2'
-                - $ref: '#/components/schemas/custom-field3/properties/details/oneOf/3'
-            order:
-              type: integer
-              description: The order of the custom field on the display page.
-              example: 1
-              readOnly: true
-            helpText:
-              type: string
-              description: The help text of the custom field.
-              example: Enter your favorite color.
-              maxLength: 50
-            displayInDataTag:
-              $ref: '#/components/schemas/display-in-data-tag.json'
-            defaultTagText:
-              type: string
-              description: Default text in emails when a contact does not have a value answered for this custom field. Only applicable to contact custom fields.
-              example: Your Division
-              maxLength: 300
-            consentField:
-              type: boolean
-              description: True means that this is a consent field. Only applicable to contact custom fields.
-              default: false
-              example: false
-            active:
-              type: boolean
-              description: True means that this custom field is active. Determines visibility for event custom fields.
-              default: true
-              example: true
-            displayInEventCreationWizard:
-              type: boolean
-              description: True means that the field will be displayed in the event creation wizard. Only applicable to event custom fields.
-              default: false
-              example: false
-            pageVisibility:
-              $ref: '#/components/schemas/page-visibility.json'
+        - $ref: '#/components/schemas/custom-field3'
       properties:
         id:
           type: string
           format: uuid
           description: The ID of the custom field.
         pageVisibility:
-          $ref: '#/components/schemas/page-visibility.json'
+          $ref: '#/components/schemas/PageVisibility'
     existing-discount-paginated-response:
       title: Discounts Paginated Response
       required:
@@ -37005,7 +36844,7 @@ components:
           type: string
           format: date-time
           description: Start time for simulive session
-          example: 2024-03-05T014:00:00Z
+          example: '2024-03-05T14:00:00Z'
         images:
           $ref: '#/components/schemas/video-images.json'
         source:
@@ -38086,7 +37925,7 @@ components:
           maxLength: 100
           example: General Ledger Code
           readOnly: true
-    group.json:
+    Group:
       title: Group
       description: Generic sample name. Not a real model used by any Cvent service.
       type: object
@@ -38103,7 +37942,7 @@ components:
           type: string
           description: The name of the user role.
           example: Admin
-    group.json-0:
+    Group-1:
       title: Group
       description: Generic sample name. Not a real model used by any Cvent service.
       type: object
@@ -38128,7 +37967,7 @@ components:
           description: The name of the user role.
           example: Admin
         meta:
-          $ref: '#/components/schemas/meta.json'
+          $ref: '#/components/schemas/Meta'
     Guest:
       type: object
       description: The reference to the guest. Contains only the ID of the guest.
@@ -38582,7 +38421,7 @@ components:
           description: Specifies who the hotel will charge incidental (extra) room expenses, like room service or long-distance calling.
           example: exceptions noted here.
         hotelAddress:
-          $ref: '#/components/schemas/Address5'
+          $ref: '#/components/schemas/Address6'
         hotelRoomRates:
           type: array
           description: Collection of hotel room rates the requester has taken.
@@ -39413,7 +39252,15 @@ components:
           maxLength: 2500
           description: Notes associated with the item.
           example: This item is very popular.
-    language.json:
+    JourneyType:
+      title: JourneyType
+      description: Type of journey for an air booking.
+      type: string
+      enum:
+        - Oneway
+        - RoundTrip
+      example: RoundTrip
+    Language1:
       title: Language
       enum:
         - af-ZA
@@ -40982,7 +40829,7 @@ components:
               type: string
               description: Identifier for the channel.
               example: production_group_0cb93bab-32d2-4f82-b430-e1911f2348ac
-    meta.json:
+    Meta:
       title: Meta
       description: Metadata of the resource.
       type: object
@@ -41011,7 +40858,7 @@ components:
           readOnly: true
           description: The ISO 8601 zoned date time when this record was modified.
           example: '2021-12-16T00:59:14.570Z'
-    mutability.json:
+    Mutability:
       title: Mutability
       description: This is used to denote the mutability of the attribute.
       enum:
@@ -41021,7 +40868,7 @@ components:
         - writeOnly
       type: string
       example: writeOnly
-    name.json:
+    Name:
       title: Name
       description: The name of the user.
       type: object
@@ -41182,6 +41029,62 @@ components:
         - STORAGE
         - TEARDOWN
         - TOTAL_FB_MINIMUM
+    OpenEndedCommentBox:
+      title: OpenEndedCommentBox
+      description: This is used to denote the open ended comment box type of custom field.
+      type: object
+      properties:
+        minimum:
+          type: integer
+          description: Minimum number/characters allowed.
+          example: 2
+        maximum:
+          type: integer
+          description: Maximum number/characters allowed.
+          example: 8
+    OpenEndedDateTime1:
+      title: OpenEndedDateTime
+      description: This is used to denote the open ended date time type of custom field.
+      type: object
+      properties:
+        from:
+          type: string
+          format: date-time
+          description: The ISO 8601 zoned minimum date time accepted.
+          example: '2021-01-02T02:00:00Z'
+        to:
+          type: string
+          format: date-time
+          description: The ISO 8601 zoned maximum date time accepted.
+          example: '2021-02-02T02:00:00Z'
+        format:
+          $ref: '#/components/schemas/DateTimeDisplayFormat'
+        defaultToCurrentDate:
+          type: boolean
+          description: Whether it needs to be pre populated with current date.
+          example: false
+        displayPopUpCalendar:
+          type: boolean
+          description: True means that a pop-up calendar will be displayed to assist date selection on UI.
+          default: false
+          example: false
+    OpenEndedOneLine:
+      title: OpenEndedOneLine
+      type: object
+      description: This is used to denote the open ended one line type of custom field.
+      properties:
+        answerFormat:
+          type: string
+          description: 'The supported answer formats are: General, Number, Currency, Decimal, USPhoneNumber, and EmailAddress. Custom answer formats are also supported and can be created in the Admin section of the planner UI.'
+          example: General
+        minimum:
+          type: integer
+          description: Minimum number/characters allowed.
+          example: 2
+        maximum:
+          type: integer
+          description: Maximum number/characters allowed.
+          example: 8
     optout-by.json:
       title: OptoutBy
       enum:
@@ -41616,7 +41519,7 @@ components:
         - REQUIRED
       example: OPTIONAL
       default: NO_PREFERENCE
-    page-visibility.json:
+    PageVisibility:
       title: PageVisibility
       description: Visibility of the custom field on various pages/forms.
       type: object
@@ -42306,7 +42209,7 @@ components:
       type: string
       description: "Denotes the type of payment made by an attendee. Authorization: Online payment that has been approved by the cardholder's bank but has not been executed. Online Charge: Online payment recieved in Cvent. Online Refund: Online refund to attendee processed in Cvent. Offline Charge: The transaction is a payment made to the attendee's order electronically in another system of record, or paid in physical currency. Offline Refund: The transaction is a refund issued to the attendee electronically in another system of record, or paid in physical currency."
       example: Online Refund
-    phone-number.json1:
+    PhoneNumber:
       title: Phone Number
       description: Phone Number
       type: object
@@ -42315,14 +42218,14 @@ components:
         - value
       properties:
         type:
-          $ref: '#/components/schemas/phone-type.json'
+          $ref: '#/components/schemas/PhoneType'
         value:
           type: string
           description: The phone number of the user.
           example: '+911234567890'
           minLength: 1
           maxLength: 30
-    phone-type.json:
+    PhoneType:
       title: PhoneType
       description: The type of the phone number.
       enum:
@@ -44629,6 +44532,16 @@ components:
       properties:
         id:
           $ref: '#/components/schemas/SupplierId'
+    ReferenceType:
+      title: Reference Type
+      description: This is used to denote the reference type of the attribute.
+      enum:
+        - User
+        - Group
+        - external
+        - uri
+      type: string
+      example: Group
     RefundPolicy:
       title: RefundPolicy
       description: Refund policy associated to a fee.
@@ -45137,55 +45050,6 @@ components:
           items:
             $ref: '#/components/schemas/existing-reservation'
           description: List of reservation details.
-    resource-type.json:
-      title: resourceType
-      description: Resource Type
-      type: object
-      properties:
-        schemas:
-          type: array
-          items:
-            type: string
-            example: urn:ietf:params:scim:api:messages:2.0:ListResponse
-          description: The list of schemas using this resource.
-        id:
-          type: string
-          description: The unique identifier of the resource type.
-          example: urn:ietf:params:scim:api:messages:2.0:ListResponse
-        name:
-          type: string
-          description: The name of the resource type.
-          example: User
-        description:
-          type: string
-          description: The description of the resource type.
-          example: This Attribute describes the Schema
-        endpoint:
-          type: string
-          description: The URL of the resource type endpoint.
-          format: uri
-          example: /Users
-        schema:
-          type: string
-          description: The schema of the resource type.
-          example: urn:ietf:params:scim:schemas:core:2.0:User
-        schemaExtensions:
-          type: array
-          items:
-            type: object
-            properties:
-              schema:
-                type: string
-                readOnly: true
-                description: The id of the schema extension
-                example: urn:ietf:params:scim:api:messages:2.0:ListResponse
-              required:
-                type: boolean
-                description: True indicates if the schema extension is required.
-                example: true
-          description: The list of schema extensions for the resource type.
-        meta:
-          $ref: '#/components/schemas/meta.json'
     ResourceType:
       title: resourceType
       description: Resource Type
@@ -45234,7 +45098,7 @@ components:
                 example: true
           description: The list of schema extensions for the resource type.
         meta:
-          $ref: '#/components/schemas/meta.json'
+          $ref: '#/components/schemas/Meta'
     ResourceTypes:
       title: resourceTypes
       description: Resource Types
@@ -45261,7 +45125,7 @@ components:
         Resources:
           type: array
           items:
-            $ref: '#/components/schemas/resource-type.json'
+            $ref: '#/components/schemas/ResourceType'
           description: The collection of schema resources.
     responded-through.json:
       title: RespondedThrough
@@ -45519,6 +45383,16 @@ components:
           items:
             $ref: '#/components/schemas/response.json'
           description: Responses for a survey.
+    ReturnedType:
+      title: Returned Type
+      description: This is used to denote the returned type of the attribute.
+      enum:
+        - always
+        - never
+        - default
+        - request
+      type: string
+      example: always
     reward-program.json:
       title: RewardProgram
       type: object
@@ -46924,30 +46798,6 @@ components:
           readOnly: true
         action:
           $ref: '#/components/schemas/schedule-action.json'
-    schema.json:
-      title: Schema
-      description: Schema
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique identifier of the schema.
-          example: urn:ietf:params:scim:api:messages:2.0:ListResponse
-        name:
-          type: string
-          description: The name of the schema.
-          example: User
-        description:
-          type: string
-          description: The description of the schema.
-          example: This Attribute describes the Schema
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/attribute.json'
-          description: The collection of attributes for the schema.
-        meta:
-          $ref: '#/components/schemas/meta.json'
     scores-paginated-response:
       title: ScoresPaginatedResponse
       description: Paginated collection of score objects.
@@ -47023,6 +46873,14 @@ components:
           items:
             $ref: '#/components/schemas/existing-seat'
           description: A list of event seats
+    SeatType:
+      title: SeatType
+      description: Preferred or assigned seat type for an air booking.
+      type: string
+      enum:
+        - Aisle
+        - Window
+      example: Window
     secondary-value.json:
       title: SecondaryValue
       description: The secondary value of the question. This can be the other answer of choice questions which have `Other` as an answer type.
@@ -47172,7 +47030,7 @@ components:
         event:
           $ref: '#/components/schemas/event.json6'
         email:
-          $ref: '#/components/schemas/email.json2'
+          $ref: '#/components/schemas/email.json1'
         resendToPreviousRecipients:
           type: boolean
           description: True indicates this email should be resent to attendees who had already received this email previously.
@@ -47245,7 +47103,7 @@ components:
         event:
           $ref: '#/components/schemas/event.json6'
         email:
-          $ref: '#/components/schemas/email.json2'
+          $ref: '#/components/schemas/email.json1'
         resendToPreviousRecipients:
           type: boolean
           description: True indicates this email should be resent to attendees who had already received this email previously.
@@ -47405,10 +47263,10 @@ components:
         authenticationSchemes:
           type: array
           items:
-            $ref: '#/components/schemas/authentication-schema.json'
+            $ref: '#/components/schemas/AuthenticationSchema'
           description: The collection of authentication schemas.
         meta:
-          $ref: '#/components/schemas/meta.json'
+          $ref: '#/components/schemas/Meta'
     session:
       title: Session
       type: object
@@ -50629,7 +50487,7 @@ components:
           type: number
           description: Default tax rate for the schedule, expressed as a percentage.
           example: 8.875
-    TaxType:
+    TaxType1:
       title: Tax Type
       enum:
         - city_tax
@@ -50712,6 +50570,15 @@ components:
       type: string
       description: This is used to denote the file type of a thumbnail
       example: png
+    TicketType:
+      title: TicketType
+      description: Category of the passenger's ticket for an air booking.
+      type: string
+      enum:
+        - Economy/Coach
+        - Business
+        - FirstClass
+      example: Economy/Coach
     tier.json:
       title: tier
       description: Represents the type of license that the user can choose.
@@ -51037,10 +50904,10 @@ components:
               type: array
               description: Translations for the choice texts of a custom field. This property is only applicable for custom fields with choices.
               items:
-                $ref: '#/components/schemas/choice-translation.json'
+                $ref: '#/components/schemas/ChoiceTranslation'
               minItems: 0
         language:
-          $ref: '#/components/schemas/language.json'
+          $ref: '#/components/schemas/Language1'
     travel-account:
       title: Travel Account
       description: Travel account details.
@@ -51071,7 +50938,7 @@ components:
           title: Addresses
           type: array
           items:
-            $ref: '#/components/schemas/Address6'
+            $ref: '#/components/schemas/Address7'
           description: List of addresses associated with the travel account.
     travel-account-paginated-response:
       title: Travel account paginated response
@@ -51899,7 +51766,7 @@ components:
       type: object
       properties:
         code:
-          $ref: '#/components/schemas/TaxType'
+          $ref: '#/components/schemas/TaxType1'
         amount:
           type: number
           description: The amount of the tax/fee. This may be a percent or monetary value depending on the value in `percent`.
@@ -52353,6 +52220,15 @@ components:
       type: string
       description: Status of the travel request done by attendee.
       example: SUBMITTED
+    UniquenessType:
+      title: Uniqueness Type
+      description: This is used to denote the uniqueness type of the attribute.
+      enum:
+        - none
+        - server
+        - global
+      type: string
+      example: global
     unit-position:
       type: string
       description: Unit position used for text box question type.
@@ -52557,7 +52433,6 @@ components:
         - userType
         - locale
         - groups
-        - sendLoginDetails
         - timezone
         - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
       type: object
@@ -52576,7 +52451,7 @@ components:
           readOnly: true
           example: 3b2359a7-4583-40ed-8afd-67e5f15373d3
         name:
-          $ref: '#/components/schemas/name.json'
+          $ref: '#/components/schemas/Name'
         userName:
           type: string
           description: The user name of the user to be used during identification.
@@ -52593,7 +52468,7 @@ components:
           minItems: 1
           description: 'The email of the user. The Cvent user can have only one email address.<br> If multiple email addresses are provided, only one is accepted and rest are ignored. One email is selected based on the following sequence of criteria: primary email, then work type, and finally first in the sequence.'
           items:
-            $ref: '#/components/schemas/email.json1'
+            $ref: '#/components/schemas/Email'
         title:
           type: string
           description: The title of the user.
@@ -52603,14 +52478,14 @@ components:
           type: array
           description: The phone numbers of the user.<br> If more than one number per type is provided, only one is accepted and rest are ignored.
           items:
-            $ref: '#/components/schemas/phone-number.json1'
+            $ref: '#/components/schemas/PhoneNumber'
         addresses:
           type: array
           description: 'The address of the user. The user can have only one address. <br> If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence'
           items:
-            $ref: '#/components/schemas/address.json2'
+            $ref: '#/components/schemas/Address5'
         userType:
-          $ref: '#/components/schemas/user-type.json'
+          $ref: '#/components/schemas/UserType'
         timezone:
           type: string
           description: List of <a href="#section/Getting-Started/Time-Zones">Timezones</a> supported.
@@ -52629,49 +52504,11 @@ components:
           minItems: 1
           description: The SCIM group (representing Cvent user role) of the user.
           items:
-            $ref: '#/components/schemas/group.json'
+            $ref: '#/components/schemas/Group'
         urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
-          $ref: '#/components/schemas/user-enterprise-extension.json'
+          $ref: '#/components/schemas/UserEnterpriseExtension'
         meta:
-          $ref: '#/components/schemas/meta.json'
-    user-enterprise-extension.json:
-      title: User Enterprise Extension
-      description: Enterprise extension model for the user.
-      type: object
-      required:
-        - sendLoginDetails
-      properties:
-        sendLoginDetails:
-          type: boolean
-          description: Indicates if the login details are to be sent to user.
-          example: true
-          default: true
-        federatedId:
-          type: string
-          description: The ID of the user in your identity management system. Used when you leverage identity management software and need to identify a user by a value other than their Cvent username.
-          example: AKJU783UP
-          minLength: 1
-          maxLength: 100
-        company:
-          type: string
-          description: The company of the user.
-          example: Cvent
-          maxLength: 100
-        workFax:
-          type: string
-          description: The work fax number of the user
-          example: '+1123456'
-          maxLength: 30
-        homeFax:
-          type: string
-          description: The home fax number of the user.
-          example: '+1123456'
-          maxLength: 30
-        pager:
-          type: string
-          description: The pager number of the user.
-          example: '+1123456'
-          maxLength: 30
+          $ref: '#/components/schemas/Meta'
     user-group.json:
       title: Account User Group
       description: A collection of account users which is used to help manage access and visibility to various other Cvent domain entities like events, surveys, account emails, and more. For example, a user group can be associated to specific events to allow the users within that group to view the events within Cvent's platform.
@@ -52756,101 +52593,44 @@ components:
       description: The platform used by the user.
       type: string
       example: Attendee Hub
-    user-type.json:
-      title: UserType
-      description: The type of the user.
-      enum:
-        - Planner Account User
-      type: string
-      example: Planner Account User
-    user.json:
-      title: User
-      description: Generic sample User. Not a real model used by any Cvent service.
-      required:
-        - userName
-        - emails
-        - name
-        - active
-        - userType
-        - locale
-        - groups
-        - sendLoginDetails
-        - timezone
-        - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+    UserEnterpriseExtension:
+      title: User Enterprise Extension
+      description: Enterprise extension model for the user.
       type: object
+      required:
+        - sendLoginDetails
       properties:
-        schemas:
-          type: array
-          items:
-            type: string
-            example: urn:ietf:params:scim:api:messages:2.0:ListResponse
-          readOnly: true
-          description: The list of schemas using this resource.
-        id:
-          type: string
-          description: A string that has to be a format matching the industry standard uuid.
-          format: uuid
-          readOnly: true
-          example: 3b2359a7-4583-40ed-8afd-67e5f15373d3
-        name:
-          $ref: '#/components/schemas/name.json'
-        userName:
-          type: string
-          description: The user name of the user to be used during identification.
-          example: aMike@test.com
-          minLength: 1
-          maxLength: 50
-        active:
+        sendLoginDetails:
           type: boolean
-          description: True indicates the user is active.
+          description: Indicates if the login details are to be sent to user.
           example: true
           default: true
-        emails:
-          type: array
-          minItems: 1
-          description: 'The email of the user. The Cvent user can have only one email address.<br> If multiple email addresses are provided, only one is accepted and rest are ignored. One email is selected based on the following sequence of criteria: primary email, then work type, and finally first in the sequence.'
-          items:
-            $ref: '#/components/schemas/email.json1'
-        title:
+        federatedId:
           type: string
-          description: The title of the user.
-          example: Vice President
-          maxLength: 50
-        phoneNumbers:
-          type: array
-          description: The phone numbers of the user.<br> If more than one number per type is provided, only one is accepted and rest are ignored.
-          items:
-            $ref: '#/components/schemas/phone-number.json1'
-        addresses:
-          type: array
-          description: 'The address of the user. The user can have only one address. <br> If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence'
-          items:
-            $ref: '#/components/schemas/address.json2'
-        userType:
-          $ref: '#/components/schemas/user-type.json'
-        timezone:
-          type: string
-          description: List of <a href="#section/Getting-Started/Time-Zones">Timezones</a> supported.
+          description: The ID of the user in your identity management system. Used when you leverage identity management software and need to identify a user by a value other than their Cvent username.
+          example: AKJU783UP
           minLength: 1
-          maxLength: 29
-          example: America/New_York
-          default: America/New_York
-        locale:
+          maxLength: 100
+        company:
           type: string
-          example: en-US
-          description: The locale of the user. The IETF Language Tag format is used.
-          minLength: 1
-          maxLength: 35
-        groups:
-          type: array
-          minItems: 1
-          description: The SCIM group (representing Cvent user role) of the user.
-          items:
-            $ref: '#/components/schemas/group.json'
-        urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
-          $ref: '#/components/schemas/user-enterprise-extension.json'
-        meta:
-          $ref: '#/components/schemas/meta.json'
+          description: The company of the user.
+          example: Cvent
+          maxLength: 100
+        workFax:
+          type: string
+          description: The work fax number of the user
+          example: '+1123456'
+          maxLength: 30
+        homeFax:
+          type: string
+          description: The home fax number of the user.
+          example: '+1123456'
+          maxLength: 30
+        pager:
+          type: string
+          description: The pager number of the user.
+          example: '+1123456'
+          maxLength: 30
     UserGroups:
       title: Groups
       description: Groups
@@ -52877,7 +52657,7 @@ components:
         Resources:
           type: array
           items:
-            $ref: '#/components/schemas/group.json-0'
+            $ref: '#/components/schemas/Group-1'
           description: The collection of schema resources.
     Users:
       title: Users
@@ -52905,7 +52685,7 @@ components:
         Resources:
           type: array
           items:
-            $ref: '#/components/schemas/user.json'
+            $ref: '#/components/schemas/User'
           description: The collection of user resources.
     UsersSchema:
       title: Schema
@@ -52927,10 +52707,10 @@ components:
         attributes:
           type: array
           items:
-            $ref: '#/components/schemas/attribute.json'
+            $ref: '#/components/schemas/Attribute'
           description: The collection of attributes for the schema.
         meta:
-          $ref: '#/components/schemas/meta.json'
+          $ref: '#/components/schemas/Meta'
     UsersSchemas:
       title: Schemas
       description: Schemas
@@ -52957,8 +52737,15 @@ components:
         Resources:
           type: array
           items:
-            $ref: '#/components/schemas/schema.json'
+            $ref: '#/components/schemas/UsersSchema'
           description: The collection of schema resources.
+    UserType:
+      title: UserType
+      description: The type of the user.
+      enum:
+        - Planner Account User
+      type: string
+      example: Planner Account User
     UTMOverride:
       title: UTMOverride
       description: 'Specifies how UTM (urchin tracking module: a key and value that is attached to URLs for the purpose of identifying and tracking traffic) settings will override passed in items.'
@@ -54100,7 +53887,7 @@ components:
   securitySchemes:
     OAuth2.authorizationCode:
       type: oauth2
-      description: OAuth2 Authorization Code Flow
+      description: OAuth2 Authorization Code Flow.
       flows:
         authorizationCode:
           authorizationUrl: https://api-platform.cvent.com/ea/oauth2/authorize
@@ -54306,7 +54093,7 @@ components:
             survey/surveys:read: Allows the reading of event surveys
     OAuth2.clientCredentials:
       type: oauth2
-      description: OAuth2 Client Credentials Flow
+      description: OAuth2 Client Credentials Flow.
       flows:
         clientCredentials:
           tokenUrl: https://api-platform.cvent.com/ea/oauth2/token
@@ -54599,7 +54386,7 @@ tags:
       These APIs will also allow you to get and update attendees associated with an
       audience segment.
   - name: Authentication
-    description: Available endpoints used to initiate an authentication request to obtain and validate an access token.
+    description: Endpoints for obtaining, refreshing, and validating OAuth2 access tokens.
   - name: Badge Print Job
     description: Badge print jobs can be scheduled to a printer pool, so a printer in the printer pool can consume the job and print the badge.
   - name: Badge Printer Pools

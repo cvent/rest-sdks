@@ -27,31 +27,31 @@ namespace Cvent.SDK.Models.Components
 
         public string Value { get; private set; }
 
-        public static ExistingCustomFieldDetailsInputType ZeroOneOf1
+        public static ExistingCustomFieldDetailsInputType OpenEndedOneLine
         {
             get {
-                return new ExistingCustomFieldDetailsInputType("0_OneOf_1");
+                return new ExistingCustomFieldDetailsInputType("OpenEndedOneLine");
             }
         }
 
-        public static ExistingCustomFieldDetailsInputType One
+        public static ExistingCustomFieldDetailsInputType OpenEndedDateTime1
         {
             get {
-                return new ExistingCustomFieldDetailsInputType("1");
+                return new ExistingCustomFieldDetailsInputType("OpenEndedDateTime1");
             }
         }
 
-        public static ExistingCustomFieldDetailsInputType Two
+        public static ExistingCustomFieldDetailsInputType OpenEndedCommentBox
         {
             get {
-                return new ExistingCustomFieldDetailsInputType("2");
+                return new ExistingCustomFieldDetailsInputType("OpenEndedCommentBox");
             }
         }
 
-        public static ExistingCustomFieldDetailsInputType ThreeInput
+        public static ExistingCustomFieldDetailsInputType Choices1Input
         {
             get {
-                return new ExistingCustomFieldDetailsInputType("3_input");
+                return new ExistingCustomFieldDetailsInputType("Choices1_input");
             }
         }
 
@@ -67,14 +67,14 @@ namespace Cvent.SDK.Models.Components
         {
             switch (v)
             {
-                case "0_OneOf_1":
-                    return ZeroOneOf1;
-                case "1":
-                    return One;
-                case "2":
-                    return Two;
-                case "3_input":
-                    return ThreeInput;
+                case "OpenEndedOneLine":
+                    return OpenEndedOneLine;
+                case "OpenEndedDateTime1":
+                    return OpenEndedDateTime1;
+                case "OpenEndedCommentBox":
+                    return OpenEndedCommentBox;
+                case "Choices1_input":
+                    return Choices1Input;
                 default:
                     throw new ArgumentException("Invalid value for ExistingCustomFieldDetailsInputType");
             }
@@ -106,48 +106,48 @@ namespace Cvent.SDK.Models.Components
         }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public ZeroOneOf1? ZeroOneOf1 { get; set; }
+        public OpenEndedOneLine? OpenEndedOneLine { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public One? One { get; set; }
+        public OpenEndedDateTime1? OpenEndedDateTime1 { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public Two? Two { get; set; }
+        public OpenEndedCommentBox? OpenEndedCommentBox { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public ThreeInput? ThreeInput { get; set; }
+        public Choices1Input? Choices1Input { get; set; }
 
         public ExistingCustomFieldDetailsInputType Type { get; set; }
-        public static ExistingCustomFieldDetailsInput CreateZeroOneOf1(ZeroOneOf1 zeroOneOf1)
+        public static ExistingCustomFieldDetailsInput CreateOpenEndedOneLine(OpenEndedOneLine openEndedOneLine)
         {
-            ExistingCustomFieldDetailsInputType typ = ExistingCustomFieldDetailsInputType.ZeroOneOf1;
+            ExistingCustomFieldDetailsInputType typ = ExistingCustomFieldDetailsInputType.OpenEndedOneLine;
 
             ExistingCustomFieldDetailsInput res = new ExistingCustomFieldDetailsInput(typ);
-            res.ZeroOneOf1 = zeroOneOf1;
+            res.OpenEndedOneLine = openEndedOneLine;
             return res;
         }
-        public static ExistingCustomFieldDetailsInput CreateOne(One one)
+        public static ExistingCustomFieldDetailsInput CreateOpenEndedDateTime1(OpenEndedDateTime1 openEndedDateTime1)
         {
-            ExistingCustomFieldDetailsInputType typ = ExistingCustomFieldDetailsInputType.One;
+            ExistingCustomFieldDetailsInputType typ = ExistingCustomFieldDetailsInputType.OpenEndedDateTime1;
 
             ExistingCustomFieldDetailsInput res = new ExistingCustomFieldDetailsInput(typ);
-            res.One = one;
+            res.OpenEndedDateTime1 = openEndedDateTime1;
             return res;
         }
-        public static ExistingCustomFieldDetailsInput CreateTwo(Two two)
+        public static ExistingCustomFieldDetailsInput CreateOpenEndedCommentBox(OpenEndedCommentBox openEndedCommentBox)
         {
-            ExistingCustomFieldDetailsInputType typ = ExistingCustomFieldDetailsInputType.Two;
+            ExistingCustomFieldDetailsInputType typ = ExistingCustomFieldDetailsInputType.OpenEndedCommentBox;
 
             ExistingCustomFieldDetailsInput res = new ExistingCustomFieldDetailsInput(typ);
-            res.Two = two;
+            res.OpenEndedCommentBox = openEndedCommentBox;
             return res;
         }
-        public static ExistingCustomFieldDetailsInput CreateThreeInput(ThreeInput threeInput)
+        public static ExistingCustomFieldDetailsInput CreateChoices1Input(Choices1Input choices1Input)
         {
-            ExistingCustomFieldDetailsInputType typ = ExistingCustomFieldDetailsInputType.ThreeInput;
+            ExistingCustomFieldDetailsInputType typ = ExistingCustomFieldDetailsInputType.Choices1Input;
 
             ExistingCustomFieldDetailsInput res = new ExistingCustomFieldDetailsInput(typ);
-            res.ThreeInput = threeInput;
+            res.Choices1Input = choices1Input;
             return res;
         }
 
@@ -169,13 +169,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.Two) {
-                        Two = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Two>(json)
+                    return new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.OpenEndedCommentBox) {
+                        OpenEndedCommentBox = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<OpenEndedCommentBox>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(Two), new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.Two), "Two"));
+                    fallbackCandidates.Add((typeof(OpenEndedCommentBox), new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.OpenEndedCommentBox), "OpenEndedCommentBox"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -188,13 +188,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.ThreeInput) {
-                        ThreeInput = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ThreeInput>(json)
+                    return new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.Choices1Input) {
+                        Choices1Input = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Choices1Input>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(ThreeInput), new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.ThreeInput), "ThreeInput"));
+                    fallbackCandidates.Add((typeof(Choices1Input), new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.Choices1Input), "Choices1Input"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -207,13 +207,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.ZeroOneOf1) {
-                        ZeroOneOf1 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ZeroOneOf1>(json)
+                    return new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.OpenEndedOneLine) {
+                        OpenEndedOneLine = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<OpenEndedOneLine>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(ZeroOneOf1), new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.ZeroOneOf1), "ZeroOneOf1"));
+                    fallbackCandidates.Add((typeof(OpenEndedOneLine), new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.OpenEndedOneLine), "OpenEndedOneLine"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -226,13 +226,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.One) {
-                        One = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<One>(json)
+                    return new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.OpenEndedDateTime1) {
+                        OpenEndedDateTime1 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<OpenEndedDateTime1>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(One), new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.One), "One"));
+                    fallbackCandidates.Add((typeof(OpenEndedDateTime1), new ExistingCustomFieldDetailsInput(ExistingCustomFieldDetailsInputType.OpenEndedDateTime1), "OpenEndedDateTime1"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -275,27 +275,27 @@ namespace Cvent.SDK.Models.Components
 
                 ExistingCustomFieldDetailsInput res = (ExistingCustomFieldDetailsInput)value;
 
-                if (res.ZeroOneOf1 != null)
+                if (res.OpenEndedOneLine != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.ZeroOneOf1));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.OpenEndedOneLine));
                     return;
                 }
 
-                if (res.One != null)
+                if (res.OpenEndedDateTime1 != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.One));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.OpenEndedDateTime1));
                     return;
                 }
 
-                if (res.Two != null)
+                if (res.OpenEndedCommentBox != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.Two));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.OpenEndedCommentBox));
                     return;
                 }
 
-                if (res.ThreeInput != null)
+                if (res.Choices1Input != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.ThreeInput));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.Choices1Input));
                     return;
                 }
             }

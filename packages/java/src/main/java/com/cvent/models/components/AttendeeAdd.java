@@ -161,6 +161,7 @@ public class AttendeeAdd {
      * - Group Leader Responded: The invitee was registered by a group leader and added to a group.
      * - Historical Import: The invitee's registration was imported into the event as historical data.
      * - Imported: The invitee's registration was imported into the event.
+     * - LinkedIn Registration Form: The attendee was registered through LinkedIn integration.
      * - No Response: The invitee has not registered.
      * - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.
      * - Planner-Imported: An account user imported the invitee's registration into the event.
@@ -357,6 +358,7 @@ public class AttendeeAdd {
      * - Group Leader Responded: The invitee was registered by a group leader and added to a group.
      * - Historical Import: The invitee's registration was imported into the event as historical data.
      * - Imported: The invitee's registration was imported into the event.
+     * - LinkedIn Registration Form: The attendee was registered through LinkedIn integration.
      * - No Response: The invitee has not registered.
      * - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.
      * - Planner-Imported: An account user imported the invitee's registration into the event.
@@ -530,6 +532,7 @@ public class AttendeeAdd {
      * - Group Leader Responded: The invitee was registered by a group leader and added to a group.
      * - Historical Import: The invitee's registration was imported into the event as historical data.
      * - Imported: The invitee's registration was imported into the event.
+     * - LinkedIn Registration Form: The attendee was registered through LinkedIn integration.
      * - No Response: The invitee has not registered.
      * - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.
      * - Planner-Imported: An account user imported the invitee's registration into the event.
@@ -831,6 +834,7 @@ public class AttendeeAdd {
          * - Group Leader Responded: The invitee was registered by a group leader and added to a group.
          * - Historical Import: The invitee's registration was imported into the event as historical data.
          * - Imported: The invitee's registration was imported into the event.
+         * - LinkedIn Registration Form: The attendee was registered through LinkedIn integration.
          * - No Response: The invitee has not registered.
          * - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.
          * - Planner-Imported: An account user imported the invitee's registration into the event.

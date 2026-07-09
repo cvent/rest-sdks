@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthenticationSchemaJson,
-  AuthenticationSchemaJson$inboundSchema,
-} from "./authenticationschemajson.js";
-import { MetaJson, MetaJson$inboundSchema } from "./metajson.js";
+  AuthenticationSchema,
+  AuthenticationSchema$inboundSchema,
+} from "./authenticationschema.js";
+import { Meta, Meta$inboundSchema } from "./meta.js";
 
 /**
  * Config details for patch operations.
@@ -123,11 +123,11 @@ export type ServiceProviderConfig = {
   /**
    * The collection of authentication schemas.
    */
-  authenticationSchemes?: Array<AuthenticationSchemaJson> | undefined;
+  authenticationSchemes?: Array<AuthenticationSchema> | undefined;
   /**
    * Metadata of the resource.
    */
-  meta?: MetaJson | undefined;
+  meta?: Meta | undefined;
 };
 
 /** @internal */
@@ -249,9 +249,8 @@ export const ServiceProviderConfig$inboundSchema: z.ZodType<
   changePassword: z.lazy(() => ChangePassword$inboundSchema).optional(),
   sort: z.lazy(() => Sort$inboundSchema).optional(),
   etag: z.lazy(() => Etag$inboundSchema).optional(),
-  authenticationSchemes: z.array(AuthenticationSchemaJson$inboundSchema)
-    .optional(),
-  meta: MetaJson$inboundSchema.optional(),
+  authenticationSchemes: z.array(AuthenticationSchema$inboundSchema).optional(),
+  meta: Meta$inboundSchema.optional(),
 });
 
 export function serviceProviderConfigFromJSON(

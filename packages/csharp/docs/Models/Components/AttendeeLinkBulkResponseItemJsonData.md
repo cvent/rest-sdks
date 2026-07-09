@@ -9,8 +9,8 @@
 AttendeeLinkBulkResponseItemJsonData.CreateExistingAttendeeLink(/* values here */);
 ```
 
-### ErrorResponse2
+### ErrorResponse
 
 ```csharp
-AttendeeLinkBulkResponseItemJsonData.CreateErrorResponse2(/* values here */);
+AttendeeLinkBulkResponseItemJsonData.CreateErrorResponse(/* values here */);
 ```

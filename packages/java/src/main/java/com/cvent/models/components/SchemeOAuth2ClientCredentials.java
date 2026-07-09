@@ -19,7 +19,7 @@ import java.util.Optional;
 /**
  * SchemeOAuth2ClientCredentials
  *
- * <p>OAuth2 Client Credentials Flow
+ * <p>OAuth2 Client Credentials Flow.
  */
 public class SchemeOAuth2ClientCredentials implements HasSecurity {
 

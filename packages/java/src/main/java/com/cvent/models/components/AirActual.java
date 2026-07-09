@@ -135,7 +135,7 @@ public class AirActual {
     private String noteGDS;
 
     /**
-     * Type of journey
+     * Type of journey for an air booking.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("journeyType")
@@ -330,7 +330,7 @@ public class AirActual {
     }
 
     /**
-     * Type of journey
+     * Type of journey for an air booking.
      */
     public Optional<JourneyType> journeyType() {
         return Optional.ofNullable(this.journeyType);
@@ -482,7 +482,7 @@ public class AirActual {
     }
 
     /**
-     * Type of journey
+     * Type of journey for an air booking.
      */
     public AirActual withJourneyType(@Nullable JourneyType journeyType) {
         this.journeyType = journeyType;
@@ -770,7 +770,7 @@ public class AirActual {
         }
 
         /**
-         * Type of journey
+         * Type of journey for an air booking.
          */
         public Builder journeyType(@Nullable JourneyType journeyType) {
             this.journeyType = journeyType;

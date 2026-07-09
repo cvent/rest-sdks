@@ -3,14 +3,14 @@
 
 ## Supported Types
 
-### ZeroOneOf2
+### ZeroOneOf
 
 ```csharp
-AttendeeAddBulkItemJsonData.CreateZeroOneOf2(/* values here */);
+AttendeeAddBulkItemJsonData.CreateZeroOneOf(/* values here */);
 ```
 
-### ErrorResponse2
+### ErrorResponse
 
 ```csharp
-AttendeeAddBulkItemJsonData.CreateErrorResponse2(/* values here */);
+AttendeeAddBulkItemJsonData.CreateErrorResponse(/* values here */);
 ```

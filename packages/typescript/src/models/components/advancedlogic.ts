@@ -7,11 +7,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AdvancedLogicChoicesJson,
-  AdvancedLogicChoicesJson$inboundSchema,
-  AdvancedLogicChoicesJson$Outbound,
-  AdvancedLogicChoicesJson$outboundSchema,
-} from "./advancedlogicchoicesjson.js";
+  AdvancedLogicChoices,
+  AdvancedLogicChoices$inboundSchema,
+  AdvancedLogicChoices$Outbound,
+  AdvancedLogicChoices$outboundSchema,
+} from "./advancedlogicchoices.js";
 
 /**
  * Describes the advanced logic for a custom field.
@@ -28,7 +28,7 @@ export type AdvancedLogic = {
   /**
    * The choices of this custom field to display based on the choice selected for the source custom field, specified by choice ID.
    */
-  sourceChoices?: Array<AdvancedLogicChoicesJson> | undefined;
+  sourceChoices?: Array<AdvancedLogicChoices> | undefined;
 };
 
 /** @internal */
@@ -39,13 +39,13 @@ export const AdvancedLogic$inboundSchema: z.ZodType<
 > = z.object({
   sourceCustomFieldId: z.string(),
   defaultChoices: z.array(z.string()).optional(),
-  sourceChoices: z.array(AdvancedLogicChoicesJson$inboundSchema).optional(),
+  sourceChoices: z.array(AdvancedLogicChoices$inboundSchema).optional(),
 });
 /** @internal */
 export type AdvancedLogic$Outbound = {
   sourceCustomFieldId: string;
   defaultChoices?: Array<string> | undefined;
-  sourceChoices?: Array<AdvancedLogicChoicesJson$Outbound> | undefined;
+  sourceChoices?: Array<AdvancedLogicChoices$Outbound> | undefined;
 };
 
 /** @internal */
@@ -56,7 +56,7 @@ export const AdvancedLogic$outboundSchema: z.ZodType<
 > = z.object({
   sourceCustomFieldId: z.string(),
   defaultChoices: z.array(z.string()).optional(),
-  sourceChoices: z.array(AdvancedLogicChoicesJson$outboundSchema).optional(),
+  sourceChoices: z.array(AdvancedLogicChoices$outboundSchema).optional(),
 });
 
 export function advancedLogicToJSON(advancedLogic: AdvancedLogic): string {

@@ -28,12 +28,12 @@ public class Translation1 {
      * IETF language code used to specify a target language for the translation.
      */
     @JsonProperty("language")
-    private LanguageJson language;
+    private Language1 language;
 
     @JsonCreator
     public Translation1(
             @JsonProperty("translation") @Nonnull Translation translation,
-            @JsonProperty("language") @Nonnull LanguageJson language) {
+            @JsonProperty("language") @Nonnull Language1 language) {
         this.translation = Optional.ofNullable(translation)
                 .orElseThrow(() -> new IllegalArgumentException("translation cannot be null"));
         this.language = Optional.ofNullable(language)
@@ -51,7 +51,7 @@ public class Translation1 {
     /**
      * IETF language code used to specify a target language for the translation.
      */
-    public LanguageJson language() {
+    public Language1 language() {
         return this.language;
     }
 
@@ -71,7 +71,7 @@ public class Translation1 {
     /**
      * IETF language code used to specify a target language for the translation.
      */
-    public Translation1 withLanguage(@Nonnull LanguageJson language) {
+    public Translation1 withLanguage(@Nonnull Language1 language) {
         this.language = Utils.checkNotNull(language, "language");
         return this;
     }
@@ -104,7 +104,7 @@ public class Translation1 {
 
         private Translation translation;
 
-        private LanguageJson language;
+        private Language1 language;
 
         private Builder() {
             // force use of static builder() method
@@ -122,7 +122,7 @@ public class Translation1 {
         /**
          * IETF language code used to specify a target language for the translation.
          */
-        public Builder language(@Nonnull LanguageJson language) {
+        public Builder language(@Nonnull Language1 language) {
             this.language = Utils.checkNotNull(language, "language");
             return this;
         }

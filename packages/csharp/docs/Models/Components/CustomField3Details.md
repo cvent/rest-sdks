@@ -11,10 +11,10 @@ Type-specific details of the custom-field.
 CustomField3Details.CreateOpenEndedOneLine(/* values here */);
 ```
 
-### OpenEndedDateTime
+### OpenEndedDateTime1
 
 ```csharp
-CustomField3Details.CreateOpenEndedDateTime(/* values here */);
+CustomField3Details.CreateOpenEndedDateTime1(/* values here */);
 ```
 
 ### OpenEndedCommentBox
@@ -23,8 +23,8 @@ CustomField3Details.CreateOpenEndedDateTime(/* values here */);
 CustomField3Details.CreateOpenEndedCommentBox(/* values here */);
 ```
 
-### Choices
+### Choices1Input
 
 ```csharp
-CustomField3Details.CreateChoices(/* values here */);
+CustomField3Details.CreateChoices1Input(/* values here */);
 ```

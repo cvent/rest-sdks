@@ -39,7 +39,7 @@ export function speakersCreateSessionProgramSpeaker(
 ): APIPromise<
   Result<
     components.SpeakerProgramItem,
-    | errors.ErrorResponse2
+    | errors.ErrorResponse
     | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
@@ -66,7 +66,7 @@ async function $do(
   [
     Result<
       components.SpeakerProgramItem,
-      | errors.ErrorResponse2
+      | errors.ErrorResponse
       | errors.ErrorResponse1
       | CventSDKError
       | ResponseValidationError
@@ -171,7 +171,7 @@ async function $do(
 
   const [result] = await M.match<
     components.SpeakerProgramItem,
-    | errors.ErrorResponse2
+    | errors.ErrorResponse
     | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
@@ -183,7 +183,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, components.SpeakerProgramItem$inboundSchema),
-    M.jsonErr(409, errors.ErrorResponse2$inboundSchema),
+    M.jsonErr(409, errors.ErrorResponse$inboundSchema),
     M.jsonErr([401, 403, 404, 429], errors.ErrorResponse1$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

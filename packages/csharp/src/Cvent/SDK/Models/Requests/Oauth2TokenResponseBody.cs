@@ -30,7 +30,7 @@ namespace Cvent.SDK.Models.Requests
         public string? RefreshToken { get; set; }
 
         /// <summary>
-        /// The token type.
+        /// The OAuth2 token type. Always `Bearer`.
         /// </summary>
         [JsonProperty("token_type")]
         public string TokenType { get; set; } = default!;

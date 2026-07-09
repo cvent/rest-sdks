@@ -41,12 +41,12 @@ namespace Cvent.SDK.Models.Components
         /// The collection of attributes for the schema.
         /// </summary>
         [JsonProperty("attributes")]
-        public List<AttributeJson>? Attributes { get; set; }
+        public List<Attribute>? Attributes { get; set; }
 
         /// <summary>
         /// Metadata of the resource.
         /// </summary>
         [JsonProperty("meta")]
-        public MetaJson? Meta { get; set; }
+        public Meta? Meta { get; set; }
     }
 }

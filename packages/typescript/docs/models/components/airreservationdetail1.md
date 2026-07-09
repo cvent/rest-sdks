@@ -39,13 +39,14 @@ let value: AirReservationDetail1 = {
         date: new Date("2023-05-19T00:00:00Z"),
         time: "Morning",
       },
+      seatType: "Window",
       ticketType: "Economy/Coach",
       foodPreference: "Please provide vegetarian meal.",
       specialRequest: "Please provide blanket",
       airlinePreference: [
         {
           airlineName: "Emirates",
-          rewardsCode: "REWARDS_ONE",
+          rewardsCode: "SKYWARD12345",
         },
       ],
       ageCategory: "Adult",

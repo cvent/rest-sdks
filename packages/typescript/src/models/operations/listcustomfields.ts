@@ -30,24 +30,24 @@ export type ListCustomFieldsRequest = {
    */
   token?: string | undefined;
   /**
-   * A filter query string narrows search results and supports the combination of logical and comparison operators.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * to data that matches your criteria. See
+   * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
    *
-   * There are six comparison types that can be used in filter expressions:
-   *   * equal: eq
-   *   * not equal: ne
-   *   * greater than: gt
-   *   * greater or equal: ge
-   *   * less than: lt
-   *   * less than or equal: le
+   * Supported fields and operators are listed below:
    *
-   * The following fields are filterable:
-   *   * id (eq|ne)
-   *   * category (eq) *(Required, one category can be provided at a time)*
-   *   * lastModified (eq|ne|lt|le|gt|ge)
-   *   * code (eq|ne) *(Case insensitive)*
+   * | Field            | Operators                          | Notes |
+   * |------------------|-------------------------------------|-------|
+   * | id               | `eq`, `ne`                          | |
+   * | category         | `eq`                                | Required, one category can be provided at a time |
+   * | lastModified     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | |
+   * | code             | `eq`, `ne`                          | Case insensitive |
+   *
+   * The following logical operators are supported for combining filters:
+   * * and
+   * * or
    */
   filter: string;
 };

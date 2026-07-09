@@ -130,3 +130,16 @@ actions:
   - target: $["components"]["schemas"]["attendee"]
     update:
       x-speakeasy-name-override: "Attendee1"
+  # TypeScript barrel fix: new ErrorResponse2 SCIM schema (title: ErrorResponse) in July 7-8 release
+  # entered the ErrorResponse collision pool, shifting collision-resolver suffixes and orphaning
+  # ErrorResponse1 from the errors barrel index. Pinning "ErrorResponse" to "ErrorResponse1"
+  # (its prior stable name) restores the barrel entry; pinning "ErrorResponse2" to "ErrorResponse2"
+  # stabilises the new schema's name independent of pool sizing.
+  - target: $["components"]["schemas"]["ErrorResponse"]
+    update:
+      x-speakeasy-name-override: "ErrorResponse1"
+  - target: $["components"]["schemas"]["ErrorResponse2"]["title"]
+    update: "ErrorResponse2"
+  - target: $["components"]["schemas"]["ErrorResponse2"]
+    update:
+      x-speakeasy-name-override: "ErrorResponse2"

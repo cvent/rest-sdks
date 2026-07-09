@@ -19,32 +19,32 @@ namespace Cvent.SDK.Models.Errors
     public class ErrorResponse2Payload
     {
         /// <summary>
-        /// The HTTP status code representing the error.
+        /// The collection of error schemas.
         /// </summary>
-        [JsonProperty("code")]
-        public long Code { get; set; } = default!;
+        [JsonProperty("schemas")]
+        public List<string>? Schemas { get; set; }
 
         /// <summary>
-        /// A brief description of the error.
+        /// Status code for error.
         /// </summary>
-        [JsonProperty("message")]
-        public string Message { get; set; } = default!;
+        [JsonProperty("status")]
+        public long Status { get; set; } = default!;
 
         /// <summary>
-        /// The target resource of the error.
+        /// Details of the error.
         /// </summary>
-        [JsonProperty("target")]
-        public string? Target { get; set; }
+        [JsonProperty("detail")]
+        public string Detail { get; set; } = default!;
 
         /// <summary>
-        /// Additional details of cascading error messages.
+        /// This is used to denote the scim type of the error.
         /// </summary>
-        [JsonProperty("details")]
-        public List<ZeroAllOf1>? Details { get; set; }
+        [JsonProperty("scimType")]
+        public ErrorScimType? ScimType { get; set; }
     }
 
     /// <summary>
-    /// Represents an error response with additional details of cascading error messages.
+    /// The error response.
     /// </summary>
     public class ErrorResponse2 : CventSDKException
     {
@@ -53,43 +53,32 @@ namespace Cvent.SDK.Models.Errors
         /// </summary>
         public ErrorResponse2Payload Payload { get; }
 
-        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorResponse2.Payload.Code instead.")]
-        public long Code { get; set; } = default!;
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorResponse2.Payload.Schemas instead.")]
+        public List<string>? Schemas { get; set; }
 
-        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorResponse2.Payload.Message instead.")]
-        private string? _message { get; set; }
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorResponse2.Payload.Status instead.")]
+        public long Status { get; set; } = default!;
 
-        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorResponse2.Payload.Target instead.")]
-        public string? Target { get; set; }
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorResponse2.Payload.Detail instead.")]
+        public string Detail { get; set; } = default!;
 
-        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorResponse2.Payload.Details instead.")]
-        public List<ZeroAllOf1>? Details { get; set; }
-
-        private static string ErrorMessage(ErrorResponse2Payload payload, string body)
-        {
-            string? message = payload.Message;
-            if (!string.IsNullOrEmpty(message))
-            {
-                return message;
-            }
-
-            return "API error occurred";
-        }
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorResponse2.Payload.ScimType instead.")]
+        public ErrorScimType? ScimType { get; set; }
 
         public ErrorResponse2(
             ErrorResponse2Payload payload,
             HttpRequestMessage request,
             HttpResponseMessage response,
             string body
-        ) : base(ErrorMessage(payload, body), request, response, body)
+        ) : base("API error occurred", request, response, body)
         {
             Payload = payload;
 
 #pragma warning disable CS0618
-            Code = payload.Code;
-            _message = payload.Message;
-            Target = payload.Target;
-            Details = payload.Details;
+            Schemas = payload.Schemas;
+            Status = payload.Status;
+            Detail = payload.Detail;
+            ScimType = payload.ScimType;
 #pragma warning restore CS0618
         }
     }

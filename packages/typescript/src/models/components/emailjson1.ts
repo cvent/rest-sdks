@@ -6,28 +6,15 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  EmailTypeJson,
-  EmailTypeJson$inboundSchema,
-  EmailTypeJson$outboundSchema,
-} from "./emailtypejson.js";
 
 /**
- * Email
+ * Details of an email to be send.
  */
 export type EmailJson1 = {
   /**
-   * The type of the email.
+   * The unique ID of the email to be sent.
    */
-  type?: EmailTypeJson | undefined;
-  /**
-   * The email of the user.
-   */
-  value: string;
-  /**
-   * True indicates the email is primary.
-   */
-  primary?: boolean | undefined;
+  id: string;
 };
 
 /** @internal */
@@ -36,15 +23,11 @@ export const EmailJson1$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: EmailTypeJson$inboundSchema.default("work"),
-  value: z.string(),
-  primary: z.boolean().default(false),
+  id: z.string(),
 });
 /** @internal */
 export type EmailJson1$Outbound = {
-  type: string;
-  value: string;
-  primary: boolean;
+  id: string;
 };
 
 /** @internal */
@@ -53,9 +36,7 @@ export const EmailJson1$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EmailJson1
 > = z.object({
-  type: EmailTypeJson$outboundSchema.default("work"),
-  value: z.string(),
-  primary: z.boolean().default(false),
+  id: z.string(),
 });
 
 export function emailJson1ToJSON(emailJson1: EmailJson1): string {

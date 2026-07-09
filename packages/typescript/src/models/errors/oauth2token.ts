@@ -71,7 +71,7 @@ export type ErrorT = ClosedEnum<typeof ErrorT>;
  */
 export type BadRequestErrorData = {
   /**
-   * May be returned with additional information regarding the error.
+   * Additional error information, when available.
    */
   errorDescription?: string | undefined;
   /**
@@ -107,7 +107,7 @@ export type BadRequestErrorData = {
  */
 export class BadRequestError extends CventSDKError {
   /**
-   * May be returned with additional information regarding the error.
+   * Additional error information, when available.
    */
   errorDescription?: string | undefined;
   /**

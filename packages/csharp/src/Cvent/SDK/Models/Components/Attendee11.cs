@@ -219,6 +219,7 @@ namespace Cvent.SDK.Models.Components
         /// - Group Leader Responded: The invitee was registered by a group leader and added to a group.<br/>
         /// - Historical Import: The invitee's registration was imported into the event as historical data.<br/>
         /// - Imported: The invitee's registration was imported into the event.<br/>
+        /// - LinkedIn Registration Form: The attendee was registered through LinkedIn integration.<br/>
         /// - No Response: The invitee has not registered.<br/>
         /// - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.<br/>
         /// - Planner-Imported: An account user imported the invitee's registration into the event.<br/>

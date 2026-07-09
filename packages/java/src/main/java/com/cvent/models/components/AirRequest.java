@@ -140,14 +140,14 @@ public class AirRequest {
     private LegDetail incomingLeg;
 
     /**
-     * Type of the seat.
+     * Preferred or assigned seat type for an air booking.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("seatType")
     private SeatType seatType;
 
     /**
-     * Category of the passenger's ticket.
+     * Category of the passenger's ticket for an air booking.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("ticketType")
@@ -424,14 +424,14 @@ public class AirRequest {
     }
 
     /**
-     * Type of the seat.
+     * Preferred or assigned seat type for an air booking.
      */
     public Optional<SeatType> seatType() {
         return Optional.ofNullable(this.seatType);
     }
 
     /**
-     * Category of the passenger's ticket.
+     * Category of the passenger's ticket for an air booking.
      */
     public Optional<TicketType> ticketType() {
         return Optional.ofNullable(this.ticketType);
@@ -639,7 +639,7 @@ public class AirRequest {
     }
 
     /**
-     * Type of the seat.
+     * Preferred or assigned seat type for an air booking.
      */
     public AirRequest withSeatType(@Nullable SeatType seatType) {
         this.seatType = seatType;
@@ -647,7 +647,7 @@ public class AirRequest {
     }
 
     /**
-     * Category of the passenger's ticket.
+     * Category of the passenger's ticket for an air booking.
      */
     public AirRequest withTicketType(@Nullable TicketType ticketType) {
         this.ticketType = ticketType;
@@ -1052,7 +1052,7 @@ public class AirRequest {
         }
 
         /**
-         * Type of the seat.
+         * Preferred or assigned seat type for an air booking.
          */
         public Builder seatType(@Nullable SeatType seatType) {
             this.seatType = seatType;
@@ -1060,7 +1060,7 @@ public class AirRequest {
         }
 
         /**
-         * Category of the passenger's ticket.
+         * Category of the passenger's ticket for an air booking.
          */
         public Builder ticketType(@Nullable TicketType ticketType) {
             this.ticketType = ticketType;

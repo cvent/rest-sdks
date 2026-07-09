@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * SeatType
  *
- * <p>Type of the seat.
+ * <p>Preferred or assigned seat type for an air booking.
  */
 public enum SeatType {
     AISLE("Aisle"),

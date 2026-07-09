@@ -875,7 +875,7 @@ var res = await sdk.Housing.UpdateReservationRequestAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse2 | 400                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse  | 400                                    | application/json                       |
 | Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
@@ -923,7 +923,7 @@ var res = await sdk.Housing.CancelReservationRequestAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse2 | 400                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse  | 400                                    | application/json                       |
 | Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 

@@ -10,7 +10,7 @@ import {
   BidItemStatusType,
   BidItemStatusType$inboundSchema,
 } from "./biditemstatustype.js";
-import { TaxType, TaxType$inboundSchema } from "./taxtype.js";
+import { TaxType1, TaxType1$inboundSchema } from "./taxtype1.js";
 
 /**
  * A tax or fee associated with a travel bid.
@@ -19,7 +19,7 @@ export type TravelBidTaxAndFee = {
   /**
    * Bid tax type.
    */
-  code?: TaxType | undefined;
+  code?: TaxType1 | undefined;
   /**
    * The amount of the tax/fee. This may be a percent or monetary value depending on the value in `percent`.
    */
@@ -48,7 +48,7 @@ export const TravelBidTaxAndFee$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  code: TaxType$inboundSchema.optional(),
+  code: TaxType1$inboundSchema.optional(),
   amount: z.number().optional(),
   percent: z.boolean().default(false),
   included: z.boolean().default(false),

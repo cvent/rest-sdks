@@ -24,7 +24,7 @@ namespace Cvent.SDK.Models.Components
         public string? AirlineName { get; set; }
 
         /// <summary>
-        /// Any rewards code applied.
+        /// Loyalty program number for the preferred airline.
         /// </summary>
         [JsonProperty("rewardsCode")]
         public string? RewardsCode { get; set; }

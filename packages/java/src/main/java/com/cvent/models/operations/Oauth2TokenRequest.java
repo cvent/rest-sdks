@@ -14,7 +14,7 @@ import java.util.Optional;
 
 public class Oauth2TokenRequest {
     /**
-     * The grant type.
+     * Controls the OAuth2 grant flow used to obtain tokens.
      */
     @SpeakeasyMetadata("form:name=grant_type")
     private GrantType grantType;
@@ -30,7 +30,7 @@ public class Oauth2TokenRequest {
     /**
      * Can be a combination of any scopes associated with a client. Any scope requested must be
      * pre-associated with the client or it will be ignored at runtime.
-     * If the client doesn't request any scopes, the authentication server uses all scopes associated with
+     * If the client doesn't request any scopes, the authorization server uses all scopes associated with
      * the client.
      *
      * <p>**Optional** - Only used if the grant_type is client_credentials.
@@ -86,7 +86,7 @@ public class Oauth2TokenRequest {
     }
 
     /**
-     * The grant type.
+     * Controls the OAuth2 grant flow used to obtain tokens.
      */
     public GrantType grantType() {
         return this.grantType;
@@ -104,7 +104,7 @@ public class Oauth2TokenRequest {
     /**
      * Can be a combination of any scopes associated with a client. Any scope requested must be
      * pre-associated with the client or it will be ignored at runtime.
-     * If the client doesn't request any scopes, the authentication server uses all scopes associated with
+     * If the client doesn't request any scopes, the authorization server uses all scopes associated with
      * the client.
      *
      * <p>**Optional** - Only used if the grant_type is client_credentials.
@@ -146,7 +146,7 @@ public class Oauth2TokenRequest {
     }
 
     /**
-     * The grant type.
+     * Controls the OAuth2 grant flow used to obtain tokens.
      */
     public Oauth2TokenRequest withGrantType(@Nonnull GrantType grantType) {
         this.grantType = Utils.checkNotNull(grantType, "grantType");
@@ -166,7 +166,7 @@ public class Oauth2TokenRequest {
     /**
      * Can be a combination of any scopes associated with a client. Any scope requested must be
      * pre-associated with the client or it will be ignored at runtime.
-     * If the client doesn't request any scopes, the authentication server uses all scopes associated with
+     * If the client doesn't request any scopes, the authorization server uses all scopes associated with
      * the client.
      *
      * <p>**Optional** - Only used if the grant_type is client_credentials.
@@ -267,7 +267,7 @@ public class Oauth2TokenRequest {
         }
 
         /**
-         * The grant type.
+         * Controls the OAuth2 grant flow used to obtain tokens.
          */
         public Builder grantType(@Nonnull GrantType grantType) {
             this.grantType = Utils.checkNotNull(grantType, "grantType");
@@ -287,7 +287,7 @@ public class Oauth2TokenRequest {
         /**
          * Can be a combination of any scopes associated with a client. Any scope requested must be
          * pre-associated with the client or it will be ignored at runtime.
-         * If the client doesn't request any scopes, the authentication server uses all scopes associated with
+         * If the client doesn't request any scopes, the authorization server uses all scopes associated with
          * the client.
          *
          * <p>**Optional** - Only used if the grant_type is client_credentials.

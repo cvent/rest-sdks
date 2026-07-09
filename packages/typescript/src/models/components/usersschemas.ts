@@ -7,7 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { SchemaJson, SchemaJson$inboundSchema } from "./schemajson.js";
+import { UsersSchema, UsersSchema$inboundSchema } from "./usersschema.js";
 
 /**
  * Schemas
@@ -32,7 +32,7 @@ export type UsersSchemas = {
   /**
    * The collection of schema resources.
    */
-  resources?: Array<SchemaJson> | undefined;
+  resources?: Array<UsersSchema> | undefined;
 };
 
 /** @internal */
@@ -45,7 +45,7 @@ export const UsersSchemas$inboundSchema: z.ZodType<
   itemsPerPage: z.number().int().optional(),
   startIndex: z.number().int().optional(),
   totalResults: z.number().int().optional(),
-  Resources: z.array(SchemaJson$inboundSchema).optional(),
+  Resources: z.array(UsersSchema$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "Resources": "resources",

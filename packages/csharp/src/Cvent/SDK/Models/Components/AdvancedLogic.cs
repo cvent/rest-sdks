@@ -35,6 +35,6 @@ namespace Cvent.SDK.Models.Components
         /// The choices of this custom field to display based on the choice selected for the source custom field, specified by choice ID.
         /// </summary>
         [JsonProperty("sourceChoices")]
-        public List<AdvancedLogicChoicesJson>? SourceChoices { get; set; }
+        public List<AdvancedLogicChoices>? SourceChoices { get; set; }
     }
 }

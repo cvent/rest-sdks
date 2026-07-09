@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Requests
     using System;
 
     /// <summary>
-    /// The grant type.
+    /// Controls the OAuth2 grant flow used to obtain tokens.
     /// </summary>
     public enum GrantType
     {

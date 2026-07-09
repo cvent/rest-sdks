@@ -9,31 +9,18 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
-    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Email.
+    /// Details of an email to be send.
     /// </summary>
     public class EmailJson1
     {
         /// <summary>
-        /// The type of the email.
+        /// The unique ID of the email to be sent.
         /// </summary>
-        [JsonProperty("type")]
-        public EmailTypeJson? Type { get; set; } = Cvent.SDK.Models.Components.EmailTypeJson.Work;
-
-        /// <summary>
-        /// The email of the user.
-        /// </summary>
-        [JsonProperty("value")]
-        public string Value { get; set; } = default!;
-
-        /// <summary>
-        /// True indicates the email is primary.
-        /// </summary>
-        [JsonProperty("primary")]
-        public bool? Primary { get; set; } = false;
+        [JsonProperty("id")]
+        public string Id { get; set; } = default!;
     }
 }

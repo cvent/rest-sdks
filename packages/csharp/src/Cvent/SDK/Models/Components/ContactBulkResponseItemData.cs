@@ -37,7 +37,7 @@ namespace Cvent.SDK.Models.Components
         public static ContactBulkResponseItemDataType ErrorResponse1
         {
             get {
-                return new ContactBulkResponseItemDataType("ErrorResponse_1");
+                return new ContactBulkResponseItemDataType("ErrorResponse1");
             }
         }
 
@@ -55,7 +55,7 @@ namespace Cvent.SDK.Models.Components
             {
                 case "contact":
                     return Contact;
-                case "ErrorResponse_1":
+                case "ErrorResponse1":
                     return ErrorResponse1;
                 default:
                     throw new ArgumentException("Invalid value for ContactBulkResponseItemDataType");

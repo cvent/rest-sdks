@@ -3,10 +3,10 @@
 
 ## Supported Types
 
-### ZeroOneOf2
+### ZeroOneOf
 
 ```csharp
-AttendeeAddBulkItemEventJsonData.CreateZeroOneOf2(/* values here */);
+AttendeeAddBulkItemEventJsonData.CreateZeroOneOf(/* values here */);
 ```
 
 ### AttendeeAddBulkItemEventJsonErrorResponse

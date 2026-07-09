@@ -35,7 +35,7 @@ public class CustomField3Details {
         return new CustomField3Details(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
-    public static CustomField3Details of(OpenEndedDateTime value) {
+    public static CustomField3Details of(OpenEndedDateTime1 value) {
         Utils.checkNotNull(value, "value");
         return new CustomField3Details(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
@@ -45,7 +45,7 @@ public class CustomField3Details {
         return new CustomField3Details(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
-    public static CustomField3Details of(Choices value) {
+    public static CustomField3Details of(Choices1Input value) {
         Utils.checkNotNull(value, "value");
         return new CustomField3Details(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
@@ -54,9 +54,9 @@ public class CustomField3Details {
      * Returns an instance of one of these types:
      * <ul>
      * <li>{@code com.cvent.models.components.OpenEndedOneLine}</li>
-     * <li>{@code com.cvent.models.components.OpenEndedDateTime}</li>
+     * <li>{@code com.cvent.models.components.OpenEndedDateTime1}</li>
      * <li>{@code com.cvent.models.components.OpenEndedCommentBox}</li>
-     * <li>{@code com.cvent.models.components.Choices}</li>
+     * <li>{@code com.cvent.models.components.Choices1Input}</li>
      * </ul>
      *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
@@ -99,9 +99,9 @@ public class CustomField3Details {
                     CustomField3Details.class,
                     false,
                     TypeReferenceWithShape.of(new TypeReference<OpenEndedOneLine>() {}, JsonShape.DEFAULT),
-                    TypeReferenceWithShape.of(new TypeReference<OpenEndedDateTime>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<OpenEndedDateTime1>() {}, JsonShape.DEFAULT),
                     TypeReferenceWithShape.of(new TypeReference<OpenEndedCommentBox>() {}, JsonShape.DEFAULT),
-                    TypeReferenceWithShape.of(new TypeReference<Choices>() {}, JsonShape.DEFAULT));
+                    TypeReferenceWithShape.of(new TypeReference<Choices1Input>() {}, JsonShape.DEFAULT));
         }
     }
 

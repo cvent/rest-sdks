@@ -6,8 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AttributeJson, AttributeJson$inboundSchema } from "./attributejson.js";
-import { MetaJson, MetaJson$inboundSchema } from "./metajson.js";
+import { Attribute, Attribute$inboundSchema } from "./attribute.js";
+import { Meta, Meta$inboundSchema } from "./meta.js";
 
 /**
  * Schema
@@ -28,11 +28,11 @@ export type UsersSchema = {
   /**
    * The collection of attributes for the schema.
    */
-  attributes?: Array<AttributeJson> | undefined;
+  attributes?: Array<Attribute> | undefined;
   /**
    * Metadata of the resource.
    */
-  meta?: MetaJson | undefined;
+  meta?: Meta | undefined;
 };
 
 /** @internal */
@@ -44,8 +44,8 @@ export const UsersSchema$inboundSchema: z.ZodType<
   id: z.string().optional(),
   name: z.string().optional(),
   description: z.string().optional(),
-  attributes: z.array(AttributeJson$inboundSchema).optional(),
-  meta: MetaJson$inboundSchema.optional(),
+  attributes: z.array(Attribute$inboundSchema).optional(),
+  meta: Meta$inboundSchema.optional(),
 });
 
 export function usersSchemaFromJSON(

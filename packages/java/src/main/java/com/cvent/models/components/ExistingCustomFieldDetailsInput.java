@@ -30,22 +30,22 @@ public class ExistingCustomFieldDetailsInput {
         this.value = value;
     }
 
-    public static ExistingCustomFieldDetailsInput of(ZeroOneOf1 value) {
+    public static ExistingCustomFieldDetailsInput of(OpenEndedOneLine value) {
         Utils.checkNotNull(value, "value");
         return new ExistingCustomFieldDetailsInput(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
-    public static ExistingCustomFieldDetailsInput of(One value) {
+    public static ExistingCustomFieldDetailsInput of(OpenEndedDateTime1 value) {
         Utils.checkNotNull(value, "value");
         return new ExistingCustomFieldDetailsInput(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
-    public static ExistingCustomFieldDetailsInput of(Two value) {
+    public static ExistingCustomFieldDetailsInput of(OpenEndedCommentBox value) {
         Utils.checkNotNull(value, "value");
         return new ExistingCustomFieldDetailsInput(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
-    public static ExistingCustomFieldDetailsInput of(ThreeInput value) {
+    public static ExistingCustomFieldDetailsInput of(Choices1Input value) {
         Utils.checkNotNull(value, "value");
         return new ExistingCustomFieldDetailsInput(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
@@ -53,10 +53,10 @@ public class ExistingCustomFieldDetailsInput {
     /**
      * Returns an instance of one of these types:
      * <ul>
-     * <li>{@code com.cvent.models.components.ZeroOneOf1}</li>
-     * <li>{@code com.cvent.models.components.One}</li>
-     * <li>{@code com.cvent.models.components.Two}</li>
-     * <li>{@code com.cvent.models.components.ThreeInput}</li>
+     * <li>{@code com.cvent.models.components.OpenEndedOneLine}</li>
+     * <li>{@code com.cvent.models.components.OpenEndedDateTime1}</li>
+     * <li>{@code com.cvent.models.components.OpenEndedCommentBox}</li>
+     * <li>{@code com.cvent.models.components.Choices1Input}</li>
      * </ul>
      *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
@@ -98,10 +98,10 @@ public class ExistingCustomFieldDetailsInput {
             super(
                     ExistingCustomFieldDetailsInput.class,
                     false,
-                    TypeReferenceWithShape.of(new TypeReference<ZeroOneOf1>() {}, JsonShape.DEFAULT),
-                    TypeReferenceWithShape.of(new TypeReference<One>() {}, JsonShape.DEFAULT),
-                    TypeReferenceWithShape.of(new TypeReference<Two>() {}, JsonShape.DEFAULT),
-                    TypeReferenceWithShape.of(new TypeReference<ThreeInput>() {}, JsonShape.DEFAULT));
+                    TypeReferenceWithShape.of(new TypeReference<OpenEndedOneLine>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<OpenEndedDateTime1>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<OpenEndedCommentBox>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<Choices1Input>() {}, JsonShape.DEFAULT));
         }
     }
 

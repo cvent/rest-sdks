@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// Bid tax type.
         /// </summary>
         [JsonProperty("code")]
-        public TaxType? Code { get; set; }
+        public TaxType1? Code { get; set; }
 
         /// <summary>
         /// The amount of the tax/fee. This may be a percent or monetary value depending on the value in `percent`.

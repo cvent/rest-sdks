@@ -1,6 +1,6 @@
 # ErrorResponse2
 
-Represents an error response with additional details of cascading error messages.
+The error response.
 
 ## Example Usage
 
@@ -12,9 +12,9 @@ import { ErrorResponse2 } from "@cvent/sdk/models/errors";
 
 ## Fields
 
-| Field                                                            | Type                                                             | Required                                                         | Description                                                      | Example                                                          |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `code`                                                           | *number*                                                         | :heavy_check_mark:                                               | The HTTP status code representing the error.                     | 400                                                              |
-| `message`                                                        | *string*                                                         | :heavy_check_mark:                                               | A brief description of the error.                                | Bad Request                                                      |
-| `target`                                                         | *string*                                                         | :heavy_minus_sign:                                               | The target resource of the error.                                | example target                                                   |
-| `details`                                                        | [components.ZeroAllOf1](../../models/components/zeroallof1.md)[] | :heavy_minus_sign:                                               | Additional details of cascading error messages.                  |                                                                  |
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `schemas`                                                            | *string*[]                                                           | :heavy_minus_sign:                                                   | The collection of error schemas.                                     |                                                                      |
+| `status`                                                             | *number*                                                             | :heavy_check_mark:                                                   | Status code for error.                                               | 400                                                                  |
+| `detail`                                                             | *string*                                                             | :heavy_check_mark:                                                   | Details of the error.                                                | Request is unparsable, syntactically incorrect, or violates schema.  |
+| `scimType`                                                           | [components.ErrorScimType](../../models/components/errorscimtype.md) | :heavy_minus_sign:                                                   | This is used to denote the scim type of the error.                   | invalidSyntax                                                        |

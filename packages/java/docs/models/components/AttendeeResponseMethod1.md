@@ -10,6 +10,7 @@ Represents the method by which an attendee registered for the event.
 - Group Leader Responded: The invitee was registered by a group leader and added to a group.
 - Historical Import: The invitee's registration was imported into the event as historical data.
 - Imported: The invitee's registration was imported into the event.
+- LinkedIn Registration Form: The attendee was registered through LinkedIn integration.
 - No Response: The invitee has not registered.
 - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.
 - Planner-Imported: An account user imported the invitee's registration into the event.
@@ -48,6 +49,7 @@ AttendeeResponseMethod1 value = AttendeeResponseMethod1.ADMINISTRATOR_RESPONDED;
 | `GROUP_LEADER_RESPONDED_WIDGET`              | Group Leader Responded Widget                |
 | `HISTORICAL_IMPORT`                          | Historical Import                            |
 | `IMPORTED`                                   | Imported                                     |
+| `LINKED_IN_REGISTRATION_FORM`                | LinkedIn Registration Form                   |
 | `NO_RESPONSE`                                | No Response                                  |
 | `ON_SITE_RESPONDED`                          | On-site Responded                            |
 | `PLANNER_IMPORTED`                           | Planner-Imported                             |

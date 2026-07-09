@@ -16,7 +16,7 @@ export type AirlinePreference = {
    */
   airlineName?: string | undefined;
   /**
-   * Any rewards code applied.
+   * Loyalty program number for the preferred airline.
    */
   rewardsCode?: string | undefined;
 };

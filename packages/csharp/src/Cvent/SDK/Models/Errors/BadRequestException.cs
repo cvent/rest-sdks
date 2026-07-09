@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Errors
     public class BadRequestExceptionPayload
     {
         /// <summary>
-        /// May be returned with additional information regarding the error.
+        /// Additional error information, when available.
         /// </summary>
         [JsonProperty("error_description")]
         public string? ErrorDescription { get; set; }

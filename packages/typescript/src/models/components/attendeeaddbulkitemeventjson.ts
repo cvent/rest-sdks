@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { ZeroAllOf7, ZeroAllOf7$inboundSchema } from "./zeroallof7.js";
-import { ZeroOneOf2, ZeroOneOf2$inboundSchema } from "./zerooneof2.js";
+import { ZeroOneOf, ZeroOneOf$inboundSchema } from "./zerooneof.js";
 
 /**
  * Represents an error response for the checkin APIs with additional details of cascading error messages.
@@ -37,13 +37,13 @@ export type AttendeeAddBulkItemEventJsonErrorResponse = {
 
 export type AttendeeAddBulkItemEventJsonData =
   | AttendeeAddBulkItemEventJsonErrorResponse
-  | ZeroOneOf2;
+  | ZeroOneOf;
 
 /**
  * This entity is used to represent a single item that is returned as part of a bulk request call.
  */
 export type AttendeeAddBulkItemEventJson = {
-  data: AttendeeAddBulkItemEventJsonErrorResponse | ZeroOneOf2;
+  data: AttendeeAddBulkItemEventJsonErrorResponse | ZeroOneOf;
   /**
    * http status code representing processing status of a single item
    */
@@ -94,7 +94,7 @@ export const AttendeeAddBulkItemEventJsonData$inboundSchema: z.ZodType<
   unknown
 > = z.union([
   z.lazy(() => AttendeeAddBulkItemEventJsonErrorResponse$inboundSchema),
-  ZeroOneOf2$inboundSchema,
+  ZeroOneOf$inboundSchema,
 ]);
 
 export function attendeeAddBulkItemEventJsonDataFromJSON(
@@ -115,7 +115,7 @@ export const AttendeeAddBulkItemEventJson$inboundSchema: z.ZodType<
 > = z.object({
   data: z.union([
     z.lazy(() => AttendeeAddBulkItemEventJsonErrorResponse$inboundSchema),
-    ZeroOneOf2$inboundSchema,
+    ZeroOneOf$inboundSchema,
   ]),
   status: z.number().int(),
   message: z.string().optional(),

@@ -1,6 +1,6 @@
 # JourneyType
 
-Type of journey
+Type of journey for an air booking.
 
 ## Example Usage
 

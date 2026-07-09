@@ -28,6 +28,6 @@ namespace Cvent.SDK.Models.Components
         /// IETF language code used to specify a target language for the translation.
         /// </summary>
         [JsonProperty("language")]
-        public LanguageJson Language { get; set; } = default!;
+        public Language1 Language { get; set; } = default!;
     }
 }

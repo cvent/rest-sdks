@@ -81,7 +81,7 @@ public class SendEmailEventResponse {
      * Details of an email to be send.
      */
     @JsonProperty("email")
-    private EmailJson2 email;
+    private EmailJson1 email;
 
     /**
      * True indicates this email should be resent to attendees who had already received this email
@@ -107,7 +107,7 @@ public class SendEmailEventResponse {
             @JsonProperty("status") @Nullable SendEmailRequestStatusJson status,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("event") @Nonnull EventJson6 event,
-            @JsonProperty("email") @Nonnull EmailJson2 email,
+            @JsonProperty("email") @Nonnull EmailJson1 email,
             @JsonProperty("resendToPreviousRecipients") boolean resendToPreviousRecipients,
             @JsonProperty("attendeeResponses") @Nullable List<AttendeeResponseJson> attendeeResponses) {
         this.created = created;
@@ -127,7 +127,7 @@ public class SendEmailEventResponse {
     public SendEmailEventResponse(
             @Nonnull String requestId,
             @Nonnull EventJson6 event,
-            @Nonnull EmailJson2 email,
+            @Nonnull EmailJson1 email,
             boolean resendToPreviousRecipients) {
         this(null, null, null, null, requestId, null, null, event, email, resendToPreviousRecipients, null);
     }
@@ -192,7 +192,7 @@ public class SendEmailEventResponse {
     /**
      * Details of an email to be send.
      */
-    public EmailJson2 email() {
+    public EmailJson1 email() {
         return this.email;
     }
 
@@ -283,7 +283,7 @@ public class SendEmailEventResponse {
     /**
      * Details of an email to be send.
      */
-    public SendEmailEventResponse withEmail(@Nonnull EmailJson2 email) {
+    public SendEmailEventResponse withEmail(@Nonnull EmailJson1 email) {
         this.email = Utils.checkNotNull(email, "email");
         return this;
     }
@@ -390,7 +390,7 @@ public class SendEmailEventResponse {
 
         private EventJson6 event;
 
-        private EmailJson2 email;
+        private EmailJson1 email;
 
         private boolean resendToPreviousRecipients;
 
@@ -468,7 +468,7 @@ public class SendEmailEventResponse {
         /**
          * Details of an email to be send.
          */
-        public Builder email(@Nonnull EmailJson2 email) {
+        public Builder email(@Nonnull EmailJson1 email) {
             this.email = Utils.checkNotNull(email, "email");
             return this;
         }

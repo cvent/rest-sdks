@@ -4,43 +4,51 @@
 
 import * as z from "zod/v3";
 import {
-  CustomFieldCategoryJson,
-  CustomFieldCategoryJson$outboundSchema,
-} from "./customfieldcategoryjson.js";
+  Choices1Input,
+  Choices1Input$Outbound,
+  Choices1Input$outboundSchema,
+} from "./choices1input.js";
 import {
-  CustomFieldTypeJson,
-  CustomFieldTypeJson$outboundSchema,
-} from "./customfieldtypejson.js";
+  CustomFieldCategory,
+  CustomFieldCategory$outboundSchema,
+} from "./customfieldcategory.js";
 import {
-  DisplayInDataTagJson,
-  DisplayInDataTagJson$outboundSchema,
-} from "./displayindatatagjson.js";
-import { One, One$Outbound, One$outboundSchema } from "./one.js";
+  CustomFieldType2,
+  CustomFieldType2$outboundSchema,
+} from "./customfieldtype2.js";
 import {
-  PageVisibilityJson,
-  PageVisibilityJson$Outbound,
-  PageVisibilityJson$outboundSchema,
-} from "./pagevisibilityjson.js";
+  DisplayInDataTag,
+  DisplayInDataTag$outboundSchema,
+} from "./displayindatatag.js";
 import {
-  ThreeInput,
-  ThreeInput$Outbound,
-  ThreeInput$outboundSchema,
-} from "./threeinput.js";
-import { Two, Two$Outbound, Two$outboundSchema } from "./two.js";
+  OpenEndedCommentBox,
+  OpenEndedCommentBox$Outbound,
+  OpenEndedCommentBox$outboundSchema,
+} from "./openendedcommentbox.js";
 import {
-  ZeroOneOf1,
-  ZeroOneOf1$Outbound,
-  ZeroOneOf1$outboundSchema,
-} from "./zerooneof1.js";
+  OpenEndedDateTime1,
+  OpenEndedDateTime1$Outbound,
+  OpenEndedDateTime1$outboundSchema,
+} from "./openendeddatetime1.js";
+import {
+  OpenEndedOneLine,
+  OpenEndedOneLine$Outbound,
+  OpenEndedOneLine$outboundSchema,
+} from "./openendedoneline.js";
+import {
+  PageVisibility,
+  PageVisibility$Outbound,
+  PageVisibility$outboundSchema,
+} from "./pagevisibility.js";
 
 /**
  * Type-specific details of the custom-field.
  */
 export type ExistingCustomFieldDetailsInput =
-  | ZeroOneOf1
-  | One
-  | Two
-  | ThreeInput;
+  | OpenEndedOneLine
+  | OpenEndedDateTime1
+  | OpenEndedCommentBox
+  | Choices1Input;
 
 /**
  * This is used to denote an existing custom field.
@@ -49,7 +57,7 @@ export type ExistingCustomFieldInput = {
   /**
    * This is used to denote the category of a custom field.
    */
-  category: CustomFieldCategoryJson;
+  category: CustomFieldCategory;
   /**
    * The actual text of the custom field.
    */
@@ -65,11 +73,16 @@ export type ExistingCustomFieldInput = {
   /**
    * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
    */
-  type: CustomFieldTypeJson;
+  type: CustomFieldType2;
   /**
    * Type-specific details of the custom-field.
    */
-  details?: ZeroOneOf1 | One | Two | ThreeInput | undefined;
+  details?:
+    | OpenEndedOneLine
+    | OpenEndedDateTime1
+    | OpenEndedCommentBox
+    | Choices1Input
+    | undefined;
   /**
    * The help text of the custom field.
    */
@@ -77,7 +90,7 @@ export type ExistingCustomFieldInput = {
   /**
    * This option allows you to choose whether to display the custom field in emails. The field name and the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to display always or only when answered. Only applicable to session custom fields.
    */
-  displayInDataTag?: DisplayInDataTagJson | undefined;
+  displayInDataTag?: DisplayInDataTag | undefined;
   /**
    * Default text in emails when a contact does not have a value answered for this custom field. Only applicable to contact custom fields.
    */
@@ -97,7 +110,7 @@ export type ExistingCustomFieldInput = {
   /**
    * Visibility of the custom field on various pages/forms.
    */
-  pageVisibility?: PageVisibilityJson | undefined;
+  pageVisibility?: PageVisibility | undefined;
   /**
    * The ID of the custom field.
    */
@@ -106,10 +119,10 @@ export type ExistingCustomFieldInput = {
 
 /** @internal */
 export type ExistingCustomFieldDetailsInput$Outbound =
-  | ZeroOneOf1$Outbound
-  | One$Outbound
-  | Two$Outbound
-  | ThreeInput$Outbound;
+  | OpenEndedOneLine$Outbound
+  | OpenEndedDateTime1$Outbound
+  | OpenEndedCommentBox$Outbound
+  | Choices1Input$Outbound;
 
 /** @internal */
 export const ExistingCustomFieldDetailsInput$outboundSchema: z.ZodType<
@@ -117,10 +130,10 @@ export const ExistingCustomFieldDetailsInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ExistingCustomFieldDetailsInput
 > = z.union([
-  ZeroOneOf1$outboundSchema,
-  One$outboundSchema,
-  Two$outboundSchema,
-  ThreeInput$outboundSchema,
+  OpenEndedOneLine$outboundSchema,
+  OpenEndedDateTime1$outboundSchema,
+  OpenEndedCommentBox$outboundSchema,
+  Choices1Input$outboundSchema,
 ]);
 
 export function existingCustomFieldDetailsInputToJSON(
@@ -141,10 +154,10 @@ export type ExistingCustomFieldInput$Outbound = {
   required: boolean;
   type: string;
   details?:
-    | ZeroOneOf1$Outbound
-    | One$Outbound
-    | Two$Outbound
-    | ThreeInput$Outbound
+    | OpenEndedOneLine$Outbound
+    | OpenEndedDateTime1$Outbound
+    | OpenEndedCommentBox$Outbound
+    | Choices1Input$Outbound
     | undefined;
   helpText?: string | undefined;
   displayInDataTag: string;
@@ -152,7 +165,7 @@ export type ExistingCustomFieldInput$Outbound = {
   consentField: boolean;
   active: boolean;
   displayInEventCreationWizard: boolean;
-  pageVisibility?: PageVisibilityJson$Outbound | undefined;
+  pageVisibility?: PageVisibility$Outbound | undefined;
   id?: string | undefined;
 };
 
@@ -162,24 +175,24 @@ export const ExistingCustomFieldInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ExistingCustomFieldInput
 > = z.object({
-  category: CustomFieldCategoryJson$outboundSchema,
+  category: CustomFieldCategory$outboundSchema,
   name: z.string(),
   code: z.string(),
   required: z.boolean().default(true),
-  type: CustomFieldTypeJson$outboundSchema,
+  type: CustomFieldType2$outboundSchema,
   details: z.union([
-    ZeroOneOf1$outboundSchema,
-    One$outboundSchema,
-    Two$outboundSchema,
-    ThreeInput$outboundSchema,
+    OpenEndedOneLine$outboundSchema,
+    OpenEndedDateTime1$outboundSchema,
+    OpenEndedCommentBox$outboundSchema,
+    Choices1Input$outboundSchema,
   ]).optional(),
   helpText: z.string().optional(),
-  displayInDataTag: DisplayInDataTagJson$outboundSchema.default("No"),
+  displayInDataTag: DisplayInDataTag$outboundSchema.default("No"),
   defaultTagText: z.string().optional(),
   consentField: z.boolean().default(false),
   active: z.boolean().default(true),
   displayInEventCreationWizard: z.boolean().default(false),
-  pageVisibility: PageVisibilityJson$outboundSchema.optional(),
+  pageVisibility: PageVisibility$outboundSchema.optional(),
   id: z.string().optional(),
 });
 

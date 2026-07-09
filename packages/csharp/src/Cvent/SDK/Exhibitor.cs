@@ -518,7 +518,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse2">Registration pack for given exhibitor already exists. Thrown when the API returns a 409 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Registration pack for given exhibitor already exists. Thrown when the API returns a 409 response.</exception>
         /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<PostRegistrationPackResponse> PostRegistrationPackAsync(
@@ -600,7 +600,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse2">RegPack cannot be deleted when at least one or more booth staff are already assigned. Thrown when the API returns a 409 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">RegPack cannot be deleted when at least one or more booth staff are already assigned. Thrown when the API returns a 409 response.</exception>
         /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<DeleteRegistrationPackResponse> DeleteRegistrationPackAsync(
@@ -4560,7 +4560,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse2">Registration pack for given exhibitor already exists. Thrown when the API returns a 409 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Registration pack for given exhibitor already exists. Thrown when the API returns a 409 response.</exception>
         /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<PostRegistrationPackResponse> PostRegistrationPackAsync(
@@ -4694,17 +4694,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponse2Payload payload;
+                    Models.Errors.ErrorResponsePayload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse2Payload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse2Payload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse2(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -5262,7 +5262,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse2">RegPack cannot be deleted when at least one or more booth staff are already assigned. Thrown when the API returns a 409 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">RegPack cannot be deleted when at least one or more booth staff are already assigned. Thrown when the API returns a 409 response.</exception>
         /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<DeleteRegistrationPackResponse> DeleteRegistrationPackAsync(
@@ -5372,17 +5372,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponse2Payload payload;
+                    Models.Errors.ErrorResponsePayload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse2Payload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse2Payload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse2(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());

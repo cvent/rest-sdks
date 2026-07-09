@@ -1,6 +1,6 @@
 # EmailJson1
 
-Email
+Details of an email to be send.
 
 ## Example Usage
 
@@ -8,15 +8,12 @@ Email
 import { EmailJson1 } from "@cvent/sdk/models/components";
 
 let value: EmailJson1 = {
-  value: "support@cvent.com",
-  primary: true,
+  id: "a150f1ee-6c54-4b01-90e6-d701748f0851",
 };
 ```
 
 ## Fields
 
-| Field                                                                | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `type`                                                               | [components.EmailTypeJson](../../models/components/emailtypejson.md) | :heavy_minus_sign:                                                   | The type of the email.                                               | work                                                                 |
-| `value`                                                              | *string*                                                             | :heavy_check_mark:                                                   | The email of the user.                                               | support@cvent.com                                                    |
-| `primary`                                                            | *boolean*                                                            | :heavy_minus_sign:                                                   | True indicates the email is primary.                                 | true                                                                 |
+| Field                                  | Type                                   | Required                               | Description                            | Example                                |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| `id`                                   | *string*                               | :heavy_check_mark:                     | The unique ID of the email to be sent. | a150f1ee-6c54-4b01-90e6-d701748f0851   |

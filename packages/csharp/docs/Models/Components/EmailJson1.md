@@ -1,12 +1,10 @@
 # EmailJson1
 
-Email
+Details of an email to be send.
 
 
 ## Fields
 
-| Field                                                     | Type                                                      | Required                                                  | Description                                               | Example                                                   |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| `Type`                                                    | [EmailTypeJson](../../Models/Components/EmailTypeJson.md) | :heavy_minus_sign:                                        | The type of the email.                                    | work                                                      |
-| `Value`                                                   | *string*                                                  | :heavy_check_mark:                                        | The email of the user.                                    | support@cvent.com                                         |
-| `Primary`                                                 | *bool*                                                    | :heavy_minus_sign:                                        | True indicates the email is primary.                      | true                                                      |
+| Field                                  | Type                                   | Required                               | Description                            | Example                                |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| `Id`                                   | *string*                               | :heavy_check_mark:                     | The unique ID of the email to be sent. | a150f1ee-6c54-4b01-90e6-d701748f0851   |

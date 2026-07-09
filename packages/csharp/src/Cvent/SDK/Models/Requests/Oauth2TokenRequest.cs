@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Requests
     public class Oauth2TokenRequest
     {
         /// <summary>
-        /// The grant type.
+        /// Controls the OAuth2 grant flow used to obtain tokens.
         /// </summary>
         [SpeakeasyMetadata("form:name=grant_type")]
         public GrantType GrantType { get; set; } = default!;
@@ -30,7 +30,7 @@ namespace Cvent.SDK.Models.Requests
 
         /// <summary>
         /// Can be a combination of any scopes associated with a client. Any scope requested must be pre-associated with the client or it will be ignored at runtime.<br/>
-        /// If the client doesn't request any scopes, the authentication server uses all scopes associated with the client.<br/>
+        /// If the client doesn't request any scopes, the authorization server uses all scopes associated with the client.<br/>
         /// <br/>
         /// **Optional** - Only used if the grant_type is client_credentials.
         /// </summary>
