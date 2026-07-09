@@ -7,16 +7,16 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ChoiceTranslationJson,
-  ChoiceTranslationJson$inboundSchema,
-  ChoiceTranslationJson$Outbound,
-  ChoiceTranslationJson$outboundSchema,
-} from "./choicetranslationjson.js";
+  ChoiceTranslation,
+  ChoiceTranslation$inboundSchema,
+  ChoiceTranslation$Outbound,
+  ChoiceTranslation$outboundSchema,
+} from "./choicetranslation.js";
 import {
-  LanguageJson,
-  LanguageJson$inboundSchema,
-  LanguageJson$outboundSchema,
-} from "./languagejson.js";
+  Language1,
+  Language1$inboundSchema,
+  Language1$outboundSchema,
+} from "./language1.js";
 
 /**
  * This is used to denote the translation of the custom field, including its name, help text, and choice texts.
@@ -33,7 +33,7 @@ export type Translation = {
   /**
    * Translations for the choice texts of a custom field. This property is only applicable for custom fields with choices.
    */
-  choiceTranslations?: Array<ChoiceTranslationJson> | undefined;
+  choiceTranslations?: Array<ChoiceTranslation> | undefined;
 };
 
 /**
@@ -47,7 +47,7 @@ export type Translation1 = {
   /**
    * IETF language code used to specify a target language for the translation.
    */
-  language: LanguageJson;
+  language: Language1;
 };
 
 /** @internal */
@@ -58,13 +58,13 @@ export const Translation$inboundSchema: z.ZodType<
 > = z.object({
   nameTranslation: z.string().optional(),
   helpTextTranslation: z.string().optional(),
-  choiceTranslations: z.array(ChoiceTranslationJson$inboundSchema).optional(),
+  choiceTranslations: z.array(ChoiceTranslation$inboundSchema).optional(),
 });
 /** @internal */
 export type Translation$Outbound = {
   nameTranslation?: string | undefined;
   helpTextTranslation?: string | undefined;
-  choiceTranslations?: Array<ChoiceTranslationJson$Outbound> | undefined;
+  choiceTranslations?: Array<ChoiceTranslation$Outbound> | undefined;
 };
 
 /** @internal */
@@ -75,7 +75,7 @@ export const Translation$outboundSchema: z.ZodType<
 > = z.object({
   nameTranslation: z.string().optional(),
   helpTextTranslation: z.string().optional(),
-  choiceTranslations: z.array(ChoiceTranslationJson$outboundSchema).optional(),
+  choiceTranslations: z.array(ChoiceTranslation$outboundSchema).optional(),
 });
 
 export function translationToJSON(translation: Translation): string {
@@ -98,7 +98,7 @@ export const Translation1$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   translation: z.lazy(() => Translation$inboundSchema),
-  language: LanguageJson$inboundSchema,
+  language: Language1$inboundSchema,
 });
 /** @internal */
 export type Translation1$Outbound = {
@@ -113,7 +113,7 @@ export const Translation1$outboundSchema: z.ZodType<
   Translation1
 > = z.object({
   translation: z.lazy(() => Translation$outboundSchema),
-  language: LanguageJson$outboundSchema,
+  language: Language1$outboundSchema,
 });
 
 export function translation1ToJSON(translation1: Translation1): string {

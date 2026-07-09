@@ -10,6 +10,7 @@ Represents the method by which an attendee registered for the event.
 - Group Leader Responded: The invitee was registered by a group leader and added to a group.
 - Historical Import: The invitee's registration was imported into the event as historical data.
 - Imported: The invitee's registration was imported into the event.
+- LinkedIn Registration Form: The attendee was registered through LinkedIn integration.
 - No Response: The invitee has not registered.
 - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.
 - Planner-Imported: An account user imported the invitee's registration into the event.
@@ -30,5 +31,5 @@ let value: AttendeeResponseMethod1 = "Self-Responded";
 ## Values
 
 ```typescript
-"Administrator Responded" | "Administrator Responded Widget" | "API-Responded" | "Appointments Event Website" | "Cvent Salesforce App" | "Cvent Salesforce App - Campaign Page" | "Cvent Salesforce App - Contact Page" | "Cvent Salesforce App - Event Page" | "Cvent Salesforce App - Lead Page" | "Cvent Salesforce App - Person Account Page" | "Cvent Salesforce App - Recommendation Widget" | "External Registration" | "Group Leader Responded" | "Group Leader Responded Widget" | "Historical Import" | "Imported" | "No Response" | "On-site Responded" | "Planner-Imported" | "Planner-Responded" | "Post Event" | "Self-Responded" | "Self-Responded Mobile" | "Self-Responded Widget"
+"Administrator Responded" | "Administrator Responded Widget" | "API-Responded" | "Appointments Event Website" | "Cvent Salesforce App" | "Cvent Salesforce App - Campaign Page" | "Cvent Salesforce App - Contact Page" | "Cvent Salesforce App - Event Page" | "Cvent Salesforce App - Lead Page" | "Cvent Salesforce App - Person Account Page" | "Cvent Salesforce App - Recommendation Widget" | "External Registration" | "Group Leader Responded" | "Group Leader Responded Widget" | "Historical Import" | "Imported" | "LinkedIn Registration Form" | "No Response" | "On-site Responded" | "Planner-Imported" | "Planner-Responded" | "Post Event" | "Self-Responded" | "Self-Responded Mobile" | "Self-Responded Widget"
 ```

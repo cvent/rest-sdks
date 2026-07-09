@@ -1,13 +1,13 @@
 # SeatType
 
-Type of the seat.
+Preferred or assigned seat type for an air booking.
 
 ## Example Usage
 
 ```typescript
 import { SeatType } from "@cvent/sdk/models/components";
 
-let value: SeatType = "Aisle";
+let value: SeatType = "Window";
 ```
 
 ## Values

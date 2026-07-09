@@ -21,6 +21,8 @@ import {
 } from "./attendeeanswer1.js";
 import { Gender1, Gender1$inboundSchema } from "./gender1.js";
 import { LegDetail, LegDetail$inboundSchema } from "./legdetail.js";
+import { SeatType, SeatType$inboundSchema } from "./seattype.js";
+import { TicketType, TicketType$inboundSchema } from "./tickettype.js";
 import {
   TravelRequestStatus,
   TravelRequestStatus$inboundSchema,
@@ -41,31 +43,6 @@ export const RequesterSuffix = {
  * Suffix of the flight requester.
  */
 export type RequesterSuffix = ClosedEnum<typeof RequesterSuffix>;
-
-/**
- * Type of the seat.
- */
-export const SeatType = {
-  Aisle: "Aisle",
-  Window: "Window",
-} as const;
-/**
- * Type of the seat.
- */
-export type SeatType = ClosedEnum<typeof SeatType>;
-
-/**
- * Category of the passenger's ticket.
- */
-export const TicketType = {
-  EconomyCoach: "Economy/Coach",
-  Business: "Business",
-  FirstClass: "FirstClass",
-} as const;
-/**
- * Category of the passenger's ticket.
- */
-export type TicketType = ClosedEnum<typeof TicketType>;
 
 /**
  * Age category of the requester.
@@ -150,11 +127,11 @@ export type AirRequest = {
    */
   incomingLeg?: LegDetail | undefined;
   /**
-   * Type of the seat.
+   * Preferred or assigned seat type for an air booking.
    */
   seatType?: SeatType | undefined;
   /**
-   * Category of the passenger's ticket.
+   * Category of the passenger's ticket for an air booking.
    */
   ticketType?: TicketType | undefined;
   /**
@@ -199,14 +176,6 @@ export type AirRequest = {
 export const RequesterSuffix$inboundSchema: z.ZodNativeEnum<
   typeof RequesterSuffix
 > = z.nativeEnum(RequesterSuffix);
-
-/** @internal */
-export const SeatType$inboundSchema: z.ZodNativeEnum<typeof SeatType> = z
-  .nativeEnum(SeatType);
-
-/** @internal */
-export const TicketType$inboundSchema: z.ZodNativeEnum<typeof TicketType> = z
-  .nativeEnum(TicketType);
 
 /** @internal */
 export const AgeCategory$inboundSchema: z.ZodNativeEnum<typeof AgeCategory> = z

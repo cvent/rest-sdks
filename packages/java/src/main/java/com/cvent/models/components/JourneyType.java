@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * JourneyType
  *
- * <p>Type of journey
+ * <p>Type of journey for an air booking.
  */
 public enum JourneyType {
     ONEWAY("Oneway"),

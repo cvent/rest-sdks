@@ -14,31 +14,27 @@ export type ListUsersRequest = {
    */
   count?: number | undefined;
   /**
-   * A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * to data that matches your criteria. See
+   * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
    *
-   * The following comparison types can be used in filter expressions:
-   *   * equal: eq
-   *   * not equal: ne
-   *   * greater than: gt
-   *   * greater or equal: ge
-   *   * less than: lt
-   *   * less than or equal: le
+   * Supported fields and operators are listed below:
    *
-   * The following fields are filterable:
-   *   * userName (eq|ne)
-   *   * groups.value (eq|ne)
-   *   * active (eq|ne)
-   *   * id (eq|nq)
-   *   * emails.value (eq|ne)
-   *   * meta.lastModified (eq|ne|lt|le|gt|ge)
-   *   * meta.created (eq|ne|lt|le|gt|ge)
+   * | Field             | Operators                          |
+   * |-------------------|------------------------------------|
+   * | userName          | `eq`, `ne`                         |
+   * | groups.value      | `eq`, `ne`                         |
+   * | active            | `eq`, `ne`                         |
+   * | id                | `eq`, `ne`                         |
+   * | emails.value      | `eq`, `ne`                         |
+   * | meta.lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+   * | meta.created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
    *
-   * The following operators are available:
-   *   * and
-   *   * or
+   * The following logical operators are supported for combining filters:
+   * * and
+   * * or
    */
   filter?: string | undefined;
 };

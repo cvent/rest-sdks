@@ -307,7 +307,7 @@ namespace Cvent.SDK
         public ICompliance Compliance { get; }
 
         /// <summary>
-        /// Available endpoints used to initiate an authentication request to obtain and validate an access token.
+        /// Endpoints for obtaining, refreshing, and validating OAuth2 access tokens.
         /// </summary>
         public IAuthentication Authentication { get; }
 

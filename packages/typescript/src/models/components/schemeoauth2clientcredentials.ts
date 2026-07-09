@@ -5,7 +5,7 @@
 import * as z from "zod/v3";
 
 /**
- * OAuth2 Client Credentials Flow
+ * OAuth2 Client Credentials Flow.
  */
 export type SchemeOAuth2ClientCredentials = {
   clientID: string;

@@ -28,7 +28,7 @@ public class TravelBidTaxAndFee {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("code")
-    private TaxType code;
+    private TaxType1 code;
 
     /**
      * The amount of the tax/fee. This may be a percent or monetary value depending on the value in
@@ -69,7 +69,7 @@ public class TravelBidTaxAndFee {
 
     @JsonCreator
     public TravelBidTaxAndFee(
-            @JsonProperty("code") @Nullable TaxType code,
+            @JsonProperty("code") @Nullable TaxType1 code,
             @JsonProperty("amount") @Nullable Double amount,
             @JsonProperty("percent") @Nullable Boolean percent,
             @JsonProperty("included") @Nullable Boolean included,
@@ -90,7 +90,7 @@ public class TravelBidTaxAndFee {
     /**
      * Bid tax type.
      */
-    public Optional<TaxType> code() {
+    public Optional<TaxType1> code() {
         return Optional.ofNullable(this.code);
     }
 
@@ -138,7 +138,7 @@ public class TravelBidTaxAndFee {
     /**
      * Bid tax type.
      */
-    public TravelBidTaxAndFee withCode(@Nullable TaxType code) {
+    public TravelBidTaxAndFee withCode(@Nullable TaxType1 code) {
         this.code = code;
         return this;
     }
@@ -228,7 +228,7 @@ public class TravelBidTaxAndFee {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private TaxType code;
+        private TaxType1 code;
 
         private Double amount;
 
@@ -247,7 +247,7 @@ public class TravelBidTaxAndFee {
         /**
          * Bid tax type.
          */
-        public Builder code(@Nullable TaxType code) {
+        public Builder code(@Nullable TaxType1 code) {
             this.code = code;
             return this;
         }

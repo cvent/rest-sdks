@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// This is used to denote the category of a custom field.
         /// </summary>
         [JsonProperty("category")]
-        public CustomFieldCategoryJson Category { get; set; } = default!;
+        public CustomFieldCategory Category { get; set; } = default!;
 
         /// <summary>
         /// The actual text of the custom field.
@@ -46,7 +46,7 @@ namespace Cvent.SDK.Models.Components
         /// This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
         /// </summary>
         [JsonProperty("type")]
-        public CustomFieldTypeJson Type { get; set; } = default!;
+        public CustomFieldType2 Type { get; set; } = default!;
 
         /// <summary>
         /// Type-specific details of the custom-field.
@@ -64,7 +64,7 @@ namespace Cvent.SDK.Models.Components
         /// This option allows you to choose whether to display the custom field in emails. The field name and the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to display always or only when answered. Only applicable to session custom fields.
         /// </summary>
         [JsonProperty("displayInDataTag")]
-        public DisplayInDataTagJson? DisplayInDataTag { get; set; } = Cvent.SDK.Models.Components.DisplayInDataTagJson.No;
+        public DisplayInDataTag? DisplayInDataTag { get; set; } = Cvent.SDK.Models.Components.DisplayInDataTag.No;
 
         /// <summary>
         /// Default text in emails when a contact does not have a value answered for this custom field. Only applicable to contact custom fields.
@@ -94,6 +94,6 @@ namespace Cvent.SDK.Models.Components
         /// Visibility of the custom field on various pages/forms.
         /// </summary>
         [JsonProperty("pageVisibility")]
-        public PageVisibilityJson? PageVisibility { get; set; }
+        public PageVisibility? PageVisibility { get; set; }
     }
 }

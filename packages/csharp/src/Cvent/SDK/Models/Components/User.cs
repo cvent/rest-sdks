@@ -35,7 +35,7 @@ namespace Cvent.SDK.Models.Components
         /// The name of the user.
         /// </summary>
         [JsonProperty("name")]
-        public NameJson Name { get; set; } = default!;
+        public Name Name { get; set; } = default!;
 
         /// <summary>
         /// The user name of the user to be used during identification.
@@ -53,7 +53,7 @@ namespace Cvent.SDK.Models.Components
         /// The email of the user. The Cvent user can have only one email address.&lt;br&gt; If multiple email addresses are provided, only one is accepted and rest are ignored. One email is selected based on the following sequence of criteria: primary email, then work type, and finally first in the sequence.
         /// </summary>
         [JsonProperty("emails")]
-        public List<EmailJson1> Emails { get; set; } = default!;
+        public List<Email> Emails { get; set; } = default!;
 
         /// <summary>
         /// The title of the user.
@@ -65,19 +65,19 @@ namespace Cvent.SDK.Models.Components
         /// The phone numbers of the user.&lt;br&gt; If more than one number per type is provided, only one is accepted and rest are ignored.
         /// </summary>
         [JsonProperty("phoneNumbers")]
-        public List<PhoneNumberJson1>? PhoneNumbers { get; set; }
+        public List<PhoneNumber>? PhoneNumbers { get; set; }
 
         /// <summary>
         /// The address of the user. The user can have only one address. &lt;br&gt; If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence.
         /// </summary>
         [JsonProperty("addresses")]
-        public List<AddressJson2>? Addresses { get; set; }
+        public List<Address5>? Addresses { get; set; }
 
         /// <summary>
         /// The type of the user.
         /// </summary>
         [JsonProperty("userType")]
-        public UserTypeJson UserType { get; set; } = default!;
+        public UserType UserType { get; set; } = default!;
 
         /// <summary>
         /// List of <a href="#section/Getting-Started/Time-Zones">Timezones</a> supported.
@@ -95,18 +95,18 @@ namespace Cvent.SDK.Models.Components
         /// The SCIM group (representing Cvent user role) of the user.
         /// </summary>
         [JsonProperty("groups")]
-        public List<GroupJson> Groups { get; set; } = default!;
+        public List<Group> Groups { get; set; } = default!;
 
         /// <summary>
         /// Enterprise extension model for the user.
         /// </summary>
         [JsonProperty("urn:ietf:params:scim:schemas:extension:enterprise:2.0:User")]
-        public UserEnterpriseExtensionJson UrnIetfParamsScimSchemasExtensionEnterprise20User { get; set; } = default!;
+        public UserEnterpriseExtension UrnIetfParamsScimSchemasExtensionEnterprise20User { get; set; } = default!;
 
         /// <summary>
         /// Metadata of the resource.
         /// </summary>
         [JsonProperty("meta")]
-        public MetaJson? Meta { get; set; }
+        public Meta? Meta { get; set; }
     }
 }

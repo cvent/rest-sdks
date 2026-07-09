@@ -24,8 +24,7 @@ import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 
 /**
- * Available endpoints used to initiate an authentication request to obtain and validate an access
- * token.
+ * Endpoints for obtaining, refreshing, and validating OAuth2 access tokens.
  */
 public class Authentication {
     private static final Headers _headers = Headers.EMPTY;
@@ -47,14 +46,15 @@ public class Authentication {
     }
 
     /**
-     * Authorize
+     * Get Authorization Code
      *
-     * <p>The /oauth2/authorize endpoint only supports HTTPS GET. The client typically makes this request
-     * through a browser.
+     * <p>Initiates the OAuth2 authorization code flow by directing the user-agent to the Cvent authorization
+     * server. The client typically triggers this request via a browser. For the `redirect_uri` HTTPS is
+     * required; `http://localhost` is permitted for local testing only.
      *
-     * <p>The authorization server requires HTTPS instead of HTTP as the protocol when accessing the
-     * authorization endpoint
-     * except for http://localhost for testing purposes only.
+     * <p>On success, the authorization server redirects the user-agent back to the client's `redirect_uri`
+     * with an authorization code. The client can then exchange that code via [Get
+     * Token](#operation/oauth2Token) to obtain an access token.
      *
      * @return The call builder
      */
@@ -63,14 +63,15 @@ public class Authentication {
     }
 
     /**
-     * Authorize
+     * Get Authorization Code
      *
-     * <p>The /oauth2/authorize endpoint only supports HTTPS GET. The client typically makes this request
-     * through a browser.
+     * <p>Initiates the OAuth2 authorization code flow by directing the user-agent to the Cvent authorization
+     * server. The client typically triggers this request via a browser. For the `redirect_uri` HTTPS is
+     * required; `http://localhost` is permitted for local testing only.
      *
-     * <p>The authorization server requires HTTPS instead of HTTP as the protocol when accessing the
-     * authorization endpoint
-     * except for http://localhost for testing purposes only.
+     * <p>On success, the authorization server redirects the user-agent back to the client's `redirect_uri`
+     * with an authorization code. The client can then exchange that code via [Get
+     * Token](#operation/oauth2Token) to obtain an access token.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -81,14 +82,15 @@ public class Authentication {
     }
 
     /**
-     * Authorize
+     * Get Authorization Code
      *
-     * <p>The /oauth2/authorize endpoint only supports HTTPS GET. The client typically makes this request
-     * through a browser.
+     * <p>Initiates the OAuth2 authorization code flow by directing the user-agent to the Cvent authorization
+     * server. The client typically triggers this request via a browser. For the `redirect_uri` HTTPS is
+     * required; `http://localhost` is permitted for local testing only.
      *
-     * <p>The authorization server requires HTTPS instead of HTTP as the protocol when accessing the
-     * authorization endpoint
-     * except for http://localhost for testing purposes only.
+     * <p>On success, the authorization server redirects the user-agent back to the client's `redirect_uri`
+     * with an authorization code. The client can then exchange that code via [Get
+     * Token](#operation/oauth2Token) to obtain an access token.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -102,9 +104,9 @@ public class Authentication {
     }
 
     /**
-     * Token
+     * Get Token
      *
-     * <p>Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer
+     * <p>Obtains an access token and, optionally, a refresh token. Read the [Developer
      * Quickstart](https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart) for an
      * example request.
      *
@@ -117,9 +119,9 @@ public class Authentication {
     }
 
     /**
-     * Token
+     * Get Token
      *
-     * <p>Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer
+     * <p>Obtains an access token and, optionally, a refresh token. Read the [Developer
      * Quickstart](https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart) for an
      * example request.
      *
@@ -134,9 +136,9 @@ public class Authentication {
     }
 
     /**
-     * Token
+     * Get Token
      *
-     * <p>Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer
+     * <p>Obtains an access token and, optionally, a refresh token. Read the [Developer
      * Quickstart](https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart) for an
      * example request.
      *

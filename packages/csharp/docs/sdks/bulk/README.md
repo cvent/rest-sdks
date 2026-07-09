@@ -111,7 +111,7 @@ var res = await sdk.Bulk.CreateBulkJobAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse2 | 409                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse  | 409                                    | application/json                       |
 | Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
@@ -284,7 +284,7 @@ var res = await sdk.Bulk.UploadBulkJobDataAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse2 | 409                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse  | 409                                    | application/json                       |
 | Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
@@ -391,6 +391,6 @@ var res = await sdk.Bulk.RunBulkJobAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse2 | 409                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse  | 409                                    | application/json                       |
 | Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |

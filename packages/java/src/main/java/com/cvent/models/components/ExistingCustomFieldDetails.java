@@ -30,22 +30,22 @@ public class ExistingCustomFieldDetails {
         this.value = value;
     }
 
-    public static ExistingCustomFieldDetails of(ZeroOneOf1 value) {
+    public static ExistingCustomFieldDetails of(OpenEndedOneLine value) {
         Utils.checkNotNull(value, "value");
         return new ExistingCustomFieldDetails(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
-    public static ExistingCustomFieldDetails of(One value) {
+    public static ExistingCustomFieldDetails of(OpenEndedDateTime1 value) {
         Utils.checkNotNull(value, "value");
         return new ExistingCustomFieldDetails(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
-    public static ExistingCustomFieldDetails of(Two value) {
+    public static ExistingCustomFieldDetails of(OpenEndedCommentBox value) {
         Utils.checkNotNull(value, "value");
         return new ExistingCustomFieldDetails(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
-    public static ExistingCustomFieldDetails of(Three value) {
+    public static ExistingCustomFieldDetails of(Choices1 value) {
         Utils.checkNotNull(value, "value");
         return new ExistingCustomFieldDetails(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
@@ -53,10 +53,10 @@ public class ExistingCustomFieldDetails {
     /**
      * Returns an instance of one of these types:
      * <ul>
-     * <li>{@code com.cvent.models.components.ZeroOneOf1}</li>
-     * <li>{@code com.cvent.models.components.One}</li>
-     * <li>{@code com.cvent.models.components.Two}</li>
-     * <li>{@code com.cvent.models.components.Three}</li>
+     * <li>{@code com.cvent.models.components.OpenEndedOneLine}</li>
+     * <li>{@code com.cvent.models.components.OpenEndedDateTime1}</li>
+     * <li>{@code com.cvent.models.components.OpenEndedCommentBox}</li>
+     * <li>{@code com.cvent.models.components.Choices1}</li>
      * </ul>
      *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
@@ -98,10 +98,10 @@ public class ExistingCustomFieldDetails {
             super(
                     ExistingCustomFieldDetails.class,
                     false,
-                    TypeReferenceWithShape.of(new TypeReference<ZeroOneOf1>() {}, JsonShape.DEFAULT),
-                    TypeReferenceWithShape.of(new TypeReference<One>() {}, JsonShape.DEFAULT),
-                    TypeReferenceWithShape.of(new TypeReference<Two>() {}, JsonShape.DEFAULT),
-                    TypeReferenceWithShape.of(new TypeReference<Three>() {}, JsonShape.DEFAULT));
+                    TypeReferenceWithShape.of(new TypeReference<OpenEndedOneLine>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<OpenEndedDateTime1>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<OpenEndedCommentBox>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<Choices1>() {}, JsonShape.DEFAULT));
         }
     }
 

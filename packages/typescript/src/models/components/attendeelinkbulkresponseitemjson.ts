@@ -6,10 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  ErrorResponse2,
-  ErrorResponse2$inboundSchema,
-} from "./errorresponse2.js";
+import { ErrorResponse, ErrorResponse$inboundSchema } from "./errorresponse.js";
 import {
   ExistingAttendeeLink,
   ExistingAttendeeLink$inboundSchema,
@@ -17,13 +14,13 @@ import {
 
 export type AttendeeLinkBulkResponseItemJsonData =
   | ExistingAttendeeLink
-  | ErrorResponse2;
+  | ErrorResponse;
 
 /**
  * This entity is used to represent a single item that is returned as part of a bulk request call.
  */
 export type AttendeeLinkBulkResponseItemJson = {
-  data: ExistingAttendeeLink | ErrorResponse2;
+  data: ExistingAttendeeLink | ErrorResponse;
   /**
    * http status code representing processing status of a single item
    */
@@ -43,7 +40,7 @@ export const AttendeeLinkBulkResponseItemJsonData$inboundSchema: z.ZodType<
   AttendeeLinkBulkResponseItemJsonData,
   z.ZodTypeDef,
   unknown
-> = z.union([ExistingAttendeeLink$inboundSchema, ErrorResponse2$inboundSchema]);
+> = z.union([ExistingAttendeeLink$inboundSchema, ErrorResponse$inboundSchema]);
 
 export function attendeeLinkBulkResponseItemJsonDataFromJSON(
   jsonString: string,
@@ -64,7 +61,7 @@ export const AttendeeLinkBulkResponseItemJson$inboundSchema: z.ZodType<
 > = z.object({
   data: z.union([
     ExistingAttendeeLink$inboundSchema,
-    ErrorResponse2$inboundSchema,
+    ErrorResponse$inboundSchema,
   ]),
   status: z.number().int(),
   message: z.string().optional(),

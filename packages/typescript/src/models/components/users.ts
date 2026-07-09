@@ -7,7 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { UserJson, UserJson$inboundSchema } from "./userjson.js";
+import { User, User$inboundSchema } from "./user.js";
 
 /**
  * A page in a paginated list of SCIM users. This would return the list of users.
@@ -32,7 +32,7 @@ export type Users = {
   /**
    * The collection of user resources.
    */
-  resources?: Array<UserJson> | undefined;
+  resources?: Array<User> | undefined;
 };
 
 /** @internal */
@@ -42,7 +42,7 @@ export const Users$inboundSchema: z.ZodType<Users, z.ZodTypeDef, unknown> = z
     itemsPerPage: z.number().int().optional(),
     startIndex: z.number().int().optional(),
     totalResults: z.number().int().optional(),
-    Resources: z.array(UserJson$inboundSchema).optional(),
+    Resources: z.array(User$inboundSchema).optional(),
   }).transform((v) => {
     return remap$(v, {
       "Resources": "resources",

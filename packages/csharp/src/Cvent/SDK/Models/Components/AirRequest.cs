@@ -117,13 +117,13 @@ namespace Cvent.SDK.Models.Components
         public LegDetail? IncomingLeg { get; set; }
 
         /// <summary>
-        /// Type of the seat.
+        /// Preferred or assigned seat type for an air booking.
         /// </summary>
         [JsonProperty("seatType")]
         public SeatType? SeatType { get; set; }
 
         /// <summary>
-        /// Category of the passenger's ticket.
+        /// Category of the passenger's ticket for an air booking.
         /// </summary>
         [JsonProperty("ticketType")]
         public TicketType? TicketType { get; set; }

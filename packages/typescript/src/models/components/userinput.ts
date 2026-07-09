@@ -5,36 +5,24 @@
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
-  AddressJson2,
-  AddressJson2$Outbound,
-  AddressJson2$outboundSchema,
-} from "./addressjson2.js";
+  Address5,
+  Address5$Outbound,
+  Address5$outboundSchema,
+} from "./address5.js";
+import { Email, Email$Outbound, Email$outboundSchema } from "./email.js";
+import { Group, Group$Outbound, Group$outboundSchema } from "./group.js";
+import { Name, Name$Outbound, Name$outboundSchema } from "./name.js";
 import {
-  EmailJson1,
-  EmailJson1$Outbound,
-  EmailJson1$outboundSchema,
-} from "./emailjson1.js";
+  PhoneNumber,
+  PhoneNumber$Outbound,
+  PhoneNumber$outboundSchema,
+} from "./phonenumber.js";
 import {
-  GroupJson,
-  GroupJson$Outbound,
-  GroupJson$outboundSchema,
-} from "./groupjson.js";
-import {
-  NameJson,
-  NameJson$Outbound,
-  NameJson$outboundSchema,
-} from "./namejson.js";
-import {
-  PhoneNumberJson1,
-  PhoneNumberJson1$Outbound,
-  PhoneNumberJson1$outboundSchema,
-} from "./phonenumberjson1.js";
-import {
-  UserEnterpriseExtensionJson,
-  UserEnterpriseExtensionJson$Outbound,
-  UserEnterpriseExtensionJson$outboundSchema,
-} from "./userenterpriseextensionjson.js";
-import { UserTypeJson, UserTypeJson$outboundSchema } from "./usertypejson.js";
+  UserEnterpriseExtension,
+  UserEnterpriseExtension$Outbound,
+  UserEnterpriseExtension$outboundSchema,
+} from "./userenterpriseextension.js";
+import { UserType, UserType$outboundSchema } from "./usertype.js";
 
 /**
  * Generic sample User. Not a real model used by any Cvent service.
@@ -43,7 +31,7 @@ export type UserInput = {
   /**
    * The name of the user.
    */
-  name: NameJson;
+  name: Name;
   /**
    * The user name of the user to be used during identification.
    */
@@ -55,7 +43,7 @@ export type UserInput = {
   /**
    * The email of the user. The Cvent user can have only one email address.<br> If multiple email addresses are provided, only one is accepted and rest are ignored. One email is selected based on the following sequence of criteria: primary email, then work type, and finally first in the sequence.
    */
-  emails: Array<EmailJson1>;
+  emails: Array<Email>;
   /**
    * The title of the user.
    */
@@ -63,15 +51,15 @@ export type UserInput = {
   /**
    * The phone numbers of the user.<br> If more than one number per type is provided, only one is accepted and rest are ignored.
    */
-  phoneNumbers?: Array<PhoneNumberJson1> | undefined;
+  phoneNumbers?: Array<PhoneNumber> | undefined;
   /**
    * The address of the user. The user can have only one address. <br> If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence
    */
-  addresses?: Array<AddressJson2> | undefined;
+  addresses?: Array<Address5> | undefined;
   /**
    * The type of the user.
    */
-  userType: UserTypeJson;
+  userType: UserType;
   /**
    * List of <a href="#section/Getting-Started/Time-Zones">Timezones</a> supported.
    */
@@ -83,29 +71,28 @@ export type UserInput = {
   /**
    * The SCIM group (representing Cvent user role) of the user.
    */
-  groups: Array<GroupJson>;
+  groups: Array<Group>;
   /**
    * Enterprise extension model for the user.
    */
-  urnIetfParamsScimSchemasExtensionEnterprise20User:
-    UserEnterpriseExtensionJson;
+  urnIetfParamsScimSchemasExtensionEnterprise20User: UserEnterpriseExtension;
 };
 
 /** @internal */
 export type UserInput$Outbound = {
-  name: NameJson$Outbound;
+  name: Name$Outbound;
   userName: string;
   active: boolean;
-  emails: Array<EmailJson1$Outbound>;
+  emails: Array<Email$Outbound>;
   title?: string | undefined;
-  phoneNumbers?: Array<PhoneNumberJson1$Outbound> | undefined;
-  addresses?: Array<AddressJson2$Outbound> | undefined;
+  phoneNumbers?: Array<PhoneNumber$Outbound> | undefined;
+  addresses?: Array<Address5$Outbound> | undefined;
   userType: string;
   timezone: string;
   locale: string;
-  groups: Array<GroupJson$Outbound>;
+  groups: Array<Group$Outbound>;
   "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":
-    UserEnterpriseExtensionJson$Outbound;
+    UserEnterpriseExtension$Outbound;
 };
 
 /** @internal */
@@ -114,19 +101,19 @@ export const UserInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   UserInput
 > = z.object({
-  name: NameJson$outboundSchema,
+  name: Name$outboundSchema,
   userName: z.string(),
   active: z.boolean().default(true),
-  emails: z.array(EmailJson1$outboundSchema),
+  emails: z.array(Email$outboundSchema),
   title: z.string().optional(),
-  phoneNumbers: z.array(PhoneNumberJson1$outboundSchema).optional(),
-  addresses: z.array(AddressJson2$outboundSchema).optional(),
-  userType: UserTypeJson$outboundSchema,
+  phoneNumbers: z.array(PhoneNumber$outboundSchema).optional(),
+  addresses: z.array(Address5$outboundSchema).optional(),
+  userType: UserType$outboundSchema,
   timezone: z.string().default("America/New_York"),
   locale: z.string(),
-  groups: z.array(GroupJson$outboundSchema),
+  groups: z.array(Group$outboundSchema),
   urnIetfParamsScimSchemasExtensionEnterprise20User:
-    UserEnterpriseExtensionJson$outboundSchema,
+    UserEnterpriseExtension$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     urnIetfParamsScimSchemasExtensionEnterprise20User:

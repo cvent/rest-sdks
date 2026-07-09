@@ -151,7 +151,7 @@ public class Oauth2Authorize {
                         }
                         try {
                             HttpResponse<InputStream> httpRes = client.send(r);
-                            if (Utils.statusCodeMatches(httpRes.statusCode(), "4XX", "5XX")) {
+                            if (Utils.statusCodeMatches(httpRes.statusCode(), "400", "4XX", "5XX")) {
                                 return onError(httpRes, null);
                             }
                             return httpRes;
@@ -180,7 +180,7 @@ public class Oauth2Authorize {
                 // no content
                 return res;
             }
-            if (Utils.statusCodeMatches(response.statusCode(), "4XX")) {
+            if (Utils.statusCodeMatches(response.statusCode(), "400", "4XX")) {
                 // no content
                 throw APIException.from("API error occurred", response);
             }
@@ -233,7 +233,7 @@ public class Oauth2Authorize {
                         if (err != null) {
                             return onError(null, err);
                         }
-                        if (Utils.statusCodeMatches(resp.statusCode(), "4XX", "5XX")) {
+                        if (Utils.statusCodeMatches(resp.statusCode(), "400", "4XX", "5XX")) {
                             return onError(resp, null);
                         }
                         return CompletableFuture.completedFuture(resp);
@@ -259,7 +259,7 @@ public class Oauth2Authorize {
                 // no content
                 return CompletableFuture.completedFuture(res);
             }
-            if (Utils.statusCodeMatches(response.statusCode(), "4XX")) {
+            if (Utils.statusCodeMatches(response.statusCode(), "400", "4XX")) {
                 // no content
                 return Utils.createAsyncApiError(response, "API error occurred");
             }

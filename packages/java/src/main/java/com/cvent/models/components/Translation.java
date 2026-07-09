@@ -41,13 +41,13 @@ public class Translation {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("choiceTranslations")
-    private List<ChoiceTranslationJson> choiceTranslations;
+    private List<ChoiceTranslation> choiceTranslations;
 
     @JsonCreator
     public Translation(
             @JsonProperty("nameTranslation") @Nullable String nameTranslation,
             @JsonProperty("helpTextTranslation") @Nullable String helpTextTranslation,
-            @JsonProperty("choiceTranslations") @Nullable List<ChoiceTranslationJson> choiceTranslations) {
+            @JsonProperty("choiceTranslations") @Nullable List<ChoiceTranslation> choiceTranslations) {
         this.nameTranslation = nameTranslation;
         this.helpTextTranslation = helpTextTranslation;
         this.choiceTranslations = choiceTranslations;
@@ -75,7 +75,7 @@ public class Translation {
      * Translations for the choice texts of a custom field. This property is only applicable for custom
      * fields with choices.
      */
-    public Optional<List<ChoiceTranslationJson>> choiceTranslations() {
+    public Optional<List<ChoiceTranslation>> choiceTranslations() {
         return Optional.ofNullable(this.choiceTranslations);
     }
 
@@ -103,7 +103,7 @@ public class Translation {
      * Translations for the choice texts of a custom field. This property is only applicable for custom
      * fields with choices.
      */
-    public Translation withChoiceTranslations(@Nullable List<ChoiceTranslationJson> choiceTranslations) {
+    public Translation withChoiceTranslations(@Nullable List<ChoiceTranslation> choiceTranslations) {
         this.choiceTranslations = choiceTranslations;
         return this;
     }
@@ -146,7 +146,7 @@ public class Translation {
 
         private String helpTextTranslation;
 
-        private List<ChoiceTranslationJson> choiceTranslations;
+        private List<ChoiceTranslation> choiceTranslations;
 
         private Builder() {
             // force use of static builder() method
@@ -172,7 +172,7 @@ public class Translation {
          * Translations for the choice texts of a custom field. This property is only applicable for custom
          * fields with choices.
          */
-        public Builder choiceTranslations(@Nullable List<ChoiceTranslationJson> choiceTranslations) {
+        public Builder choiceTranslations(@Nullable List<ChoiceTranslation> choiceTranslations) {
             this.choiceTranslations = choiceTranslations;
             return this;
         }

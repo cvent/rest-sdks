@@ -47,6 +47,6 @@ namespace Cvent.SDK.Models.Components
         /// The collection of user resources.
         /// </summary>
         [JsonProperty("Resources")]
-        public List<UserJson>? Resources { get; set; }
+        public List<User>? Resources { get; set; }
     }
 }

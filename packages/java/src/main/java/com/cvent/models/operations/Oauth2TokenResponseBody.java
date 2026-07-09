@@ -37,7 +37,7 @@ public class Oauth2TokenResponseBody {
     private String refreshToken;
 
     /**
-     * The token type.
+     * The OAuth2 token type. Always `Bearer`.
      */
     @JsonProperty("token_type")
     private String tokenType;
@@ -82,7 +82,7 @@ public class Oauth2TokenResponseBody {
     }
 
     /**
-     * The token type.
+     * The OAuth2 token type. Always `Bearer`.
      */
     public String tokenType() {
         return this.tokenType;
@@ -116,7 +116,7 @@ public class Oauth2TokenResponseBody {
     }
 
     /**
-     * The token type.
+     * The OAuth2 token type. Always `Bearer`.
      */
     public Oauth2TokenResponseBody withTokenType(@Nonnull String tokenType) {
         this.tokenType = Utils.checkNotNull(tokenType, "tokenType");
@@ -197,7 +197,7 @@ public class Oauth2TokenResponseBody {
         }
 
         /**
-         * The token type.
+         * The OAuth2 token type. Always `Bearer`.
          */
         public Builder tokenType(@Nonnull String tokenType) {
             this.tokenType = Utils.checkNotNull(tokenType, "tokenType");

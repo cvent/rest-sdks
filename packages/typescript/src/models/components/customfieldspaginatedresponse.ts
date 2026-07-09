@@ -10,7 +10,7 @@ import {
   ExistingCustomField,
   ExistingCustomField$inboundSchema,
 } from "./existingcustomfield.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to get the list of custom fields metadata.  This includes the paging object as well as the collection of custom fields metadata.
@@ -19,7 +19,7 @@ export type CustomFieldsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of custom fields.
    */
@@ -32,7 +32,7 @@ export const CustomFieldsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
+  paging: Paging$inboundSchema,
   data: z.array(ExistingCustomField$inboundSchema),
 });
 

@@ -6,9 +6,9 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { MetaJson, MetaJson$inboundSchema } from "./metajson.js";
+import { Meta, Meta$inboundSchema } from "./meta.js";
 
-export type ResourceTypeSchemaExtension = {
+export type SchemaExtension = {
   /**
    * The id of the schema extension
    */
@@ -50,16 +50,16 @@ export type ResourceType = {
   /**
    * The list of schema extensions for the resource type.
    */
-  schemaExtensions?: Array<ResourceTypeSchemaExtension> | undefined;
+  schemaExtensions?: Array<SchemaExtension> | undefined;
   /**
    * Metadata of the resource.
    */
-  meta?: MetaJson | undefined;
+  meta?: Meta | undefined;
 };
 
 /** @internal */
-export const ResourceTypeSchemaExtension$inboundSchema: z.ZodType<
-  ResourceTypeSchemaExtension,
+export const SchemaExtension$inboundSchema: z.ZodType<
+  SchemaExtension,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -67,13 +67,13 @@ export const ResourceTypeSchemaExtension$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
 });
 
-export function resourceTypeSchemaExtensionFromJSON(
+export function schemaExtensionFromJSON(
   jsonString: string,
-): SafeParseResult<ResourceTypeSchemaExtension, SDKValidationError> {
+): SafeParseResult<SchemaExtension, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ResourceTypeSchemaExtension$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ResourceTypeSchemaExtension' from JSON`,
+    (x) => SchemaExtension$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SchemaExtension' from JSON`,
   );
 }
 
@@ -89,10 +89,9 @@ export const ResourceType$inboundSchema: z.ZodType<
   description: z.string().optional(),
   endpoint: z.string().optional(),
   schema: z.string().optional(),
-  schemaExtensions: z.array(
-    z.lazy(() => ResourceTypeSchemaExtension$inboundSchema),
-  ).optional(),
-  meta: MetaJson$inboundSchema.optional(),
+  schemaExtensions: z.array(z.lazy(() => SchemaExtension$inboundSchema))
+    .optional(),
+  meta: Meta$inboundSchema.optional(),
 });
 
 export function resourceTypeFromJSON(

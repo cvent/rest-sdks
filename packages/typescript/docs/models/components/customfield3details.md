@@ -15,10 +15,10 @@ const value: components.OpenEndedOneLine = {
 };
 ```
 
-### `components.OpenEndedDateTime`
+### `components.OpenEndedDateTime1`
 
 ```typescript
-const value: components.OpenEndedDateTime = {
+const value: components.OpenEndedDateTime1 = {
   from: new Date("2021-01-02T02:00:00Z"),
   to: new Date("2021-02-02T02:00:00Z"),
   format: "DateOnlyMonthFirst",
@@ -35,10 +35,10 @@ const value: components.OpenEndedCommentBox = {
 };
 ```
 
-### `components.Choices`
+### `components.Choices1Input`
 
 ```typescript
-const value: components.Choices = {
+const value: components.Choices1Input = {
   choices: [
     {
       text: "What is your current designation?",

@@ -1,6 +1,6 @@
 # GrantType
 
-The grant type.
+Controls the OAuth2 grant flow used to obtain tokens.
 
 ## Example Usage
 

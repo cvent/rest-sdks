@@ -8,41 +8,45 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Address details.
+ * Address of the hotel.
  */
 export type Address6 = {
   /**
-   * Address line 1.
+   * The first line of an address.
    */
   address1?: string | undefined;
   /**
-   * Address line 2.
+   * The second line of an address.
    */
   address2?: string | undefined;
   /**
-   * City name.
+   * The third line of an address.
+   */
+  address3?: string | undefined;
+  /**
+   * The name of the city.
    */
   city?: string | undefined;
   /**
-   * Region name.
+   * ISO 3166 two-letter (alpha-2) country code.
    */
-  region?: string | undefined;
+  countryCode?: string | undefined;
   /**
-   * Region code.
-   */
-  regionCode?: string | undefined;
-  /**
-   * Postal code.
+   * Postal code (also known as zipcode) of the address.
    */
   postalCode?: string | undefined;
   /**
-   * Country name.
+   * The name of the state/province/region of the address.
+   */
+  region?: string | undefined;
+  /**
+   * The abbreviation of the state/province/region of the address.
+   */
+  regionCode?: string | undefined;
+  /**
+   * Name of the country.
    */
   country?: string | undefined;
-  /**
-   * ISO 3166 alpha-2 country code.
-   */
-  countryCode?: string | undefined;
 };
 
 /** @internal */
@@ -53,12 +57,13 @@ export const Address6$inboundSchema: z.ZodType<
 > = z.object({
   address1: z.string().optional(),
   address2: z.string().optional(),
+  address3: z.string().optional(),
   city: z.string().optional(),
+  countryCode: z.string().optional(),
+  postalCode: z.string().optional(),
   region: z.string().optional(),
   regionCode: z.string().optional(),
-  postalCode: z.string().optional(),
   country: z.string().optional(),
-  countryCode: z.string().optional(),
 });
 
 export function address6FromJSON(

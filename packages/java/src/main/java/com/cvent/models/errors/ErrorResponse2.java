@@ -3,7 +3,7 @@
  */
 package com.cvent.models.errors;
 
-import com.cvent.models.components.ZeroAllOf1;
+import com.cvent.models.components.ErrorScimType;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -16,6 +16,7 @@ import jakarta.annotation.Nullable;
 import java.io.InputStream;
 import java.lang.Deprecated;
 import java.lang.Exception;
+import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
@@ -85,19 +86,35 @@ public class ErrorResponse2 extends CventSDKError {
     }
 
     /**
-     * The target resource of the error.
+     * The collection of error schemas.
      */
     @Deprecated
-    public Optional<String> target() {
-        return data().flatMap(Data::target);
+    public Optional<List<String>> schemas() {
+        return data().flatMap(Data::schemas);
     }
 
     /**
-     * Additional details of cascading error messages.
+     * Status code for error.
      */
     @Deprecated
-    public Optional<List<ZeroAllOf1>> details() {
-        return data().flatMap(Data::details);
+    public Optional<Long> status() {
+        return data().map(Data::status);
+    }
+
+    /**
+     * Details of the error.
+     */
+    @Deprecated
+    public Optional<String> detail() {
+        return data().map(Data::detail);
+    }
+
+    /**
+     * This is used to denote the scim type of the error.
+     */
+    @Deprecated
+    public Optional<ErrorScimType> scimType() {
+        return data().flatMap(Data::scimType);
     }
 
     public Optional<Data> data() {
@@ -113,78 +130,78 @@ public class ErrorResponse2 extends CventSDKError {
     /**
      * Data
      *
-     * <p>Represents an error response with additional details of cascading error messages.
+     * <p>The error response.
      */
     public static class Data {
         /**
-         * The HTTP status code representing the error.
-         */
-        @JsonProperty("code")
-        private long code;
-
-        /**
-         * A brief description of the error.
-         */
-        @JsonProperty("message")
-        private String message;
-
-        /**
-         * The target resource of the error.
+         * The collection of error schemas.
          */
         @JsonInclude(Include.NON_ABSENT)
-        @JsonProperty("target")
-        private String target;
+        @JsonProperty("schemas")
+        private List<String> schemas;
 
         /**
-         * Additional details of cascading error messages.
+         * Status code for error.
+         */
+        @JsonProperty("status")
+        private long status;
+
+        /**
+         * Details of the error.
+         */
+        @JsonProperty("detail")
+        private String detail;
+
+        /**
+         * This is used to denote the scim type of the error.
          */
         @JsonInclude(Include.NON_ABSENT)
-        @JsonProperty("details")
-        private List<ZeroAllOf1> details;
+        @JsonProperty("scimType")
+        private ErrorScimType scimType;
 
         @JsonCreator
         public Data(
-                @JsonProperty("code") long code,
-                @JsonProperty("message") @Nonnull String message,
-                @JsonProperty("target") @Nullable String target,
-                @JsonProperty("details") @Nullable List<ZeroAllOf1> details) {
-            this.code = code;
-            this.message = Optional.ofNullable(message)
-                    .orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
-            this.target = target;
-            this.details = details;
+                @JsonProperty("schemas") @Nullable List<String> schemas,
+                @JsonProperty("status") long status,
+                @JsonProperty("detail") @Nonnull String detail,
+                @JsonProperty("scimType") @Nullable ErrorScimType scimType) {
+            this.schemas = schemas;
+            this.status = status;
+            this.detail = Optional.ofNullable(detail)
+                    .orElseThrow(() -> new IllegalArgumentException("detail cannot be null"));
+            this.scimType = scimType;
         }
 
-        public Data(long code, @Nonnull String message) {
-            this(code, message, null, null);
-        }
-
-        /**
-         * The HTTP status code representing the error.
-         */
-        public long code() {
-            return this.code;
+        public Data(long status, @Nonnull String detail) {
+            this(null, status, detail, null);
         }
 
         /**
-         * A brief description of the error.
+         * The collection of error schemas.
          */
-        public String message() {
-            return this.message;
+        public Optional<List<String>> schemas() {
+            return Optional.ofNullable(this.schemas);
         }
 
         /**
-         * The target resource of the error.
+         * Status code for error.
          */
-        public Optional<String> target() {
-            return Optional.ofNullable(this.target);
+        public long status() {
+            return this.status;
         }
 
         /**
-         * Additional details of cascading error messages.
+         * Details of the error.
          */
-        public Optional<List<ZeroAllOf1>> details() {
-            return Optional.ofNullable(this.details);
+        public String detail() {
+            return this.detail;
+        }
+
+        /**
+         * This is used to denote the scim type of the error.
+         */
+        public Optional<ErrorScimType> scimType() {
+            return Optional.ofNullable(this.scimType);
         }
 
         public static Builder builder() {
@@ -192,34 +209,34 @@ public class ErrorResponse2 extends CventSDKError {
         }
 
         /**
-         * The HTTP status code representing the error.
+         * The collection of error schemas.
          */
-        public Data withCode(long code) {
-            this.code = code;
+        public Data withSchemas(@Nullable List<String> schemas) {
+            this.schemas = schemas;
             return this;
         }
 
         /**
-         * A brief description of the error.
+         * Status code for error.
          */
-        public Data withMessage(@Nonnull String message) {
-            this.message = Utils.checkNotNull(message, "message");
+        public Data withStatus(long status) {
+            this.status = status;
             return this;
         }
 
         /**
-         * The target resource of the error.
+         * Details of the error.
          */
-        public Data withTarget(@Nullable String target) {
-            this.target = target;
+        public Data withDetail(@Nonnull String detail) {
+            this.detail = Utils.checkNotNull(detail, "detail");
             return this;
         }
 
         /**
-         * Additional details of cascading error messages.
+         * This is used to denote the scim type of the error.
          */
-        public Data withDetails(@Nullable List<ZeroAllOf1> details) {
-            this.details = details;
+        public Data withScimType(@Nullable ErrorScimType scimType) {
+            this.scimType = scimType;
             return this;
         }
 
@@ -232,71 +249,72 @@ public class ErrorResponse2 extends CventSDKError {
                 return false;
             }
             Data other = (Data) o;
-            return Utils.enhancedDeepEquals(this.code, other.code)
-                    && Utils.enhancedDeepEquals(this.message, other.message)
-                    && Utils.enhancedDeepEquals(this.target, other.target)
-                    && Utils.enhancedDeepEquals(this.details, other.details);
+            return Utils.enhancedDeepEquals(this.schemas, other.schemas)
+                    && Utils.enhancedDeepEquals(this.status, other.status)
+                    && Utils.enhancedDeepEquals(this.detail, other.detail)
+                    && Utils.enhancedDeepEquals(this.scimType, other.scimType);
         }
 
         @Override
         public int hashCode() {
-            return Utils.enhancedHash(code, message, target, details);
+            return Utils.enhancedHash(schemas, status, detail, scimType);
         }
 
         @Override
         public String toString() {
-            return Utils.toString(Data.class, "code", code, "message", message, "target", target, "details", details);
+            return Utils.toString(
+                    Data.class, "schemas", schemas, "status", status, "detail", detail, "scimType", scimType);
         }
 
         @SuppressWarnings("UnusedReturnValue")
         public static final class Builder {
 
-            private long code;
+            private List<String> schemas;
 
-            private String message;
+            private long status;
 
-            private String target;
+            private String detail;
 
-            private List<ZeroAllOf1> details;
+            private ErrorScimType scimType;
 
             private Builder() {
                 // force use of static builder() method
             }
 
             /**
-             * The HTTP status code representing the error.
+             * The collection of error schemas.
              */
-            public Builder code(long code) {
-                this.code = code;
+            public Builder schemas(@Nullable List<String> schemas) {
+                this.schemas = schemas;
                 return this;
             }
 
             /**
-             * A brief description of the error.
+             * Status code for error.
              */
-            public Builder message(@Nonnull String message) {
-                this.message = Utils.checkNotNull(message, "message");
+            public Builder status(long status) {
+                this.status = status;
                 return this;
             }
 
             /**
-             * The target resource of the error.
+             * Details of the error.
              */
-            public Builder target(@Nullable String target) {
-                this.target = target;
+            public Builder detail(@Nonnull String detail) {
+                this.detail = Utils.checkNotNull(detail, "detail");
                 return this;
             }
 
             /**
-             * Additional details of cascading error messages.
+             * This is used to denote the scim type of the error.
              */
-            public Builder details(@Nullable List<ZeroAllOf1> details) {
-                this.details = details;
+            public Builder scimType(@Nullable ErrorScimType scimType) {
+                this.scimType = scimType;
                 return this;
             }
 
             public Data build() {
-                return new Data(code, message, target, details);
+                return new Data(schemas, status, detail, scimType);
             }
         }
     }

@@ -28,7 +28,7 @@ public class UserInput {
      * The name of the user.
      */
     @JsonProperty("name")
-    private NameJson name;
+    private Name name;
 
     /**
      * The user name of the user to be used during identification.
@@ -50,7 +50,7 @@ public class UserInput {
      * sequence.
      */
     @JsonProperty("emails")
-    private List<EmailJson1> emails;
+    private List<Email> emails;
 
     /**
      * The title of the user.
@@ -65,7 +65,7 @@ public class UserInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("phoneNumbers")
-    private List<PhoneNumberJson1> phoneNumbers;
+    private List<PhoneNumber> phoneNumbers;
 
     /**
      * The address of the user. The user can have only one address. <br> If multiple addresses are
@@ -76,13 +76,13 @@ public class UserInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("addresses")
-    private List<AddressJson2> addresses;
+    private List<Address5> addresses;
 
     /**
      * The type of the user.
      */
     @JsonProperty("userType")
-    private UserTypeJson userType;
+    private UserType userType;
 
     /**
      * List of <a href="#section/Getting-Started/Time-Zones">Timezones</a> supported.
@@ -101,29 +101,29 @@ public class UserInput {
      * The SCIM group (representing Cvent user role) of the user.
      */
     @JsonProperty("groups")
-    private List<GroupJson> groups;
+    private List<Group> groups;
 
     /**
      * Enterprise extension model for the user.
      */
     @JsonProperty("urn:ietf:params:scim:schemas:extension:enterprise:2.0:User")
-    private UserEnterpriseExtensionJson urnIetfParamsScimSchemasExtensionEnterprise20User;
+    private UserEnterpriseExtension urnIetfParamsScimSchemasExtensionEnterprise20User;
 
     @JsonCreator
     public UserInput(
-            @JsonProperty("name") @Nonnull NameJson name,
+            @JsonProperty("name") @Nonnull Name name,
             @JsonProperty("userName") @Nonnull String userName,
             @JsonProperty("active") @Nullable Boolean active,
-            @JsonProperty("emails") @Nonnull List<EmailJson1> emails,
+            @JsonProperty("emails") @Nonnull List<Email> emails,
             @JsonProperty("title") @Nullable String title,
-            @JsonProperty("phoneNumbers") @Nullable List<PhoneNumberJson1> phoneNumbers,
-            @JsonProperty("addresses") @Nullable List<AddressJson2> addresses,
-            @JsonProperty("userType") @Nonnull UserTypeJson userType,
+            @JsonProperty("phoneNumbers") @Nullable List<PhoneNumber> phoneNumbers,
+            @JsonProperty("addresses") @Nullable List<Address5> addresses,
+            @JsonProperty("userType") @Nonnull UserType userType,
             @JsonProperty("timezone") @Nullable String timezone,
             @JsonProperty("locale") @Nonnull String locale,
-            @JsonProperty("groups") @Nonnull List<GroupJson> groups,
+            @JsonProperty("groups") @Nonnull List<Group> groups,
             @JsonProperty("urn:ietf:params:scim:schemas:extension:enterprise:2.0:User") @Nonnull
-                    UserEnterpriseExtensionJson urnIetfParamsScimSchemasExtensionEnterprise20User) {
+                    UserEnterpriseExtension urnIetfParamsScimSchemasExtensionEnterprise20User) {
         this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.userName = Optional.ofNullable(userName)
                 .orElseThrow(() -> new IllegalArgumentException("userName cannot be null"));
@@ -145,13 +145,13 @@ public class UserInput {
     }
 
     public UserInput(
-            @Nonnull NameJson name,
+            @Nonnull Name name,
             @Nonnull String userName,
-            @Nonnull List<EmailJson1> emails,
-            @Nonnull UserTypeJson userType,
+            @Nonnull List<Email> emails,
+            @Nonnull UserType userType,
             @Nonnull String locale,
-            @Nonnull List<GroupJson> groups,
-            @Nonnull UserEnterpriseExtensionJson urnIetfParamsScimSchemasExtensionEnterprise20User) {
+            @Nonnull List<Group> groups,
+            @Nonnull UserEnterpriseExtension urnIetfParamsScimSchemasExtensionEnterprise20User) {
         this(
                 name,
                 userName,
@@ -170,7 +170,7 @@ public class UserInput {
     /**
      * The name of the user.
      */
-    public NameJson name() {
+    public Name name() {
         return this.name;
     }
 
@@ -194,7 +194,7 @@ public class UserInput {
      * the following sequence of criteria: primary email, then work type, and finally first in the
      * sequence.
      */
-    public List<EmailJson1> emails() {
+    public List<Email> emails() {
         return this.emails;
     }
 
@@ -209,7 +209,7 @@ public class UserInput {
      * The phone numbers of the user.<br> If more than one number per type is provided, only one is
      * accepted and rest are ignored.
      */
-    public Optional<List<PhoneNumberJson1>> phoneNumbers() {
+    public Optional<List<PhoneNumber>> phoneNumbers() {
         return Optional.ofNullable(this.phoneNumbers);
     }
 
@@ -220,14 +220,14 @@ public class UserInput {
      * <p>One address is selected based on the following sequence of criteria: primary, work type, first in
      * the sequence
      */
-    public Optional<List<AddressJson2>> addresses() {
+    public Optional<List<Address5>> addresses() {
         return Optional.ofNullable(this.addresses);
     }
 
     /**
      * The type of the user.
      */
-    public UserTypeJson userType() {
+    public UserType userType() {
         return this.userType;
     }
 
@@ -248,14 +248,14 @@ public class UserInput {
     /**
      * The SCIM group (representing Cvent user role) of the user.
      */
-    public List<GroupJson> groups() {
+    public List<Group> groups() {
         return this.groups;
     }
 
     /**
      * Enterprise extension model for the user.
      */
-    public UserEnterpriseExtensionJson urnIetfParamsScimSchemasExtensionEnterprise20User() {
+    public UserEnterpriseExtension urnIetfParamsScimSchemasExtensionEnterprise20User() {
         return this.urnIetfParamsScimSchemasExtensionEnterprise20User;
     }
 
@@ -266,7 +266,7 @@ public class UserInput {
     /**
      * The name of the user.
      */
-    public UserInput withName(@Nonnull NameJson name) {
+    public UserInput withName(@Nonnull Name name) {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
@@ -293,7 +293,7 @@ public class UserInput {
      * the following sequence of criteria: primary email, then work type, and finally first in the
      * sequence.
      */
-    public UserInput withEmails(@Nonnull List<EmailJson1> emails) {
+    public UserInput withEmails(@Nonnull List<Email> emails) {
         this.emails = Utils.checkNotNull(emails, "emails");
         return this;
     }
@@ -310,7 +310,7 @@ public class UserInput {
      * The phone numbers of the user.<br> If more than one number per type is provided, only one is
      * accepted and rest are ignored.
      */
-    public UserInput withPhoneNumbers(@Nullable List<PhoneNumberJson1> phoneNumbers) {
+    public UserInput withPhoneNumbers(@Nullable List<PhoneNumber> phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
         return this;
     }
@@ -322,7 +322,7 @@ public class UserInput {
      * <p>One address is selected based on the following sequence of criteria: primary, work type, first in
      * the sequence
      */
-    public UserInput withAddresses(@Nullable List<AddressJson2> addresses) {
+    public UserInput withAddresses(@Nullable List<Address5> addresses) {
         this.addresses = addresses;
         return this;
     }
@@ -330,7 +330,7 @@ public class UserInput {
     /**
      * The type of the user.
      */
-    public UserInput withUserType(@Nonnull UserTypeJson userType) {
+    public UserInput withUserType(@Nonnull UserType userType) {
         this.userType = Utils.checkNotNull(userType, "userType");
         return this;
     }
@@ -354,7 +354,7 @@ public class UserInput {
     /**
      * The SCIM group (representing Cvent user role) of the user.
      */
-    public UserInput withGroups(@Nonnull List<GroupJson> groups) {
+    public UserInput withGroups(@Nonnull List<Group> groups) {
         this.groups = Utils.checkNotNull(groups, "groups");
         return this;
     }
@@ -363,7 +363,7 @@ public class UserInput {
      * Enterprise extension model for the user.
      */
     public UserInput withUrnIetfParamsScimSchemasExtensionEnterprise20User(
-            @Nonnull UserEnterpriseExtensionJson urnIetfParamsScimSchemasExtensionEnterprise20User) {
+            @Nonnull UserEnterpriseExtension urnIetfParamsScimSchemasExtensionEnterprise20User) {
         this.urnIetfParamsScimSchemasExtensionEnterprise20User = Utils.checkNotNull(
                 urnIetfParamsScimSchemasExtensionEnterprise20User, "urnIetfParamsScimSchemasExtensionEnterprise20User");
         return this;
@@ -444,29 +444,29 @@ public class UserInput {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private NameJson name;
+        private Name name;
 
         private String userName;
 
         private Boolean active;
 
-        private List<EmailJson1> emails;
+        private List<Email> emails;
 
         private String title;
 
-        private List<PhoneNumberJson1> phoneNumbers;
+        private List<PhoneNumber> phoneNumbers;
 
-        private List<AddressJson2> addresses;
+        private List<Address5> addresses;
 
-        private UserTypeJson userType;
+        private UserType userType;
 
         private String timezone;
 
         private String locale;
 
-        private List<GroupJson> groups;
+        private List<Group> groups;
 
-        private UserEnterpriseExtensionJson urnIetfParamsScimSchemasExtensionEnterprise20User;
+        private UserEnterpriseExtension urnIetfParamsScimSchemasExtensionEnterprise20User;
 
         private Builder() {
             // force use of static builder() method
@@ -475,7 +475,7 @@ public class UserInput {
         /**
          * The name of the user.
          */
-        public Builder name(@Nonnull NameJson name) {
+        public Builder name(@Nonnull Name name) {
             this.name = Utils.checkNotNull(name, "name");
             return this;
         }
@@ -502,7 +502,7 @@ public class UserInput {
          * the following sequence of criteria: primary email, then work type, and finally first in the
          * sequence.
          */
-        public Builder emails(@Nonnull List<EmailJson1> emails) {
+        public Builder emails(@Nonnull List<Email> emails) {
             this.emails = Utils.checkNotNull(emails, "emails");
             return this;
         }
@@ -519,7 +519,7 @@ public class UserInput {
          * The phone numbers of the user.<br> If more than one number per type is provided, only one is
          * accepted and rest are ignored.
          */
-        public Builder phoneNumbers(@Nullable List<PhoneNumberJson1> phoneNumbers) {
+        public Builder phoneNumbers(@Nullable List<PhoneNumber> phoneNumbers) {
             this.phoneNumbers = phoneNumbers;
             return this;
         }
@@ -531,7 +531,7 @@ public class UserInput {
          * <p>One address is selected based on the following sequence of criteria: primary, work type, first in
          * the sequence
          */
-        public Builder addresses(@Nullable List<AddressJson2> addresses) {
+        public Builder addresses(@Nullable List<Address5> addresses) {
             this.addresses = addresses;
             return this;
         }
@@ -539,7 +539,7 @@ public class UserInput {
         /**
          * The type of the user.
          */
-        public Builder userType(@Nonnull UserTypeJson userType) {
+        public Builder userType(@Nonnull UserType userType) {
             this.userType = Utils.checkNotNull(userType, "userType");
             return this;
         }
@@ -563,7 +563,7 @@ public class UserInput {
         /**
          * The SCIM group (representing Cvent user role) of the user.
          */
-        public Builder groups(@Nonnull List<GroupJson> groups) {
+        public Builder groups(@Nonnull List<Group> groups) {
             this.groups = Utils.checkNotNull(groups, "groups");
             return this;
         }
@@ -572,7 +572,7 @@ public class UserInput {
          * Enterprise extension model for the user.
          */
         public Builder urnIetfParamsScimSchemasExtensionEnterprise20User(
-                @Nonnull UserEnterpriseExtensionJson urnIetfParamsScimSchemasExtensionEnterprise20User) {
+                @Nonnull UserEnterpriseExtension urnIetfParamsScimSchemasExtensionEnterprise20User) {
             this.urnIetfParamsScimSchemasExtensionEnterprise20User = Utils.checkNotNull(
                     urnIetfParamsScimSchemasExtensionEnterprise20User,
                     "urnIetfParamsScimSchemasExtensionEnterprise20User");

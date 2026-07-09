@@ -6,31 +6,44 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { Choices1, Choices1$inboundSchema } from "./choices1.js";
 import {
-  CustomFieldCategoryJson,
-  CustomFieldCategoryJson$inboundSchema,
-} from "./customfieldcategoryjson.js";
+  CustomFieldCategory,
+  CustomFieldCategory$inboundSchema,
+} from "./customfieldcategory.js";
 import {
-  CustomFieldTypeJson,
-  CustomFieldTypeJson$inboundSchema,
-} from "./customfieldtypejson.js";
+  CustomFieldType2,
+  CustomFieldType2$inboundSchema,
+} from "./customfieldtype2.js";
 import {
-  DisplayInDataTagJson,
-  DisplayInDataTagJson$inboundSchema,
-} from "./displayindatatagjson.js";
-import { One, One$inboundSchema } from "./one.js";
+  DisplayInDataTag,
+  DisplayInDataTag$inboundSchema,
+} from "./displayindatatag.js";
 import {
-  PageVisibilityJson,
-  PageVisibilityJson$inboundSchema,
-} from "./pagevisibilityjson.js";
-import { Three, Three$inboundSchema } from "./three.js";
-import { Two, Two$inboundSchema } from "./two.js";
-import { ZeroOneOf1, ZeroOneOf1$inboundSchema } from "./zerooneof1.js";
+  OpenEndedCommentBox,
+  OpenEndedCommentBox$inboundSchema,
+} from "./openendedcommentbox.js";
+import {
+  OpenEndedDateTime1,
+  OpenEndedDateTime1$inboundSchema,
+} from "./openendeddatetime1.js";
+import {
+  OpenEndedOneLine,
+  OpenEndedOneLine$inboundSchema,
+} from "./openendedoneline.js";
+import {
+  PageVisibility,
+  PageVisibility$inboundSchema,
+} from "./pagevisibility.js";
 
 /**
  * Type-specific details of the custom-field.
  */
-export type ExistingCustomFieldDetails = ZeroOneOf1 | One | Two | Three;
+export type ExistingCustomFieldDetails =
+  | OpenEndedOneLine
+  | OpenEndedDateTime1
+  | OpenEndedCommentBox
+  | Choices1;
 
 /**
  * This is used to denote an existing custom field.
@@ -55,7 +68,7 @@ export type ExistingCustomField = {
   /**
    * This is used to denote the category of a custom field.
    */
-  category: CustomFieldCategoryJson;
+  category: CustomFieldCategory;
   /**
    * The actual text of the custom field.
    */
@@ -71,11 +84,16 @@ export type ExistingCustomField = {
   /**
    * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
    */
-  type: CustomFieldTypeJson;
+  type: CustomFieldType2;
   /**
    * Type-specific details of the custom-field.
    */
-  details?: ZeroOneOf1 | One | Two | Three | undefined;
+  details?:
+    | OpenEndedOneLine
+    | OpenEndedDateTime1
+    | OpenEndedCommentBox
+    | Choices1
+    | undefined;
   /**
    * The order of the custom field on the display page.
    */
@@ -87,7 +105,7 @@ export type ExistingCustomField = {
   /**
    * This option allows you to choose whether to display the custom field in emails. The field name and the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to display always or only when answered. Only applicable to session custom fields.
    */
-  displayInDataTag: DisplayInDataTagJson;
+  displayInDataTag: DisplayInDataTag;
   /**
    * Default text in emails when a contact does not have a value answered for this custom field. Only applicable to contact custom fields.
    */
@@ -107,7 +125,7 @@ export type ExistingCustomField = {
   /**
    * Visibility of the custom field on various pages/forms.
    */
-  pageVisibility?: PageVisibilityJson | undefined;
+  pageVisibility?: PageVisibility | undefined;
   /**
    * The ID of the custom field.
    */
@@ -120,10 +138,10 @@ export const ExistingCustomFieldDetails$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  ZeroOneOf1$inboundSchema,
-  One$inboundSchema,
-  Two$inboundSchema,
-  Three$inboundSchema,
+  OpenEndedOneLine$inboundSchema,
+  OpenEndedDateTime1$inboundSchema,
+  OpenEndedCommentBox$inboundSchema,
+  Choices1$inboundSchema,
 ]);
 
 export function existingCustomFieldDetailsFromJSON(
@@ -149,25 +167,25 @@ export const ExistingCustomField$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  category: CustomFieldCategoryJson$inboundSchema,
+  category: CustomFieldCategory$inboundSchema,
   name: z.string(),
   code: z.string(),
   required: z.boolean().default(true),
-  type: CustomFieldTypeJson$inboundSchema,
+  type: CustomFieldType2$inboundSchema,
   details: z.union([
-    ZeroOneOf1$inboundSchema,
-    One$inboundSchema,
-    Two$inboundSchema,
-    Three$inboundSchema,
+    OpenEndedOneLine$inboundSchema,
+    OpenEndedDateTime1$inboundSchema,
+    OpenEndedCommentBox$inboundSchema,
+    Choices1$inboundSchema,
   ]).optional(),
   order: z.number().int().optional(),
   helpText: z.string().optional(),
-  displayInDataTag: DisplayInDataTagJson$inboundSchema.default("No"),
+  displayInDataTag: DisplayInDataTag$inboundSchema.default("No"),
   defaultTagText: z.string().optional(),
   consentField: z.boolean().default(false),
   active: z.boolean().default(true),
   displayInEventCreationWizard: z.boolean().default(false),
-  pageVisibility: PageVisibilityJson$inboundSchema.optional(),
+  pageVisibility: PageVisibility$inboundSchema.optional(),
   id: z.string().optional(),
 });
 

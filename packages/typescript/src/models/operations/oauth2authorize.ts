@@ -46,7 +46,7 @@ export type Oauth2AuthorizeRequest = {
    */
   clientId: string;
   /**
-   * The URL to which the authentication server redirects the browser after authorization has been granted by the user.
+   * The URL to which the authorization server redirects the browser after authorization has been granted by the user.
    *
    * @remarks
    *
@@ -79,7 +79,7 @@ export type Oauth2AuthorizeRequest = {
    * @remarks
    * Any scope used must be pre-associated with the client or it will be ignored at runtime.
    *
-   * **Note:** If the client doesn't request any scopes, the authentication server uses all
+   * **Note:** If the client doesn't request any scopes, the authorization server uses all
    * scopes associated with the client.
    */
   scope?: string | undefined;

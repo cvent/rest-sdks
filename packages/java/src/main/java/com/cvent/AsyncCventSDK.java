@@ -363,8 +363,7 @@ public class AsyncCventSDK {
      */
     private final AsyncCompliance compliance;
     /**
-     * Available endpoints used to initiate an authentication request to obtain and validate an access
-     * token.
+     * Endpoints for obtaining, refreshing, and validating OAuth2 access tokens.
      */
     private final AsyncAuthentication authentication;
     /**
@@ -870,8 +869,7 @@ public class AsyncCventSDK {
         return compliance;
     }
     /**
-     * Available endpoints used to initiate an authentication request to obtain and validate an access
-     * token.
+     * Endpoints for obtaining, refreshing, and validating OAuth2 access tokens.
      */
     public AsyncAuthentication authentication() {
         return authentication;

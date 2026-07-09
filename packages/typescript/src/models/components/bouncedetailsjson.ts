@@ -6,10 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  EmailTypeJson1,
-  EmailTypeJson1$inboundSchema,
-} from "./emailtypejson1.js";
+import { EmailTypeJson, EmailTypeJson$inboundSchema } from "./emailtypejson.js";
 import {
   ProductLineJson,
   ProductLineJson$inboundSchema,
@@ -59,7 +56,7 @@ export type BounceDetailsJson = {
   /**
    * Denotes the type of the email.
    */
-  emailType?: EmailTypeJson1 | undefined;
+  emailType?: EmailTypeJson | undefined;
   /**
    * Unique ID of the email.
    */
@@ -87,7 +84,7 @@ export const BounceDetailsJson$inboundSchema: z.ZodType<
   subject: z.string().optional(),
   productLine: ProductLineJson$inboundSchema.optional(),
   productId: z.string().optional(),
-  emailType: EmailTypeJson1$inboundSchema.optional(),
+  emailType: EmailTypeJson$inboundSchema.optional(),
   emailId: z.string().optional(),
   created: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),

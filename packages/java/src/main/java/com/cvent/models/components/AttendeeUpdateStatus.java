@@ -19,13 +19,16 @@ import java.util.Optional;
  *
  * <p>Pending Approval: When registration approval is enabled, this status indicates the attendee is still
  * waiting to be approved by the planner. Denied Approval: When registration approval is enabled, this
- * status indicates the attendee has been denied approval by the planner. <br>The following status
- * transitions are supported by this API:<br> * No Response -&gt; Visited <br> * No Response -&gt;
- * Accepted <br> * No Response -&gt; Declined <br> * No Response -&gt; Pending Approval <br> *
- * Cancelled -&gt; Accepted <br> * Cancelled -&gt; Pending Approval <br> * Visited -&gt; Accepted <br>
- * * Visited -&gt; Pending Approval <br> * Declined -&gt; Accepted <br> * Declined -&gt; Pending
- * Approval <br> * Accepted -&gt; Cancelled <br> * Pending Approval -&gt; Accepted <br> * Pending
- * Approval -&gt; Denied Approval <br> * Denied Approval -&gt; Pending Approval
+ * status indicates the attendee has been denied approval by the planner. Waitlisted: The attendee is
+ * on the waitlist for the event.
+ *
+ * <p><br>The following status transitions are supported by this API:<br> * No Response -&gt; Visited <br>
+ * * No Response -&gt; Accepted <br> * No Response -&gt; Declined <br> * No Response -&gt; Pending
+ * Approval <br> * Cancelled -&gt; Accepted <br> * Cancelled -&gt; Pending Approval <br> * Visited
+ * -&gt; Accepted <br> * Visited -&gt; Pending Approval <br> * Declined -&gt; Accepted <br> * Declined
+ * -&gt; Pending Approval <br> * Accepted -&gt; Cancelled <br> * Pending Approval -&gt; Accepted <br> *
+ * Pending Approval -&gt; Denied Approval <br> * Denied Approval -&gt; Pending Approval <br> *
+ * Waitlisted -&gt; Accepted
  */
 public enum AttendeeUpdateStatus {
     NO_RESPONSE("No Response"),
@@ -34,7 +37,8 @@ public enum AttendeeUpdateStatus {
     VISITED("Visited"),
     DECLINED("Declined"),
     PENDING_APPROVAL("Pending Approval"),
-    DENIED_APPROVAL("Denied Approval");
+    DENIED_APPROVAL("Denied Approval"),
+    WAITLISTED("Waitlisted");
 
     @JsonValue
     private final String value;

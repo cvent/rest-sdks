@@ -29,7 +29,7 @@ namespace Cvent.SDK.Models.Components
         /// Details of an email to be send.
         /// </summary>
         [JsonProperty("email")]
-        public EmailJson2 Email { get; set; } = default!;
+        public EmailJson1 Email { get; set; } = default!;
 
         /// <summary>
         /// True indicates this email should be resent to attendees who had already received this email previously.

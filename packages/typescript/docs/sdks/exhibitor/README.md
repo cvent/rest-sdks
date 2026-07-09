@@ -2592,7 +2592,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse2   | 409                     | application/json        |
+| errors.ErrorResponse    | 409                     | application/json        |
 | errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
@@ -3005,7 +3005,7 @@ run();
 
 | Error Type            | Status Code           | Content Type          |
 | --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse2 | 409                   | application/json      |
+| errors.ErrorResponse  | 409                   | application/json      |
 | errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
 | errors.APIError       | 4XX, 5XX              | \*/\*                 |
 

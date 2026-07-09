@@ -54,7 +54,7 @@ public class Users {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("Resources")
-    private List<UserJson> resources;
+    private List<User> resources;
 
     @JsonCreator
     public Users(
@@ -62,7 +62,7 @@ public class Users {
             @JsonProperty("itemsPerPage") @Nullable Long itemsPerPage,
             @JsonProperty("startIndex") @Nullable Long startIndex,
             @JsonProperty("totalResults") @Nullable Long totalResults,
-            @JsonProperty("Resources") @Nullable List<UserJson> resources) {
+            @JsonProperty("Resources") @Nullable List<User> resources) {
         this.schemas = schemas;
         this.itemsPerPage = itemsPerPage;
         this.startIndex = startIndex;
@@ -105,7 +105,7 @@ public class Users {
     /**
      * The collection of user resources.
      */
-    public Optional<List<UserJson>> resources() {
+    public Optional<List<User>> resources() {
         return Optional.ofNullable(this.resources);
     }
 
@@ -148,7 +148,7 @@ public class Users {
     /**
      * The collection of user resources.
      */
-    public Users withResources(@Nullable List<UserJson> resources) {
+    public Users withResources(@Nullable List<User> resources) {
         this.resources = resources;
         return this;
     }
@@ -201,7 +201,7 @@ public class Users {
 
         private Long totalResults;
 
-        private List<UserJson> resources;
+        private List<User> resources;
 
         private Builder() {
             // force use of static builder() method
@@ -242,7 +242,7 @@ public class Users {
         /**
          * The collection of user resources.
          */
-        public Builder resources(@Nullable List<UserJson> resources) {
+        public Builder resources(@Nullable List<User> resources) {
             this.resources = resources;
             return this;
         }

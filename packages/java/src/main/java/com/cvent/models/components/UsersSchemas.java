@@ -54,7 +54,7 @@ public class UsersSchemas {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("Resources")
-    private List<SchemaJson> resources;
+    private List<UsersSchema> resources;
 
     @JsonCreator
     public UsersSchemas(
@@ -62,7 +62,7 @@ public class UsersSchemas {
             @JsonProperty("itemsPerPage") @Nullable Long itemsPerPage,
             @JsonProperty("startIndex") @Nullable Long startIndex,
             @JsonProperty("totalResults") @Nullable Long totalResults,
-            @JsonProperty("Resources") @Nullable List<SchemaJson> resources) {
+            @JsonProperty("Resources") @Nullable List<UsersSchema> resources) {
         this.schemas = schemas;
         this.itemsPerPage = itemsPerPage;
         this.startIndex = startIndex;
@@ -105,7 +105,7 @@ public class UsersSchemas {
     /**
      * The collection of schema resources.
      */
-    public Optional<List<SchemaJson>> resources() {
+    public Optional<List<UsersSchema>> resources() {
         return Optional.ofNullable(this.resources);
     }
 
@@ -148,7 +148,7 @@ public class UsersSchemas {
     /**
      * The collection of schema resources.
      */
-    public UsersSchemas withResources(@Nullable List<SchemaJson> resources) {
+    public UsersSchemas withResources(@Nullable List<UsersSchema> resources) {
         this.resources = resources;
         return this;
     }
@@ -201,7 +201,7 @@ public class UsersSchemas {
 
         private Long totalResults;
 
-        private List<SchemaJson> resources;
+        private List<UsersSchema> resources;
 
         private Builder() {
             // force use of static builder() method
@@ -242,7 +242,7 @@ public class UsersSchemas {
         /**
          * The collection of schema resources.
          */
-        public Builder resources(@Nullable List<SchemaJson> resources) {
+        public Builder resources(@Nullable List<UsersSchema> resources) {
             this.resources = resources;
             return this;
         }

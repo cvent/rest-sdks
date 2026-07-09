@@ -31,8 +31,8 @@ public class Oauth2AuthorizeRequest {
     private String clientId;
 
     /**
-     * The URL to which the authentication server redirects the browser after authorization has been
-     * granted by the user.
+     * The URL to which the authorization server redirects the browser after authorization has been granted
+     * by the user.
      *
      * <p>A redirect URI must:
      *
@@ -63,7 +63,7 @@ public class Oauth2AuthorizeRequest {
      * Can be a combination of any scopes associated with a client. Scopes must be separated by spaces.
      * Any scope used must be pre-associated with the client or it will be ignored at runtime.
      *
-     * <p>**Note:** If the client doesn't request any scopes, the authentication server uses all
+     * <p>**Note:** If the client doesn't request any scopes, the authorization server uses all
      * scopes associated with the client.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=scope")
@@ -111,8 +111,8 @@ public class Oauth2AuthorizeRequest {
     }
 
     /**
-     * The URL to which the authentication server redirects the browser after authorization has been
-     * granted by the user.
+     * The URL to which the authorization server redirects the browser after authorization has been granted
+     * by the user.
      *
      * <p>A redirect URI must:
      *
@@ -145,7 +145,7 @@ public class Oauth2AuthorizeRequest {
      * Can be a combination of any scopes associated with a client. Scopes must be separated by spaces.
      * Any scope used must be pre-associated with the client or it will be ignored at runtime.
      *
-     * <p>**Note:** If the client doesn't request any scopes, the authentication server uses all
+     * <p>**Note:** If the client doesn't request any scopes, the authorization server uses all
      * scopes associated with the client.
      */
     public Optional<String> scope() {
@@ -178,8 +178,8 @@ public class Oauth2AuthorizeRequest {
     }
 
     /**
-     * The URL to which the authentication server redirects the browser after authorization has been
-     * granted by the user.
+     * The URL to which the authorization server redirects the browser after authorization has been granted
+     * by the user.
      *
      * <p>A redirect URI must:
      *
@@ -214,7 +214,7 @@ public class Oauth2AuthorizeRequest {
      * Can be a combination of any scopes associated with a client. Scopes must be separated by spaces.
      * Any scope used must be pre-associated with the client or it will be ignored at runtime.
      *
-     * <p>**Note:** If the client doesn't request any scopes, the authentication server uses all
+     * <p>**Note:** If the client doesn't request any scopes, the authorization server uses all
      * scopes associated with the client.
      */
     public Oauth2AuthorizeRequest withScope(@Nullable String scope) {
@@ -298,8 +298,8 @@ public class Oauth2AuthorizeRequest {
         }
 
         /**
-         * The URL to which the authentication server redirects the browser after authorization has been
-         * granted by the user.
+         * The URL to which the authorization server redirects the browser after authorization has been granted
+         * by the user.
          *
          * <p>A redirect URI must:
          *
@@ -334,7 +334,7 @@ public class Oauth2AuthorizeRequest {
          * Can be a combination of any scopes associated with a client. Scopes must be separated by spaces.
          * Any scope used must be pre-associated with the client or it will be ignored at runtime.
          *
-         * <p>**Note:** If the client doesn't request any scopes, the authentication server uses all
+         * <p>**Note:** If the client doesn't request any scopes, the authorization server uses all
          * scopes associated with the client.
          */
         public Builder scope(@Nullable String scope) {

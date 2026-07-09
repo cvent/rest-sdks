@@ -1,13 +1,13 @@
 # ErrorResponse2
 
-Represents an error response with additional details of cascading error messages.
+The error response.
 
 
 ## Fields
 
-| Field                                                     | Type                                                      | Required                                                  | Description                                               | Example                                                   |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| `Code`                                                    | *long*                                                    | :heavy_check_mark:                                        | The HTTP status code representing the error.              | 400                                                       |
-| `Message`                                                 | *string*                                                  | :heavy_check_mark:                                        | A brief description of the error.                         | Bad Request                                               |
-| `Target`                                                  | *string*                                                  | :heavy_minus_sign:                                        | The target resource of the error.                         | example target                                            |
-| `Details`                                                 | List<[ZeroAllOf1](../../Models/Components/ZeroAllOf1.md)> | :heavy_minus_sign:                                        | Additional details of cascading error messages.           |                                                           |
+| Field                                                               | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `Schemas`                                                           | List<*string*>                                                      | :heavy_minus_sign:                                                  | The collection of error schemas.                                    |                                                                     |
+| `Status`                                                            | *long*                                                              | :heavy_check_mark:                                                  | Status code for error.                                              | 400                                                                 |
+| `Detail`                                                            | *string*                                                            | :heavy_check_mark:                                                  | Details of the error.                                               | Request is unparsable, syntactically incorrect, or violates schema. |
+| `ScimType`                                                          | [ErrorScimType](../../Models/Components/ErrorScimType.md)           | :heavy_minus_sign:                                                  | This is used to denote the scim type of the error.                  | invalidSyntax                                                       |

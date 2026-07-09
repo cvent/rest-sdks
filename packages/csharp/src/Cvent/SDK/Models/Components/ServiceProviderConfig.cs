@@ -71,12 +71,12 @@ namespace Cvent.SDK.Models.Components
         /// The collection of authentication schemas.
         /// </summary>
         [JsonProperty("authenticationSchemes")]
-        public List<AuthenticationSchemaJson>? AuthenticationSchemes { get; set; }
+        public List<AuthenticationSchema>? AuthenticationSchemes { get; set; }
 
         /// <summary>
         /// Metadata of the resource.
         /// </summary>
         [JsonProperty("meta")]
-        public MetaJson? Meta { get; set; }
+        public Meta? Meta { get; set; }
     }
 }

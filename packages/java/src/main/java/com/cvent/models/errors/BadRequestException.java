@@ -82,7 +82,7 @@ public class BadRequestException extends CventSDKError {
     }
 
     /**
-     * May be returned with additional information regarding the error.
+     * Additional error information, when available.
      */
     @Deprecated
     public Optional<String> errorDescription() {
@@ -137,7 +137,7 @@ public class BadRequestException extends CventSDKError {
      */
     public static class Data {
         /**
-         * May be returned with additional information regarding the error.
+         * Additional error information, when available.
          */
         @JsonInclude(Include.NON_ABSENT)
         @JsonProperty("error_description")
@@ -186,7 +186,7 @@ public class BadRequestException extends CventSDKError {
         }
 
         /**
-         * May be returned with additional information regarding the error.
+         * Additional error information, when available.
          */
         public Optional<String> errorDescription() {
             return Optional.ofNullable(this.errorDescription);
@@ -227,7 +227,7 @@ public class BadRequestException extends CventSDKError {
         }
 
         /**
-         * May be returned with additional information regarding the error.
+         * Additional error information, when available.
          */
         public Data withErrorDescription(@Nullable String errorDescription) {
             this.errorDescription = errorDescription;
@@ -300,7 +300,7 @@ public class BadRequestException extends CventSDKError {
             }
 
             /**
-             * May be returned with additional information regarding the error.
+             * Additional error information, when available.
              */
             public Builder errorDescription(@Nullable String errorDescription) {
                 this.errorDescription = errorDescription;

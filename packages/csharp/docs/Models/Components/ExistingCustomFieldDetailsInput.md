@@ -5,26 +5,26 @@ Type-specific details of the custom-field.
 
 ## Supported Types
 
-### ZeroOneOf1
+### OpenEndedOneLine
 
 ```csharp
-ExistingCustomFieldDetailsInput.CreateZeroOneOf1(/* values here */);
+ExistingCustomFieldDetailsInput.CreateOpenEndedOneLine(/* values here */);
 ```
 
-### One
+### OpenEndedDateTime1
 
 ```csharp
-ExistingCustomFieldDetailsInput.CreateOne(/* values here */);
+ExistingCustomFieldDetailsInput.CreateOpenEndedDateTime1(/* values here */);
 ```
 
-### Two
+### OpenEndedCommentBox
 
 ```csharp
-ExistingCustomFieldDetailsInput.CreateTwo(/* values here */);
+ExistingCustomFieldDetailsInput.CreateOpenEndedCommentBox(/* values here */);
 ```
 
-### ThreeInput
+### Choices1Input
 
 ```csharp
-ExistingCustomFieldDetailsInput.CreateThreeInput(/* values here */);
+ExistingCustomFieldDetailsInput.CreateChoices1Input(/* values here */);
 ```

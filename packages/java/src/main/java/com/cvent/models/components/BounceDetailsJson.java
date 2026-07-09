@@ -90,7 +90,7 @@ public class BounceDetailsJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("emailType")
-    private EmailTypeJson1 emailType;
+    private EmailTypeJson emailType;
 
     /**
      * Unique ID of the email.
@@ -117,7 +117,7 @@ public class BounceDetailsJson {
             @JsonProperty("subject") @Nullable String subject,
             @JsonProperty("productLine") @Nullable ProductLineJson productLine,
             @JsonProperty("productId") @Nullable String productId,
-            @JsonProperty("emailType") @Nullable EmailTypeJson1 emailType,
+            @JsonProperty("emailType") @Nullable EmailTypeJson emailType,
             @JsonProperty("emailId") @Nullable String emailId,
             @JsonProperty("created") @Nullable OffsetDateTime created) {
         this.recipient = recipient;
@@ -204,7 +204,7 @@ public class BounceDetailsJson {
     /**
      * Denotes the type of the email.
      */
-    public Optional<EmailTypeJson1> emailType() {
+    public Optional<EmailTypeJson> emailType() {
         return Optional.ofNullable(this.emailType);
     }
 
@@ -301,7 +301,7 @@ public class BounceDetailsJson {
     /**
      * Denotes the type of the email.
      */
-    public BounceDetailsJson withEmailType(@Nullable EmailTypeJson1 emailType) {
+    public BounceDetailsJson withEmailType(@Nullable EmailTypeJson emailType) {
         this.emailType = emailType;
         return this;
     }
@@ -413,7 +413,7 @@ public class BounceDetailsJson {
 
         private String productId;
 
-        private EmailTypeJson1 emailType;
+        private EmailTypeJson emailType;
 
         private String emailId;
 
@@ -498,7 +498,7 @@ public class BounceDetailsJson {
         /**
          * Denotes the type of the email.
          */
-        public Builder emailType(@Nullable EmailTypeJson1 emailType) {
+        public Builder emailType(@Nullable EmailTypeJson emailType) {
             this.emailType = emailType;
             return this;
         }

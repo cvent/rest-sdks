@@ -4,7 +4,6 @@
 
 import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -16,22 +15,11 @@ import {
   AttendeeAnswer1$inboundSchema,
 } from "./attendeeanswer1.js";
 import { FlightDetail, FlightDetail$inboundSchema } from "./flightdetail.js";
+import { JourneyType, JourneyType$inboundSchema } from "./journeytype.js";
 import {
   TravelRequestStatus,
   TravelRequestStatus$inboundSchema,
 } from "./travelrequeststatus.js";
-
-/**
- * Type of journey
- */
-export const JourneyType = {
-  Oneway: "Oneway",
-  RoundTrip: "RoundTrip",
-} as const;
-/**
- * Type of journey
- */
-export type JourneyType = ClosedEnum<typeof JourneyType>;
 
 /**
  * Representation of an air actual.
@@ -98,7 +86,7 @@ export type AirActual = {
    */
   noteGDS?: string | undefined;
   /**
-   * Type of journey
+   * Type of journey for an air booking.
    */
   journeyType?: JourneyType | undefined;
   /**
@@ -110,10 +98,6 @@ export type AirActual = {
    */
   airActualAnswers?: Array<AttendeeAnswer1> | undefined;
 };
-
-/** @internal */
-export const JourneyType$inboundSchema: z.ZodNativeEnum<typeof JourneyType> = z
-  .nativeEnum(JourneyType);
 
 /** @internal */
 export const AirActual$inboundSchema: z.ZodType<

@@ -15,7 +15,7 @@ export type Oauth2TokenSecurity = {
 };
 
 /**
- * The grant type.
+ * Controls the OAuth2 grant flow used to obtain tokens.
  */
 export const GrantType = {
   ClientCredentials: "client_credentials",
@@ -23,13 +23,13 @@ export const GrantType = {
   RefreshToken: "refresh_token",
 } as const;
 /**
- * The grant type.
+ * Controls the OAuth2 grant flow used to obtain tokens.
  */
 export type GrantType = ClosedEnum<typeof GrantType>;
 
 export type Oauth2TokenRequest = {
   /**
-   * The grant type.
+   * Controls the OAuth2 grant flow used to obtain tokens.
    */
   grantType: GrantType;
   /**
@@ -44,7 +44,7 @@ export type Oauth2TokenRequest = {
    * Can be a combination of any scopes associated with a client. Any scope requested must be pre-associated with the client or it will be ignored at runtime.
    *
    * @remarks
-   * If the client doesn't request any scopes, the authentication server uses all scopes associated with the client.
+   * If the client doesn't request any scopes, the authorization server uses all scopes associated with the client.
    *
    * **Optional** - Only used if the grant_type is client_credentials.
    */
@@ -88,7 +88,7 @@ export type Oauth2TokenResponse = {
    */
   refreshToken?: string | undefined;
   /**
-   * The token type.
+   * The OAuth2 token type. Always `Bearer`.
    */
   tokenType: string;
   /**

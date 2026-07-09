@@ -27,10 +27,10 @@ namespace Cvent.SDK.Models.Components
 
         public string Value { get; private set; }
 
-        public static AttendeeAddBulkItemEventJsonDataType ZeroOneOf2
+        public static AttendeeAddBulkItemEventJsonDataType ZeroOneOf
         {
             get {
-                return new AttendeeAddBulkItemEventJsonDataType("0_OneOf_2");
+                return new AttendeeAddBulkItemEventJsonDataType("0_OneOf");
             }
         }
 
@@ -53,8 +53,8 @@ namespace Cvent.SDK.Models.Components
         {
             switch (v)
             {
-                case "0_OneOf_2":
-                    return ZeroOneOf2;
+                case "0_OneOf":
+                    return ZeroOneOf;
                 case "attendee-add-bulk-item-event.json_ErrorResponse":
                     return AttendeeAddBulkItemEventJsonErrorResponse;
                 default:
@@ -85,18 +85,18 @@ namespace Cvent.SDK.Models.Components
         }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public ZeroOneOf2? ZeroOneOf2 { get; set; }
+        public ZeroOneOf? ZeroOneOf { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
         public AttendeeAddBulkItemEventJsonErrorResponse? AttendeeAddBulkItemEventJsonErrorResponse { get; set; }
 
         public AttendeeAddBulkItemEventJsonDataType Type { get; set; }
-        public static AttendeeAddBulkItemEventJsonData CreateZeroOneOf2(ZeroOneOf2 zeroOneOf2)
+        public static AttendeeAddBulkItemEventJsonData CreateZeroOneOf(ZeroOneOf zeroOneOf)
         {
-            AttendeeAddBulkItemEventJsonDataType typ = AttendeeAddBulkItemEventJsonDataType.ZeroOneOf2;
+            AttendeeAddBulkItemEventJsonDataType typ = AttendeeAddBulkItemEventJsonDataType.ZeroOneOf;
 
             AttendeeAddBulkItemEventJsonData res = new AttendeeAddBulkItemEventJsonData(typ);
-            res.ZeroOneOf2 = zeroOneOf2;
+            res.ZeroOneOf = zeroOneOf;
             return res;
         }
         public static AttendeeAddBulkItemEventJsonData CreateAttendeeAddBulkItemEventJsonErrorResponse(AttendeeAddBulkItemEventJsonErrorResponse attendeeAddBulkItemEventJSONErrorResponse)
@@ -126,13 +126,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new AttendeeAddBulkItemEventJsonData(AttendeeAddBulkItemEventJsonDataType.ZeroOneOf2) {
-                        ZeroOneOf2 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ZeroOneOf2>(json)
+                    return new AttendeeAddBulkItemEventJsonData(AttendeeAddBulkItemEventJsonDataType.ZeroOneOf) {
+                        ZeroOneOf = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ZeroOneOf>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(ZeroOneOf2), new AttendeeAddBulkItemEventJsonData(AttendeeAddBulkItemEventJsonDataType.ZeroOneOf2), "ZeroOneOf2"));
+                    fallbackCandidates.Add((typeof(ZeroOneOf), new AttendeeAddBulkItemEventJsonData(AttendeeAddBulkItemEventJsonDataType.ZeroOneOf), "ZeroOneOf"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -194,9 +194,9 @@ namespace Cvent.SDK.Models.Components
 
                 AttendeeAddBulkItemEventJsonData res = (AttendeeAddBulkItemEventJsonData)value;
 
-                if (res.ZeroOneOf2 != null)
+                if (res.ZeroOneOf != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.ZeroOneOf2));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.ZeroOneOf));
                     return;
                 }
 

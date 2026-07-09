@@ -28,6 +28,7 @@ let value: AirActualDetail1 = {
       note: "Additional note here.",
       recordLocatorGDS: "ABC123",
       noteGDS: "GDS note.",
+      journeyType: "RoundTrip",
       flightDetail: [
         {
           airline: "Emirates",

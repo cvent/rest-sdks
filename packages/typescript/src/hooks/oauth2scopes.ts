@@ -6,7 +6,7 @@
  * Available scopes for the OAuth2.authorizationCode OAuth 2.0 scheme (authorizationCode flow).
  *
  * @remarks
- * OAuth2 Authorization Code Flow
+ * OAuth2 Authorization Code Flow.
  */
 export type OAuth2AuthorizationCodeOAuth2Scope =
   /**
@@ -806,7 +806,7 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
  * Available scopes for the OAuth2.clientCredentials OAuth 2.0 scheme (clientCredentials flow).
  *
  * @remarks
- * OAuth2 Client Credentials Flow
+ * OAuth2 Client Credentials Flow.
  */
 export type OAuth2ClientCredentialsOAuth2Scope =
   /**

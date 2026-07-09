@@ -23,18 +23,15 @@ namespace Cvent.SDK
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Available endpoints used to initiate an authentication request to obtain and validate an access token.
+    /// Endpoints for obtaining, refreshing, and validating OAuth2 access tokens.
     /// </summary>
     public interface IAuthentication
     {
         /// <summary>
-        /// Authorize.
+        /// Get Authorization Code.
         /// </summary>
         /// <remarks>
-        /// The /oauth2/authorize endpoint only supports HTTPS GET. The client typically makes this request through a browser.<br/>
-        /// <br/>
-        /// The authorization server requires HTTPS instead of HTTP as the protocol when accessing the authorization endpoint<br/>
-        /// except for http://localhost for testing purposes only.
+        /// Initiates the OAuth2 authorization code flow by directing the user-agent to the Cvent authorization server. The client typically triggers this request via a browser. For the `redirect_uri` HTTPS is required; `http://localhost` is permitted for local testing only. On success, the authorization server redirects the user-agent back to the client's `redirect_uri` with an authorization code. The client can then exchange that code via <a href="#operation/oauth2Token">Get Token</a> to obtain an access token.
         /// </remarks>
         /// <param name="request">A <see cref="Oauth2AuthorizeRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -48,10 +45,10 @@ namespace Cvent.SDK
         );
 
         /// <summary>
-        /// Token.
+        /// Get Token.
         /// </summary>
         /// <remarks>
-        /// Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the <a href="https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart">Developer Quickstart</a> for an example request.<br/>
+        /// Obtains an access token and, optionally, a refresh token. Read the <a href="https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart">Developer Quickstart</a> for an example request.<br/>
         /// <br/>
         /// **Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
         /// </remarks>
@@ -87,7 +84,7 @@ namespace Cvent.SDK
     }
 
     /// <summary>
-    /// Available endpoints used to initiate an authentication request to obtain and validate an access token.
+    /// Endpoints for obtaining, refreshing, and validating OAuth2 access tokens.
     /// </summary>
     public class Authentication : IAuthentication
     {
@@ -103,13 +100,10 @@ namespace Cvent.SDK
         }
 
         /// <summary>
-        /// Authorize.
+        /// Get Authorization Code.
         /// </summary>
         /// <remarks>
-        /// The /oauth2/authorize endpoint only supports HTTPS GET. The client typically makes this request through a browser.<br/>
-        /// <br/>
-        /// The authorization server requires HTTPS instead of HTTP as the protocol when accessing the authorization endpoint<br/>
-        /// except for http://localhost for testing purposes only.
+        /// Initiates the OAuth2 authorization code flow by directing the user-agent to the Cvent authorization server. The client typically triggers this request via a browser. For the `redirect_uri` HTTPS is required; `http://localhost` is permitted for local testing only. On success, the authorization server redirects the user-agent back to the client's `redirect_uri` with an authorization code. The client can then exchange that code via <a href="#operation/oauth2Token">Get Token</a> to obtain an access token.
         /// </remarks>
         /// <param name="request">A <see cref="Oauth2AuthorizeRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -233,10 +227,10 @@ namespace Cvent.SDK
         }
 
         /// <summary>
-        /// Token.
+        /// Get Token.
         /// </summary>
         /// <remarks>
-        /// Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the <a href="https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart">Developer Quickstart</a> for an example request.<br/>
+        /// Obtains an access token and, optionally, a refresh token. Read the <a href="https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart">Developer Quickstart</a> for an example request.<br/>
         /// <br/>
         /// **Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
         /// </remarks>

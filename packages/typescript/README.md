@@ -255,8 +255,8 @@ run();
 
 ### [Authentication](docs/sdks/authentication/README.md)
 
-* [oauth2Authorize](docs/sdks/authentication/README.md#oauth2authorize) - Authorize
-* [oauth2Token](docs/sdks/authentication/README.md#oauth2token) - Token
+* [oauth2Authorize](docs/sdks/authentication/README.md#oauth2authorize) - Get Authorization Code
+* [oauth2Token](docs/sdks/authentication/README.md#oauth2token) - Get Token
 * [validateToken](docs/sdks/authentication/README.md#validatetoken) - Validate Token
 
 ### [BadgePrintJob](docs/sdks/badgeprintjob/README.md)
@@ -861,8 +861,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`audienceSegmentsListAudienceSegmentsPostFilter`](docs/sdks/audiencesegments/README.md#listaudiencesegmentspostfilter) - List Audience Segments
 - [`audienceSegmentsListSegmentAssociatedAttendees`](docs/sdks/audiencesegments/README.md#listsegmentassociatedattendees) - List Associated Attendees
 - [`audienceSegmentsUpdateAudienceSegment`](docs/sdks/audiencesegments/README.md#updateaudiencesegment) - Update Audience Segment
-- [`authenticationOauth2Authorize`](docs/sdks/authentication/README.md#oauth2authorize) - Authorize
-- [`authenticationOauth2Token`](docs/sdks/authentication/README.md#oauth2token) - Token
+- [`authenticationOauth2Authorize`](docs/sdks/authentication/README.md#oauth2authorize) - Get Authorization Code
+- [`authenticationOauth2Token`](docs/sdks/authentication/README.md#oauth2token) - Get Token
 - [`authenticationValidateToken`](docs/sdks/authentication/README.md#validatetoken) - Validate Token
 - [`badgePrinterPoolsGetBadgePrinterPool`](docs/sdks/badgeprinterpools/README.md#getbadgeprinterpool) - Get Badge Printer Pool
 - [`badgePrinterPoolsGetBadgePrinterPools`](docs/sdks/badgeprinterpools/README.md#getbadgeprinterpools) - List Badge Printer Pools
@@ -1518,8 +1518,8 @@ run();
 
 
 **Inherit from [`CventSDKError`](./src/models/errors/cventsdkerror.ts)**:
-* [`ErrorResponse2`](./src/models/errors/errorresponse2.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 448 methods.*
-* [`ErrorResponseJson12`](./src/models/errors/errorresponsejson12.ts): The error response. Applicable to 11 of 448 methods.*
+* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 448 methods.*
+* [`ErrorResponse2`](./src/models/errors/errorresponse2.ts): The error response. Applicable to 11 of 448 methods.*
 * [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 448 methods.*
 * [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 448 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.

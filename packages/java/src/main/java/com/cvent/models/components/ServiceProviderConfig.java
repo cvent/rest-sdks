@@ -81,14 +81,14 @@ public class ServiceProviderConfig {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("authenticationSchemes")
-    private List<AuthenticationSchemaJson> authenticationSchemes;
+    private List<AuthenticationSchema> authenticationSchemes;
 
     /**
      * Metadata of the resource.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("meta")
-    private MetaJson meta;
+    private Meta meta;
 
     @JsonCreator
     public ServiceProviderConfig(
@@ -100,8 +100,8 @@ public class ServiceProviderConfig {
             @JsonProperty("changePassword") @Nullable ChangePassword changePassword,
             @JsonProperty("sort") @Nullable Sort sort,
             @JsonProperty("etag") @Nullable Etag etag,
-            @JsonProperty("authenticationSchemes") @Nullable List<AuthenticationSchemaJson> authenticationSchemes,
-            @JsonProperty("meta") @Nullable MetaJson meta) {
+            @JsonProperty("authenticationSchemes") @Nullable List<AuthenticationSchema> authenticationSchemes,
+            @JsonProperty("meta") @Nullable Meta meta) {
         this.schemas = schemas;
         this.documentationUri = documentationUri;
         this.patch = patch;
@@ -177,14 +177,14 @@ public class ServiceProviderConfig {
     /**
      * The collection of authentication schemas.
      */
-    public Optional<List<AuthenticationSchemaJson>> authenticationSchemes() {
+    public Optional<List<AuthenticationSchema>> authenticationSchemes() {
         return Optional.ofNullable(this.authenticationSchemes);
     }
 
     /**
      * Metadata of the resource.
      */
-    public Optional<MetaJson> meta() {
+    public Optional<Meta> meta() {
         return Optional.ofNullable(this.meta);
     }
 
@@ -259,8 +259,7 @@ public class ServiceProviderConfig {
     /**
      * The collection of authentication schemas.
      */
-    public ServiceProviderConfig withAuthenticationSchemes(
-            @Nullable List<AuthenticationSchemaJson> authenticationSchemes) {
+    public ServiceProviderConfig withAuthenticationSchemes(@Nullable List<AuthenticationSchema> authenticationSchemes) {
         this.authenticationSchemes = authenticationSchemes;
         return this;
     }
@@ -268,7 +267,7 @@ public class ServiceProviderConfig {
     /**
      * Metadata of the resource.
      */
-    public ServiceProviderConfig withMeta(@Nullable MetaJson meta) {
+    public ServiceProviderConfig withMeta(@Nullable Meta meta) {
         this.meta = meta;
         return this;
     }
@@ -354,9 +353,9 @@ public class ServiceProviderConfig {
 
         private Etag etag;
 
-        private List<AuthenticationSchemaJson> authenticationSchemes;
+        private List<AuthenticationSchema> authenticationSchemes;
 
-        private MetaJson meta;
+        private Meta meta;
 
         private Builder() {
             // force use of static builder() method
@@ -429,7 +428,7 @@ public class ServiceProviderConfig {
         /**
          * The collection of authentication schemas.
          */
-        public Builder authenticationSchemes(@Nullable List<AuthenticationSchemaJson> authenticationSchemes) {
+        public Builder authenticationSchemes(@Nullable List<AuthenticationSchema> authenticationSchemes) {
             this.authenticationSchemes = authenticationSchemes;
             return this;
         }
@@ -437,7 +436,7 @@ public class ServiceProviderConfig {
         /**
          * Metadata of the resource.
          */
-        public Builder meta(@Nullable MetaJson meta) {
+        public Builder meta(@Nullable Meta meta) {
             this.meta = meta;
             return this;
         }

@@ -414,8 +414,7 @@ public class CventSDK {
     private final Compliance compliance;
 
     /**
-     * Available endpoints used to initiate an authentication request to obtain and validate an access
-     * token.
+     * Endpoints for obtaining, refreshing, and validating OAuth2 access tokens.
      */
     private final Authentication authentication;
 
@@ -973,8 +972,7 @@ public class CventSDK {
     }
 
     /**
-     * Available endpoints used to initiate an authentication request to obtain and validate an access
-     * token.
+     * Endpoints for obtaining, refreshing, and validating OAuth2 access tokens.
      */
     public Authentication authentication() {
         return authentication;

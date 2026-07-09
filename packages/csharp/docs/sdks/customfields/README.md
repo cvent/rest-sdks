@@ -97,10 +97,10 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 CustomField3 req = new CustomField3() {
-    Category = CustomFieldCategoryJson.Contact,
+    Category = CustomFieldCategory.Contact,
     Name = "What is a your favorite color?",
     Code = "FAVORITE_COLOR_CODE",
-    Type = CustomFieldTypeJson.OpenEndedTextOneLine,
+    Type = CustomFieldType2.OpenEndedTextOneLine,
     Details = CustomField3Details.CreateOpenEndedOneLine(
         new OpenEndedOneLine() {
             AnswerFormat = "General",
@@ -162,14 +162,14 @@ var sdk = new CventSDK(security: new Security() {
 UpdateCustomFieldRequest req = new UpdateCustomFieldRequest() {
     CustomFieldId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     ExistingCustomField = new ExistingCustomFieldInput() {
-        Category = CustomFieldCategoryJson.Contact,
+        Category = CustomFieldCategory.Contact,
         Name = "What is a your favorite color?",
         Code = "FAVORITE_COLOR_CODE",
-        Type = CustomFieldTypeJson.OpenEndedTextOneLine,
-        Details = ExistingCustomFieldDetailsInput.CreateThreeInput(
-            new ThreeInput() {
-                Choices = new List<ChoiceJson2Input>() {
-                    new ChoiceJson2Input() {
+        Type = CustomFieldType2.OpenEndedTextOneLine,
+        Details = ExistingCustomFieldDetailsInput.CreateChoices1Input(
+            new Choices1Input() {
+                Choices = new List<Choice2Input>() {
+                    new Choice2Input() {
                         Text = "What is your current designation?",
                     },
                 },
@@ -336,13 +336,13 @@ CreateCustomFieldTranslationRequest req = new CreateCustomFieldTranslationReques
         Translation = new Translation() {
             NameTranslation = "Departamento",
             HelpTextTranslation = "El departamento donde trabaja.",
-            ChoiceTranslations = new List<ChoiceTranslationJson>() {
-                new ChoiceTranslationJson() {
+            ChoiceTranslations = new List<ChoiceTranslation>() {
+                new ChoiceTranslation() {
                     TranslatedText = "Departamento de Tecnología",
                 },
             },
         },
-        Language = LanguageJson.Eses,
+        Language = Language1.Eses,
     },
 };
 
@@ -399,13 +399,13 @@ UpdateCustomFieldTranslationRequest req = new UpdateCustomFieldTranslationReques
         Translation = new Translation() {
             NameTranslation = "Departamento",
             HelpTextTranslation = "El departamento donde trabaja.",
-            ChoiceTranslations = new List<ChoiceTranslationJson>() {
-                new ChoiceTranslationJson() {
+            ChoiceTranslations = new List<ChoiceTranslation>() {
+                new ChoiceTranslation() {
                     TranslatedText = "Departamento de Tecnología",
                 },
             },
         },
-        Language = LanguageJson.Eses,
+        Language = Language1.Eses,
     },
 };
 

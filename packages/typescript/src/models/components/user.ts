@@ -7,20 +7,17 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AddressJson2, AddressJson2$inboundSchema } from "./addressjson2.js";
-import { EmailJson1, EmailJson1$inboundSchema } from "./emailjson1.js";
-import { GroupJson, GroupJson$inboundSchema } from "./groupjson.js";
-import { MetaJson, MetaJson$inboundSchema } from "./metajson.js";
-import { NameJson, NameJson$inboundSchema } from "./namejson.js";
+import { Address5, Address5$inboundSchema } from "./address5.js";
+import { Email, Email$inboundSchema } from "./email.js";
+import { Group, Group$inboundSchema } from "./group.js";
+import { Meta, Meta$inboundSchema } from "./meta.js";
+import { Name, Name$inboundSchema } from "./name.js";
+import { PhoneNumber, PhoneNumber$inboundSchema } from "./phonenumber.js";
 import {
-  PhoneNumberJson1,
-  PhoneNumberJson1$inboundSchema,
-} from "./phonenumberjson1.js";
-import {
-  UserEnterpriseExtensionJson,
-  UserEnterpriseExtensionJson$inboundSchema,
-} from "./userenterpriseextensionjson.js";
-import { UserTypeJson, UserTypeJson$inboundSchema } from "./usertypejson.js";
+  UserEnterpriseExtension,
+  UserEnterpriseExtension$inboundSchema,
+} from "./userenterpriseextension.js";
+import { UserType, UserType$inboundSchema } from "./usertype.js";
 
 /**
  * Generic sample User. Not a real model used by any Cvent service.
@@ -37,7 +34,7 @@ export type User = {
   /**
    * The name of the user.
    */
-  name: NameJson;
+  name: Name;
   /**
    * The user name of the user to be used during identification.
    */
@@ -49,7 +46,7 @@ export type User = {
   /**
    * The email of the user. The Cvent user can have only one email address.<br> If multiple email addresses are provided, only one is accepted and rest are ignored. One email is selected based on the following sequence of criteria: primary email, then work type, and finally first in the sequence.
    */
-  emails: Array<EmailJson1>;
+  emails: Array<Email>;
   /**
    * The title of the user.
    */
@@ -57,15 +54,15 @@ export type User = {
   /**
    * The phone numbers of the user.<br> If more than one number per type is provided, only one is accepted and rest are ignored.
    */
-  phoneNumbers?: Array<PhoneNumberJson1> | undefined;
+  phoneNumbers?: Array<PhoneNumber> | undefined;
   /**
    * The address of the user. The user can have only one address. <br> If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence
    */
-  addresses?: Array<AddressJson2> | undefined;
+  addresses?: Array<Address5> | undefined;
   /**
    * The type of the user.
    */
-  userType: UserTypeJson;
+  userType: UserType;
   /**
    * List of <a href="#section/Getting-Started/Time-Zones">Timezones</a> supported.
    */
@@ -77,16 +74,15 @@ export type User = {
   /**
    * The SCIM group (representing Cvent user role) of the user.
    */
-  groups: Array<GroupJson>;
+  groups: Array<Group>;
   /**
    * Enterprise extension model for the user.
    */
-  urnIetfParamsScimSchemasExtensionEnterprise20User:
-    UserEnterpriseExtensionJson;
+  urnIetfParamsScimSchemasExtensionEnterprise20User: UserEnterpriseExtension;
   /**
    * Metadata of the resource.
    */
-  meta?: MetaJson | undefined;
+  meta?: Meta | undefined;
 };
 
 /** @internal */
@@ -94,20 +90,20 @@ export const User$inboundSchema: z.ZodType<User, z.ZodTypeDef, unknown> = z
   .object({
     schemas: z.array(z.string()).optional(),
     id: z.string().optional(),
-    name: NameJson$inboundSchema,
+    name: Name$inboundSchema,
     userName: z.string(),
     active: z.boolean().default(true),
-    emails: z.array(EmailJson1$inboundSchema),
+    emails: z.array(Email$inboundSchema),
     title: z.string().optional(),
-    phoneNumbers: z.array(PhoneNumberJson1$inboundSchema).optional(),
-    addresses: z.array(AddressJson2$inboundSchema).optional(),
-    userType: UserTypeJson$inboundSchema,
+    phoneNumbers: z.array(PhoneNumber$inboundSchema).optional(),
+    addresses: z.array(Address5$inboundSchema).optional(),
+    userType: UserType$inboundSchema,
     timezone: z.string().default("America/New_York"),
     locale: z.string(),
-    groups: z.array(GroupJson$inboundSchema),
+    groups: z.array(Group$inboundSchema),
     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":
-      UserEnterpriseExtensionJson$inboundSchema,
-    meta: MetaJson$inboundSchema.optional(),
+      UserEnterpriseExtension$inboundSchema,
+    meta: Meta$inboundSchema.optional(),
   }).transform((v) => {
     return remap$(v, {
       "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":

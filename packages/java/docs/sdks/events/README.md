@@ -705,7 +705,7 @@ public class Application {
                 .event(EventJson6.builder()
                     .id("a150f1ee-6c54-4b01-90e6-d701748f0851")
                     .build())
-                .email(EmailJson2.builder()
+                .email(EmailJson1.builder()
                     .id("a150f1ee-6c54-4b01-90e6-d701748f0851")
                     .build())
                 .resendToPreviousRecipients(true)

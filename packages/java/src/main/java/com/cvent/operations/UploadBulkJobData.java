@@ -11,8 +11,8 @@ import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
 import com.cvent.models.components.BulkDataUploadResponse;
 import com.cvent.models.errors.APIException;
+import com.cvent.models.errors.ErrorResponse;
 import com.cvent.models.errors.ErrorResponse1;
-import com.cvent.models.errors.ErrorResponse2;
 import com.cvent.models.operations.UploadBulkJobDataRequest;
 import com.cvent.models.operations.UploadBulkJobDataResponse;
 import com.cvent.utils.AsyncRetries;
@@ -201,7 +201,7 @@ public class UploadBulkJobData {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "409")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw ErrorResponse2.from(response);
+                    throw ErrorResponse.from(response);
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -299,7 +299,7 @@ public class UploadBulkJobData {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "409")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse2.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

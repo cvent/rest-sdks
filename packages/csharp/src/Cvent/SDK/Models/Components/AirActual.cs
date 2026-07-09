@@ -111,7 +111,7 @@ namespace Cvent.SDK.Models.Components
         public string? NoteGDS { get; set; }
 
         /// <summary>
-        /// Type of journey.
+        /// Type of journey for an air booking.
         /// </summary>
         [JsonProperty("journeyType")]
         public JourneyType? JourneyType { get; set; }

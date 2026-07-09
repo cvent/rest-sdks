@@ -47,6 +47,6 @@ namespace Cvent.SDK.Models.Components
         /// The collection of schema resources.
         /// </summary>
         [JsonProperty("Resources")]
-        public List<SchemaJson>? Resources { get; set; }
+        public List<UsersSchema>? Resources { get; set; }
     }
 }

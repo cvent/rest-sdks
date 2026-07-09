@@ -7,43 +7,47 @@ import * as components from "../components/index.js";
 import { CventSDKError } from "./cventsdkerror.js";
 
 /**
- * Represents an error response with additional details of cascading error messages.
+ * The error response.
  */
 export type ErrorResponse2Data = {
   /**
-   * The HTTP status code representing the error.
+   * The collection of error schemas.
    */
-  code: number;
+  schemas?: Array<string> | undefined;
   /**
-   * A brief description of the error.
+   * Status code for error.
    */
-  message: string;
+  status: number;
   /**
-   * The target resource of the error.
+   * Details of the error.
    */
-  target?: string | undefined;
+  detail: string;
   /**
-   * Additional details of cascading error messages.
+   * This is used to denote the scim type of the error.
    */
-  details?: Array<components.ZeroAllOf1> | undefined;
+  scimType?: components.ErrorScimType | undefined;
 };
 
 /**
- * Represents an error response with additional details of cascading error messages.
+ * The error response.
  */
 export class ErrorResponse2 extends CventSDKError {
   /**
-   * The HTTP status code representing the error.
+   * The collection of error schemas.
    */
-  code: number;
+  schemas?: Array<string> | undefined;
   /**
-   * The target resource of the error.
+   * Status code for error.
    */
-  target?: string | undefined;
+  status: number;
   /**
-   * Additional details of cascading error messages.
+   * Details of the error.
    */
-  details?: Array<components.ZeroAllOf1> | undefined;
+  detail: string;
+  /**
+   * This is used to denote the scim type of the error.
+   */
+  scimType?: components.ErrorScimType | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: ErrorResponse2Data;
@@ -52,12 +56,15 @@ export class ErrorResponse2 extends CventSDKError {
     err: ErrorResponse2Data,
     httpMeta: { response: Response; request: Request; body: string },
   ) {
-    const message = err.message || `API error occurred: ${JSON.stringify(err)}`;
+    const message = "message" in err && typeof err.message === "string"
+      ? err.message
+      : `API error occurred: ${JSON.stringify(err)}`;
     super(message, httpMeta);
     this.data$ = err;
-    this.code = err.code;
-    if (err.target != null) this.target = err.target;
-    if (err.details != null) this.details = err.details;
+    if (err.schemas != null) this.schemas = err.schemas;
+    this.status = err.status;
+    this.detail = err.detail;
+    if (err.scimType != null) this.scimType = err.scimType;
 
     this.name = "ErrorResponse2";
   }
@@ -69,10 +76,10 @@ export const ErrorResponse2$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  code: z.number().int(),
-  message: z.string(),
-  target: z.string().optional(),
-  details: z.array(components.ZeroAllOf1$inboundSchema).optional(),
+  schemas: z.array(z.string()).optional(),
+  status: z.number().int(),
+  detail: z.string(),
+  scimType: components.ErrorScimType$inboundSchema.optional(),
   request$: z.instanceof(Request),
   response$: z.instanceof(Response),
   body$: z.string(),

@@ -67,14 +67,14 @@ public class ResourceType {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("schemaExtensions")
-    private List<ResourceTypeSchemaExtension> schemaExtensions;
+    private List<SchemaExtension> schemaExtensions;
 
     /**
      * Metadata of the resource.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("meta")
-    private MetaJson meta;
+    private Meta meta;
 
     @JsonCreator
     public ResourceType(
@@ -84,8 +84,8 @@ public class ResourceType {
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("endpoint") @Nullable String endpoint,
             @JsonProperty("schema") @Nullable String schema,
-            @JsonProperty("schemaExtensions") @Nullable List<ResourceTypeSchemaExtension> schemaExtensions,
-            @JsonProperty("meta") @Nullable MetaJson meta) {
+            @JsonProperty("schemaExtensions") @Nullable List<SchemaExtension> schemaExtensions,
+            @JsonProperty("meta") @Nullable Meta meta) {
         this.schemas = schemas;
         this.id = id;
         this.name = name;
@@ -145,14 +145,14 @@ public class ResourceType {
     /**
      * The list of schema extensions for the resource type.
      */
-    public Optional<List<ResourceTypeSchemaExtension>> schemaExtensions() {
+    public Optional<List<SchemaExtension>> schemaExtensions() {
         return Optional.ofNullable(this.schemaExtensions);
     }
 
     /**
      * Metadata of the resource.
      */
-    public Optional<MetaJson> meta() {
+    public Optional<Meta> meta() {
         return Optional.ofNullable(this.meta);
     }
 
@@ -211,7 +211,7 @@ public class ResourceType {
     /**
      * The list of schema extensions for the resource type.
      */
-    public ResourceType withSchemaExtensions(@Nullable List<ResourceTypeSchemaExtension> schemaExtensions) {
+    public ResourceType withSchemaExtensions(@Nullable List<SchemaExtension> schemaExtensions) {
         this.schemaExtensions = schemaExtensions;
         return this;
     }
@@ -219,7 +219,7 @@ public class ResourceType {
     /**
      * Metadata of the resource.
      */
-    public ResourceType withMeta(@Nullable MetaJson meta) {
+    public ResourceType withMeta(@Nullable Meta meta) {
         this.meta = meta;
         return this;
     }
@@ -285,9 +285,9 @@ public class ResourceType {
 
         private String schema;
 
-        private List<ResourceTypeSchemaExtension> schemaExtensions;
+        private List<SchemaExtension> schemaExtensions;
 
-        private MetaJson meta;
+        private Meta meta;
 
         private Builder() {
             // force use of static builder() method
@@ -344,7 +344,7 @@ public class ResourceType {
         /**
          * The list of schema extensions for the resource type.
          */
-        public Builder schemaExtensions(@Nullable List<ResourceTypeSchemaExtension> schemaExtensions) {
+        public Builder schemaExtensions(@Nullable List<SchemaExtension> schemaExtensions) {
             this.schemaExtensions = schemaExtensions;
             return this;
         }
@@ -352,7 +352,7 @@ public class ResourceType {
         /**
          * Metadata of the resource.
          */
-        public Builder meta(@Nullable MetaJson meta) {
+        public Builder meta(@Nullable Meta meta) {
             this.meta = meta;
             return this;
         }

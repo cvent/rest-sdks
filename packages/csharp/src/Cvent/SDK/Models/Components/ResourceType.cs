@@ -59,12 +59,12 @@ namespace Cvent.SDK.Models.Components
         /// The list of schema extensions for the resource type.
         /// </summary>
         [JsonProperty("schemaExtensions")]
-        public List<ResourceTypeSchemaExtension>? SchemaExtensions { get; set; }
+        public List<SchemaExtension>? SchemaExtensions { get; set; }
 
         /// <summary>
         /// Metadata of the resource.
         /// </summary>
         [JsonProperty("meta")]
-        public MetaJson? Meta { get; set; }
+        public Meta? Meta { get; set; }
     }
 }

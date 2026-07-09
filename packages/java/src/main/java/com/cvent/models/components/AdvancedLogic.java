@@ -41,13 +41,13 @@ public class AdvancedLogic {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("sourceChoices")
-    private List<AdvancedLogicChoicesJson> sourceChoices;
+    private List<AdvancedLogicChoices> sourceChoices;
 
     @JsonCreator
     public AdvancedLogic(
             @JsonProperty("sourceCustomFieldId") @Nonnull String sourceCustomFieldId,
             @JsonProperty("defaultChoices") @Nullable List<String> defaultChoices,
-            @JsonProperty("sourceChoices") @Nullable List<AdvancedLogicChoicesJson> sourceChoices) {
+            @JsonProperty("sourceChoices") @Nullable List<AdvancedLogicChoices> sourceChoices) {
         this.sourceCustomFieldId = Optional.ofNullable(sourceCustomFieldId)
                 .orElseThrow(() -> new IllegalArgumentException("sourceCustomFieldId cannot be null"));
         this.defaultChoices = defaultChoices;
@@ -77,7 +77,7 @@ public class AdvancedLogic {
      * The choices of this custom field to display based on the choice selected for the source custom
      * field, specified by choice ID.
      */
-    public Optional<List<AdvancedLogicChoicesJson>> sourceChoices() {
+    public Optional<List<AdvancedLogicChoices>> sourceChoices() {
         return Optional.ofNullable(this.sourceChoices);
     }
 
@@ -106,7 +106,7 @@ public class AdvancedLogic {
      * The choices of this custom field to display based on the choice selected for the source custom
      * field, specified by choice ID.
      */
-    public AdvancedLogic withSourceChoices(@Nullable List<AdvancedLogicChoicesJson> sourceChoices) {
+    public AdvancedLogic withSourceChoices(@Nullable List<AdvancedLogicChoices> sourceChoices) {
         this.sourceChoices = sourceChoices;
         return this;
     }
@@ -149,7 +149,7 @@ public class AdvancedLogic {
 
         private List<String> defaultChoices;
 
-        private List<AdvancedLogicChoicesJson> sourceChoices;
+        private List<AdvancedLogicChoices> sourceChoices;
 
         private Builder() {
             // force use of static builder() method
@@ -176,7 +176,7 @@ public class AdvancedLogic {
          * The choices of this custom field to display based on the choice selected for the source custom
          * field, specified by choice ID.
          */
-        public Builder sourceChoices(@Nullable List<AdvancedLogicChoicesJson> sourceChoices) {
+        public Builder sourceChoices(@Nullable List<AdvancedLogicChoices> sourceChoices) {
             this.sourceChoices = sourceChoices;
             return this;
         }

@@ -25,13 +25,10 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Authorize
+ * Get Authorization Code
  *
  * @remarks
- * The /oauth2/authorize endpoint only supports HTTPS GET. The client typically makes this request through a browser.
- *
- * The authorization server requires HTTPS instead of HTTP as the protocol when accessing the authorization endpoint
- * except for http://localhost for testing purposes only.
+ * Initiates the OAuth2 authorization code flow by directing the user-agent to the Cvent authorization server. The client typically triggers this request via a browser. For the `redirect_uri` HTTPS is required; `http://localhost` is permitted for local testing only. On success, the authorization server redirects the user-agent back to the client's `redirect_uri` with an authorization code. The client can then exchange that code via [Get Token](#operation/oauth2Token) to obtain an access token.
  */
 export function authenticationOauth2Authorize(
   client: CventSDKCore,
@@ -148,7 +145,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["4XX", "5XX"],
+    errorCodes: ["400", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -175,7 +172,7 @@ async function $do(
     M.nil(302, operations.Oauth2AuthorizeResponse$inboundSchema.optional(), {
       hdrs: true,
     }),
-    M.fail("4XX"),
+    M.fail([400, "4XX"]),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });
   if (!result.ok) {

@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * GrantType
  *
- * <p>The grant type.
+ * <p>Controls the OAuth2 grant flow used to obtain tokens.
  */
 public enum GrantType {
     CLIENT_CREDENTIALS("client_credentials"),

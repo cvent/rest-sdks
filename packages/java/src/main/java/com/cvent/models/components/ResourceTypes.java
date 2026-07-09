@@ -54,7 +54,7 @@ public class ResourceTypes {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("Resources")
-    private List<ResourceTypeJson> resources;
+    private List<ResourceType> resources;
 
     @JsonCreator
     public ResourceTypes(
@@ -62,7 +62,7 @@ public class ResourceTypes {
             @JsonProperty("itemsPerPage") @Nullable Long itemsPerPage,
             @JsonProperty("startIndex") @Nullable Long startIndex,
             @JsonProperty("totalResults") @Nullable Long totalResults,
-            @JsonProperty("Resources") @Nullable List<ResourceTypeJson> resources) {
+            @JsonProperty("Resources") @Nullable List<ResourceType> resources) {
         this.schemas = schemas;
         this.itemsPerPage = itemsPerPage;
         this.startIndex = startIndex;
@@ -105,7 +105,7 @@ public class ResourceTypes {
     /**
      * The collection of schema resources.
      */
-    public Optional<List<ResourceTypeJson>> resources() {
+    public Optional<List<ResourceType>> resources() {
         return Optional.ofNullable(this.resources);
     }
 
@@ -148,7 +148,7 @@ public class ResourceTypes {
     /**
      * The collection of schema resources.
      */
-    public ResourceTypes withResources(@Nullable List<ResourceTypeJson> resources) {
+    public ResourceTypes withResources(@Nullable List<ResourceType> resources) {
         this.resources = resources;
         return this;
     }
@@ -201,7 +201,7 @@ public class ResourceTypes {
 
         private Long totalResults;
 
-        private List<ResourceTypeJson> resources;
+        private List<ResourceType> resources;
 
         private Builder() {
             // force use of static builder() method
@@ -242,7 +242,7 @@ public class ResourceTypes {
         /**
          * The collection of schema resources.
          */
-        public Builder resources(@Nullable List<ResourceTypeJson> resources) {
+        public Builder resources(@Nullable List<ResourceType> resources) {
             this.resources = resources;
             return this;
         }

@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * TicketType
  *
- * <p>Category of the passenger's ticket.
+ * <p>Category of the passenger's ticket for an air booking.
  */
 public enum TicketType {
     ECONOMY_COACH("Economy/Coach"),

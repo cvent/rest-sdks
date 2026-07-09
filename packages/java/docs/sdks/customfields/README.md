@@ -123,10 +123,10 @@ public class Application {
             .build();
 
         CustomField3 req = CustomField3.builder()
-                .category(CustomFieldCategoryJson.CONTACT)
+                .category(CustomFieldCategory.CONTACT)
                 .name("What is a your favorite color?")
                 .code("FAVORITE_COLOR_CODE")
-                .type(CustomFieldTypeJson.OPEN_ENDED_TEXT_ONE_LINE)
+                .type(CustomFieldType2.OPEN_ENDED_TEXT_ONE_LINE)
                 .details(CustomField3Details.of(OpenEndedOneLine.builder()
                     .answerFormat("General")
                     .minimum(2L)
@@ -203,13 +203,13 @@ public class Application {
         UpdateCustomFieldRequest req = UpdateCustomFieldRequest.builder()
                 .customFieldId("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                 .existingCustomField(ExistingCustomFieldInput.builder()
-                    .category(CustomFieldCategoryJson.CONTACT)
+                    .category(CustomFieldCategory.CONTACT)
                     .name("What is a your favorite color?")
                     .code("FAVORITE_COLOR_CODE")
-                    .type(CustomFieldTypeJson.OPEN_ENDED_TEXT_ONE_LINE)
-                    .details(ExistingCustomFieldDetailsInput.of(ThreeInput.builder()
+                    .type(CustomFieldType2.OPEN_ENDED_TEXT_ONE_LINE)
+                    .details(ExistingCustomFieldDetailsInput.of(Choices1Input.builder()
                         .choices(List.of(
-                            ChoiceJson2Input.builder()
+                            Choice2Input.builder()
                                 .text("What is your current designation?")
                                 .build()))
                         .build()))
@@ -429,11 +429,11 @@ public class Application {
                         .nameTranslation("Departamento")
                         .helpTextTranslation("El departamento donde trabaja.")
                         .choiceTranslations(List.of(
-                            ChoiceTranslationJson.builder()
+                            ChoiceTranslation.builder()
                                 .translatedText("Departamento de Tecnología")
                                 .build()))
                         .build())
-                    .language(LanguageJson.ESES)
+                    .language(Language1.ESES)
                     .build())
                 .build();
 
@@ -508,11 +508,11 @@ public class Application {
                         .nameTranslation("Departamento")
                         .helpTextTranslation("El departamento donde trabaja.")
                         .choiceTranslations(List.of(
-                            ChoiceTranslationJson.builder()
+                            ChoiceTranslation.builder()
                                 .translatedText("Departamento de Tecnología")
                                 .build()))
                         .build())
-                    .language(LanguageJson.ESES)
+                    .language(Language1.ESES)
                     .build())
                 .build();
 

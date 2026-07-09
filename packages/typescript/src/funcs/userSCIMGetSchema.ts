@@ -41,7 +41,7 @@ export function userSCIMGetSchema(
 ): APIPromise<
   Result<
     components.UsersSchema,
-    | errors.ErrorResponseJson12
+    | errors.ErrorResponse2
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -67,7 +67,7 @@ async function $do(
   [
     Result<
       components.UsersSchema,
-      | errors.ErrorResponseJson12
+      | errors.ErrorResponse2
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -164,7 +164,7 @@ async function $do(
 
   const [result] = await M.match<
     components.UsersSchema,
-    | errors.ErrorResponseJson12
+    | errors.ErrorResponse2
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -175,10 +175,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, components.UsersSchema$inboundSchema),
-    M.jsonErr(
-      [400, 401, 403, 404, 429],
-      errors.ErrorResponseJson12$inboundSchema,
-    ),
+    M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse2$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

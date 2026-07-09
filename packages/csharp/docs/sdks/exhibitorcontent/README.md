@@ -180,7 +180,7 @@ var res = await sdk.ExhibitorContent.UpdateExhibitorFileAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse2 | 422                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse  | 422                                    | application/json                       |
 | Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
@@ -346,7 +346,7 @@ var res = await sdk.ExhibitorContent.CreateExhibitorWeblinkAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse2 | 422                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse  | 422                                    | application/json                       |
 | Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
@@ -462,7 +462,7 @@ var res = await sdk.ExhibitorContent.UpdateExhibitorWeblinkAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse2 | 422                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse  | 422                                    | application/json                       |
 | Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 

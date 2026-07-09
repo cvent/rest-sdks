@@ -27,7 +27,7 @@ public class ExistingCustomFieldInput {
      * This is used to denote the category of a custom field.
      */
     @JsonProperty("category")
-    private CustomFieldCategoryJson category;
+    private CustomFieldCategory category;
 
     /**
      * The actual text of the custom field.
@@ -53,7 +53,7 @@ public class ExistingCustomFieldInput {
      * are read only.
      */
     @JsonProperty("type")
-    private CustomFieldTypeJson type;
+    private CustomFieldType2 type;
 
     /**
      * Type-specific details of the custom-field.
@@ -78,7 +78,7 @@ public class ExistingCustomFieldInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("displayInDataTag")
-    private DisplayInDataTagJson displayInDataTag;
+    private DisplayInDataTag displayInDataTag;
 
     /**
      * Default text in emails when a contact does not have a value answered for this custom field. Only
@@ -115,7 +115,7 @@ public class ExistingCustomFieldInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("pageVisibility")
-    private PageVisibilityJson pageVisibility;
+    private PageVisibility pageVisibility;
 
     /**
      * The ID of the custom field.
@@ -126,19 +126,19 @@ public class ExistingCustomFieldInput {
 
     @JsonCreator
     public ExistingCustomFieldInput(
-            @JsonProperty("category") @Nonnull CustomFieldCategoryJson category,
+            @JsonProperty("category") @Nonnull CustomFieldCategory category,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("code") @Nonnull String code,
             @JsonProperty("required") @Nullable Boolean required,
-            @JsonProperty("type") @Nonnull CustomFieldTypeJson type,
+            @JsonProperty("type") @Nonnull CustomFieldType2 type,
             @JsonProperty("details") @Nullable ExistingCustomFieldDetailsInput details,
             @JsonProperty("helpText") @Nullable String helpText,
-            @JsonProperty("displayInDataTag") @Nullable DisplayInDataTagJson displayInDataTag,
+            @JsonProperty("displayInDataTag") @Nullable DisplayInDataTag displayInDataTag,
             @JsonProperty("defaultTagText") @Nullable String defaultTagText,
             @JsonProperty("consentField") @Nullable Boolean consentField,
             @JsonProperty("active") @Nullable Boolean active,
             @JsonProperty("displayInEventCreationWizard") @Nullable Boolean displayInEventCreationWizard,
-            @JsonProperty("pageVisibility") @Nullable PageVisibilityJson pageVisibility,
+            @JsonProperty("pageVisibility") @Nullable PageVisibility pageVisibility,
             @JsonProperty("id") @Nullable String id) {
         this.category = Optional.ofNullable(category)
                 .orElseThrow(() -> new IllegalArgumentException("category cannot be null"));
@@ -160,17 +160,17 @@ public class ExistingCustomFieldInput {
     }
 
     public ExistingCustomFieldInput(
-            @Nonnull CustomFieldCategoryJson category,
+            @Nonnull CustomFieldCategory category,
             @Nonnull String name,
             @Nonnull String code,
-            @Nonnull CustomFieldTypeJson type) {
+            @Nonnull CustomFieldType2 type) {
         this(category, name, code, null, type, null, null, null, null, null, null, null, null, null);
     }
 
     /**
      * This is used to denote the category of a custom field.
      */
-    public CustomFieldCategoryJson category() {
+    public CustomFieldCategory category() {
         return this.category;
     }
 
@@ -199,7 +199,7 @@ public class ExistingCustomFieldInput {
      * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields
      * are read only.
      */
-    public CustomFieldTypeJson type() {
+    public CustomFieldType2 type() {
         return this.type;
     }
 
@@ -224,7 +224,7 @@ public class ExistingCustomFieldInput {
      *
      * <p>Only applicable to session custom fields.
      */
-    public Optional<DisplayInDataTagJson> displayInDataTag() {
+    public Optional<DisplayInDataTag> displayInDataTag() {
         return Optional.ofNullable(this.displayInDataTag);
     }
 
@@ -261,7 +261,7 @@ public class ExistingCustomFieldInput {
     /**
      * Visibility of the custom field on various pages/forms.
      */
-    public Optional<PageVisibilityJson> pageVisibility() {
+    public Optional<PageVisibility> pageVisibility() {
         return Optional.ofNullable(this.pageVisibility);
     }
 
@@ -279,7 +279,7 @@ public class ExistingCustomFieldInput {
     /**
      * This is used to denote the category of a custom field.
      */
-    public ExistingCustomFieldInput withCategory(@Nonnull CustomFieldCategoryJson category) {
+    public ExistingCustomFieldInput withCategory(@Nonnull CustomFieldCategory category) {
         this.category = Utils.checkNotNull(category, "category");
         return this;
     }
@@ -312,7 +312,7 @@ public class ExistingCustomFieldInput {
      * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields
      * are read only.
      */
-    public ExistingCustomFieldInput withType(@Nonnull CustomFieldTypeJson type) {
+    public ExistingCustomFieldInput withType(@Nonnull CustomFieldType2 type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
@@ -340,7 +340,7 @@ public class ExistingCustomFieldInput {
      *
      * <p>Only applicable to session custom fields.
      */
-    public ExistingCustomFieldInput withDisplayInDataTag(@Nullable DisplayInDataTagJson displayInDataTag) {
+    public ExistingCustomFieldInput withDisplayInDataTag(@Nullable DisplayInDataTag displayInDataTag) {
         this.displayInDataTag = displayInDataTag;
         return this;
     }
@@ -382,7 +382,7 @@ public class ExistingCustomFieldInput {
     /**
      * Visibility of the custom field on various pages/forms.
      */
-    public ExistingCustomFieldInput withPageVisibility(@Nullable PageVisibilityJson pageVisibility) {
+    public ExistingCustomFieldInput withPageVisibility(@Nullable PageVisibility pageVisibility) {
         this.pageVisibility = pageVisibility;
         return this;
     }
@@ -476,7 +476,7 @@ public class ExistingCustomFieldInput {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private CustomFieldCategoryJson category;
+        private CustomFieldCategory category;
 
         private String name;
 
@@ -484,13 +484,13 @@ public class ExistingCustomFieldInput {
 
         private Boolean required;
 
-        private CustomFieldTypeJson type;
+        private CustomFieldType2 type;
 
         private ExistingCustomFieldDetailsInput details;
 
         private String helpText;
 
-        private DisplayInDataTagJson displayInDataTag;
+        private DisplayInDataTag displayInDataTag;
 
         private String defaultTagText;
 
@@ -500,7 +500,7 @@ public class ExistingCustomFieldInput {
 
         private Boolean displayInEventCreationWizard;
 
-        private PageVisibilityJson pageVisibility;
+        private PageVisibility pageVisibility;
 
         private String id;
 
@@ -511,7 +511,7 @@ public class ExistingCustomFieldInput {
         /**
          * This is used to denote the category of a custom field.
          */
-        public Builder category(@Nonnull CustomFieldCategoryJson category) {
+        public Builder category(@Nonnull CustomFieldCategory category) {
             this.category = Utils.checkNotNull(category, "category");
             return this;
         }
@@ -544,7 +544,7 @@ public class ExistingCustomFieldInput {
          * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields
          * are read only.
          */
-        public Builder type(@Nonnull CustomFieldTypeJson type) {
+        public Builder type(@Nonnull CustomFieldType2 type) {
             this.type = Utils.checkNotNull(type, "type");
             return this;
         }
@@ -572,7 +572,7 @@ public class ExistingCustomFieldInput {
          *
          * <p>Only applicable to session custom fields.
          */
-        public Builder displayInDataTag(@Nullable DisplayInDataTagJson displayInDataTag) {
+        public Builder displayInDataTag(@Nullable DisplayInDataTag displayInDataTag) {
             this.displayInDataTag = displayInDataTag;
             return this;
         }
@@ -614,7 +614,7 @@ public class ExistingCustomFieldInput {
         /**
          * Visibility of the custom field on various pages/forms.
          */
-        public Builder pageVisibility(@Nullable PageVisibilityJson pageVisibility) {
+        public Builder pageVisibility(@Nullable PageVisibility pageVisibility) {
             this.pageVisibility = pageVisibility;
             return this;
         }
@@ -648,8 +648,8 @@ public class ExistingCustomFieldInput {
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Required =
                 new LazySingletonValue<>("required", "true", new TypeReference<Boolean>() {});
 
-        private static final LazySingletonValue<DisplayInDataTagJson> _SINGLETON_VALUE_DisplayInDataTag =
-                new LazySingletonValue<>("displayInDataTag", "\"No\"", new TypeReference<DisplayInDataTagJson>() {});
+        private static final LazySingletonValue<DisplayInDataTag> _SINGLETON_VALUE_DisplayInDataTag =
+                new LazySingletonValue<>("displayInDataTag", "\"No\"", new TypeReference<DisplayInDataTag>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_ConsentField =
                 new LazySingletonValue<>("consentField", "false", new TypeReference<Boolean>() {});

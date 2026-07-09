@@ -183,7 +183,7 @@ var res = await sdk.Speakers.CreateSessionProgramSpeakerAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse2 | 409                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse  | 409                                    | application/json                       |
 | Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 

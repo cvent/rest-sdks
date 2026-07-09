@@ -37,7 +37,7 @@ namespace Cvent.SDK.Models.Components
         public static AttendeesType ErrorResponse1
         {
             get {
-                return new AttendeesType("ErrorResponse_1");
+                return new AttendeesType("ErrorResponse1");
             }
         }
 
@@ -55,7 +55,7 @@ namespace Cvent.SDK.Models.Components
             {
                 case "AttendeeAddResponse":
                     return AttendeeAddResponse;
-                case "ErrorResponse_1":
+                case "ErrorResponse1":
                     return ErrorResponse1;
                 default:
                     throw new ArgumentException("Invalid value for AttendeesType");

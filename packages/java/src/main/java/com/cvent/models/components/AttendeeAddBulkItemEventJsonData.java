@@ -25,7 +25,7 @@ public class AttendeeAddBulkItemEventJsonData {
         this.value = value;
     }
 
-    public static AttendeeAddBulkItemEventJsonData of(ZeroOneOf2 value) {
+    public static AttendeeAddBulkItemEventJsonData of(ZeroOneOf value) {
         Utils.checkNotNull(value, "value");
         return new AttendeeAddBulkItemEventJsonData(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
@@ -38,7 +38,7 @@ public class AttendeeAddBulkItemEventJsonData {
     /**
      * Returns an instance of one of these types:
      * <ul>
-     * <li>{@code com.cvent.models.components.ZeroOneOf2}</li>
+     * <li>{@code com.cvent.models.components.ZeroOneOf}</li>
      * <li>{@code com.cvent.models.components.AttendeeAddBulkItemEventJsonErrorResponse}</li>
      * </ul>
      *
@@ -81,7 +81,7 @@ public class AttendeeAddBulkItemEventJsonData {
             super(
                     AttendeeAddBulkItemEventJsonData.class,
                     false,
-                    TypeReferenceWithShape.of(new TypeReference<ZeroOneOf2>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<ZeroOneOf>() {}, JsonShape.DEFAULT),
                     TypeReferenceWithShape.of(
                             new TypeReference<AttendeeAddBulkItemEventJsonErrorResponse>() {}, JsonShape.DEFAULT));
         }
