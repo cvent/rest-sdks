@@ -31,6 +31,6 @@ namespace Cvent.SDK.Models.Requests
         /// Up to **5 meeting requests** can be created per call.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public List<MeetingRequestCreateJson> RequestBody { get; set; } = default!;
+        public List<MeetingRequestCreate> RequestBody { get; set; } = default!;
     }
 }

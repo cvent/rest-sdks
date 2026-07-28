@@ -14,14 +14,14 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// The status of the item in negotiation.  e.g. The corporation might mark an item as delete_requested, and the hotel, if they agree, can update the item to deleted.
+    /// The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested, and the hotel, if they agree, can update the item to deleted. not_offered indicates the hotel does not offer this amenity (supply side only).
     /// </summary>
     public enum BidItemStatusType
     {
         [JsonProperty("requested")] Requested,
         [JsonProperty("delete_requested")] DeleteRequested,
         [JsonProperty("deleted")] Deleted,
-        [JsonProperty("not_available")] NotAvailable,
+        [JsonProperty("not_offered")] NotOffered,
     }
 
     public static class BidItemStatusTypeExtension

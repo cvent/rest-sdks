@@ -112,16 +112,16 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ExternalActivityInput req = new ExternalActivityInput() {
-    Attendee = new UuidJson() {
+    Attendee = new Uuid() {
         Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     },
-    Event = new EventActivityDetailsJsonInput() {
+    Event = new EventActivityDetailInput() {
         Id = "d84855b0-eeda-41c4-8e7a-53e80364cb95",
     },
     Name = "Registered for Event",
-    Type = ExternalActivityTypeJson.EventExternal,
-    Data = ExternalActivityDataJson.CreateExternalActivityDataJsonEventExternal(
-        new ExternalActivityDataJsonEventExternal() {
+    Type = ExternalActivityType.EventExternal,
+    Data = ExternalActivityData.CreateExternalActivityDataEventExternal(
+        new ExternalActivityDataEventExternal() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
             ExternalActivityDate = System.DateTime.Parse("2019-08-24T14:15:22Z").ToUniversalTime(),
             AdditionalFields = new Dictionary<string, string>() {
@@ -239,11 +239,11 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ExternalActivityMetadataInput req = new ExternalActivityMetadataInput() {
-    Type = ExternalActivityTypeJson.EventExternal,
+    Type = ExternalActivityType.EventExternal,
     Name = "social.media",
     Description = "This external activity contains data of social activities for an attendee.",
-    Fields = new List<ExternalActivitiesAdditionalFieldsMetadataJson>() {
-        new ExternalActivitiesAdditionalFieldsMetadataJson() {
+    Fields = new List<ExternalActivityAdditionalFieldsMetadata>() {
+        new ExternalActivityAdditionalFieldsMetadata() {
             Name = "facebook_social.media",
             Description = "Contains data for facebook social media activity.",
         },
@@ -350,11 +350,11 @@ var sdk = new CventSDK(security: new Security() {
 UpdateExternalAttendeeActivityMetadataRequest req = new UpdateExternalAttendeeActivityMetadataRequest() {
     Id = "9463c74e-18c6-401a-a710-ae0f485bf059",
     ExternalActivityMetadata = new ExternalActivityMetadataInput() {
-        Type = ExternalActivityTypeJson.EventExternal,
+        Type = ExternalActivityType.EventExternal,
         Name = "social.media",
         Description = "This external activity contains data of social activities for an attendee.",
-        Fields = new List<ExternalActivitiesAdditionalFieldsMetadataJson>() {
-            new ExternalActivitiesAdditionalFieldsMetadataJson() {
+        Fields = new List<ExternalActivityAdditionalFieldsMetadata>() {
+            new ExternalActivityAdditionalFieldsMetadata() {
                 Name = "facebook_social.media",
                 Description = "Contains data for facebook social media activity.",
             },

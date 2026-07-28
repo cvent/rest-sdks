@@ -263,14 +263,14 @@ namespace Cvent.SDK
                 }
 
                 var newRequest = new GetAirActualDetailRequest {
+                    Id = request.Id,
                     After = request.After,
                     Before = request.Before,
                     Limit = request.Limit,
                     Token = nextCursor,
                     Expand = request.Expand,
                     Sort = request.Sort,
-                    Filter = request.Filter,
-                    Id = request.Id
+                    Filter = request.Filter
                 };
 
                 return await GetAirActualDetailAsync(
@@ -463,14 +463,14 @@ namespace Cvent.SDK
                 }
 
                 var newRequest = new GetAirRequestsRequest {
+                    Id = request.Id,
                     After = request.After,
                     Before = request.Before,
                     Limit = request.Limit,
                     Token = nextCursor,
                     Sort = request.Sort,
                     Filter = request.Filter,
-                    Expand = request.Expand,
-                    Id = request.Id
+                    Expand = request.Expand
                 };
 
                 return await GetAirRequestsAsync(
@@ -663,12 +663,12 @@ namespace Cvent.SDK
                 }
 
                 var newRequest = new GetAlternateTravelAnswersRequest {
+                    Id = request.Id,
                     After = request.After,
                     Before = request.Before,
                     Limit = request.Limit,
                     Token = nextCursor,
-                    Filter = request.Filter,
-                    Id = request.Id
+                    Filter = request.Filter
                 };
 
                 return await GetAlternateTravelAnswersAsync(
@@ -861,14 +861,14 @@ namespace Cvent.SDK
                 }
 
                 var newRequest = new GetHotelRequestsRequest {
+                    Id = request.Id,
                     After = request.After,
                     Before = request.Before,
                     Limit = request.Limit,
                     Token = nextCursor,
                     Expand = request.Expand,
                     Sort = request.Sort,
-                    Filter = request.Filter,
-                    Id = request.Id
+                    Filter = request.Filter
                 };
 
                 return await GetHotelRequestsAsync(
@@ -1061,12 +1061,12 @@ namespace Cvent.SDK
                 }
 
                 var newRequest = new GetHousingReservationRequestsRequest {
+                    Id = request.Id,
                     After = request.After,
                     Before = request.Before,
                     Limit = request.Limit,
                     Token = nextCursor,
-                    Filter = request.Filter,
-                    Id = request.Id
+                    Filter = request.Filter
                 };
 
                 return await GetHousingReservationRequestsAsync(

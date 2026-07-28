@@ -1133,9 +1133,9 @@ UpdateExhibitorAnswersRequest req = new UpdateExhibitorAnswersRequest() {
                 Exhibitor = new Cvent.SDK.Models.Components.Exhibitor() {
                     Id = "4888db54-db22-11eb-8d19-0242ac130003",
                 },
-                Answers = new List<Answer2>() {
-                    new Answer2() {
-                        Type = AnswerType1.Choice,
+                Answers = new List<Answer22>() {
+                    new Answer22() {
+                        Type = AnswerType11.Choice,
                         Value = "Choice A",
                     },
                 },

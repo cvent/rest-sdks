@@ -22,12 +22,12 @@ namespace Cvent.SDK.Models.Components
         /// Base entity of an activity appointment.
         /// </summary>
         [JsonProperty("appointment")]
-        public ActivityBaseAppointmentJson? Appointment { get; set; }
+        public ActivityBaseAppointment? Appointment { get; set; }
 
         /// <summary>
         /// An activity contact.
         /// </summary>
         [JsonProperty("contact")]
-        public ActivityContactJson? Contact { get; set; }
+        public ActivityContact? Contact { get; set; }
     }
 }

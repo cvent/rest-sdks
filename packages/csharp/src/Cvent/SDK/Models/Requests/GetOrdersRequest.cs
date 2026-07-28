@@ -69,7 +69,7 @@ namespace Cvent.SDK.Models.Requests
         public string? Filter { get; set; }
 
         /// <summary>
-        /// This sets whether or not to fetch deleted orders in the response. If set to true, the response will include records for the deleted orders.
+        /// When `true`, includes soft-deleted records in the response. Defaults to `false`.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=deleted")]
         public bool? Deleted { get; set; } = false;

@@ -14,28 +14,19 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Question Type.
+    /// This object represents the type of a question.
     /// </summary>
     public enum QuestionTypeJson1
     {
         [JsonProperty("SingleChoice")] SingleChoice,
         [JsonProperty("MultiChoice")] MultiChoice,
-        [JsonProperty("MatrixSingleChoice")] MatrixSingleChoice,
-        [JsonProperty("MatrixMultiChoice")] MatrixMultiChoice,
-        [JsonProperty("MatrixSideBySide")] MatrixSideBySide,
-        [JsonProperty("MatrixSpreadSheet")] MatrixSpreadSheet,
-        [JsonProperty("DateTime")] DateTime,
-        [JsonProperty("Number")] Number,
-        [JsonProperty("Text")] Text,
-        [JsonProperty("CommentBox")] CommentBox,
-        [JsonProperty("Form")] Form,
-        [JsonProperty("RankOrder")] RankOrder,
+        [JsonProperty("OpenEndedDateTime")] OpenEndedDateTime,
+        [JsonProperty("OpenEndedTextOneLine")] OpenEndedTextOneLine,
+        [JsonProperty("OpenEndedTextCommentBox")] OpenEndedTextCommentBox,
+        [JsonProperty("OpenEndedNumeric")] OpenEndedNumeric,
         [JsonProperty("FileUpload")] FileUpload,
-        [JsonProperty("NetPromoter")] NetPromoter,
-        [JsonProperty("Rating")] Rating,
-        [JsonProperty("MatrixRating")] MatrixRating,
-        [JsonProperty("NumberAllocation")] NumberAllocation,
-        [JsonProperty("LargeChoices")] LargeChoices,
+        [JsonProperty("MatrixSinglePerRow")] MatrixSinglePerRow,
+        [JsonProperty("MatrixMultiPerRow")] MatrixMultiPerRow,
     }
 
     public static class QuestionTypeJson1Extension

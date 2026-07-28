@@ -1,6 +1,6 @@
 # BidItemStatusType
 
-The status of the item in negotiation.  e.g. The corporation might mark an item as delete_requested, and the hotel, if they agree, can update the item to deleted.
+The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested, and the hotel, if they agree, can update the item to deleted. not_offered indicates the hotel does not offer this amenity (supply side only).
 
 ## Example Usage
 
@@ -18,4 +18,4 @@ var value = BidItemStatusType.Requested;
 | `Requested`       | requested         |
 | `DeleteRequested` | delete_requested  |
 | `Deleted`         | deleted           |
-| `NotAvailable`    | not_available     |
+| `NotOffered`      | not_offered       |

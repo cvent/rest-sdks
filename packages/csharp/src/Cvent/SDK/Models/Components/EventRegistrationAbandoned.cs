@@ -36,6 +36,6 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("contact")]
-        public ActivityContact? Contact { get; set; }
+        public EventRegistrationAbandonedActivityContact? Contact { get; set; }
     }
 }

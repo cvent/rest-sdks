@@ -5,7 +5,7 @@ The response from a request to get the list of attendee activities. This include
 
 ## Fields
 
-| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `Paging`                                                         | [PagingJson](../../Models/Components/PagingJson.md)              | :heavy_check_mark:                                               | Represents pagination information for a collection of resources. |
-| `Data`                                                           | List<[ActivityJson](../../Models/Components/ActivityJson.md)>    | :heavy_check_mark:                                               | Collection of attendee activities.                               |
+| Field                                                                 | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `Paging`                                                              | [Paging](../../Models/Components/Paging.md)                           | :heavy_check_mark:                                                    | Represents pagination information for a collection of resources.      |
+| `Data`                                                                | List<[AttendeeActivity](../../Models/Components/AttendeeActivity.md)> | :heavy_check_mark:                                                    | Collection of attendee activities.                                    |

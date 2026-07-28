@@ -6,7 +6,7 @@ as the collection of bulk results.
 
 ## Fields
 
-| Field                                                             | Type                                                              | Required                                                          | Description                                                       |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `Paging`                                                          | [PagingJson](../../Models/Components/PagingJson.md)               | :heavy_minus_sign:                                                | Represents pagination information for a collection of resources.  |
-| `Data`                                                            | List<[BulkResultJson](../../Models/Components/BulkResultJson.md)> | :heavy_check_mark:                                                | Collection of bulk result objects.                                |
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `Paging`                                                         | [Paging](../../Models/Components/Paging.md)                      | :heavy_minus_sign:                                               | Represents pagination information for a collection of resources. |
+| `Data`                                                           | List<[BulkResult](../../Models/Components/BulkResult.md)>        | :heavy_check_mark:                                               | Collection of bulk result objects.                               |

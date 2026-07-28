@@ -78,7 +78,7 @@ namespace Cvent.SDK.Models.Components
         /// Question Type.
         /// </summary>
         [JsonProperty("type")]
-        public QuestionTypeJson1? Type { get; set; }
+        public QuestionTypeJson? Type { get; set; }
 
         /// <summary>
         /// List of choices for the question.

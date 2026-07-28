@@ -15,38 +15,56 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// A transaction reconciliation record.
+    /// Information about housing event with key information, providing a summarized view.
     /// </summary>
     public class ZeroAllOf6
     {
         /// <summary>
-        /// The identifier of reconciled budget item.
+        /// The unique ID of the housing event.
         /// </summary>
-        [JsonProperty("budgetItem")]
-        public BudgetItemAllOf? BudgetItem { get; set; }
+        [JsonProperty("id")]
+        public long Id { get; set; } = default!;
 
         /// <summary>
-        /// This is used to denote the reconciliation status for a transaction.
+        /// Event name.
+        /// </summary>
+        [JsonProperty("name")]
+        public string Name { get; set; } = default!;
+
+        /// <summary>
+        /// The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder days.
+        /// </summary>
+        [JsonProperty("start")]
+        public DateTime Start { get; set; } = default!;
+
+        /// <summary>
+        /// The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.
+        /// </summary>
+        [JsonProperty("end")]
+        public DateTime End { get; set; } = default!;
+
+        /// <summary>
+        /// The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable business rules, like releasing reserved room blocks back to general availability.
+        /// </summary>
+        [JsonProperty("cutOff")]
+        public DateTime CutOff { get; set; } = default!;
+
+        /// <summary>
+        /// The event timezone from the Olson specification.
+        /// </summary>
+        [JsonProperty("timeZone")]
+        public string TimeZone { get; set; } = default!;
+
+        /// <summary>
+        /// Event venue details.
+        /// </summary>
+        [JsonProperty("venue")]
+        public VenueJson1 Venue { get; set; } = default!;
+
+        /// <summary>
+        /// Housing event status.
         /// </summary>
         [JsonProperty("status")]
-        public ReconciliationStatusJson? Status { get; set; }
-
-        /// <summary>
-        /// Reconciliation amount.
-        /// </summary>
-        [JsonProperty("amount")]
-        public double? Amount { get; set; }
-
-        /// <summary>
-        /// Reconciled by user.
-        /// </summary>
-        [JsonProperty("reconciledBy")]
-        public string? ReconciledBy { get; set; }
-
-        /// <summary>
-        /// The ISO 8601 zoned date and time for Reconciled date.
-        /// </summary>
-        [JsonProperty("reconciledDate")]
-        public DateTime? ReconciledDate { get; set; }
+        public HousingEventStatusesJson Status { get; set; } = default!;
     }
 }

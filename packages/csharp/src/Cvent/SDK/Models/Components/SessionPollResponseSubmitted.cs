@@ -22,12 +22,12 @@ namespace Cvent.SDK.Models.Components
         /// The activity session.
         /// </summary>
         [JsonProperty("session")]
-        public SessionActivity6? Session { get; set; }
+        public SessionPollResponseSubmittedSessionActivity? Session { get; set; }
 
         /// <summary>
         /// This is used to denote the poll details.
         /// </summary>
         [JsonProperty("poll")]
-        public PollResponseJson? Poll { get; set; }
+        public PollResponse? Poll { get; set; }
     }
 }

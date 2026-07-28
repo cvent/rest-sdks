@@ -29,7 +29,7 @@ namespace Cvent.SDK.Models.Components
         /// An activity contact.
         /// </summary>
         [JsonProperty("contact")]
-        public ActivityContactJson? Contact { get; set; }
+        public ActivityContact? Contact { get; set; }
 
         /// <summary>
         /// ISO 8601 date and time when an email was undelivered.

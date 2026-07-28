@@ -15,6 +15,18 @@ namespace Cvent.SDK.Models.Requests
     public class GetEventSurveyResponsesRequest
     {
         /// <summary>
+        /// Id of an event.
+        /// </summary>
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
+        public string Id { get; set; } = default!;
+
+        /// <summary>
+        /// Id of a survey or Id of a chapter in event survey.
+        /// </summary>
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=surveyId")]
+        public string SurveyId { get; set; } = default!;
+
+        /// <summary>
         /// Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=after")]
@@ -56,17 +68,5 @@ namespace Cvent.SDK.Models.Requests
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }
-
-        /// <summary>
-        /// Id of an event.
-        /// </summary>
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
-        public string Id { get; set; } = default!;
-
-        /// <summary>
-        /// Id of a survey or Id of a chapter in event survey.
-        /// </summary>
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=surveyId")]
-        public string SurveyId { get; set; } = default!;
     }
 }

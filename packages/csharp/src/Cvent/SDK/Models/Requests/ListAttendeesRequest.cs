@@ -113,7 +113,7 @@ namespace Cvent.SDK.Models.Requests
         /// | guest            | `eq`, `ne`                          |                                          |<br/>
         /// | group.leader     | `eq`, `ne`                          |                                          |<br/>
         /// | group.id         | `eq`, `ne`                          |                                          |<br/>
-        /// | unsubscribed     | `eq`, `ne`                          | **DEPRECATED**: Please use PUT /attendees/{id}/email-subscriptions instead |<br/>
+        /// | unsubscribed     | `eq`, `ne`                          | Read-only. To update an attendee's subscription status, use <a href="#operation/updateAttendeeSubscriptionStatus">PUT /attendees/{id}/email-subscriptions</a> |<br/>
         /// | registeredAt     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |                                          |<br/>
         /// | registrationLastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |                                          |<br/>
         /// | invitedBy        | `eq`, `ne`                          |                                          |<br/>

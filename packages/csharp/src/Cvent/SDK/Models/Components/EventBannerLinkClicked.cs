@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// An exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
-        public ExhibitorJson? Exhibitor { get; set; }
+        public Exhibitor1? Exhibitor { get; set; }
 
         /// <summary>
         /// The platform used by the user.
@@ -40,6 +40,6 @@ namespace Cvent.SDK.Models.Components
         /// The target of the link clicked on the banner.
         /// </summary>
         [JsonProperty("target")]
-        public BannerLinkTargetJson? Target { get; set; }
+        public BannerLinkTarget? Target { get; set; }
     }
 }

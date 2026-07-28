@@ -744,6 +744,22 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [AddUserToAccountUserGroup](docs/sdks/users/README.md#addusertoaccountusergroup) - Associate User to Group
 * [DeleteUserFromAccountUserGroup](docs/sdks/users/README.md#deleteuserfromaccountusergroup) - Delete User from Group
 
+### [VenueMeetingRooms](docs/sdks/venuemeetingrooms/README.md)
+
+* [CreateMeetingRoom](docs/sdks/venuemeetingrooms/README.md#createmeetingroom) - Create Meeting Room
+* [ListMeetingRoomsOverviews](docs/sdks/venuemeetingrooms/README.md#listmeetingroomsoverviews) - List Meeting Rooms Overviews
+* [UpdateMeetingRoom](docs/sdks/venuemeetingrooms/README.md#updatemeetingroom) - Update Meeting Room
+* [PatchMeetingRoom](docs/sdks/venuemeetingrooms/README.md#patchmeetingroom) - Patch Meeting Room
+* [GetMeetingRoomOverview](docs/sdks/venuemeetingrooms/README.md#getmeetingroomoverview) - Get Meeting Room Overview
+
+### [VenueProfiles](docs/sdks/venueprofiles/README.md)
+
+* [UpdateVenueDetails](docs/sdks/venueprofiles/README.md#updatevenuedetails) - Update Venue Details
+* [PatchVenueDetails](docs/sdks/venueprofiles/README.md#patchvenuedetails) - Patch Venue Details
+* [GetVenueDetailsOverview](docs/sdks/venueprofiles/README.md#getvenuedetailsoverview) - Get Venue Details Overview
+* [UpdateVenueFacility](docs/sdks/venueprofiles/README.md#updatevenuefacility) - Update Venue Facility
+* [PatchVenueFacility](docs/sdks/venueprofiles/README.md#patchvenuefacility) - Patch Venue Facility
+
 ### [Video](docs/sdks/video/README.md)
 
 * [ListVideos](docs/sdks/video/README.md#listvideos) - List Videos
@@ -988,10 +1004,10 @@ catch (System.Net.Http.HttpRequestException ex)
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs):
-  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 18 of 448 methods.*
-  * [`ErrorResponse2`](./src/Cvent/SDK/Models/Errors/ErrorResponse2.cs): The error response. Applicable to 11 of 448 methods.*
-  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 448 methods.*
-  * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 448 methods.*
+  * [`ErrorResponse2`](./src/Cvent/SDK/Models/Errors/ErrorResponse2.cs): The error response. Applicable to 11 of 458 methods.*
+  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 9 of 458 methods.*
+  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 458 methods.*
+  * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 458 methods.*
   * [`ResponseValidationError`](./src/Cvent/SDK/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
 </details>
 

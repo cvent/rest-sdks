@@ -23,7 +23,7 @@ namespace Cvent.SDK.Models.Components
         /// The event in which this activity occurred.
         /// </summary>
         [JsonProperty("event")]
-        public ActivityDataJsonEvent6? Event { get; set; }
+        public EventPageVisitTrackedEvent? Event { get; set; }
 
         /// <summary>
         /// Identifies which site sent the traffic.

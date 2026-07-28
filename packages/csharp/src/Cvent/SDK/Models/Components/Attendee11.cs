@@ -172,9 +172,8 @@ namespace Cvent.SDK.Models.Components
         public Uuid? Administrator { get; set; }
 
         /// <summary>
-        /// DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still receive emails triggered by their own actions (like registration modification). This field has been deprecated. Please use PUT /attendees/{id}/email-subscriptions instead.
+        /// True indicates this attendee is unsubscribed from this event's emails. They'll still receive emails triggered by their own actions (like registration modification). This field is read-only; to update an attendee's subscription status, use <a href="#operation/updateAttendeeSubscriptionStatus">PUT /attendees/{id}/email-subscriptions</a>.
         /// </summary>
-        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("unsubscribed")]
         public bool? Unsubscribed { get; set; }
 
@@ -237,7 +236,7 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("questions")]
-        public List<CustomFieldSchema>? Questions { get; set; }
+        public List<CustomFieldSchema1>? Questions { get; set; }
 
         /// <summary>
         /// The list of answers to the registration questions.

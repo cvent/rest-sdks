@@ -22,6 +22,6 @@ namespace Cvent.SDK.Models.Components
         /// The event in which this activity occurred.
         /// </summary>
         [JsonProperty("event")]
-        public ActivityDataJsonEvent5? Event { get; set; }
+        public ActivityDataEvent3? Event { get; set; }
     }
 }

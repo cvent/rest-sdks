@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// An exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
-        public ExhibitorJson? Exhibitor { get; set; }
+        public Exhibitor1? Exhibitor { get; set; }
 
         /// <summary>
         /// The platform used by the user.
@@ -34,6 +34,6 @@ namespace Cvent.SDK.Models.Components
         /// Document for an activity exhibitor.
         /// </summary>
         [JsonProperty("document")]
-        public ActivityExhibitorDocumentJson? Document { get; set; }
+        public ActivityExhibitorDocument? Document { get; set; }
     }
 }

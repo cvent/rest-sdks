@@ -22,13 +22,13 @@ namespace Cvent.SDK.Models.Components
         /// The activity session.
         /// </summary>
         [JsonProperty("session")]
-        public SessionActivity7? Session { get; set; }
+        public SessionQuestionAskedSessionActivity? Session { get; set; }
 
         /// <summary>
         /// The question asked in a session.
         /// </summary>
         [JsonProperty("question")]
-        public QuestionDetailJson? Question { get; set; }
+        public QuestionDetail? Question { get; set; }
 
         /// <summary>
         /// The platform used by the user.

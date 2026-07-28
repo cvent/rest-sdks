@@ -78,7 +78,7 @@ namespace Cvent.SDK.Models.Components
         /// The list of possible answers to a question.
         /// </summary>
         [JsonProperty("questions")]
-        public List<MeetingRequestQuestionJson>? Questions { get; set; }
+        public List<MeetingRequestQuestion>? Questions { get; set; }
 
         /// <summary>
         /// The event the request is associated with.

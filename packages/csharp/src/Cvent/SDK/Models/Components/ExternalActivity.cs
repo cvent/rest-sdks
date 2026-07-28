@@ -29,13 +29,13 @@ namespace Cvent.SDK.Models.Components
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("attendee")]
-        public UuidJson Attendee { get; set; } = default!;
+        public Uuid Attendee { get; set; } = default!;
 
         /// <summary>
         /// Details for an event activity.
         /// </summary>
         [JsonProperty("event")]
-        public EventActivityDetailsJson Event { get; set; } = default!;
+        public EventActivityDetail Event { get; set; } = default!;
 
         /// <summary>
         /// ISO 8601 date and time when this attendee activity occurred.
@@ -59,12 +59,12 @@ namespace Cvent.SDK.Models.Components
         /// This is used to denote the type of the external attendee activity.
         /// </summary>
         [JsonProperty("type")]
-        public ExternalActivityTypeJson Type { get; set; } = default!;
+        public ExternalActivityType Type { get; set; } = default!;
 
         /// <summary>
         /// This is used to denote the type of the external attendee activity.
         /// </summary>
         [JsonProperty("data", NullValueHandling = NullValueHandling.Include)]
-        public ExternalActivityDataJson Data { get; set; } = default!;
+        public ExternalActivityData Data { get; set; } = default!;
     }
 }

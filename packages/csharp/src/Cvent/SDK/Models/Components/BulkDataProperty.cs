@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// The response data for the bulk operation.
+    /// Data Record envelope.
     /// </summary>
     public class BulkDataProperty
     {
@@ -41,6 +41,6 @@ namespace Cvent.SDK.Models.Components
         /// Arbitrary container to hold a JSON payload. The payload is the data you're sending, or the reply received when fetching results. For the request, this data must be structured in the way the API you're running a bulk job for accepts. For example, to bulk create sessions, you structure each of the `dataRecord` entries based on the format of the Create Session endpoint.
         /// </summary>
         [JsonProperty("dataRecord")]
-        public Dictionary<string, BulkDataRecordJson> DataRecord { get; set; } = default!;
+        public Dictionary<string, BulkDataRecord> DataRecord { get; set; } = default!;
     }
 }

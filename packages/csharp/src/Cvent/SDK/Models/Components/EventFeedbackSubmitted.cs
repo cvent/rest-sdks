@@ -22,12 +22,12 @@ namespace Cvent.SDK.Models.Components
         /// The event in which this activity occurred.
         /// </summary>
         [JsonProperty("event")]
-        public ActivityDataJsonEvent4? Event { get; set; }
+        public EventFeedbackSubmittedEvent? Event { get; set; }
 
         /// <summary>
         /// A survey response.
         /// </summary>
         [JsonProperty("survey")]
-        public SurveyResponseJson? Survey { get; set; }
+        public SurveyResponse? Survey { get; set; }
     }
 }

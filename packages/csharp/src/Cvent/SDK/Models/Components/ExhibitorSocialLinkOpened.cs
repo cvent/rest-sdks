@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// An exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
-        public ExhibitorJson? Exhibitor { get; set; }
+        public Exhibitor1? Exhibitor { get; set; }
 
         /// <summary>
         /// The platform used by the user.
@@ -34,7 +34,7 @@ namespace Cvent.SDK.Models.Components
         /// Sponsorship level for an activity exhibitor.
         /// </summary>
         [JsonProperty("sponsorshipLevel")]
-        public ActivityExhibitorSponsorshipLevelJson? SponsorshipLevel { get; set; }
+        public ActivityExhibitorSponsorshipLevel? SponsorshipLevel { get; set; }
 
         /// <summary>
         /// The name of the social network.

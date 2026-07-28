@@ -179,7 +179,7 @@ namespace Cvent.SDK.Models.Components
         /// Collection of custom fields.
         /// </summary>
         [JsonProperty("customFields")]
-        public List<CustomFieldSchema>? CustomFields { get; set; }
+        public List<CustomFieldSchema1>? CustomFields { get; set; }
 
         /// <summary>
         /// This is a ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name has part of the ID.

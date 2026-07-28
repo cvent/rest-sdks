@@ -22,18 +22,18 @@ namespace Cvent.SDK.Models.Components
         /// The event in which this activity occurred.
         /// </summary>
         [JsonProperty("event")]
-        public ActivityDataJsonEvent1? Event { get; set; }
+        public EventAttendeeSubstitutedEvent? Event { get; set; }
 
         /// <summary>
         /// Details of a contact.
         /// </summary>
         [JsonProperty("oldContact")]
-        public ContactCommonJson? OldContact { get; set; }
+        public ContactFields1? OldContact { get; set; }
 
         /// <summary>
         /// Details of a contact.
         /// </summary>
         [JsonProperty("newContact")]
-        public ContactCommonJson? NewContact { get; set; }
+        public ContactFields1? NewContact { get; set; }
     }
 }

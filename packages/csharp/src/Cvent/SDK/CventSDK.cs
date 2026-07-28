@@ -381,6 +381,16 @@ namespace Cvent.SDK
         public IUsage Usage { get; }
 
         /// <summary>
+        /// Manage venue profile details including type, contact information, address, and other venue properties.
+        /// </summary>
+        public IVenueProfiles VenueProfiles { get; }
+
+        /// <summary>
+        /// Manage meeting rooms for a venue, including creating and updating room details, configuring capacities and amenities, and associating images.
+        /// </summary>
+        public IVenueMeetingRooms VenueMeetingRooms { get; }
+
+        /// <summary>
         /// Videos can be added to Cvent events with renditions at various resolutions, audio files, reactions tracks, and text tracks. Attendee viewership is tracked to get insight into durations, devices used and venue where the video is watched. Use these APIs to view and manage videos, related text tracks, and audio files. Use these APIs also to get insight into video viewership.
         /// </summary>
         public IVideo Video { get; }
@@ -604,6 +614,14 @@ namespace Cvent.SDK
         /// </summary>
         public IUsage Usage { get; private set; }
         /// <summary>
+        /// The VenueProfiles sub-SDK.
+        /// </summary>
+        public IVenueProfiles VenueProfiles { get; private set; }
+        /// <summary>
+        /// The VenueMeetingRooms sub-SDK.
+        /// </summary>
+        public IVenueMeetingRooms VenueMeetingRooms { get; private set; }
+        /// <summary>
         /// The Video sub-SDK.
         /// </summary>
         public IVideo Video { get; private set; }
@@ -720,6 +738,10 @@ namespace Cvent.SDK
             TravelSuppliers = new TravelSuppliers(SDKConfiguration);
 
             Usage = new Usage(SDKConfiguration);
+
+            VenueProfiles = new VenueProfiles(SDKConfiguration);
+
+            VenueMeetingRooms = new VenueMeetingRooms(SDKConfiguration);
 
             Video = new Video(SDKConfiguration);
 
@@ -881,6 +903,10 @@ namespace Cvent.SDK
             TravelSuppliers = new TravelSuppliers(SDKConfiguration);
 
             Usage = new Usage(SDKConfiguration);
+
+            VenueProfiles = new VenueProfiles(SDKConfiguration);
+
+            VenueMeetingRooms = new VenueMeetingRooms(SDKConfiguration);
 
             Video = new Video(SDKConfiguration);
 
