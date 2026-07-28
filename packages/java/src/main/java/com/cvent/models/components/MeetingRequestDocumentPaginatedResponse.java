@@ -22,18 +22,18 @@ public class MeetingRequestDocumentPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of meeting request object documents.
      */
     @JsonProperty("data")
-    private List<MeetingRequestDocumentJson> data;
+    private List<MeetingRequestDocument> data;
 
     @JsonCreator
     public MeetingRequestDocumentPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<MeetingRequestDocumentJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<MeetingRequestDocument> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +42,14 @@ public class MeetingRequestDocumentPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of meeting request object documents.
      */
-    public List<MeetingRequestDocumentJson> data() {
+    public List<MeetingRequestDocument> data() {
         return this.data;
     }
 
@@ -60,7 +60,7 @@ public class MeetingRequestDocumentPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public MeetingRequestDocumentPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public MeetingRequestDocumentPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +68,7 @@ public class MeetingRequestDocumentPaginatedResponse {
     /**
      * Collection of meeting request object documents.
      */
-    public MeetingRequestDocumentPaginatedResponse withData(@Nonnull List<MeetingRequestDocumentJson> data) {
+    public MeetingRequestDocumentPaginatedResponse withData(@Nonnull List<MeetingRequestDocument> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +98,9 @@ public class MeetingRequestDocumentPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<MeetingRequestDocumentJson> data;
+        private List<MeetingRequestDocument> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +109,7 @@ public class MeetingRequestDocumentPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +117,7 @@ public class MeetingRequestDocumentPaginatedResponse {
         /**
          * Collection of meeting request object documents.
          */
-        public Builder data(@Nonnull List<MeetingRequestDocumentJson> data) {
+        public Builder data(@Nonnull List<MeetingRequestDocument> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

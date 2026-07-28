@@ -24,27 +24,27 @@ public class SpeakerFeedbackSubmitted {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("session")
-    private SessionActivity11 session;
+    private SpeakerFeedbackSubmittedSessionActivity session;
 
     /**
      * An activity speaker.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("speaker")
-    private SpeakerJson speaker;
+    private Speaker1 speaker;
 
     /**
      * A survey response.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("survey")
-    private SurveyResponseJson survey;
+    private SurveyResponse survey;
 
     @JsonCreator
     public SpeakerFeedbackSubmitted(
-            @JsonProperty("session") @Nullable SessionActivity11 session,
-            @JsonProperty("speaker") @Nullable SpeakerJson speaker,
-            @JsonProperty("survey") @Nullable SurveyResponseJson survey) {
+            @JsonProperty("session") @Nullable SpeakerFeedbackSubmittedSessionActivity session,
+            @JsonProperty("speaker") @Nullable Speaker1 speaker,
+            @JsonProperty("survey") @Nullable SurveyResponse survey) {
         this.session = session;
         this.speaker = speaker;
         this.survey = survey;
@@ -57,21 +57,21 @@ public class SpeakerFeedbackSubmitted {
     /**
      * The activity session.
      */
-    public Optional<SessionActivity11> session() {
+    public Optional<SpeakerFeedbackSubmittedSessionActivity> session() {
         return Optional.ofNullable(this.session);
     }
 
     /**
      * An activity speaker.
      */
-    public Optional<SpeakerJson> speaker() {
+    public Optional<Speaker1> speaker() {
         return Optional.ofNullable(this.speaker);
     }
 
     /**
      * A survey response.
      */
-    public Optional<SurveyResponseJson> survey() {
+    public Optional<SurveyResponse> survey() {
         return Optional.ofNullable(this.survey);
     }
 
@@ -82,7 +82,7 @@ public class SpeakerFeedbackSubmitted {
     /**
      * The activity session.
      */
-    public SpeakerFeedbackSubmitted withSession(@Nullable SessionActivity11 session) {
+    public SpeakerFeedbackSubmitted withSession(@Nullable SpeakerFeedbackSubmittedSessionActivity session) {
         this.session = session;
         return this;
     }
@@ -90,7 +90,7 @@ public class SpeakerFeedbackSubmitted {
     /**
      * An activity speaker.
      */
-    public SpeakerFeedbackSubmitted withSpeaker(@Nullable SpeakerJson speaker) {
+    public SpeakerFeedbackSubmitted withSpeaker(@Nullable Speaker1 speaker) {
         this.speaker = speaker;
         return this;
     }
@@ -98,7 +98,7 @@ public class SpeakerFeedbackSubmitted {
     /**
      * A survey response.
      */
-    public SpeakerFeedbackSubmitted withSurvey(@Nullable SurveyResponseJson survey) {
+    public SpeakerFeedbackSubmitted withSurvey(@Nullable SurveyResponse survey) {
         this.survey = survey;
         return this;
     }
@@ -130,11 +130,11 @@ public class SpeakerFeedbackSubmitted {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private SessionActivity11 session;
+        private SpeakerFeedbackSubmittedSessionActivity session;
 
-        private SpeakerJson speaker;
+        private Speaker1 speaker;
 
-        private SurveyResponseJson survey;
+        private SurveyResponse survey;
 
         private Builder() {
             // force use of static builder() method
@@ -143,7 +143,7 @@ public class SpeakerFeedbackSubmitted {
         /**
          * The activity session.
          */
-        public Builder session(@Nullable SessionActivity11 session) {
+        public Builder session(@Nullable SpeakerFeedbackSubmittedSessionActivity session) {
             this.session = session;
             return this;
         }
@@ -151,7 +151,7 @@ public class SpeakerFeedbackSubmitted {
         /**
          * An activity speaker.
          */
-        public Builder speaker(@Nullable SpeakerJson speaker) {
+        public Builder speaker(@Nullable Speaker1 speaker) {
             this.speaker = speaker;
             return this;
         }
@@ -159,7 +159,7 @@ public class SpeakerFeedbackSubmitted {
         /**
          * A survey response.
          */
-        public Builder survey(@Nullable SurveyResponseJson survey) {
+        public Builder survey(@Nullable SurveyResponse survey) {
             this.survey = survey;
             return this;
         }

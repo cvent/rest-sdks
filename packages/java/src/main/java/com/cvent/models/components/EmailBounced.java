@@ -43,7 +43,7 @@ public class EmailBounced {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contact")
-    private ActivityContactJson contact;
+    private ActivityContact contact;
 
     /**
      * ISO 8601 date and time when an email bounced.
@@ -77,7 +77,7 @@ public class EmailBounced {
     public EmailBounced(
             @JsonProperty("type") @Nullable String type,
             @JsonProperty("reason") @Nullable String reason,
-            @JsonProperty("contact") @Nullable ActivityContactJson contact,
+            @JsonProperty("contact") @Nullable ActivityContact contact,
             @JsonProperty("bounced") @Nullable OffsetDateTime bounced,
             @JsonProperty("smtpCode") @Nullable Long smtpCode,
             @JsonProperty("dsnDiagnostic") @Nullable String dsnDiagnostic,
@@ -112,7 +112,7 @@ public class EmailBounced {
     /**
      * An activity contact.
      */
-    public Optional<ActivityContactJson> contact() {
+    public Optional<ActivityContact> contact() {
         return Optional.ofNullable(this.contact);
     }
 
@@ -167,7 +167,7 @@ public class EmailBounced {
     /**
      * An activity contact.
      */
-    public EmailBounced withContact(@Nullable ActivityContactJson contact) {
+    public EmailBounced withContact(@Nullable ActivityContact contact) {
         this.contact = contact;
         return this;
     }
@@ -254,7 +254,7 @@ public class EmailBounced {
 
         private String reason;
 
-        private ActivityContactJson contact;
+        private ActivityContact contact;
 
         private OffsetDateTime bounced;
 
@@ -287,7 +287,7 @@ public class EmailBounced {
         /**
          * An activity contact.
          */
-        public Builder contact(@Nullable ActivityContactJson contact) {
+        public Builder contact(@Nullable ActivityContact contact) {
             this.contact = contact;
             return this;
         }

@@ -20,6 +20,12 @@ import java.util.Optional;
 
 public class GetHotelRequestsRequest {
     /**
+     * ID of an event.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
+    private String id;
+
+    /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
      */
@@ -92,22 +98,17 @@ public class GetHotelRequestsRequest {
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
 
-    /**
-     * ID of an event.
-     */
-    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
-    private String id;
-
     @JsonCreator
     public GetHotelRequestsRequest(
+            @Nonnull String id,
             @Nullable OffsetDateTime after,
             @Nullable OffsetDateTime before,
             @Nullable Long limit,
             @Nullable String token,
             @Nullable List<ExpandHotelRequestQuestionAnswer> expand,
             @Nullable String sort,
-            @Nullable String filter,
-            @Nonnull String id) {
+            @Nullable String filter) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.after = after;
         this.before = before;
         this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
@@ -115,11 +116,17 @@ public class GetHotelRequestsRequest {
         this.expand = expand;
         this.sort = sort;
         this.filter = filter;
-        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     public GetHotelRequestsRequest(@Nonnull String id) {
-        this(null, null, null, null, null, null, null, id);
+        this(id, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * ID of an event.
+     */
+    public String id() {
+        return this.id;
     }
 
     /**
@@ -202,15 +209,16 @@ public class GetHotelRequestsRequest {
         return Optional.ofNullable(this.filter);
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     /**
      * ID of an event.
      */
-    public String id() {
-        return this.id;
-    }
-
-    public static Builder builder() {
-        return new Builder();
+    public GetHotelRequestsRequest withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
+        return this;
     }
 
     /**
@@ -300,14 +308,6 @@ public class GetHotelRequestsRequest {
         return this;
     }
 
-    /**
-     * ID of an event.
-     */
-    public GetHotelRequestsRequest withId(@Nonnull String id) {
-        this.id = Utils.checkNotNull(id, "id");
-        return this;
-    }
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -317,25 +317,27 @@ public class GetHotelRequestsRequest {
             return false;
         }
         GetHotelRequestsRequest other = (GetHotelRequestsRequest) o;
-        return Utils.enhancedDeepEquals(this.after, other.after)
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.after, other.after)
                 && Utils.enhancedDeepEquals(this.before, other.before)
                 && Utils.enhancedDeepEquals(this.limit, other.limit)
                 && Utils.enhancedDeepEquals(this.token, other.token)
                 && Utils.enhancedDeepEquals(this.expand, other.expand)
                 && Utils.enhancedDeepEquals(this.sort, other.sort)
-                && Utils.enhancedDeepEquals(this.filter, other.filter)
-                && Utils.enhancedDeepEquals(this.id, other.id);
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(after, before, limit, token, expand, sort, filter, id);
+        return Utils.enhancedHash(id, after, before, limit, token, expand, sort, filter);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
                 GetHotelRequestsRequest.class,
+                "id",
+                id,
                 "after",
                 after,
                 "before",
@@ -349,13 +351,13 @@ public class GetHotelRequestsRequest {
                 "sort",
                 sort,
                 "filter",
-                filter,
-                "id",
-                id);
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
+
+        private String id;
 
         private OffsetDateTime after;
 
@@ -371,10 +373,16 @@ public class GetHotelRequestsRequest {
 
         private String filter;
 
-        private String id;
-
         private Builder() {
             // force use of static builder() method
+        }
+
+        /**
+         * ID of an event.
+         */
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
+            return this;
         }
 
         /**
@@ -464,16 +472,8 @@ public class GetHotelRequestsRequest {
             return this;
         }
 
-        /**
-         * ID of an event.
-         */
-        public Builder id(@Nonnull String id) {
-            this.id = Utils.checkNotNull(id, "id");
-            return this;
-        }
-
         public GetHotelRequestsRequest build() {
-            return new GetHotelRequestsRequest(after, before, limit, token, expand, sort, filter, id);
+            return new GetHotelRequestsRequest(id, after, before, limit, token, expand, sort, filter);
         }
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =

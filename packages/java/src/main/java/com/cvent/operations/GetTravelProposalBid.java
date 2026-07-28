@@ -86,7 +86,8 @@ public class GetTravelProposalBid {
                     this.sdkConfiguration,
                     this.baseUrl,
                     "GetTravelProposalBid",
-                    java.util.Optional.of(java.util.List.of("business-transient/bids:read")),
+                    java.util.Optional.of(
+                            java.util.List.of("business-transient/bids:read", "business-travel/bids:read")),
                     securitySource());
         }
 
@@ -95,7 +96,8 @@ public class GetTravelProposalBid {
                     this.sdkConfiguration,
                     this.baseUrl,
                     "GetTravelProposalBid",
-                    java.util.Optional.of(java.util.List.of("business-transient/bids:read")),
+                    java.util.Optional.of(
+                            java.util.List.of("business-transient/bids:read", "business-travel/bids:read")),
                     securitySource());
         }
 
@@ -104,7 +106,8 @@ public class GetTravelProposalBid {
                     this.sdkConfiguration,
                     this.baseUrl,
                     "GetTravelProposalBid",
-                    java.util.Optional.of(java.util.List.of("business-transient/bids:read")),
+                    java.util.Optional.of(
+                            java.util.List.of("business-transient/bids:read", "business-travel/bids:read")),
                     securitySource());
         }
 

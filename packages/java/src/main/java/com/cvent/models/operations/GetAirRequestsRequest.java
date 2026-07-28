@@ -20,6 +20,12 @@ import java.util.Optional;
 
 public class GetAirRequestsRequest {
     /**
+     * ID of an event.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
+    private String id;
+
+    /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
      */
@@ -92,22 +98,17 @@ public class GetAirRequestsRequest {
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=expand")
     private List<ExpandAirRequestQuestionAnswer> expand;
 
-    /**
-     * ID of an event.
-     */
-    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
-    private String id;
-
     @JsonCreator
     public GetAirRequestsRequest(
+            @Nonnull String id,
             @Nullable OffsetDateTime after,
             @Nullable OffsetDateTime before,
             @Nullable Long limit,
             @Nullable String token,
             @Nullable String sort,
             @Nullable String filter,
-            @Nullable List<ExpandAirRequestQuestionAnswer> expand,
-            @Nonnull String id) {
+            @Nullable List<ExpandAirRequestQuestionAnswer> expand) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.after = after;
         this.before = before;
         this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
@@ -115,11 +116,17 @@ public class GetAirRequestsRequest {
         this.sort = sort;
         this.filter = filter;
         this.expand = expand;
-        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     public GetAirRequestsRequest(@Nonnull String id) {
-        this(null, null, null, null, null, null, null, id);
+        this(id, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * ID of an event.
+     */
+    public String id() {
+        return this.id;
     }
 
     /**
@@ -202,15 +209,16 @@ public class GetAirRequestsRequest {
         return Optional.ofNullable(this.expand);
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     /**
      * ID of an event.
      */
-    public String id() {
-        return this.id;
-    }
-
-    public static Builder builder() {
-        return new Builder();
+    public GetAirRequestsRequest withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
+        return this;
     }
 
     /**
@@ -300,14 +308,6 @@ public class GetAirRequestsRequest {
         return this;
     }
 
-    /**
-     * ID of an event.
-     */
-    public GetAirRequestsRequest withId(@Nonnull String id) {
-        this.id = Utils.checkNotNull(id, "id");
-        return this;
-    }
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -317,25 +317,27 @@ public class GetAirRequestsRequest {
             return false;
         }
         GetAirRequestsRequest other = (GetAirRequestsRequest) o;
-        return Utils.enhancedDeepEquals(this.after, other.after)
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.after, other.after)
                 && Utils.enhancedDeepEquals(this.before, other.before)
                 && Utils.enhancedDeepEquals(this.limit, other.limit)
                 && Utils.enhancedDeepEquals(this.token, other.token)
                 && Utils.enhancedDeepEquals(this.sort, other.sort)
                 && Utils.enhancedDeepEquals(this.filter, other.filter)
-                && Utils.enhancedDeepEquals(this.expand, other.expand)
-                && Utils.enhancedDeepEquals(this.id, other.id);
+                && Utils.enhancedDeepEquals(this.expand, other.expand);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(after, before, limit, token, sort, filter, expand, id);
+        return Utils.enhancedHash(id, after, before, limit, token, sort, filter, expand);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
                 GetAirRequestsRequest.class,
+                "id",
+                id,
                 "after",
                 after,
                 "before",
@@ -349,13 +351,13 @@ public class GetAirRequestsRequest {
                 "filter",
                 filter,
                 "expand",
-                expand,
-                "id",
-                id);
+                expand);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
+
+        private String id;
 
         private OffsetDateTime after;
 
@@ -371,10 +373,16 @@ public class GetAirRequestsRequest {
 
         private List<ExpandAirRequestQuestionAnswer> expand;
 
-        private String id;
-
         private Builder() {
             // force use of static builder() method
+        }
+
+        /**
+         * ID of an event.
+         */
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
+            return this;
         }
 
         /**
@@ -464,16 +472,8 @@ public class GetAirRequestsRequest {
             return this;
         }
 
-        /**
-         * ID of an event.
-         */
-        public Builder id(@Nonnull String id) {
-            this.id = Utils.checkNotNull(id, "id");
-            return this;
-        }
-
         public GetAirRequestsRequest build() {
-            return new GetAirRequestsRequest(after, before, limit, token, sort, filter, expand, id);
+            return new GetAirRequestsRequest(id, after, before, limit, token, sort, filter, expand);
         }
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =

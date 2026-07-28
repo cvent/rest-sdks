@@ -60,6 +60,10 @@ public class ListBulkJobResultRequest {
      *
      * <p>The following fields are filterable:
      * * failed (eq|ne)
+     *
+     * <p>**Note:** this filters for the top-level HTTP status of the target operation.
+     * For operations that return 207 (Multi-Status), filter results may not capture all failed records.
+     * Inspect individual record statuses in the `data` field for a complete picture.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
@@ -132,6 +136,10 @@ public class ListBulkJobResultRequest {
      *
      * <p>The following fields are filterable:
      * * failed (eq|ne)
+     *
+     * <p>**Note:** this filters for the top-level HTTP status of the target operation.
+     * For operations that return 207 (Multi-Status), filter results may not capture all failed records.
+     * Inspect individual record statuses in the `data` field for a complete picture.
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
@@ -194,6 +202,10 @@ public class ListBulkJobResultRequest {
      *
      * <p>The following fields are filterable:
      * * failed (eq|ne)
+     *
+     * <p>**Note:** this filters for the top-level HTTP status of the target operation.
+     * For operations that return 207 (Multi-Status), filter results may not capture all failed records.
+     * Inspect individual record statuses in the `data` field for a complete picture.
      */
     public ListBulkJobResultRequest withFilter(@Nullable String filter) {
         this.filter = filter;
@@ -312,6 +324,10 @@ public class ListBulkJobResultRequest {
          *
          * <p>The following fields are filterable:
          * * failed (eq|ne)
+         *
+         * <p>**Note:** this filters for the top-level HTTP status of the target operation.
+         * For operations that return 207 (Multi-Status), filter results may not capture all failed records.
+         * Inspect individual record statuses in the `data` field for a complete picture.
          */
         public Builder filter(@Nullable String filter) {
             this.filter = filter;

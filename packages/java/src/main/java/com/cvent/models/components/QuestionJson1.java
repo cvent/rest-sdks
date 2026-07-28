@@ -94,7 +94,7 @@ public class QuestionJson1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private QuestionTypeJson1 type;
+    private QuestionTypeJson type;
 
     /**
      * List of choices for the question.
@@ -191,7 +191,7 @@ public class QuestionJson1 {
             @JsonProperty("shortText") @Nullable String shortText,
             @JsonProperty("htmlText") @Nullable String htmlText,
             @JsonProperty("code") @Nullable String code,
-            @JsonProperty("type") @Nullable QuestionTypeJson1 type,
+            @JsonProperty("type") @Nullable QuestionTypeJson type,
             @JsonProperty("choices") @Nullable List<ChoiceJson1> choices,
             @JsonProperty("categories") @Nullable List<CategoryJson1> categories,
             @JsonProperty("subCategories") @Nullable List<TextFieldJson> subCategories,
@@ -320,7 +320,7 @@ public class QuestionJson1 {
     /**
      * Question Type.
      */
-    public Optional<QuestionTypeJson1> type() {
+    public Optional<QuestionTypeJson> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -487,7 +487,7 @@ public class QuestionJson1 {
     /**
      * Question Type.
      */
-    public QuestionJson1 withType(@Nullable QuestionTypeJson1 type) {
+    public QuestionJson1 withType(@Nullable QuestionTypeJson type) {
         this.type = type;
         return this;
     }
@@ -719,7 +719,7 @@ public class QuestionJson1 {
 
         private String code;
 
-        private QuestionTypeJson1 type;
+        private QuestionTypeJson type;
 
         private List<ChoiceJson1> choices;
 
@@ -824,7 +824,7 @@ public class QuestionJson1 {
         /**
          * Question Type.
          */
-        public Builder type(@Nullable QuestionTypeJson1 type) {
+        public Builder type(@Nullable QuestionTypeJson type) {
             this.type = type;
             return this;
         }

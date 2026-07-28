@@ -62,7 +62,7 @@ public class BulkJobWithDataInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<BulkDataPropertyJson> data;
+    private List<BulkDataProperty> data;
 
     @JsonCreator
     public BulkJobWithDataInput(
@@ -71,7 +71,7 @@ public class BulkJobWithDataInput {
             @JsonProperty("operation") @Nonnull BulkJobWithDataOperation operation,
             @JsonProperty("headers") @Nullable Map<String, String> headers,
             @JsonProperty("queryParams") @Nullable Map<String, String> queryParams,
-            @JsonProperty("data") @Nullable List<BulkDataPropertyJson> data) {
+            @JsonProperty("data") @Nullable List<BulkDataProperty> data) {
         this.description = description;
         this.url = Optional.ofNullable(url).orElseThrow(() -> new IllegalArgumentException("url cannot be null"));
         this.operation = Optional.ofNullable(operation)
@@ -125,7 +125,7 @@ public class BulkJobWithDataInput {
     /**
      * Collection of objects to be processed
      */
-    public Optional<List<BulkDataPropertyJson>> data() {
+    public Optional<List<BulkDataProperty>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -178,7 +178,7 @@ public class BulkJobWithDataInput {
     /**
      * Collection of objects to be processed
      */
-    public BulkJobWithDataInput withData(@Nullable List<BulkDataPropertyJson> data) {
+    public BulkJobWithDataInput withData(@Nullable List<BulkDataProperty> data) {
         this.data = data;
         return this;
     }
@@ -236,7 +236,7 @@ public class BulkJobWithDataInput {
 
         private Map<String, String> queryParams;
 
-        private List<BulkDataPropertyJson> data;
+        private List<BulkDataProperty> data;
 
         private Builder() {
             // force use of static builder() method
@@ -287,7 +287,7 @@ public class BulkJobWithDataInput {
         /**
          * Collection of objects to be processed
          */
-        public Builder data(@Nullable List<BulkDataPropertyJson> data) {
+        public Builder data(@Nullable List<BulkDataProperty> data) {
             this.data = data;
             return this;
         }

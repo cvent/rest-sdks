@@ -52,7 +52,7 @@ public class SpeakerFileDownloaded {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("speaker")
-    private SpeakerJson speaker;
+    private Speaker1 speaker;
 
     @JsonCreator
     public SpeakerFileDownloaded(
@@ -60,7 +60,7 @@ public class SpeakerFileDownloaded {
             @JsonProperty("operatingSystem") @Nullable String operatingSystem,
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("type") @Nullable String type,
-            @JsonProperty("speaker") @Nullable SpeakerJson speaker) {
+            @JsonProperty("speaker") @Nullable Speaker1 speaker) {
         this.browser = browser;
         this.operatingSystem = operatingSystem;
         this.name = name;
@@ -103,7 +103,7 @@ public class SpeakerFileDownloaded {
     /**
      * An activity speaker.
      */
-    public Optional<SpeakerJson> speaker() {
+    public Optional<Speaker1> speaker() {
         return Optional.ofNullable(this.speaker);
     }
 
@@ -146,7 +146,7 @@ public class SpeakerFileDownloaded {
     /**
      * An activity speaker.
      */
-    public SpeakerFileDownloaded withSpeaker(@Nullable SpeakerJson speaker) {
+    public SpeakerFileDownloaded withSpeaker(@Nullable Speaker1 speaker) {
         this.speaker = speaker;
         return this;
     }
@@ -199,7 +199,7 @@ public class SpeakerFileDownloaded {
 
         private String type;
 
-        private SpeakerJson speaker;
+        private Speaker1 speaker;
 
         private Builder() {
             // force use of static builder() method
@@ -240,7 +240,7 @@ public class SpeakerFileDownloaded {
         /**
          * An activity speaker.
          */
-        public Builder speaker(@Nullable SpeakerJson speaker) {
+        public Builder speaker(@Nullable Speaker1 speaker) {
             this.speaker = speaker;
             return this;
         }

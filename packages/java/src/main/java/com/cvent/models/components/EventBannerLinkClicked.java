@@ -24,7 +24,7 @@ public class EventBannerLinkClicked {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
-    private ExhibitorJson exhibitor;
+    private Exhibitor1 exhibitor;
 
     /**
      * The platform used by the user.
@@ -45,14 +45,14 @@ public class EventBannerLinkClicked {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("target")
-    private BannerLinkTargetJson target;
+    private BannerLinkTarget target;
 
     @JsonCreator
     public EventBannerLinkClicked(
-            @JsonProperty("exhibitor") @Nullable ExhibitorJson exhibitor,
+            @JsonProperty("exhibitor") @Nullable Exhibitor1 exhibitor,
             @JsonProperty("platform") @Nullable String platform,
             @JsonProperty("banner") @Nullable Banner banner,
-            @JsonProperty("target") @Nullable BannerLinkTargetJson target) {
+            @JsonProperty("target") @Nullable BannerLinkTarget target) {
         this.exhibitor = exhibitor;
         this.platform = platform;
         this.banner = banner;
@@ -66,7 +66,7 @@ public class EventBannerLinkClicked {
     /**
      * An exhibitor.
      */
-    public Optional<ExhibitorJson> exhibitor() {
+    public Optional<Exhibitor1> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
@@ -87,7 +87,7 @@ public class EventBannerLinkClicked {
     /**
      * The target of the link clicked on the banner.
      */
-    public Optional<BannerLinkTargetJson> target() {
+    public Optional<BannerLinkTarget> target() {
         return Optional.ofNullable(this.target);
     }
 
@@ -98,7 +98,7 @@ public class EventBannerLinkClicked {
     /**
      * An exhibitor.
      */
-    public EventBannerLinkClicked withExhibitor(@Nullable ExhibitorJson exhibitor) {
+    public EventBannerLinkClicked withExhibitor(@Nullable Exhibitor1 exhibitor) {
         this.exhibitor = exhibitor;
         return this;
     }
@@ -122,7 +122,7 @@ public class EventBannerLinkClicked {
     /**
      * The target of the link clicked on the banner.
      */
-    public EventBannerLinkClicked withTarget(@Nullable BannerLinkTargetJson target) {
+    public EventBannerLinkClicked withTarget(@Nullable BannerLinkTarget target) {
         this.target = target;
         return this;
     }
@@ -164,13 +164,13 @@ public class EventBannerLinkClicked {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ExhibitorJson exhibitor;
+        private Exhibitor1 exhibitor;
 
         private String platform;
 
         private Banner banner;
 
-        private BannerLinkTargetJson target;
+        private BannerLinkTarget target;
 
         private Builder() {
             // force use of static builder() method
@@ -179,7 +179,7 @@ public class EventBannerLinkClicked {
         /**
          * An exhibitor.
          */
-        public Builder exhibitor(@Nullable ExhibitorJson exhibitor) {
+        public Builder exhibitor(@Nullable Exhibitor1 exhibitor) {
             this.exhibitor = exhibitor;
             return this;
         }
@@ -203,7 +203,7 @@ public class EventBannerLinkClicked {
         /**
          * The target of the link clicked on the banner.
          */
-        public Builder target(@Nullable BannerLinkTargetJson target) {
+        public Builder target(@Nullable BannerLinkTarget target) {
             this.target = target;
             return this;
         }

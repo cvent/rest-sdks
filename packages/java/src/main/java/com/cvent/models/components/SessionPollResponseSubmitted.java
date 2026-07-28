@@ -24,19 +24,19 @@ public class SessionPollResponseSubmitted {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("session")
-    private SessionActivity6 session;
+    private SessionPollResponseSubmittedSessionActivity session;
 
     /**
      * This is used to denote the poll details.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("poll")
-    private PollResponseJson poll;
+    private PollResponse poll;
 
     @JsonCreator
     public SessionPollResponseSubmitted(
-            @JsonProperty("session") @Nullable SessionActivity6 session,
-            @JsonProperty("poll") @Nullable PollResponseJson poll) {
+            @JsonProperty("session") @Nullable SessionPollResponseSubmittedSessionActivity session,
+            @JsonProperty("poll") @Nullable PollResponse poll) {
         this.session = session;
         this.poll = poll;
     }
@@ -48,14 +48,14 @@ public class SessionPollResponseSubmitted {
     /**
      * The activity session.
      */
-    public Optional<SessionActivity6> session() {
+    public Optional<SessionPollResponseSubmittedSessionActivity> session() {
         return Optional.ofNullable(this.session);
     }
 
     /**
      * This is used to denote the poll details.
      */
-    public Optional<PollResponseJson> poll() {
+    public Optional<PollResponse> poll() {
         return Optional.ofNullable(this.poll);
     }
 
@@ -66,7 +66,7 @@ public class SessionPollResponseSubmitted {
     /**
      * The activity session.
      */
-    public SessionPollResponseSubmitted withSession(@Nullable SessionActivity6 session) {
+    public SessionPollResponseSubmitted withSession(@Nullable SessionPollResponseSubmittedSessionActivity session) {
         this.session = session;
         return this;
     }
@@ -74,7 +74,7 @@ public class SessionPollResponseSubmitted {
     /**
      * This is used to denote the poll details.
      */
-    public SessionPollResponseSubmitted withPoll(@Nullable PollResponseJson poll) {
+    public SessionPollResponseSubmitted withPoll(@Nullable PollResponse poll) {
         this.poll = poll;
         return this;
     }
@@ -104,9 +104,9 @@ public class SessionPollResponseSubmitted {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private SessionActivity6 session;
+        private SessionPollResponseSubmittedSessionActivity session;
 
-        private PollResponseJson poll;
+        private PollResponse poll;
 
         private Builder() {
             // force use of static builder() method
@@ -115,7 +115,7 @@ public class SessionPollResponseSubmitted {
         /**
          * The activity session.
          */
-        public Builder session(@Nullable SessionActivity6 session) {
+        public Builder session(@Nullable SessionPollResponseSubmittedSessionActivity session) {
             this.session = session;
             return this;
         }
@@ -123,7 +123,7 @@ public class SessionPollResponseSubmitted {
         /**
          * This is used to denote the poll details.
          */
-        public Builder poll(@Nullable PollResponseJson poll) {
+        public Builder poll(@Nullable PollResponse poll) {
             this.poll = poll;
             return this;
         }

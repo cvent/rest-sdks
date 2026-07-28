@@ -24,19 +24,19 @@ public class EventRegistered {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private ActivityDataJsonEvent7 event;
+    private ActivityDataEvent4 event;
 
     /**
      * This is used to denote the status of an attendee.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private AttendeeStatusJson status;
+    private AttendeeStatus status;
 
     @JsonCreator
     public EventRegistered(
-            @JsonProperty("event") @Nullable ActivityDataJsonEvent7 event,
-            @JsonProperty("status") @Nullable AttendeeStatusJson status) {
+            @JsonProperty("event") @Nullable ActivityDataEvent4 event,
+            @JsonProperty("status") @Nullable AttendeeStatus status) {
         this.event = event;
         this.status = status;
     }
@@ -48,14 +48,14 @@ public class EventRegistered {
     /**
      * The event in which this activity occurred.
      */
-    public Optional<ActivityDataJsonEvent7> event() {
+    public Optional<ActivityDataEvent4> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
      * This is used to denote the status of an attendee.
      */
-    public Optional<AttendeeStatusJson> status() {
+    public Optional<AttendeeStatus> status() {
         return Optional.ofNullable(this.status);
     }
 
@@ -66,7 +66,7 @@ public class EventRegistered {
     /**
      * The event in which this activity occurred.
      */
-    public EventRegistered withEvent(@Nullable ActivityDataJsonEvent7 event) {
+    public EventRegistered withEvent(@Nullable ActivityDataEvent4 event) {
         this.event = event;
         return this;
     }
@@ -74,7 +74,7 @@ public class EventRegistered {
     /**
      * This is used to denote the status of an attendee.
      */
-    public EventRegistered withStatus(@Nullable AttendeeStatusJson status) {
+    public EventRegistered withStatus(@Nullable AttendeeStatus status) {
         this.status = status;
         return this;
     }
@@ -104,9 +104,9 @@ public class EventRegistered {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ActivityDataJsonEvent7 event;
+        private ActivityDataEvent4 event;
 
-        private AttendeeStatusJson status;
+        private AttendeeStatus status;
 
         private Builder() {
             // force use of static builder() method
@@ -115,7 +115,7 @@ public class EventRegistered {
         /**
          * The event in which this activity occurred.
          */
-        public Builder event(@Nullable ActivityDataJsonEvent7 event) {
+        public Builder event(@Nullable ActivityDataEvent4 event) {
             this.event = event;
             return this;
         }
@@ -123,7 +123,7 @@ public class EventRegistered {
         /**
          * This is used to denote the status of an attendee.
          */
-        public Builder status(@Nullable AttendeeStatusJson status) {
+        public Builder status(@Nullable AttendeeStatus status) {
             this.status = status;
             return this;
         }

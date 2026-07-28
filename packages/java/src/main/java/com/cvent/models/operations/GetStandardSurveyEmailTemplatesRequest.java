@@ -17,6 +17,12 @@ import java.util.Optional;
 
 public class GetStandardSurveyEmailTemplatesRequest {
     /**
+     * Id of a survey or Id of a chapter in event survey
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=surveyId")
+    private String surveyId;
+
+    /**
      * The maximum number of records to return per page.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=limit")
@@ -29,23 +35,24 @@ public class GetStandardSurveyEmailTemplatesRequest {
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")
     private String token;
 
-    /**
-     * Id of a survey or Id of a chapter in event survey
-     */
-    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=surveyId")
-    private String surveyId;
-
     @JsonCreator
     public GetStandardSurveyEmailTemplatesRequest(
-            @Nullable Long limit, @Nullable String token, @Nonnull String surveyId) {
-        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
-        this.token = token;
+            @Nonnull String surveyId, @Nullable Long limit, @Nullable String token) {
         this.surveyId = Optional.ofNullable(surveyId)
                 .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.token = token;
     }
 
     public GetStandardSurveyEmailTemplatesRequest(@Nonnull String surveyId) {
-        this(null, null, surveyId);
+        this(surveyId, null, null);
+    }
+
+    /**
+     * Id of a survey or Id of a chapter in event survey
+     */
+    public String surveyId() {
+        return this.surveyId;
     }
 
     /**
@@ -63,15 +70,16 @@ public class GetStandardSurveyEmailTemplatesRequest {
         return Optional.ofNullable(this.token);
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     /**
      * Id of a survey or Id of a chapter in event survey
      */
-    public String surveyId() {
-        return this.surveyId;
-    }
-
-    public static Builder builder() {
-        return new Builder();
+    public GetStandardSurveyEmailTemplatesRequest withSurveyId(@Nonnull String surveyId) {
+        this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
+        return this;
     }
 
     /**
@@ -91,14 +99,6 @@ public class GetStandardSurveyEmailTemplatesRequest {
         return this;
     }
 
-    /**
-     * Id of a survey or Id of a chapter in event survey
-     */
-    public GetStandardSurveyEmailTemplatesRequest withSurveyId(@Nonnull String surveyId) {
-        this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
-        return this;
-    }
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -108,33 +108,41 @@ public class GetStandardSurveyEmailTemplatesRequest {
             return false;
         }
         GetStandardSurveyEmailTemplatesRequest other = (GetStandardSurveyEmailTemplatesRequest) o;
-        return Utils.enhancedDeepEquals(this.limit, other.limit)
-                && Utils.enhancedDeepEquals(this.token, other.token)
-                && Utils.enhancedDeepEquals(this.surveyId, other.surveyId);
+        return Utils.enhancedDeepEquals(this.surveyId, other.surveyId)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(limit, token, surveyId);
+        return Utils.enhancedHash(surveyId, limit, token);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
-                GetStandardSurveyEmailTemplatesRequest.class, "limit", limit, "token", token, "surveyId", surveyId);
+                GetStandardSurveyEmailTemplatesRequest.class, "surveyId", surveyId, "limit", limit, "token", token);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
+        private String surveyId;
+
         private Long limit;
 
         private String token;
 
-        private String surveyId;
-
         private Builder() {
             // force use of static builder() method
+        }
+
+        /**
+         * Id of a survey or Id of a chapter in event survey
+         */
+        public Builder surveyId(@Nonnull String surveyId) {
+            this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
+            return this;
         }
 
         /**
@@ -154,16 +162,8 @@ public class GetStandardSurveyEmailTemplatesRequest {
             return this;
         }
 
-        /**
-         * Id of a survey or Id of a chapter in event survey
-         */
-        public Builder surveyId(@Nonnull String surveyId) {
-            this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
-            return this;
-        }
-
         public GetStandardSurveyEmailTemplatesRequest build() {
-            return new GetStandardSurveyEmailTemplatesRequest(limit, token, surveyId);
+            return new GetStandardSurveyEmailTemplatesRequest(surveyId, limit, token);
         }
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =

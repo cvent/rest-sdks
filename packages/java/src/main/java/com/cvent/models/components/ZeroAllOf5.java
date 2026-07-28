@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
@@ -16,45 +17,78 @@ import java.util.Optional;
 /**
  * ZeroAllOf5
  *
- * <p>The question that was answered.
+ * <p>Represents an error response for the checkin APIs that includes a unique id.
  */
 public class ZeroAllOf5 {
     /**
-     * The unique identifier of the question.
+     * The unique identifier for the error response.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * Question text.
+     * The HTTP status code representing the error.
+     */
+    @JsonProperty("code")
+    private long code;
+
+    /**
+     * A brief description of the error.
+     */
+    @JsonProperty("message")
+    private String message;
+
+    /**
+     * The target resource of the error.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("text")
-    private String text;
+    @JsonProperty("target")
+    private String target;
 
     @JsonCreator
-    public ZeroAllOf5(@JsonProperty("id") @Nullable String id, @JsonProperty("text") @Nullable String text) {
+    public ZeroAllOf5(
+            @JsonProperty("id") @Nullable String id,
+            @JsonProperty("code") long code,
+            @JsonProperty("message") @Nonnull String message,
+            @JsonProperty("target") @Nullable String target) {
         this.id = id;
-        this.text = text;
+        this.code = code;
+        this.message =
+                Optional.ofNullable(message).orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
+        this.target = target;
     }
 
-    public ZeroAllOf5() {
-        this(null, null);
+    public ZeroAllOf5(long code, @Nonnull String message) {
+        this(null, code, message, null);
     }
 
     /**
-     * The unique identifier of the question.
+     * The unique identifier for the error response.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * Question text.
+     * The HTTP status code representing the error.
      */
-    public Optional<String> text() {
-        return Optional.ofNullable(this.text);
+    public long code() {
+        return this.code;
+    }
+
+    /**
+     * A brief description of the error.
+     */
+    public String message() {
+        return this.message;
+    }
+
+    /**
+     * The target resource of the error.
+     */
+    public Optional<String> target() {
+        return Optional.ofNullable(this.target);
     }
 
     public static Builder builder() {
@@ -62,7 +96,7 @@ public class ZeroAllOf5 {
     }
 
     /**
-     * The unique identifier of the question.
+     * The unique identifier for the error response.
      */
     public ZeroAllOf5 withId(@Nullable String id) {
         this.id = id;
@@ -70,10 +104,26 @@ public class ZeroAllOf5 {
     }
 
     /**
-     * Question text.
+     * The HTTP status code representing the error.
      */
-    public ZeroAllOf5 withText(@Nullable String text) {
-        this.text = text;
+    public ZeroAllOf5 withCode(long code) {
+        this.code = code;
+        return this;
+    }
+
+    /**
+     * A brief description of the error.
+     */
+    public ZeroAllOf5 withMessage(@Nonnull String message) {
+        this.message = Utils.checkNotNull(message, "message");
+        return this;
+    }
+
+    /**
+     * The target resource of the error.
+     */
+    public ZeroAllOf5 withTarget(@Nullable String target) {
+        this.target = target;
         return this;
     }
 
@@ -86,17 +136,20 @@ public class ZeroAllOf5 {
             return false;
         }
         ZeroAllOf5 other = (ZeroAllOf5) o;
-        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.text, other.text);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.message, other.message)
+                && Utils.enhancedDeepEquals(this.target, other.target);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, text);
+        return Utils.enhancedHash(id, code, message, target);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(ZeroAllOf5.class, "id", id, "text", text);
+        return Utils.toString(ZeroAllOf5.class, "id", id, "code", code, "message", message, "target", target);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -104,14 +157,18 @@ public class ZeroAllOf5 {
 
         private String id;
 
-        private String text;
+        private long code;
+
+        private String message;
+
+        private String target;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The unique identifier of the question.
+         * The unique identifier for the error response.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -119,15 +176,31 @@ public class ZeroAllOf5 {
         }
 
         /**
-         * Question text.
+         * The HTTP status code representing the error.
          */
-        public Builder text(@Nullable String text) {
-            this.text = text;
+        public Builder code(long code) {
+            this.code = code;
+            return this;
+        }
+
+        /**
+         * A brief description of the error.
+         */
+        public Builder message(@Nonnull String message) {
+            this.message = Utils.checkNotNull(message, "message");
+            return this;
+        }
+
+        /**
+         * The target resource of the error.
+         */
+        public Builder target(@Nullable String target) {
+            this.target = target;
             return this;
         }
 
         public ZeroAllOf5 build() {
-            return new ZeroAllOf5(id, text);
+            return new ZeroAllOf5(id, code, message, target);
         }
     }
 }

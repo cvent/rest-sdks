@@ -208,17 +208,13 @@ public class Attendee11 {
     private Uuid administrator;
 
     /**
-     * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still
-     * receive emails triggered by their own actions (like registration modification). This field has been
-     * deprecated.
-     *
-     * <p>Please use PUT /attendees/{id}/email-subscriptions instead.
-     *
-     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     * True indicates this attendee is unsubscribed from this event's emails. They'll still receive emails
+     * triggered by their own actions (like registration modification). This field is read-only; to update
+     * an attendee's subscription status, use [PUT
+     * /attendees/{id}/email-subscriptions](#operation/updateAttendeeSubscriptionStatus).
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("unsubscribed")
-    @Deprecated
     private Boolean unsubscribed;
 
     /**
@@ -296,7 +292,7 @@ public class Attendee11 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("questions")
     @Deprecated
-    private List<CustomFieldSchema> questions;
+    private List<CustomFieldSchema1> questions;
 
     /**
      * The list of answers to the registration questions.
@@ -428,7 +424,7 @@ public class Attendee11 {
             @JsonProperty("registrationCancelledAt") @Nullable OffsetDateTime registrationCancelledAt,
             @JsonProperty("invitedBy") @Nullable AttendeeInvitedBy1 invitedBy,
             @JsonProperty("responseMethod") @Nullable AttendeeResponseMethod1 responseMethod,
-            @JsonProperty("questions") @Nullable List<CustomFieldSchema> questions,
+            @JsonProperty("questions") @Nullable List<CustomFieldSchema1> questions,
             @JsonProperty("answers") @Nullable List<AttendeeAnswer> answers,
             @JsonProperty("admissionItem") @Nullable Attendee1Lookup admissionItem,
             @JsonProperty("visibility") @Nullable AttendeeVisibility visibility,
@@ -720,15 +716,11 @@ public class Attendee11 {
     }
 
     /**
-     * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still
-     * receive emails triggered by their own actions (like registration modification). This field has been
-     * deprecated.
-     *
-     * <p>Please use PUT /attendees/{id}/email-subscriptions instead.
-     *
-     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     * True indicates this attendee is unsubscribed from this event's emails. They'll still receive emails
+     * triggered by their own actions (like registration modification). This field is read-only; to update
+     * an attendee's subscription status, use [PUT
+     * /attendees/{id}/email-subscriptions](#operation/updateAttendeeSubscriptionStatus).
      */
-    @Deprecated
     public Optional<Boolean> unsubscribed() {
         return Optional.ofNullable(this.unsubscribed);
     }
@@ -806,7 +798,7 @@ public class Attendee11 {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public Optional<List<CustomFieldSchema>> questions() {
+    public Optional<List<CustomFieldSchema1>> questions() {
         return Optional.ofNullable(this.questions);
     }
 
@@ -1118,15 +1110,11 @@ public class Attendee11 {
     }
 
     /**
-     * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still
-     * receive emails triggered by their own actions (like registration modification). This field has been
-     * deprecated.
-     *
-     * <p>Please use PUT /attendees/{id}/email-subscriptions instead.
-     *
-     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     * True indicates this attendee is unsubscribed from this event's emails. They'll still receive emails
+     * triggered by their own actions (like registration modification). This field is read-only; to update
+     * an attendee's subscription status, use [PUT
+     * /attendees/{id}/email-subscriptions](#operation/updateAttendeeSubscriptionStatus).
      */
-    @Deprecated
     public Attendee11 withUnsubscribed(@Nullable Boolean unsubscribed) {
         this.unsubscribed = unsubscribed;
         return this;
@@ -1211,7 +1199,7 @@ public class Attendee11 {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public Attendee11 withQuestions(@Nullable List<CustomFieldSchema> questions) {
+    public Attendee11 withQuestions(@Nullable List<CustomFieldSchema1> questions) {
         this.questions = questions;
         return this;
     }
@@ -1580,7 +1568,6 @@ public class Attendee11 {
 
         private Uuid administrator;
 
-        @Deprecated
         private Boolean unsubscribed;
 
         private AttendeeStatus status;
@@ -1596,7 +1583,7 @@ public class Attendee11 {
         private AttendeeResponseMethod1 responseMethod;
 
         @Deprecated
-        private List<CustomFieldSchema> questions;
+        private List<CustomFieldSchema1> questions;
 
         private List<AttendeeAnswer> answers;
 
@@ -1835,15 +1822,11 @@ public class Attendee11 {
         }
 
         /**
-         * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still
-         * receive emails triggered by their own actions (like registration modification). This field has been
-         * deprecated.
-         *
-         * <p>Please use PUT /attendees/{id}/email-subscriptions instead.
-         *
-         * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+         * True indicates this attendee is unsubscribed from this event's emails. They'll still receive emails
+         * triggered by their own actions (like registration modification). This field is read-only; to update
+         * an attendee's subscription status, use [PUT
+         * /attendees/{id}/email-subscriptions](#operation/updateAttendeeSubscriptionStatus).
          */
-        @Deprecated
         public Builder unsubscribed(@Nullable Boolean unsubscribed) {
             this.unsubscribed = unsubscribed;
             return this;
@@ -1928,7 +1911,7 @@ public class Attendee11 {
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
-        public Builder questions(@Nullable List<CustomFieldSchema> questions) {
+        public Builder questions(@Nullable List<CustomFieldSchema1> questions) {
             this.questions = questions;
             return this;
         }

@@ -23,18 +23,18 @@ public class AttendeeActivitiesPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of attendee activities.
      */
     @JsonProperty("data")
-    private List<ActivityJson> data;
+    private List<AttendeeActivity> data;
 
     @JsonCreator
     public AttendeeActivitiesPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<ActivityJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<AttendeeActivity> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -43,14 +43,14 @@ public class AttendeeActivitiesPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of attendee activities.
      */
-    public List<ActivityJson> data() {
+    public List<AttendeeActivity> data() {
         return this.data;
     }
 
@@ -61,7 +61,7 @@ public class AttendeeActivitiesPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public AttendeeActivitiesPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public AttendeeActivitiesPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -69,7 +69,7 @@ public class AttendeeActivitiesPaginatedResponse {
     /**
      * Collection of attendee activities.
      */
-    public AttendeeActivitiesPaginatedResponse withData(@Nonnull List<ActivityJson> data) {
+    public AttendeeActivitiesPaginatedResponse withData(@Nonnull List<AttendeeActivity> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -99,9 +99,9 @@ public class AttendeeActivitiesPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<ActivityJson> data;
+        private List<AttendeeActivity> data;
 
         private Builder() {
             // force use of static builder() method
@@ -110,7 +110,7 @@ public class AttendeeActivitiesPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -118,7 +118,7 @@ public class AttendeeActivitiesPaginatedResponse {
         /**
          * Collection of attendee activities.
          */
-        public Builder data(@Nonnull List<ActivityJson> data) {
+        public Builder data(@Nonnull List<AttendeeActivity> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

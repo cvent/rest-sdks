@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.MeetingRequestUpdateJson;
+import com.cvent.models.components.MeetingRequestUpdate;
 import com.cvent.utils.SpeakeasyMetadata;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,20 +32,20 @@ public class UpdateMeetingRequestRequest {
      * Up to **5 meeting requests** can be updated per call.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    private List<MeetingRequestUpdateJson> requestBody;
+    private List<MeetingRequestUpdate> requestBody;
 
     @JsonCreator
     public UpdateMeetingRequestRequest(
             @Nonnull String id,
             @Nullable Boolean skipRequiredQuestionValidation,
-            @Nonnull List<MeetingRequestUpdateJson> requestBody) {
+            @Nonnull List<MeetingRequestUpdate> requestBody) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.skipRequiredQuestionValidation = skipRequiredQuestionValidation;
         this.requestBody = Optional.ofNullable(requestBody)
                 .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
     }
 
-    public UpdateMeetingRequestRequest(@Nonnull String id, @Nonnull List<MeetingRequestUpdateJson> requestBody) {
+    public UpdateMeetingRequestRequest(@Nonnull String id, @Nonnull List<MeetingRequestUpdate> requestBody) {
         this(id, null, requestBody);
     }
 
@@ -66,7 +66,7 @@ public class UpdateMeetingRequestRequest {
     /**
      * Up to **5 meeting requests** can be updated per call.
      */
-    public List<MeetingRequestUpdateJson> requestBody() {
+    public List<MeetingRequestUpdate> requestBody() {
         return this.requestBody;
     }
 
@@ -94,7 +94,7 @@ public class UpdateMeetingRequestRequest {
     /**
      * Up to **5 meeting requests** can be updated per call.
      */
-    public UpdateMeetingRequestRequest withRequestBody(@Nonnull List<MeetingRequestUpdateJson> requestBody) {
+    public UpdateMeetingRequestRequest withRequestBody(@Nonnull List<MeetingRequestUpdate> requestBody) {
         this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
         return this;
     }
@@ -137,7 +137,7 @@ public class UpdateMeetingRequestRequest {
 
         private Boolean skipRequiredQuestionValidation;
 
-        private List<MeetingRequestUpdateJson> requestBody;
+        private List<MeetingRequestUpdate> requestBody;
 
         private Builder() {
             // force use of static builder() method
@@ -162,7 +162,7 @@ public class UpdateMeetingRequestRequest {
         /**
          * Up to **5 meeting requests** can be updated per call.
          */
-        public Builder requestBody(@Nonnull List<MeetingRequestUpdateJson> requestBody) {
+        public Builder requestBody(@Nonnull List<MeetingRequestUpdate> requestBody) {
             this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
             return this;
         }

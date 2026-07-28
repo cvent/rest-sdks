@@ -33,7 +33,7 @@ public class Request {
         this.value = value;
     }
 
-    public static Request of(MeetingRequestBulkResponseItemJsonRequest value) {
+    public static Request of(MeetingRequestBulkResponseItemRequest value) {
         Utils.checkNotNull(value, "value");
         return new Request(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
@@ -58,7 +58,7 @@ public class Request {
     /**
      * Returns an instance of one of these types:
      * <ul>
-     * <li>{@code com.cvent.models.components.MeetingRequestBulkResponseItemJsonRequest}</li>
+     * <li>{@code com.cvent.models.components.MeetingRequestBulkResponseItemRequest}</li>
      * <li>{@code java.lang.String}</li>
      * <li>{@code double}</li>
      * <li>{@code long}</li>
@@ -105,7 +105,7 @@ public class Request {
                     Request.class,
                     false,
                     TypeReferenceWithShape.of(
-                            new TypeReference<MeetingRequestBulkResponseItemJsonRequest>() {}, JsonShape.DEFAULT),
+                            new TypeReference<MeetingRequestBulkResponseItemRequest>() {}, JsonShape.DEFAULT),
                     TypeReferenceWithShape.of(new TypeReference<String>() {}, JsonShape.DEFAULT),
                     TypeReferenceWithShape.of(new TypeReference<Double>() {}, JsonShape.DEFAULT),
                     TypeReferenceWithShape.of(new TypeReference<Long>() {}, JsonShape.DEFAULT),

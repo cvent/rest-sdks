@@ -24,7 +24,7 @@ public class ExhibitorSocialLinkOpened {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
-    private ExhibitorJson exhibitor;
+    private Exhibitor1 exhibitor;
 
     /**
      * The platform used by the user.
@@ -38,7 +38,7 @@ public class ExhibitorSocialLinkOpened {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("sponsorshipLevel")
-    private ActivityExhibitorSponsorshipLevelJson sponsorshipLevel;
+    private ActivityExhibitorSponsorshipLevel sponsorshipLevel;
 
     /**
      * The name of the social network.
@@ -56,9 +56,9 @@ public class ExhibitorSocialLinkOpened {
 
     @JsonCreator
     public ExhibitorSocialLinkOpened(
-            @JsonProperty("exhibitor") @Nullable ExhibitorJson exhibitor,
+            @JsonProperty("exhibitor") @Nullable Exhibitor1 exhibitor,
             @JsonProperty("platform") @Nullable String platform,
-            @JsonProperty("sponsorshipLevel") @Nullable ActivityExhibitorSponsorshipLevelJson sponsorshipLevel,
+            @JsonProperty("sponsorshipLevel") @Nullable ActivityExhibitorSponsorshipLevel sponsorshipLevel,
             @JsonProperty("socialNetwork") @Nullable String socialNetwork,
             @JsonProperty("url") @Nullable String url) {
         this.exhibitor = exhibitor;
@@ -75,7 +75,7 @@ public class ExhibitorSocialLinkOpened {
     /**
      * An exhibitor.
      */
-    public Optional<ExhibitorJson> exhibitor() {
+    public Optional<Exhibitor1> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
@@ -89,7 +89,7 @@ public class ExhibitorSocialLinkOpened {
     /**
      * Sponsorship level for an activity exhibitor.
      */
-    public Optional<ActivityExhibitorSponsorshipLevelJson> sponsorshipLevel() {
+    public Optional<ActivityExhibitorSponsorshipLevel> sponsorshipLevel() {
         return Optional.ofNullable(this.sponsorshipLevel);
     }
 
@@ -114,7 +114,7 @@ public class ExhibitorSocialLinkOpened {
     /**
      * An exhibitor.
      */
-    public ExhibitorSocialLinkOpened withExhibitor(@Nullable ExhibitorJson exhibitor) {
+    public ExhibitorSocialLinkOpened withExhibitor(@Nullable Exhibitor1 exhibitor) {
         this.exhibitor = exhibitor;
         return this;
     }
@@ -131,7 +131,7 @@ public class ExhibitorSocialLinkOpened {
      * Sponsorship level for an activity exhibitor.
      */
     public ExhibitorSocialLinkOpened withSponsorshipLevel(
-            @Nullable ActivityExhibitorSponsorshipLevelJson sponsorshipLevel) {
+            @Nullable ActivityExhibitorSponsorshipLevel sponsorshipLevel) {
         this.sponsorshipLevel = sponsorshipLevel;
         return this;
     }
@@ -192,11 +192,11 @@ public class ExhibitorSocialLinkOpened {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ExhibitorJson exhibitor;
+        private Exhibitor1 exhibitor;
 
         private String platform;
 
-        private ActivityExhibitorSponsorshipLevelJson sponsorshipLevel;
+        private ActivityExhibitorSponsorshipLevel sponsorshipLevel;
 
         private String socialNetwork;
 
@@ -209,7 +209,7 @@ public class ExhibitorSocialLinkOpened {
         /**
          * An exhibitor.
          */
-        public Builder exhibitor(@Nullable ExhibitorJson exhibitor) {
+        public Builder exhibitor(@Nullable Exhibitor1 exhibitor) {
             this.exhibitor = exhibitor;
             return this;
         }
@@ -225,7 +225,7 @@ public class ExhibitorSocialLinkOpened {
         /**
          * Sponsorship level for an activity exhibitor.
          */
-        public Builder sponsorshipLevel(@Nullable ActivityExhibitorSponsorshipLevelJson sponsorshipLevel) {
+        public Builder sponsorshipLevel(@Nullable ActivityExhibitorSponsorshipLevel sponsorshipLevel) {
             this.sponsorshipLevel = sponsorshipLevel;
             return this;
         }

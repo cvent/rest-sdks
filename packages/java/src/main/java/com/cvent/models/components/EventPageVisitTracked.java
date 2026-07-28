@@ -25,7 +25,7 @@ public class EventPageVisitTracked {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private ActivityDataJsonEvent6 event;
+    private EventPageVisitTrackedEvent event;
 
     /**
      * Identifies which site sent the traffic.
@@ -80,7 +80,7 @@ public class EventPageVisitTracked {
 
     @JsonCreator
     public EventPageVisitTracked(
-            @JsonProperty("event") @Nullable ActivityDataJsonEvent6 event,
+            @JsonProperty("event") @Nullable EventPageVisitTrackedEvent event,
             @JsonProperty("source") @Nullable String source,
             @JsonProperty("medium") @Nullable String medium,
             @JsonProperty("campaign") @Nullable String campaign,
@@ -105,7 +105,7 @@ public class EventPageVisitTracked {
     /**
      * The event in which this activity occurred.
      */
-    public Optional<ActivityDataJsonEvent6> event() {
+    public Optional<EventPageVisitTrackedEvent> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -167,7 +167,7 @@ public class EventPageVisitTracked {
     /**
      * The event in which this activity occurred.
      */
-    public EventPageVisitTracked withEvent(@Nullable ActivityDataJsonEvent6 event) {
+    public EventPageVisitTracked withEvent(@Nullable EventPageVisitTrackedEvent event) {
         this.event = event;
         return this;
     }
@@ -279,7 +279,7 @@ public class EventPageVisitTracked {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ActivityDataJsonEvent6 event;
+        private EventPageVisitTrackedEvent event;
 
         private String source;
 
@@ -302,7 +302,7 @@ public class EventPageVisitTracked {
         /**
          * The event in which this activity occurred.
          */
-        public Builder event(@Nullable ActivityDataJsonEvent6 event) {
+        public Builder event(@Nullable EventPageVisitTrackedEvent event) {
             this.event = event;
             return this;
         }

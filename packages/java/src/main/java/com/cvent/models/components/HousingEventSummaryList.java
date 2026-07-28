@@ -28,11 +28,11 @@ public class HousingEventSummaryList {
      * List of housing events with key information, providing a summarized view of each event.
      */
     @JsonProperty("data")
-    private List<ZeroAllOf8> data;
+    private List<ZeroAllOf6> data;
 
     @JsonCreator
     public HousingEventSummaryList(
-            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<ZeroAllOf8> data) {
+            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<ZeroAllOf6> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -48,7 +48,7 @@ public class HousingEventSummaryList {
     /**
      * List of housing events with key information, providing a summarized view of each event.
      */
-    public List<ZeroAllOf8> data() {
+    public List<ZeroAllOf6> data() {
         return this.data;
     }
 
@@ -67,7 +67,7 @@ public class HousingEventSummaryList {
     /**
      * List of housing events with key information, providing a summarized view of each event.
      */
-    public HousingEventSummaryList withData(@Nonnull List<ZeroAllOf8> data) {
+    public HousingEventSummaryList withData(@Nonnull List<ZeroAllOf6> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -99,7 +99,7 @@ public class HousingEventSummaryList {
 
         private PagingJson paging;
 
-        private List<ZeroAllOf8> data;
+        private List<ZeroAllOf6> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class HousingEventSummaryList {
         /**
          * List of housing events with key information, providing a summarized view of each event.
          */
-        public Builder data(@Nonnull List<ZeroAllOf8> data) {
+        public Builder data(@Nonnull List<ZeroAllOf6> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

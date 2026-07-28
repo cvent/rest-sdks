@@ -25,14 +25,14 @@ public class SessionQuestionUpvoted {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("session")
-    private SessionActivity8 session;
+    private SessionActivity5 session;
 
     /**
      * The question asked in a session.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("question")
-    private QuestionDetailJson question;
+    private QuestionDetail question;
 
     /**
      * The platform used by the user.
@@ -50,8 +50,8 @@ public class SessionQuestionUpvoted {
 
     @JsonCreator
     public SessionQuestionUpvoted(
-            @JsonProperty("session") @Nullable SessionActivity8 session,
-            @JsonProperty("question") @Nullable QuestionDetailJson question,
+            @JsonProperty("session") @Nullable SessionActivity5 session,
+            @JsonProperty("question") @Nullable QuestionDetail question,
             @JsonProperty("platform") @Nullable String platform,
             @JsonProperty("votes") @Nullable Long votes) {
         this.session = session;
@@ -67,14 +67,14 @@ public class SessionQuestionUpvoted {
     /**
      * The activity session.
      */
-    public Optional<SessionActivity8> session() {
+    public Optional<SessionActivity5> session() {
         return Optional.ofNullable(this.session);
     }
 
     /**
      * The question asked in a session.
      */
-    public Optional<QuestionDetailJson> question() {
+    public Optional<QuestionDetail> question() {
         return Optional.ofNullable(this.question);
     }
 
@@ -99,7 +99,7 @@ public class SessionQuestionUpvoted {
     /**
      * The activity session.
      */
-    public SessionQuestionUpvoted withSession(@Nullable SessionActivity8 session) {
+    public SessionQuestionUpvoted withSession(@Nullable SessionActivity5 session) {
         this.session = session;
         return this;
     }
@@ -107,7 +107,7 @@ public class SessionQuestionUpvoted {
     /**
      * The question asked in a session.
      */
-    public SessionQuestionUpvoted withQuestion(@Nullable QuestionDetailJson question) {
+    public SessionQuestionUpvoted withQuestion(@Nullable QuestionDetail question) {
         this.question = question;
         return this;
     }
@@ -165,9 +165,9 @@ public class SessionQuestionUpvoted {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private SessionActivity8 session;
+        private SessionActivity5 session;
 
-        private QuestionDetailJson question;
+        private QuestionDetail question;
 
         private String platform;
 
@@ -180,7 +180,7 @@ public class SessionQuestionUpvoted {
         /**
          * The activity session.
          */
-        public Builder session(@Nullable SessionActivity8 session) {
+        public Builder session(@Nullable SessionActivity5 session) {
             this.session = session;
             return this;
         }
@@ -188,7 +188,7 @@ public class SessionQuestionUpvoted {
         /**
          * The question asked in a session.
          */
-        public Builder question(@Nullable QuestionDetailJson question) {
+        public Builder question(@Nullable QuestionDetail question) {
             this.question = question;
             return this;
         }

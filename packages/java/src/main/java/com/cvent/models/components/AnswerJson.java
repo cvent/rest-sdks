@@ -24,7 +24,7 @@ public class AnswerJson {
      * Type of answer
      */
     @JsonProperty("type")
-    private AnswerTypeJson1 type;
+    private AnswerTypeJson type;
 
     /**
      * Value property is used to send information like string, number and date in case of following types
@@ -66,7 +66,7 @@ public class AnswerJson {
 
     @JsonCreator
     public AnswerJson(
-            @JsonProperty("type") @Nonnull AnswerTypeJson1 type,
+            @JsonProperty("type") @Nonnull AnswerTypeJson type,
             @JsonProperty("value") @Nullable String value,
             @JsonProperty("choice") @Nullable UuidJson choice,
             @JsonProperty("category") @Nullable UuidJson category,
@@ -80,14 +80,14 @@ public class AnswerJson {
         this.field = field;
     }
 
-    public AnswerJson(@Nonnull AnswerTypeJson1 type) {
+    public AnswerJson(@Nonnull AnswerTypeJson type) {
         this(type, null, null, null, null, null);
     }
 
     /**
      * Type of answer
      */
-    public AnswerTypeJson1 type() {
+    public AnswerTypeJson type() {
         return this.type;
     }
 
@@ -136,7 +136,7 @@ public class AnswerJson {
     /**
      * Type of answer
      */
-    public AnswerJson withType(@Nonnull AnswerTypeJson1 type) {
+    public AnswerJson withType(@Nonnull AnswerTypeJson type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
@@ -227,7 +227,7 @@ public class AnswerJson {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private AnswerTypeJson1 type;
+        private AnswerTypeJson type;
 
         private String value;
 
@@ -246,7 +246,7 @@ public class AnswerJson {
         /**
          * Type of answer
          */
-        public Builder type(@Nonnull AnswerTypeJson1 type) {
+        public Builder type(@Nonnull AnswerTypeJson type) {
             this.type = Utils.checkNotNull(type, "type");
             return this;
         }

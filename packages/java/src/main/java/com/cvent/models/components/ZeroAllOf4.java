@@ -9,86 +9,104 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
+import java.lang.Double;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.Optional;
 
 /**
  * ZeroAllOf4
  *
- * <p>Booth staff for an activity.
+ * <p>A transaction reconciliation record.
  */
 public class ZeroAllOf4 {
     /**
-     * The unique identifier of the exhibitor booth staff.
+     * The identifier of reconciled budget item.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("id")
-    private String id;
+    @JsonProperty("budgetItem")
+    private BudgetItemAllOf budgetItem;
 
     /**
-     * The first name of the booth staff that captured the lead.
+     * This is used to denote the reconciliation status for a transaction.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("firstName")
-    private String firstName;
+    @JsonProperty("status")
+    private ReconciliationStatusJson status;
 
     /**
-     * The last name of the booth staff that captured the lead.
+     * Reconciliation amount.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("lastName")
-    private String lastName;
+    @JsonProperty("amount")
+    private Double amount;
 
     /**
-     * The email address of the booth staff that captured the lead.
+     * Reconciled by user.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("email")
-    private String email;
+    @JsonProperty("reconciledBy")
+    private String reconciledBy;
+
+    /**
+     * The ISO 8601 zoned date and time for Reconciled date.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("reconciledDate")
+    private OffsetDateTime reconciledDate;
 
     @JsonCreator
     public ZeroAllOf4(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("firstName") @Nullable String firstName,
-            @JsonProperty("lastName") @Nullable String lastName,
-            @JsonProperty("email") @Nullable String email) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
+            @JsonProperty("budgetItem") @Nullable BudgetItemAllOf budgetItem,
+            @JsonProperty("status") @Nullable ReconciliationStatusJson status,
+            @JsonProperty("amount") @Nullable Double amount,
+            @JsonProperty("reconciledBy") @Nullable String reconciledBy,
+            @JsonProperty("reconciledDate") @Nullable OffsetDateTime reconciledDate) {
+        this.budgetItem = budgetItem;
+        this.status = status;
+        this.amount = amount;
+        this.reconciledBy = reconciledBy;
+        this.reconciledDate = reconciledDate;
     }
 
     public ZeroAllOf4() {
-        this(null, null, null, null);
+        this(null, null, null, null, null);
     }
 
     /**
-     * The unique identifier of the exhibitor booth staff.
+     * The identifier of reconciled budget item.
      */
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
+    public Optional<BudgetItemAllOf> budgetItem() {
+        return Optional.ofNullable(this.budgetItem);
     }
 
     /**
-     * The first name of the booth staff that captured the lead.
+     * This is used to denote the reconciliation status for a transaction.
      */
-    public Optional<String> firstName() {
-        return Optional.ofNullable(this.firstName);
+    public Optional<ReconciliationStatusJson> status() {
+        return Optional.ofNullable(this.status);
     }
 
     /**
-     * The last name of the booth staff that captured the lead.
+     * Reconciliation amount.
      */
-    public Optional<String> lastName() {
-        return Optional.ofNullable(this.lastName);
+    public Optional<Double> amount() {
+        return Optional.ofNullable(this.amount);
     }
 
     /**
-     * The email address of the booth staff that captured the lead.
+     * Reconciled by user.
      */
-    public Optional<String> email() {
-        return Optional.ofNullable(this.email);
+    public Optional<String> reconciledBy() {
+        return Optional.ofNullable(this.reconciledBy);
+    }
+
+    /**
+     * The ISO 8601 zoned date and time for Reconciled date.
+     */
+    public Optional<OffsetDateTime> reconciledDate() {
+        return Optional.ofNullable(this.reconciledDate);
     }
 
     public static Builder builder() {
@@ -96,34 +114,42 @@ public class ZeroAllOf4 {
     }
 
     /**
-     * The unique identifier of the exhibitor booth staff.
+     * The identifier of reconciled budget item.
      */
-    public ZeroAllOf4 withId(@Nullable String id) {
-        this.id = id;
+    public ZeroAllOf4 withBudgetItem(@Nullable BudgetItemAllOf budgetItem) {
+        this.budgetItem = budgetItem;
         return this;
     }
 
     /**
-     * The first name of the booth staff that captured the lead.
+     * This is used to denote the reconciliation status for a transaction.
      */
-    public ZeroAllOf4 withFirstName(@Nullable String firstName) {
-        this.firstName = firstName;
+    public ZeroAllOf4 withStatus(@Nullable ReconciliationStatusJson status) {
+        this.status = status;
         return this;
     }
 
     /**
-     * The last name of the booth staff that captured the lead.
+     * Reconciliation amount.
      */
-    public ZeroAllOf4 withLastName(@Nullable String lastName) {
-        this.lastName = lastName;
+    public ZeroAllOf4 withAmount(@Nullable Double amount) {
+        this.amount = amount;
         return this;
     }
 
     /**
-     * The email address of the booth staff that captured the lead.
+     * Reconciled by user.
      */
-    public ZeroAllOf4 withEmail(@Nullable String email) {
-        this.email = email;
+    public ZeroAllOf4 withReconciledBy(@Nullable String reconciledBy) {
+        this.reconciledBy = reconciledBy;
+        return this;
+    }
+
+    /**
+     * The ISO 8601 zoned date and time for Reconciled date.
+     */
+    public ZeroAllOf4 withReconciledDate(@Nullable OffsetDateTime reconciledDate) {
+        this.reconciledDate = reconciledDate;
         return this;
     }
 
@@ -136,71 +162,93 @@ public class ZeroAllOf4 {
             return false;
         }
         ZeroAllOf4 other = (ZeroAllOf4) o;
-        return Utils.enhancedDeepEquals(this.id, other.id)
-                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
-                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
-                && Utils.enhancedDeepEquals(this.email, other.email);
+        return Utils.enhancedDeepEquals(this.budgetItem, other.budgetItem)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.reconciledBy, other.reconciledBy)
+                && Utils.enhancedDeepEquals(this.reconciledDate, other.reconciledDate);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, firstName, lastName, email);
+        return Utils.enhancedHash(budgetItem, status, amount, reconciledBy, reconciledDate);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(ZeroAllOf4.class, "id", id, "firstName", firstName, "lastName", lastName, "email", email);
+        return Utils.toString(
+                ZeroAllOf4.class,
+                "budgetItem",
+                budgetItem,
+                "status",
+                status,
+                "amount",
+                amount,
+                "reconciledBy",
+                reconciledBy,
+                "reconciledDate",
+                reconciledDate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private String id;
+        private BudgetItemAllOf budgetItem;
 
-        private String firstName;
+        private ReconciliationStatusJson status;
 
-        private String lastName;
+        private Double amount;
 
-        private String email;
+        private String reconciledBy;
+
+        private OffsetDateTime reconciledDate;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The unique identifier of the exhibitor booth staff.
+         * The identifier of reconciled budget item.
          */
-        public Builder id(@Nullable String id) {
-            this.id = id;
+        public Builder budgetItem(@Nullable BudgetItemAllOf budgetItem) {
+            this.budgetItem = budgetItem;
             return this;
         }
 
         /**
-         * The first name of the booth staff that captured the lead.
+         * This is used to denote the reconciliation status for a transaction.
          */
-        public Builder firstName(@Nullable String firstName) {
-            this.firstName = firstName;
+        public Builder status(@Nullable ReconciliationStatusJson status) {
+            this.status = status;
             return this;
         }
 
         /**
-         * The last name of the booth staff that captured the lead.
+         * Reconciliation amount.
          */
-        public Builder lastName(@Nullable String lastName) {
-            this.lastName = lastName;
+        public Builder amount(@Nullable Double amount) {
+            this.amount = amount;
             return this;
         }
 
         /**
-         * The email address of the booth staff that captured the lead.
+         * Reconciled by user.
          */
-        public Builder email(@Nullable String email) {
-            this.email = email;
+        public Builder reconciledBy(@Nullable String reconciledBy) {
+            this.reconciledBy = reconciledBy;
+            return this;
+        }
+
+        /**
+         * The ISO 8601 zoned date and time for Reconciled date.
+         */
+        public Builder reconciledDate(@Nullable OffsetDateTime reconciledDate) {
+            this.reconciledDate = reconciledDate;
             return this;
         }
 
         public ZeroAllOf4 build() {
-            return new ZeroAllOf4(id, firstName, lastName, email);
+            return new ZeroAllOf4(budgetItem, status, amount, reconciledBy, reconciledDate);
         }
     }
 }

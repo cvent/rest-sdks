@@ -32,7 +32,7 @@ public class EmailUndelivered {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contact")
-    private ActivityContactJson contact;
+    private ActivityContact contact;
 
     /**
      * ISO 8601 date and time when an email was undelivered.
@@ -44,7 +44,7 @@ public class EmailUndelivered {
     @JsonCreator
     public EmailUndelivered(
             @JsonProperty("type") @Nullable String type,
-            @JsonProperty("contact") @Nullable ActivityContactJson contact,
+            @JsonProperty("contact") @Nullable ActivityContact contact,
             @JsonProperty("undelivered") @Nullable OffsetDateTime undelivered) {
         this.type = type;
         this.contact = contact;
@@ -65,7 +65,7 @@ public class EmailUndelivered {
     /**
      * An activity contact.
      */
-    public Optional<ActivityContactJson> contact() {
+    public Optional<ActivityContact> contact() {
         return Optional.ofNullable(this.contact);
     }
 
@@ -91,7 +91,7 @@ public class EmailUndelivered {
     /**
      * An activity contact.
      */
-    public EmailUndelivered withContact(@Nullable ActivityContactJson contact) {
+    public EmailUndelivered withContact(@Nullable ActivityContact contact) {
         this.contact = contact;
         return this;
     }
@@ -133,7 +133,7 @@ public class EmailUndelivered {
 
         private String type;
 
-        private ActivityContactJson contact;
+        private ActivityContact contact;
 
         private OffsetDateTime undelivered;
 
@@ -152,7 +152,7 @@ public class EmailUndelivered {
         /**
          * An activity contact.
          */
-        public Builder contact(@Nullable ActivityContactJson contact) {
+        public Builder contact(@Nullable ActivityContact contact) {
             this.contact = contact;
             return this;
         }

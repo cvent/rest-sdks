@@ -24,19 +24,19 @@ public class EventWaitlisted {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private ActivityDataJsonEvent9 event;
+    private ActivityDataEvent6 event;
 
     /**
      * This is used to denote the status of an attendee.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private AttendeeStatusJson status;
+    private AttendeeStatus status;
 
     @JsonCreator
     public EventWaitlisted(
-            @JsonProperty("event") @Nullable ActivityDataJsonEvent9 event,
-            @JsonProperty("status") @Nullable AttendeeStatusJson status) {
+            @JsonProperty("event") @Nullable ActivityDataEvent6 event,
+            @JsonProperty("status") @Nullable AttendeeStatus status) {
         this.event = event;
         this.status = status;
     }
@@ -48,14 +48,14 @@ public class EventWaitlisted {
     /**
      * The event in which this activity occurred.
      */
-    public Optional<ActivityDataJsonEvent9> event() {
+    public Optional<ActivityDataEvent6> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
      * This is used to denote the status of an attendee.
      */
-    public Optional<AttendeeStatusJson> status() {
+    public Optional<AttendeeStatus> status() {
         return Optional.ofNullable(this.status);
     }
 
@@ -66,7 +66,7 @@ public class EventWaitlisted {
     /**
      * The event in which this activity occurred.
      */
-    public EventWaitlisted withEvent(@Nullable ActivityDataJsonEvent9 event) {
+    public EventWaitlisted withEvent(@Nullable ActivityDataEvent6 event) {
         this.event = event;
         return this;
     }
@@ -74,7 +74,7 @@ public class EventWaitlisted {
     /**
      * This is used to denote the status of an attendee.
      */
-    public EventWaitlisted withStatus(@Nullable AttendeeStatusJson status) {
+    public EventWaitlisted withStatus(@Nullable AttendeeStatus status) {
         this.status = status;
         return this;
     }
@@ -104,9 +104,9 @@ public class EventWaitlisted {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ActivityDataJsonEvent9 event;
+        private ActivityDataEvent6 event;
 
-        private AttendeeStatusJson status;
+        private AttendeeStatus status;
 
         private Builder() {
             // force use of static builder() method
@@ -115,7 +115,7 @@ public class EventWaitlisted {
         /**
          * The event in which this activity occurred.
          */
-        public Builder event(@Nullable ActivityDataJsonEvent9 event) {
+        public Builder event(@Nullable ActivityDataEvent6 event) {
             this.event = event;
             return this;
         }
@@ -123,7 +123,7 @@ public class EventWaitlisted {
         /**
          * This is used to denote the status of an attendee.
          */
-        public Builder status(@Nullable AttendeeStatusJson status) {
+        public Builder status(@Nullable AttendeeStatus status) {
             this.status = status;
             return this;
         }

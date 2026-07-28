@@ -24,7 +24,7 @@ public class ExhibitorVirtualBoothJoined {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
-    private ExhibitorJson exhibitor;
+    private Exhibitor1 exhibitor;
 
     /**
      * The platform used by the user.
@@ -38,7 +38,7 @@ public class ExhibitorVirtualBoothJoined {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("sponsorshipLevel")
-    private ActivityExhibitorSponsorshipLevelJson sponsorshipLevel;
+    private ActivityExhibitorSponsorshipLevel sponsorshipLevel;
 
     /**
      * The solution type used for the virtual booth.
@@ -49,9 +49,9 @@ public class ExhibitorVirtualBoothJoined {
 
     @JsonCreator
     public ExhibitorVirtualBoothJoined(
-            @JsonProperty("exhibitor") @Nullable ExhibitorJson exhibitor,
+            @JsonProperty("exhibitor") @Nullable Exhibitor1 exhibitor,
             @JsonProperty("platform") @Nullable String platform,
-            @JsonProperty("sponsorshipLevel") @Nullable ActivityExhibitorSponsorshipLevelJson sponsorshipLevel,
+            @JsonProperty("sponsorshipLevel") @Nullable ActivityExhibitorSponsorshipLevel sponsorshipLevel,
             @JsonProperty("solutionType") @Nullable String solutionType) {
         this.exhibitor = exhibitor;
         this.platform = platform;
@@ -66,7 +66,7 @@ public class ExhibitorVirtualBoothJoined {
     /**
      * An exhibitor.
      */
-    public Optional<ExhibitorJson> exhibitor() {
+    public Optional<Exhibitor1> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
@@ -80,7 +80,7 @@ public class ExhibitorVirtualBoothJoined {
     /**
      * Sponsorship level for an activity exhibitor.
      */
-    public Optional<ActivityExhibitorSponsorshipLevelJson> sponsorshipLevel() {
+    public Optional<ActivityExhibitorSponsorshipLevel> sponsorshipLevel() {
         return Optional.ofNullable(this.sponsorshipLevel);
     }
 
@@ -98,7 +98,7 @@ public class ExhibitorVirtualBoothJoined {
     /**
      * An exhibitor.
      */
-    public ExhibitorVirtualBoothJoined withExhibitor(@Nullable ExhibitorJson exhibitor) {
+    public ExhibitorVirtualBoothJoined withExhibitor(@Nullable Exhibitor1 exhibitor) {
         this.exhibitor = exhibitor;
         return this;
     }
@@ -115,7 +115,7 @@ public class ExhibitorVirtualBoothJoined {
      * Sponsorship level for an activity exhibitor.
      */
     public ExhibitorVirtualBoothJoined withSponsorshipLevel(
-            @Nullable ActivityExhibitorSponsorshipLevelJson sponsorshipLevel) {
+            @Nullable ActivityExhibitorSponsorshipLevel sponsorshipLevel) {
         this.sponsorshipLevel = sponsorshipLevel;
         return this;
     }
@@ -165,11 +165,11 @@ public class ExhibitorVirtualBoothJoined {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ExhibitorJson exhibitor;
+        private Exhibitor1 exhibitor;
 
         private String platform;
 
-        private ActivityExhibitorSponsorshipLevelJson sponsorshipLevel;
+        private ActivityExhibitorSponsorshipLevel sponsorshipLevel;
 
         private String solutionType;
 
@@ -180,7 +180,7 @@ public class ExhibitorVirtualBoothJoined {
         /**
          * An exhibitor.
          */
-        public Builder exhibitor(@Nullable ExhibitorJson exhibitor) {
+        public Builder exhibitor(@Nullable Exhibitor1 exhibitor) {
             this.exhibitor = exhibitor;
             return this;
         }
@@ -196,7 +196,7 @@ public class ExhibitorVirtualBoothJoined {
         /**
          * Sponsorship level for an activity exhibitor.
          */
-        public Builder sponsorshipLevel(@Nullable ActivityExhibitorSponsorshipLevelJson sponsorshipLevel) {
+        public Builder sponsorshipLevel(@Nullable ActivityExhibitorSponsorshipLevel sponsorshipLevel) {
             this.sponsorshipLevel = sponsorshipLevel;
             return this;
         }

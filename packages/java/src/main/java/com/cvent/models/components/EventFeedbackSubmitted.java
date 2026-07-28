@@ -24,19 +24,19 @@ public class EventFeedbackSubmitted {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private ActivityDataJsonEvent4 event;
+    private EventFeedbackSubmittedEvent event;
 
     /**
      * A survey response.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("survey")
-    private SurveyResponseJson survey;
+    private SurveyResponse survey;
 
     @JsonCreator
     public EventFeedbackSubmitted(
-            @JsonProperty("event") @Nullable ActivityDataJsonEvent4 event,
-            @JsonProperty("survey") @Nullable SurveyResponseJson survey) {
+            @JsonProperty("event") @Nullable EventFeedbackSubmittedEvent event,
+            @JsonProperty("survey") @Nullable SurveyResponse survey) {
         this.event = event;
         this.survey = survey;
     }
@@ -48,14 +48,14 @@ public class EventFeedbackSubmitted {
     /**
      * The event in which this activity occurred.
      */
-    public Optional<ActivityDataJsonEvent4> event() {
+    public Optional<EventFeedbackSubmittedEvent> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
      * A survey response.
      */
-    public Optional<SurveyResponseJson> survey() {
+    public Optional<SurveyResponse> survey() {
         return Optional.ofNullable(this.survey);
     }
 
@@ -66,7 +66,7 @@ public class EventFeedbackSubmitted {
     /**
      * The event in which this activity occurred.
      */
-    public EventFeedbackSubmitted withEvent(@Nullable ActivityDataJsonEvent4 event) {
+    public EventFeedbackSubmitted withEvent(@Nullable EventFeedbackSubmittedEvent event) {
         this.event = event;
         return this;
     }
@@ -74,7 +74,7 @@ public class EventFeedbackSubmitted {
     /**
      * A survey response.
      */
-    public EventFeedbackSubmitted withSurvey(@Nullable SurveyResponseJson survey) {
+    public EventFeedbackSubmitted withSurvey(@Nullable SurveyResponse survey) {
         this.survey = survey;
         return this;
     }
@@ -104,9 +104,9 @@ public class EventFeedbackSubmitted {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ActivityDataJsonEvent4 event;
+        private EventFeedbackSubmittedEvent event;
 
-        private SurveyResponseJson survey;
+        private SurveyResponse survey;
 
         private Builder() {
             // force use of static builder() method
@@ -115,7 +115,7 @@ public class EventFeedbackSubmitted {
         /**
          * The event in which this activity occurred.
          */
-        public Builder event(@Nullable ActivityDataJsonEvent4 event) {
+        public Builder event(@Nullable EventFeedbackSubmittedEvent event) {
             this.event = event;
             return this;
         }
@@ -123,7 +123,7 @@ public class EventFeedbackSubmitted {
         /**
          * A survey response.
          */
-        public Builder survey(@Nullable SurveyResponseJson survey) {
+        public Builder survey(@Nullable SurveyResponse survey) {
             this.survey = survey;
             return this;
         }

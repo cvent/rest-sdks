@@ -3,7 +3,7 @@
  */
 package com.cvent.models.callbacks.async;
 
-import com.cvent.models.components.ContactFields;
+import com.cvent.models.components.ContactFields2;
 import com.cvent.utils.AsyncResponse;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
@@ -36,14 +36,14 @@ public class CreateContactHookContactTransactionCallbackResponse implements Asyn
      * Your server returns this structure on a successful callback with the updated values for contact
      * fields present in your system.
      */
-    private ContactFields contactFields;
+    private ContactFields2 contactFields;
 
     @JsonCreator
     public CreateContactHookContactTransactionCallbackResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<Blob> rawResponse,
-            @Nullable ContactFields contactFields) {
+            @Nullable ContactFields2 contactFields) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -82,7 +82,7 @@ public class CreateContactHookContactTransactionCallbackResponse implements Asyn
      * Your server returns this structure on a successful callback with the updated values for contact
      * fields present in your system.
      */
-    public Optional<ContactFields> contactFields() {
+    public Optional<ContactFields2> contactFields() {
         return Optional.ofNullable(this.contactFields);
     }
 
@@ -120,7 +120,7 @@ public class CreateContactHookContactTransactionCallbackResponse implements Asyn
      * fields present in your system.
      */
     public CreateContactHookContactTransactionCallbackResponse withContactFields(
-            @Nullable ContactFields contactFields) {
+            @Nullable ContactFields2 contactFields) {
         this.contactFields = contactFields;
         return this;
     }
@@ -169,7 +169,7 @@ public class CreateContactHookContactTransactionCallbackResponse implements Asyn
 
         private HttpResponse<Blob> rawResponse;
 
-        private ContactFields contactFields;
+        private ContactFields2 contactFields;
 
         private Builder() {
             // force use of static builder() method
@@ -203,7 +203,7 @@ public class CreateContactHookContactTransactionCallbackResponse implements Asyn
          * Your server returns this structure on a successful callback with the updated values for contact
          * fields present in your system.
          */
-        public Builder contactFields(@Nullable ContactFields contactFields) {
+        public Builder contactFields(@Nullable ContactFields2 contactFields) {
             this.contactFields = contactFields;
             return this;
         }

@@ -24,19 +24,19 @@ public class SessionFeedbackSubmitted {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("session")
-    private SessionActivity4 session;
+    private SessionFeedbackSubmittedSessionActivity session;
 
     /**
      * A survey response.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("survey")
-    private SurveyResponseJson survey;
+    private SurveyResponse survey;
 
     @JsonCreator
     public SessionFeedbackSubmitted(
-            @JsonProperty("session") @Nullable SessionActivity4 session,
-            @JsonProperty("survey") @Nullable SurveyResponseJson survey) {
+            @JsonProperty("session") @Nullable SessionFeedbackSubmittedSessionActivity session,
+            @JsonProperty("survey") @Nullable SurveyResponse survey) {
         this.session = session;
         this.survey = survey;
     }
@@ -48,14 +48,14 @@ public class SessionFeedbackSubmitted {
     /**
      * The activity session.
      */
-    public Optional<SessionActivity4> session() {
+    public Optional<SessionFeedbackSubmittedSessionActivity> session() {
         return Optional.ofNullable(this.session);
     }
 
     /**
      * A survey response.
      */
-    public Optional<SurveyResponseJson> survey() {
+    public Optional<SurveyResponse> survey() {
         return Optional.ofNullable(this.survey);
     }
 
@@ -66,7 +66,7 @@ public class SessionFeedbackSubmitted {
     /**
      * The activity session.
      */
-    public SessionFeedbackSubmitted withSession(@Nullable SessionActivity4 session) {
+    public SessionFeedbackSubmitted withSession(@Nullable SessionFeedbackSubmittedSessionActivity session) {
         this.session = session;
         return this;
     }
@@ -74,7 +74,7 @@ public class SessionFeedbackSubmitted {
     /**
      * A survey response.
      */
-    public SessionFeedbackSubmitted withSurvey(@Nullable SurveyResponseJson survey) {
+    public SessionFeedbackSubmitted withSurvey(@Nullable SurveyResponse survey) {
         this.survey = survey;
         return this;
     }
@@ -104,9 +104,9 @@ public class SessionFeedbackSubmitted {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private SessionActivity4 session;
+        private SessionFeedbackSubmittedSessionActivity session;
 
-        private SurveyResponseJson survey;
+        private SurveyResponse survey;
 
         private Builder() {
             // force use of static builder() method
@@ -115,7 +115,7 @@ public class SessionFeedbackSubmitted {
         /**
          * The activity session.
          */
-        public Builder session(@Nullable SessionActivity4 session) {
+        public Builder session(@Nullable SessionFeedbackSubmittedSessionActivity session) {
             this.session = session;
             return this;
         }
@@ -123,7 +123,7 @@ public class SessionFeedbackSubmitted {
         /**
          * A survey response.
          */
-        public Builder survey(@Nullable SurveyResponseJson survey) {
+        public Builder survey(@Nullable SurveyResponse survey) {
             this.survey = survey;
             return this;
         }

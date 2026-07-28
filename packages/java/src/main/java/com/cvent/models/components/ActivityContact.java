@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
-import java.lang.Deprecated;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
@@ -17,11 +16,8 @@ import java.util.Optional;
 /**
  * ActivityContact
  *
- * <p>Related contact.
- *
- * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
+ * <p>An activity contact.
  */
-@Deprecated
 public class ActivityContact {
     /**
      * The first name of the attendee.

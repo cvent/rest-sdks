@@ -28,11 +28,11 @@ public class AppointmentPaginatedResponse {
      * Collection of appointments and their related details.
      */
     @JsonProperty("data")
-    private List<ZeroAllOf3> data;
+    private List<ZeroAllOf2> data;
 
     @JsonCreator
     public AppointmentPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<ZeroAllOf3> data) {
+            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<ZeroAllOf2> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -48,7 +48,7 @@ public class AppointmentPaginatedResponse {
     /**
      * Collection of appointments and their related details.
      */
-    public List<ZeroAllOf3> data() {
+    public List<ZeroAllOf2> data() {
         return this.data;
     }
 
@@ -67,7 +67,7 @@ public class AppointmentPaginatedResponse {
     /**
      * Collection of appointments and their related details.
      */
-    public AppointmentPaginatedResponse withData(@Nonnull List<ZeroAllOf3> data) {
+    public AppointmentPaginatedResponse withData(@Nonnull List<ZeroAllOf2> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -99,7 +99,7 @@ public class AppointmentPaginatedResponse {
 
         private PagingJson paging;
 
-        private List<ZeroAllOf3> data;
+        private List<ZeroAllOf2> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class AppointmentPaginatedResponse {
         /**
          * Collection of appointments and their related details.
          */
-        public Builder data(@Nonnull List<ZeroAllOf3> data) {
+        public Builder data(@Nonnull List<ZeroAllOf2> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

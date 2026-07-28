@@ -24,19 +24,19 @@ public class LeadScanned {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
-    private ActivityExhibitorJson exhibitor;
+    private ActivityExhibitor exhibitor;
 
     /**
      * An activity lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("lead")
-    private ActivityLeadJson lead;
+    private ActivityLead lead;
 
     @JsonCreator
     public LeadScanned(
-            @JsonProperty("exhibitor") @Nullable ActivityExhibitorJson exhibitor,
-            @JsonProperty("lead") @Nullable ActivityLeadJson lead) {
+            @JsonProperty("exhibitor") @Nullable ActivityExhibitor exhibitor,
+            @JsonProperty("lead") @Nullable ActivityLead lead) {
         this.exhibitor = exhibitor;
         this.lead = lead;
     }
@@ -48,14 +48,14 @@ public class LeadScanned {
     /**
      * An activity exhibitor.
      */
-    public Optional<ActivityExhibitorJson> exhibitor() {
+    public Optional<ActivityExhibitor> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
     /**
      * An activity lead.
      */
-    public Optional<ActivityLeadJson> lead() {
+    public Optional<ActivityLead> lead() {
         return Optional.ofNullable(this.lead);
     }
 
@@ -66,7 +66,7 @@ public class LeadScanned {
     /**
      * An activity exhibitor.
      */
-    public LeadScanned withExhibitor(@Nullable ActivityExhibitorJson exhibitor) {
+    public LeadScanned withExhibitor(@Nullable ActivityExhibitor exhibitor) {
         this.exhibitor = exhibitor;
         return this;
     }
@@ -74,7 +74,7 @@ public class LeadScanned {
     /**
      * An activity lead.
      */
-    public LeadScanned withLead(@Nullable ActivityLeadJson lead) {
+    public LeadScanned withLead(@Nullable ActivityLead lead) {
         this.lead = lead;
         return this;
     }
@@ -104,9 +104,9 @@ public class LeadScanned {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ActivityExhibitorJson exhibitor;
+        private ActivityExhibitor exhibitor;
 
-        private ActivityLeadJson lead;
+        private ActivityLead lead;
 
         private Builder() {
             // force use of static builder() method
@@ -115,7 +115,7 @@ public class LeadScanned {
         /**
          * An activity exhibitor.
          */
-        public Builder exhibitor(@Nullable ActivityExhibitorJson exhibitor) {
+        public Builder exhibitor(@Nullable ActivityExhibitor exhibitor) {
             this.exhibitor = exhibitor;
             return this;
         }
@@ -123,7 +123,7 @@ public class LeadScanned {
         /**
          * An activity lead.
          */
-        public Builder lead(@Nullable ActivityLeadJson lead) {
+        public Builder lead(@Nullable ActivityLead lead) {
             this.lead = lead;
             return this;
         }

@@ -24,7 +24,7 @@ public class ExhibitorWeblinkOpened {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
-    private ExhibitorJson exhibitor;
+    private Exhibitor1 exhibitor;
 
     /**
      * The platform used by the user.
@@ -38,13 +38,13 @@ public class ExhibitorWeblinkOpened {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("weblink")
-    private ActivityExhibitorWebLinkJson weblink;
+    private ActivityExhibitorWeblink weblink;
 
     @JsonCreator
     public ExhibitorWeblinkOpened(
-            @JsonProperty("exhibitor") @Nullable ExhibitorJson exhibitor,
+            @JsonProperty("exhibitor") @Nullable Exhibitor1 exhibitor,
             @JsonProperty("platform") @Nullable String platform,
-            @JsonProperty("weblink") @Nullable ActivityExhibitorWebLinkJson weblink) {
+            @JsonProperty("weblink") @Nullable ActivityExhibitorWeblink weblink) {
         this.exhibitor = exhibitor;
         this.platform = platform;
         this.weblink = weblink;
@@ -57,7 +57,7 @@ public class ExhibitorWeblinkOpened {
     /**
      * An exhibitor.
      */
-    public Optional<ExhibitorJson> exhibitor() {
+    public Optional<Exhibitor1> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
@@ -71,7 +71,7 @@ public class ExhibitorWeblinkOpened {
     /**
      * A web-link for an activity exhibitor.
      */
-    public Optional<ActivityExhibitorWebLinkJson> weblink() {
+    public Optional<ActivityExhibitorWeblink> weblink() {
         return Optional.ofNullable(this.weblink);
     }
 
@@ -82,7 +82,7 @@ public class ExhibitorWeblinkOpened {
     /**
      * An exhibitor.
      */
-    public ExhibitorWeblinkOpened withExhibitor(@Nullable ExhibitorJson exhibitor) {
+    public ExhibitorWeblinkOpened withExhibitor(@Nullable Exhibitor1 exhibitor) {
         this.exhibitor = exhibitor;
         return this;
     }
@@ -98,7 +98,7 @@ public class ExhibitorWeblinkOpened {
     /**
      * A web-link for an activity exhibitor.
      */
-    public ExhibitorWeblinkOpened withWeblink(@Nullable ActivityExhibitorWebLinkJson weblink) {
+    public ExhibitorWeblinkOpened withWeblink(@Nullable ActivityExhibitorWeblink weblink) {
         this.weblink = weblink;
         return this;
     }
@@ -131,11 +131,11 @@ public class ExhibitorWeblinkOpened {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ExhibitorJson exhibitor;
+        private Exhibitor1 exhibitor;
 
         private String platform;
 
-        private ActivityExhibitorWebLinkJson weblink;
+        private ActivityExhibitorWeblink weblink;
 
         private Builder() {
             // force use of static builder() method
@@ -144,7 +144,7 @@ public class ExhibitorWeblinkOpened {
         /**
          * An exhibitor.
          */
-        public Builder exhibitor(@Nullable ExhibitorJson exhibitor) {
+        public Builder exhibitor(@Nullable Exhibitor1 exhibitor) {
             this.exhibitor = exhibitor;
             return this;
         }
@@ -160,7 +160,7 @@ public class ExhibitorWeblinkOpened {
         /**
          * A web-link for an activity exhibitor.
          */
-        public Builder weblink(@Nullable ActivityExhibitorWebLinkJson weblink) {
+        public Builder weblink(@Nullable ActivityExhibitorWeblink weblink) {
             this.weblink = weblink;
             return this;
         }

@@ -24,19 +24,19 @@ public class AppointmentDenied {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("appointment")
-    private ActivityBaseAppointmentJson appointment;
+    private ActivityBaseAppointment appointment;
 
     /**
      * An activity contact.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contact")
-    private ActivityContactJson contact;
+    private ActivityContact contact;
 
     @JsonCreator
     public AppointmentDenied(
-            @JsonProperty("appointment") @Nullable ActivityBaseAppointmentJson appointment,
-            @JsonProperty("contact") @Nullable ActivityContactJson contact) {
+            @JsonProperty("appointment") @Nullable ActivityBaseAppointment appointment,
+            @JsonProperty("contact") @Nullable ActivityContact contact) {
         this.appointment = appointment;
         this.contact = contact;
     }
@@ -48,14 +48,14 @@ public class AppointmentDenied {
     /**
      * Base entity of an activity appointment.
      */
-    public Optional<ActivityBaseAppointmentJson> appointment() {
+    public Optional<ActivityBaseAppointment> appointment() {
         return Optional.ofNullable(this.appointment);
     }
 
     /**
      * An activity contact.
      */
-    public Optional<ActivityContactJson> contact() {
+    public Optional<ActivityContact> contact() {
         return Optional.ofNullable(this.contact);
     }
 
@@ -66,7 +66,7 @@ public class AppointmentDenied {
     /**
      * Base entity of an activity appointment.
      */
-    public AppointmentDenied withAppointment(@Nullable ActivityBaseAppointmentJson appointment) {
+    public AppointmentDenied withAppointment(@Nullable ActivityBaseAppointment appointment) {
         this.appointment = appointment;
         return this;
     }
@@ -74,7 +74,7 @@ public class AppointmentDenied {
     /**
      * An activity contact.
      */
-    public AppointmentDenied withContact(@Nullable ActivityContactJson contact) {
+    public AppointmentDenied withContact(@Nullable ActivityContact contact) {
         this.contact = contact;
         return this;
     }
@@ -105,9 +105,9 @@ public class AppointmentDenied {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ActivityBaseAppointmentJson appointment;
+        private ActivityBaseAppointment appointment;
 
-        private ActivityContactJson contact;
+        private ActivityContact contact;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class AppointmentDenied {
         /**
          * Base entity of an activity appointment.
          */
-        public Builder appointment(@Nullable ActivityBaseAppointmentJson appointment) {
+        public Builder appointment(@Nullable ActivityBaseAppointment appointment) {
             this.appointment = appointment;
             return this;
         }
@@ -124,7 +124,7 @@ public class AppointmentDenied {
         /**
          * An activity contact.
          */
-        public Builder contact(@Nullable ActivityContactJson contact) {
+        public Builder contact(@Nullable ActivityContact contact) {
             this.contact = contact;
             return this;
         }

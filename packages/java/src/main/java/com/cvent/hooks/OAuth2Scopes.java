@@ -197,6 +197,16 @@ public final class OAuth2Scopes {
         BusinessTransientProposalsRead("business-transient/proposals:read"),
 
         /**
+         * Allows the reading of BT Bid data
+         */
+        BusinessTravelBidsRead("business-travel/bids:read"),
+
+        /**
+         * Allows the reading of BT Proposal data
+         */
+        BusinessTravelProposalsRead("business-travel/proposals:read"),
+
+        /**
          * Allows the reading of communication compliance
          */
         ComplianceCommunicationsRead("compliance/communications:read"),
@@ -1004,7 +1014,32 @@ public final class OAuth2Scopes {
         /**
          * Allows the reading of event surveys
          */
-        SurveySurveysRead("survey/surveys:read");
+        SurveySurveysRead("survey/surveys:read"),
+
+        /**
+         * Allows read access for overview of meeting room.
+         */
+        VenueMeetingRoomOverviewsRead("venue/meeting-room-overviews:read"),
+
+        /**
+         * Allows the creation and modification of meeting rooms.
+         */
+        VenueMeetingRoomsWrite("venue/meeting-rooms:write"),
+
+        /**
+         * Allows read access for overview of venue details.
+         */
+        VenueVenueDetailsOverviewRead("venue/venue-details-overview:read"),
+
+        /**
+         * Allows the creation and modification of venue details.
+         */
+        VenueVenueDetailsWrite("venue/venue-details:write"),
+
+        /**
+         * Allows the modification of venue facility information.
+         */
+        VenueVenueFacilityWrite("venue/venue-facility:write");
 
         private final java.lang.String value;
 
@@ -1214,12 +1249,12 @@ public final class OAuth2Scopes {
         BulkBulkJobsWrite("bulk/bulk-jobs:write"),
 
         /**
-         * Allows the reading of BT Bid data
+         * Allows the reading of Business Transient Bid data
          */
         BusinessTransientBidsRead("business-transient/bids:read"),
 
         /**
-         * Allows the reading of BT Proposal data
+         * Allows the reading of Business Transient Proposal data
          */
         BusinessTransientProposalsRead("business-transient/proposals:read"),
 
@@ -1262,6 +1297,16 @@ public final class OAuth2Scopes {
          * Allows the reading of business transient travel supplier account data.
          */
         BusinessTransientTravelSupplierAccountsRead("business-transient/travel-supplier-accounts:read"),
+
+        /**
+         * Allows the reading of Business Travel Bid data
+         */
+        BusinessTravelBidsRead("business-travel/bids:read"),
+
+        /**
+         * Allows the reading of Business Travel Proposal data
+         */
+        BusinessTravelProposalsRead("business-travel/proposals:read"),
 
         /**
          * Allows the reading of business travel account data.
@@ -2171,7 +2216,32 @@ public final class OAuth2Scopes {
         /**
          * Allows the reading of event surveys
          */
-        SurveySurveysRead("survey/surveys:read");
+        SurveySurveysRead("survey/surveys:read"),
+
+        /**
+         * Allows read access for overview of meeting room.
+         */
+        VenueMeetingRoomOverviewsRead("venue/meeting-room-overviews:read"),
+
+        /**
+         * Allows the creation and modification of meeting rooms.
+         */
+        VenueMeetingRoomsWrite("venue/meeting-rooms:write"),
+
+        /**
+         * Allows read access for overview of venue details.
+         */
+        VenueVenueDetailsOverviewRead("venue/venue-details-overview:read"),
+
+        /**
+         * Allows the creation and modification of venue details.
+         */
+        VenueVenueDetailsWrite("venue/venue-details:write"),
+
+        /**
+         * Allows the modification of venue facility information.
+         */
+        VenueVenueFacilityWrite("venue/venue-facility:write");
 
         private final java.lang.String value;
 

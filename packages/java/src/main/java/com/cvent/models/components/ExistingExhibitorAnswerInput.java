@@ -40,14 +40,14 @@ public class ExistingExhibitorAnswerInput {
      * List of answers
      */
     @JsonProperty("answers")
-    private List<Answer2> answers;
+    private List<Answer22> answers;
 
     @JsonCreator
     public ExistingExhibitorAnswerInput(
             @JsonProperty("question") @Nonnull Uuid question,
             @JsonProperty("event") @Nonnull Event3 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
-            @JsonProperty("answers") @Nonnull List<Answer2> answers) {
+            @JsonProperty("answers") @Nonnull List<Answer22> answers) {
         this.question = Optional.ofNullable(question)
                 .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
         this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
@@ -81,7 +81,7 @@ public class ExistingExhibitorAnswerInput {
     /**
      * List of answers
      */
-    public List<Answer2> answers() {
+    public List<Answer22> answers() {
         return this.answers;
     }
 
@@ -116,7 +116,7 @@ public class ExistingExhibitorAnswerInput {
     /**
      * List of answers
      */
-    public ExistingExhibitorAnswerInput withAnswers(@Nonnull List<Answer2> answers) {
+    public ExistingExhibitorAnswerInput withAnswers(@Nonnull List<Answer22> answers) {
         this.answers = Utils.checkNotNull(answers, "answers");
         return this;
     }
@@ -164,7 +164,7 @@ public class ExistingExhibitorAnswerInput {
 
         private Exhibitor exhibitor;
 
-        private List<Answer2> answers;
+        private List<Answer22> answers;
 
         private Builder() {
             // force use of static builder() method
@@ -197,7 +197,7 @@ public class ExistingExhibitorAnswerInput {
         /**
          * List of answers
          */
-        public Builder answers(@Nonnull List<Answer2> answers) {
+        public Builder answers(@Nonnull List<Answer22> answers) {
             this.answers = Utils.checkNotNull(answers, "answers");
             return this;
         }

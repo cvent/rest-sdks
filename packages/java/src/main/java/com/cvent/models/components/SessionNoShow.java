@@ -24,10 +24,10 @@ public class SessionNoShow {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("session")
-    private SessionActivity5 session;
+    private SessionActivity4 session;
 
     @JsonCreator
-    public SessionNoShow(@JsonProperty("session") @Nullable SessionActivity5 session) {
+    public SessionNoShow(@JsonProperty("session") @Nullable SessionActivity4 session) {
         this.session = session;
     }
 
@@ -38,7 +38,7 @@ public class SessionNoShow {
     /**
      * The activity session.
      */
-    public Optional<SessionActivity5> session() {
+    public Optional<SessionActivity4> session() {
         return Optional.ofNullable(this.session);
     }
 
@@ -49,7 +49,7 @@ public class SessionNoShow {
     /**
      * The activity session.
      */
-    public SessionNoShow withSession(@Nullable SessionActivity5 session) {
+    public SessionNoShow withSession(@Nullable SessionActivity4 session) {
         this.session = session;
         return this;
     }
@@ -79,7 +79,7 @@ public class SessionNoShow {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private SessionActivity5 session;
+        private SessionActivity4 session;
 
         private Builder() {
             // force use of static builder() method
@@ -88,7 +88,7 @@ public class SessionNoShow {
         /**
          * The activity session.
          */
-        public Builder session(@Nullable SessionActivity5 session) {
+        public Builder session(@Nullable SessionActivity4 session) {
             this.session = session;
             return this;
         }

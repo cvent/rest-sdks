@@ -18,6 +18,18 @@ import java.util.Optional;
 
 public class GetEventSurveyQuestionsRequest {
     /**
+     * Id of an event
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
+    private String id;
+
+    /**
+     * Id of a survey or Id of a chapter in event survey
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=surveyId")
+    private String surveyId;
+
+    /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
      */
@@ -43,37 +55,39 @@ public class GetEventSurveyQuestionsRequest {
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")
     private String token;
 
-    /**
-     * Id of an event
-     */
-    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
-    private String id;
-
-    /**
-     * Id of a survey or Id of a chapter in event survey
-     */
-    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=surveyId")
-    private String surveyId;
-
     @JsonCreator
     public GetEventSurveyQuestionsRequest(
+            @Nonnull String id,
+            @Nonnull String surveyId,
             @Nullable OffsetDateTime after,
             @Nullable OffsetDateTime before,
             @Nullable Long limit,
-            @Nullable String token,
-            @Nonnull String id,
-            @Nonnull String surveyId) {
+            @Nullable String token) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.surveyId = Optional.ofNullable(surveyId)
+                .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
         this.after = after;
         this.before = before;
         this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
-        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.surveyId = Optional.ofNullable(surveyId)
-                .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
     }
 
     public GetEventSurveyQuestionsRequest(@Nonnull String id, @Nonnull String surveyId) {
-        this(null, null, null, null, id, surveyId);
+        this(id, surveyId, null, null, null, null);
+    }
+
+    /**
+     * Id of an event
+     */
+    public String id() {
+        return this.id;
+    }
+
+    /**
+     * Id of a survey or Id of a chapter in event survey
+     */
+    public String surveyId() {
+        return this.surveyId;
     }
 
     /**
@@ -106,22 +120,24 @@ public class GetEventSurveyQuestionsRequest {
         return Optional.ofNullable(this.token);
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     /**
      * Id of an event
      */
-    public String id() {
-        return this.id;
+    public GetEventSurveyQuestionsRequest withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
+        return this;
     }
 
     /**
      * Id of a survey or Id of a chapter in event survey
      */
-    public String surveyId() {
-        return this.surveyId;
-    }
-
-    public static Builder builder() {
-        return new Builder();
+    public GetEventSurveyQuestionsRequest withSurveyId(@Nonnull String surveyId) {
+        this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
+        return this;
     }
 
     /**
@@ -158,22 +174,6 @@ public class GetEventSurveyQuestionsRequest {
         return this;
     }
 
-    /**
-     * Id of an event
-     */
-    public GetEventSurveyQuestionsRequest withId(@Nonnull String id) {
-        this.id = Utils.checkNotNull(id, "id");
-        return this;
-    }
-
-    /**
-     * Id of a survey or Id of a chapter in event survey
-     */
-    public GetEventSurveyQuestionsRequest withSurveyId(@Nonnull String surveyId) {
-        this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
-        return this;
-    }
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -183,23 +183,27 @@ public class GetEventSurveyQuestionsRequest {
             return false;
         }
         GetEventSurveyQuestionsRequest other = (GetEventSurveyQuestionsRequest) o;
-        return Utils.enhancedDeepEquals(this.after, other.after)
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.surveyId, other.surveyId)
+                && Utils.enhancedDeepEquals(this.after, other.after)
                 && Utils.enhancedDeepEquals(this.before, other.before)
                 && Utils.enhancedDeepEquals(this.limit, other.limit)
-                && Utils.enhancedDeepEquals(this.token, other.token)
-                && Utils.enhancedDeepEquals(this.id, other.id)
-                && Utils.enhancedDeepEquals(this.surveyId, other.surveyId);
+                && Utils.enhancedDeepEquals(this.token, other.token);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(after, before, limit, token, id, surveyId);
+        return Utils.enhancedHash(id, surveyId, after, before, limit, token);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
                 GetEventSurveyQuestionsRequest.class,
+                "id",
+                id,
+                "surveyId",
+                surveyId,
                 "after",
                 after,
                 "before",
@@ -207,15 +211,15 @@ public class GetEventSurveyQuestionsRequest {
                 "limit",
                 limit,
                 "token",
-                token,
-                "id",
-                id,
-                "surveyId",
-                surveyId);
+                token);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
+
+        private String id;
+
+        private String surveyId;
 
         private OffsetDateTime after;
 
@@ -225,12 +229,24 @@ public class GetEventSurveyQuestionsRequest {
 
         private String token;
 
-        private String id;
-
-        private String surveyId;
-
         private Builder() {
             // force use of static builder() method
+        }
+
+        /**
+         * Id of an event
+         */
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
+            return this;
+        }
+
+        /**
+         * Id of a survey or Id of a chapter in event survey
+         */
+        public Builder surveyId(@Nonnull String surveyId) {
+            this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
+            return this;
         }
 
         /**
@@ -267,24 +283,8 @@ public class GetEventSurveyQuestionsRequest {
             return this;
         }
 
-        /**
-         * Id of an event
-         */
-        public Builder id(@Nonnull String id) {
-            this.id = Utils.checkNotNull(id, "id");
-            return this;
-        }
-
-        /**
-         * Id of a survey or Id of a chapter in event survey
-         */
-        public Builder surveyId(@Nonnull String surveyId) {
-            this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
-            return this;
-        }
-
         public GetEventSurveyQuestionsRequest build() {
-            return new GetEventSurveyQuestionsRequest(after, before, limit, token, id, surveyId);
+            return new GetEventSurveyQuestionsRequest(id, surveyId, after, before, limit, token);
         }
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =

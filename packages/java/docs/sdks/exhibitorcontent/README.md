@@ -175,7 +175,6 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
 import com.cvent.models.errors.ErrorResponse1;
-import com.cvent.models.errors.ErrorResponse;
 import com.cvent.models.operations.UpdateExhibitorFileRequest;
 import com.cvent.models.operations.UpdateExhibitorFileResponse;
 import java.lang.Exception;
@@ -183,7 +182,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -237,8 +236,7 @@ public class Application {
 
 | Error Type                   | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse  | 422                          | application/json             |
-| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 422, 429 | application/json             |
 | models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## disassociateExhibitorFile
@@ -396,7 +394,6 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
 import com.cvent.models.errors.ErrorResponse1;
-import com.cvent.models.errors.ErrorResponse;
 import com.cvent.models.operations.CreateExhibitorWeblinkRequest;
 import com.cvent.models.operations.CreateExhibitorWeblinkResponse;
 import java.lang.Exception;
@@ -404,7 +401,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -458,8 +455,7 @@ public class Application {
 
 | Error Type                   | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse  | 422                          | application/json             |
-| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 422, 429 | application/json             |
 | models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## getExhibitorWeblink
@@ -549,7 +545,6 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
 import com.cvent.models.errors.ErrorResponse1;
-import com.cvent.models.errors.ErrorResponse;
 import com.cvent.models.operations.UpdateExhibitorWeblinkRequest;
 import com.cvent.models.operations.UpdateExhibitorWeblinkResponse;
 import java.lang.Exception;
@@ -557,7 +552,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -612,8 +607,7 @@ public class Application {
 
 | Error Type                   | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse  | 422                          | application/json             |
-| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 422, 429 | application/json             |
 | models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## deleteExhibitorWeblink

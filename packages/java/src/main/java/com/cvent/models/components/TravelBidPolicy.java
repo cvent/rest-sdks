@@ -68,6 +68,8 @@ public class TravelBidPolicy {
     /**
      * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
      * and the hotel, if they agree, can update the item to deleted.
+     *
+     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
@@ -141,6 +143,8 @@ public class TravelBidPolicy {
     /**
      * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
      * and the hotel, if they agree, can update the item to deleted.
+     *
+     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
      */
     public Optional<BidItemStatusType> status() {
         return Optional.ofNullable(this.status);
@@ -202,6 +206,8 @@ public class TravelBidPolicy {
     /**
      * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
      * and the hotel, if they agree, can update the item to deleted.
+     *
+     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
      */
     public TravelBidPolicy withStatus(@Nullable BidItemStatusType status) {
         this.status = status;
@@ -324,6 +330,8 @@ public class TravelBidPolicy {
         /**
          * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
          * and the hotel, if they agree, can update the item to deleted.
+         *
+         * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
          */
         public Builder status(@Nullable BidItemStatusType status) {
             this.status = status;

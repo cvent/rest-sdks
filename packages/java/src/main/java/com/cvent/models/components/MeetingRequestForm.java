@@ -56,7 +56,7 @@ public class MeetingRequestForm {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("questions")
-    private List<MeetingRequestCustomFieldJson> questions;
+    private List<CustomFieldSchema2> questions;
 
     @JsonCreator
     public MeetingRequestForm(
@@ -64,7 +64,7 @@ public class MeetingRequestForm {
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("statuses") @Nullable List<String> statuses,
             @JsonProperty("active") @Nullable Boolean active,
-            @JsonProperty("questions") @Nullable List<MeetingRequestCustomFieldJson> questions) {
+            @JsonProperty("questions") @Nullable List<CustomFieldSchema2> questions) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.statuses = statuses;
@@ -110,7 +110,7 @@ public class MeetingRequestForm {
      * The list of questions that will need to be answered by someone creating a meeting request from this
      * form.
      */
-    public Optional<List<MeetingRequestCustomFieldJson>> questions() {
+    public Optional<List<CustomFieldSchema2>> questions() {
         return Optional.ofNullable(this.questions);
     }
 
@@ -156,7 +156,7 @@ public class MeetingRequestForm {
      * The list of questions that will need to be answered by someone creating a meeting request from this
      * form.
      */
-    public MeetingRequestForm withQuestions(@Nullable List<MeetingRequestCustomFieldJson> questions) {
+    public MeetingRequestForm withQuestions(@Nullable List<CustomFieldSchema2> questions) {
         this.questions = questions;
         return this;
     }
@@ -209,7 +209,7 @@ public class MeetingRequestForm {
 
         private Boolean active;
 
-        private List<MeetingRequestCustomFieldJson> questions;
+        private List<CustomFieldSchema2> questions;
 
         private Builder() {
             // force use of static builder() method
@@ -253,7 +253,7 @@ public class MeetingRequestForm {
          * The list of questions that will need to be answered by someone creating a meeting request from this
          * form.
          */
-        public Builder questions(@Nullable List<MeetingRequestCustomFieldJson> questions) {
+        public Builder questions(@Nullable List<CustomFieldSchema2> questions) {
             this.questions = questions;
             return this;
         }

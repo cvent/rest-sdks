@@ -26,7 +26,7 @@ public class BulkDataUploadResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<BulkDataPropertyJson> data;
+    private List<BulkDataProperty> data;
 
     /**
      * The number of successfully uploaded data records
@@ -37,8 +37,7 @@ public class BulkDataUploadResponse {
 
     @JsonCreator
     public BulkDataUploadResponse(
-            @JsonProperty("data") @Nullable List<BulkDataPropertyJson> data,
-            @JsonProperty("count") @Nullable Long count) {
+            @JsonProperty("data") @Nullable List<BulkDataProperty> data, @JsonProperty("count") @Nullable Long count) {
         this.data = data;
         this.count = count;
     }
@@ -50,7 +49,7 @@ public class BulkDataUploadResponse {
     /**
      * Collection of objects to be processed
      */
-    public Optional<List<BulkDataPropertyJson>> data() {
+    public Optional<List<BulkDataProperty>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -68,7 +67,7 @@ public class BulkDataUploadResponse {
     /**
      * Collection of objects to be processed
      */
-    public BulkDataUploadResponse withData(@Nullable List<BulkDataPropertyJson> data) {
+    public BulkDataUploadResponse withData(@Nullable List<BulkDataProperty> data) {
         this.data = data;
         return this;
     }
@@ -106,7 +105,7 @@ public class BulkDataUploadResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private List<BulkDataPropertyJson> data;
+        private List<BulkDataProperty> data;
 
         private Long count;
 
@@ -117,7 +116,7 @@ public class BulkDataUploadResponse {
         /**
          * Collection of objects to be processed
          */
-        public Builder data(@Nullable List<BulkDataPropertyJson> data) {
+        public Builder data(@Nullable List<BulkDataProperty> data) {
             this.data = data;
             return this;
         }

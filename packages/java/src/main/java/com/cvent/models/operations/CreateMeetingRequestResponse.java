@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.MeetingRequestBulkResponseItemJson;
+import com.cvent.models.components.MeetingRequestBulkResponseItem;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,14 +35,14 @@ public class CreateMeetingRequestResponse implements Response {
     /**
      * Meeting request(s) were successfully created.
      */
-    private List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse;
+    private List<MeetingRequestBulkResponseItem> meetingRequestBulkResponse;
 
     @JsonCreator
     public CreateMeetingRequestResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse) {
+            @Nullable List<MeetingRequestBulkResponseItem> meetingRequestBulkResponse) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -80,7 +80,7 @@ public class CreateMeetingRequestResponse implements Response {
     /**
      * Meeting request(s) were successfully created.
      */
-    public Optional<List<MeetingRequestBulkResponseItemJson>> meetingRequestBulkResponse() {
+    public Optional<List<MeetingRequestBulkResponseItem>> meetingRequestBulkResponse() {
         return Optional.ofNullable(this.meetingRequestBulkResponse);
     }
 
@@ -116,7 +116,7 @@ public class CreateMeetingRequestResponse implements Response {
      * Meeting request(s) were successfully created.
      */
     public CreateMeetingRequestResponse withMeetingRequestBulkResponse(
-            @Nullable List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse) {
+            @Nullable List<MeetingRequestBulkResponseItem> meetingRequestBulkResponse) {
         this.meetingRequestBulkResponse = meetingRequestBulkResponse;
         return this;
     }
@@ -164,7 +164,7 @@ public class CreateMeetingRequestResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse;
+        private List<MeetingRequestBulkResponseItem> meetingRequestBulkResponse;
 
         private Builder() {
             // force use of static builder() method
@@ -198,7 +198,7 @@ public class CreateMeetingRequestResponse implements Response {
          * Meeting request(s) were successfully created.
          */
         public Builder meetingRequestBulkResponse(
-                @Nullable List<MeetingRequestBulkResponseItemJson> meetingRequestBulkResponse) {
+                @Nullable List<MeetingRequestBulkResponseItem> meetingRequestBulkResponse) {
             this.meetingRequestBulkResponse = meetingRequestBulkResponse;
             return this;
         }

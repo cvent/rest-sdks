@@ -88,7 +88,7 @@ public class MeetingRequest {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("questions")
-    private List<MeetingRequestQuestionJson> questions;
+    private List<MeetingRequestQuestion> questions;
 
     /**
      * The event the request is associated with.
@@ -130,7 +130,7 @@ public class MeetingRequest {
             @JsonProperty("status") @Nullable String status,
             @JsonProperty("statusNote") @Nullable String statusNote,
             @JsonProperty("meetingRequestForm") @Nonnull MeetingRequestMeetingRequestForm meetingRequestForm,
-            @JsonProperty("questions") @Nullable List<MeetingRequestQuestionJson> questions,
+            @JsonProperty("questions") @Nullable List<MeetingRequestQuestion> questions,
             @JsonProperty("event") @Nullable MeetingRequestEvent event,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("code") @Nullable String code,
@@ -224,7 +224,7 @@ public class MeetingRequest {
     /**
      * The list of possible answers to a question.
      */
-    public Optional<List<MeetingRequestQuestionJson>> questions() {
+    public Optional<List<MeetingRequestQuestion>> questions() {
         return Optional.ofNullable(this.questions);
     }
 
@@ -337,7 +337,7 @@ public class MeetingRequest {
     /**
      * The list of possible answers to a question.
      */
-    public MeetingRequest withQuestions(@Nullable List<MeetingRequestQuestionJson> questions) {
+    public MeetingRequest withQuestions(@Nullable List<MeetingRequestQuestion> questions) {
         this.questions = questions;
         return this;
     }
@@ -474,7 +474,7 @@ public class MeetingRequest {
 
         private MeetingRequestMeetingRequestForm meetingRequestForm;
 
-        private List<MeetingRequestQuestionJson> questions;
+        private List<MeetingRequestQuestion> questions;
 
         private MeetingRequestEvent event;
 
@@ -564,7 +564,7 @@ public class MeetingRequest {
         /**
          * The list of possible answers to a question.
          */
-        public Builder questions(@Nullable List<MeetingRequestQuestionJson> questions) {
+        public Builder questions(@Nullable List<MeetingRequestQuestion> questions) {
             this.questions = questions;
             return this;
         }

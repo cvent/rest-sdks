@@ -17,6 +17,12 @@ import java.util.Optional;
 
 public class ListEventWeblinksRequest {
     /**
+     * Unique Id of an event
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
+    private String id;
+
+    /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
      * This will override any other pageable parameters provided.
      */
@@ -35,23 +41,24 @@ public class ListEventWeblinksRequest {
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=limit")
     private Long limit;
 
-    /**
-     * Unique Id of an event
-     */
-    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
-    private String id;
-
     @JsonCreator
     public ListEventWeblinksRequest(
-            @Nullable String token, @Nullable String locale, @Nullable Long limit, @Nonnull String id) {
+            @Nonnull String id, @Nullable String token, @Nullable String locale, @Nullable Long limit) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.token = token;
         this.locale = locale;
         this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
-        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     public ListEventWeblinksRequest(@Nonnull String id) {
-        this(null, null, null, id);
+        this(id, null, null, null);
+    }
+
+    /**
+     * Unique Id of an event
+     */
+    public String id() {
+        return this.id;
     }
 
     /**
@@ -76,15 +83,16 @@ public class ListEventWeblinksRequest {
         return Optional.ofNullable(this.limit);
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     /**
      * Unique Id of an event
      */
-    public String id() {
-        return this.id;
-    }
-
-    public static Builder builder() {
-        return new Builder();
+    public ListEventWeblinksRequest withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
+        return this;
     }
 
     /**
@@ -112,14 +120,6 @@ public class ListEventWeblinksRequest {
         return this;
     }
 
-    /**
-     * Unique Id of an event
-     */
-    public ListEventWeblinksRequest withId(@Nonnull String id) {
-        this.id = Utils.checkNotNull(id, "id");
-        return this;
-    }
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -129,25 +129,27 @@ public class ListEventWeblinksRequest {
             return false;
         }
         ListEventWeblinksRequest other = (ListEventWeblinksRequest) o;
-        return Utils.enhancedDeepEquals(this.token, other.token)
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.token, other.token)
                 && Utils.enhancedDeepEquals(this.locale, other.locale)
-                && Utils.enhancedDeepEquals(this.limit, other.limit)
-                && Utils.enhancedDeepEquals(this.id, other.id);
+                && Utils.enhancedDeepEquals(this.limit, other.limit);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(token, locale, limit, id);
+        return Utils.enhancedHash(id, token, locale, limit);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
-                ListEventWeblinksRequest.class, "token", token, "locale", locale, "limit", limit, "id", id);
+                ListEventWeblinksRequest.class, "id", id, "token", token, "locale", locale, "limit", limit);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
+
+        private String id;
 
         private String token;
 
@@ -155,10 +157,16 @@ public class ListEventWeblinksRequest {
 
         private Long limit;
 
-        private String id;
-
         private Builder() {
             // force use of static builder() method
+        }
+
+        /**
+         * Unique Id of an event
+         */
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
+            return this;
         }
 
         /**
@@ -186,16 +194,8 @@ public class ListEventWeblinksRequest {
             return this;
         }
 
-        /**
-         * Unique Id of an event
-         */
-        public Builder id(@Nonnull String id) {
-            this.id = Utils.checkNotNull(id, "id");
-            return this;
-        }
-
         public ListEventWeblinksRequest build() {
-            return new ListEventWeblinksRequest(token, locale, limit, id);
+            return new ListEventWeblinksRequest(id, token, locale, limit);
         }
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
