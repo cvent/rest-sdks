@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  MeetingRequestQuestionJson,
-  MeetingRequestQuestionJson$inboundSchema,
-} from "./meetingrequestquestionjson.js";
+  MeetingRequestQuestion,
+  MeetingRequestQuestion$inboundSchema,
+} from "./meetingrequestquestion.js";
 
 /**
  * The meeting request form the request is associated with.
@@ -78,7 +78,7 @@ export type MeetingRequest = {
   /**
    * The list of possible answers to a question.
    */
-  questions?: Array<MeetingRequestQuestionJson> | undefined;
+  questions?: Array<MeetingRequestQuestion> | undefined;
   /**
    * The event the request is associated with.
    */
@@ -156,7 +156,7 @@ export const MeetingRequest$inboundSchema: z.ZodType<
   meetingRequestForm: z.lazy(() =>
     MeetingRequestMeetingRequestForm$inboundSchema
   ),
-  questions: z.array(MeetingRequestQuestionJson$inboundSchema).optional(),
+  questions: z.array(MeetingRequestQuestion$inboundSchema).optional(),
   event: z.lazy(() => MeetingRequestEvent$inboundSchema).optional(),
   sourceId: z.string().optional(),
   code: z.string().optional(),

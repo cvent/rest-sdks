@@ -6,11 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  BulkResultJson,
-  BulkResultJson$inboundSchema,
-} from "./bulkresultjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { BulkResult, BulkResult$inboundSchema } from "./bulkresult.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to get the list of results from a Bulk Job run.  This includes the paging object as well
@@ -22,11 +19,11 @@ export type BulkResultsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * Collection of bulk result objects.
    */
-  data: Array<BulkResultJson>;
+  data: Array<BulkResult>;
 };
 
 /** @internal */
@@ -35,8 +32,8 @@ export const BulkResultsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(BulkResultJson$inboundSchema),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(BulkResult$inboundSchema),
 });
 
 export function bulkResultsPaginatedResponseFromJSON(

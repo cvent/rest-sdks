@@ -103,7 +103,7 @@ export type ListAttendeesRequest = {
    * | guest            | `eq`, `ne`                          |                                          |
    * | group.leader     | `eq`, `ne`                          |                                          |
    * | group.id         | `eq`, `ne`                          |                                          |
-   * | unsubscribed     | `eq`, `ne`                          | **DEPRECATED**: Please use PUT /attendees/{id}/email-subscriptions instead |
+   * | unsubscribed     | `eq`, `ne`                          | Read-only. To update an attendee's subscription status, use [PUT /attendees/{id}/email-subscriptions](#operation/updateAttendeeSubscriptionStatus) |
    * | registeredAt     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |                                          |
    * | registrationLastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |                                          |
    * | invitedBy        | `eq`, `ne`                          |                                          |

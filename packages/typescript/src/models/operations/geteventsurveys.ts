@@ -11,6 +11,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetEventSurveysRequest = {
   /**
+   * Id of an event
+   */
+  id: string;
+  /**
    * Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
    */
   after?: Date | undefined;
@@ -49,10 +53,6 @@ export type GetEventSurveysRequest = {
    * * `or`
    */
   filter?: string | undefined;
-  /**
-   * Id of an event
-   */
-  id: string;
 };
 
 export type GetEventSurveysResponse = {
@@ -61,12 +61,12 @@ export type GetEventSurveysResponse = {
 
 /** @internal */
 export type GetEventSurveysRequest$Outbound = {
+  id: string;
   after?: string | undefined;
   before?: string | undefined;
   limit: number;
   token?: string | undefined;
   filter?: string | undefined;
-  id: string;
 };
 
 /** @internal */
@@ -75,12 +75,12 @@ export const GetEventSurveysRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetEventSurveysRequest
 > = z.object({
+  id: z.string(),
   after: z.date().transform(v => v.toISOString()).optional(),
   before: z.date().transform(v => v.toISOString()).optional(),
   limit: z.number().int().default(100),
   token: z.string().optional(),
   filter: z.string().optional(),
-  id: z.string(),
 });
 
 export function getEventSurveysRequestToJSON(

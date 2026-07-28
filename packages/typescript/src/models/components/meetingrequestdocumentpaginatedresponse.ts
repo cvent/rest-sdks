@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  MeetingRequestDocumentJson,
-  MeetingRequestDocumentJson$inboundSchema,
-} from "./meetingrequestdocumentjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  MeetingRequestDocument,
+  MeetingRequestDocument$inboundSchema,
+} from "./meetingrequestdocument.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * Paginated collection of meeting request documents.
@@ -19,11 +19,11 @@ export type MeetingRequestDocumentPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of meeting request object documents.
    */
-  data: Array<MeetingRequestDocumentJson>;
+  data: Array<MeetingRequestDocument>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const MeetingRequestDocumentPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(MeetingRequestDocumentJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(MeetingRequestDocument$inboundSchema),
 });
 
 export function meetingRequestDocumentPaginatedResponseFromJSON(

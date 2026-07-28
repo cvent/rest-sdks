@@ -4,14 +4,14 @@
 
 import * as z from "zod/v3";
 import {
-  ExternalActivitiesAdditionalFieldsMetadataJson,
-  ExternalActivitiesAdditionalFieldsMetadataJson$Outbound,
-  ExternalActivitiesAdditionalFieldsMetadataJson$outboundSchema,
-} from "./externalactivitiesadditionalfieldsmetadatajson.js";
+  ExternalActivityAdditionalFieldsMetadata,
+  ExternalActivityAdditionalFieldsMetadata$Outbound,
+  ExternalActivityAdditionalFieldsMetadata$outboundSchema,
+} from "./externalactivityadditionalfieldsmetadata.js";
 import {
-  ExternalActivityTypeJson,
-  ExternalActivityTypeJson$outboundSchema,
-} from "./externalactivitytypejson.js";
+  ExternalActivityType,
+  ExternalActivityType$outboundSchema,
+} from "./externalactivitytype.js";
 
 /**
  * Metadata for an activity.
@@ -20,7 +20,7 @@ export type ExternalActivityMetadataInput = {
   /**
    * This is used to denote the type of the external attendee activity.
    */
-  type: ExternalActivityTypeJson;
+  type: ExternalActivityType;
   /**
    * Name of an external attendee activity.
    */
@@ -32,7 +32,7 @@ export type ExternalActivityMetadataInput = {
   /**
    * Metadata for the fields.
    */
-  fields?: Array<ExternalActivitiesAdditionalFieldsMetadataJson> | undefined;
+  fields?: Array<ExternalActivityAdditionalFieldsMetadata> | undefined;
 };
 
 /** @internal */
@@ -40,9 +40,7 @@ export type ExternalActivityMetadataInput$Outbound = {
   type: string;
   name: string;
   description?: string | undefined;
-  fields?:
-    | Array<ExternalActivitiesAdditionalFieldsMetadataJson$Outbound>
-    | undefined;
+  fields?: Array<ExternalActivityAdditionalFieldsMetadata$Outbound> | undefined;
 };
 
 /** @internal */
@@ -51,10 +49,10 @@ export const ExternalActivityMetadataInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ExternalActivityMetadataInput
 > = z.object({
-  type: ExternalActivityTypeJson$outboundSchema,
+  type: ExternalActivityType$outboundSchema,
   name: z.string(),
   description: z.string().optional(),
-  fields: z.array(ExternalActivitiesAdditionalFieldsMetadataJson$outboundSchema)
+  fields: z.array(ExternalActivityAdditionalFieldsMetadata$outboundSchema)
     .optional(),
 });
 

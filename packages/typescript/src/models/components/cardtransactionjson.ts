@@ -14,7 +14,7 @@ import {
   TransactionTypeJson1,
   TransactionTypeJson1$inboundSchema,
 } from "./transactiontypejson1.js";
-import { ZeroAllOf6, ZeroAllOf6$inboundSchema } from "./zeroallof6.js";
+import { ZeroAllOf4, ZeroAllOf4$inboundSchema } from "./zeroallof4.js";
 
 /**
  * The identifier of the Event.
@@ -114,7 +114,7 @@ export type CardTransactionJson = {
   /**
    * The list of reconciled item.
    */
-  reconciliations?: Array<ZeroAllOf6> | undefined;
+  reconciliations?: Array<ZeroAllOf4> | undefined;
   /**
    * The list of transaction description.
    */
@@ -219,7 +219,7 @@ export const CardTransactionJson$inboundSchema: z.ZodType<
   merchant: z.string().optional(),
   reconciliation: z.lazy(() => TransactionReconciliation$inboundSchema)
     .optional(),
-  reconciliations: z.array(ZeroAllOf6$inboundSchema).optional(),
+  reconciliations: z.array(ZeroAllOf4$inboundSchema).optional(),
   descriptions: z.array(z.string()).optional(),
 });
 

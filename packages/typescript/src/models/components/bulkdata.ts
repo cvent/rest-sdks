@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  BulkDataPropertyJson,
-  BulkDataPropertyJson$Outbound,
-  BulkDataPropertyJson$outboundSchema,
-} from "./bulkdatapropertyjson.js";
+  BulkDataProperty,
+  BulkDataProperty$Outbound,
+  BulkDataProperty$outboundSchema,
+} from "./bulkdataproperty.js";
 
 /**
  * The model representing an arbitrary list of JSON data loaded to bulk job.
@@ -16,12 +16,12 @@ export type BulkData = {
   /**
    * Collection of objects to be processed
    */
-  data?: Array<BulkDataPropertyJson> | undefined;
+  data?: Array<BulkDataProperty> | undefined;
 };
 
 /** @internal */
 export type BulkData$Outbound = {
-  data?: Array<BulkDataPropertyJson$Outbound> | undefined;
+  data?: Array<BulkDataProperty$Outbound> | undefined;
 };
 
 /** @internal */
@@ -30,7 +30,7 @@ export const BulkData$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BulkData
 > = z.object({
-  data: z.array(BulkDataPropertyJson$outboundSchema).optional(),
+  data: z.array(BulkDataProperty$outboundSchema).optional(),
 });
 
 export function bulkDataToJSON(bulkData: BulkData): string {

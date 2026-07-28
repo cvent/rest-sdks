@@ -509,7 +509,14 @@ run();
 
 ## listBulkJobResult
 
-Used to list the results of a bulk Job.
+Used to list the results of a bulk job.
+
+**Note:** A bulk job is designed to wrap individual, non-batch API operations. When a target operation
+is itself batch in nature and returns a `207 Multi-Status` response, the `failed` flag on each result record
+reflects only whether the target operation returned an HTTP error — it does not capture partial item-level
+failures within the multi-status response body. For these operations, inspect each result record's `data` field
+to determine which items succeeded or failed.
+
 
 ### Example Usage
 

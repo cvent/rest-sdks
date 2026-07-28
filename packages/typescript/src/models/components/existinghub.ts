@@ -104,6 +104,10 @@ export type ExistingHub = {
    */
   login?: HubLogin | undefined;
   /**
+   * True indicates the Events+ hub is opted into the new website theming experience. False indicates the hub uses the legacy theming experience.
+   */
+  websiteTheming: boolean;
+  /**
    * The unique ID of an Events+ Hub.
    */
   id?: string | undefined;
@@ -142,6 +146,7 @@ export const ExistingHub$inboundSchema: z.ZodType<
   utmOverride: UTMOverride$inboundSchema.default("use-existing-parameter"),
   fonts: HubFonts$inboundSchema.optional(),
   login: HubLogin$inboundSchema.optional(),
+  websiteTheming: z.boolean().default(false),
   id: z.string().optional(),
   status: HubStatusProperty$inboundSchema.optional(),
 });

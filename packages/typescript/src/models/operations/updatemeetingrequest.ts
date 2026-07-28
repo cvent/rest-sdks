@@ -18,14 +18,14 @@ export type UpdateMeetingRequestRequest = {
   /**
    * Up to **5 meeting requests** can be updated per call.
    */
-  requestBody: Array<components.MeetingRequestUpdateJson>;
+  requestBody: Array<components.MeetingRequestUpdate>;
 };
 
 /** @internal */
 export type UpdateMeetingRequestRequest$Outbound = {
   id: string;
   skipRequiredQuestionValidation?: boolean | undefined;
-  RequestBody: Array<components.MeetingRequestUpdateJson$Outbound>;
+  RequestBody: Array<components.MeetingRequestUpdate$Outbound>;
 };
 
 /** @internal */
@@ -36,7 +36,7 @@ export const UpdateMeetingRequestRequest$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   skipRequiredQuestionValidation: z.boolean().optional(),
-  requestBody: z.array(components.MeetingRequestUpdateJson$outboundSchema),
+  requestBody: z.array(components.MeetingRequestUpdate$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     requestBody: "RequestBody",

@@ -50,7 +50,7 @@ export type TravelBidFairSeasonRate = {
    */
   allotment?: number | undefined;
   /**
-   * The status of the item in negotiation.  e.g. The corporation might mark an item as delete_requested, and the hotel, if they agree, can update the item to deleted.
+   * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested, and the hotel, if they agree, can update the item to deleted. not_offered indicates the hotel does not offer this amenity (supply side only).
    */
   status?: BidItemStatusType | undefined;
 };

@@ -33,3 +33,7 @@ export type MeasurementUnit = ClosedEnum<typeof MeasurementUnit>;
 export const MeasurementUnit$inboundSchema: z.ZodNativeEnum<
   typeof MeasurementUnit
 > = z.nativeEnum(MeasurementUnit);
+/** @internal */
+export const MeasurementUnit$outboundSchema: z.ZodNativeEnum<
+  typeof MeasurementUnit
+> = MeasurementUnit$inboundSchema;

@@ -45,6 +45,10 @@ export type ListBulkJobResultRequest = {
    *
    * The following fields are filterable:
    * * failed (eq|ne)
+   *
+   *   **Note:** this filters for the top-level HTTP status of the target operation.
+   *   For operations that return 207 (Multi-Status), filter results may not capture all failed records.
+   *   Inspect individual record statuses in the `data` field for a complete picture.
    */
   filter?: string | undefined;
 };

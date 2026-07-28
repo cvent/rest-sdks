@@ -20,9 +20,9 @@ import {
 import { Compliance, Compliance$inboundSchema } from "./compliance.js";
 import { ContactLinks, ContactLinks$inboundSchema } from "./contactlinks.js";
 import {
-  CustomFieldSchema,
-  CustomFieldSchema$inboundSchema,
-} from "./customfieldschema.js";
+  CustomFieldSchema1,
+  CustomFieldSchema1$inboundSchema,
+} from "./customfieldschema1.js";
 import { Gender, Gender$inboundSchema } from "./gender.js";
 
 /**
@@ -152,7 +152,7 @@ export type AttendeeContactInfo = {
   /**
    * Collection of custom fields.
    */
-  customFields?: Array<CustomFieldSchema> | undefined;
+  customFields?: Array<CustomFieldSchema1> | undefined;
   /**
    * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name has part of the ID
    */
@@ -255,7 +255,7 @@ export const AttendeeContactInfo$inboundSchema: z.ZodType<
   workPhone: z.string().optional(),
   workFax: z.string().optional(),
   optOut: z.lazy(() => OptOut$inboundSchema).optional(),
-  customFields: z.array(CustomFieldSchema$inboundSchema).optional(),
+  customFields: z.array(CustomFieldSchema1$inboundSchema).optional(),
   sourceId: z.string().optional(),
   mobilePhone: z.string().optional(),
   compliance: z.array(Compliance$inboundSchema).optional(),

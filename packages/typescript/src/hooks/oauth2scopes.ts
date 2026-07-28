@@ -154,6 +154,14 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "business-transient/proposals:read"
   /**
+   * Allows the reading of BT Bid data
+   */
+  | "business-travel/bids:read"
+  /**
+   * Allows the reading of BT Proposal data
+   */
+  | "business-travel/proposals:read"
+  /**
    * Allows the reading of communication compliance
    */
   | "compliance/communications:read"
@@ -800,7 +808,27 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
   /**
    * Allows the reading of event surveys
    */
-  | "survey/surveys:read";
+  | "survey/surveys:read"
+  /**
+   * Allows read access for overview of meeting room.
+   */
+  | "venue/meeting-room-overviews:read"
+  /**
+   * Allows the creation and modification of meeting rooms.
+   */
+  | "venue/meeting-rooms:write"
+  /**
+   * Allows read access for overview of venue details.
+   */
+  | "venue/venue-details-overview:read"
+  /**
+   * Allows the creation and modification of venue details.
+   */
+  | "venue/venue-details:write"
+  /**
+   * Allows the modification of venue facility information.
+   */
+  | "venue/venue-facility:write";
 
 /**
  * Available scopes for the OAuth2.clientCredentials OAuth 2.0 scheme (clientCredentials flow).
@@ -954,11 +982,11 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    */
   | "bulk/bulk-jobs:write"
   /**
-   * Allows the reading of BT Bid data
+   * Allows the reading of Business Transient Bid data
    */
   | "business-transient/bids:read"
   /**
-   * Allows the reading of BT Proposal data
+   * Allows the reading of Business Transient Proposal data
    */
   | "business-transient/proposals:read"
   /**
@@ -993,6 +1021,14 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    * Allows the reading of business transient travel supplier account data.
    */
   | "business-transient/travel-supplier-accounts:read"
+  /**
+   * Allows the reading of Business Travel Bid data
+   */
+  | "business-travel/bids:read"
+  /**
+   * Allows the reading of Business Travel Proposal data
+   */
+  | "business-travel/proposals:read"
   /**
    * Allows the reading of business travel account data.
    */
@@ -1720,4 +1756,24 @@ export type OAuth2ClientCredentialsOAuth2Scope =
   /**
    * Allows the reading of event surveys
    */
-  | "survey/surveys:read";
+  | "survey/surveys:read"
+  /**
+   * Allows read access for overview of meeting room.
+   */
+  | "venue/meeting-room-overviews:read"
+  /**
+   * Allows the creation and modification of meeting rooms.
+   */
+  | "venue/meeting-rooms:write"
+  /**
+   * Allows read access for overview of venue details.
+   */
+  | "venue/venue-details-overview:read"
+  /**
+   * Allows the creation and modification of venue details.
+   */
+  | "venue/venue-details:write"
+  /**
+   * Allows the modification of venue facility information.
+   */
+  | "venue/venue-facility:write";

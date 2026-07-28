@@ -87,7 +87,7 @@ export class MeetingRequest extends ClientSDK {
   async createMeetingRequest(
     request: operations.CreateMeetingRequestRequest,
     options?: RequestOptions,
-  ): Promise<Array<components.MeetingRequestBulkResponseItemJson>> {
+  ): Promise<Array<components.MeetingRequestBulkResponseItem>> {
     return unwrapAsync(meetingRequestCreateMeetingRequest(
       this,
       request,
@@ -108,7 +108,7 @@ export class MeetingRequest extends ClientSDK {
   async updateMeetingRequest(
     request: operations.UpdateMeetingRequestRequest,
     options?: RequestOptions,
-  ): Promise<Array<components.MeetingRequestBulkResponseItemJson>> {
+  ): Promise<Array<components.MeetingRequestBulkResponseItem>> {
     return unwrapAsync(meetingRequestUpdateMeetingRequest(
       this,
       request,

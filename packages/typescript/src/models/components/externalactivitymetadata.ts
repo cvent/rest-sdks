@@ -7,13 +7,13 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ExternalActivitiesAdditionalFieldsMetadataJson,
-  ExternalActivitiesAdditionalFieldsMetadataJson$inboundSchema,
-} from "./externalactivitiesadditionalfieldsmetadatajson.js";
+  ExternalActivityAdditionalFieldsMetadata,
+  ExternalActivityAdditionalFieldsMetadata$inboundSchema,
+} from "./externalactivityadditionalfieldsmetadata.js";
 import {
-  ExternalActivityTypeJson,
-  ExternalActivityTypeJson$inboundSchema,
-} from "./externalactivitytypejson.js";
+  ExternalActivityType,
+  ExternalActivityType$inboundSchema,
+} from "./externalactivitytype.js";
 
 /**
  * Metadata for an activity.
@@ -42,7 +42,7 @@ export type ExternalActivityMetadata = {
   /**
    * This is used to denote the type of the external attendee activity.
    */
-  type: ExternalActivityTypeJson;
+  type: ExternalActivityType;
   /**
    * Name of an external attendee activity.
    */
@@ -54,7 +54,7 @@ export type ExternalActivityMetadata = {
   /**
    * Metadata for the fields.
    */
-  fields?: Array<ExternalActivitiesAdditionalFieldsMetadataJson> | undefined;
+  fields?: Array<ExternalActivityAdditionalFieldsMetadata> | undefined;
 };
 
 /** @internal */
@@ -71,10 +71,10 @@ export const ExternalActivityMetadata$inboundSchema: z.ZodType<
   ).optional(),
   lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
-  type: ExternalActivityTypeJson$inboundSchema,
+  type: ExternalActivityType$inboundSchema,
   name: z.string(),
   description: z.string().optional(),
-  fields: z.array(ExternalActivitiesAdditionalFieldsMetadataJson$inboundSchema)
+  fields: z.array(ExternalActivityAdditionalFieldsMetadata$inboundSchema)
     .optional(),
 });
 
