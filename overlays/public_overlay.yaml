@@ -99,9 +99,9 @@ actions:
             type: string
             description: The name of the venue.
             example: Hotel Grand San Francisco.
-  - target: $["components"]["schemas"]["sleeping-room-requirement.json"]["properties"]["double"]
+  - target: $["components"]["schemas"]["SleepingRoomRequirement"]["properties"]["double"]
     remove: true
-  - target: $["components"]["schemas"]["sleeping-room-requirement.json"]["properties"]
+  - target: $["components"]["schemas"]["SleepingRoomRequirement"]["properties"]
     update:
       doubleBeds:
         type: integer
@@ -143,3 +143,69 @@ actions:
   - target: $["components"]["schemas"]["ErrorResponse2"]
     update:
       x-speakeasy-name-override: "ErrorResponse2"
+  # OAuth2 flow-split fix (API-6019): the July 22-23 published spec added the new
+  # business-travel/* scopes to seven travel operations as a SECOND OAuth2.clientCredentials
+  # entry instead of adding the scope to the existing entry. Two clientCredentials entries on
+  # one operation trips Speakeasy's "concurrent use of multiple OAuth2 built-in security flows
+  # is not currently supported" lint error and fails generation. These actions collapse each
+  # split back into a single clientCredentials entry carrying both scopes.
+  # Two-step per operation: remove the split security array first, then set the combined entry.
+  # A plain `update` on an array APPENDS rather than replaces (see the root-security override
+  # above), so the array must be removed before the single combined entry is set.
+  # Remove once the developer-portal published spec combines the scopes at the source.
+  - target: $["paths"]["/travel-accounts"]["get"]["security"]
+    remove: true
+  - target: $["paths"]["/travel-accounts"]["get"]
+    update:
+      security:
+        - OAuth2.clientCredentials:
+            - business-transient/travel-accounts:read
+            - business-travel/travel-accounts:read
+  - target: $["paths"]["/travel-accounts/{travelAccountId}"]["get"]["security"]
+    remove: true
+  - target: $["paths"]["/travel-accounts/{travelAccountId}"]["get"]
+    update:
+      security:
+        - OAuth2.clientCredentials:
+            - business-transient/travel-accounts:read
+            - business-travel/travel-accounts:read
+  - target: $["paths"]["/travel-programs"]["get"]["security"]
+    remove: true
+  - target: $["paths"]["/travel-programs"]["get"]
+    update:
+      security:
+        - OAuth2.clientCredentials:
+            - business-transient/travel-programs:read
+            - business-travel/travel-programs:read
+  - target: $["paths"]["/travel-programs/questions"]["get"]["security"]
+    remove: true
+  - target: $["paths"]["/travel-programs/questions"]["get"]
+    update:
+      security:
+        - OAuth2.clientCredentials:
+            - business-transient/travel-program-questions:read
+            - business-travel/travel-program-questions:read
+  - target: $["paths"]["/travel-programs/{programId}"]["get"]["security"]
+    remove: true
+  - target: $["paths"]["/travel-programs/{programId}"]["get"]
+    update:
+      security:
+        - OAuth2.clientCredentials:
+            - business-transient/travel-programs:read
+            - business-travel/travel-programs:read
+  - target: $["paths"]["/travel-programs/{programId}/questions"]["get"]["security"]
+    remove: true
+  - target: $["paths"]["/travel-programs/{programId}/questions"]["get"]
+    update:
+      security:
+        - OAuth2.clientCredentials:
+            - business-transient/travel-program-questions:read
+            - business-travel/travel-program-questions:read
+  - target: $["paths"]["/travel-programs/{programId}/questions/{questionId}"]["get"]["security"]
+    remove: true
+  - target: $["paths"]["/travel-programs/{programId}/questions/{questionId}"]["get"]
+    update:
+      security:
+        - OAuth2.clientCredentials:
+            - business-transient/travel-program-questions:read
+            - business-travel/travel-program-questions:read
