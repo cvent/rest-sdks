@@ -42,7 +42,7 @@ export type SegmentsErrorResponseData = {
   /**
    * Additional details of cascading error messages.
    */
-  details?: Array<components.ZeroAllOf1> | undefined;
+  details?: Array<components.ZeroAllOf3> | undefined;
   /**
    * Business validation code for bad requests.
    */
@@ -64,7 +64,7 @@ export class SegmentsErrorResponse extends CventSDKError {
   /**
    * Additional details of cascading error messages.
    */
-  details?: Array<components.ZeroAllOf1> | undefined;
+  details?: Array<components.ZeroAllOf3> | undefined;
   /**
    * Business validation code for bad requests.
    */
@@ -103,7 +103,7 @@ export const SegmentsErrorResponse$inboundSchema: z.ZodType<
   code: z.number().int(),
   message: z.string(),
   target: z.string().optional(),
-  details: z.array(components.ZeroAllOf1$inboundSchema).optional(),
+  details: z.array(components.ZeroAllOf3$inboundSchema).optional(),
   validationCode: ValidationCode$inboundSchema.optional(),
   request$: z.instanceof(Request),
   response$: z.instanceof(Response),

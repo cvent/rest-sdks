@@ -5,7 +5,7 @@ A lead activity
 
 ## Fields
 
-| Field                                                                     | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `Exhibitor`                                                               | [ActivityExhibitorJson](../../Models/Components/ActivityExhibitorJson.md) | :heavy_minus_sign:                                                        | An activity exhibitor.                                                    |
-| `Lead`                                                                    | [ActivityLeadJson](../../Models/Components/ActivityLeadJson.md)           | :heavy_minus_sign:                                                        | An activity lead.                                                         |
+| Field                                                             | Type                                                              | Required                                                          | Description                                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `Exhibitor`                                                       | [ActivityExhibitor](../../Models/Components/ActivityExhibitor.md) | :heavy_minus_sign:                                                | An activity exhibitor.                                            |
+| `Lead`                                                            | [ActivityLead](../../Models/Components/ActivityLead.md)           | :heavy_minus_sign:                                                | An activity lead.                                                 |

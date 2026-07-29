@@ -33,7 +33,7 @@ let value: BulkResultsPaginatedResponse = {
 
 ## Fields
 
-| Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `paging`                                                                 | [components.PagingJson](../../models/components/pagingjson.md)           | :heavy_minus_sign:                                                       | Represents pagination information for a collection of resources.         |
-| `data`                                                                   | [components.BulkResultJson](../../models/components/bulkresultjson.md)[] | :heavy_check_mark:                                                       | Collection of bulk result objects.                                       |
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `paging`                                                         | [components.Paging](../../models/components/paging.md)           | :heavy_minus_sign:                                               | Represents pagination information for a collection of resources. |
+| `data`                                                           | [components.BulkResult](../../models/components/bulkresult.md)[] | :heavy_check_mark:                                               | Collection of bulk result objects.                               |

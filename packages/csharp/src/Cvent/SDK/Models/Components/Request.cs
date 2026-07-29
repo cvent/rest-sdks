@@ -27,10 +27,10 @@ namespace Cvent.SDK.Models.Components
 
         public string Value { get; private set; }
 
-        public static RequestType MeetingRequestBulkResponseItemJsonRequest
+        public static RequestType MeetingRequestBulkResponseItemRequest
         {
             get {
-                return new RequestType("meeting-request-bulk-response-item.json_request");
+                return new RequestType("MeetingRequestBulkResponseItem_request");
             }
         }
 
@@ -74,8 +74,8 @@ namespace Cvent.SDK.Models.Components
         {
             switch (v)
             {
-                case "meeting-request-bulk-response-item.json_request":
-                    return MeetingRequestBulkResponseItemJsonRequest;
+                case "MeetingRequestBulkResponseItem_request":
+                    return MeetingRequestBulkResponseItemRequest;
                 case "str":
                     return Str;
                 case "number":
@@ -115,7 +115,7 @@ namespace Cvent.SDK.Models.Components
         }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public MeetingRequestBulkResponseItemJsonRequest? MeetingRequestBulkResponseItemJsonRequest { get; set; }
+        public MeetingRequestBulkResponseItemRequest? MeetingRequestBulkResponseItemRequest { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
         public string? Str { get; set; }
@@ -130,12 +130,12 @@ namespace Cvent.SDK.Models.Components
         public bool? Boolean { get; set; }
 
         public RequestType Type { get; set; }
-        public static Request CreateMeetingRequestBulkResponseItemJsonRequest(MeetingRequestBulkResponseItemJsonRequest meetingRequestBulkResponseItemJSONRequest)
+        public static Request CreateMeetingRequestBulkResponseItemRequest(MeetingRequestBulkResponseItemRequest meetingRequestBulkResponseItemRequest)
         {
-            RequestType typ = RequestType.MeetingRequestBulkResponseItemJsonRequest;
+            RequestType typ = RequestType.MeetingRequestBulkResponseItemRequest;
 
             Request res = new Request(typ);
-            res.MeetingRequestBulkResponseItemJsonRequest = meetingRequestBulkResponseItemJSONRequest;
+            res.MeetingRequestBulkResponseItemRequest = meetingRequestBulkResponseItemRequest;
             return res;
         }
         public static Request CreateStr(string str)
@@ -189,13 +189,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new Request(RequestType.MeetingRequestBulkResponseItemJsonRequest) {
-                        MeetingRequestBulkResponseItemJsonRequest = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<MeetingRequestBulkResponseItemJsonRequest>(json)
+                    return new Request(RequestType.MeetingRequestBulkResponseItemRequest) {
+                        MeetingRequestBulkResponseItemRequest = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<MeetingRequestBulkResponseItemRequest>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(MeetingRequestBulkResponseItemJsonRequest), new Request(RequestType.MeetingRequestBulkResponseItemJsonRequest), "MeetingRequestBulkResponseItemJsonRequest"));
+                    fallbackCandidates.Add((typeof(MeetingRequestBulkResponseItemRequest), new Request(RequestType.MeetingRequestBulkResponseItemRequest), "MeetingRequestBulkResponseItemRequest"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -281,9 +281,9 @@ namespace Cvent.SDK.Models.Components
 
                 Request res = (Request)value;
 
-                if (res.MeetingRequestBulkResponseItemJsonRequest != null)
+                if (res.MeetingRequestBulkResponseItemRequest != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.MeetingRequestBulkResponseItemJsonRequest));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.MeetingRequestBulkResponseItemRequest));
                     return;
                 }
 

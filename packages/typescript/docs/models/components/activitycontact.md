@@ -1,8 +1,6 @@
-# ~~ActivityContact~~
+# ActivityContact
 
-Related contact.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+An activity contact.
 
 ## Example Usage
 

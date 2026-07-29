@@ -3,7 +3,7 @@
  */
 package com.cvent.models.errors;
 
-import com.cvent.models.components.ZeroAllOf1;
+import com.cvent.models.components.ZeroAllOf3;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -96,7 +96,7 @@ public class SegmentsErrorResponse extends CventSDKError {
      * Additional details of cascading error messages.
      */
     @Deprecated
-    public Optional<List<ZeroAllOf1>> details() {
+    public Optional<List<ZeroAllOf3>> details() {
         return data().flatMap(Data::details);
     }
 
@@ -148,7 +148,7 @@ public class SegmentsErrorResponse extends CventSDKError {
          */
         @JsonInclude(Include.NON_ABSENT)
         @JsonProperty("details")
-        private List<ZeroAllOf1> details;
+        private List<ZeroAllOf3> details;
 
         /**
          * Business validation code for bad requests.
@@ -162,7 +162,7 @@ public class SegmentsErrorResponse extends CventSDKError {
                 @JsonProperty("code") long code,
                 @JsonProperty("message") @Nonnull String message,
                 @JsonProperty("target") @Nullable String target,
-                @JsonProperty("details") @Nullable List<ZeroAllOf1> details,
+                @JsonProperty("details") @Nullable List<ZeroAllOf3> details,
                 @JsonProperty("validationCode") @Nullable ValidationCode validationCode) {
             this.code = code;
             this.message = Optional.ofNullable(message)
@@ -200,7 +200,7 @@ public class SegmentsErrorResponse extends CventSDKError {
         /**
          * Additional details of cascading error messages.
          */
-        public Optional<List<ZeroAllOf1>> details() {
+        public Optional<List<ZeroAllOf3>> details() {
             return Optional.ofNullable(this.details);
         }
 
@@ -242,7 +242,7 @@ public class SegmentsErrorResponse extends CventSDKError {
         /**
          * Additional details of cascading error messages.
          */
-        public Data withDetails(@Nullable List<ZeroAllOf1> details) {
+        public Data withDetails(@Nullable List<ZeroAllOf3> details) {
             this.details = details;
             return this;
         }
@@ -301,7 +301,7 @@ public class SegmentsErrorResponse extends CventSDKError {
 
             private String target;
 
-            private List<ZeroAllOf1> details;
+            private List<ZeroAllOf3> details;
 
             private ValidationCode validationCode;
 
@@ -336,7 +336,7 @@ public class SegmentsErrorResponse extends CventSDKError {
             /**
              * Additional details of cascading error messages.
              */
-            public Builder details(@Nullable List<ZeroAllOf1> details) {
+            public Builder details(@Nullable List<ZeroAllOf3> details) {
                 this.details = details;
                 return this;
             }

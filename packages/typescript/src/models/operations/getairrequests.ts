@@ -11,6 +11,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAirRequestsRequest = {
   /**
+   * ID of an event.
+   */
+  id: string;
+  /**
    * Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
    */
   after?: Date | undefined;
@@ -71,10 +75,6 @@ export type GetAirRequestsRequest = {
    *   * airRequestDetails.airRequestAnswers.question (<a href="#operation/getEventQuestions">List Event Questions</a>)
    */
   expand?: Array<components.ExpandAirRequestQuestionAnswer> | undefined;
-  /**
-   * ID of an event.
-   */
-  id: string;
 };
 
 export type GetAirRequestsResponse = {
@@ -83,6 +83,7 @@ export type GetAirRequestsResponse = {
 
 /** @internal */
 export type GetAirRequestsRequest$Outbound = {
+  id: string;
   after?: string | undefined;
   before?: string | undefined;
   limit: number;
@@ -90,7 +91,6 @@ export type GetAirRequestsRequest$Outbound = {
   sort?: string | undefined;
   filter?: string | undefined;
   expand?: Array<string> | undefined;
-  id: string;
 };
 
 /** @internal */
@@ -99,6 +99,7 @@ export const GetAirRequestsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetAirRequestsRequest
 > = z.object({
+  id: z.string(),
   after: z.date().transform(v => v.toISOString()).optional(),
   before: z.date().transform(v => v.toISOString()).optional(),
   limit: z.number().int().default(100),
@@ -107,7 +108,6 @@ export const GetAirRequestsRequest$outboundSchema: z.ZodType<
   filter: z.string().optional(),
   expand: z.array(components.ExpandAirRequestQuestionAnswer$outboundSchema)
     .optional(),
-  id: z.string(),
 });
 
 export function getAirRequestsRequestToJSON(

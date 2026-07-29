@@ -25,7 +25,7 @@ public class EventCheckedOut {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private ActivityDataJsonEvent3 event;
+    private ActivityDataEvent2 event;
 
     /**
      * ISO 8601 date and time when an attendee checked out from an event.
@@ -36,7 +36,7 @@ public class EventCheckedOut {
 
     @JsonCreator
     public EventCheckedOut(
-            @JsonProperty("event") @Nullable ActivityDataJsonEvent3 event,
+            @JsonProperty("event") @Nullable ActivityDataEvent2 event,
             @JsonProperty("checkOut") @Nullable OffsetDateTime checkOut) {
         this.event = event;
         this.checkOut = checkOut;
@@ -49,7 +49,7 @@ public class EventCheckedOut {
     /**
      * The event in which this activity occurred.
      */
-    public Optional<ActivityDataJsonEvent3> event() {
+    public Optional<ActivityDataEvent2> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -67,7 +67,7 @@ public class EventCheckedOut {
     /**
      * The event in which this activity occurred.
      */
-    public EventCheckedOut withEvent(@Nullable ActivityDataJsonEvent3 event) {
+    public EventCheckedOut withEvent(@Nullable ActivityDataEvent2 event) {
         this.event = event;
         return this;
     }
@@ -105,7 +105,7 @@ public class EventCheckedOut {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ActivityDataJsonEvent3 event;
+        private ActivityDataEvent2 event;
 
         private OffsetDateTime checkOut;
 
@@ -116,7 +116,7 @@ public class EventCheckedOut {
         /**
          * The event in which this activity occurred.
          */
-        public Builder event(@Nullable ActivityDataJsonEvent3 event) {
+        public Builder event(@Nullable ActivityDataEvent2 event) {
             this.event = event;
             return this;
         }

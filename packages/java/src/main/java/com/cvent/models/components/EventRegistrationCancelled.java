@@ -24,19 +24,19 @@ public class EventRegistrationCancelled {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private ActivityDataJsonEvent8 event;
+    private ActivityDataEvent5 event;
 
     /**
      * This is used to denote the status of an attendee.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private AttendeeStatusJson status;
+    private AttendeeStatus status;
 
     @JsonCreator
     public EventRegistrationCancelled(
-            @JsonProperty("event") @Nullable ActivityDataJsonEvent8 event,
-            @JsonProperty("status") @Nullable AttendeeStatusJson status) {
+            @JsonProperty("event") @Nullable ActivityDataEvent5 event,
+            @JsonProperty("status") @Nullable AttendeeStatus status) {
         this.event = event;
         this.status = status;
     }
@@ -48,14 +48,14 @@ public class EventRegistrationCancelled {
     /**
      * The event in which this activity occurred.
      */
-    public Optional<ActivityDataJsonEvent8> event() {
+    public Optional<ActivityDataEvent5> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
      * This is used to denote the status of an attendee.
      */
-    public Optional<AttendeeStatusJson> status() {
+    public Optional<AttendeeStatus> status() {
         return Optional.ofNullable(this.status);
     }
 
@@ -66,7 +66,7 @@ public class EventRegistrationCancelled {
     /**
      * The event in which this activity occurred.
      */
-    public EventRegistrationCancelled withEvent(@Nullable ActivityDataJsonEvent8 event) {
+    public EventRegistrationCancelled withEvent(@Nullable ActivityDataEvent5 event) {
         this.event = event;
         return this;
     }
@@ -74,7 +74,7 @@ public class EventRegistrationCancelled {
     /**
      * This is used to denote the status of an attendee.
      */
-    public EventRegistrationCancelled withStatus(@Nullable AttendeeStatusJson status) {
+    public EventRegistrationCancelled withStatus(@Nullable AttendeeStatus status) {
         this.status = status;
         return this;
     }
@@ -104,9 +104,9 @@ public class EventRegistrationCancelled {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ActivityDataJsonEvent8 event;
+        private ActivityDataEvent5 event;
 
-        private AttendeeStatusJson status;
+        private AttendeeStatus status;
 
         private Builder() {
             // force use of static builder() method
@@ -115,7 +115,7 @@ public class EventRegistrationCancelled {
         /**
          * The event in which this activity occurred.
          */
-        public Builder event(@Nullable ActivityDataJsonEvent8 event) {
+        public Builder event(@Nullable ActivityDataEvent5 event) {
             this.event = event;
             return this;
         }
@@ -123,7 +123,7 @@ public class EventRegistrationCancelled {
         /**
          * This is used to denote the status of an attendee.
          */
-        public Builder status(@Nullable AttendeeStatusJson status) {
+        public Builder status(@Nullable AttendeeStatus status) {
             this.status = status;
             return this;
         }

@@ -12,7 +12,6 @@ import com.cvent.SecuritySource;
 import com.cvent.models.components.AudienceSegmentCreate;
 import com.cvent.models.components.ExistingAudienceSegment;
 import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.ErrorResponse;
 import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.errors.SegmentsErrorResponse;
 import com.cvent.models.operations.CreateAudienceSegmentResponse;
@@ -205,14 +204,7 @@ public class CreateAudienceSegment {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
             }
-            if (Utils.statusCodeMatches(response.statusCode(), "422")) {
-                if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw ErrorResponse.from(response);
-                } else {
-                    throw APIException.from("Unexpected content-type received: " + contentType, response);
-                }
-            }
-            if (Utils.statusCodeMatches(response.statusCode(), "401", "403", "429")) {
+            if (Utils.statusCodeMatches(response.statusCode(), "401", "403", "422", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     throw ErrorResponse1.from(response);
                 } else {
@@ -308,14 +300,7 @@ public class CreateAudienceSegment {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }
             }
-            if (Utils.statusCodeMatches(response.statusCode(), "422")) {
-                if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
-                } else {
-                    return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
-                }
-            }
-            if (Utils.statusCodeMatches(response.statusCode(), "401", "403", "429")) {
+            if (Utils.statusCodeMatches(response.statusCode(), "401", "403", "422", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return ErrorResponse1.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {

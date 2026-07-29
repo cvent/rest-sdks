@@ -9,7 +9,7 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.MeetingRequestBulkResponseItemJson;
+import com.cvent.models.components.MeetingRequestBulkResponseItem;
 import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.CreateMeetingRequestRequest;
@@ -194,8 +194,8 @@ public class CreateMeetingRequest {
 
             if (Utils.statusCodeMatches(response.statusCode(), "207")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withMeetingRequestBulkResponse(Utils.unmarshal(
-                            response, new TypeReference<List<MeetingRequestBulkResponseItemJson>>() {}));
+                    return res.withMeetingRequestBulkResponse(
+                            Utils.unmarshal(response, new TypeReference<List<MeetingRequestBulkResponseItem>>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -284,7 +284,7 @@ public class CreateMeetingRequest {
 
             if (Utils.statusCodeMatches(response.statusCode(), "207")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<List<MeetingRequestBulkResponseItemJson>>() {})
+                    return Utils.unmarshalAsync(response, new TypeReference<List<MeetingRequestBulkResponseItem>>() {})
                             .thenApply(res::withMeetingRequestBulkResponse);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);

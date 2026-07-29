@@ -21,13 +21,13 @@ public class ExternalActivityInput {
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonProperty("attendee")
-    private UuidJson attendee;
+    private Uuid attendee;
 
     /**
      * Details for an event activity.
      */
     @JsonProperty("event")
-    private EventActivityDetailsJsonInput event;
+    private EventActivityDetailInput event;
 
     /**
      * Name for the external attendee activity.
@@ -39,21 +39,21 @@ public class ExternalActivityInput {
      * This is used to denote the type of the external attendee activity.
      */
     @JsonProperty("type")
-    private ExternalActivityTypeJson type;
+    private ExternalActivityType type;
 
     /**
      * This is used to denote the type of the external attendee activity.
      */
     @JsonProperty("data")
-    private ExternalActivityDataJson data;
+    private ExternalActivityData data;
 
     @JsonCreator
     public ExternalActivityInput(
-            @JsonProperty("attendee") @Nonnull UuidJson attendee,
-            @JsonProperty("event") @Nonnull EventActivityDetailsJsonInput event,
+            @JsonProperty("attendee") @Nonnull Uuid attendee,
+            @JsonProperty("event") @Nonnull EventActivityDetailInput event,
             @JsonProperty("name") @Nonnull String name,
-            @JsonProperty("type") @Nonnull ExternalActivityTypeJson type,
-            @JsonProperty("data") @Nonnull ExternalActivityDataJson data) {
+            @JsonProperty("type") @Nonnull ExternalActivityType type,
+            @JsonProperty("data") @Nonnull ExternalActivityData data) {
         this.attendee = Optional.ofNullable(attendee)
                 .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
         this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
@@ -65,14 +65,14 @@ public class ExternalActivityInput {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public UuidJson attendee() {
+    public Uuid attendee() {
         return this.attendee;
     }
 
     /**
      * Details for an event activity.
      */
-    public EventActivityDetailsJsonInput event() {
+    public EventActivityDetailInput event() {
         return this.event;
     }
 
@@ -86,14 +86,14 @@ public class ExternalActivityInput {
     /**
      * This is used to denote the type of the external attendee activity.
      */
-    public ExternalActivityTypeJson type() {
+    public ExternalActivityType type() {
         return this.type;
     }
 
     /**
      * This is used to denote the type of the external attendee activity.
      */
-    public ExternalActivityDataJson data() {
+    public ExternalActivityData data() {
         return this.data;
     }
 
@@ -104,7 +104,7 @@ public class ExternalActivityInput {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExternalActivityInput withAttendee(@Nonnull UuidJson attendee) {
+    public ExternalActivityInput withAttendee(@Nonnull Uuid attendee) {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
@@ -112,7 +112,7 @@ public class ExternalActivityInput {
     /**
      * Details for an event activity.
      */
-    public ExternalActivityInput withEvent(@Nonnull EventActivityDetailsJsonInput event) {
+    public ExternalActivityInput withEvent(@Nonnull EventActivityDetailInput event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -128,7 +128,7 @@ public class ExternalActivityInput {
     /**
      * This is used to denote the type of the external attendee activity.
      */
-    public ExternalActivityInput withType(@Nonnull ExternalActivityTypeJson type) {
+    public ExternalActivityInput withType(@Nonnull ExternalActivityType type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
@@ -136,7 +136,7 @@ public class ExternalActivityInput {
     /**
      * This is used to denote the type of the external attendee activity.
      */
-    public ExternalActivityInput withData(@Nonnull ExternalActivityDataJson data) {
+    public ExternalActivityInput withData(@Nonnull ExternalActivityData data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -181,15 +181,15 @@ public class ExternalActivityInput {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private UuidJson attendee;
+        private Uuid attendee;
 
-        private EventActivityDetailsJsonInput event;
+        private EventActivityDetailInput event;
 
         private String name;
 
-        private ExternalActivityTypeJson type;
+        private ExternalActivityType type;
 
-        private ExternalActivityDataJson data;
+        private ExternalActivityData data;
 
         private Builder() {
             // force use of static builder() method
@@ -198,7 +198,7 @@ public class ExternalActivityInput {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder attendee(@Nonnull UuidJson attendee) {
+        public Builder attendee(@Nonnull Uuid attendee) {
             this.attendee = Utils.checkNotNull(attendee, "attendee");
             return this;
         }
@@ -206,7 +206,7 @@ public class ExternalActivityInput {
         /**
          * Details for an event activity.
          */
-        public Builder event(@Nonnull EventActivityDetailsJsonInput event) {
+        public Builder event(@Nonnull EventActivityDetailInput event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -222,7 +222,7 @@ public class ExternalActivityInput {
         /**
          * This is used to denote the type of the external attendee activity.
          */
-        public Builder type(@Nonnull ExternalActivityTypeJson type) {
+        public Builder type(@Nonnull ExternalActivityType type) {
             this.type = Utils.checkNotNull(type, "type");
             return this;
         }
@@ -230,7 +230,7 @@ public class ExternalActivityInput {
         /**
          * This is used to denote the type of the external attendee activity.
          */
-        public Builder data(@Nonnull ExternalActivityDataJson data) {
+        public Builder data(@Nonnull ExternalActivityData data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.MeetingRequestCreateJson;
+import com.cvent.models.components.MeetingRequestCreate;
 import com.cvent.utils.SpeakeasyMetadata;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,20 +32,20 @@ public class CreateMeetingRequestRequest {
      * Up to **5 meeting requests** can be created per call.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    private List<MeetingRequestCreateJson> requestBody;
+    private List<MeetingRequestCreate> requestBody;
 
     @JsonCreator
     public CreateMeetingRequestRequest(
             @Nonnull String id,
             @Nullable Boolean skipRequiredQuestionValidation,
-            @Nonnull List<MeetingRequestCreateJson> requestBody) {
+            @Nonnull List<MeetingRequestCreate> requestBody) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.skipRequiredQuestionValidation = skipRequiredQuestionValidation;
         this.requestBody = Optional.ofNullable(requestBody)
                 .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
     }
 
-    public CreateMeetingRequestRequest(@Nonnull String id, @Nonnull List<MeetingRequestCreateJson> requestBody) {
+    public CreateMeetingRequestRequest(@Nonnull String id, @Nonnull List<MeetingRequestCreate> requestBody) {
         this(id, null, requestBody);
     }
 
@@ -66,7 +66,7 @@ public class CreateMeetingRequestRequest {
     /**
      * Up to **5 meeting requests** can be created per call.
      */
-    public List<MeetingRequestCreateJson> requestBody() {
+    public List<MeetingRequestCreate> requestBody() {
         return this.requestBody;
     }
 
@@ -94,7 +94,7 @@ public class CreateMeetingRequestRequest {
     /**
      * Up to **5 meeting requests** can be created per call.
      */
-    public CreateMeetingRequestRequest withRequestBody(@Nonnull List<MeetingRequestCreateJson> requestBody) {
+    public CreateMeetingRequestRequest withRequestBody(@Nonnull List<MeetingRequestCreate> requestBody) {
         this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
         return this;
     }
@@ -137,7 +137,7 @@ public class CreateMeetingRequestRequest {
 
         private Boolean skipRequiredQuestionValidation;
 
-        private List<MeetingRequestCreateJson> requestBody;
+        private List<MeetingRequestCreate> requestBody;
 
         private Builder() {
             // force use of static builder() method
@@ -162,7 +162,7 @@ public class CreateMeetingRequestRequest {
         /**
          * Up to **5 meeting requests** can be created per call.
          */
-        public Builder requestBody(@Nonnull List<MeetingRequestCreateJson> requestBody) {
+        public Builder requestBody(@Nonnull List<MeetingRequestCreate> requestBody) {
             this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
             return this;
         }

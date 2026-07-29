@@ -45,14 +45,14 @@ public class ErrorResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("details")
-    private List<ZeroAllOf1> details;
+    private List<ZeroAllOf3> details;
 
     @JsonCreator
     public ErrorResponse(
             @JsonProperty("code") long code,
             @JsonProperty("message") @Nonnull String message,
             @JsonProperty("target") @Nullable String target,
-            @JsonProperty("details") @Nullable List<ZeroAllOf1> details) {
+            @JsonProperty("details") @Nullable List<ZeroAllOf3> details) {
         this.code = code;
         this.message =
                 Optional.ofNullable(message).orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
@@ -88,7 +88,7 @@ public class ErrorResponse {
     /**
      * Additional details of cascading error messages.
      */
-    public Optional<List<ZeroAllOf1>> details() {
+    public Optional<List<ZeroAllOf3>> details() {
         return Optional.ofNullable(this.details);
     }
 
@@ -123,7 +123,7 @@ public class ErrorResponse {
     /**
      * Additional details of cascading error messages.
      */
-    public ErrorResponse withDetails(@Nullable List<ZeroAllOf1> details) {
+    public ErrorResponse withDetails(@Nullable List<ZeroAllOf3> details) {
         this.details = details;
         return this;
     }
@@ -163,7 +163,7 @@ public class ErrorResponse {
 
         private String target;
 
-        private List<ZeroAllOf1> details;
+        private List<ZeroAllOf3> details;
 
         private Builder() {
             // force use of static builder() method
@@ -196,7 +196,7 @@ public class ErrorResponse {
         /**
          * Additional details of cascading error messages.
          */
-        public Builder details(@Nullable List<ZeroAllOf1> details) {
+        public Builder details(@Nullable List<ZeroAllOf3> details) {
             this.details = details;
             return this;
         }

@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  * BulkDataProperty
  *
- * <p>The response data for the bulk operation.
+ * <p>Data Record envelope
  */
 public class BulkDataProperty {
     /**
@@ -57,14 +57,14 @@ public class BulkDataProperty {
      * format of the Create Session endpoint.
      */
     @JsonProperty("dataRecord")
-    private Map<String, BulkDataRecordJson> dataRecord;
+    private Map<String, BulkDataRecord> dataRecord;
 
     @JsonCreator
     public BulkDataProperty(
             @JsonProperty("pathParams") @Nullable Map<String, String> pathParams,
             @JsonProperty("queryParams") @Nullable Map<String, String> queryParams,
             @JsonProperty("headers") @Nullable Map<String, String> headers,
-            @JsonProperty("dataRecord") @Nonnull Map<String, BulkDataRecordJson> dataRecord) {
+            @JsonProperty("dataRecord") @Nonnull Map<String, BulkDataRecord> dataRecord) {
         dataRecord = Utils.emptyMapIfNull(dataRecord);
         this.pathParams = pathParams;
         this.queryParams = queryParams;
@@ -73,7 +73,7 @@ public class BulkDataProperty {
                 .orElseThrow(() -> new IllegalArgumentException("dataRecord cannot be null"));
     }
 
-    public BulkDataProperty(@Nonnull Map<String, BulkDataRecordJson> dataRecord) {
+    public BulkDataProperty(@Nonnull Map<String, BulkDataRecord> dataRecord) {
         this(null, null, null, dataRecord);
     }
 
@@ -112,7 +112,7 @@ public class BulkDataProperty {
      * <p>For example, to bulk create sessions, you structure each of the `dataRecord` entries based on the
      * format of the Create Session endpoint.
      */
-    public Map<String, BulkDataRecordJson> dataRecord() {
+    public Map<String, BulkDataRecord> dataRecord() {
         return this.dataRecord;
     }
 
@@ -158,7 +158,7 @@ public class BulkDataProperty {
      * <p>For example, to bulk create sessions, you structure each of the `dataRecord` entries based on the
      * format of the Create Session endpoint.
      */
-    public BulkDataProperty withDataRecord(@Nonnull Map<String, BulkDataRecordJson> dataRecord) {
+    public BulkDataProperty withDataRecord(@Nonnull Map<String, BulkDataRecord> dataRecord) {
         this.dataRecord = Utils.checkNotNull(dataRecord, "dataRecord");
         return this;
     }
@@ -206,7 +206,7 @@ public class BulkDataProperty {
 
         private Map<String, String> headers;
 
-        private Map<String, BulkDataRecordJson> dataRecord;
+        private Map<String, BulkDataRecord> dataRecord;
 
         private Builder() {
             // force use of static builder() method
@@ -250,7 +250,7 @@ public class BulkDataProperty {
          * <p>For example, to bulk create sessions, you structure each of the `dataRecord` entries based on the
          * format of the Create Session endpoint.
          */
-        public Builder dataRecord(@Nonnull Map<String, BulkDataRecordJson> dataRecord) {
+        public Builder dataRecord(@Nonnull Map<String, BulkDataRecord> dataRecord) {
             this.dataRecord = Utils.checkNotNull(dataRecord, "dataRecord");
             return this;
         }

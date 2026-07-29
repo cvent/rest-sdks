@@ -26,14 +26,14 @@ public class SessionQuestionAsked {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("session")
-    private SessionActivity7 session;
+    private SessionQuestionAskedSessionActivity session;
 
     /**
      * The question asked in a session.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("question")
-    private QuestionDetailJson question;
+    private QuestionDetail question;
 
     /**
      * The platform used by the user.
@@ -58,8 +58,8 @@ public class SessionQuestionAsked {
 
     @JsonCreator
     public SessionQuestionAsked(
-            @JsonProperty("session") @Nullable SessionActivity7 session,
-            @JsonProperty("question") @Nullable QuestionDetailJson question,
+            @JsonProperty("session") @Nullable SessionQuestionAskedSessionActivity session,
+            @JsonProperty("question") @Nullable QuestionDetail question,
             @JsonProperty("platform") @Nullable String platform,
             @JsonProperty("votes") @Nullable Long votes,
             @JsonProperty("anonymous") @Nullable Boolean anonymous) {
@@ -77,14 +77,14 @@ public class SessionQuestionAsked {
     /**
      * The activity session.
      */
-    public Optional<SessionActivity7> session() {
+    public Optional<SessionQuestionAskedSessionActivity> session() {
         return Optional.ofNullable(this.session);
     }
 
     /**
      * The question asked in a session.
      */
-    public Optional<QuestionDetailJson> question() {
+    public Optional<QuestionDetail> question() {
         return Optional.ofNullable(this.question);
     }
 
@@ -116,7 +116,7 @@ public class SessionQuestionAsked {
     /**
      * The activity session.
      */
-    public SessionQuestionAsked withSession(@Nullable SessionActivity7 session) {
+    public SessionQuestionAsked withSession(@Nullable SessionQuestionAskedSessionActivity session) {
         this.session = session;
         return this;
     }
@@ -124,7 +124,7 @@ public class SessionQuestionAsked {
     /**
      * The question asked in a session.
      */
-    public SessionQuestionAsked withQuestion(@Nullable QuestionDetailJson question) {
+    public SessionQuestionAsked withQuestion(@Nullable QuestionDetail question) {
         this.question = question;
         return this;
     }
@@ -193,9 +193,9 @@ public class SessionQuestionAsked {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private SessionActivity7 session;
+        private SessionQuestionAskedSessionActivity session;
 
-        private QuestionDetailJson question;
+        private QuestionDetail question;
 
         private String platform;
 
@@ -210,7 +210,7 @@ public class SessionQuestionAsked {
         /**
          * The activity session.
          */
-        public Builder session(@Nullable SessionActivity7 session) {
+        public Builder session(@Nullable SessionQuestionAskedSessionActivity session) {
             this.session = session;
             return this;
         }
@@ -218,7 +218,7 @@ public class SessionQuestionAsked {
         /**
          * The question asked in a session.
          */
-        public Builder question(@Nullable QuestionDetailJson question) {
+        public Builder question(@Nullable QuestionDetail question) {
             this.question = question;
             return this;
         }

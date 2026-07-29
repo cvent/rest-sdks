@@ -2996,12 +2996,12 @@ namespace Cvent.SDK
                 }
 
                 var newRequest = new GetBudgetAllocationsRequest {
+                    Id = request.Id,
                     After = request.After,
                     Before = request.Before,
                     Limit = request.Limit,
                     Token = nextCursor,
-                    Filter = request.Filter,
-                    Id = request.Id
+                    Filter = request.Filter
                 };
 
                 return await GetBudgetAllocationsAsync(

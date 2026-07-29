@@ -76,8 +76,7 @@ public class GetOrderItemsRequest {
     private String filter;
 
     /**
-     * This sets whether or not to fetch deleted order items in the response. If set to true, the response
-     * will include records for the deleted order items.
+     * When `true`, includes soft-deleted records in the response. Defaults to `false`.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=deleted")
     private Boolean deleted;
@@ -168,8 +167,7 @@ public class GetOrderItemsRequest {
     }
 
     /**
-     * This sets whether or not to fetch deleted order items in the response. If set to true, the response
-     * will include records for the deleted order items.
+     * When `true`, includes soft-deleted records in the response. Defaults to `false`.
      */
     public Optional<Boolean> deleted() {
         return Optional.ofNullable(this.deleted);
@@ -249,8 +247,7 @@ public class GetOrderItemsRequest {
     }
 
     /**
-     * This sets whether or not to fetch deleted order items in the response. If set to true, the response
-     * will include records for the deleted order items.
+     * When `true`, includes soft-deleted records in the response. Defaults to `false`.
      */
     public GetOrderItemsRequest withDeleted(@Nullable Boolean deleted) {
         this.deleted = deleted;
@@ -391,8 +388,7 @@ public class GetOrderItemsRequest {
         }
 
         /**
-         * This sets whether or not to fetch deleted order items in the response. If set to true, the response
-         * will include records for the deleted order items.
+         * When `true`, includes soft-deleted records in the response. Defaults to `false`.
          */
         public Builder deleted(@Nullable Boolean deleted) {
             this.deleted = deleted;

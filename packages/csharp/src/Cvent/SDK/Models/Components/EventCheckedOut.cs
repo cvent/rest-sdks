@@ -23,7 +23,7 @@ namespace Cvent.SDK.Models.Components
         /// The event in which this activity occurred.
         /// </summary>
         [JsonProperty("event")]
-        public ActivityDataJsonEvent3? Event { get; set; }
+        public ActivityDataEvent2? Event { get; set; }
 
         /// <summary>
         /// ISO 8601 date and time when an attendee checked out from an event.

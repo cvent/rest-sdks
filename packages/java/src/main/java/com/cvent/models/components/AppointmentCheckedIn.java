@@ -25,14 +25,14 @@ public class AppointmentCheckedIn {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("appointment")
-    private ActivityAppointmentJson appointment;
+    private ActivityAppointment appointment;
 
     /**
      * An activity contact.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contact")
-    private ActivityContactJson contact;
+    private ActivityContact contact;
 
     /**
      * ISO 8601 date and time when an attendee checked in to the appointment.
@@ -43,8 +43,8 @@ public class AppointmentCheckedIn {
 
     @JsonCreator
     public AppointmentCheckedIn(
-            @JsonProperty("appointment") @Nullable ActivityAppointmentJson appointment,
-            @JsonProperty("contact") @Nullable ActivityContactJson contact,
+            @JsonProperty("appointment") @Nullable ActivityAppointment appointment,
+            @JsonProperty("contact") @Nullable ActivityContact contact,
             @JsonProperty("checkedIn") @Nullable OffsetDateTime checkedIn) {
         this.appointment = appointment;
         this.contact = contact;
@@ -58,14 +58,14 @@ public class AppointmentCheckedIn {
     /**
      * An activity appointment.
      */
-    public Optional<ActivityAppointmentJson> appointment() {
+    public Optional<ActivityAppointment> appointment() {
         return Optional.ofNullable(this.appointment);
     }
 
     /**
      * An activity contact.
      */
-    public Optional<ActivityContactJson> contact() {
+    public Optional<ActivityContact> contact() {
         return Optional.ofNullable(this.contact);
     }
 
@@ -83,7 +83,7 @@ public class AppointmentCheckedIn {
     /**
      * An activity appointment.
      */
-    public AppointmentCheckedIn withAppointment(@Nullable ActivityAppointmentJson appointment) {
+    public AppointmentCheckedIn withAppointment(@Nullable ActivityAppointment appointment) {
         this.appointment = appointment;
         return this;
     }
@@ -91,7 +91,7 @@ public class AppointmentCheckedIn {
     /**
      * An activity contact.
      */
-    public AppointmentCheckedIn withContact(@Nullable ActivityContactJson contact) {
+    public AppointmentCheckedIn withContact(@Nullable ActivityContact contact) {
         this.contact = contact;
         return this;
     }
@@ -132,9 +132,9 @@ public class AppointmentCheckedIn {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ActivityAppointmentJson appointment;
+        private ActivityAppointment appointment;
 
-        private ActivityContactJson contact;
+        private ActivityContact contact;
 
         private OffsetDateTime checkedIn;
 
@@ -145,7 +145,7 @@ public class AppointmentCheckedIn {
         /**
          * An activity appointment.
          */
-        public Builder appointment(@Nullable ActivityAppointmentJson appointment) {
+        public Builder appointment(@Nullable ActivityAppointment appointment) {
             this.appointment = appointment;
             return this;
         }
@@ -153,7 +153,7 @@ public class AppointmentCheckedIn {
         /**
          * An activity contact.
          */
-        public Builder contact(@Nullable ActivityContactJson contact) {
+        public Builder contact(@Nullable ActivityContact contact) {
             this.contact = contact;
             return this;
         }

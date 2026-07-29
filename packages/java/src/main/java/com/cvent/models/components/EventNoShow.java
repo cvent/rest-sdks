@@ -24,10 +24,10 @@ public class EventNoShow {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private ActivityDataJsonEvent5 event;
+    private ActivityDataEvent3 event;
 
     @JsonCreator
-    public EventNoShow(@JsonProperty("event") @Nullable ActivityDataJsonEvent5 event) {
+    public EventNoShow(@JsonProperty("event") @Nullable ActivityDataEvent3 event) {
         this.event = event;
     }
 
@@ -38,7 +38,7 @@ public class EventNoShow {
     /**
      * The event in which this activity occurred.
      */
-    public Optional<ActivityDataJsonEvent5> event() {
+    public Optional<ActivityDataEvent3> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -49,7 +49,7 @@ public class EventNoShow {
     /**
      * The event in which this activity occurred.
      */
-    public EventNoShow withEvent(@Nullable ActivityDataJsonEvent5 event) {
+    public EventNoShow withEvent(@Nullable ActivityDataEvent3 event) {
         this.event = event;
         return this;
     }
@@ -79,7 +79,7 @@ public class EventNoShow {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ActivityDataJsonEvent5 event;
+        private ActivityDataEvent3 event;
 
         private Builder() {
             // force use of static builder() method
@@ -88,7 +88,7 @@ public class EventNoShow {
         /**
          * The event in which this activity occurred.
          */
-        public Builder event(@Nullable ActivityDataJsonEvent5 event) {
+        public Builder event(@Nullable ActivityDataEvent3 event) {
             this.event = event;
             return this;
         }

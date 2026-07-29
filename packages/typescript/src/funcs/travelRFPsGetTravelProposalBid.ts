@@ -113,7 +113,7 @@ async function $do(
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "GetTravelProposalBid",
-    oAuth2Scopes: ["business-transient/bids:read"],
+    oAuth2Scopes: ["business-transient/bids:read", "business-travel/bids:read"],
 
     resolvedSecurity: requestSecurity,
 

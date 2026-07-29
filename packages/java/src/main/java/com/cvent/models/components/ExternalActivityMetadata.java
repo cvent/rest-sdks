@@ -61,7 +61,7 @@ public class ExternalActivityMetadata {
      * This is used to denote the type of the external attendee activity.
      */
     @JsonProperty("type")
-    private ExternalActivityTypeJson type;
+    private ExternalActivityType type;
 
     /**
      * Name of an external attendee activity.
@@ -81,7 +81,7 @@ public class ExternalActivityMetadata {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("fields")
-    private List<ExternalActivitiesAdditionalFieldsMetadataJson> fields;
+    private List<ExternalActivityAdditionalFieldsMetadata> fields;
 
     @JsonCreator
     public ExternalActivityMetadata(
@@ -90,10 +90,10 @@ public class ExternalActivityMetadata {
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("type") @Nonnull ExternalActivityTypeJson type,
+            @JsonProperty("type") @Nonnull ExternalActivityType type,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description,
-            @JsonProperty("fields") @Nullable List<ExternalActivitiesAdditionalFieldsMetadataJson> fields) {
+            @JsonProperty("fields") @Nullable List<ExternalActivityAdditionalFieldsMetadata> fields) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -105,7 +105,7 @@ public class ExternalActivityMetadata {
         this.fields = fields;
     }
 
-    public ExternalActivityMetadata(@Nonnull ExternalActivityTypeJson type, @Nonnull String name) {
+    public ExternalActivityMetadata(@Nonnull ExternalActivityType type, @Nonnull String name) {
         this(null, null, null, null, null, type, name, null, null);
     }
 
@@ -147,7 +147,7 @@ public class ExternalActivityMetadata {
     /**
      * This is used to denote the type of the external attendee activity.
      */
-    public ExternalActivityTypeJson type() {
+    public ExternalActivityType type() {
         return this.type;
     }
 
@@ -168,7 +168,7 @@ public class ExternalActivityMetadata {
     /**
      * Metadata for the fields.
      */
-    public Optional<List<ExternalActivitiesAdditionalFieldsMetadataJson>> fields() {
+    public Optional<List<ExternalActivityAdditionalFieldsMetadata>> fields() {
         return Optional.ofNullable(this.fields);
     }
 
@@ -219,7 +219,7 @@ public class ExternalActivityMetadata {
     /**
      * This is used to denote the type of the external attendee activity.
      */
-    public ExternalActivityMetadata withType(@Nonnull ExternalActivityTypeJson type) {
+    public ExternalActivityMetadata withType(@Nonnull ExternalActivityType type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
@@ -243,7 +243,7 @@ public class ExternalActivityMetadata {
     /**
      * Metadata for the fields.
      */
-    public ExternalActivityMetadata withFields(@Nullable List<ExternalActivitiesAdditionalFieldsMetadataJson> fields) {
+    public ExternalActivityMetadata withFields(@Nullable List<ExternalActivityAdditionalFieldsMetadata> fields) {
         this.fields = fields;
         return this;
     }
@@ -311,13 +311,13 @@ public class ExternalActivityMetadata {
 
         private String id;
 
-        private ExternalActivityTypeJson type;
+        private ExternalActivityType type;
 
         private String name;
 
         private String description;
 
-        private List<ExternalActivitiesAdditionalFieldsMetadataJson> fields;
+        private List<ExternalActivityAdditionalFieldsMetadata> fields;
 
         private Builder() {
             // force use of static builder() method
@@ -366,7 +366,7 @@ public class ExternalActivityMetadata {
         /**
          * This is used to denote the type of the external attendee activity.
          */
-        public Builder type(@Nonnull ExternalActivityTypeJson type) {
+        public Builder type(@Nonnull ExternalActivityType type) {
             this.type = Utils.checkNotNull(type, "type");
             return this;
         }
@@ -390,7 +390,7 @@ public class ExternalActivityMetadata {
         /**
          * Metadata for the fields.
          */
-        public Builder fields(@Nullable List<ExternalActivitiesAdditionalFieldsMetadataJson> fields) {
+        public Builder fields(@Nullable List<ExternalActivityAdditionalFieldsMetadata> fields) {
             this.fields = fields;
             return this;
         }

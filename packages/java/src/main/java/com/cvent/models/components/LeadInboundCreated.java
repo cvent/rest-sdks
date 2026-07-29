@@ -24,19 +24,19 @@ public class LeadInboundCreated {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
-    private ActivityExhibitorJson exhibitor;
+    private ActivityExhibitor exhibitor;
 
     /**
      * A Lead
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("lead")
-    private LeadObjectJson lead;
+    private LeadObject lead;
 
     @JsonCreator
     public LeadInboundCreated(
-            @JsonProperty("exhibitor") @Nullable ActivityExhibitorJson exhibitor,
-            @JsonProperty("lead") @Nullable LeadObjectJson lead) {
+            @JsonProperty("exhibitor") @Nullable ActivityExhibitor exhibitor,
+            @JsonProperty("lead") @Nullable LeadObject lead) {
         this.exhibitor = exhibitor;
         this.lead = lead;
     }
@@ -48,14 +48,14 @@ public class LeadInboundCreated {
     /**
      * An activity exhibitor.
      */
-    public Optional<ActivityExhibitorJson> exhibitor() {
+    public Optional<ActivityExhibitor> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
     /**
      * A Lead
      */
-    public Optional<LeadObjectJson> lead() {
+    public Optional<LeadObject> lead() {
         return Optional.ofNullable(this.lead);
     }
 
@@ -66,7 +66,7 @@ public class LeadInboundCreated {
     /**
      * An activity exhibitor.
      */
-    public LeadInboundCreated withExhibitor(@Nullable ActivityExhibitorJson exhibitor) {
+    public LeadInboundCreated withExhibitor(@Nullable ActivityExhibitor exhibitor) {
         this.exhibitor = exhibitor;
         return this;
     }
@@ -74,7 +74,7 @@ public class LeadInboundCreated {
     /**
      * A Lead
      */
-    public LeadInboundCreated withLead(@Nullable LeadObjectJson lead) {
+    public LeadInboundCreated withLead(@Nullable LeadObject lead) {
         this.lead = lead;
         return this;
     }
@@ -104,9 +104,9 @@ public class LeadInboundCreated {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ActivityExhibitorJson exhibitor;
+        private ActivityExhibitor exhibitor;
 
-        private LeadObjectJson lead;
+        private LeadObject lead;
 
         private Builder() {
             // force use of static builder() method
@@ -115,7 +115,7 @@ public class LeadInboundCreated {
         /**
          * An activity exhibitor.
          */
-        public Builder exhibitor(@Nullable ActivityExhibitorJson exhibitor) {
+        public Builder exhibitor(@Nullable ActivityExhibitor exhibitor) {
             this.exhibitor = exhibitor;
             return this;
         }
@@ -123,7 +123,7 @@ public class LeadInboundCreated {
         /**
          * A Lead
          */
-        public Builder lead(@Nullable LeadObjectJson lead) {
+        public Builder lead(@Nullable LeadObject lead) {
             this.lead = lead;
             return this;
         }

@@ -11,6 +11,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetStandardSurveyEmailTemplatesRequest = {
   /**
+   * Id of a survey or Id of a chapter in event survey
+   */
+  surveyId: string;
+  /**
    * The maximum number of records to return per page.
    */
   limit?: number | undefined;
@@ -21,10 +25,6 @@ export type GetStandardSurveyEmailTemplatesRequest = {
    * This will override any other pageable parameters provided.
    */
   token?: string | undefined;
-  /**
-   * Id of a survey or Id of a chapter in event survey
-   */
-  surveyId: string;
 };
 
 export type GetStandardSurveyEmailTemplatesResponse = {
@@ -33,9 +33,9 @@ export type GetStandardSurveyEmailTemplatesResponse = {
 
 /** @internal */
 export type GetStandardSurveyEmailTemplatesRequest$Outbound = {
+  surveyId: string;
   limit: number;
   token?: string | undefined;
-  surveyId: string;
 };
 
 /** @internal */
@@ -44,9 +44,9 @@ export const GetStandardSurveyEmailTemplatesRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetStandardSurveyEmailTemplatesRequest
 > = z.object({
+  surveyId: z.string(),
   limit: z.number().int().default(100),
   token: z.string().optional(),
-  surveyId: z.string(),
 });
 
 export function getStandardSurveyEmailTemplatesRequestToJSON(

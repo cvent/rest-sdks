@@ -24,7 +24,7 @@ public class ExhibitorViewed {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
-    private ExhibitorJson exhibitor;
+    private Exhibitor1 exhibitor;
 
     /**
      * The platform used by the user.
@@ -38,21 +38,21 @@ public class ExhibitorViewed {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("sponsorshipLevel")
-    private ActivityExhibitorSponsorshipLevelJson sponsorshipLevel;
+    private ActivityExhibitorSponsorshipLevel sponsorshipLevel;
 
     /**
      * Navigation source for an activity exhibitor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("navigationSource")
-    private ActivityExhibitorNavigationSourceJson navigationSource;
+    private ActivityExhibitorNavigationSource navigationSource;
 
     @JsonCreator
     public ExhibitorViewed(
-            @JsonProperty("exhibitor") @Nullable ExhibitorJson exhibitor,
+            @JsonProperty("exhibitor") @Nullable Exhibitor1 exhibitor,
             @JsonProperty("platform") @Nullable String platform,
-            @JsonProperty("sponsorshipLevel") @Nullable ActivityExhibitorSponsorshipLevelJson sponsorshipLevel,
-            @JsonProperty("navigationSource") @Nullable ActivityExhibitorNavigationSourceJson navigationSource) {
+            @JsonProperty("sponsorshipLevel") @Nullable ActivityExhibitorSponsorshipLevel sponsorshipLevel,
+            @JsonProperty("navigationSource") @Nullable ActivityExhibitorNavigationSource navigationSource) {
         this.exhibitor = exhibitor;
         this.platform = platform;
         this.sponsorshipLevel = sponsorshipLevel;
@@ -66,7 +66,7 @@ public class ExhibitorViewed {
     /**
      * An exhibitor.
      */
-    public Optional<ExhibitorJson> exhibitor() {
+    public Optional<Exhibitor1> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
@@ -80,14 +80,14 @@ public class ExhibitorViewed {
     /**
      * Sponsorship level for an activity exhibitor.
      */
-    public Optional<ActivityExhibitorSponsorshipLevelJson> sponsorshipLevel() {
+    public Optional<ActivityExhibitorSponsorshipLevel> sponsorshipLevel() {
         return Optional.ofNullable(this.sponsorshipLevel);
     }
 
     /**
      * Navigation source for an activity exhibitor.
      */
-    public Optional<ActivityExhibitorNavigationSourceJson> navigationSource() {
+    public Optional<ActivityExhibitorNavigationSource> navigationSource() {
         return Optional.ofNullable(this.navigationSource);
     }
 
@@ -98,7 +98,7 @@ public class ExhibitorViewed {
     /**
      * An exhibitor.
      */
-    public ExhibitorViewed withExhibitor(@Nullable ExhibitorJson exhibitor) {
+    public ExhibitorViewed withExhibitor(@Nullable Exhibitor1 exhibitor) {
         this.exhibitor = exhibitor;
         return this;
     }
@@ -114,7 +114,7 @@ public class ExhibitorViewed {
     /**
      * Sponsorship level for an activity exhibitor.
      */
-    public ExhibitorViewed withSponsorshipLevel(@Nullable ActivityExhibitorSponsorshipLevelJson sponsorshipLevel) {
+    public ExhibitorViewed withSponsorshipLevel(@Nullable ActivityExhibitorSponsorshipLevel sponsorshipLevel) {
         this.sponsorshipLevel = sponsorshipLevel;
         return this;
     }
@@ -122,7 +122,7 @@ public class ExhibitorViewed {
     /**
      * Navigation source for an activity exhibitor.
      */
-    public ExhibitorViewed withNavigationSource(@Nullable ActivityExhibitorNavigationSourceJson navigationSource) {
+    public ExhibitorViewed withNavigationSource(@Nullable ActivityExhibitorNavigationSource navigationSource) {
         this.navigationSource = navigationSource;
         return this;
     }
@@ -164,13 +164,13 @@ public class ExhibitorViewed {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ExhibitorJson exhibitor;
+        private Exhibitor1 exhibitor;
 
         private String platform;
 
-        private ActivityExhibitorSponsorshipLevelJson sponsorshipLevel;
+        private ActivityExhibitorSponsorshipLevel sponsorshipLevel;
 
-        private ActivityExhibitorNavigationSourceJson navigationSource;
+        private ActivityExhibitorNavigationSource navigationSource;
 
         private Builder() {
             // force use of static builder() method
@@ -179,7 +179,7 @@ public class ExhibitorViewed {
         /**
          * An exhibitor.
          */
-        public Builder exhibitor(@Nullable ExhibitorJson exhibitor) {
+        public Builder exhibitor(@Nullable Exhibitor1 exhibitor) {
             this.exhibitor = exhibitor;
             return this;
         }
@@ -195,7 +195,7 @@ public class ExhibitorViewed {
         /**
          * Sponsorship level for an activity exhibitor.
          */
-        public Builder sponsorshipLevel(@Nullable ActivityExhibitorSponsorshipLevelJson sponsorshipLevel) {
+        public Builder sponsorshipLevel(@Nullable ActivityExhibitorSponsorshipLevel sponsorshipLevel) {
             this.sponsorshipLevel = sponsorshipLevel;
             return this;
         }
@@ -203,7 +203,7 @@ public class ExhibitorViewed {
         /**
          * Navigation source for an activity exhibitor.
          */
-        public Builder navigationSource(@Nullable ActivityExhibitorNavigationSourceJson navigationSource) {
+        public Builder navigationSource(@Nullable ActivityExhibitorNavigationSource navigationSource) {
             this.navigationSource = navigationSource;
             return this;
         }

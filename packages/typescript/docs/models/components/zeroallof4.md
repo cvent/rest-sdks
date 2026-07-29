@@ -1,6 +1,6 @@
 # ZeroAllOf4
 
-Booth staff for an activity.
+A transaction reconciliation record.
 
 ## Example Usage
 
@@ -8,17 +8,19 @@ Booth staff for an activity.
 import { ZeroAllOf4 } from "@cvent/sdk/models/components";
 
 let value: ZeroAllOf4 = {
-  firstName: "John",
-  lastName: "Doe",
-  email: "h.potterfield@test.com",
+  status: "Reconciled",
+  amount: 100.5,
+  reconciledBy: "Test User",
+  reconciledDate: new Date("2020-02-07T09:37:50Z"),
 };
 ```
 
 ## Fields
 
-| Field                                                        | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `id`                                                         | *string*                                                     | :heavy_minus_sign:                                           | The unique identifier of the exhibitor booth staff.          |                                                              |
-| `firstName`                                                  | *string*                                                     | :heavy_minus_sign:                                           | The first name of the booth staff that captured the lead.    | John                                                         |
-| `lastName`                                                   | *string*                                                     | :heavy_minus_sign:                                           | The last name of the booth staff that captured the lead.     | Doe                                                          |
-| `email`                                                      | *string*                                                     | :heavy_minus_sign:                                           | The email address of the booth staff that captured the lead. | h.potterfield@test.com                                       |
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `budgetItem`                                                                                  | [components.BudgetItemAllOf](../../models/components/budgetitemallof.md)                      | :heavy_minus_sign:                                                                            | The identifier of reconciled budget item.                                                     |                                                                                               |
+| `status`                                                                                      | [components.ReconciliationStatusJson](../../models/components/reconciliationstatusjson.md)    | :heavy_minus_sign:                                                                            | This is used to denote the reconciliation status for a transaction.                           | Reconciled                                                                                    |
+| `amount`                                                                                      | *number*                                                                                      | :heavy_minus_sign:                                                                            | Reconciliation amount.                                                                        | 100.5                                                                                         |
+| `reconciledBy`                                                                                | *string*                                                                                      | :heavy_minus_sign:                                                                            | Reconciled by user.                                                                           | Test User                                                                                     |
+| `reconciledDate`                                                                              | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | The ISO 8601 zoned date and time for Reconciled date.                                         | 2020-02-07T09:37:50Z                                                                          |

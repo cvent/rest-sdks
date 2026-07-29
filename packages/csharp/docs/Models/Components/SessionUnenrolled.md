@@ -7,4 +7,4 @@ A session activity.
 
 | Field                                                           | Type                                                            | Required                                                        | Description                                                     |
 | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| `Session`                                                       | [SessionActivity9](../../Models/Components/SessionActivity9.md) | :heavy_minus_sign:                                              | The activity session.                                           |
+| `Session`                                                       | [SessionActivity6](../../Models/Components/SessionActivity6.md) | :heavy_minus_sign:                                              | The activity session.                                           |

@@ -40,9 +40,9 @@ import {
   AttendeeWebLinks$inboundSchema,
 } from "./attendeeweblinks.js";
 import {
-  CustomFieldSchema,
-  CustomFieldSchema$inboundSchema,
-} from "./customfieldschema.js";
+  CustomFieldSchema1,
+  CustomFieldSchema1$inboundSchema,
+} from "./customfieldschema1.js";
 import {
   ExternalReference,
   ExternalReference$inboundSchema,
@@ -186,9 +186,7 @@ export type Attendee11 = {
    */
   administrator?: Uuid | undefined;
   /**
-   * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still receive emails triggered by their own actions (like registration modification). This field has been deprecated. Please use PUT /attendees/{id}/email-subscriptions instead.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   * True indicates this attendee is unsubscribed from this event's emails. They'll still receive emails triggered by their own actions (like registration modification). This field is read-only; to update an attendee's subscription status, use [PUT /attendees/{id}/email-subscriptions](#operation/updateAttendeeSubscriptionStatus).
    */
   unsubscribed?: boolean | undefined;
   /**
@@ -240,7 +238,7 @@ export type Attendee11 = {
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
-  questions?: Array<CustomFieldSchema> | undefined;
+  questions?: Array<CustomFieldSchema1> | undefined;
   /**
    * The list of answers to the registration questions.
    */
@@ -383,7 +381,7 @@ export const Attendee11$inboundSchema: z.ZodType<
   ).optional(),
   invitedBy: AttendeeInvitedBy1$inboundSchema.optional(),
   responseMethod: AttendeeResponseMethod1$inboundSchema.optional(),
-  questions: z.array(CustomFieldSchema$inboundSchema).optional(),
+  questions: z.array(CustomFieldSchema1$inboundSchema).optional(),
   answers: z.array(AttendeeAnswer$inboundSchema).optional(),
   admissionItem: z.lazy(() => Attendee1Lookup$inboundSchema).optional(),
   visibility: AttendeeVisibility$inboundSchema.optional(),

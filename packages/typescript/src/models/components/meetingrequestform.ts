@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  MeetingRequestCustomFieldJson,
-  MeetingRequestCustomFieldJson$inboundSchema,
-} from "./meetingrequestcustomfieldjson.js";
+  CustomFieldSchema2,
+  CustomFieldSchema2$inboundSchema,
+} from "./customfieldschema1.js";
 
 /**
  * A meeting request form.
@@ -34,7 +34,7 @@ export type MeetingRequestForm = {
   /**
    * The list of questions that will need to be answered by someone creating a meeting request from this form.
    */
-  questions?: Array<MeetingRequestCustomFieldJson> | undefined;
+  questions?: Array<CustomFieldSchema2> | undefined;
 };
 
 /** @internal */
@@ -47,7 +47,7 @@ export const MeetingRequestForm$inboundSchema: z.ZodType<
   name: z.string(),
   statuses: z.array(z.string()).optional(),
   active: z.boolean().optional(),
-  questions: z.array(MeetingRequestCustomFieldJson$inboundSchema).optional(),
+  questions: z.array(CustomFieldSchema2$inboundSchema).optional(),
 });
 
 export function meetingRequestFormFromJSON(

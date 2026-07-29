@@ -14,9 +14,9 @@ import { CategoryJson1, CategoryJson1$inboundSchema } from "./categoryjson1.js";
 import { ChoiceJson1, ChoiceJson1$inboundSchema } from "./choicejson1.js";
 import { FieldJson, FieldJson$inboundSchema } from "./fieldjson.js";
 import {
-  QuestionTypeJson1,
-  QuestionTypeJson1$inboundSchema,
-} from "./questiontypejson1.js";
+  QuestionTypeJson,
+  QuestionTypeJson$inboundSchema,
+} from "./questiontypejson.js";
 import { TextFieldJson, TextFieldJson$inboundSchema } from "./textfieldjson.js";
 import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
 
@@ -63,7 +63,7 @@ export type QuestionJson1 = {
   /**
    * Question Type.
    */
-  type?: QuestionTypeJson1 | undefined;
+  type?: QuestionTypeJson | undefined;
   /**
    * List of choices for the question.
    */
@@ -132,7 +132,7 @@ export const QuestionJson1$inboundSchema: z.ZodType<
   shortText: z.string().optional(),
   htmlText: z.string().optional(),
   code: z.string().optional(),
-  type: QuestionTypeJson1$inboundSchema.optional(),
+  type: QuestionTypeJson$inboundSchema.optional(),
   choices: z.array(ChoiceJson1$inboundSchema).optional(),
   categories: z.array(CategoryJson1$inboundSchema).optional(),
   subCategories: z.array(TextFieldJson$inboundSchema).optional(),

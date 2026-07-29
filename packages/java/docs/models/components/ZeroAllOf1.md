@@ -1,12 +1,11 @@
 # ZeroAllOf1
 
-Represents an error response with no additional details.
+Details of a location.
 
 
 ## Fields
 
-| Field                                        | Type                                         | Required                                     | Description                                  | Example                                      |
-| -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
-| `code`                                       | *long*                                       | :heavy_check_mark:                           | The HTTP status code representing the error. | 400                                          |
-| `message`                                    | *String*                                     | :heavy_check_mark:                           | A brief description of the error.            | Bad Request                                  |
-| `target`                                     | *Optional\<String>*                          | :heavy_minus_sign:                           | The target resource of the error.            | example target                               |
+| Field                                    | Type                                     | Required                                 | Description                              | Example                                  |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| `id`                                     | *String*                                 | :heavy_check_mark:                       | The unique ID representing the location. | 0046e875-79a5-4851-8332-da105d58088a     |
+| `name`                                   | *String*                                 | :heavy_check_mark:                       | The name of the location.                | Conference Room B                        |

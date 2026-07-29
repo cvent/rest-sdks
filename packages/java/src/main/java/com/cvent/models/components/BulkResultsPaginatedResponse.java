@@ -28,37 +28,36 @@ public class BulkResultsPaginatedResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of bulk result objects.
      */
     @JsonProperty("data")
-    private List<BulkResultJson> data;
+    private List<BulkResult> data;
 
     @JsonCreator
     public BulkResultsPaginatedResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nonnull List<BulkResultJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging, @JsonProperty("data") @Nonnull List<BulkResult> data) {
         this.paging = paging;
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
-    public BulkResultsPaginatedResponse(@Nonnull List<BulkResultJson> data) {
+    public BulkResultsPaginatedResponse(@Nonnull List<BulkResult> data) {
         this(null, data);
     }
 
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * Collection of bulk result objects.
      */
-    public List<BulkResultJson> data() {
+    public List<BulkResult> data() {
         return this.data;
     }
 
@@ -69,7 +68,7 @@ public class BulkResultsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public BulkResultsPaginatedResponse withPaging(@Nullable PagingJson paging) {
+    public BulkResultsPaginatedResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -77,7 +76,7 @@ public class BulkResultsPaginatedResponse {
     /**
      * Collection of bulk result objects.
      */
-    public BulkResultsPaginatedResponse withData(@Nonnull List<BulkResultJson> data) {
+    public BulkResultsPaginatedResponse withData(@Nonnull List<BulkResult> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -107,9 +106,9 @@ public class BulkResultsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<BulkResultJson> data;
+        private List<BulkResult> data;
 
         private Builder() {
             // force use of static builder() method
@@ -118,7 +117,7 @@ public class BulkResultsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -126,7 +125,7 @@ public class BulkResultsPaginatedResponse {
         /**
          * Collection of bulk result objects.
          */
-        public Builder data(@Nonnull List<BulkResultJson> data) {
+        public Builder data(@Nonnull List<BulkResult> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

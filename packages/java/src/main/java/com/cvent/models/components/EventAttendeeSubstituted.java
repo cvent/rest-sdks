@@ -24,27 +24,27 @@ public class EventAttendeeSubstituted {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private ActivityDataJsonEvent1 event;
+    private EventAttendeeSubstitutedEvent event;
 
     /**
      * Details of a contact.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("oldContact")
-    private ContactCommonJson oldContact;
+    private ContactFields1 oldContact;
 
     /**
      * Details of a contact.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("newContact")
-    private ContactCommonJson newContact;
+    private ContactFields1 newContact;
 
     @JsonCreator
     public EventAttendeeSubstituted(
-            @JsonProperty("event") @Nullable ActivityDataJsonEvent1 event,
-            @JsonProperty("oldContact") @Nullable ContactCommonJson oldContact,
-            @JsonProperty("newContact") @Nullable ContactCommonJson newContact) {
+            @JsonProperty("event") @Nullable EventAttendeeSubstitutedEvent event,
+            @JsonProperty("oldContact") @Nullable ContactFields1 oldContact,
+            @JsonProperty("newContact") @Nullable ContactFields1 newContact) {
         this.event = event;
         this.oldContact = oldContact;
         this.newContact = newContact;
@@ -57,21 +57,21 @@ public class EventAttendeeSubstituted {
     /**
      * The event in which this activity occurred.
      */
-    public Optional<ActivityDataJsonEvent1> event() {
+    public Optional<EventAttendeeSubstitutedEvent> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
      * Details of a contact.
      */
-    public Optional<ContactCommonJson> oldContact() {
+    public Optional<ContactFields1> oldContact() {
         return Optional.ofNullable(this.oldContact);
     }
 
     /**
      * Details of a contact.
      */
-    public Optional<ContactCommonJson> newContact() {
+    public Optional<ContactFields1> newContact() {
         return Optional.ofNullable(this.newContact);
     }
 
@@ -82,7 +82,7 @@ public class EventAttendeeSubstituted {
     /**
      * The event in which this activity occurred.
      */
-    public EventAttendeeSubstituted withEvent(@Nullable ActivityDataJsonEvent1 event) {
+    public EventAttendeeSubstituted withEvent(@Nullable EventAttendeeSubstitutedEvent event) {
         this.event = event;
         return this;
     }
@@ -90,7 +90,7 @@ public class EventAttendeeSubstituted {
     /**
      * Details of a contact.
      */
-    public EventAttendeeSubstituted withOldContact(@Nullable ContactCommonJson oldContact) {
+    public EventAttendeeSubstituted withOldContact(@Nullable ContactFields1 oldContact) {
         this.oldContact = oldContact;
         return this;
     }
@@ -98,7 +98,7 @@ public class EventAttendeeSubstituted {
     /**
      * Details of a contact.
      */
-    public EventAttendeeSubstituted withNewContact(@Nullable ContactCommonJson newContact) {
+    public EventAttendeeSubstituted withNewContact(@Nullable ContactFields1 newContact) {
         this.newContact = newContact;
         return this;
     }
@@ -131,11 +131,11 @@ public class EventAttendeeSubstituted {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ActivityDataJsonEvent1 event;
+        private EventAttendeeSubstitutedEvent event;
 
-        private ContactCommonJson oldContact;
+        private ContactFields1 oldContact;
 
-        private ContactCommonJson newContact;
+        private ContactFields1 newContact;
 
         private Builder() {
             // force use of static builder() method
@@ -144,7 +144,7 @@ public class EventAttendeeSubstituted {
         /**
          * The event in which this activity occurred.
          */
-        public Builder event(@Nullable ActivityDataJsonEvent1 event) {
+        public Builder event(@Nullable EventAttendeeSubstitutedEvent event) {
             this.event = event;
             return this;
         }
@@ -152,7 +152,7 @@ public class EventAttendeeSubstituted {
         /**
          * Details of a contact.
          */
-        public Builder oldContact(@Nullable ContactCommonJson oldContact) {
+        public Builder oldContact(@Nullable ContactFields1 oldContact) {
             this.oldContact = oldContact;
             return this;
         }
@@ -160,7 +160,7 @@ public class EventAttendeeSubstituted {
         /**
          * Details of a contact.
          */
-        public Builder newContact(@Nullable ContactCommonJson newContact) {
+        public Builder newContact(@Nullable ContactFields1 newContact) {
             this.newContact = newContact;
             return this;
         }

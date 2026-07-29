@@ -5,10 +5,10 @@ The processed request tied to this response. This field is only sent when proces
 
 ## Supported Types
 
-### MeetingRequestBulkResponseItemJsonRequest
+### MeetingRequestBulkResponseItemRequest
 
 ```csharp
-Request.CreateMeetingRequestBulkResponseItemJsonRequest(/* values here */);
+Request.CreateMeetingRequestBulkResponseItemRequest(/* values here */);
 ```
 
 ### Str

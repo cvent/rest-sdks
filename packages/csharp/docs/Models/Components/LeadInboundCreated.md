@@ -5,7 +5,7 @@ A lead inbound-created activity.
 
 ## Fields
 
-| Field                                                                     | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `Exhibitor`                                                               | [ActivityExhibitorJson](../../Models/Components/ActivityExhibitorJson.md) | :heavy_minus_sign:                                                        | An activity exhibitor.                                                    |
-| `Lead`                                                                    | [LeadObjectJson](../../Models/Components/LeadObjectJson.md)               | :heavy_minus_sign:                                                        | A Lead                                                                    |
+| Field                                                             | Type                                                              | Required                                                          | Description                                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `Exhibitor`                                                       | [ActivityExhibitor](../../Models/Components/ActivityExhibitor.md) | :heavy_minus_sign:                                                | An activity exhibitor.                                            |
+| `Lead`                                                            | [LeadObject](../../Models/Components/LeadObject.md)               | :heavy_minus_sign:                                                | A Lead                                                            |

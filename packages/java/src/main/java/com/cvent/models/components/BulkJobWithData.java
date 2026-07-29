@@ -141,7 +141,7 @@ public class BulkJobWithData {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<BulkDataPropertyJson> data;
+    private List<BulkDataProperty> data;
 
     @JsonCreator
     public BulkJobWithData(
@@ -161,7 +161,7 @@ public class BulkJobWithData {
             @JsonProperty("totalRecords") @Nullable Long totalRecords,
             @JsonProperty("successful") @Nullable Long successful,
             @JsonProperty("failed") @Nullable Long failed,
-            @JsonProperty("data") @Nullable List<BulkDataPropertyJson> data) {
+            @JsonProperty("data") @Nullable List<BulkDataProperty> data) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -303,7 +303,7 @@ public class BulkJobWithData {
     /**
      * Collection of objects to be processed
      */
-    public Optional<List<BulkDataPropertyJson>> data() {
+    public Optional<List<BulkDataProperty>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -444,7 +444,7 @@ public class BulkJobWithData {
     /**
      * Collection of objects to be processed
      */
-    public BulkJobWithData withData(@Nullable List<BulkDataPropertyJson> data) {
+    public BulkJobWithData withData(@Nullable List<BulkDataProperty> data) {
         this.data = data;
         return this;
     }
@@ -574,7 +574,7 @@ public class BulkJobWithData {
 
         private Long failed;
 
-        private List<BulkDataPropertyJson> data;
+        private List<BulkDataProperty> data;
 
         private Builder() {
             // force use of static builder() method
@@ -713,7 +713,7 @@ public class BulkJobWithData {
         /**
          * Collection of objects to be processed
          */
-        public Builder data(@Nullable List<BulkDataPropertyJson> data) {
+        public Builder data(@Nullable List<BulkDataProperty> data) {
             this.data = data;
             return this;
         }

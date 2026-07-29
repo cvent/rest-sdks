@@ -140,6 +140,12 @@ namespace Cvent.SDK.Models.Components
         public HubLogin? Login { get; set; }
 
         /// <summary>
+        /// True indicates the Events+ hub is opted into the new website theming experience. False indicates the hub uses the legacy theming experience.
+        /// </summary>
+        [JsonProperty("websiteTheming")]
+        public bool? WebsiteTheming { get; set; } = false;
+
+        /// <summary>
         /// The unique ID of an Events+ Hub.
         /// </summary>
         [JsonProperty("id")]

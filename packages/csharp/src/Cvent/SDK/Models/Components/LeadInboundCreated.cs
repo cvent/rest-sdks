@@ -22,12 +22,12 @@ namespace Cvent.SDK.Models.Components
         /// An activity exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
-        public ActivityExhibitorJson? Exhibitor { get; set; }
+        public ActivityExhibitor? Exhibitor { get; set; }
 
         /// <summary>
         /// A Lead.
         /// </summary>
         [JsonProperty("lead")]
-        public LeadObjectJson? Lead { get; set; }
+        public LeadObject? Lead { get; set; }
     }
 }

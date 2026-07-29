@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  QuestionTypeJson2,
-  QuestionTypeJson2$inboundSchema,
-} from "./questiontypejson2.js";
+  QuestionTypeJson1,
+  QuestionTypeJson1$inboundSchema,
+} from "./questiontypejson1.js";
 import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
 
 /**
@@ -83,7 +83,7 @@ export type EventQuestionJson = {
   /**
    * This object represents the type of a question
    */
-  type?: QuestionTypeJson2 | undefined;
+  type?: QuestionTypeJson1 | undefined;
   /**
    * Optional description to provide additional context of the question.
    */
@@ -149,7 +149,7 @@ export const EventQuestionJson$inboundSchema: z.ZodType<
   session: z.lazy(() => EventQuestionJsonSession$inboundSchema).optional(),
   admissionItem: z.lazy(() => EventQuestionJsonAdmissionItem$inboundSchema)
     .optional(),
-  type: QuestionTypeJson2$inboundSchema.optional(),
+  type: QuestionTypeJson1$inboundSchema.optional(),
   internalNote: z.string().optional(),
 });
 

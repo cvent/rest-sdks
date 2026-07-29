@@ -435,6 +435,16 @@ public class AsyncCventSDK {
      */
     private final AsyncUsage usage;
     /**
+     * Manage venue profile details including type, contact information, address, and other venue
+     * properties.
+     */
+    private final AsyncVenueProfiles venueProfiles;
+    /**
+     * Manage meeting rooms for a venue, including creating and updating room details, configuring
+     * capacities and amenities, and associating images.
+     */
+    private final AsyncVenueMeetingRooms venueMeetingRooms;
+    /**
      * Videos can be added to Cvent events with renditions at various resolutions, audio files, reactions
      * tracks, and text tracks. Attendee viewership is tracked to get insight into durations, devices used
      * and venue where the video is watched. Use these APIs to view and manage videos, related text tracks,
@@ -969,6 +979,20 @@ public class AsyncCventSDK {
         return usage;
     }
     /**
+     * Manage venue profile details including type, contact information, address, and other venue
+     * properties.
+     */
+    public AsyncVenueProfiles venueProfiles() {
+        return venueProfiles;
+    }
+    /**
+     * Manage meeting rooms for a venue, including creating and updating room details, configuring
+     * capacities and amenities, and associating images.
+     */
+    public AsyncVenueMeetingRooms venueMeetingRooms() {
+        return venueMeetingRooms;
+    }
+    /**
      * Videos can be added to Cvent events with renditions at various resolutions, audio files, reactions
      * tracks, and text tracks. Attendee viewership is tracked to get insight into durations, devices used
      * and venue where the video is watched. Use these APIs to view and manage videos, related text tracks,
@@ -1044,6 +1068,8 @@ public class AsyncCventSDK {
         this.travelRFPs = new AsyncTravelRFPs(syncSDK.travelRFPs(), sdkConfiguration);
         this.travelSuppliers = new AsyncTravelSuppliers(syncSDK.travelSuppliers(), sdkConfiguration);
         this.usage = new AsyncUsage(syncSDK.usage(), sdkConfiguration);
+        this.venueProfiles = new AsyncVenueProfiles(syncSDK.venueProfiles(), sdkConfiguration);
+        this.venueMeetingRooms = new AsyncVenueMeetingRooms(syncSDK.venueMeetingRooms(), sdkConfiguration);
         this.video = new AsyncVideo(syncSDK.video(), sdkConfiguration);
         this.webcasts = new AsyncWebcasts(syncSDK.webcasts(), sdkConfiguration);
     }

@@ -43,13 +43,13 @@ public class EventRegistrationAbandoned {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contact")
     @Deprecated
-    private ActivityContact contact;
+    private EventRegistrationAbandonedActivityContact contact;
 
     @JsonCreator
     public EventRegistrationAbandoned(
             @JsonProperty("lastSavedRegistrationPageName") @Nullable String lastSavedRegistrationPageName,
             @JsonProperty("lastActivity") @Nullable OffsetDateTime lastActivity,
-            @JsonProperty("contact") @Nullable ActivityContact contact) {
+            @JsonProperty("contact") @Nullable EventRegistrationAbandonedActivityContact contact) {
         this.lastSavedRegistrationPageName = lastSavedRegistrationPageName;
         this.lastActivity = lastActivity;
         this.contact = contact;
@@ -79,7 +79,7 @@ public class EventRegistrationAbandoned {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public Optional<ActivityContact> contact() {
+    public Optional<EventRegistrationAbandonedActivityContact> contact() {
         return Optional.ofNullable(this.contact);
     }
 
@@ -110,7 +110,7 @@ public class EventRegistrationAbandoned {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public EventRegistrationAbandoned withContact(@Nullable ActivityContact contact) {
+    public EventRegistrationAbandoned withContact(@Nullable EventRegistrationAbandonedActivityContact contact) {
         this.contact = contact;
         return this;
     }
@@ -154,7 +154,7 @@ public class EventRegistrationAbandoned {
         private OffsetDateTime lastActivity;
 
         @Deprecated
-        private ActivityContact contact;
+        private EventRegistrationAbandonedActivityContact contact;
 
         private Builder() {
             // force use of static builder() method
@@ -182,7 +182,7 @@ public class EventRegistrationAbandoned {
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
-        public Builder contact(@Nullable ActivityContact contact) {
+        public Builder contact(@Nullable EventRegistrationAbandonedActivityContact contact) {
             this.contact = contact;
             return this;
         }

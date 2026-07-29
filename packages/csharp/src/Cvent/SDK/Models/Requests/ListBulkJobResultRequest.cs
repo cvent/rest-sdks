@@ -54,7 +54,11 @@ namespace Cvent.SDK.Models.Requests
         /// * not equal: ne<br/>
         /// <br/>
         /// The following fields are filterable:<br/>
-        /// * failed (eq|ne).
+        /// * failed (eq|ne)<br/>
+        /// <br/>
+        ///   **Note:** this filters for the top-level HTTP status of the target operation.<br/>
+        ///   For operations that return 207 (Multi-Status), filter results may not capture all failed records.<br/>
+        ///   Inspect individual record statuses in the `data` field for a complete picture.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

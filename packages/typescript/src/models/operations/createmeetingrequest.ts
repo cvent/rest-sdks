@@ -18,14 +18,14 @@ export type CreateMeetingRequestRequest = {
   /**
    * Up to **5 meeting requests** can be created per call.
    */
-  requestBody: Array<components.MeetingRequestCreateJson>;
+  requestBody: Array<components.MeetingRequestCreate>;
 };
 
 /** @internal */
 export type CreateMeetingRequestRequest$Outbound = {
   id: string;
   skipRequiredQuestionValidation?: boolean | undefined;
-  RequestBody: Array<components.MeetingRequestCreateJson$Outbound>;
+  RequestBody: Array<components.MeetingRequestCreate$Outbound>;
 };
 
 /** @internal */
@@ -36,7 +36,7 @@ export const CreateMeetingRequestRequest$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   skipRequiredQuestionValidation: z.boolean().optional(),
-  requestBody: z.array(components.MeetingRequestCreateJson$outboundSchema),
+  requestBody: z.array(components.MeetingRequestCreate$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     requestBody: "RequestBody",

@@ -79,6 +79,7 @@ let value: HubsPaginatedResponse = {
         idpUrl:
           "https://login.cvent.com/redirect?redirectUrl=https://cvent-login.com/oauth2/oauth-redirect&productId=0oaztigu7sVcS4PHM0h7&identityProviderName=OneloginforFlexGuestside",
       },
+      websiteTheming: true,
       id: "1e7e0f38-d73c-4326-9f93-422086b91304",
     },
   ],

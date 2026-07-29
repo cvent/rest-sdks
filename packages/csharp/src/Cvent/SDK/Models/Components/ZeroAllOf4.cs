@@ -9,36 +9,44 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
+    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
+    using System;
 
     /// <summary>
-    /// Booth staff for an activity.
+    /// A transaction reconciliation record.
     /// </summary>
     public class ZeroAllOf4
     {
         /// <summary>
-        /// The unique identifier of the exhibitor booth staff.
+        /// The identifier of reconciled budget item.
         /// </summary>
-        [JsonProperty("id")]
-        public string? Id { get; set; }
+        [JsonProperty("budgetItem")]
+        public BudgetItemAllOf? BudgetItem { get; set; }
 
         /// <summary>
-        /// The first name of the booth staff that captured the lead.
+        /// This is used to denote the reconciliation status for a transaction.
         /// </summary>
-        [JsonProperty("firstName")]
-        public string? FirstName { get; set; }
+        [JsonProperty("status")]
+        public ReconciliationStatusJson? Status { get; set; }
 
         /// <summary>
-        /// The last name of the booth staff that captured the lead.
+        /// Reconciliation amount.
         /// </summary>
-        [JsonProperty("lastName")]
-        public string? LastName { get; set; }
+        [JsonProperty("amount")]
+        public double? Amount { get; set; }
 
         /// <summary>
-        /// The email address of the booth staff that captured the lead.
+        /// Reconciled by user.
         /// </summary>
-        [JsonProperty("email")]
-        public string? Email { get; set; }
+        [JsonProperty("reconciledBy")]
+        public string? ReconciledBy { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 zoned date and time for Reconciled date.
+        /// </summary>
+        [JsonProperty("reconciledDate")]
+        public DateTime? ReconciledDate { get; set; }
     }
 }

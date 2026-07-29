@@ -168,8 +168,7 @@ var res = await sdk.MeetingRequest.GetMRFByIdAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse  | 422                                    | application/json                       |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 422, 429                | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## CreateMeetingRequest
@@ -201,12 +200,12 @@ var sdk = new CventSDK(security: new Security() {
 
 CreateMeetingRequestRequest req = new CreateMeetingRequestRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    RequestBody = new List<MeetingRequestCreateJson>() {
-        new MeetingRequestCreateJson() {
+    RequestBody = new List<MeetingRequestCreate>() {
+        new MeetingRequestCreate() {
             Name = "####test",
             SourceId = "sourceId12",
-            Questions = new List<RequestedMeetingRequestQuestionJson>() {
-                new RequestedMeetingRequestQuestionJson() {
+            Questions = new List<MeetingRequestQuestionInput>() {
+                new MeetingRequestQuestionInput() {
                     Id = "f1ea56cd-6860-4f1a-baf7-973118384384",
                     Value = new List<string>() {
                         "Green",
@@ -268,7 +267,7 @@ var sdk = new CventSDK(security: new Security() {
 
 UpdateMeetingRequestRequest req = new UpdateMeetingRequestRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    RequestBody = new List<MeetingRequestUpdateJson>() {},
+    RequestBody = new List<MeetingRequestUpdate>() {},
 };
 
 var res = await sdk.MeetingRequest.UpdateMeetingRequestAsync(req);

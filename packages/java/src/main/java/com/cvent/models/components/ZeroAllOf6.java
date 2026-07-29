@@ -5,11 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.annotation.Nullable;
-import java.lang.Double;
+import jakarta.annotation.Nonnull;
 import java.lang.Override;
 import java.lang.String;
 import java.time.OffsetDateTime;
@@ -18,95 +15,138 @@ import java.util.Optional;
 /**
  * ZeroAllOf6
  *
- * <p>A transaction reconciliation record.
+ * <p>Information about housing event with key information, providing a summarized view.
  */
 public class ZeroAllOf6 {
     /**
-     * The identifier of reconciled budget item.
+     * The unique ID of the housing event.
      */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("budgetItem")
-    private BudgetItemAllOf budgetItem;
+    @JsonProperty("id")
+    private long id;
 
     /**
-     * This is used to denote the reconciliation status for a transaction.
+     * Event name.
      */
-    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("name")
+    private String name;
+
+    /**
+     * The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder
+     * days.
+     */
+    @JsonProperty("start")
+    private OffsetDateTime start;
+
+    /**
+     * The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.
+     */
+    @JsonProperty("end")
+    private OffsetDateTime end;
+
+    /**
+     * The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable
+     * business rules, like releasing reserved room blocks back to general availability.
+     */
+    @JsonProperty("cutOff")
+    private OffsetDateTime cutOff;
+
+    /**
+     * The event timezone from the Olson specification.
+     */
+    @JsonProperty("timeZone")
+    private String timeZone;
+
+    /**
+     * Event venue details.
+     */
+    @JsonProperty("venue")
+    private VenueJson1 venue;
+
+    /**
+     * Housing event status.
+     */
     @JsonProperty("status")
-    private ReconciliationStatusJson status;
-
-    /**
-     * Reconciliation amount.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("amount")
-    private Double amount;
-
-    /**
-     * Reconciled by user.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("reconciledBy")
-    private String reconciledBy;
-
-    /**
-     * The ISO 8601 zoned date and time for Reconciled date.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("reconciledDate")
-    private OffsetDateTime reconciledDate;
+    private HousingEventStatusesJson status;
 
     @JsonCreator
     public ZeroAllOf6(
-            @JsonProperty("budgetItem") @Nullable BudgetItemAllOf budgetItem,
-            @JsonProperty("status") @Nullable ReconciliationStatusJson status,
-            @JsonProperty("amount") @Nullable Double amount,
-            @JsonProperty("reconciledBy") @Nullable String reconciledBy,
-            @JsonProperty("reconciledDate") @Nullable OffsetDateTime reconciledDate) {
-        this.budgetItem = budgetItem;
-        this.status = status;
-        this.amount = amount;
-        this.reconciledBy = reconciledBy;
-        this.reconciledDate = reconciledDate;
-    }
-
-    public ZeroAllOf6() {
-        this(null, null, null, null, null);
-    }
-
-    /**
-     * The identifier of reconciled budget item.
-     */
-    public Optional<BudgetItemAllOf> budgetItem() {
-        return Optional.ofNullable(this.budgetItem);
-    }
-
-    /**
-     * This is used to denote the reconciliation status for a transaction.
-     */
-    public Optional<ReconciliationStatusJson> status() {
-        return Optional.ofNullable(this.status);
+            @JsonProperty("id") long id,
+            @JsonProperty("name") @Nonnull String name,
+            @JsonProperty("start") @Nonnull OffsetDateTime start,
+            @JsonProperty("end") @Nonnull OffsetDateTime end,
+            @JsonProperty("cutOff") @Nonnull OffsetDateTime cutOff,
+            @JsonProperty("timeZone") @Nonnull String timeZone,
+            @JsonProperty("venue") @Nonnull VenueJson1 venue,
+            @JsonProperty("status") @Nonnull HousingEventStatusesJson status) {
+        this.id = id;
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.start = Optional.ofNullable(start).orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
+        this.end = Optional.ofNullable(end).orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
+        this.cutOff =
+                Optional.ofNullable(cutOff).orElseThrow(() -> new IllegalArgumentException("cutOff cannot be null"));
+        this.timeZone = Optional.ofNullable(timeZone)
+                .orElseThrow(() -> new IllegalArgumentException("timeZone cannot be null"));
+        this.venue = Optional.ofNullable(venue).orElseThrow(() -> new IllegalArgumentException("venue cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
     }
 
     /**
-     * Reconciliation amount.
+     * The unique ID of the housing event.
      */
-    public Optional<Double> amount() {
-        return Optional.ofNullable(this.amount);
+    public long id() {
+        return this.id;
     }
 
     /**
-     * Reconciled by user.
+     * Event name.
      */
-    public Optional<String> reconciledBy() {
-        return Optional.ofNullable(this.reconciledBy);
+    public String name() {
+        return this.name;
     }
 
     /**
-     * The ISO 8601 zoned date and time for Reconciled date.
+     * The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder
+     * days.
      */
-    public Optional<OffsetDateTime> reconciledDate() {
-        return Optional.ofNullable(this.reconciledDate);
+    public OffsetDateTime start() {
+        return this.start;
+    }
+
+    /**
+     * The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.
+     */
+    public OffsetDateTime end() {
+        return this.end;
+    }
+
+    /**
+     * The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable
+     * business rules, like releasing reserved room blocks back to general availability.
+     */
+    public OffsetDateTime cutOff() {
+        return this.cutOff;
+    }
+
+    /**
+     * The event timezone from the Olson specification.
+     */
+    public String timeZone() {
+        return this.timeZone;
+    }
+
+    /**
+     * Event venue details.
+     */
+    public VenueJson1 venue() {
+        return this.venue;
+    }
+
+    /**
+     * Housing event status.
+     */
+    public HousingEventStatusesJson status() {
+        return this.status;
     }
 
     public static Builder builder() {
@@ -114,42 +154,68 @@ public class ZeroAllOf6 {
     }
 
     /**
-     * The identifier of reconciled budget item.
+     * The unique ID of the housing event.
      */
-    public ZeroAllOf6 withBudgetItem(@Nullable BudgetItemAllOf budgetItem) {
-        this.budgetItem = budgetItem;
+    public ZeroAllOf6 withId(long id) {
+        this.id = id;
         return this;
     }
 
     /**
-     * This is used to denote the reconciliation status for a transaction.
+     * Event name.
      */
-    public ZeroAllOf6 withStatus(@Nullable ReconciliationStatusJson status) {
-        this.status = status;
+    public ZeroAllOf6 withName(@Nonnull String name) {
+        this.name = Utils.checkNotNull(name, "name");
         return this;
     }
 
     /**
-     * Reconciliation amount.
+     * The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder
+     * days.
      */
-    public ZeroAllOf6 withAmount(@Nullable Double amount) {
-        this.amount = amount;
+    public ZeroAllOf6 withStart(@Nonnull OffsetDateTime start) {
+        this.start = Utils.checkNotNull(start, "start");
         return this;
     }
 
     /**
-     * Reconciled by user.
+     * The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.
      */
-    public ZeroAllOf6 withReconciledBy(@Nullable String reconciledBy) {
-        this.reconciledBy = reconciledBy;
+    public ZeroAllOf6 withEnd(@Nonnull OffsetDateTime end) {
+        this.end = Utils.checkNotNull(end, "end");
         return this;
     }
 
     /**
-     * The ISO 8601 zoned date and time for Reconciled date.
+     * The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable
+     * business rules, like releasing reserved room blocks back to general availability.
      */
-    public ZeroAllOf6 withReconciledDate(@Nullable OffsetDateTime reconciledDate) {
-        this.reconciledDate = reconciledDate;
+    public ZeroAllOf6 withCutOff(@Nonnull OffsetDateTime cutOff) {
+        this.cutOff = Utils.checkNotNull(cutOff, "cutOff");
+        return this;
+    }
+
+    /**
+     * The event timezone from the Olson specification.
+     */
+    public ZeroAllOf6 withTimeZone(@Nonnull String timeZone) {
+        this.timeZone = Utils.checkNotNull(timeZone, "timeZone");
+        return this;
+    }
+
+    /**
+     * Event venue details.
+     */
+    public ZeroAllOf6 withVenue(@Nonnull VenueJson1 venue) {
+        this.venue = Utils.checkNotNull(venue, "venue");
+        return this;
+    }
+
+    /**
+     * Housing event status.
+     */
+    public ZeroAllOf6 withStatus(@Nonnull HousingEventStatusesJson status) {
+        this.status = Utils.checkNotNull(status, "status");
         return this;
     }
 
@@ -162,93 +228,134 @@ public class ZeroAllOf6 {
             return false;
         }
         ZeroAllOf6 other = (ZeroAllOf6) o;
-        return Utils.enhancedDeepEquals(this.budgetItem, other.budgetItem)
-                && Utils.enhancedDeepEquals(this.status, other.status)
-                && Utils.enhancedDeepEquals(this.amount, other.amount)
-                && Utils.enhancedDeepEquals(this.reconciledBy, other.reconciledBy)
-                && Utils.enhancedDeepEquals(this.reconciledDate, other.reconciledDate);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.start, other.start)
+                && Utils.enhancedDeepEquals(this.end, other.end)
+                && Utils.enhancedDeepEquals(this.cutOff, other.cutOff)
+                && Utils.enhancedDeepEquals(this.timeZone, other.timeZone)
+                && Utils.enhancedDeepEquals(this.venue, other.venue)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(budgetItem, status, amount, reconciledBy, reconciledDate);
+        return Utils.enhancedHash(id, name, start, end, cutOff, timeZone, venue, status);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
                 ZeroAllOf6.class,
-                "budgetItem",
-                budgetItem,
+                "id",
+                id,
+                "name",
+                name,
+                "start",
+                start,
+                "end",
+                end,
+                "cutOff",
+                cutOff,
+                "timeZone",
+                timeZone,
+                "venue",
+                venue,
                 "status",
-                status,
-                "amount",
-                amount,
-                "reconciledBy",
-                reconciledBy,
-                "reconciledDate",
-                reconciledDate);
+                status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private BudgetItemAllOf budgetItem;
+        private long id;
 
-        private ReconciliationStatusJson status;
+        private String name;
 
-        private Double amount;
+        private OffsetDateTime start;
 
-        private String reconciledBy;
+        private OffsetDateTime end;
 
-        private OffsetDateTime reconciledDate;
+        private OffsetDateTime cutOff;
+
+        private String timeZone;
+
+        private VenueJson1 venue;
+
+        private HousingEventStatusesJson status;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The identifier of reconciled budget item.
+         * The unique ID of the housing event.
          */
-        public Builder budgetItem(@Nullable BudgetItemAllOf budgetItem) {
-            this.budgetItem = budgetItem;
+        public Builder id(long id) {
+            this.id = id;
             return this;
         }
 
         /**
-         * This is used to denote the reconciliation status for a transaction.
+         * Event name.
          */
-        public Builder status(@Nullable ReconciliationStatusJson status) {
-            this.status = status;
+        public Builder name(@Nonnull String name) {
+            this.name = Utils.checkNotNull(name, "name");
             return this;
         }
 
         /**
-         * Reconciliation amount.
+         * The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder
+         * days.
          */
-        public Builder amount(@Nullable Double amount) {
-            this.amount = amount;
+        public Builder start(@Nonnull OffsetDateTime start) {
+            this.start = Utils.checkNotNull(start, "start");
             return this;
         }
 
         /**
-         * Reconciled by user.
+         * The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.
          */
-        public Builder reconciledBy(@Nullable String reconciledBy) {
-            this.reconciledBy = reconciledBy;
+        public Builder end(@Nonnull OffsetDateTime end) {
+            this.end = Utils.checkNotNull(end, "end");
             return this;
         }
 
         /**
-         * The ISO 8601 zoned date and time for Reconciled date.
+         * The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable
+         * business rules, like releasing reserved room blocks back to general availability.
          */
-        public Builder reconciledDate(@Nullable OffsetDateTime reconciledDate) {
-            this.reconciledDate = reconciledDate;
+        public Builder cutOff(@Nonnull OffsetDateTime cutOff) {
+            this.cutOff = Utils.checkNotNull(cutOff, "cutOff");
+            return this;
+        }
+
+        /**
+         * The event timezone from the Olson specification.
+         */
+        public Builder timeZone(@Nonnull String timeZone) {
+            this.timeZone = Utils.checkNotNull(timeZone, "timeZone");
+            return this;
+        }
+
+        /**
+         * Event venue details.
+         */
+        public Builder venue(@Nonnull VenueJson1 venue) {
+            this.venue = Utils.checkNotNull(venue, "venue");
+            return this;
+        }
+
+        /**
+         * Housing event status.
+         */
+        public Builder status(@Nonnull HousingEventStatusesJson status) {
+            this.status = Utils.checkNotNull(status, "status");
             return this;
         }
 
         public ZeroAllOf6 build() {
-            return new ZeroAllOf6(budgetItem, status, amount, reconciledBy, reconciledDate);
+            return new ZeroAllOf6(id, name, start, end, cutOff, timeZone, venue, status);
         }
     }
 }

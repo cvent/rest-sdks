@@ -22,18 +22,18 @@ namespace Cvent.SDK.Models.Components
         /// The activity session.
         /// </summary>
         [JsonProperty("session")]
-        public SessionActivity11? Session { get; set; }
+        public SpeakerFeedbackSubmittedSessionActivity? Session { get; set; }
 
         /// <summary>
         /// An activity speaker.
         /// </summary>
         [JsonProperty("speaker")]
-        public SpeakerJson? Speaker { get; set; }
+        public Speaker1? Speaker { get; set; }
 
         /// <summary>
         /// A survey response.
         /// </summary>
         [JsonProperty("survey")]
-        public SurveyResponseJson? Survey { get; set; }
+        public SurveyResponse? Survey { get; set; }
     }
 }

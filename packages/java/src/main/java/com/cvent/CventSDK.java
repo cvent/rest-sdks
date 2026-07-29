@@ -500,6 +500,18 @@ public class CventSDK {
     private final Usage usage;
 
     /**
+     * Manage venue profile details including type, contact information, address, and other venue
+     * properties.
+     */
+    private final VenueProfiles venueProfiles;
+
+    /**
+     * Manage meeting rooms for a venue, including creating and updating room details, configuring
+     * capacities and amenities, and associating images.
+     */
+    private final VenueMeetingRooms venueMeetingRooms;
+
+    /**
      * Videos can be added to Cvent events with renditions at various resolutions, audio files, reactions
      * tracks, and text tracks. Attendee viewership is tracked to get insight into durations, devices used
      * and venue where the video is watched. Use these APIs to view and manage videos, related text tracks,
@@ -1086,6 +1098,22 @@ public class CventSDK {
     }
 
     /**
+     * Manage venue profile details including type, contact information, address, and other venue
+     * properties.
+     */
+    public VenueProfiles venueProfiles() {
+        return venueProfiles;
+    }
+
+    /**
+     * Manage meeting rooms for a venue, including creating and updating room details, configuring
+     * capacities and amenities, and associating images.
+     */
+    public VenueMeetingRooms venueMeetingRooms() {
+        return venueMeetingRooms;
+    }
+
+    /**
      * Videos can be added to Cvent events with renditions at various resolutions, audio files, reactions
      * tracks, and text tracks. Attendee viewership is tracked to get insight into durations, devices used
      * and venue where the video is watched. Use these APIs to view and manage videos, related text tracks,
@@ -1303,6 +1331,8 @@ public class CventSDK {
         this.travelRFPs = new TravelRFPs(sdkConfiguration);
         this.travelSuppliers = new TravelSuppliers(sdkConfiguration);
         this.usage = new Usage(sdkConfiguration);
+        this.venueProfiles = new VenueProfiles(sdkConfiguration);
+        this.venueMeetingRooms = new VenueMeetingRooms(sdkConfiguration);
         this.video = new Video(sdkConfiguration);
         this.webcasts = new Webcasts(sdkConfiguration);
         sdkConfiguration = sdkConfiguration.hooks().sdkInit(sdkConfiguration);

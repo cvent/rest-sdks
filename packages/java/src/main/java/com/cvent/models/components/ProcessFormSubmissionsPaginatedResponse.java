@@ -23,18 +23,18 @@ public class ProcessFormSubmissionsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of process form submission objects.
      */
     @JsonProperty("data")
-    private List<ProcessFormSubmissionJson> data;
+    private List<ProcessFormSubmission> data;
 
     @JsonCreator
     public ProcessFormSubmissionsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<ProcessFormSubmissionJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<ProcessFormSubmission> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -43,14 +43,14 @@ public class ProcessFormSubmissionsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of process form submission objects.
      */
-    public List<ProcessFormSubmissionJson> data() {
+    public List<ProcessFormSubmission> data() {
         return this.data;
     }
 
@@ -61,7 +61,7 @@ public class ProcessFormSubmissionsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public ProcessFormSubmissionsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public ProcessFormSubmissionsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -69,7 +69,7 @@ public class ProcessFormSubmissionsPaginatedResponse {
     /**
      * Collection of process form submission objects.
      */
-    public ProcessFormSubmissionsPaginatedResponse withData(@Nonnull List<ProcessFormSubmissionJson> data) {
+    public ProcessFormSubmissionsPaginatedResponse withData(@Nonnull List<ProcessFormSubmission> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -99,9 +99,9 @@ public class ProcessFormSubmissionsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<ProcessFormSubmissionJson> data;
+        private List<ProcessFormSubmission> data;
 
         private Builder() {
             // force use of static builder() method
@@ -110,7 +110,7 @@ public class ProcessFormSubmissionsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -118,7 +118,7 @@ public class ProcessFormSubmissionsPaginatedResponse {
         /**
          * Collection of process form submission objects.
          */
-        public Builder data(@Nonnull List<ProcessFormSubmissionJson> data) {
+        public Builder data(@Nonnull List<ProcessFormSubmission> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

@@ -2,8 +2,8 @@ speakeasyVersion: 1.752.0
 sources:
     Public:
         sourceNamespace: public
-        sourceRevisionDigest: sha256:9eb60f33d85bf4b5685453bea6e55e7a34ee342d20cb9637b47922ea19e4e128
-        sourceBlobDigest: sha256:b3129c699afaeff171d995f86ec707369054d66a2c18211fed35fcb70154774a
+        sourceRevisionDigest: sha256:82fcb0efee5c4c454b2d79ef862d047863405154cff3289d03e6325eb847f0af
+        sourceBlobDigest: sha256:14cc298497bd533e985172a5dcb8dff463a204d53f9a2e7fbe369a625ba64316
         tags:
             - latest
             - ea
@@ -11,24 +11,24 @@ targets:
     public-csharp:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:9eb60f33d85bf4b5685453bea6e55e7a34ee342d20cb9637b47922ea19e4e128
-        sourceBlobDigest: sha256:b3129c699afaeff171d995f86ec707369054d66a2c18211fed35fcb70154774a
+        sourceRevisionDigest: sha256:82fcb0efee5c4c454b2d79ef862d047863405154cff3289d03e6325eb847f0af
+        sourceBlobDigest: sha256:14cc298497bd533e985172a5dcb8dff463a204d53f9a2e7fbe369a625ba64316
         codeSamplesNamespace: csharp
-        codeSamplesRevisionDigest: sha256:814812d4e50608e8abf70c52563b73cffeb5ce3feebefad147ebc030be7e3ba8
+        codeSamplesRevisionDigest: sha256:9077d70b54f8d4c77bacff2b02c677882b325380ceb676c054afbe7996ec067e
     public-java:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:9eb60f33d85bf4b5685453bea6e55e7a34ee342d20cb9637b47922ea19e4e128
-        sourceBlobDigest: sha256:b3129c699afaeff171d995f86ec707369054d66a2c18211fed35fcb70154774a
+        sourceRevisionDigest: sha256:82fcb0efee5c4c454b2d79ef862d047863405154cff3289d03e6325eb847f0af
+        sourceBlobDigest: sha256:14cc298497bd533e985172a5dcb8dff463a204d53f9a2e7fbe369a625ba64316
         codeSamplesNamespace: java
-        codeSamplesRevisionDigest: sha256:b9cdae2008658fedef1ce3bb4fba46e9752a1fbc5ace663a58f18c4437abf034
+        codeSamplesRevisionDigest: sha256:50f03fbed2fa66f728309819be05f52b639852515b2ba27a09e312289847df4b
     public-typescript:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:9eb60f33d85bf4b5685453bea6e55e7a34ee342d20cb9637b47922ea19e4e128
-        sourceBlobDigest: sha256:b3129c699afaeff171d995f86ec707369054d66a2c18211fed35fcb70154774a
+        sourceRevisionDigest: sha256:82fcb0efee5c4c454b2d79ef862d047863405154cff3289d03e6325eb847f0af
+        sourceBlobDigest: sha256:14cc298497bd533e985172a5dcb8dff463a204d53f9a2e7fbe369a625ba64316
         codeSamplesNamespace: typescript
-        codeSamplesRevisionDigest: sha256:7b7edd1433e19b3f14070f146bae895349e448d247f7beac48afb3c9a9fbd675
+        codeSamplesRevisionDigest: sha256:669cad9622a81460c6a54ad0cc43d574a1e7c4b41f3a70ce26d66298b50138a8
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: 1.752.0
@@ -39,7 +39,6 @@ workflow:
             overlays:
                 - location: ./overlays/public_overlay.yaml
                 - location: ./overlays/operation_level_pagination_overlay.yaml
-                - location: ./overlays/pagination_overlay.yaml
                 - location: ./overlays/description_overlay.yaml
                 - location: ./overlays/segments_error_response_overlay.yaml
                 - location: ./overlays/retries_overlay.yaml

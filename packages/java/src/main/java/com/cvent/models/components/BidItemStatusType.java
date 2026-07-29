@@ -13,12 +13,14 @@ import java.util.Optional;
  *
  * <p>The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
  * and the hotel, if they agree, can update the item to deleted.
+ *
+ * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
  */
 public enum BidItemStatusType {
     REQUESTED("requested"),
     DELETE_REQUESTED("delete_requested"),
     DELETED("deleted"),
-    NOT_AVAILABLE("not_available");
+    NOT_OFFERED("not_offered");
 
     @JsonValue
     private final String value;

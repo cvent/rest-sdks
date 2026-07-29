@@ -768,6 +768,22 @@ run();
 * [addUserToAccountUserGroup](docs/sdks/users/README.md#addusertoaccountusergroup) - Associate User to Group
 * [deleteUserFromAccountUserGroup](docs/sdks/users/README.md#deleteuserfromaccountusergroup) - Delete User from Group
 
+### [VenueMeetingRooms](docs/sdks/venuemeetingrooms/README.md)
+
+* [createMeetingRoom](docs/sdks/venuemeetingrooms/README.md#createmeetingroom) - Create Meeting Room
+* [listMeetingRoomsOverviews](docs/sdks/venuemeetingrooms/README.md#listmeetingroomsoverviews) - List Meeting Rooms Overviews
+* [updateMeetingRoom](docs/sdks/venuemeetingrooms/README.md#updatemeetingroom) - Update Meeting Room
+* [patchMeetingRoom](docs/sdks/venuemeetingrooms/README.md#patchmeetingroom) - Patch Meeting Room
+* [getMeetingRoomOverview](docs/sdks/venuemeetingrooms/README.md#getmeetingroomoverview) - Get Meeting Room Overview
+
+### [VenueProfiles](docs/sdks/venueprofiles/README.md)
+
+* [updateVenueDetails](docs/sdks/venueprofiles/README.md#updatevenuedetails) - Update Venue Details
+* [patchVenueDetails](docs/sdks/venueprofiles/README.md#patchvenuedetails) - Patch Venue Details
+* [getVenueDetailsOverview](docs/sdks/venueprofiles/README.md#getvenuedetailsoverview) - Get Venue Details Overview
+* [updateVenueFacility](docs/sdks/venueprofiles/README.md#updatevenuefacility) - Update Venue Facility
+* [patchVenueFacility](docs/sdks/venueprofiles/README.md#patchvenuefacility) - Patch Venue Facility
+
 ### [Video](docs/sdks/video/README.md)
 
 * [listVideos](docs/sdks/video/README.md#listvideos) - List Videos
@@ -1242,6 +1258,16 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`usersGetAccountUserGroup`](docs/sdks/users/README.md#getaccountusergroup) - Get Account User Group
 - [`usersGetAccountUserGroups`](docs/sdks/users/README.md#getaccountusergroups) - List Account User Groups
 - [`usersUpdateAccountUserGroup`](docs/sdks/users/README.md#updateaccountusergroup) - Update Account User Group
+- [`venueMeetingRoomsCreateMeetingRoom`](docs/sdks/venuemeetingrooms/README.md#createmeetingroom) - Create Meeting Room
+- [`venueMeetingRoomsGetMeetingRoomOverview`](docs/sdks/venuemeetingrooms/README.md#getmeetingroomoverview) - Get Meeting Room Overview
+- [`venueMeetingRoomsListMeetingRoomsOverviews`](docs/sdks/venuemeetingrooms/README.md#listmeetingroomsoverviews) - List Meeting Rooms Overviews
+- [`venueMeetingRoomsPatchMeetingRoom`](docs/sdks/venuemeetingrooms/README.md#patchmeetingroom) - Patch Meeting Room
+- [`venueMeetingRoomsUpdateMeetingRoom`](docs/sdks/venuemeetingrooms/README.md#updatemeetingroom) - Update Meeting Room
+- [`venueProfilesGetVenueDetailsOverview`](docs/sdks/venueprofiles/README.md#getvenuedetailsoverview) - Get Venue Details Overview
+- [`venueProfilesPatchVenueDetails`](docs/sdks/venueprofiles/README.md#patchvenuedetails) - Patch Venue Details
+- [`venueProfilesPatchVenueFacility`](docs/sdks/venueprofiles/README.md#patchvenuefacility) - Patch Venue Facility
+- [`venueProfilesUpdateVenueDetails`](docs/sdks/venueprofiles/README.md#updatevenuedetails) - Update Venue Details
+- [`venueProfilesUpdateVenueFacility`](docs/sdks/venueprofiles/README.md#updatevenuefacility) - Update Venue Facility
 - [`videoCreateTextTrack`](docs/sdks/video/README.md#createtexttrack) - Create Text Track
 - [`videoGetVideoViews`](docs/sdks/video/README.md#getvideoviews) - List Video Views
 - [`videoListAudioTracks`](docs/sdks/video/README.md#listaudiotracks) - List Audio Tracks
@@ -1518,10 +1544,10 @@ run();
 
 
 **Inherit from [`CventSDKError`](./src/models/errors/cventsdkerror.ts)**:
-* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 448 methods.*
-* [`ErrorResponse2`](./src/models/errors/errorresponse2.ts): The error response. Applicable to 11 of 448 methods.*
-* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 448 methods.*
-* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 448 methods.*
+* [`ErrorResponse2`](./src/models/errors/errorresponse2.ts): The error response. Applicable to 11 of 458 methods.*
+* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 9 of 458 methods.*
+* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 458 methods.*
+* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 458 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

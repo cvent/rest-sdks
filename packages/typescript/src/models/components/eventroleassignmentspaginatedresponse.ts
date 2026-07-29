@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  EventRoleAssignmentJson,
-  EventRoleAssignmentJson$inboundSchema,
-} from "./eventroleassignmentjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  EventRoleAssignment,
+  EventRoleAssignment$inboundSchema,
+} from "./eventroleassignment.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response to a request to get a paginated list of event role assignments. This includes the paging object and the collection of event role assignments.
@@ -19,11 +19,11 @@ export type EventRoleAssignmentsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * A collection of event role assignments.
    */
-  data: Array<EventRoleAssignmentJson>;
+  data: Array<EventRoleAssignment>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const EventRoleAssignmentsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(EventRoleAssignmentJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(EventRoleAssignment$inboundSchema),
 });
 
 export function eventRoleAssignmentsPaginatedResponseFromJSON(

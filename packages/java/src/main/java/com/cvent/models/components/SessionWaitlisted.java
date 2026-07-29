@@ -24,10 +24,10 @@ public class SessionWaitlisted {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("session")
-    private SessionActivity10 session;
+    private SessionActivity7 session;
 
     @JsonCreator
-    public SessionWaitlisted(@JsonProperty("session") @Nullable SessionActivity10 session) {
+    public SessionWaitlisted(@JsonProperty("session") @Nullable SessionActivity7 session) {
         this.session = session;
     }
 
@@ -38,7 +38,7 @@ public class SessionWaitlisted {
     /**
      * The activity session.
      */
-    public Optional<SessionActivity10> session() {
+    public Optional<SessionActivity7> session() {
         return Optional.ofNullable(this.session);
     }
 
@@ -49,7 +49,7 @@ public class SessionWaitlisted {
     /**
      * The activity session.
      */
-    public SessionWaitlisted withSession(@Nullable SessionActivity10 session) {
+    public SessionWaitlisted withSession(@Nullable SessionActivity7 session) {
         this.session = session;
         return this;
     }
@@ -79,7 +79,7 @@ public class SessionWaitlisted {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private SessionActivity10 session;
+        private SessionActivity7 session;
 
         private Builder() {
             // force use of static builder() method
@@ -88,7 +88,7 @@ public class SessionWaitlisted {
         /**
          * The activity session.
          */
-        public Builder session(@Nullable SessionActivity10 session) {
+        public Builder session(@Nullable SessionActivity7 session) {
             this.session = session;
             return this;
         }

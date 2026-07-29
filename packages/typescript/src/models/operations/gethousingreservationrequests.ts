@@ -11,6 +11,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetHousingReservationRequestsRequest = {
   /**
+   * ID of an event.
+   */
+  id: string;
+  /**
    * Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
    */
   after?: Date | undefined;
@@ -46,10 +50,6 @@ export type GetHousingReservationRequestsRequest = {
    * * or
    */
   filter?: string | undefined;
-  /**
-   * ID of an event.
-   */
-  id: string;
 };
 
 export type GetHousingReservationRequestsResponse = {
@@ -58,12 +58,12 @@ export type GetHousingReservationRequestsResponse = {
 
 /** @internal */
 export type GetHousingReservationRequestsRequest$Outbound = {
+  id: string;
   after?: string | undefined;
   before?: string | undefined;
   limit: number;
   token?: string | undefined;
   filter?: string | undefined;
-  id: string;
 };
 
 /** @internal */
@@ -72,12 +72,12 @@ export const GetHousingReservationRequestsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetHousingReservationRequestsRequest
 > = z.object({
+  id: z.string(),
   after: z.date().transform(v => v.toISOString()).optional(),
   before: z.date().transform(v => v.toISOString()).optional(),
   limit: z.number().int().default(100),
   token: z.string().optional(),
   filter: z.string().optional(),
-  id: z.string(),
 });
 
 export function getHousingReservationRequestsRequestToJSON(

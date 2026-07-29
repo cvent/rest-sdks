@@ -87,7 +87,7 @@ public class CardTransactionJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("reconciliations")
-    private List<ZeroAllOf6> reconciliations;
+    private List<ZeroAllOf4> reconciliations;
 
     /**
      * The list of transaction description.
@@ -107,7 +107,7 @@ public class CardTransactionJson {
             @JsonProperty("currency") @Nullable String currency,
             @JsonProperty("merchant") @Nullable String merchant,
             @JsonProperty("reconciliation") @Nullable TransactionReconciliation reconciliation,
-            @JsonProperty("reconciliations") @Nullable List<ZeroAllOf6> reconciliations,
+            @JsonProperty("reconciliations") @Nullable List<ZeroAllOf4> reconciliations,
             @JsonProperty("descriptions") @Nullable List<String> descriptions) {
         this.event = event;
         this.card = card;
@@ -189,7 +189,7 @@ public class CardTransactionJson {
     /**
      * The list of reconciled item.
      */
-    public Optional<List<ZeroAllOf6>> reconciliations() {
+    public Optional<List<ZeroAllOf4>> reconciliations() {
         return Optional.ofNullable(this.reconciliations);
     }
 
@@ -276,7 +276,7 @@ public class CardTransactionJson {
     /**
      * The list of reconciled item.
      */
-    public CardTransactionJson withReconciliations(@Nullable List<ZeroAllOf6> reconciliations) {
+    public CardTransactionJson withReconciliations(@Nullable List<ZeroAllOf4> reconciliations) {
         this.reconciliations = reconciliations;
         return this;
     }
@@ -376,7 +376,7 @@ public class CardTransactionJson {
 
         private TransactionReconciliation reconciliation;
 
-        private List<ZeroAllOf6> reconciliations;
+        private List<ZeroAllOf4> reconciliations;
 
         private List<String> descriptions;
 
@@ -456,7 +456,7 @@ public class CardTransactionJson {
         /**
          * The list of reconciled item.
          */
-        public Builder reconciliations(@Nullable List<ZeroAllOf6> reconciliations) {
+        public Builder reconciliations(@Nullable List<ZeroAllOf4> reconciliations) {
             this.reconciliations = reconciliations;
             return this;
         }

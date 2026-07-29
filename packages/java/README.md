@@ -44,7 +44,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cvent:sdk:1.5.2'
+implementation 'com.cvent:sdk:1.6.0'
 ```
 
 Maven:
@@ -52,7 +52,7 @@ Maven:
 <dependency>
     <groupId>com.cvent</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.5.2</version>
+    <version>1.6.0</version>
 </dependency>
 ```
 
@@ -928,6 +928,22 @@ public class Application {
 * [addUserToAccountUserGroup](docs/sdks/users/README.md#addusertoaccountusergroup) - Associate User to Group
 * [deleteUserFromAccountUserGroup](docs/sdks/users/README.md#deleteuserfromaccountusergroup) - Delete User from Group
 
+### [VenueMeetingRooms](docs/sdks/venuemeetingrooms/README.md)
+
+* [createMeetingRoom](docs/sdks/venuemeetingrooms/README.md#createmeetingroom) - Create Meeting Room
+* [listMeetingRoomsOverviews](docs/sdks/venuemeetingrooms/README.md#listmeetingroomsoverviews) - List Meeting Rooms Overviews
+* [updateMeetingRoom](docs/sdks/venuemeetingrooms/README.md#updatemeetingroom) - Update Meeting Room
+* [patchMeetingRoom](docs/sdks/venuemeetingrooms/README.md#patchmeetingroom) - Patch Meeting Room
+* [getMeetingRoomOverview](docs/sdks/venuemeetingrooms/README.md#getmeetingroomoverview) - Get Meeting Room Overview
+
+### [VenueProfiles](docs/sdks/venueprofiles/README.md)
+
+* [updateVenueDetails](docs/sdks/venueprofiles/README.md#updatevenuedetails) - Update Venue Details
+* [patchVenueDetails](docs/sdks/venueprofiles/README.md#patchvenuedetails) - Patch Venue Details
+* [getVenueDetailsOverview](docs/sdks/venueprofiles/README.md#getvenuedetailsoverview) - Get Venue Details Overview
+* [updateVenueFacility](docs/sdks/venueprofiles/README.md#updatevenuefacility) - Update Venue Facility
+* [patchVenueFacility](docs/sdks/venueprofiles/README.md#patchvenuefacility) - Patch Venue Facility
+
 ### [Video](docs/sdks/video/README.md)
 
 * [listVideos](docs/sdks/video/README.md#listvideos) - List Videos
@@ -1297,10 +1313,10 @@ public class Application {
 many more subclasses in the JDK platform).
 
 **Inherit from [`CventSDKError`](./src/main/java/models/errors/CventSDKError.java)**:
-* [`com.cvent.models.errors.ErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse.java): Represents an error response with additional details of cascading error messages. Applicable to 18 of 448 methods.*
-* [`com.cvent.models.errors.ErrorResponse2`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse2.java): The error response. Applicable to 11 of 448 methods.*
-* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 448 methods.*
-* [`com.cvent.models.errors.BadRequestException`](./src/main/java/models/errors/com.cvent.models.errors.BadRequestException.java): A bad token response. Status code `400`. Applicable to 1 of 448 methods.*
+* [`com.cvent.models.errors.ErrorResponse2`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse2.java): The error response. Applicable to 11 of 458 methods.*
+* [`com.cvent.models.errors.ErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse.java): Represents an error response with additional details of cascading error messages. Applicable to 9 of 458 methods.*
+* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 458 methods.*
+* [`com.cvent.models.errors.BadRequestException`](./src/main/java/models/errors/com.cvent.models.errors.BadRequestException.java): A bad token response. Status code `400`. Applicable to 1 of 458 methods.*
 
 
 </details>

@@ -3,7 +3,7 @@
  */
 package com.cvent.models.errors;
 
-import com.cvent.models.components.ZeroAllOf1;
+import com.cvent.models.components.ZeroAllOf3;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -96,7 +96,7 @@ public class ErrorResponse extends CventSDKError {
      * Additional details of cascading error messages.
      */
     @Deprecated
-    public Optional<List<ZeroAllOf1>> details() {
+    public Optional<List<ZeroAllOf3>> details() {
         return data().flatMap(Data::details);
     }
 
@@ -140,14 +140,14 @@ public class ErrorResponse extends CventSDKError {
          */
         @JsonInclude(Include.NON_ABSENT)
         @JsonProperty("details")
-        private List<ZeroAllOf1> details;
+        private List<ZeroAllOf3> details;
 
         @JsonCreator
         public Data(
                 @JsonProperty("code") long code,
                 @JsonProperty("message") @Nonnull String message,
                 @JsonProperty("target") @Nullable String target,
-                @JsonProperty("details") @Nullable List<ZeroAllOf1> details) {
+                @JsonProperty("details") @Nullable List<ZeroAllOf3> details) {
             this.code = code;
             this.message = Optional.ofNullable(message)
                     .orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
@@ -183,7 +183,7 @@ public class ErrorResponse extends CventSDKError {
         /**
          * Additional details of cascading error messages.
          */
-        public Optional<List<ZeroAllOf1>> details() {
+        public Optional<List<ZeroAllOf3>> details() {
             return Optional.ofNullable(this.details);
         }
 
@@ -218,7 +218,7 @@ public class ErrorResponse extends CventSDKError {
         /**
          * Additional details of cascading error messages.
          */
-        public Data withDetails(@Nullable List<ZeroAllOf1> details) {
+        public Data withDetails(@Nullable List<ZeroAllOf3> details) {
             this.details = details;
             return this;
         }
@@ -257,7 +257,7 @@ public class ErrorResponse extends CventSDKError {
 
             private String target;
 
-            private List<ZeroAllOf1> details;
+            private List<ZeroAllOf3> details;
 
             private Builder() {
                 // force use of static builder() method
@@ -290,7 +290,7 @@ public class ErrorResponse extends CventSDKError {
             /**
              * Additional details of cascading error messages.
              */
-            public Builder details(@Nullable List<ZeroAllOf1> details) {
+            public Builder details(@Nullable List<ZeroAllOf3> details) {
                 this.details = details;
                 return this;
             }

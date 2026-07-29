@@ -10,7 +10,7 @@ import {
   MeetingRequestForm,
   MeetingRequestForm$inboundSchema,
 } from "./meetingrequestform.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to get the list of meeting request forms. This includes the paging object as well as the collection of meeting request forms.
@@ -19,7 +19,7 @@ export type MeetingRequestFormPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of meeting request form objects.
    */
@@ -32,7 +32,7 @@ export const MeetingRequestFormPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
+  paging: Paging$inboundSchema,
   data: z.array(MeetingRequestForm$inboundSchema),
 });
 

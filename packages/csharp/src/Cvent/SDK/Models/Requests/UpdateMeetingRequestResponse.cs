@@ -22,6 +22,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// Meeting request was successfully updated.
         /// </summary>
-        public List<MeetingRequestBulkResponseItemJson>? MeetingRequestBulkResponse { get; set; }
+        public List<MeetingRequestBulkResponseItem>? MeetingRequestBulkResponse { get; set; }
     }
 }

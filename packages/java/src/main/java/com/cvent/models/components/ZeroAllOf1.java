@@ -5,11 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
@@ -17,62 +14,39 @@ import java.util.Optional;
 /**
  * ZeroAllOf1
  *
- * <p>Represents an error response with no additional details.
+ * <p>Details of a location.
  */
 public class ZeroAllOf1 {
     /**
-     * The HTTP status code representing the error.
+     * The unique ID representing the location.
      */
-    @JsonProperty("code")
-    private long code;
+    @JsonProperty("id")
+    private String id;
 
     /**
-     * A brief description of the error.
+     * The name of the location.
      */
-    @JsonProperty("message")
-    private String message;
-
-    /**
-     * The target resource of the error.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("target")
-    private String target;
+    @JsonProperty("name")
+    private String name;
 
     @JsonCreator
-    public ZeroAllOf1(
-            @JsonProperty("code") long code,
-            @JsonProperty("message") @Nonnull String message,
-            @JsonProperty("target") @Nullable String target) {
-        this.code = code;
-        this.message =
-                Optional.ofNullable(message).orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
-        this.target = target;
-    }
-
-    public ZeroAllOf1(long code, @Nonnull String message) {
-        this(code, message, null);
+    public ZeroAllOf1(@JsonProperty("id") @Nonnull String id, @JsonProperty("name") @Nonnull String name) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
     }
 
     /**
-     * The HTTP status code representing the error.
+     * The unique ID representing the location.
      */
-    public long code() {
-        return this.code;
+    public String id() {
+        return this.id;
     }
 
     /**
-     * A brief description of the error.
+     * The name of the location.
      */
-    public String message() {
-        return this.message;
-    }
-
-    /**
-     * The target resource of the error.
-     */
-    public Optional<String> target() {
-        return Optional.ofNullable(this.target);
+    public String name() {
+        return this.name;
     }
 
     public static Builder builder() {
@@ -80,26 +54,18 @@ public class ZeroAllOf1 {
     }
 
     /**
-     * The HTTP status code representing the error.
+     * The unique ID representing the location.
      */
-    public ZeroAllOf1 withCode(long code) {
-        this.code = code;
+    public ZeroAllOf1 withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
         return this;
     }
 
     /**
-     * A brief description of the error.
+     * The name of the location.
      */
-    public ZeroAllOf1 withMessage(@Nonnull String message) {
-        this.message = Utils.checkNotNull(message, "message");
-        return this;
-    }
-
-    /**
-     * The target resource of the error.
-     */
-    public ZeroAllOf1 withTarget(@Nullable String target) {
-        this.target = target;
+    public ZeroAllOf1 withName(@Nonnull String name) {
+        this.name = Utils.checkNotNull(name, "name");
         return this;
     }
 
@@ -112,60 +78,48 @@ public class ZeroAllOf1 {
             return false;
         }
         ZeroAllOf1 other = (ZeroAllOf1) o;
-        return Utils.enhancedDeepEquals(this.code, other.code)
-                && Utils.enhancedDeepEquals(this.message, other.message)
-                && Utils.enhancedDeepEquals(this.target, other.target);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.name, other.name);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(code, message, target);
+        return Utils.enhancedHash(id, name);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(ZeroAllOf1.class, "code", code, "message", message, "target", target);
+        return Utils.toString(ZeroAllOf1.class, "id", id, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private long code;
+        private String id;
 
-        private String message;
-
-        private String target;
+        private String name;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The HTTP status code representing the error.
+         * The unique ID representing the location.
          */
-        public Builder code(long code) {
-            this.code = code;
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
             return this;
         }
 
         /**
-         * A brief description of the error.
+         * The name of the location.
          */
-        public Builder message(@Nonnull String message) {
-            this.message = Utils.checkNotNull(message, "message");
-            return this;
-        }
-
-        /**
-         * The target resource of the error.
-         */
-        public Builder target(@Nullable String target) {
-            this.target = target;
+        public Builder name(@Nonnull String name) {
+            this.name = Utils.checkNotNull(name, "name");
             return this;
         }
 
         public ZeroAllOf1 build() {
-            return new ZeroAllOf1(code, message, target);
+            return new ZeroAllOf1(id, name);
         }
     }
 }

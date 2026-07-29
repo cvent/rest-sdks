@@ -22,12 +22,12 @@ namespace Cvent.SDK.Models.Components
         /// The event in which this activity occurred.
         /// </summary>
         [JsonProperty("event")]
-        public ActivityDataJsonEvent9? Event { get; set; }
+        public ActivityDataEvent6? Event { get; set; }
 
         /// <summary>
         /// This is used to denote the status of an attendee.
         /// </summary>
         [JsonProperty("status")]
-        public AttendeeStatusJson? Status { get; set; }
+        public AttendeeStatus? Status { get; set; }
     }
 }

@@ -68,8 +68,8 @@ BulkJobWithDataInput req = new BulkJobWithDataInput() {
         { "param1", "param1Value" },
         { "param2", "param2Value" },
     },
-    Data = new List<BulkDataPropertyJson>() {
-        new BulkDataPropertyJson() {
+    Data = new List<BulkDataProperty>() {
+        new BulkDataProperty() {
             PathParams = new Dictionary<string, string>() {
                 { "id", "11111111-0dc3-487b-953e-86d6abbdf7d3" },
             },
@@ -81,12 +81,12 @@ BulkJobWithDataInput req = new BulkJobWithDataInput() {
                 { "header1", "header1Value" },
                 { "header2", "header2Value" },
             },
-            DataRecord = new Dictionary<string, BulkDataRecordJson>() {
-                { "event", new BulkDataRecordJson() {} },
-                { "title", new BulkDataRecordJson() {} },
-                { "start", new BulkDataRecordJson() {} },
-                { "end", new BulkDataRecordJson() {} },
-                { "status", new BulkDataRecordJson() {} },
+            DataRecord = new Dictionary<string, BulkDataRecord>() {
+                { "event", new BulkDataRecord() {} },
+                { "title", new BulkDataRecord() {} },
+                { "start", new BulkDataRecord() {} },
+                { "end", new BulkDataRecord() {} },
+                { "status", new BulkDataRecord() {} },
             },
         },
     },
@@ -240,8 +240,8 @@ var sdk = new CventSDK(security: new Security() {
 UploadBulkJobDataRequest req = new UploadBulkJobDataRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     BulkData = new BulkData() {
-        Data = new List<BulkDataPropertyJson>() {
-            new BulkDataPropertyJson() {
+        Data = new List<BulkDataProperty>() {
+            new BulkDataProperty() {
                 PathParams = new Dictionary<string, string>() {
                     { "id", "11111111-0dc3-487b-953e-86d6abbdf7d3" },
                 },
@@ -253,12 +253,12 @@ UploadBulkJobDataRequest req = new UploadBulkJobDataRequest() {
                     { "header1", "header1Value" },
                     { "header2", "header2Value" },
                 },
-                DataRecord = new Dictionary<string, BulkDataRecordJson>() {
-                    { "event", new BulkDataRecordJson() {} },
-                    { "title", new BulkDataRecordJson() {} },
-                    { "start", new BulkDataRecordJson() {} },
-                    { "end", new BulkDataRecordJson() {} },
-                    { "status", new BulkDataRecordJson() {} },
+                DataRecord = new Dictionary<string, BulkDataRecord>() {
+                    { "event", new BulkDataRecord() {} },
+                    { "title", new BulkDataRecord() {} },
+                    { "start", new BulkDataRecord() {} },
+                    { "end", new BulkDataRecord() {} },
+                    { "status", new BulkDataRecord() {} },
                 },
             },
         },
@@ -290,7 +290,14 @@ var res = await sdk.Bulk.UploadBulkJobDataAsync(req);
 
 ## ListBulkJobResult
 
-Used to list the results of a bulk Job.
+Used to list the results of a bulk job.
+
+**Note:** A bulk job is designed to wrap individual, non-batch API operations. When a target operation
+is itself batch in nature and returns a `207 Multi-Status` response, the `failed` flag on each result record
+reflects only whether the target operation returned an HTTP error — it does not capture partial item-level
+failures within the multi-status response body. For these operations, inspect each result record's `data` field
+to determine which items succeeded or failed.
+
 
 ### Example Usage
 

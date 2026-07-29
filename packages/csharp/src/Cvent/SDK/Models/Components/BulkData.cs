@@ -23,6 +23,6 @@ namespace Cvent.SDK.Models.Components
         /// Collection of objects to be processed.
         /// </summary>
         [JsonProperty("data")]
-        public List<BulkDataPropertyJson>? Data { get; set; }
+        public List<BulkDataProperty>? Data { get; set; }
     }
 }

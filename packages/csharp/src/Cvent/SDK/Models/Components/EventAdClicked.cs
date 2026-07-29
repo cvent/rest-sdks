@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// The event in which this activity occurred.
         /// </summary>
         [JsonProperty("event")]
-        public ActivityDataJsonEvent11? Event { get; set; }
+        public ActivityDataEvent8? Event { get; set; }
 
         /// <summary>
         /// The platform used by the user.
@@ -34,6 +34,6 @@ namespace Cvent.SDK.Models.Components
         /// The details of the advertisement.
         /// </summary>
         [JsonProperty("ad")]
-        public ActivityAdJson? Ad { get; set; }
+        public ActivityAd? Ad { get; set; }
     }
 }

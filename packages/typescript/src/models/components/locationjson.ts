@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { ZeroAllOf2, ZeroAllOf2$inboundSchema } from "./zeroallof2.js";
+import { ZeroAllOf1, ZeroAllOf1$inboundSchema } from "./zeroallof1.js";
 
 /**
  * Details of a location.
@@ -23,7 +23,7 @@ export type LocationJson = {
   /**
    * Details of a location.
    */
-  parentLocation?: ZeroAllOf2 | undefined;
+  parentLocation?: ZeroAllOf1 | undefined;
   /**
    * The number of attendees that can be accommodated in this location. -1 indicates unlimited capacity.
    */
@@ -38,7 +38,7 @@ export const LocationJson$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   name: z.string(),
-  parentLocation: ZeroAllOf2$inboundSchema.optional(),
+  parentLocation: ZeroAllOf1$inboundSchema.optional(),
   capacity: z.number().int().optional(),
 });
 

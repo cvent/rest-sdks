@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BulkDataPropertyJson,
-  BulkDataPropertyJson$inboundSchema,
-} from "./bulkdatapropertyjson.js";
+  BulkDataProperty,
+  BulkDataProperty$inboundSchema,
+} from "./bulkdataproperty.js";
 
 /**
  * The model representing the results of a bulk data upload
@@ -18,7 +18,7 @@ export type BulkDataUploadResponse = {
   /**
    * Collection of objects to be processed
    */
-  data?: Array<BulkDataPropertyJson> | undefined;
+  data?: Array<BulkDataProperty> | undefined;
   /**
    * The number of successfully uploaded data records
    */
@@ -31,7 +31,7 @@ export const BulkDataUploadResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(BulkDataPropertyJson$inboundSchema).optional(),
+  data: z.array(BulkDataProperty$inboundSchema).optional(),
   count: z.number().int().optional(),
 });
 

@@ -78,8 +78,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Was not able to process the request. Thrown when the API returns a 422 response.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404, 422 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<GetMRFByIdResponse> GetMRFByIdAsync(GetMRFByIdRequest request, RetryConfig? retryConfig = null);
 
@@ -573,8 +572,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Was not able to process the request. Thrown when the API returns a 422 response.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404, 422 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<GetMRFByIdResponse> GetMRFByIdAsync(
             GetMRFByIdRequest request,
@@ -696,27 +694,7 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if (responseStatusCode == 422)
-            {
-                if (Utilities.IsContentTypeMatch("application/json", contentType))
-                {
-                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
-                    try
-                    {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
-                    }
-
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
-                }
-
-                throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
-            }
-            else if (new List<int> { 401, 403, 404, 429 }.Contains(responseStatusCode))
+            else if (new List<int> { 401, 403, 404, 422, 429 }.Contains(responseStatusCode))
             {
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
@@ -869,14 +847,14 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    List<MeetingRequestBulkResponseItemJson> obj;
+                    List<MeetingRequestBulkResponseItem> obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<List<MeetingRequestBulkResponseItemJson>>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<List<MeetingRequestBulkResponseItem>>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into List<MeetingRequestBulkResponseItemJson>.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into List<MeetingRequestBulkResponseItem>.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new CreateMeetingRequestResponse() {
@@ -1044,14 +1022,14 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    List<MeetingRequestBulkResponseItemJson> obj;
+                    List<MeetingRequestBulkResponseItem> obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<List<MeetingRequestBulkResponseItemJson>>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<List<MeetingRequestBulkResponseItem>>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into List<MeetingRequestBulkResponseItemJson>.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into List<MeetingRequestBulkResponseItem>.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new UpdateMeetingRequestResponse() {

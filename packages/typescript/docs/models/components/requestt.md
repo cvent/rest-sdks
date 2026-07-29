@@ -5,10 +5,10 @@ The processed request tied to this response. This field is only sent when proces
 
 ## Supported Types
 
-### `components.MeetingRequestBulkResponseItemJsonRequest`
+### `components.MeetingRequestBulkResponseItemRequest`
 
 ```typescript
-const value: components.MeetingRequestBulkResponseItemJsonRequest = {};
+const value: components.MeetingRequestBulkResponseItemRequest = {};
 ```
 
 ### `string`

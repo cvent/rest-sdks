@@ -250,14 +250,15 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.*;
+import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.SegmentsErrorResponse;
 import com.cvent.models.operations.CreateAudienceSegmentResponse;
 import java.lang.Exception;
 import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws SegmentsErrorResponse, ErrorResponse, ErrorResponse1, Exception {
+    public static void main(String[] args) throws SegmentsErrorResponse, ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -304,8 +305,7 @@ public class Application {
 | Error Type                          | Status Code                         | Content Type                        |
 | ----------------------------------- | ----------------------------------- | ----------------------------------- |
 | models/errors/SegmentsErrorResponse | 400                                 | application/json                    |
-| models/errors/ErrorResponse         | 422                                 | application/json                    |
-| models/errors/ErrorResponse1        | 401, 403, 429                       | application/json                    |
+| models/errors/ErrorResponse1        | 401, 403, 422, 429                  | application/json                    |
 | models/errors/APIException          | 4XX, 5XX                            | \*/\*                               |
 
 ## listAudienceSegments
@@ -551,7 +551,6 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
 import com.cvent.models.errors.ErrorResponse1;
-import com.cvent.models.errors.ErrorResponse;
 import com.cvent.models.operations.UpdateAudienceSegmentRequest;
 import com.cvent.models.operations.UpdateAudienceSegmentResponse;
 import java.lang.Exception;
@@ -559,7 +558,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -608,8 +607,7 @@ public class Application {
 
 | Error Type                   | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse  | 422                          | application/json             |
-| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 422, 429 | application/json             |
 | models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## deleteAudienceSegment
@@ -771,7 +769,8 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.*;
+import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.SegmentsErrorResponse;
 import com.cvent.models.operations.AssociateAttendeeToSegmentRequest;
 import com.cvent.models.operations.AssociateAttendeeToSegmentResponse;
 import java.lang.Exception;
@@ -779,7 +778,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws SegmentsErrorResponse, ErrorResponse, ErrorResponse1, Exception {
+    public static void main(String[] args) throws SegmentsErrorResponse, ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -821,8 +820,7 @@ public class Application {
 | Error Type                          | Status Code                         | Content Type                        |
 | ----------------------------------- | ----------------------------------- | ----------------------------------- |
 | models/errors/SegmentsErrorResponse | 400                                 | application/json                    |
-| models/errors/ErrorResponse         | 422                                 | application/json                    |
-| models/errors/ErrorResponse1        | 401, 403, 404, 429                  | application/json                    |
+| models/errors/ErrorResponse1        | 401, 403, 404, 422, 429             | application/json                    |
 | models/errors/APIException          | 4XX, 5XX                            | \*/\*                               |
 
 ## disassociateAttendeeFromAudienceSegment

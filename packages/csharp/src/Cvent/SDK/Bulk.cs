@@ -136,7 +136,13 @@ namespace Cvent.SDK
         /// List Bulk Job Result.
         /// </summary>
         /// <remarks>
-        /// Used to list the results of a bulk Job.
+        /// Used to list the results of a bulk job.<br/>
+        /// <br/>
+        /// **Note:** A bulk job is designed to wrap individual, non-batch API operations. When a target operation<br/>
+        /// is itself batch in nature and returns a `207 Multi-Status` response, the `failed` flag on each result record<br/>
+        /// reflects only whether the target operation returned an HTTP error — it does not capture partial item-level<br/>
+        /// failures within the multi-status response body. For these operations, inspect each result record's `data` field<br/>
+        /// to determine which items succeeded or failed.
         /// </remarks>
         /// <param name="request">A <see cref="ListBulkJobResultRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -934,7 +940,13 @@ namespace Cvent.SDK
         /// List Bulk Job Result.
         /// </summary>
         /// <remarks>
-        /// Used to list the results of a bulk Job.
+        /// Used to list the results of a bulk job.<br/>
+        /// <br/>
+        /// **Note:** A bulk job is designed to wrap individual, non-batch API operations. When a target operation<br/>
+        /// is itself batch in nature and returns a `207 Multi-Status` response, the `failed` flag on each result record<br/>
+        /// reflects only whether the target operation returned an HTTP error — it does not capture partial item-level<br/>
+        /// failures within the multi-status response body. For these operations, inspect each result record's `data` field<br/>
+        /// to determine which items succeeded or failed.
         /// </remarks>
         /// <param name="request">A <see cref="ListBulkJobResultRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

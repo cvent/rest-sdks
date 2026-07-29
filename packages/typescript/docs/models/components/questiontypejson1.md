@@ -1,17 +1,17 @@
 # QuestionTypeJson1
 
-Question Type.
+This object represents the type of a question
 
 ## Example Usage
 
 ```typescript
 import { QuestionTypeJson1 } from "@cvent/sdk/models/components";
 
-let value: QuestionTypeJson1 = "SingleChoice";
+let value: QuestionTypeJson1 = "MatrixMultiPerRow";
 ```
 
 ## Values
 
 ```typescript
-"SingleChoice" | "MultiChoice" | "MatrixSingleChoice" | "MatrixMultiChoice" | "MatrixSideBySide" | "MatrixSpreadSheet" | "DateTime" | "Number" | "Text" | "CommentBox" | "Form" | "RankOrder" | "FileUpload" | "NetPromoter" | "Rating" | "MatrixRating" | "NumberAllocation" | "LargeChoices"
+"SingleChoice" | "MultiChoice" | "OpenEndedDateTime" | "OpenEndedTextOneLine" | "OpenEndedTextCommentBox" | "OpenEndedNumeric" | "FileUpload" | "MatrixSinglePerRow" | "MatrixMultiPerRow"
 ```

@@ -23,18 +23,18 @@ public class EventRoleAssignmentsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * A collection of event role assignments.
      */
     @JsonProperty("data")
-    private List<EventRoleAssignmentJson> data;
+    private List<EventRoleAssignment> data;
 
     @JsonCreator
     public EventRoleAssignmentsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<EventRoleAssignmentJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<EventRoleAssignment> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -43,14 +43,14 @@ public class EventRoleAssignmentsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * A collection of event role assignments.
      */
-    public List<EventRoleAssignmentJson> data() {
+    public List<EventRoleAssignment> data() {
         return this.data;
     }
 
@@ -61,7 +61,7 @@ public class EventRoleAssignmentsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public EventRoleAssignmentsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public EventRoleAssignmentsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -69,7 +69,7 @@ public class EventRoleAssignmentsPaginatedResponse {
     /**
      * A collection of event role assignments.
      */
-    public EventRoleAssignmentsPaginatedResponse withData(@Nonnull List<EventRoleAssignmentJson> data) {
+    public EventRoleAssignmentsPaginatedResponse withData(@Nonnull List<EventRoleAssignment> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -99,9 +99,9 @@ public class EventRoleAssignmentsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<EventRoleAssignmentJson> data;
+        private List<EventRoleAssignment> data;
 
         private Builder() {
             // force use of static builder() method
@@ -110,7 +110,7 @@ public class EventRoleAssignmentsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -118,7 +118,7 @@ public class EventRoleAssignmentsPaginatedResponse {
         /**
          * A collection of event role assignments.
          */
-        public Builder data(@Nonnull List<EventRoleAssignmentJson> data) {
+        public Builder data(@Nonnull List<EventRoleAssignment> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

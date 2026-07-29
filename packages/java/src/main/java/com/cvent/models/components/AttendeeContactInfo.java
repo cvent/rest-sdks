@@ -237,7 +237,7 @@ public class AttendeeContactInfo {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customFields")
-    private List<CustomFieldSchema> customFields;
+    private List<CustomFieldSchema1> customFields;
 
     /**
      * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
@@ -354,7 +354,7 @@ public class AttendeeContactInfo {
             @JsonProperty("workPhone") @Nullable String workPhone,
             @JsonProperty("workFax") @Nullable String workFax,
             @JsonProperty("optOut") @Nullable OptOut optOut,
-            @JsonProperty("customFields") @Nullable List<CustomFieldSchema> customFields,
+            @JsonProperty("customFields") @Nullable List<CustomFieldSchema1> customFields,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("mobilePhone") @Nullable String mobilePhone,
             @JsonProperty("compliance") @Nullable List<Compliance> compliance,
@@ -659,7 +659,7 @@ public class AttendeeContactInfo {
     /**
      * Collection of custom fields.
      */
-    public Optional<List<CustomFieldSchema>> customFields() {
+    public Optional<List<CustomFieldSchema1>> customFields() {
         return Optional.ofNullable(this.customFields);
     }
 
@@ -990,7 +990,7 @@ public class AttendeeContactInfo {
     /**
      * Collection of custom fields.
      */
-    public AttendeeContactInfo withCustomFields(@Nullable List<CustomFieldSchema> customFields) {
+    public AttendeeContactInfo withCustomFields(@Nullable List<CustomFieldSchema1> customFields) {
         this.customFields = customFields;
         return this;
     }
@@ -1327,7 +1327,7 @@ public class AttendeeContactInfo {
 
         private OptOut optOut;
 
-        private List<CustomFieldSchema> customFields;
+        private List<CustomFieldSchema1> customFields;
 
         private String sourceId;
 
@@ -1593,7 +1593,7 @@ public class AttendeeContactInfo {
         /**
          * Collection of custom fields.
          */
-        public Builder customFields(@Nullable List<CustomFieldSchema> customFields) {
+        public Builder customFields(@Nullable List<CustomFieldSchema1> customFields) {
             this.customFields = customFields;
             return this;
         }

@@ -7,64 +7,48 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ReconciliationStatusJson,
-  ReconciliationStatusJson$inboundSchema,
-} from "./reconciliationstatusjson.js";
+  HousingEventStatusesJson,
+  HousingEventStatusesJson$inboundSchema,
+} from "./housingeventstatusesjson.js";
+import { VenueJson1, VenueJson1$inboundSchema } from "./venuejson1.js";
 
 /**
- * The identifier of reconciled budget item.
- */
-export type BudgetItemAllOf = {
-  /**
-   * The budget item ID.
-   */
-  id?: string | undefined;
-};
-
-/**
- * A transaction reconciliation record.
+ * Information about housing event with key information, providing a summarized view.
  */
 export type ZeroAllOf6 = {
   /**
-   * The identifier of reconciled budget item.
+   * The unique ID of the housing event.
    */
-  budgetItem?: BudgetItemAllOf | undefined;
+  id: number;
   /**
-   * This is used to denote the reconciliation status for a transaction.
+   * Event name.
    */
-  status?: ReconciliationStatusJson | undefined;
+  name: string;
   /**
-   * Reconciliation amount.
+   * The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder days.
    */
-  amount?: number | undefined;
+  start: Date;
   /**
-   * Reconciled by user.
+   * The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.
    */
-  reconciledBy?: string | undefined;
+  end: Date;
   /**
-   * The ISO 8601 zoned date and time for Reconciled date.
+   * The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable business rules, like releasing reserved room blocks back to general availability.
    */
-  reconciledDate?: Date | undefined;
+  cutOff: Date;
+  /**
+   * The event timezone from the Olson specification.
+   */
+  timeZone: string;
+  /**
+   * Event venue details.
+   */
+  venue: VenueJson1;
+  /**
+   * Housing event status.
+   */
+  status: HousingEventStatusesJson;
 };
-
-/** @internal */
-export const BudgetItemAllOf$inboundSchema: z.ZodType<
-  BudgetItemAllOf,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string().optional(),
-});
-
-export function budgetItemAllOfFromJSON(
-  jsonString: string,
-): SafeParseResult<BudgetItemAllOf, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BudgetItemAllOf$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BudgetItemAllOf' from JSON`,
-  );
-}
 
 /** @internal */
 export const ZeroAllOf6$inboundSchema: z.ZodType<
@@ -72,13 +56,14 @@ export const ZeroAllOf6$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  budgetItem: z.lazy(() => BudgetItemAllOf$inboundSchema).optional(),
-  status: ReconciliationStatusJson$inboundSchema.optional(),
-  amount: z.number().optional(),
-  reconciledBy: z.string().optional(),
-  reconciledDate: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
-  ).optional(),
+  id: z.number().int(),
+  name: z.string(),
+  start: z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  end: z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  cutOff: z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  timeZone: z.string(),
+  venue: VenueJson1$inboundSchema,
+  status: HousingEventStatusesJson$inboundSchema,
 });
 
 export function zeroAllOf6FromJSON(

@@ -25,7 +25,7 @@ public class EventCheckedIn {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private ActivityDataJsonEvent2 event;
+    private ActivityDataEvent1 event;
 
     /**
      * ISO 8601 date and time when an attendee checked in to an event.
@@ -36,7 +36,7 @@ public class EventCheckedIn {
 
     @JsonCreator
     public EventCheckedIn(
-            @JsonProperty("event") @Nullable ActivityDataJsonEvent2 event,
+            @JsonProperty("event") @Nullable ActivityDataEvent1 event,
             @JsonProperty("checkedIn") @Nullable OffsetDateTime checkedIn) {
         this.event = event;
         this.checkedIn = checkedIn;
@@ -49,7 +49,7 @@ public class EventCheckedIn {
     /**
      * The event in which this activity occurred.
      */
-    public Optional<ActivityDataJsonEvent2> event() {
+    public Optional<ActivityDataEvent1> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -67,7 +67,7 @@ public class EventCheckedIn {
     /**
      * The event in which this activity occurred.
      */
-    public EventCheckedIn withEvent(@Nullable ActivityDataJsonEvent2 event) {
+    public EventCheckedIn withEvent(@Nullable ActivityDataEvent1 event) {
         this.event = event;
         return this;
     }
@@ -106,7 +106,7 @@ public class EventCheckedIn {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ActivityDataJsonEvent2 event;
+        private ActivityDataEvent1 event;
 
         private OffsetDateTime checkedIn;
 
@@ -117,7 +117,7 @@ public class EventCheckedIn {
         /**
          * The event in which this activity occurred.
          */
-        public Builder event(@Nullable ActivityDataJsonEvent2 event) {
+        public Builder event(@Nullable ActivityDataEvent1 event) {
             this.event = event;
             return this;
         }

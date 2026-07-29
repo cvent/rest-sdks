@@ -17,6 +17,12 @@ import java.util.Optional;
 
 public class GetEventFeaturesRequest {
     /**
+     * Unique Id of an event
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
+    private String id;
+
+    /**
      * The maximum number of records to return per page.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=limit")
@@ -49,28 +55,29 @@ public class GetEventFeaturesRequest {
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
 
-    /**
-     * Unique Id of an event
-     */
-    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
-    private String id;
-
     @JsonCreator
     public GetEventFeaturesRequest(
+            @Nonnull String id,
             @Nullable Long limit,
             @Nullable String token,
             @Nullable String locale,
-            @Nullable String filter,
-            @Nonnull String id) {
+            @Nullable String filter) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.locale = locale;
         this.filter = filter;
-        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     public GetEventFeaturesRequest(@Nonnull String id) {
-        this(null, null, null, null, id);
+        this(id, null, null, null, null);
+    }
+
+    /**
+     * Unique Id of an event
+     */
+    public String id() {
+        return this.id;
     }
 
     /**
@@ -110,15 +117,16 @@ public class GetEventFeaturesRequest {
         return Optional.ofNullable(this.filter);
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     /**
      * Unique Id of an event
      */
-    public String id() {
-        return this.id;
-    }
-
-    public static Builder builder() {
-        return new Builder();
+    public GetEventFeaturesRequest withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
+        return this;
     }
 
     /**
@@ -162,14 +170,6 @@ public class GetEventFeaturesRequest {
         return this;
     }
 
-    /**
-     * Unique Id of an event
-     */
-    public GetEventFeaturesRequest withId(@Nonnull String id) {
-        this.id = Utils.checkNotNull(id, "id");
-        return this;
-    }
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -179,22 +179,24 @@ public class GetEventFeaturesRequest {
             return false;
         }
         GetEventFeaturesRequest other = (GetEventFeaturesRequest) o;
-        return Utils.enhancedDeepEquals(this.limit, other.limit)
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
                 && Utils.enhancedDeepEquals(this.token, other.token)
                 && Utils.enhancedDeepEquals(this.locale, other.locale)
-                && Utils.enhancedDeepEquals(this.filter, other.filter)
-                && Utils.enhancedDeepEquals(this.id, other.id);
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(limit, token, locale, filter, id);
+        return Utils.enhancedHash(id, limit, token, locale, filter);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
                 GetEventFeaturesRequest.class,
+                "id",
+                id,
                 "limit",
                 limit,
                 "token",
@@ -202,13 +204,13 @@ public class GetEventFeaturesRequest {
                 "locale",
                 locale,
                 "filter",
-                filter,
-                "id",
-                id);
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
+
+        private String id;
 
         private Long limit;
 
@@ -218,10 +220,16 @@ public class GetEventFeaturesRequest {
 
         private String filter;
 
-        private String id;
-
         private Builder() {
             // force use of static builder() method
+        }
+
+        /**
+         * Unique Id of an event
+         */
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
+            return this;
         }
 
         /**
@@ -265,16 +273,8 @@ public class GetEventFeaturesRequest {
             return this;
         }
 
-        /**
-         * Unique Id of an event
-         */
-        public Builder id(@Nonnull String id) {
-            this.id = Utils.checkNotNull(id, "id");
-            return this;
-        }
-
         public GetEventFeaturesRequest build() {
-            return new GetEventFeaturesRequest(limit, token, locale, filter, id);
+            return new GetEventFeaturesRequest(id, limit, token, locale, filter);
         }
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =

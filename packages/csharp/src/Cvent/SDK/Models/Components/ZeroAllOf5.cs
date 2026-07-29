@@ -13,20 +13,32 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The question that was answered.
+    /// Represents an error response for the checkin APIs that includes a unique id.
     /// </summary>
     public class ZeroAllOf5
     {
         /// <summary>
-        /// The unique identifier of the question.
+        /// The unique identifier for the error response.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Question text.
+        /// The HTTP status code representing the error.
         /// </summary>
-        [JsonProperty("text")]
-        public string? Text { get; set; }
+        [JsonProperty("code")]
+        public long Code { get; set; } = default!;
+
+        /// <summary>
+        /// A brief description of the error.
+        /// </summary>
+        [JsonProperty("message")]
+        public string Message { get; set; } = default!;
+
+        /// <summary>
+        /// The target resource of the error.
+        /// </summary>
+        [JsonProperty("target")]
+        public string? Target { get; set; }
     }
 }

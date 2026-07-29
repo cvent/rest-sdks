@@ -66,7 +66,7 @@ namespace Cvent.SDK.Models.Components
         /// List of answers.
         /// </summary>
         [JsonProperty("answers")]
-        public List<Answer2> Answers { get; set; } = default!;
+        public List<Answer22> Answers { get; set; } = default!;
 
         /// <summary>
         /// Exhibitor Answer id.

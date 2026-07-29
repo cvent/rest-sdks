@@ -11,6 +11,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetHotelRequestsRequest = {
   /**
+   * ID of an event.
+   */
+  id: string;
+  /**
    * Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
    */
   after?: Date | undefined;
@@ -71,10 +75,6 @@ export type GetHotelRequestsRequest = {
    * * or
    */
   filter?: string | undefined;
-  /**
-   * ID of an event.
-   */
-  id: string;
 };
 
 export type GetHotelRequestsResponse = {
@@ -83,6 +83,7 @@ export type GetHotelRequestsResponse = {
 
 /** @internal */
 export type GetHotelRequestsRequest$Outbound = {
+  id: string;
   after?: string | undefined;
   before?: string | undefined;
   limit: number;
@@ -90,7 +91,6 @@ export type GetHotelRequestsRequest$Outbound = {
   expand?: Array<string> | undefined;
   sort?: string | undefined;
   filter?: string | undefined;
-  id: string;
 };
 
 /** @internal */
@@ -99,6 +99,7 @@ export const GetHotelRequestsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetHotelRequestsRequest
 > = z.object({
+  id: z.string(),
   after: z.date().transform(v => v.toISOString()).optional(),
   before: z.date().transform(v => v.toISOString()).optional(),
   limit: z.number().int().default(100),
@@ -107,7 +108,6 @@ export const GetHotelRequestsRequest$outboundSchema: z.ZodType<
     .optional(),
   sort: z.string().optional(),
   filter: z.string().optional(),
-  id: z.string(),
 });
 
 export function getHotelRequestsRequestToJSON(

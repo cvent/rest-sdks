@@ -47,6 +47,6 @@ namespace Cvent.SDK.Models.Components
         /// The list of questions that will need to be answered by someone creating a meeting request from this form.
         /// </summary>
         [JsonProperty("questions")]
-        public List<MeetingRequestCustomFieldJson>? Questions { get; set; }
+        public List<CustomFieldSchema2>? Questions { get; set; }
     }
 }

@@ -34,7 +34,7 @@ namespace Cvent.SDK.Models.Components
         /// Details of a location.
         /// </summary>
         [JsonProperty("parentLocation")]
-        public ZeroAllOf2? ParentLocation { get; set; }
+        public ZeroAllOf1? ParentLocation { get; set; }
 
         /// <summary>
         /// The number of attendees that can be accommodated in this location. -1 indicates unlimited capacity.

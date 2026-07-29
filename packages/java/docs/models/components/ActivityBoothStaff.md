@@ -1,8 +1,6 @@
-# ~~ActivityBoothStaff~~
+# ActivityBoothStaff
 
-Booth staff for the lead.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+Booth staff for an activity.
 
 
 ## Fields

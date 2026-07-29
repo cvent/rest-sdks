@@ -14,29 +14,28 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Denotes the type of data collected by a question.
+    /// Question Type.
     /// </summary>
     public enum QuestionTypeJson
     {
-        [JsonProperty("AutoIncrement")] AutoIncrement,
-        [JsonProperty("BudgetEstimates")] BudgetEstimates,
-        [JsonProperty("ConsentQuestion")] ConsentQuestion,
-        [JsonProperty("Country")] Country,
-        [JsonProperty("Currency")] Currency,
-        [JsonProperty("Decimal")] Decimal,
-        [JsonProperty("Date")] Date,
+        [JsonProperty("SingleChoice")] SingleChoice,
+        [JsonProperty("MultiChoice")] MultiChoice,
+        [JsonProperty("MatrixSingleChoice")] MatrixSingleChoice,
+        [JsonProperty("MatrixMultiChoice")] MatrixMultiChoice,
+        [JsonProperty("MatrixSideBySide")] MatrixSideBySide,
+        [JsonProperty("MatrixSpreadSheet")] MatrixSpreadSheet,
         [JsonProperty("DateTime")] DateTime,
-        [JsonProperty("Email")] Email,
-        [JsonProperty("FileUpload")] FileUpload,
-        [JsonProperty("FreeText")] FreeText,
-        [JsonProperty("General")] General,
         [JsonProperty("Number")] Number,
-        [JsonProperty("MeetingRoomRequirements")] MeetingRoomRequirements,
-        [JsonProperty("MultiSelect")] MultiSelect,
-        [JsonProperty("SingleSelect")] SingleSelect,
-        [JsonProperty("SleepingRoomRequirements")] SleepingRoomRequirements,
-        [JsonProperty("USPhoneNumber")] USPhoneNumber,
-        [JsonProperty("Unknown")] Unknown,
+        [JsonProperty("Text")] Text,
+        [JsonProperty("CommentBox")] CommentBox,
+        [JsonProperty("Form")] Form,
+        [JsonProperty("RankOrder")] RankOrder,
+        [JsonProperty("FileUpload")] FileUpload,
+        [JsonProperty("NetPromoter")] NetPromoter,
+        [JsonProperty("Rating")] Rating,
+        [JsonProperty("MatrixRating")] MatrixRating,
+        [JsonProperty("NumberAllocation")] NumberAllocation,
+        [JsonProperty("LargeChoices")] LargeChoices,
     }
 
     public static class QuestionTypeJsonExtension

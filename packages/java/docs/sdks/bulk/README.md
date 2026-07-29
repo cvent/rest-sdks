@@ -80,17 +80,17 @@ public class Application {
                     Map.entry("param1", "param1Value"),
                     Map.entry("param2", "param2Value")))
                 .data(List.of(
-                    BulkDataPropertyJson.builder()
+                    BulkDataProperty.builder()
                         .dataRecord(Map.ofEntries(
-                            Map.entry("event", BulkDataRecordJson.builder()
+                            Map.entry("event", BulkDataRecord.builder()
                                 .build()),
-                            Map.entry("title", BulkDataRecordJson.builder()
+                            Map.entry("title", BulkDataRecord.builder()
                                 .build()),
-                            Map.entry("start", BulkDataRecordJson.builder()
+                            Map.entry("start", BulkDataRecord.builder()
                                 .build()),
-                            Map.entry("end", BulkDataRecordJson.builder()
+                            Map.entry("end", BulkDataRecord.builder()
                                 .build()),
-                            Map.entry("status", BulkDataRecordJson.builder()
+                            Map.entry("status", BulkDataRecord.builder()
                                 .build())))
                         .pathParams(Map.ofEntries(
                             Map.entry("id", "11111111-0dc3-487b-953e-86d6abbdf7d3")))
@@ -309,17 +309,17 @@ public class Application {
                 .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                 .bulkData(BulkData.builder()
                     .data(List.of(
-                        BulkDataPropertyJson.builder()
+                        BulkDataProperty.builder()
                             .dataRecord(Map.ofEntries(
-                                Map.entry("event", BulkDataRecordJson.builder()
+                                Map.entry("event", BulkDataRecord.builder()
                                     .build()),
-                                Map.entry("title", BulkDataRecordJson.builder()
+                                Map.entry("title", BulkDataRecord.builder()
                                     .build()),
-                                Map.entry("start", BulkDataRecordJson.builder()
+                                Map.entry("start", BulkDataRecord.builder()
                                     .build()),
-                                Map.entry("end", BulkDataRecordJson.builder()
+                                Map.entry("end", BulkDataRecord.builder()
                                     .build()),
-                                Map.entry("status", BulkDataRecordJson.builder()
+                                Map.entry("status", BulkDataRecord.builder()
                                     .build())))
                             .pathParams(Map.ofEntries(
                                 Map.entry("id", "11111111-0dc3-487b-953e-86d6abbdf7d3")))
@@ -364,7 +364,14 @@ public class Application {
 
 ## listBulkJobResult
 
-Used to list the results of a bulk Job.
+Used to list the results of a bulk job.
+
+**Note:** A bulk job is designed to wrap individual, non-batch API operations. When a target operation
+is itself batch in nature and returns a `207 Multi-Status` response, the `failed` flag on each result record
+reflects only whether the target operation returned an HTTP error — it does not capture partial item-level
+failures within the multi-status response body. For these operations, inspect each result record's `data` field
+to determine which items succeeded or failed.
+
 
 ### Example Usage
 

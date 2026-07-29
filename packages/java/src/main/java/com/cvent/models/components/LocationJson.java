@@ -38,7 +38,7 @@ public class LocationJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("parentLocation")
-    private ZeroAllOf2 parentLocation;
+    private ZeroAllOf1 parentLocation;
 
     /**
      * The number of attendees that can be accommodated in this location. -1 indicates unlimited capacity.
@@ -51,7 +51,7 @@ public class LocationJson {
     public LocationJson(
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("name") @Nonnull String name,
-            @JsonProperty("parentLocation") @Nullable ZeroAllOf2 parentLocation,
+            @JsonProperty("parentLocation") @Nullable ZeroAllOf1 parentLocation,
             @JsonProperty("capacity") @Nullable Long capacity) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
@@ -80,7 +80,7 @@ public class LocationJson {
     /**
      * Details of a location.
      */
-    public Optional<ZeroAllOf2> parentLocation() {
+    public Optional<ZeroAllOf1> parentLocation() {
         return Optional.ofNullable(this.parentLocation);
     }
 
@@ -114,7 +114,7 @@ public class LocationJson {
     /**
      * Details of a location.
      */
-    public LocationJson withParentLocation(@Nullable ZeroAllOf2 parentLocation) {
+    public LocationJson withParentLocation(@Nullable ZeroAllOf1 parentLocation) {
         this.parentLocation = parentLocation;
         return this;
     }
@@ -160,7 +160,7 @@ public class LocationJson {
 
         private String name;
 
-        private ZeroAllOf2 parentLocation;
+        private ZeroAllOf1 parentLocation;
 
         private Long capacity;
 
@@ -187,7 +187,7 @@ public class LocationJson {
         /**
          * Details of a location.
          */
-        public Builder parentLocation(@Nullable ZeroAllOf2 parentLocation) {
+        public Builder parentLocation(@Nullable ZeroAllOf1 parentLocation) {
             this.parentLocation = parentLocation;
             return this;
         }

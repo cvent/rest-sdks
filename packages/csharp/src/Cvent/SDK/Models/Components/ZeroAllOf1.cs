@@ -13,26 +13,20 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Represents an error response with no additional details.
+    /// Details of a location.
     /// </summary>
     public class ZeroAllOf1
     {
         /// <summary>
-        /// The HTTP status code representing the error.
+        /// The unique ID representing the location.
         /// </summary>
-        [JsonProperty("code")]
-        public long Code { get; set; } = default!;
+        [JsonProperty("id")]
+        public string Id { get; set; } = default!;
 
         /// <summary>
-        /// A brief description of the error.
+        /// The name of the location.
         /// </summary>
-        [JsonProperty("message")]
-        public string Message { get; set; } = default!;
-
-        /// <summary>
-        /// The target resource of the error.
-        /// </summary>
-        [JsonProperty("target")]
-        public string? Target { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; } = default!;
     }
 }

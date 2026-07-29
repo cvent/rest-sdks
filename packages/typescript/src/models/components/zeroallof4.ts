@@ -6,28 +6,65 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  ReconciliationStatusJson,
+  ReconciliationStatusJson$inboundSchema,
+} from "./reconciliationstatusjson.js";
 
 /**
- * Booth staff for an activity.
+ * The identifier of reconciled budget item.
+ */
+export type BudgetItemAllOf = {
+  /**
+   * The budget item ID.
+   */
+  id?: string | undefined;
+};
+
+/**
+ * A transaction reconciliation record.
  */
 export type ZeroAllOf4 = {
   /**
-   * The unique identifier of the exhibitor booth staff.
+   * The identifier of reconciled budget item.
    */
-  id?: string | undefined;
+  budgetItem?: BudgetItemAllOf | undefined;
   /**
-   * The first name of the booth staff that captured the lead.
+   * This is used to denote the reconciliation status for a transaction.
    */
-  firstName?: string | undefined;
+  status?: ReconciliationStatusJson | undefined;
   /**
-   * The last name of the booth staff that captured the lead.
+   * Reconciliation amount.
    */
-  lastName?: string | undefined;
+  amount?: number | undefined;
   /**
-   * The email address of the booth staff that captured the lead.
+   * Reconciled by user.
    */
-  email?: string | undefined;
+  reconciledBy?: string | undefined;
+  /**
+   * The ISO 8601 zoned date and time for Reconciled date.
+   */
+  reconciledDate?: Date | undefined;
 };
+
+/** @internal */
+export const BudgetItemAllOf$inboundSchema: z.ZodType<
+  BudgetItemAllOf,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string().optional(),
+});
+
+export function budgetItemAllOfFromJSON(
+  jsonString: string,
+): SafeParseResult<BudgetItemAllOf, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BudgetItemAllOf$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BudgetItemAllOf' from JSON`,
+  );
+}
 
 /** @internal */
 export const ZeroAllOf4$inboundSchema: z.ZodType<
@@ -35,10 +72,13 @@ export const ZeroAllOf4$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  firstName: z.string().optional(),
-  lastName: z.string().optional(),
-  email: z.string().optional(),
+  budgetItem: z.lazy(() => BudgetItemAllOf$inboundSchema).optional(),
+  status: ReconciliationStatusJson$inboundSchema.optional(),
+  amount: z.number().optional(),
+  reconciledBy: z.string().optional(),
+  reconciledDate: z.string().datetime({ offset: true }).transform(v =>
+    new Date(v)
+  ).optional(),
 });
 
 export function zeroAllOf4FromJSON(

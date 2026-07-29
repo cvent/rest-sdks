@@ -23,7 +23,7 @@ namespace Cvent.SDK.Models.Components
         /// This is used to denote the type of the external attendee activity.
         /// </summary>
         [JsonProperty("type")]
-        public ExternalActivityTypeJson Type { get; set; } = default!;
+        public ExternalActivityType Type { get; set; } = default!;
 
         /// <summary>
         /// Name of an external attendee activity.
@@ -41,6 +41,6 @@ namespace Cvent.SDK.Models.Components
         /// Metadata for the fields.
         /// </summary>
         [JsonProperty("fields")]
-        public List<ExternalActivitiesAdditionalFieldsMetadataJson>? Fields { get; set; }
+        public List<ExternalActivityAdditionalFieldsMetadata>? Fields { get; set; }
     }
 }

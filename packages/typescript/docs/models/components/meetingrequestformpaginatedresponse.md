@@ -44,6 +44,8 @@ let value: MeetingRequestFormPaginatedResponse = {
           ],
           order: 1,
           type: "MultiSelect",
+          field: true,
+          fieldName: "Event Theme Color",
           hidden: false,
           required: true,
           minLength: 0,
@@ -66,5 +68,5 @@ let value: MeetingRequestFormPaginatedResponse = {
 
 | Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
 | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `paging`                                                                         | [components.PagingJson](../../models/components/pagingjson.md)                   | :heavy_check_mark:                                                               | Represents pagination information for a collection of resources.                 |
+| `paging`                                                                         | [components.Paging](../../models/components/paging.md)                           | :heavy_check_mark:                                                               | Represents pagination information for a collection of resources.                 |
 | `data`                                                                           | [components.MeetingRequestForm](../../models/components/meetingrequestform.md)[] | :heavy_check_mark:                                                               | Collection of meeting request form objects.                                      |

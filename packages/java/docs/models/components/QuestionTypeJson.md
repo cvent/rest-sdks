@@ -1,36 +1,35 @@
 # QuestionTypeJson
 
-Denotes the type of data collected by a question.
+Question Type.
 
 ## Example Usage
 
 ```java
 import com.cvent.models.components.QuestionTypeJson;
 
-QuestionTypeJson value = QuestionTypeJson.AUTO_INCREMENT;
+QuestionTypeJson value = QuestionTypeJson.SINGLE_CHOICE;
 ```
 
 
 ## Values
 
-| Name                         | Value                        |
-| ---------------------------- | ---------------------------- |
-| `AUTO_INCREMENT`             | AutoIncrement                |
-| `BUDGET_ESTIMATES`           | BudgetEstimates              |
-| `CONSENT_QUESTION`           | ConsentQuestion              |
-| `COUNTRY`                    | Country                      |
-| `CURRENCY`                   | Currency                     |
-| `DECIMAL`                    | Decimal                      |
-| `DATE`                       | Date                         |
-| `DATE_TIME`                  | DateTime                     |
-| `EMAIL`                      | Email                        |
-| `FILE_UPLOAD`                | FileUpload                   |
-| `FREE_TEXT`                  | FreeText                     |
-| `GENERAL`                    | General                      |
-| `NUMBER`                     | Number                       |
-| `MEETING_ROOM_REQUIREMENTS`  | MeetingRoomRequirements      |
-| `MULTI_SELECT`               | MultiSelect                  |
-| `SINGLE_SELECT`              | SingleSelect                 |
-| `SLEEPING_ROOM_REQUIREMENTS` | SleepingRoomRequirements     |
-| `US_PHONE_NUMBER`            | USPhoneNumber                |
-| `UNKNOWN`                    | Unknown                      |
+| Name                   | Value                  |
+| ---------------------- | ---------------------- |
+| `SINGLE_CHOICE`        | SingleChoice           |
+| `MULTI_CHOICE`         | MultiChoice            |
+| `MATRIX_SINGLE_CHOICE` | MatrixSingleChoice     |
+| `MATRIX_MULTI_CHOICE`  | MatrixMultiChoice      |
+| `MATRIX_SIDE_BY_SIDE`  | MatrixSideBySide       |
+| `MATRIX_SPREAD_SHEET`  | MatrixSpreadSheet      |
+| `DATE_TIME`            | DateTime               |
+| `NUMBER`               | Number                 |
+| `TEXT`                 | Text                   |
+| `COMMENT_BOX`          | CommentBox             |
+| `FORM`                 | Form                   |
+| `RANK_ORDER`           | RankOrder              |
+| `FILE_UPLOAD`          | FileUpload             |
+| `NET_PROMOTER`         | NetPromoter            |
+| `RATING`               | Rating                 |
+| `MATRIX_RATING`        | MatrixRating           |
+| `NUMBER_ALLOCATION`    | NumberAllocation       |
+| `LARGE_CHOICES`        | LargeChoices           |

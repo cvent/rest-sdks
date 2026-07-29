@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
-import { ZeroAllOf3, ZeroAllOf3$inboundSchema } from "./zeroallof3.js";
+import { ZeroAllOf2, ZeroAllOf2$inboundSchema } from "./zeroallof2.js";
 
 /**
  * The response for a request of appointments, including the paging object.
@@ -20,7 +20,7 @@ export type AppointmentPaginatedResponse = {
   /**
    * Collection of appointments and their related details.
    */
-  data: Array<ZeroAllOf3>;
+  data: Array<ZeroAllOf2>;
 };
 
 /** @internal */
@@ -30,7 +30,7 @@ export const AppointmentPaginatedResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   paging: PagingJson$inboundSchema,
-  data: z.array(ZeroAllOf3$inboundSchema),
+  data: z.array(ZeroAllOf2$inboundSchema),
 });
 
 export function appointmentPaginatedResponseFromJSON(

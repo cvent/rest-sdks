@@ -8,11 +8,11 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BulkDataPropertyJson,
-  BulkDataPropertyJson$inboundSchema,
-  BulkDataPropertyJson$Outbound,
-  BulkDataPropertyJson$outboundSchema,
-} from "./bulkdatapropertyjson.js";
+  BulkDataProperty,
+  BulkDataProperty$inboundSchema,
+  BulkDataProperty$Outbound,
+  BulkDataProperty$outboundSchema,
+} from "./bulkdataproperty.js";
 
 /**
  * Operation to be performed in the destination API.
@@ -117,7 +117,7 @@ export type BulkJobWithData = {
   /**
    * Collection of objects to be processed
    */
-  data?: Array<BulkDataPropertyJson> | undefined;
+  data?: Array<BulkDataProperty> | undefined;
 };
 
 /**
@@ -147,7 +147,7 @@ export type BulkJobWithDataInput = {
   /**
    * Collection of objects to be processed
    */
-  data?: Array<BulkDataPropertyJson> | undefined;
+  data?: Array<BulkDataProperty> | undefined;
 };
 
 /** @internal */
@@ -191,7 +191,7 @@ export const BulkJobWithData$inboundSchema: z.ZodType<
   totalRecords: z.number().int().optional(),
   successful: z.number().int().optional(),
   failed: z.number().int().optional(),
-  data: z.array(BulkDataPropertyJson$inboundSchema).optional(),
+  data: z.array(BulkDataProperty$inboundSchema).optional(),
 });
 
 export function bulkJobWithDataFromJSON(
@@ -211,7 +211,7 @@ export type BulkJobWithDataInput$Outbound = {
   operation: string;
   headers?: { [k: string]: string } | undefined;
   queryParams?: { [k: string]: string } | undefined;
-  data?: Array<BulkDataPropertyJson$Outbound> | undefined;
+  data?: Array<BulkDataProperty$Outbound> | undefined;
 };
 
 /** @internal */
@@ -225,7 +225,7 @@ export const BulkJobWithDataInput$outboundSchema: z.ZodType<
   operation: BulkJobWithDataOperation$outboundSchema,
   headers: z.record(z.string()).optional(),
   queryParams: z.record(z.string()).optional(),
-  data: z.array(BulkDataPropertyJson$outboundSchema).optional(),
+  data: z.array(BulkDataProperty$outboundSchema).optional(),
 });
 
 export function bulkJobWithDataInputToJSON(

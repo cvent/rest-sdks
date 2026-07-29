@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  Answer2,
-  Answer2$Outbound,
-  Answer2$outboundSchema,
-} from "./answer2.js";
+  Answer22,
+  Answer22$Outbound,
+  Answer22$outboundSchema,
+} from "./answer22.js";
 import { Event3, Event3$Outbound, Event3$outboundSchema } from "./event3.js";
 import {
   Exhibitor,
@@ -35,7 +35,7 @@ export type ExistingExhibitorAnswerInput = {
   /**
    * List of answers
    */
-  answers: Array<Answer2>;
+  answers: Array<Answer22>;
 };
 
 /** @internal */
@@ -43,7 +43,7 @@ export type ExistingExhibitorAnswerInput$Outbound = {
   question: Uuid$Outbound;
   event: Event3$Outbound;
   exhibitor: Exhibitor$Outbound;
-  answers: Array<Answer2$Outbound>;
+  answers: Array<Answer22$Outbound>;
 };
 
 /** @internal */
@@ -55,7 +55,7 @@ export const ExistingExhibitorAnswerInput$outboundSchema: z.ZodType<
   question: Uuid$outboundSchema,
   event: Event3$outboundSchema,
   exhibitor: Exhibitor$outboundSchema,
-  answers: z.array(Answer2$outboundSchema),
+  answers: z.array(Answer22$outboundSchema),
 });
 
 export function existingExhibitorAnswerInputToJSON(

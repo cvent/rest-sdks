@@ -201,6 +201,16 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("business-transient/proposals:read")] BusinessTransientProposalsRead,
 
         /// <summary>
+        /// Allows the reading of BT Bid data.
+        /// </summary>
+        [JsonProperty("business-travel/bids:read")] BusinessTravelBidsRead,
+
+        /// <summary>
+        /// Allows the reading of BT Proposal data.
+        /// </summary>
+        [JsonProperty("business-travel/proposals:read")] BusinessTravelProposalsRead,
+
+        /// <summary>
         /// Allows the reading of communication compliance.
         /// </summary>
         [JsonProperty("compliance/communications:read")] ComplianceCommunicationsRead,
@@ -1009,6 +1019,31 @@ namespace Cvent.SDK.Hooks
         /// Allows the reading of event surveys.
         /// </summary>
         [JsonProperty("survey/surveys:read")] SurveySurveysRead,
+
+        /// <summary>
+        /// Allows read access for overview of meeting room.
+        /// </summary>
+        [JsonProperty("venue/meeting-room-overviews:read")] VenueMeetingRoomOverviewsRead,
+
+        /// <summary>
+        /// Allows the creation and modification of meeting rooms.
+        /// </summary>
+        [JsonProperty("venue/meeting-rooms:write")] VenueMeetingRoomsWrite,
+
+        /// <summary>
+        /// Allows read access for overview of venue details.
+        /// </summary>
+        [JsonProperty("venue/venue-details-overview:read")] VenueVenueDetailsOverviewRead,
+
+        /// <summary>
+        /// Allows the creation and modification of venue details.
+        /// </summary>
+        [JsonProperty("venue/venue-details:write")] VenueVenueDetailsWrite,
+
+        /// <summary>
+        /// Allows the modification of venue facility information.
+        /// </summary>
+        [JsonProperty("venue/venue-facility:write")] VenueVenueFacilityWrite,
     }
 
     public static class OAuth2AuthorizationCodeOAuth2ScopeExtension
@@ -1233,12 +1268,12 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("bulk/bulk-jobs:write")] BulkBulkJobsWrite,
 
         /// <summary>
-        /// Allows the reading of BT Bid data.
+        /// Allows the reading of Business Transient Bid data.
         /// </summary>
         [JsonProperty("business-transient/bids:read")] BusinessTransientBidsRead,
 
         /// <summary>
-        /// Allows the reading of BT Proposal data.
+        /// Allows the reading of Business Transient Proposal data.
         /// </summary>
         [JsonProperty("business-transient/proposals:read")] BusinessTransientProposalsRead,
 
@@ -1281,6 +1316,16 @@ namespace Cvent.SDK.Hooks
         /// Allows the reading of business transient travel supplier account data.
         /// </summary>
         [JsonProperty("business-transient/travel-supplier-accounts:read")] BusinessTransientTravelSupplierAccountsRead,
+
+        /// <summary>
+        /// Allows the reading of Business Travel Bid data.
+        /// </summary>
+        [JsonProperty("business-travel/bids:read")] BusinessTravelBidsRead,
+
+        /// <summary>
+        /// Allows the reading of Business Travel Proposal data.
+        /// </summary>
+        [JsonProperty("business-travel/proposals:read")] BusinessTravelProposalsRead,
 
         /// <summary>
         /// Allows the reading of business travel account data.
@@ -2191,6 +2236,31 @@ namespace Cvent.SDK.Hooks
         /// Allows the reading of event surveys.
         /// </summary>
         [JsonProperty("survey/surveys:read")] SurveySurveysRead,
+
+        /// <summary>
+        /// Allows read access for overview of meeting room.
+        /// </summary>
+        [JsonProperty("venue/meeting-room-overviews:read")] VenueMeetingRoomOverviewsRead,
+
+        /// <summary>
+        /// Allows the creation and modification of meeting rooms.
+        /// </summary>
+        [JsonProperty("venue/meeting-rooms:write")] VenueMeetingRoomsWrite,
+
+        /// <summary>
+        /// Allows read access for overview of venue details.
+        /// </summary>
+        [JsonProperty("venue/venue-details-overview:read")] VenueVenueDetailsOverviewRead,
+
+        /// <summary>
+        /// Allows the creation and modification of venue details.
+        /// </summary>
+        [JsonProperty("venue/venue-details:write")] VenueVenueDetailsWrite,
+
+        /// <summary>
+        /// Allows the modification of venue facility information.
+        /// </summary>
+        [JsonProperty("venue/venue-facility:write")] VenueVenueFacilityWrite,
     }
 
     public static class OAuth2ClientCredentialsOAuth2ScopeExtension

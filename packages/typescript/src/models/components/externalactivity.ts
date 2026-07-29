@@ -7,18 +7,18 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  EventActivityDetailsJson,
-  EventActivityDetailsJson$inboundSchema,
-} from "./eventactivitydetailsjson.js";
+  EventActivityDetail,
+  EventActivityDetail$inboundSchema,
+} from "./eventactivitydetail.js";
 import {
-  ExternalActivityDataJson,
-  ExternalActivityDataJson$inboundSchema,
-} from "./externalactivitydatajson.js";
+  ExternalActivityData,
+  ExternalActivityData$inboundSchema,
+} from "./externalactivitydata.js";
 import {
-  ExternalActivityTypeJson,
-  ExternalActivityTypeJson$inboundSchema,
-} from "./externalactivitytypejson.js";
-import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
+  ExternalActivityType,
+  ExternalActivityType$inboundSchema,
+} from "./externalactivitytype.js";
+import { Uuid, Uuid$inboundSchema } from "./uuid.js";
 
 /**
  * An external attendee activity.
@@ -31,11 +31,11 @@ export type ExternalActivity = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  attendee: UuidJson;
+  attendee: Uuid;
   /**
    * Details for an event activity.
    */
-  event: EventActivityDetailsJson;
+  event: EventActivityDetail;
   /**
    * ISO 8601 date and time when this attendee activity occurred.
    */
@@ -51,11 +51,11 @@ export type ExternalActivity = {
   /**
    * This is used to denote the type of the external attendee activity.
    */
-  type: ExternalActivityTypeJson;
+  type: ExternalActivityType;
   /**
    * This is used to denote the type of the external attendee activity.
    */
-  data: ExternalActivityDataJson;
+  data: ExternalActivityData;
 };
 
 /** @internal */
@@ -65,15 +65,15 @@ export const ExternalActivity$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string().optional(),
-  attendee: UuidJson$inboundSchema,
-  event: EventActivityDetailsJson$inboundSchema,
+  attendee: Uuid$inboundSchema,
+  event: EventActivityDetail$inboundSchema,
   time: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),
   created: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),
   name: z.string(),
-  type: ExternalActivityTypeJson$inboundSchema,
-  data: ExternalActivityDataJson$inboundSchema,
+  type: ExternalActivityType$inboundSchema,
+  data: ExternalActivityData$inboundSchema,
 });
 
 export function externalActivityFromJSON(

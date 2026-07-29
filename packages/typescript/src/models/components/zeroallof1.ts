@@ -8,21 +8,17 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Represents an error response with no additional details.
+ * Details of a location.
  */
 export type ZeroAllOf1 = {
   /**
-   * The HTTP status code representing the error.
+   * The unique ID representing the location.
    */
-  code: number;
+  id: string;
   /**
-   * A brief description of the error.
+   * The name of the location.
    */
-  message: string;
-  /**
-   * The target resource of the error.
-   */
-  target?: string | undefined;
+  name: string;
 };
 
 /** @internal */
@@ -31,9 +27,8 @@ export const ZeroAllOf1$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  code: z.number().int(),
-  message: z.string(),
-  target: z.string().optional(),
+  id: z.string(),
+  name: z.string(),
 });
 
 export function zeroAllOf1FromJSON(

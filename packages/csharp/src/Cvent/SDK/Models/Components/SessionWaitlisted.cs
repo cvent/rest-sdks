@@ -22,6 +22,6 @@ namespace Cvent.SDK.Models.Components
         /// The activity session.
         /// </summary>
         [JsonProperty("session")]
-        public SessionActivity10? Session { get; set; }
+        public SessionActivity7? Session { get; set; }
     }
 }

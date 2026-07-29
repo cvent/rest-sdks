@@ -25,27 +25,27 @@ public class LeadQualified {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
-    private ActivityExhibitorJson exhibitor;
+    private ActivityExhibitor exhibitor;
 
     /**
      * An activity lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("lead")
-    private ActivityLeadJson lead;
+    private ActivityLead lead;
 
     /**
      * The list of responses provided by the attendee.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("responses")
-    private List<LeadQualifiedQuestionResponseJson> responses;
+    private List<LeadQualifiedQuestionResponse> responses;
 
     @JsonCreator
     public LeadQualified(
-            @JsonProperty("exhibitor") @Nullable ActivityExhibitorJson exhibitor,
-            @JsonProperty("lead") @Nullable ActivityLeadJson lead,
-            @JsonProperty("responses") @Nullable List<LeadQualifiedQuestionResponseJson> responses) {
+            @JsonProperty("exhibitor") @Nullable ActivityExhibitor exhibitor,
+            @JsonProperty("lead") @Nullable ActivityLead lead,
+            @JsonProperty("responses") @Nullable List<LeadQualifiedQuestionResponse> responses) {
         this.exhibitor = exhibitor;
         this.lead = lead;
         this.responses = responses;
@@ -58,21 +58,21 @@ public class LeadQualified {
     /**
      * An activity exhibitor.
      */
-    public Optional<ActivityExhibitorJson> exhibitor() {
+    public Optional<ActivityExhibitor> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
     /**
      * An activity lead.
      */
-    public Optional<ActivityLeadJson> lead() {
+    public Optional<ActivityLead> lead() {
         return Optional.ofNullable(this.lead);
     }
 
     /**
      * The list of responses provided by the attendee.
      */
-    public Optional<List<LeadQualifiedQuestionResponseJson>> responses() {
+    public Optional<List<LeadQualifiedQuestionResponse>> responses() {
         return Optional.ofNullable(this.responses);
     }
 
@@ -83,7 +83,7 @@ public class LeadQualified {
     /**
      * An activity exhibitor.
      */
-    public LeadQualified withExhibitor(@Nullable ActivityExhibitorJson exhibitor) {
+    public LeadQualified withExhibitor(@Nullable ActivityExhibitor exhibitor) {
         this.exhibitor = exhibitor;
         return this;
     }
@@ -91,7 +91,7 @@ public class LeadQualified {
     /**
      * An activity lead.
      */
-    public LeadQualified withLead(@Nullable ActivityLeadJson lead) {
+    public LeadQualified withLead(@Nullable ActivityLead lead) {
         this.lead = lead;
         return this;
     }
@@ -99,7 +99,7 @@ public class LeadQualified {
     /**
      * The list of responses provided by the attendee.
      */
-    public LeadQualified withResponses(@Nullable List<LeadQualifiedQuestionResponseJson> responses) {
+    public LeadQualified withResponses(@Nullable List<LeadQualifiedQuestionResponse> responses) {
         this.responses = responses;
         return this;
     }
@@ -131,11 +131,11 @@ public class LeadQualified {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ActivityExhibitorJson exhibitor;
+        private ActivityExhibitor exhibitor;
 
-        private ActivityLeadJson lead;
+        private ActivityLead lead;
 
-        private List<LeadQualifiedQuestionResponseJson> responses;
+        private List<LeadQualifiedQuestionResponse> responses;
 
         private Builder() {
             // force use of static builder() method
@@ -144,7 +144,7 @@ public class LeadQualified {
         /**
          * An activity exhibitor.
          */
-        public Builder exhibitor(@Nullable ActivityExhibitorJson exhibitor) {
+        public Builder exhibitor(@Nullable ActivityExhibitor exhibitor) {
             this.exhibitor = exhibitor;
             return this;
         }
@@ -152,7 +152,7 @@ public class LeadQualified {
         /**
          * An activity lead.
          */
-        public Builder lead(@Nullable ActivityLeadJson lead) {
+        public Builder lead(@Nullable ActivityLead lead) {
             this.lead = lead;
             return this;
         }
@@ -160,7 +160,7 @@ public class LeadQualified {
         /**
          * The list of responses provided by the attendee.
          */
-        public Builder responses(@Nullable List<LeadQualifiedQuestionResponseJson> responses) {
+        public Builder responses(@Nullable List<LeadQualifiedQuestionResponse> responses) {
             this.responses = responses;
             return this;
         }

@@ -46,6 +46,6 @@ namespace Cvent.SDK.Models.Components
         /// An activity speaker.
         /// </summary>
         [JsonProperty("speaker")]
-        public SpeakerJson? Speaker { get; set; }
+        public Speaker1? Speaker { get; set; }
     }
 }

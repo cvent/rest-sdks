@@ -138,15 +138,15 @@ public class Application {
             .build();
 
         ExternalActivityInput req = ExternalActivityInput.builder()
-                .attendee(UuidJson.builder()
+                .attendee(Uuid.builder()
                     .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                     .build())
-                .event(EventActivityDetailsJsonInput.builder()
+                .event(EventActivityDetailInput.builder()
                     .id("d84855b0-eeda-41c4-8e7a-53e80364cb95")
                     .build())
                 .name("Registered for Event")
-                .type(ExternalActivityTypeJson.EVENT_EXTERNAL)
-                .data(ExternalActivityDataJson.of(ExternalActivityDataJsonEventExternal.builder()
+                .type(ExternalActivityType.EVENT_EXTERNAL)
+                .data(ExternalActivityData.of(ExternalActivityDataEventExternal.builder()
                     .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                     .externalActivityDate(OffsetDateTime.parse("2019-08-24T14:15:22Z"))
                     .additionalFields(Map.ofEntries(
@@ -293,11 +293,11 @@ public class Application {
             .build();
 
         ExternalActivityMetadataInput req = ExternalActivityMetadataInput.builder()
-                .type(ExternalActivityTypeJson.EVENT_EXTERNAL)
+                .type(ExternalActivityType.EVENT_EXTERNAL)
                 .name("social.media")
                 .description("This external activity contains data of social activities for an attendee.")
                 .fields(List.of(
-                    ExternalActivitiesAdditionalFieldsMetadataJson.builder()
+                    ExternalActivityAdditionalFieldsMetadata.builder()
                         .name("facebook_social.media")
                         .description("Contains data for facebook social media activity.")
                         .build()))
@@ -437,11 +437,11 @@ public class Application {
         UpdateExternalAttendeeActivityMetadataRequest req = UpdateExternalAttendeeActivityMetadataRequest.builder()
                 .id("9463c74e-18c6-401a-a710-ae0f485bf059")
                 .externalActivityMetadata(ExternalActivityMetadataInput.builder()
-                    .type(ExternalActivityTypeJson.EVENT_EXTERNAL)
+                    .type(ExternalActivityType.EVENT_EXTERNAL)
                     .name("social.media")
                     .description("This external activity contains data of social activities for an attendee.")
                     .fields(List.of(
-                        ExternalActivitiesAdditionalFieldsMetadataJson.builder()
+                        ExternalActivityAdditionalFieldsMetadata.builder()
                             .name("facebook_social.media")
                             .description("Contains data for facebook social media activity.")
                             .build()))

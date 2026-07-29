@@ -24,7 +24,7 @@ public class EventAdClicked {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private ActivityDataJsonEvent11 event;
+    private ActivityDataEvent8 event;
 
     /**
      * The platform used by the user.
@@ -38,13 +38,13 @@ public class EventAdClicked {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("ad")
-    private ActivityAdJson ad;
+    private ActivityAd ad;
 
     @JsonCreator
     public EventAdClicked(
-            @JsonProperty("event") @Nullable ActivityDataJsonEvent11 event,
+            @JsonProperty("event") @Nullable ActivityDataEvent8 event,
             @JsonProperty("platform") @Nullable String platform,
-            @JsonProperty("ad") @Nullable ActivityAdJson ad) {
+            @JsonProperty("ad") @Nullable ActivityAd ad) {
         this.event = event;
         this.platform = platform;
         this.ad = ad;
@@ -57,7 +57,7 @@ public class EventAdClicked {
     /**
      * The event in which this activity occurred.
      */
-    public Optional<ActivityDataJsonEvent11> event() {
+    public Optional<ActivityDataEvent8> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -71,7 +71,7 @@ public class EventAdClicked {
     /**
      * The details of the advertisement.
      */
-    public Optional<ActivityAdJson> ad() {
+    public Optional<ActivityAd> ad() {
         return Optional.ofNullable(this.ad);
     }
 
@@ -82,7 +82,7 @@ public class EventAdClicked {
     /**
      * The event in which this activity occurred.
      */
-    public EventAdClicked withEvent(@Nullable ActivityDataJsonEvent11 event) {
+    public EventAdClicked withEvent(@Nullable ActivityDataEvent8 event) {
         this.event = event;
         return this;
     }
@@ -98,7 +98,7 @@ public class EventAdClicked {
     /**
      * The details of the advertisement.
      */
-    public EventAdClicked withAd(@Nullable ActivityAdJson ad) {
+    public EventAdClicked withAd(@Nullable ActivityAd ad) {
         this.ad = ad;
         return this;
     }
@@ -130,11 +130,11 @@ public class EventAdClicked {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ActivityDataJsonEvent11 event;
+        private ActivityDataEvent8 event;
 
         private String platform;
 
-        private ActivityAdJson ad;
+        private ActivityAd ad;
 
         private Builder() {
             // force use of static builder() method
@@ -143,7 +143,7 @@ public class EventAdClicked {
         /**
          * The event in which this activity occurred.
          */
-        public Builder event(@Nullable ActivityDataJsonEvent11 event) {
+        public Builder event(@Nullable ActivityDataEvent8 event) {
             this.event = event;
             return this;
         }
@@ -159,7 +159,7 @@ public class EventAdClicked {
         /**
          * The details of the advertisement.
          */
-        public Builder ad(@Nullable ActivityAdJson ad) {
+        public Builder ad(@Nullable ActivityAd ad) {
             this.ad = ad;
             return this;
         }

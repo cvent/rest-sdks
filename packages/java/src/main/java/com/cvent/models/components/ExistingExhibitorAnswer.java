@@ -72,7 +72,7 @@ public class ExistingExhibitorAnswer {
      * List of answers
      */
     @JsonProperty("answers")
-    private List<Answer2> answers;
+    private List<Answer22> answers;
 
     /**
      * Exhibitor Answer id
@@ -89,7 +89,7 @@ public class ExistingExhibitorAnswer {
             @JsonProperty("question") @Nonnull Uuid question,
             @JsonProperty("event") @Nonnull Event3 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
-            @JsonProperty("answers") @Nonnull List<Answer2> answers,
+            @JsonProperty("answers") @Nonnull List<Answer22> answers,
             @JsonProperty("id") @Nonnull String id) {
         this.created = created;
         this.createdBy = createdBy;
@@ -109,7 +109,7 @@ public class ExistingExhibitorAnswer {
             @Nonnull Uuid question,
             @Nonnull Event3 event,
             @Nonnull Exhibitor exhibitor,
-            @Nonnull List<Answer2> answers,
+            @Nonnull List<Answer22> answers,
             @Nonnull String id) {
         this(null, null, null, null, question, event, exhibitor, answers, id);
     }
@@ -166,7 +166,7 @@ public class ExistingExhibitorAnswer {
     /**
      * List of answers
      */
-    public List<Answer2> answers() {
+    public List<Answer22> answers() {
         return this.answers;
     }
 
@@ -240,7 +240,7 @@ public class ExistingExhibitorAnswer {
     /**
      * List of answers
      */
-    public ExistingExhibitorAnswer withAnswers(@Nonnull List<Answer2> answers) {
+    public ExistingExhibitorAnswer withAnswers(@Nonnull List<Answer22> answers) {
         this.answers = Utils.checkNotNull(answers, "answers");
         return this;
     }
@@ -320,7 +320,7 @@ public class ExistingExhibitorAnswer {
 
         private Exhibitor exhibitor;
 
-        private List<Answer2> answers;
+        private List<Answer22> answers;
 
         private String id;
 
@@ -387,7 +387,7 @@ public class ExistingExhibitorAnswer {
         /**
          * List of answers
          */
-        public Builder answers(@Nonnull List<Answer2> answers) {
+        public Builder answers(@Nonnull List<Answer22> answers) {
             this.answers = Utils.checkNotNull(answers, "answers");
             return this;
         }

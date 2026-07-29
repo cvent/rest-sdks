@@ -31,6 +31,6 @@ namespace Cvent.SDK.Models.Requests
         /// Up to **5 meeting requests** can be updated per call.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public List<MeetingRequestUpdateJson> RequestBody { get; set; } = default!;
+        public List<MeetingRequestUpdate> RequestBody { get; set; } = default!;
     }
 }

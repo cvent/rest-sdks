@@ -166,6 +166,14 @@ public class ExistingHub {
     private HubLogin login;
 
     /**
+     * True indicates the Events+ hub is opted into the new website theming experience. False indicates the
+     * hub uses the legacy theming experience.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("websiteTheming")
+    private Boolean websiteTheming;
+
+    /**
      * The unique ID of an Events+ Hub.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -204,6 +212,7 @@ public class ExistingHub {
             @JsonProperty("utmOverride") @Nullable UTMOverride utmOverride,
             @JsonProperty("fonts") @Nullable HubFonts fonts,
             @JsonProperty("login") @Nullable HubLogin login,
+            @JsonProperty("websiteTheming") @Nullable Boolean websiteTheming,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("status") @Nullable HubStatusProperty status) {
         this.created = created;
@@ -226,6 +235,8 @@ public class ExistingHub {
         this.utmOverride = Optional.ofNullable(utmOverride).orElse(Builder._SINGLETON_VALUE_UtmOverride.value());
         this.fonts = fonts;
         this.login = login;
+        this.websiteTheming =
+                Optional.ofNullable(websiteTheming).orElse(Builder._SINGLETON_VALUE_WebsiteTheming.value());
         this.id = id;
         this.status = status;
     }
@@ -238,6 +249,7 @@ public class ExistingHub {
                 null,
                 title,
                 owner,
+                null,
                 null,
                 null,
                 null,
@@ -397,6 +409,14 @@ public class ExistingHub {
      */
     public Optional<HubLogin> login() {
         return Optional.ofNullable(this.login);
+    }
+
+    /**
+     * True indicates the Events+ hub is opted into the new website theming experience. False indicates the
+     * hub uses the legacy theming experience.
+     */
+    public Optional<Boolean> websiteTheming() {
+        return Optional.ofNullable(this.websiteTheming);
     }
 
     /**
@@ -584,6 +604,15 @@ public class ExistingHub {
     }
 
     /**
+     * True indicates the Events+ hub is opted into the new website theming experience. False indicates the
+     * hub uses the legacy theming experience.
+     */
+    public ExistingHub withWebsiteTheming(@Nullable Boolean websiteTheming) {
+        this.websiteTheming = websiteTheming;
+        return this;
+    }
+
+    /**
      * The unique ID of an Events+ Hub.
      */
     public ExistingHub withId(@Nullable String id) {
@@ -631,6 +660,7 @@ public class ExistingHub {
                 && Utils.enhancedDeepEquals(this.utmOverride, other.utmOverride)
                 && Utils.enhancedDeepEquals(this.fonts, other.fonts)
                 && Utils.enhancedDeepEquals(this.login, other.login)
+                && Utils.enhancedDeepEquals(this.websiteTheming, other.websiteTheming)
                 && Utils.enhancedDeepEquals(this.id, other.id)
                 && Utils.enhancedDeepEquals(this.status, other.status);
     }
@@ -658,6 +688,7 @@ public class ExistingHub {
                 utmOverride,
                 fonts,
                 login,
+                websiteTheming,
                 id,
                 status);
     }
@@ -706,6 +737,8 @@ public class ExistingHub {
                 fonts,
                 "login",
                 login,
+                "websiteTheming",
+                websiteTheming,
                 "id",
                 id,
                 "status",
@@ -754,6 +787,8 @@ public class ExistingHub {
         private HubFonts fonts;
 
         private HubLogin login;
+
+        private Boolean websiteTheming;
 
         private String id;
 
@@ -927,6 +962,15 @@ public class ExistingHub {
         }
 
         /**
+         * True indicates the Events+ hub is opted into the new website theming experience. False indicates the
+         * hub uses the legacy theming experience.
+         */
+        public Builder websiteTheming(@Nullable Boolean websiteTheming) {
+            this.websiteTheming = websiteTheming;
+            return this;
+        }
+
+        /**
          * The unique ID of an Events+ Hub.
          */
         public Builder id(@Nullable String id) {
@@ -967,6 +1011,7 @@ public class ExistingHub {
                     utmOverride,
                     fonts,
                     login,
+                    websiteTheming,
                     id,
                     status);
         }
@@ -975,5 +1020,8 @@ public class ExistingHub {
                 new LazySingletonValue<>("themeSafeMode", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<UTMOverride> _SINGLETON_VALUE_UtmOverride = new LazySingletonValue<>("utmOverride", "\"use-existing-parameter\"", new TypeReference<UTMOverride>() {});
+
+        private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_WebsiteTheming =
+                new LazySingletonValue<>("websiteTheming", "false", new TypeReference<Boolean>() {});
     }
 }

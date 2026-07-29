@@ -41,7 +41,7 @@ namespace Cvent.SDK.Models.Errors
         /// Additional details of cascading error messages.
         /// </summary>
         [JsonProperty("details")]
-        public List<ZeroAllOf1>? Details { get; set; }
+        public List<ZeroAllOf3>? Details { get; set; }
 
         /// <summary>
         /// Business validation code for bad requests.
@@ -70,7 +70,7 @@ namespace Cvent.SDK.Models.Errors
         public string? Target { get; set; }
 
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use SegmentsErrorResponse.Payload.Details instead.")]
-        public List<ZeroAllOf1>? Details { get; set; }
+        public List<ZeroAllOf3>? Details { get; set; }
 
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use SegmentsErrorResponse.Payload.ValidationCode instead.")]
         public ValidationCode? ValidationCode { get; set; }

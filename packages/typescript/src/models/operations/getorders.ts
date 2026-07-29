@@ -57,9 +57,7 @@ export type GetOrdersRequest = {
    */
   filter?: string | undefined;
   /**
-   * This sets whether or not to fetch deleted orders in the response. If set to true, the response will include records for the deleted orders.
-   *
-   * @remarks
+   * When `true`, includes soft-deleted records in the response. Defaults to `false`.
    */
   deleted?: boolean | undefined;
 };

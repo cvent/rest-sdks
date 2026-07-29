@@ -4,24 +4,20 @@
 
 import * as z from "zod/v3";
 import {
-  EventActivityDetailsJsonInput,
-  EventActivityDetailsJsonInput$Outbound,
-  EventActivityDetailsJsonInput$outboundSchema,
-} from "./eventactivitydetailsjsoninput.js";
+  EventActivityDetailInput,
+  EventActivityDetailInput$Outbound,
+  EventActivityDetailInput$outboundSchema,
+} from "./eventactivitydetailinput.js";
 import {
-  ExternalActivityDataJson,
-  ExternalActivityDataJson$Outbound,
-  ExternalActivityDataJson$outboundSchema,
-} from "./externalactivitydatajson.js";
+  ExternalActivityData,
+  ExternalActivityData$Outbound,
+  ExternalActivityData$outboundSchema,
+} from "./externalactivitydata.js";
 import {
-  ExternalActivityTypeJson,
-  ExternalActivityTypeJson$outboundSchema,
-} from "./externalactivitytypejson.js";
-import {
-  UuidJson,
-  UuidJson$Outbound,
-  UuidJson$outboundSchema,
-} from "./uuidjson.js";
+  ExternalActivityType,
+  ExternalActivityType$outboundSchema,
+} from "./externalactivitytype.js";
+import { Uuid, Uuid$Outbound, Uuid$outboundSchema } from "./uuid.js";
 
 /**
  * An external attendee activity.
@@ -30,11 +26,11 @@ export type ExternalActivityInput = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  attendee: UuidJson;
+  attendee: Uuid;
   /**
    * Details for an event activity.
    */
-  event: EventActivityDetailsJsonInput;
+  event: EventActivityDetailInput;
   /**
    * Name for the external attendee activity.
    */
@@ -42,20 +38,20 @@ export type ExternalActivityInput = {
   /**
    * This is used to denote the type of the external attendee activity.
    */
-  type: ExternalActivityTypeJson;
+  type: ExternalActivityType;
   /**
    * This is used to denote the type of the external attendee activity.
    */
-  data: ExternalActivityDataJson;
+  data: ExternalActivityData;
 };
 
 /** @internal */
 export type ExternalActivityInput$Outbound = {
-  attendee: UuidJson$Outbound;
-  event: EventActivityDetailsJsonInput$Outbound;
+  attendee: Uuid$Outbound;
+  event: EventActivityDetailInput$Outbound;
   name: string;
   type: string;
-  data: ExternalActivityDataJson$Outbound;
+  data: ExternalActivityData$Outbound;
 };
 
 /** @internal */
@@ -64,11 +60,11 @@ export const ExternalActivityInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ExternalActivityInput
 > = z.object({
-  attendee: UuidJson$outboundSchema,
-  event: EventActivityDetailsJsonInput$outboundSchema,
+  attendee: Uuid$outboundSchema,
+  event: EventActivityDetailInput$outboundSchema,
   name: z.string(),
-  type: ExternalActivityTypeJson$outboundSchema,
-  data: ExternalActivityDataJson$outboundSchema,
+  type: ExternalActivityType$outboundSchema,
+  data: ExternalActivityData$outboundSchema,
 });
 
 export function externalActivityInputToJSON(

@@ -29,6 +29,6 @@ namespace Cvent.SDK.Models.Components
         /// Collection of appointments and their related details.
         /// </summary>
         [JsonProperty("data")]
-        public List<ZeroAllOf3> Data { get; set; } = default!;
+        public List<ZeroAllOf2> Data { get; set; } = default!;
     }
 }
