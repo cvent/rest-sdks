@@ -30,7 +30,7 @@ export class UserSCIM extends ClientSDK {
   async getUserGroups(
     request: operations.GetUserGroupsRequest,
     options?: RequestOptions,
-  ): Promise<components.UserGroups> {
+  ): Promise<components.UserGroups1> {
     return unwrapAsync(userSCIMGetUserGroups(
       this,
       request,

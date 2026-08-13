@@ -5,7 +5,7 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
-import com.cvent.models.components.UserGroupJsonInput;
+import com.cvent.models.components.AccountUserGroupInput;
 import com.cvent.models.operations.AddUserToAccountUserGroupRequest;
 import com.cvent.models.operations.DeleteAccountUserGroupRequest;
 import com.cvent.models.operations.DeleteUserFromAccountUserGroupRequest;
@@ -134,8 +134,8 @@ public class AsyncUsers {
      * @return {@code CompletableFuture<CreateAccountUserGroupResponse>} - The async response
      */
     public CompletableFuture<CreateAccountUserGroupResponse> createAccountUserGroup(
-            @Nullable UserGroupJsonInput request, @Nullable Options options) {
-        AsyncRequestOperation<UserGroupJsonInput, CreateAccountUserGroupResponse> operation =
+            @Nullable AccountUserGroupInput request, @Nullable Options options) {
+        AsyncRequestOperation<AccountUserGroupInput, CreateAccountUserGroupResponse> operation =
                 new CreateAccountUserGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }

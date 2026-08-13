@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Answer22, Answer22$inboundSchema } from "./answer22.js";
-import { Event3, Event3$inboundSchema } from "./event3.js";
+import { Event4, Event4$inboundSchema } from "./event4.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 import { Uuid, Uuid$inboundSchema } from "./uuid.js";
 
@@ -38,7 +38,7 @@ export type ExistingExhibitorAnswer = {
   /**
    * The Associated Event.
    */
-  event: Event3;
+  event: Event4;
   /**
    * The Associated Exhibitor.
    */
@@ -67,7 +67,7 @@ export const ExistingExhibitorAnswer$inboundSchema: z.ZodType<
   ).optional(),
   lastModifiedBy: z.string().optional(),
   question: Uuid$inboundSchema,
-  event: Event3$inboundSchema,
+  event: Event4$inboundSchema,
   exhibitor: Exhibitor$inboundSchema,
   answers: z.array(Answer22$inboundSchema),
   id: z.string(),

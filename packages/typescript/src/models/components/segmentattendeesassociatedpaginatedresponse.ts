@@ -6,11 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 import {
-  SegmentAttendeeResponseJson,
-  SegmentAttendeeResponseJson$inboundSchema,
-} from "./segmentattendeeresponsejson.js";
+  SegmentAttendee,
+  SegmentAttendee$inboundSchema,
+} from "./segmentattendee.js";
 
 /**
  * The response from a request to get the paginated list of attendees associated/disassociated to/from an audience segment.
@@ -19,11 +19,11 @@ export type SegmentAttendeesAssociatedPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of list of attendees associated/disassociated to/from an audience segment.
    */
-  data: Array<SegmentAttendeeResponseJson>;
+  data: Array<SegmentAttendee>;
 };
 
 /** @internal */
@@ -33,8 +33,8 @@ export const SegmentAttendeesAssociatedPaginatedResponse$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    paging: PagingJson$inboundSchema,
-    data: z.array(SegmentAttendeeResponseJson$inboundSchema),
+    paging: Paging$inboundSchema,
+    data: z.array(SegmentAttendee$inboundSchema),
   });
 
 export function segmentAttendeesAssociatedPaginatedResponseFromJSON(

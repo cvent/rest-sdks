@@ -9,9 +9,9 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.UserGroupsJson;
+import com.cvent.models.components.UserGroups;
 import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.GetAccountUserGroupsRequest;
 import com.cvent.models.operations.GetAccountUserGroupsResponse;
 import com.cvent.utils.AsyncRetries;
@@ -181,14 +181,14 @@ public class GetAccountUserGroups {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withUserGroupsJson(Utils.unmarshal(response, new TypeReference<UserGroupsJson>() {}));
+                    return res.withUserGroups(Utils.unmarshal(response, new TypeReference<UserGroups>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw ErrorResponse1.from(response);
+                    throw ErrorResponse11.from(response);
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -269,15 +269,15 @@ public class GetAccountUserGroups {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<UserGroupsJson>() {})
-                            .thenApply(res::withUserGroupsJson);
+                    return Utils.unmarshalAsync(response, new TypeReference<UserGroups>() {})
+                            .thenApply(res::withUserGroups);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse1.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse11.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

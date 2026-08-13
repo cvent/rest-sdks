@@ -5,7 +5,7 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.RequestOperation;
 
-import com.cvent.models.components.UserGroupJsonInput;
+import com.cvent.models.components.AccountUserGroupInput;
 import com.cvent.models.operations.AddUserToAccountUserGroupRequest;
 import com.cvent.models.operations.AddUserToAccountUserGroupRequestBuilder;
 import com.cvent.models.operations.AddUserToAccountUserGroupResponse;
@@ -136,8 +136,8 @@ public class Users {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateAccountUserGroupResponse createAccountUserGroup(
-            @Nullable UserGroupJsonInput request, @Nullable Options options) {
-        RequestOperation<UserGroupJsonInput, CreateAccountUserGroupResponse> operation =
+            @Nullable AccountUserGroupInput request, @Nullable Options options) {
+        RequestOperation<AccountUserGroupInput, CreateAccountUserGroupResponse> operation =
                 new CreateAccountUserGroup.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }

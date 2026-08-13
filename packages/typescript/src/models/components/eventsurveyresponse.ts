@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { AnswerJson, AnswerJson$inboundSchema } from "./answerjson.js";
-import { EventJson3, EventJson3$inboundSchema } from "./eventjson3.js";
+import { EventJson1, EventJson1$inboundSchema } from "./eventjson1.js";
 import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
 
 /**
@@ -62,7 +62,7 @@ export type EventSurveyResponse = {
   /**
    * Detail object of an event which is associated to a survey.
    */
-  event?: EventJson3 | undefined;
+  event?: EventJson1 | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
@@ -114,7 +114,7 @@ export const EventSurveyResponse$inboundSchema: z.ZodType<
   question: UuidJson$inboundSchema,
   answers: z.array(AnswerJson$inboundSchema),
   score: z.number().optional(),
-  event: EventJson3$inboundSchema.optional(),
+  event: EventJson1$inboundSchema.optional(),
   survey: UuidJson$inboundSchema.optional(),
   session: UuidJson$inboundSchema.optional(),
   speaker: UuidJson$inboundSchema.optional(),

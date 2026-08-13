@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { EventId, EventId$inboundSchema } from "./eventid.js";
-import { Segment, Segment$inboundSchema } from "./segment.js";
+import { Segment1, Segment1$inboundSchema } from "./segment1.js";
 import { Session1, Session1$inboundSchema } from "./session1.js";
 
 /**
@@ -45,7 +45,7 @@ export type SessionSegment = {
   /**
    * The audience segment associated with the session.
    */
-  segment: Segment;
+  segment: Segment1;
   /**
    * True indicates the session segment is active.
    */
@@ -68,7 +68,7 @@ export const SessionSegment$inboundSchema: z.ZodType<
   id: z.string().optional(),
   event: EventId$inboundSchema,
   session: Session1$inboundSchema,
-  segment: Segment$inboundSchema,
+  segment: Segment1$inboundSchema,
   active: z.boolean().default(true),
 });
 

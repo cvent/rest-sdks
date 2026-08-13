@@ -5,10 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.annotation.Nullable;
+import jakarta.annotation.Nonnull;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
@@ -16,30 +14,25 @@ import java.util.Optional;
 /**
  * EventJson3
  *
- * <p>Detail object of an event which is associated to a survey.
+ * <p>An event reference used in attendee insights to identify the event context for engagement data
  */
 public class EventJson3 {
     /**
-     * Id of the associated event
+     * A unique identifier (UUID) for the event where the engagement score applies
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     @JsonCreator
-    public EventJson3(@JsonProperty("id") @Nullable String id) {
-        this.id = id;
-    }
-
-    public EventJson3() {
-        this(null);
+    public EventJson3(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
-     * Id of the associated event
+     * A unique identifier (UUID) for the event where the engagement score applies
      */
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
+    public String id() {
+        return this.id;
     }
 
     public static Builder builder() {
@@ -47,10 +40,10 @@ public class EventJson3 {
     }
 
     /**
-     * Id of the associated event
+     * A unique identifier (UUID) for the event where the engagement score applies
      */
-    public EventJson3 withId(@Nullable String id) {
-        this.id = id;
+    public EventJson3 withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
         return this;
     }
 
@@ -86,10 +79,10 @@ public class EventJson3 {
         }
 
         /**
-         * Id of the associated event
+         * A unique identifier (UUID) for the event where the engagement score applies
          */
-        public Builder id(@Nullable String id) {
-            this.id = id;
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
             return this;
         }
 

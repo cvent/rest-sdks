@@ -3,11 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import {
-  EventJson,
-  EventJson$Outbound,
-  EventJson$outboundSchema,
-} from "./eventjson.js";
+import { Event3, Event3$Outbound, Event3$outboundSchema } from "./event3.js";
 
 /**
  * Represents an audience segment. Audience segments are assigned to events and provide the ability for planners to segment their attendees into groups and better manage the attendee experience based on their defined segments.
@@ -16,7 +12,7 @@ export type AudienceSegment = {
   /**
    * ID of the event.
    */
-  event: EventJson;
+  event: Event3;
   /**
    * Name of the audience segment. Must be unique in the event where the segment exists.
    */
@@ -29,7 +25,7 @@ export type AudienceSegment = {
 
 /** @internal */
 export type AudienceSegment$Outbound = {
-  event: EventJson$Outbound;
+  event: Event3$Outbound;
   name: string;
   description?: string | undefined;
 };
@@ -40,7 +36,7 @@ export const AudienceSegment$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AudienceSegment
 > = z.object({
-  event: EventJson$outboundSchema,
+  event: Event3$outboundSchema,
   name: z.string(),
   description: z.string().optional(),
 });

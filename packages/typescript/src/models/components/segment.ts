@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * The audience segment associated with the session.
+ * Segment details
  */
 export type Segment = {
   /**
-   * The unique identifier for an audience segment
+   * Segment Id
    */
   id: string;
 };

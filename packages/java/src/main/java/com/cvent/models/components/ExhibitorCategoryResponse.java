@@ -53,7 +53,7 @@ public class ExhibitorCategoryResponse {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event3 event;
+    private Event4 event;
 
     /**
      * Name of the exhibitor category
@@ -107,7 +107,7 @@ public class ExhibitorCategoryResponse {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nonnull Event3 event,
+            @JsonProperty("event") @Nonnull Event4 event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("order") long order,
@@ -130,7 +130,7 @@ public class ExhibitorCategoryResponse {
     }
 
     public ExhibitorCategoryResponse(
-            @Nonnull Event3 event, @Nonnull String name, long order, @Nonnull ExhibitorCategoryResponseType type) {
+            @Nonnull Event4 event, @Nonnull String name, long order, @Nonnull ExhibitorCategoryResponseType type) {
         this(null, null, null, null, event, name, null, order, type, null, null, null);
     }
 
@@ -165,7 +165,7 @@ public class ExhibitorCategoryResponse {
     /**
      * The Associated Event.
      */
-    public Event3 event() {
+    public Event4 event() {
         return this.event;
     }
 
@@ -257,7 +257,7 @@ public class ExhibitorCategoryResponse {
     /**
      * The Associated Event.
      */
-    public ExhibitorCategoryResponse withEvent(@Nonnull Event3 event) {
+    public ExhibitorCategoryResponse withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -399,7 +399,7 @@ public class ExhibitorCategoryResponse {
 
         private String lastModifiedBy;
 
-        private Event3 event;
+        private Event4 event;
 
         private String name;
 
@@ -454,7 +454,7 @@ public class ExhibitorCategoryResponse {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event3 event) {
+        public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

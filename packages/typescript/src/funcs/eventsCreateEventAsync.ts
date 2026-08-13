@@ -38,12 +38,12 @@ import { Result } from "../types/fp.js";
  */
 export function eventsCreateEventAsync(
   client: CventSDKCore,
-  request: components.EventInput,
+  request: components.Event1Input,
   options?: RequestOptions,
 ): APIPromise<
   Result<
     operations.CreateEventAsyncResponse,
-    | errors.ErrorResponse1
+    | errors.ErrorResponse11
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -63,13 +63,13 @@ export function eventsCreateEventAsync(
 
 async function $do(
   client: CventSDKCore,
-  request: components.EventInput,
+  request: components.Event1Input,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
       operations.CreateEventAsyncResponse,
-      | errors.ErrorResponse1
+      | errors.ErrorResponse11
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -84,7 +84,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => components.EventInput$outboundSchema.parse(value),
+    (value) => components.Event1Input$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -160,7 +160,7 @@ async function $do(
 
   const [result] = await M.match<
     operations.CreateEventAsyncResponse,
-    | errors.ErrorResponse1
+    | errors.ErrorResponse11
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -174,7 +174,7 @@ async function $do(
       hdrs: true,
       key: "Result",
     }),
-    M.jsonErr([400, 401, 403, 429], errors.ErrorResponse1$inboundSchema),
+    M.jsonErr([400, 401, 403, 429], errors.ErrorResponse11$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  CurrencyConversionRateListResponseJson,
-  CurrencyConversionRateListResponseJson$inboundSchema,
-} from "./currencyconversionratelistresponsejson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  CurrencyConversionRateListResponse,
+  CurrencyConversionRateListResponse$inboundSchema,
+} from "./currencyconversionratelistresponse.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to get the list of conversions rate for a currency.
@@ -19,11 +19,11 @@ export type CurrencyConversionRatePaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of conversion rate for a currency in an account.
    */
-  data: Array<CurrencyConversionRateListResponseJson>;
+  data: Array<CurrencyConversionRateListResponse>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const CurrencyConversionRatePaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(CurrencyConversionRateListResponseJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(CurrencyConversionRateListResponse$inboundSchema),
 });
 
 export function currencyConversionRatePaginatedResponseFromJSON(

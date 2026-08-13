@@ -1,6 +1,6 @@
 # Event3
 
-The Associated Event.
+ID of the event.
 
 ## Example Usage
 
@@ -8,7 +8,7 @@ The Associated Event.
 import { Event3 } from "@cvent/sdk/models/components";
 
 let value: Event3 = {
-  id: "3db28cfc-db22-11eb-8d19-0242ac130003",
+  id: "103097a4-143d-11e5-9f99-d0a637ee0032",
 };
 ```
 
@@ -16,4 +16,4 @@ let value: Event3 = {
 
 | Field                                | Type                                 | Required                             | Description                          | Example                              |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *string*                             | :heavy_check_mark:                   | Event id                             | 3db28cfc-db22-11eb-8d19-0242ac130003 |
+| `id`                                 | *string*                             | :heavy_check_mark:                   | UUID of the event.                   | 103097a4-143d-11e5-9f99-d0a637ee0032 |

@@ -39,7 +39,7 @@ export function proposalDraftCreateProposalDraft(
 ): APIPromise<
   Result<
     operations.CreateProposalDraftResponse,
-    | errors.ErrorResponse1
+    | errors.ErrorResponse11
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -65,7 +65,7 @@ async function $do(
   [
     Result<
       operations.CreateProposalDraftResponse,
-      | errors.ErrorResponse1
+      | errors.ErrorResponse11
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -159,7 +159,7 @@ async function $do(
 
   const [result] = await M.match<
     operations.CreateProposalDraftResponse,
-    | errors.ErrorResponse1
+    | errors.ErrorResponse11
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -173,7 +173,7 @@ async function $do(
       hdrs: true,
       key: "Result",
     }),
-    M.jsonErr([400, 401, 403, 429], errors.ErrorResponse1$inboundSchema),
+    M.jsonErr([400, 401, 403, 429], errors.ErrorResponse11$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

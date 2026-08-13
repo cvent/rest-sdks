@@ -22,18 +22,17 @@ public class CardDetailsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of Card Details.
      */
     @JsonProperty("data")
-    private List<CardDetailsJson> data;
+    private List<CardDetails> data;
 
     @JsonCreator
     public CardDetailsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<CardDetailsJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<CardDetails> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +41,14 @@ public class CardDetailsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of Card Details.
      */
-    public List<CardDetailsJson> data() {
+    public List<CardDetails> data() {
         return this.data;
     }
 
@@ -60,7 +59,7 @@ public class CardDetailsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public CardDetailsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public CardDetailsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +67,7 @@ public class CardDetailsPaginatedResponse {
     /**
      * Collection of Card Details.
      */
-    public CardDetailsPaginatedResponse withData(@Nonnull List<CardDetailsJson> data) {
+    public CardDetailsPaginatedResponse withData(@Nonnull List<CardDetails> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +97,9 @@ public class CardDetailsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<CardDetailsJson> data;
+        private List<CardDetails> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +108,7 @@ public class CardDetailsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +116,7 @@ public class CardDetailsPaginatedResponse {
         /**
          * Collection of Card Details.
          */
-        public Builder data(@Nonnull List<CardDetailsJson> data) {
+        public Builder data(@Nonnull List<CardDetails> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

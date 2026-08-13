@@ -9,10 +9,10 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
+import com.cvent.models.components.Event1Input;
 import com.cvent.models.components.EventAsyncResponse;
-import com.cvent.models.components.EventInput;
 import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.CreateEventAsyncResponse;
 import com.cvent.utils.AsyncRetries;
 import com.cvent.utils.BackoffStrategy;
@@ -129,13 +129,13 @@ public class CreateEventAsync {
         }
     }
 
-    public static class Sync extends Base implements RequestOperation<EventInput, CreateEventAsyncResponse> {
+    public static class Sync extends Base implements RequestOperation<Event1Input, CreateEventAsyncResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, @Nullable Options options, Headers _headers) {
             super(sdkConfiguration, options, _headers);
         }
 
-        private HttpRequest onBuildRequest(EventInput request) throws Exception {
-            HttpRequest req = buildRequest(request, new TypeReference<EventInput>() {});
+        private HttpRequest onBuildRequest(Event1Input request) throws Exception {
+            HttpRequest req = buildRequest(request, new TypeReference<Event1Input>() {});
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -151,7 +151,7 @@ public class CreateEventAsync {
         }
 
         @Override
-        public HttpResponse<InputStream> doRequest(EventInput request) {
+        public HttpResponse<InputStream> doRequest(Event1Input request) {
             Retries retries = Retries.builder()
                     .action(() -> {
                         HttpRequest r;
@@ -197,7 +197,7 @@ public class CreateEventAsync {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw ErrorResponse1.from(response);
+                    throw ErrorResponse11.from(response);
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -215,7 +215,7 @@ public class CreateEventAsync {
     }
 
     public static class Async extends Base
-            implements AsyncRequestOperation<EventInput, com.cvent.models.operations.async.CreateEventAsyncResponse> {
+            implements AsyncRequestOperation<Event1Input, com.cvent.models.operations.async.CreateEventAsyncResponse> {
         private final ScheduledExecutorService retryScheduler;
 
         public Async(
@@ -227,8 +227,8 @@ public class CreateEventAsync {
             this.retryScheduler = retryScheduler;
         }
 
-        private CompletableFuture<HttpRequest> onBuildRequest(EventInput request) throws Exception {
-            HttpRequest req = buildRequest(request, new TypeReference<EventInput>() {});
+        private CompletableFuture<HttpRequest> onBuildRequest(Event1Input request) throws Exception {
+            HttpRequest req = buildRequest(request, new TypeReference<Event1Input>() {});
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -241,7 +241,7 @@ public class CreateEventAsync {
         }
 
         @Override
-        public CompletableFuture<HttpResponse<Blob>> doRequest(EventInput request) {
+        public CompletableFuture<HttpResponse<Blob>> doRequest(Event1Input request) {
             AsyncRetries retries = AsyncRetries.builder()
                     .retryConfig(retryConfig)
                     .statusCodes(retryStatusCodes)
@@ -286,7 +286,7 @@ public class CreateEventAsync {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse1.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse11.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

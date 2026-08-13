@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations.async;
 
-import com.cvent.models.components.UserGroupJson;
+import com.cvent.models.components.AccountUserGroup;
 import com.cvent.utils.AsyncResponse;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
@@ -35,20 +35,20 @@ public class CreateAccountUserGroupResponse implements AsyncResponse {
     /**
      * A User Group
      */
-    private UserGroupJson userGroupJson;
+    private AccountUserGroup accountUserGroup;
 
     @JsonCreator
     public CreateAccountUserGroupResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<Blob> rawResponse,
-            @Nullable UserGroupJson userGroupJson) {
+            @Nullable AccountUserGroup accountUserGroup) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
                 .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
-        this.userGroupJson = userGroupJson;
+        this.accountUserGroup = accountUserGroup;
     }
 
     public CreateAccountUserGroupResponse(
@@ -80,8 +80,8 @@ public class CreateAccountUserGroupResponse implements AsyncResponse {
     /**
      * A User Group
      */
-    public Optional<UserGroupJson> userGroupJson() {
-        return Optional.ofNullable(this.userGroupJson);
+    public Optional<AccountUserGroup> accountUserGroup() {
+        return Optional.ofNullable(this.accountUserGroup);
     }
 
     public static Builder builder() {
@@ -115,8 +115,8 @@ public class CreateAccountUserGroupResponse implements AsyncResponse {
     /**
      * A User Group
      */
-    public CreateAccountUserGroupResponse withUserGroupJson(@Nullable UserGroupJson userGroupJson) {
-        this.userGroupJson = userGroupJson;
+    public CreateAccountUserGroupResponse withAccountUserGroup(@Nullable AccountUserGroup accountUserGroup) {
+        this.accountUserGroup = accountUserGroup;
         return this;
     }
 
@@ -132,12 +132,12 @@ public class CreateAccountUserGroupResponse implements AsyncResponse {
         return Utils.enhancedDeepEquals(this.contentType, other.contentType)
                 && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
                 && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
-                && Utils.enhancedDeepEquals(this.userGroupJson, other.userGroupJson);
+                && Utils.enhancedDeepEquals(this.accountUserGroup, other.accountUserGroup);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(contentType, statusCode, rawResponse, userGroupJson);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, accountUserGroup);
     }
 
     @Override
@@ -150,8 +150,8 @@ public class CreateAccountUserGroupResponse implements AsyncResponse {
                 statusCode,
                 "rawResponse",
                 rawResponse,
-                "userGroupJson",
-                userGroupJson);
+                "accountUserGroup",
+                accountUserGroup);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -163,7 +163,7 @@ public class CreateAccountUserGroupResponse implements AsyncResponse {
 
         private HttpResponse<Blob> rawResponse;
 
-        private UserGroupJson userGroupJson;
+        private AccountUserGroup accountUserGroup;
 
         private Builder() {
             // force use of static builder() method
@@ -196,13 +196,13 @@ public class CreateAccountUserGroupResponse implements AsyncResponse {
         /**
          * A User Group
          */
-        public Builder userGroupJson(@Nullable UserGroupJson userGroupJson) {
-            this.userGroupJson = userGroupJson;
+        public Builder accountUserGroup(@Nullable AccountUserGroup accountUserGroup) {
+            this.accountUserGroup = accountUserGroup;
             return this;
         }
 
         public CreateAccountUserGroupResponse build() {
-            return new CreateAccountUserGroupResponse(contentType, statusCode, rawResponse, userGroupJson);
+            return new CreateAccountUserGroupResponse(contentType, statusCode, rawResponse, accountUserGroup);
         }
     }
 }

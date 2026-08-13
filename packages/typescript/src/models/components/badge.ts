@@ -9,7 +9,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Attendee12, Attendee12$inboundSchema } from "./attendee12.js";
 import { BadgeStatus, BadgeStatus$inboundSchema } from "./badgestatus.js";
 import { BadgeType, BadgeType$inboundSchema } from "./badgetype.js";
-import { Event3, Event3$inboundSchema } from "./event3.js";
+import { Event4, Event4$inboundSchema } from "./event4.js";
 
 /**
  * A JSON Schema for Badge object.
@@ -50,7 +50,7 @@ export type Badge = {
   /**
    * The Associated Event.
    */
-  event: Event3;
+  event: Event4;
 };
 
 /** @internal */
@@ -67,7 +67,7 @@ export const Badge$inboundSchema: z.ZodType<Badge, z.ZodTypeDef, unknown> = z
     status: BadgeStatus$inboundSchema,
     type: BadgeType$inboundSchema,
     attendee: Attendee12$inboundSchema,
-    event: Event3$inboundSchema,
+    event: Event4$inboundSchema,
   });
 
 export function badgeFromJSON(

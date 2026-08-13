@@ -105,7 +105,7 @@ public class TransactionDetailResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paymentType")
-    private PaymentType1 paymentType;
+    private PaymentType12 paymentType;
 
     /**
      * This denotes the payment method in a transaction.
@@ -196,7 +196,7 @@ public class TransactionDetailResponse {
             @JsonProperty("attendee") @Nullable Attendee attendee,
             @JsonProperty("orders") @Nullable List<Order> orders,
             @JsonProperty("journalNumber") @Nullable String journalNumber,
-            @JsonProperty("paymentType") @Nullable PaymentType1 paymentType,
+            @JsonProperty("paymentType") @Nullable PaymentType12 paymentType,
             @JsonProperty("paymentMethod") @Nullable PaymentMethod paymentMethod,
             @JsonProperty("success") @Nullable Boolean success,
             @JsonProperty("date") @Nullable OffsetDateTime date,
@@ -338,7 +338,7 @@ public class TransactionDetailResponse {
      * currency. Offline Refund: The transaction is a refund issued to the attendee electronically in
      * another system of record, or paid in physical currency.
      */
-    public Optional<PaymentType1> paymentType() {
+    public Optional<PaymentType12> paymentType() {
         return Optional.ofNullable(this.paymentType);
     }
 
@@ -513,7 +513,7 @@ public class TransactionDetailResponse {
      * currency. Offline Refund: The transaction is a refund issued to the attendee electronically in
      * another system of record, or paid in physical currency.
      */
-    public TransactionDetailResponse withPaymentType(@Nullable PaymentType1 paymentType) {
+    public TransactionDetailResponse withPaymentType(@Nullable PaymentType12 paymentType) {
         this.paymentType = paymentType;
         return this;
     }
@@ -740,7 +740,7 @@ public class TransactionDetailResponse {
 
         private String journalNumber;
 
-        private PaymentType1 paymentType;
+        private PaymentType12 paymentType;
 
         private PaymentMethod paymentMethod;
 
@@ -858,7 +858,7 @@ public class TransactionDetailResponse {
          * currency. Offline Refund: The transaction is a refund issued to the attendee electronically in
          * another system of record, or paid in physical currency.
          */
-        public Builder paymentType(@Nullable PaymentType1 paymentType) {
+        public Builder paymentType(@Nullable PaymentType12 paymentType) {
             this.paymentType = paymentType;
             return this;
         }

@@ -6,11 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  CardDetailsJson,
-  CardDetailsJson$inboundSchema,
-} from "./carddetailsjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { CardDetails, CardDetails$inboundSchema } from "./carddetails.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to get the list of Card Details for the event.
@@ -19,11 +16,11 @@ export type CardDetailsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of Card Details.
    */
-  data: Array<CardDetailsJson>;
+  data: Array<CardDetails>;
 };
 
 /** @internal */
@@ -32,8 +29,8 @@ export const CardDetailsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(CardDetailsJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(CardDetails$inboundSchema),
 });
 
 export function cardDetailsPaginatedResponseFromJSON(

@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AttendeeAudienceSegmentAssociationJson,
-  AttendeeAudienceSegmentAssociationJson$inboundSchema,
-} from "./attendeeaudiencesegmentassociationjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  AttendeeAudienceSegmentAssociation,
+  AttendeeAudienceSegmentAssociation$inboundSchema,
+} from "./attendeeaudiencesegmentassociation.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The paginated response from a request to get the list of audience segments associated with an attendee.
@@ -19,11 +19,11 @@ export type AttendeeAudienceSegmentAssociationsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of audience segment associations for the attendee.
    */
-  data: Array<AttendeeAudienceSegmentAssociationJson>;
+  data: Array<AttendeeAudienceSegmentAssociation>;
 };
 
 /** @internal */
@@ -33,8 +33,8 @@ export const AttendeeAudienceSegmentAssociationsPaginatedResponse$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    paging: PagingJson$inboundSchema,
-    data: z.array(AttendeeAudienceSegmentAssociationJson$inboundSchema),
+    paging: Paging$inboundSchema,
+    data: z.array(AttendeeAudienceSegmentAssociation$inboundSchema),
   });
 
 export function attendeeAudienceSegmentAssociationsPaginatedResponseFromJSON(

@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  EventBudgetTotalsJson,
-  EventBudgetTotalsJson$inboundSchema,
-} from "./eventbudgettotalsjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  EventBudgetTotals,
+  EventBudgetTotals$inboundSchema,
+} from "./eventbudgettotals.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to get the list of event budget totals.
@@ -19,11 +19,11 @@ export type EventBudgetPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of Event Budget Totals Information.
    */
-  data: Array<EventBudgetTotalsJson>;
+  data: Array<EventBudgetTotals>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const EventBudgetPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(EventBudgetTotalsJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(EventBudgetTotals$inboundSchema),
 });
 
 export function eventBudgetPaginatedResponseFromJSON(

@@ -22,13 +22,13 @@ public class SendEmailEventRequest {
      * Details of the event.
      */
     @JsonProperty("event")
-    private EventJson6 event;
+    private EventJson4 event;
 
     /**
      * Details of an email to be send.
      */
     @JsonProperty("email")
-    private EmailJson1 email;
+    private EmailJson email;
 
     /**
      * True indicates this email should be resent to attendees who had already received this email
@@ -45,8 +45,8 @@ public class SendEmailEventRequest {
 
     @JsonCreator
     public SendEmailEventRequest(
-            @JsonProperty("event") @Nonnull EventJson6 event,
-            @JsonProperty("email") @Nonnull EmailJson1 email,
+            @JsonProperty("event") @Nonnull EventJson4 event,
+            @JsonProperty("email") @Nonnull EmailJson email,
             @JsonProperty("resendToPreviousRecipients") boolean resendToPreviousRecipients,
             @JsonProperty("attendees") @Nonnull List<String> attendees) {
         this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
@@ -59,14 +59,14 @@ public class SendEmailEventRequest {
     /**
      * Details of the event.
      */
-    public EventJson6 event() {
+    public EventJson4 event() {
         return this.event;
     }
 
     /**
      * Details of an email to be send.
      */
-    public EmailJson1 email() {
+    public EmailJson email() {
         return this.email;
     }
 
@@ -92,7 +92,7 @@ public class SendEmailEventRequest {
     /**
      * Details of the event.
      */
-    public SendEmailEventRequest withEvent(@Nonnull EventJson6 event) {
+    public SendEmailEventRequest withEvent(@Nonnull EventJson4 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -100,7 +100,7 @@ public class SendEmailEventRequest {
     /**
      * Details of an email to be send.
      */
-    public SendEmailEventRequest withEmail(@Nonnull EmailJson1 email) {
+    public SendEmailEventRequest withEmail(@Nonnull EmailJson email) {
         this.email = Utils.checkNotNull(email, "email");
         return this;
     }
@@ -159,9 +159,9 @@ public class SendEmailEventRequest {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EventJson6 event;
+        private EventJson4 event;
 
-        private EmailJson1 email;
+        private EmailJson email;
 
         private boolean resendToPreviousRecipients;
 
@@ -174,7 +174,7 @@ public class SendEmailEventRequest {
         /**
          * Details of the event.
          */
-        public Builder event(@Nonnull EventJson6 event) {
+        public Builder event(@Nonnull EventJson4 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -182,7 +182,7 @@ public class SendEmailEventRequest {
         /**
          * Details of an email to be send.
          */
-        public Builder email(@Nonnull EmailJson1 email) {
+        public Builder email(@Nonnull EmailJson email) {
             this.email = Utils.checkNotNull(email, "email");
             return this;
         }

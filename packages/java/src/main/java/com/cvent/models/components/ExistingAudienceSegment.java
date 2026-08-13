@@ -56,7 +56,7 @@ public class ExistingAudienceSegment {
      * ID of the event.
      */
     @JsonProperty("event")
-    private EventJson event;
+    private Event3 event;
 
     /**
      * Name of the audience segment. Must be unique in the event where the segment exists.
@@ -83,7 +83,7 @@ public class ExistingAudienceSegment {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("creationType")
-    private AudienceSegmentCreationTypeJson creationType;
+    private AudienceSegmentCreationType creationType;
 
     /**
      * Boolean representing whether segment is deleted or not.
@@ -98,11 +98,11 @@ public class ExistingAudienceSegment {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nonnull EventJson event,
+            @JsonProperty("event") @Nonnull Event3 event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("creationType") @Nullable AudienceSegmentCreationTypeJson creationType,
+            @JsonProperty("creationType") @Nullable AudienceSegmentCreationType creationType,
             @JsonProperty("deleted") @Nullable Boolean deleted) {
         this.created = created;
         this.createdBy = createdBy;
@@ -116,7 +116,7 @@ public class ExistingAudienceSegment {
         this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
     }
 
-    public ExistingAudienceSegment(@Nonnull EventJson event, @Nonnull String name) {
+    public ExistingAudienceSegment(@Nonnull Event3 event, @Nonnull String name) {
         this(null, null, null, null, event, name, null, null, null, null);
     }
 
@@ -151,7 +151,7 @@ public class ExistingAudienceSegment {
     /**
      * ID of the event.
      */
-    public EventJson event() {
+    public Event3 event() {
         return this.event;
     }
 
@@ -179,7 +179,7 @@ public class ExistingAudienceSegment {
     /**
      * Creation type of the audience segment.
      */
-    public Optional<AudienceSegmentCreationTypeJson> creationType() {
+    public Optional<AudienceSegmentCreationType> creationType() {
         return Optional.ofNullable(this.creationType);
     }
 
@@ -229,7 +229,7 @@ public class ExistingAudienceSegment {
     /**
      * ID of the event.
      */
-    public ExistingAudienceSegment withEvent(@Nonnull EventJson event) {
+    public ExistingAudienceSegment withEvent(@Nonnull Event3 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -261,7 +261,7 @@ public class ExistingAudienceSegment {
     /**
      * Creation type of the audience segment.
      */
-    public ExistingAudienceSegment withCreationType(@Nullable AudienceSegmentCreationTypeJson creationType) {
+    public ExistingAudienceSegment withCreationType(@Nullable AudienceSegmentCreationType creationType) {
         this.creationType = creationType;
         return this;
     }
@@ -338,7 +338,7 @@ public class ExistingAudienceSegment {
 
         private String lastModifiedBy;
 
-        private EventJson event;
+        private Event3 event;
 
         private String name;
 
@@ -346,7 +346,7 @@ public class ExistingAudienceSegment {
 
         private String id;
 
-        private AudienceSegmentCreationTypeJson creationType;
+        private AudienceSegmentCreationType creationType;
 
         private Boolean deleted;
 
@@ -389,7 +389,7 @@ public class ExistingAudienceSegment {
         /**
          * ID of the event.
          */
-        public Builder event(@Nonnull EventJson event) {
+        public Builder event(@Nonnull Event3 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -421,7 +421,7 @@ public class ExistingAudienceSegment {
         /**
          * Creation type of the audience segment.
          */
-        public Builder creationType(@Nullable AudienceSegmentCreationTypeJson creationType) {
+        public Builder creationType(@Nullable AudienceSegmentCreationType creationType) {
             this.creationType = creationType;
             return this;
         }
@@ -448,8 +448,8 @@ public class ExistingAudienceSegment {
                     deleted);
         }
 
-        private static final LazySingletonValue<AudienceSegmentCreationTypeJson> _SINGLETON_VALUE_CreationType =
-                new LazySingletonValue<>("creationType", "\"MANUAL\"", new TypeReference<AudienceSegmentCreationTypeJson>() {});
+        private static final LazySingletonValue<AudienceSegmentCreationType> _SINGLETON_VALUE_CreationType =
+                new LazySingletonValue<>("creationType", "\"MANUAL\"", new TypeReference<AudienceSegmentCreationType>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Deleted =
                 new LazySingletonValue<>("deleted", "false", new TypeReference<Boolean>() {});

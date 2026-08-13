@@ -62,7 +62,7 @@ public class ScoresJson {
      * An event reference used in attendee insights to identify the event context for engagement data
      */
     @JsonProperty("event")
-    private EventJson5 event;
+    private EventJson3 event;
 
     /**
      * The number of points earned by an attendee in this engagement score.
@@ -85,7 +85,7 @@ public class ScoresJson {
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("attendee") @Nonnull ScoresJsonAttendee attendee,
-            @JsonProperty("event") @Nonnull EventJson5 event,
+            @JsonProperty("event") @Nonnull EventJson3 event,
             @JsonProperty("points") @Nullable Long points,
             @JsonProperty("rank") @Nullable Long rank) {
         this.created = created;
@@ -99,7 +99,7 @@ public class ScoresJson {
         this.rank = Optional.ofNullable(rank).orElse(Builder._SINGLETON_VALUE_Rank.value());
     }
 
-    public ScoresJson(@Nonnull ScoresJsonAttendee attendee, @Nonnull EventJson5 event) {
+    public ScoresJson(@Nonnull ScoresJsonAttendee attendee, @Nonnull EventJson3 event) {
         this(null, null, null, null, attendee, event, null, null);
     }
 
@@ -141,7 +141,7 @@ public class ScoresJson {
     /**
      * An event reference used in attendee insights to identify the event context for engagement data
      */
-    public EventJson5 event() {
+    public EventJson3 event() {
         return this.event;
     }
 
@@ -206,7 +206,7 @@ public class ScoresJson {
     /**
      * An event reference used in attendee insights to identify the event context for engagement data
      */
-    public ScoresJson withEvent(@Nonnull EventJson5 event) {
+    public ScoresJson withEvent(@Nonnull EventJson3 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -286,7 +286,7 @@ public class ScoresJson {
 
         private ScoresJsonAttendee attendee;
 
-        private EventJson5 event;
+        private EventJson3 event;
 
         private Long points;
 
@@ -339,7 +339,7 @@ public class ScoresJson {
         /**
          * An event reference used in attendee insights to identify the event context for engagement data
          */
-        public Builder event(@Nonnull EventJson5 event) {
+        public Builder event(@Nonnull EventJson3 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

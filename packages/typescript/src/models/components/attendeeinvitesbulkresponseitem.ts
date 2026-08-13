@@ -11,17 +11,17 @@ import {
   AttendeeAddResponse$inboundSchema,
 } from "./attendeeaddresponse.js";
 import {
-  ErrorResponse1,
-  ErrorResponse1$inboundSchema,
-} from "./errorresponse1.js";
+  ErrorResponse11,
+  ErrorResponse11$inboundSchema,
+} from "./errorresponse11.js";
 
-export type Attendees = ErrorResponse1 | AttendeeAddResponse;
+export type Attendees = ErrorResponse11 | AttendeeAddResponse;
 
 /**
  * This entity is used to represent a single item that is returned as part of a bulk request call.
  */
 export type AttendeeInvitesBulkResponseItem = {
-  data: ErrorResponse1 | AttendeeAddResponse;
+  data: ErrorResponse11 | AttendeeAddResponse;
   /**
    * http status code representing processing status of a single item
    */
@@ -41,7 +41,7 @@ export const Attendees$inboundSchema: z.ZodType<
   Attendees,
   z.ZodTypeDef,
   unknown
-> = z.union([ErrorResponse1$inboundSchema, AttendeeAddResponse$inboundSchema]);
+> = z.union([ErrorResponse11$inboundSchema, AttendeeAddResponse$inboundSchema]);
 
 export function attendeesFromJSON(
   jsonString: string,
@@ -60,7 +60,7 @@ export const AttendeeInvitesBulkResponseItem$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   data: z.union([
-    ErrorResponse1$inboundSchema,
+    ErrorResponse11$inboundSchema,
     AttendeeAddResponse$inboundSchema,
   ]),
   status: z.number().int(),

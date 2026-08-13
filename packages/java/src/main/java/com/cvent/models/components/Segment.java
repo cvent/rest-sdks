@@ -14,11 +14,11 @@ import java.util.Optional;
 /**
  * Segment
  *
- * <p>The audience segment associated with the session.
+ * <p>Segment details
  */
 public class Segment {
     /**
-     * The unique identifier for an audience segment
+     * Segment Id
      */
     @JsonProperty("id")
     private String id;
@@ -29,7 +29,7 @@ public class Segment {
     }
 
     /**
-     * The unique identifier for an audience segment
+     * Segment Id
      */
     public String id() {
         return this.id;
@@ -40,7 +40,7 @@ public class Segment {
     }
 
     /**
-     * The unique identifier for an audience segment
+     * Segment Id
      */
     public Segment withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -79,7 +79,7 @@ public class Segment {
         }
 
         /**
-         * The unique identifier for an audience segment
+         * Segment Id
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

@@ -56,7 +56,7 @@ public class ExistingFile {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event3 event;
+    private Event4 event;
 
     /**
      * The Associated Exhibitor.
@@ -96,7 +96,7 @@ public class ExistingFile {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nonnull Event3 event,
+            @JsonProperty("event") @Nonnull Event4 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
             @JsonProperty("displayName") @Nonnull String displayName,
             @JsonProperty("hidden") @Nullable Boolean hidden,
@@ -116,7 +116,7 @@ public class ExistingFile {
         this.id = id;
     }
 
-    public ExistingFile(@Nonnull Event3 event, @Nonnull Exhibitor exhibitor, @Nonnull String displayName, long order) {
+    public ExistingFile(@Nonnull Event4 event, @Nonnull Exhibitor exhibitor, @Nonnull String displayName, long order) {
         this(null, null, null, null, event, exhibitor, displayName, null, order, null);
     }
 
@@ -151,7 +151,7 @@ public class ExistingFile {
     /**
      * The Associated Event.
      */
-    public Event3 event() {
+    public Event4 event() {
         return this.event;
     }
 
@@ -229,7 +229,7 @@ public class ExistingFile {
     /**
      * The Associated Event.
      */
-    public ExistingFile withEvent(@Nonnull Event3 event) {
+    public ExistingFile withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -338,7 +338,7 @@ public class ExistingFile {
 
         private String lastModifiedBy;
 
-        private Event3 event;
+        private Event4 event;
 
         private Exhibitor exhibitor;
 
@@ -389,7 +389,7 @@ public class ExistingFile {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event3 event) {
+        public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

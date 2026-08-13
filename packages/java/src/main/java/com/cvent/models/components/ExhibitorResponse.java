@@ -56,7 +56,7 @@ public class ExhibitorResponse {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event3 event;
+    private Event4 event;
 
     /**
      * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal
@@ -218,7 +218,7 @@ public class ExhibitorResponse {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nonnull Event3 event,
+            @JsonProperty("event") @Nonnull Event4 event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("code") @Nullable String code,
@@ -270,7 +270,7 @@ public class ExhibitorResponse {
         this.bannerUrl = bannerUrl;
     }
 
-    public ExhibitorResponse(@Nonnull Event3 event, @Nonnull String name) {
+    public ExhibitorResponse(@Nonnull Event4 event, @Nonnull String name) {
         this(
                 null,
                 null,
@@ -332,7 +332,7 @@ public class ExhibitorResponse {
     /**
      * The Associated Event.
      */
-    public Event3 event() {
+    public Event4 event() {
         return this.event;
     }
 
@@ -530,7 +530,7 @@ public class ExhibitorResponse {
     /**
      * The Associated Event.
      */
-    public ExhibitorResponse withEvent(@Nonnull Event3 event) {
+    public ExhibitorResponse withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -853,7 +853,7 @@ public class ExhibitorResponse {
 
         private String lastModifiedBy;
 
-        private Event3 event;
+        private Event4 event;
 
         private String name;
 
@@ -938,7 +938,7 @@ public class ExhibitorResponse {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event3 event) {
+        public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

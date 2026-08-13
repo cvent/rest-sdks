@@ -6,39 +6,31 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  BudgetCategory,
-  BudgetCategory$inboundSchema,
-} from "./budgetcategory.js";
-import {
-  BudgetSubCategory,
-  BudgetSubCategory$inboundSchema,
-} from "./budgetsubcategory.js";
 
 /**
- * The budget entry in detail, which consists of the budget category or sub-category, the number of units, the cost per unit, and the total amount.
+ * Event Budget cost detail information.
  */
 export type BudgetCostDetail = {
   /**
-   * Denotes the category assigned to the budget item.
+   * A string that has to be a format matching the industry standard uuid
    */
-  category?: BudgetCategory | undefined;
+  id?: string | undefined;
   /**
-   * This is used to denote the sub category for a budget.
+   * Denotes the name of the budget column associated to this cost.
    */
-  subCategory?: BudgetSubCategory | undefined;
+  name?: string | undefined;
   /**
-   * The number of units associated with a budget item. This field can be any number if the budget item is a *Variable* cost type. If the budget item uses a *Fixed* cost type, set this field to 1.
+   * The total cost amount of the budget version in an event.
    */
-  units?: number | undefined;
+  totalCostValue?: number | undefined;
   /**
-   * The cost amount of the budget item. If the budget item uses a *Fixed* cost type, the value of this field won't be applied to the creation or update of a Meeting Request.
+   * The total tax amount of the budget version in an event for the cost column.
    */
-  cost?: number | undefined;
+  totalAppliedTax?: number | undefined;
   /**
-   * The total cost of the budget item. If the budget item uses a *Variable* cost type, this field will be set as the result of units times cost. The value of this field will be applied to the creation or update of a Meeting Request only if the cost type is *Fixed*.
+   * The total gratuity amount of the budget version in an event for the cost column.
    */
-  totalCost?: number | undefined;
+  totalAppliedGratuity?: number | undefined;
 };
 
 /** @internal */
@@ -47,11 +39,11 @@ export const BudgetCostDetail$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  category: BudgetCategory$inboundSchema.optional(),
-  subCategory: BudgetSubCategory$inboundSchema.optional(),
-  units: z.number().optional(),
-  cost: z.number().optional(),
-  totalCost: z.number().optional(),
+  id: z.string().optional(),
+  name: z.string().optional(),
+  totalCostValue: z.number().optional(),
+  totalAppliedTax: z.number().optional(),
+  totalAppliedGratuity: z.number().optional(),
 });
 
 export function budgetCostDetailFromJSON(

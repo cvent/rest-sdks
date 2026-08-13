@@ -50,7 +50,7 @@ public class UserInput {
      * sequence.
      */
     @JsonProperty("emails")
-    private List<Email> emails;
+    private List<Email1> emails;
 
     /**
      * The title of the user.
@@ -65,7 +65,7 @@ public class UserInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("phoneNumbers")
-    private List<PhoneNumber> phoneNumbers;
+    private List<PhoneNumber1> phoneNumbers;
 
     /**
      * The address of the user. The user can have only one address. <br> If multiple addresses are
@@ -114,9 +114,9 @@ public class UserInput {
             @JsonProperty("name") @Nonnull Name name,
             @JsonProperty("userName") @Nonnull String userName,
             @JsonProperty("active") @Nullable Boolean active,
-            @JsonProperty("emails") @Nonnull List<Email> emails,
+            @JsonProperty("emails") @Nonnull List<Email1> emails,
             @JsonProperty("title") @Nullable String title,
-            @JsonProperty("phoneNumbers") @Nullable List<PhoneNumber> phoneNumbers,
+            @JsonProperty("phoneNumbers") @Nullable List<PhoneNumber1> phoneNumbers,
             @JsonProperty("addresses") @Nullable List<Address5> addresses,
             @JsonProperty("userType") @Nonnull UserType userType,
             @JsonProperty("timezone") @Nullable String timezone,
@@ -147,7 +147,7 @@ public class UserInput {
     public UserInput(
             @Nonnull Name name,
             @Nonnull String userName,
-            @Nonnull List<Email> emails,
+            @Nonnull List<Email1> emails,
             @Nonnull UserType userType,
             @Nonnull String locale,
             @Nonnull List<Group> groups,
@@ -194,7 +194,7 @@ public class UserInput {
      * the following sequence of criteria: primary email, then work type, and finally first in the
      * sequence.
      */
-    public List<Email> emails() {
+    public List<Email1> emails() {
         return this.emails;
     }
 
@@ -209,7 +209,7 @@ public class UserInput {
      * The phone numbers of the user.<br> If more than one number per type is provided, only one is
      * accepted and rest are ignored.
      */
-    public Optional<List<PhoneNumber>> phoneNumbers() {
+    public Optional<List<PhoneNumber1>> phoneNumbers() {
         return Optional.ofNullable(this.phoneNumbers);
     }
 
@@ -293,7 +293,7 @@ public class UserInput {
      * the following sequence of criteria: primary email, then work type, and finally first in the
      * sequence.
      */
-    public UserInput withEmails(@Nonnull List<Email> emails) {
+    public UserInput withEmails(@Nonnull List<Email1> emails) {
         this.emails = Utils.checkNotNull(emails, "emails");
         return this;
     }
@@ -310,7 +310,7 @@ public class UserInput {
      * The phone numbers of the user.<br> If more than one number per type is provided, only one is
      * accepted and rest are ignored.
      */
-    public UserInput withPhoneNumbers(@Nullable List<PhoneNumber> phoneNumbers) {
+    public UserInput withPhoneNumbers(@Nullable List<PhoneNumber1> phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
         return this;
     }
@@ -450,11 +450,11 @@ public class UserInput {
 
         private Boolean active;
 
-        private List<Email> emails;
+        private List<Email1> emails;
 
         private String title;
 
-        private List<PhoneNumber> phoneNumbers;
+        private List<PhoneNumber1> phoneNumbers;
 
         private List<Address5> addresses;
 
@@ -502,7 +502,7 @@ public class UserInput {
          * the following sequence of criteria: primary email, then work type, and finally first in the
          * sequence.
          */
-        public Builder emails(@Nonnull List<Email> emails) {
+        public Builder emails(@Nonnull List<Email1> emails) {
             this.emails = Utils.checkNotNull(emails, "emails");
             return this;
         }
@@ -519,7 +519,7 @@ public class UserInput {
          * The phone numbers of the user.<br> If more than one number per type is provided, only one is
          * accepted and rest are ignored.
          */
-        public Builder phoneNumbers(@Nullable List<PhoneNumber> phoneNumbers) {
+        public Builder phoneNumbers(@Nullable List<PhoneNumber1> phoneNumbers) {
             this.phoneNumbers = phoneNumbers;
             return this;
         }

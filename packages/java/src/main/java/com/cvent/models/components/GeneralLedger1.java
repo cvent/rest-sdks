@@ -16,22 +16,15 @@ import java.util.Optional;
 /**
  * GeneralLedger1
  *
- * <p>This is used to denote the general ledger code associated with donation item.
+ * <p>This is used to denote the general ledger code associated with budget.
  */
 public class GeneralLedger1 {
     /**
-     * A unique identifier of the general ledger.
+     * A string that has to be a format matching the industry standard uuid
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
-
-    /**
-     * Name of the General Ledger.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("name")
-    private String name;
 
     /**
      * General Ledger Code.
@@ -40,14 +33,21 @@ public class GeneralLedger1 {
     @JsonProperty("code")
     private String code;
 
+    /**
+     * Name of the General Ledger.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("name")
+    private String name;
+
     @JsonCreator
     public GeneralLedger1(
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("name") @Nullable String name,
-            @JsonProperty("code") @Nullable String code) {
+            @JsonProperty("code") @Nullable String code,
+            @JsonProperty("name") @Nullable String name) {
         this.id = id;
-        this.name = name;
         this.code = code;
+        this.name = name;
     }
 
     public GeneralLedger1() {
@@ -55,17 +55,10 @@ public class GeneralLedger1 {
     }
 
     /**
-     * A unique identifier of the general ledger.
+     * A string that has to be a format matching the industry standard uuid
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
-    }
-
-    /**
-     * Name of the General Ledger.
-     */
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
     }
 
     /**
@@ -75,23 +68,22 @@ public class GeneralLedger1 {
         return Optional.ofNullable(this.code);
     }
 
+    /**
+     * Name of the General Ledger.
+     */
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
+    }
+
     public static Builder builder() {
         return new Builder();
     }
 
     /**
-     * A unique identifier of the general ledger.
+     * A string that has to be a format matching the industry standard uuid
      */
     public GeneralLedger1 withId(@Nullable String id) {
         this.id = id;
-        return this;
-    }
-
-    /**
-     * Name of the General Ledger.
-     */
-    public GeneralLedger1 withName(@Nullable String name) {
-        this.name = name;
         return this;
     }
 
@@ -100,6 +92,14 @@ public class GeneralLedger1 {
      */
     public GeneralLedger1 withCode(@Nullable String code) {
         this.code = code;
+        return this;
+    }
+
+    /**
+     * Name of the General Ledger.
+     */
+    public GeneralLedger1 withName(@Nullable String name) {
+        this.name = name;
         return this;
     }
 
@@ -113,18 +113,18 @@ public class GeneralLedger1 {
         }
         GeneralLedger1 other = (GeneralLedger1) o;
         return Utils.enhancedDeepEquals(this.id, other.id)
-                && Utils.enhancedDeepEquals(this.name, other.name)
-                && Utils.enhancedDeepEquals(this.code, other.code);
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.name, other.name);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, name, code);
+        return Utils.enhancedHash(id, code, name);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(GeneralLedger1.class, "id", id, "name", name, "code", code);
+        return Utils.toString(GeneralLedger1.class, "id", id, "code", code, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -132,27 +132,19 @@ public class GeneralLedger1 {
 
         private String id;
 
-        private String name;
-
         private String code;
+
+        private String name;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * A unique identifier of the general ledger.
+         * A string that has to be a format matching the industry standard uuid
          */
         public Builder id(@Nullable String id) {
             this.id = id;
-            return this;
-        }
-
-        /**
-         * Name of the General Ledger.
-         */
-        public Builder name(@Nullable String name) {
-            this.name = name;
             return this;
         }
 
@@ -164,8 +156,16 @@ public class GeneralLedger1 {
             return this;
         }
 
+        /**
+         * Name of the General Ledger.
+         */
+        public Builder name(@Nullable String name) {
+            this.name = name;
+            return this;
+        }
+
         public GeneralLedger1 build() {
-            return new GeneralLedger1(id, name, code);
+            return new GeneralLedger1(id, code, name);
         }
     }
 }

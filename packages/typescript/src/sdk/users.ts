@@ -42,9 +42,9 @@ export class Users extends ClientSDK {
    * Creates a new Account User Group.
    */
   async createAccountUserGroup(
-    request?: components.UserGroupJsonInput | undefined,
+    request?: components.AccountUserGroupInput | undefined,
     options?: RequestOptions,
-  ): Promise<components.UserGroupJson> {
+  ): Promise<components.AccountUserGroup> {
     return unwrapAsync(usersCreateAccountUserGroup(
       this,
       request,
@@ -61,7 +61,7 @@ export class Users extends ClientSDK {
   async getAccountUserGroup(
     request: operations.GetAccountUserGroupRequest,
     options?: RequestOptions,
-  ): Promise<components.UserGroupJson> {
+  ): Promise<components.AccountUserGroup> {
     return unwrapAsync(usersGetAccountUserGroup(
       this,
       request,
@@ -78,7 +78,7 @@ export class Users extends ClientSDK {
   async updateAccountUserGroup(
     request: operations.UpdateAccountUserGroupRequest,
     options?: RequestOptions,
-  ): Promise<components.UserGroupJson> {
+  ): Promise<components.AccountUserGroup> {
     return unwrapAsync(usersUpdateAccountUserGroup(
       this,
       request,

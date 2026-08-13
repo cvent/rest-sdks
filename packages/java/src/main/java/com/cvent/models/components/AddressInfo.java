@@ -45,7 +45,7 @@ public class AddressInfo {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("stateProvince")
-    private StateProvince1 stateProvince;
+    private StateProvince stateProvince;
 
     /**
      * ZIP or postal code.
@@ -72,7 +72,7 @@ public class AddressInfo {
             @JsonProperty("streetAddress1") @Nullable String streetAddress1,
             @JsonProperty("streetAddress2") @Nullable String streetAddress2,
             @JsonProperty("city") @Nonnull String city,
-            @JsonProperty("stateProvince") @Nullable StateProvince1 stateProvince,
+            @JsonProperty("stateProvince") @Nullable StateProvince stateProvince,
             @JsonProperty("zipPostalCode") @Nullable String zipPostalCode,
             @JsonProperty("country") @Nonnull Country country,
             @JsonProperty("directions") @Nullable String directions) {
@@ -114,7 +114,7 @@ public class AddressInfo {
     /**
      * The state province code used for contact information.
      */
-    public Optional<StateProvince1> stateProvince() {
+    public Optional<StateProvince> stateProvince() {
         return Optional.ofNullable(this.stateProvince);
     }
 
@@ -170,7 +170,7 @@ public class AddressInfo {
     /**
      * The state province code used for contact information.
      */
-    public AddressInfo withStateProvince(@Nullable StateProvince1 stateProvince) {
+    public AddressInfo withStateProvince(@Nullable StateProvince stateProvince) {
         this.stateProvince = stateProvince;
         return this;
     }
@@ -252,7 +252,7 @@ public class AddressInfo {
 
         private String city;
 
-        private StateProvince1 stateProvince;
+        private StateProvince stateProvince;
 
         private String zipPostalCode;
 
@@ -291,7 +291,7 @@ public class AddressInfo {
         /**
          * The state province code used for contact information.
          */
-        public Builder stateProvince(@Nullable StateProvince1 stateProvince) {
+        public Builder stateProvince(@Nullable StateProvince stateProvince) {
             this.stateProvince = stateProvince;
             return this;
         }

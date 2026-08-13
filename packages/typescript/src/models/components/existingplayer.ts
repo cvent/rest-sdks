@@ -14,7 +14,7 @@ import {
   PlayerTypeProviderJson,
   PlayerTypeProviderJson$inboundSchema,
 } from "./playertypeproviderjson.js";
-import { RegionJson1, RegionJson1$inboundSchema } from "./regionjson1.js";
+import { RegionJson, RegionJson$inboundSchema } from "./regionjson.js";
 import { ScheduleJson, ScheduleJson$inboundSchema } from "./schedulejson.js";
 import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
 
@@ -61,7 +61,7 @@ export type ExistingPlayer = {
   /**
    * Region where the live stream originates (These regions are only for Brightcove player)
    */
-  region?: RegionJson1 | undefined;
+  region?: RegionJson | undefined;
   /**
    * Video duration (milliseconds)
    */
@@ -102,7 +102,7 @@ export const ExistingPlayer$inboundSchema: z.ZodType<
   videoUrl: z.string().optional(),
   password: z.string().optional(),
   stream: LiveStreamJson$inboundSchema.optional(),
-  region: RegionJson1$inboundSchema.optional(),
+  region: RegionJson$inboundSchema.optional(),
   duration: z.number().int().optional(),
   schedule: ScheduleJson$inboundSchema.optional(),
   playerTypeProvider: PlayerTypeProviderJson$inboundSchema.optional(),

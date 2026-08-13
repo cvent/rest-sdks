@@ -10,7 +10,7 @@ import {
   AudienceSegmentResponse,
   AudienceSegmentResponse$inboundSchema,
 } from "./audiencesegmentresponse.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to get the paginated list of audience segments for the event.
@@ -19,7 +19,7 @@ export type AudienceSegmentsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of audience segments.
    */
@@ -32,7 +32,7 @@ export const AudienceSegmentsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
+  paging: Paging$inboundSchema,
   data: z.array(AudienceSegmentResponse$inboundSchema),
 });
 

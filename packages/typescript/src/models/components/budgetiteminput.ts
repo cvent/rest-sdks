@@ -4,52 +4,49 @@
 
 import * as z from "zod/v3";
 import {
-  BudgetAssociatedRegistrantJsonInput,
-  BudgetAssociatedRegistrantJsonInput$Outbound,
-  BudgetAssociatedRegistrantJsonInput$outboundSchema,
-} from "./budgetassociatedregistrantjsoninput.js";
+  BudgetAssociatedRegistrantInput,
+  BudgetAssociatedRegistrantInput$Outbound,
+  BudgetAssociatedRegistrantInput$outboundSchema,
+} from "./budgetassociatedregistrantinput.js";
 import {
-  BudgetCategoryJsonInput,
-  BudgetCategoryJsonInput$Outbound,
-  BudgetCategoryJsonInput$outboundSchema,
-} from "./budgetcategoryjsoninput.js";
+  BudgetCategoryInput,
+  BudgetCategoryInput$Outbound,
+  BudgetCategoryInput$outboundSchema,
+} from "./budgetcategoryinput.js";
 import {
-  BudgetCostAvoidanceJson,
-  BudgetCostAvoidanceJson$Outbound,
-  BudgetCostAvoidanceJson$outboundSchema,
-} from "./budgetcostavoidancejson.js";
+  BudgetCostAvoidance,
+  BudgetCostAvoidance$Outbound,
+  BudgetCostAvoidance$outboundSchema,
+} from "./budgetcostavoidance.js";
 import {
-  BudgetCostDetailJsonInput,
-  BudgetCostDetailJsonInput$Outbound,
-  BudgetCostDetailJsonInput$outboundSchema,
-} from "./budgetcostdetailjsoninput.js";
+  BudgetCostDetail1Input,
+  BudgetCostDetail1Input$Outbound,
+  BudgetCostDetail1Input$outboundSchema,
+} from "./budgetcostdetail1input.js";
 import {
-  BudgetCostTypeJson,
-  BudgetCostTypeJson$outboundSchema,
-} from "./budgetcosttypejson.js";
+  BudgetCostType,
+  BudgetCostType$outboundSchema,
+} from "./budgetcosttype.js";
+import { BudgetStatus, BudgetStatus$outboundSchema } from "./budgetstatus.js";
 import {
-  BudgetStatusJson,
-  BudgetStatusJson$outboundSchema,
-} from "./budgetstatusjson.js";
+  BudgetSubCategoryInput,
+  BudgetSubCategoryInput$Outbound,
+  BudgetSubCategoryInput$outboundSchema,
+} from "./budgetsubcategoryinput.js";
 import {
-  BudgetSubCategoryJsonInput,
-  BudgetSubCategoryJsonInput$Outbound,
-  BudgetSubCategoryJsonInput$outboundSchema,
-} from "./budgetsubcategoryjsoninput.js";
+  BudgetTaxGratuityType,
+  BudgetTaxGratuityType$outboundSchema,
+} from "./budgettaxgratuitytype.js";
 import {
-  BudgetTaxGratuityTypeJson,
-  BudgetTaxGratuityTypeJson$outboundSchema,
-} from "./budgettaxgratuitytypejson.js";
+  BudgetVendorInput,
+  BudgetVendorInput$Outbound,
+  BudgetVendorInput$outboundSchema,
+} from "./budgetvendorinput.js";
 import {
-  BudgetVendorJsonInput,
-  BudgetVendorJsonInput$Outbound,
-  BudgetVendorJsonInput$outboundSchema,
-} from "./budgetvendorjsoninput.js";
-import {
-  GeneralLedgerJsonInput,
-  GeneralLedgerJsonInput$Outbound,
-  GeneralLedgerJsonInput$outboundSchema,
-} from "./generalledgerjsoninput.js";
+  GeneralLedger1Input,
+  GeneralLedger1Input$Outbound,
+  GeneralLedger1Input$outboundSchema,
+} from "./generalledger1input.js";
 
 /**
  * Budget item updates associated with an event.
@@ -58,7 +55,7 @@ export type BudgetItemInput = {
   /**
    * Denotes the cost type of a budget item. FIXED costs stay the same regardless of quantity. VARIABLE costs are based on a quantity.
    */
-  costType: BudgetCostTypeJson;
+  costType: BudgetCostType;
   /**
    * Name of the budget item.
    */
@@ -70,19 +67,19 @@ export type BudgetItemInput = {
   /**
    * Denotes the category assigned to the budget item.
    */
-  category: BudgetCategoryJsonInput;
+  category: BudgetCategoryInput;
   /**
    * This is used to denote the sub category for a budget.
    */
-  subCategory?: BudgetSubCategoryJsonInput | undefined;
+  subCategory?: BudgetSubCategoryInput | undefined;
   /**
    * Denotes the status assigned to a budget item.
    */
-  status: BudgetStatusJson;
+  status: BudgetStatus;
   /**
    * List of details for a vendor assigned to a budget item.
    */
-  vendor?: BudgetVendorJsonInput | undefined;
+  vendor?: BudgetVendorInput | undefined;
   /**
    * The ISO 8601 zoned date and time assigned to the budget item, typically denotes the date and time of spending.
    */
@@ -90,11 +87,11 @@ export type BudgetItemInput = {
   /**
    * This is used to denote the general ledger code associated with budget.
    */
-  generalLedger?: GeneralLedgerJsonInput | undefined;
+  generalLedger?: GeneralLedger1Input | undefined;
   /**
    * Budget cost avoidance information.
    */
-  costAvoidance?: BudgetCostAvoidanceJson | undefined;
+  costAvoidance?: BudgetCostAvoidance | undefined;
   /**
    * True indicates the budget item cost includes tax and gratuity.
    */
@@ -106,7 +103,7 @@ export type BudgetItemInput = {
   /**
    * Denotes the type of tax or gratuity.
    */
-  gratuityType: BudgetTaxGratuityTypeJson;
+  gratuityType: BudgetTaxGratuityType;
   /**
    * User defined note associated with the budget item.
    */
@@ -126,13 +123,11 @@ export type BudgetItemInput = {
   /**
    * The list of cost details for a budget item.
    */
-  costDetail?: Array<BudgetCostDetailJsonInput> | undefined;
+  costDetail?: Array<BudgetCostDetail1Input> | undefined;
   /**
    * The list of registrants associated to a budget item. Typically used to attribute cost to specific registrants in reporting.
    */
-  associatedRegistrants?:
-    | Array<BudgetAssociatedRegistrantJsonInput>
-    | undefined;
+  associatedRegistrants?: Array<BudgetAssociatedRegistrantInput> | undefined;
   /**
    * Identifies the session associated with the budget item.
    */
@@ -144,13 +139,13 @@ export type BudgetItemInput$Outbound = {
   costType: string;
   name: string;
   code?: string | undefined;
-  category: BudgetCategoryJsonInput$Outbound;
-  subCategory?: BudgetSubCategoryJsonInput$Outbound | undefined;
+  category: BudgetCategoryInput$Outbound;
+  subCategory?: BudgetSubCategoryInput$Outbound | undefined;
   status: string;
-  vendor?: BudgetVendorJsonInput$Outbound | undefined;
+  vendor?: BudgetVendorInput$Outbound | undefined;
   date: string;
-  generalLedger?: GeneralLedgerJsonInput$Outbound | undefined;
-  costAvoidance?: BudgetCostAvoidanceJson$Outbound | undefined;
+  generalLedger?: GeneralLedger1Input$Outbound | undefined;
+  costAvoidance?: BudgetCostAvoidance$Outbound | undefined;
   costIncludesTaxGratuity: boolean;
   calculateTaxOnGratuity: boolean;
   gratuityType: string;
@@ -158,9 +153,9 @@ export type BudgetItemInput$Outbound = {
   currency: string;
   conversionRateLocked?: boolean | undefined;
   conversionRate: number;
-  costDetail?: Array<BudgetCostDetailJsonInput$Outbound> | undefined;
+  costDetail?: Array<BudgetCostDetail1Input$Outbound> | undefined;
   associatedRegistrants?:
-    | Array<BudgetAssociatedRegistrantJsonInput$Outbound>
+    | Array<BudgetAssociatedRegistrantInput$Outbound>
     | undefined;
   associatedSession?: string | undefined;
 };
@@ -171,27 +166,26 @@ export const BudgetItemInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BudgetItemInput
 > = z.object({
-  costType: BudgetCostTypeJson$outboundSchema,
+  costType: BudgetCostType$outboundSchema,
   name: z.string(),
   code: z.string().optional(),
-  category: BudgetCategoryJsonInput$outboundSchema,
-  subCategory: BudgetSubCategoryJsonInput$outboundSchema.optional(),
-  status: BudgetStatusJson$outboundSchema,
-  vendor: BudgetVendorJsonInput$outboundSchema.optional(),
+  category: BudgetCategoryInput$outboundSchema,
+  subCategory: BudgetSubCategoryInput$outboundSchema.optional(),
+  status: BudgetStatus$outboundSchema,
+  vendor: BudgetVendorInput$outboundSchema.optional(),
   date: z.date().transform(v => v.toISOString()),
-  generalLedger: GeneralLedgerJsonInput$outboundSchema.optional(),
-  costAvoidance: BudgetCostAvoidanceJson$outboundSchema.optional(),
+  generalLedger: GeneralLedger1Input$outboundSchema.optional(),
+  costAvoidance: BudgetCostAvoidance$outboundSchema.optional(),
   costIncludesTaxGratuity: z.boolean(),
   calculateTaxOnGratuity: z.boolean(),
-  gratuityType: BudgetTaxGratuityTypeJson$outboundSchema,
+  gratuityType: BudgetTaxGratuityType$outboundSchema,
   internalNote: z.string().optional(),
   currency: z.string(),
   conversionRateLocked: z.boolean().optional(),
   conversionRate: z.number(),
-  costDetail: z.array(BudgetCostDetailJsonInput$outboundSchema).optional(),
-  associatedRegistrants: z.array(
-    BudgetAssociatedRegistrantJsonInput$outboundSchema,
-  ).optional(),
+  costDetail: z.array(BudgetCostDetail1Input$outboundSchema).optional(),
+  associatedRegistrants: z.array(BudgetAssociatedRegistrantInput$outboundSchema)
+    .optional(),
   associatedSession: z.string().optional(),
 });
 

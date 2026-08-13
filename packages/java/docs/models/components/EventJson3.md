@@ -1,10 +1,10 @@
 # EventJson3
 
-Detail object of an event which is associated to a survey.
+An event reference used in attendee insights to identify the event context for engagement data
 
 
 ## Fields
 
-| Field                                | Type                                 | Required                             | Description                          | Example                              |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *Optional\<String>*                  | :heavy_minus_sign:                   | Id of the associated event           | 9463c74e-18c6-401a-a710-ae0f485bf059 |
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `id`                                                                        | *String*                                                                    | :heavy_check_mark:                                                          | A unique identifier (UUID) for the event where the engagement score applies | 04cb6ae2-0dc3-487b-953e-86d6abbdf7d3                                        |

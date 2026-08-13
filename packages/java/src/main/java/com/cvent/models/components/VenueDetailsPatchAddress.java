@@ -46,7 +46,7 @@ public class VenueDetailsPatchAddress {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("stateProvince")
-    private StateProvince1 stateProvince;
+    private StateProvince stateProvince;
 
     /**
      * ZIP or postal code.
@@ -74,7 +74,7 @@ public class VenueDetailsPatchAddress {
             @JsonProperty("streetAddress1") @Nullable JsonNullable<String> streetAddress1,
             @JsonProperty("streetAddress2") @Nullable JsonNullable<String> streetAddress2,
             @JsonProperty("city") @Nullable String city,
-            @JsonProperty("stateProvince") @Nullable StateProvince1 stateProvince,
+            @JsonProperty("stateProvince") @Nullable StateProvince stateProvince,
             @JsonProperty("zipPostalCode") @Nullable JsonNullable<String> zipPostalCode,
             @JsonProperty("country") @Nullable Country country,
             @JsonProperty("directions") @Nullable JsonNullable<String> directions) {
@@ -115,7 +115,7 @@ public class VenueDetailsPatchAddress {
     /**
      * The state province code used for contact information.
      */
-    public Optional<StateProvince1> stateProvince() {
+    public Optional<StateProvince> stateProvince() {
         return Optional.ofNullable(this.stateProvince);
     }
 
@@ -171,7 +171,7 @@ public class VenueDetailsPatchAddress {
     /**
      * The state province code used for contact information.
      */
-    public VenueDetailsPatchAddress withStateProvince(@Nullable StateProvince1 stateProvince) {
+    public VenueDetailsPatchAddress withStateProvince(@Nullable StateProvince stateProvince) {
         this.stateProvince = stateProvince;
         return this;
     }
@@ -253,7 +253,7 @@ public class VenueDetailsPatchAddress {
 
         private String city;
 
-        private StateProvince1 stateProvince;
+        private StateProvince stateProvince;
 
         private JsonNullable<String> zipPostalCode;
 
@@ -292,7 +292,7 @@ public class VenueDetailsPatchAddress {
         /**
          * The state province code used for contact information.
          */
-        public Builder stateProvince(@Nullable StateProvince1 stateProvince) {
+        public Builder stateProvince(@Nullable StateProvince stateProvince) {
             this.stateProvince = stateProvince;
             return this;
         }

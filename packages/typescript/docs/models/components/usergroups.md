@@ -1,6 +1,6 @@
 # UserGroups
 
-Groups
+A paginated result for a list of user groups.
 
 ## Example Usage
 
@@ -8,25 +8,33 @@ Groups
 import { UserGroups } from "@cvent/sdk/models/components";
 
 let value: UserGroups = {
-  schemas: [
-    "urn:ietf:params:scim:api:messages:2.0:ListResponse",
-  ],
-  itemsPerPage: 50,
-  startIndex: 1,
-  totalResults: 5,
-  resources: [
-    {
-      schemas: [
-        "urn:ietf:params:scim:api:messages:2.0:ListResponse",
-      ],
-      id: "3b2359a7-4583-40ed-8afd-67e5f15373d3",
-      displayName: "Admin",
-      meta: {
-        resourceType: "user",
-        location: "https://<account>/scim/v2/Users/2",
-        created: new Date("2021-12-16T00:59:14.570Z"),
-        lastModified: new Date("2021-12-16T00:59:14.570Z"),
+  paging: {
+    previousToken: "1a2b3c4d5e6f7g8h9i10j11k",
+    nextToken: "1a2b3c4d5e6f7g8h9i10j11k",
+    currentToken: "1a2b3c4d5e6f7g8h9i10j11k",
+    limit: 100,
+    totalCount: 2,
+    links: {
+      next: {
+        href: "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
       },
+      self: {
+        href: "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
+      },
+      prev: {
+        href: "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
+      },
+    },
+  },
+  data: [
+    {
+      created: new Date("2017-01-02T02:00:00Z"),
+      createdBy: "hporter",
+      lastModified: new Date("2019-02-12T03:00:00Z"),
+      lastModifiedBy: "hporter",
+      id: "EBF2273A-35A5-BD67-A292-397539D13270",
+      name: "MyUserGroup",
+      description: "MyUserGroupDescription",
     },
   ],
 };
@@ -34,10 +42,7 @@ let value: UserGroups = {
 
 ## Fields
 
-| Field                                                    | Type                                                     | Required                                                 | Description                                              | Example                                                  |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `schemas`                                                | *string*[]                                               | :heavy_minus_sign:                                       | The collection of user schemas.                          |                                                          |
-| `itemsPerPage`                                           | *number*                                                 | :heavy_minus_sign:                                       | The number of schemas per page.                          | 50                                                       |
-| `startIndex`                                             | *number*                                                 | :heavy_minus_sign:                                       | Starting index of the response.                          | 1                                                        |
-| `totalResults`                                           | *number*                                                 | :heavy_minus_sign:                                       | The total count of schemas.                              | 5                                                        |
-| `resources`                                              | [components.Group1](../../models/components/group1.md)[] | :heavy_minus_sign:                                       | The collection of schema resources.                      |                                                          |
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `paging`                                                                     | [components.Paging](../../models/components/paging.md)                       | :heavy_check_mark:                                                           | Represents pagination information for a collection of resources.             |
+| `data`                                                                       | [components.AccountUserGroup](../../models/components/accountusergroup.md)[] | :heavy_check_mark:                                                           | The list of user groups retrieved for the specified page.                    |

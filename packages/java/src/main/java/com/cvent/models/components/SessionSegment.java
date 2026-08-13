@@ -76,7 +76,7 @@ public class SessionSegment {
      * The audience segment associated with the session.
      */
     @JsonProperty("segment")
-    private Segment segment;
+    private Segment1 segment;
 
     /**
      * True indicates the session segment is active.
@@ -94,7 +94,7 @@ public class SessionSegment {
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("event") @Nonnull EventId event,
             @JsonProperty("session") @Nonnull Session1 session,
-            @JsonProperty("segment") @Nonnull Segment segment,
+            @JsonProperty("segment") @Nonnull Segment1 segment,
             @JsonProperty("active") @Nullable Boolean active) {
         this.created = created;
         this.createdBy = createdBy;
@@ -109,7 +109,7 @@ public class SessionSegment {
         this.active = Optional.ofNullable(active).orElse(Builder._SINGLETON_VALUE_Active.value());
     }
 
-    public SessionSegment(@Nonnull EventId event, @Nonnull Session1 session, @Nonnull Segment segment) {
+    public SessionSegment(@Nonnull EventId event, @Nonnull Session1 session, @Nonnull Segment1 segment) {
         this(null, null, null, null, null, event, session, segment, null);
     }
 
@@ -165,7 +165,7 @@ public class SessionSegment {
     /**
      * The audience segment associated with the session.
      */
-    public Segment segment() {
+    public Segment1 segment() {
         return this.segment;
     }
 
@@ -239,7 +239,7 @@ public class SessionSegment {
     /**
      * The audience segment associated with the session.
      */
-    public SessionSegment withSegment(@Nonnull Segment segment) {
+    public SessionSegment withSegment(@Nonnull Segment1 segment) {
         this.segment = Utils.checkNotNull(segment, "segment");
         return this;
     }
@@ -319,7 +319,7 @@ public class SessionSegment {
 
         private Session1 session;
 
-        private Segment segment;
+        private Segment1 segment;
 
         private Boolean active;
 
@@ -386,7 +386,7 @@ public class SessionSegment {
         /**
          * The audience segment associated with the session.
          */
-        public Builder segment(@Nonnull Segment segment) {
+        public Builder segment(@Nonnull Segment1 segment) {
             this.segment = Utils.checkNotNull(segment, "segment");
             return this;
         }

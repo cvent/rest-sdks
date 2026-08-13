@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AudienceSegmentCreationTypeJson,
-  AudienceSegmentCreationTypeJson$inboundSchema,
-} from "./audiencesegmentcreationtypejson.js";
-import { EventJson, EventJson$inboundSchema } from "./eventjson.js";
+  AudienceSegmentCreationType,
+  AudienceSegmentCreationType$inboundSchema,
+} from "./audiencesegmentcreationtype.js";
+import { Event3, Event3$inboundSchema } from "./event3.js";
 
 /**
  * Details of an audience segment.
@@ -35,7 +35,7 @@ export type ExistingAudienceSegment = {
   /**
    * ID of the event.
    */
-  event: EventJson;
+  event: Event3;
   /**
    * Name of the audience segment. Must be unique in the event where the segment exists.
    */
@@ -51,7 +51,7 @@ export type ExistingAudienceSegment = {
   /**
    * Creation type of the audience segment.
    */
-  creationType: AudienceSegmentCreationTypeJson;
+  creationType: AudienceSegmentCreationType;
   /**
    * Boolean representing whether segment is deleted or not.
    */
@@ -71,11 +71,11 @@ export const ExistingAudienceSegment$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: EventJson$inboundSchema,
+  event: Event3$inboundSchema,
   name: z.string(),
   description: z.string().optional(),
   id: z.string().optional(),
-  creationType: AudienceSegmentCreationTypeJson$inboundSchema.default("MANUAL"),
+  creationType: AudienceSegmentCreationType$inboundSchema.default("MANUAL"),
   deleted: z.boolean().default(false),
 });
 

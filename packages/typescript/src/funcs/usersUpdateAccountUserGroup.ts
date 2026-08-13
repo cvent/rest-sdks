@@ -38,8 +38,8 @@ export function usersUpdateAccountUserGroup(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    components.UserGroupJson,
-    | errors.ErrorResponse1
+    components.AccountUserGroup,
+    | errors.ErrorResponse11
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -64,8 +64,8 @@ async function $do(
 ): Promise<
   [
     Result<
-      components.UserGroupJson,
-      | errors.ErrorResponse1
+      components.AccountUserGroup,
+      | errors.ErrorResponse11
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -88,9 +88,7 @@ async function $do(
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload["user-group.json"], {
-    explode: true,
-  });
+  const body = encodeJSON("body", payload.AccountUserGroup, { explode: true });
 
   const pathParams = {
     userGroupId: encodeSimple("userGroupId", payload.userGroupId, {
@@ -165,8 +163,8 @@ async function $do(
   };
 
   const [result] = await M.match<
-    components.UserGroupJson,
-    | errors.ErrorResponse1
+    components.AccountUserGroup,
+    | errors.ErrorResponse11
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -176,8 +174,8 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, components.UserGroupJson$inboundSchema),
-    M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse1$inboundSchema),
+    M.json(200, components.AccountUserGroup$inboundSchema),
+    M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse11$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

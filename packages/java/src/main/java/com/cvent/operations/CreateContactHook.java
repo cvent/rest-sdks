@@ -12,7 +12,7 @@ import com.cvent.SecuritySource;
 import com.cvent.models.components.HookInput;
 import com.cvent.models.components.HookOutput;
 import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.CreateContactHookResponse;
 import com.cvent.utils.AsyncRetries;
 import com.cvent.utils.BackoffStrategy;
@@ -191,7 +191,7 @@ public class CreateContactHook {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw ErrorResponse1.from(response);
+                    throw ErrorResponse11.from(response);
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -279,7 +279,7 @@ public class CreateContactHook {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse1.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse11.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

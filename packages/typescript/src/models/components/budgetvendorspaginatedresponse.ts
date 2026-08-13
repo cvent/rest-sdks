@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BudgetVendorResponseJson,
-  BudgetVendorResponseJson$inboundSchema,
-} from "./budgetvendorresponsejson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  BudgetVendorResponse,
+  BudgetVendorResponse$inboundSchema,
+} from "./budgetvendorresponse.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to get the list of vendors.
@@ -19,11 +19,11 @@ export type BudgetVendorsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of budget vendor entities.
    */
-  data: Array<BudgetVendorResponseJson>;
+  data: Array<BudgetVendorResponse>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const BudgetVendorsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(BudgetVendorResponseJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(BudgetVendorResponse$inboundSchema),
 });
 
 export function budgetVendorsPaginatedResponseFromJSON(

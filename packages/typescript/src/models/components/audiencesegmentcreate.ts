@@ -4,14 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  AudienceSegmentCreationTypeJson,
-  AudienceSegmentCreationTypeJson$outboundSchema,
-} from "./audiencesegmentcreationtypejson.js";
-import {
-  EventJson,
-  EventJson$Outbound,
-  EventJson$outboundSchema,
-} from "./eventjson.js";
+  AudienceSegmentCreationType,
+  AudienceSegmentCreationType$outboundSchema,
+} from "./audiencesegmentcreationtype.js";
+import { Event3, Event3$Outbound, Event3$outboundSchema } from "./event3.js";
 
 /**
  * Represents a request to create an audience segment.
@@ -20,7 +16,7 @@ export type AudienceSegmentCreate = {
   /**
    * ID of the event.
    */
-  event: EventJson;
+  event: Event3;
   /**
    * Name of the audience segment. Must be unique in the event where the segment exists.
    */
@@ -32,12 +28,12 @@ export type AudienceSegmentCreate = {
   /**
    * Creation type of the audience segment.
    */
-  creationType?: AudienceSegmentCreationTypeJson | undefined;
+  creationType?: AudienceSegmentCreationType | undefined;
 };
 
 /** @internal */
 export type AudienceSegmentCreate$Outbound = {
-  event: EventJson$Outbound;
+  event: Event3$Outbound;
   name: string;
   description?: string | undefined;
   creationType: string;
@@ -49,12 +45,10 @@ export const AudienceSegmentCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AudienceSegmentCreate
 > = z.object({
-  event: EventJson$outboundSchema,
+  event: Event3$outboundSchema,
   name: z.string(),
   description: z.string().optional(),
-  creationType: AudienceSegmentCreationTypeJson$outboundSchema.default(
-    "MANUAL",
-  ),
+  creationType: AudienceSegmentCreationType$outboundSchema.default("MANUAL"),
 });
 
 export function audienceSegmentCreateToJSON(

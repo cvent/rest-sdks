@@ -290,6 +290,14 @@ public class Rfp {
     private Boolean feeTransparencyEnabled;
 
     /**
+     * Venue integrations the planner prefers when sourcing venues. An empty array or absent field
+     * indicates no preference has been recorded.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("preferredVenueIntegrations")
+    private List<VenueIntegrationType> preferredVenueIntegrations;
+
+    /**
      * Unique identifier for RFP.
      */
     @JsonProperty("id")
@@ -442,6 +450,7 @@ public class Rfp {
             @JsonProperty("needsCatering") @Nullable Boolean needsCatering,
             @JsonProperty("packagePricingPreference") @Nullable PackagePricingPreference packagePricingPreference,
             @JsonProperty("feeTransparencyEnabled") @Nullable Boolean feeTransparencyEnabled,
+            @JsonProperty("preferredVenueIntegrations") @Nullable List<VenueIntegrationType> preferredVenueIntegrations,
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("status") @Nullable RfpStatus1 status,
@@ -496,6 +505,7 @@ public class Rfp {
                 .orElse(Builder._SINGLETON_VALUE_PackagePricingPreference.value());
         this.feeTransparencyEnabled = Optional.ofNullable(feeTransparencyEnabled)
                 .orElse(Builder._SINGLETON_VALUE_FeeTransparencyEnabled.value());
+        this.preferredVenueIntegrations = preferredVenueIntegrations;
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.code = code;
         this.status = status;
@@ -524,6 +534,7 @@ public class Rfp {
                 null,
                 needsMeetingSpace,
                 needsGuestRooms,
+                null,
                 null,
                 null,
                 null,
@@ -834,6 +845,14 @@ public class Rfp {
      */
     public Optional<Boolean> feeTransparencyEnabled() {
         return Optional.ofNullable(this.feeTransparencyEnabled);
+    }
+
+    /**
+     * Venue integrations the planner prefers when sourcing venues. An empty array or absent field
+     * indicates no preference has been recorded.
+     */
+    public Optional<List<VenueIntegrationType>> preferredVenueIntegrations() {
+        return Optional.ofNullable(this.preferredVenueIntegrations);
     }
 
     /**
@@ -1256,6 +1275,15 @@ public class Rfp {
     }
 
     /**
+     * Venue integrations the planner prefers when sourcing venues. An empty array or absent field
+     * indicates no preference has been recorded.
+     */
+    public Rfp withPreferredVenueIntegrations(@Nullable List<VenueIntegrationType> preferredVenueIntegrations) {
+        this.preferredVenueIntegrations = preferredVenueIntegrations;
+        return this;
+    }
+
+    /**
      * Unique identifier for RFP.
      */
     public Rfp withId(@Nonnull String id) {
@@ -1431,6 +1459,7 @@ public class Rfp {
                 && Utils.enhancedDeepEquals(this.needsCatering, other.needsCatering)
                 && Utils.enhancedDeepEquals(this.packagePricingPreference, other.packagePricingPreference)
                 && Utils.enhancedDeepEquals(this.feeTransparencyEnabled, other.feeTransparencyEnabled)
+                && Utils.enhancedDeepEquals(this.preferredVenueIntegrations, other.preferredVenueIntegrations)
                 && Utils.enhancedDeepEquals(this.id, other.id)
                 && Utils.enhancedDeepEquals(this.code, other.code)
                 && Utils.enhancedDeepEquals(this.status, other.status)
@@ -1488,6 +1517,7 @@ public class Rfp {
                 needsCatering,
                 packagePricingPreference,
                 feeTransparencyEnabled,
+                preferredVenueIntegrations,
                 id,
                 code,
                 status,
@@ -1582,6 +1612,8 @@ public class Rfp {
                 packagePricingPreference,
                 "feeTransparencyEnabled",
                 feeTransparencyEnabled,
+                "preferredVenueIntegrations",
+                preferredVenueIntegrations,
                 "id",
                 id,
                 "code",
@@ -1690,6 +1722,8 @@ public class Rfp {
         private PackagePricingPreference packagePricingPreference;
 
         private Boolean feeTransparencyEnabled;
+
+        private List<VenueIntegrationType> preferredVenueIntegrations;
 
         private String id;
 
@@ -2028,6 +2062,15 @@ public class Rfp {
         }
 
         /**
+         * Venue integrations the planner prefers when sourcing venues. An empty array or absent field
+         * indicates no preference has been recorded.
+         */
+        public Builder preferredVenueIntegrations(@Nullable List<VenueIntegrationType> preferredVenueIntegrations) {
+            this.preferredVenueIntegrations = preferredVenueIntegrations;
+            return this;
+        }
+
+        /**
          * Unique identifier for RFP.
          */
         public Builder id(@Nonnull String id) {
@@ -2196,6 +2239,7 @@ public class Rfp {
                     needsCatering,
                     packagePricingPreference,
                     feeTransparencyEnabled,
+                    preferredVenueIntegrations,
                     id,
                     code,
                     status,

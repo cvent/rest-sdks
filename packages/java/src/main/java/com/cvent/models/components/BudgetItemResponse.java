@@ -42,7 +42,7 @@ public class BudgetItemResponse {
      * costs are based on a quantity.
      */
     @JsonProperty("costType")
-    private BudgetCostTypeJson costType;
+    private BudgetCostType costType;
 
     /**
      * Name of the budget item.
@@ -61,34 +61,34 @@ public class BudgetItemResponse {
      * Denotes the category assigned to the budget item.
      */
     @JsonProperty("category")
-    private BudgetCategoryJson category;
+    private BudgetCategory category;
 
     /**
      * This is used to denote the sub category for a budget.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("subCategory")
-    private BudgetSubCategoryJson subCategory;
+    private BudgetSubCategory subCategory;
 
     /**
      * Denotes the status assigned to a budget item.
      */
     @JsonProperty("status")
-    private BudgetStatusJson status;
+    private BudgetStatus status;
 
     /**
      * List of details for a vendor assigned to a budget item.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("vendor")
-    private BudgetVendorJson vendor;
+    private BudgetVendor vendor;
 
     /**
      * RFP associated with a budget item.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rfp")
-    private BudgetRfpJson rfp;
+    private BudgetRFP rfp;
 
     /**
      * The ISO 8601 zoned date and time assigned to the budget item, typically denotes the date and time of
@@ -109,14 +109,14 @@ public class BudgetItemResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generalLedger")
-    private GeneralLedgerJson generalLedger;
+    private GeneralLedger1 generalLedger;
 
     /**
      * Budget cost avoidance information.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("costAvoidance")
-    private BudgetCostAvoidanceJson costAvoidance;
+    private BudgetCostAvoidance costAvoidance;
 
     /**
      * True indicates the budget item cost includes tax and gratuity.
@@ -134,7 +134,7 @@ public class BudgetItemResponse {
      * Denotes the type of tax or gratuity.
      */
     @JsonProperty("gratuityType")
-    private BudgetTaxGratuityTypeJson gratuityType;
+    private BudgetTaxGratuityType gratuityType;
 
     /**
      * User defined note associated with the budget item.
@@ -170,7 +170,7 @@ public class BudgetItemResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("costDetail")
-    private List<BudgetCostDetailJson> costDetail;
+    private List<BudgetCostDetail11> costDetail;
 
     /**
      * Result of user-defined formula comparing two columns of a budget item cost. Typically this is the
@@ -178,7 +178,7 @@ public class BudgetItemResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("savings")
-    private List<BudgetSavingsDetailJson> savings;
+    private List<BudgetSavings> savings;
 
     /**
      * The list of registrants associated to a budget item. Typically used to attribute cost to specific
@@ -186,7 +186,7 @@ public class BudgetItemResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("associatedRegistrants")
-    private List<BudgetAssociatedRegistrantJson> associatedRegistrants;
+    private List<BudgetAssociatedRegistrant> associatedRegistrants;
 
     /**
      * Identifies the session associated with the budget item.
@@ -200,36 +200,36 @@ public class BudgetItemResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customFields")
-    private List<BudgetItemCustomFieldJson> customFields;
+    private List<BudgetItemCustomField> customFields;
 
     @JsonCreator
     public BudgetItemResponse(
             @JsonProperty("event") @Nullable BudgetItemResponseEvent event,
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("costType") @Nonnull BudgetCostTypeJson costType,
+            @JsonProperty("costType") @Nonnull BudgetCostType costType,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("code") @Nullable String code,
-            @JsonProperty("category") @Nonnull BudgetCategoryJson category,
-            @JsonProperty("subCategory") @Nullable BudgetSubCategoryJson subCategory,
-            @JsonProperty("status") @Nonnull BudgetStatusJson status,
-            @JsonProperty("vendor") @Nullable BudgetVendorJson vendor,
-            @JsonProperty("rfp") @Nullable BudgetRfpJson rfp,
+            @JsonProperty("category") @Nonnull BudgetCategory category,
+            @JsonProperty("subCategory") @Nullable BudgetSubCategory subCategory,
+            @JsonProperty("status") @Nonnull BudgetStatus status,
+            @JsonProperty("vendor") @Nullable BudgetVendor vendor,
+            @JsonProperty("rfp") @Nullable BudgetRFP rfp,
             @JsonProperty("date") @Nonnull OffsetDateTime date,
             @JsonProperty("lastModifiedDate") @Nullable OffsetDateTime lastModifiedDate,
-            @JsonProperty("generalLedger") @Nullable GeneralLedgerJson generalLedger,
-            @JsonProperty("costAvoidance") @Nullable BudgetCostAvoidanceJson costAvoidance,
+            @JsonProperty("generalLedger") @Nullable GeneralLedger1 generalLedger,
+            @JsonProperty("costAvoidance") @Nullable BudgetCostAvoidance costAvoidance,
             @JsonProperty("costIncludesTaxGratuity") boolean costIncludesTaxGratuity,
             @JsonProperty("calculateTaxOnGratuity") boolean calculateTaxOnGratuity,
-            @JsonProperty("gratuityType") @Nonnull BudgetTaxGratuityTypeJson gratuityType,
+            @JsonProperty("gratuityType") @Nonnull BudgetTaxGratuityType gratuityType,
             @JsonProperty("internalNote") @Nullable String internalNote,
             @JsonProperty("currency") @Nonnull String currency,
             @JsonProperty("conversionRateLocked") @Nullable Boolean conversionRateLocked,
             @JsonProperty("conversionRate") double conversionRate,
-            @JsonProperty("costDetail") @Nullable List<BudgetCostDetailJson> costDetail,
-            @JsonProperty("savings") @Nullable List<BudgetSavingsDetailJson> savings,
-            @JsonProperty("associatedRegistrants") @Nullable List<BudgetAssociatedRegistrantJson> associatedRegistrants,
+            @JsonProperty("costDetail") @Nullable List<BudgetCostDetail11> costDetail,
+            @JsonProperty("savings") @Nullable List<BudgetSavings> savings,
+            @JsonProperty("associatedRegistrants") @Nullable List<BudgetAssociatedRegistrant> associatedRegistrants,
             @JsonProperty("associatedSession") @Nullable String associatedSession,
-            @JsonProperty("customFields") @Nullable List<BudgetItemCustomFieldJson> customFields) {
+            @JsonProperty("customFields") @Nullable List<BudgetItemCustomField> customFields) {
         this.event = event;
         this.id = id;
         this.costType = Optional.ofNullable(costType)
@@ -264,14 +264,14 @@ public class BudgetItemResponse {
     }
 
     public BudgetItemResponse(
-            @Nonnull BudgetCostTypeJson costType,
+            @Nonnull BudgetCostType costType,
             @Nonnull String name,
-            @Nonnull BudgetCategoryJson category,
-            @Nonnull BudgetStatusJson status,
+            @Nonnull BudgetCategory category,
+            @Nonnull BudgetStatus status,
             @Nonnull OffsetDateTime date,
             boolean costIncludesTaxGratuity,
             boolean calculateTaxOnGratuity,
-            @Nonnull BudgetTaxGratuityTypeJson gratuityType,
+            @Nonnull BudgetTaxGratuityType gratuityType,
             @Nonnull String currency,
             double conversionRate) {
         this(
@@ -321,7 +321,7 @@ public class BudgetItemResponse {
      * Denotes the cost type of a budget item. FIXED costs stay the same regardless of quantity. VARIABLE
      * costs are based on a quantity.
      */
-    public BudgetCostTypeJson costType() {
+    public BudgetCostType costType() {
         return this.costType;
     }
 
@@ -342,35 +342,35 @@ public class BudgetItemResponse {
     /**
      * Denotes the category assigned to the budget item.
      */
-    public BudgetCategoryJson category() {
+    public BudgetCategory category() {
         return this.category;
     }
 
     /**
      * This is used to denote the sub category for a budget.
      */
-    public Optional<BudgetSubCategoryJson> subCategory() {
+    public Optional<BudgetSubCategory> subCategory() {
         return Optional.ofNullable(this.subCategory);
     }
 
     /**
      * Denotes the status assigned to a budget item.
      */
-    public BudgetStatusJson status() {
+    public BudgetStatus status() {
         return this.status;
     }
 
     /**
      * List of details for a vendor assigned to a budget item.
      */
-    public Optional<BudgetVendorJson> vendor() {
+    public Optional<BudgetVendor> vendor() {
         return Optional.ofNullable(this.vendor);
     }
 
     /**
      * RFP associated with a budget item.
      */
-    public Optional<BudgetRfpJson> rfp() {
+    public Optional<BudgetRFP> rfp() {
         return Optional.ofNullable(this.rfp);
     }
 
@@ -392,14 +392,14 @@ public class BudgetItemResponse {
     /**
      * This is used to denote the general ledger code associated with budget.
      */
-    public Optional<GeneralLedgerJson> generalLedger() {
+    public Optional<GeneralLedger1> generalLedger() {
         return Optional.ofNullable(this.generalLedger);
     }
 
     /**
      * Budget cost avoidance information.
      */
-    public Optional<BudgetCostAvoidanceJson> costAvoidance() {
+    public Optional<BudgetCostAvoidance> costAvoidance() {
         return Optional.ofNullable(this.costAvoidance);
     }
 
@@ -420,7 +420,7 @@ public class BudgetItemResponse {
     /**
      * Denotes the type of tax or gratuity.
      */
-    public BudgetTaxGratuityTypeJson gratuityType() {
+    public BudgetTaxGratuityType gratuityType() {
         return this.gratuityType;
     }
 
@@ -458,7 +458,7 @@ public class BudgetItemResponse {
     /**
      * The list of cost details for a budget item.
      */
-    public Optional<List<BudgetCostDetailJson>> costDetail() {
+    public Optional<List<BudgetCostDetail11>> costDetail() {
         return Optional.ofNullable(this.costDetail);
     }
 
@@ -466,7 +466,7 @@ public class BudgetItemResponse {
      * Result of user-defined formula comparing two columns of a budget item cost. Typically this is the
      * difference between budgeted and actual cost.
      */
-    public Optional<List<BudgetSavingsDetailJson>> savings() {
+    public Optional<List<BudgetSavings>> savings() {
         return Optional.ofNullable(this.savings);
     }
 
@@ -474,7 +474,7 @@ public class BudgetItemResponse {
      * The list of registrants associated to a budget item. Typically used to attribute cost to specific
      * registrants in reporting.
      */
-    public Optional<List<BudgetAssociatedRegistrantJson>> associatedRegistrants() {
+    public Optional<List<BudgetAssociatedRegistrant>> associatedRegistrants() {
         return Optional.ofNullable(this.associatedRegistrants);
     }
 
@@ -488,7 +488,7 @@ public class BudgetItemResponse {
     /**
      * List of budget item custom fields.
      */
-    public Optional<List<BudgetItemCustomFieldJson>> customFields() {
+    public Optional<List<BudgetItemCustomField>> customFields() {
         return Optional.ofNullable(this.customFields);
     }
 
@@ -516,7 +516,7 @@ public class BudgetItemResponse {
      * Denotes the cost type of a budget item. FIXED costs stay the same regardless of quantity. VARIABLE
      * costs are based on a quantity.
      */
-    public BudgetItemResponse withCostType(@Nonnull BudgetCostTypeJson costType) {
+    public BudgetItemResponse withCostType(@Nonnull BudgetCostType costType) {
         this.costType = Utils.checkNotNull(costType, "costType");
         return this;
     }
@@ -540,7 +540,7 @@ public class BudgetItemResponse {
     /**
      * Denotes the category assigned to the budget item.
      */
-    public BudgetItemResponse withCategory(@Nonnull BudgetCategoryJson category) {
+    public BudgetItemResponse withCategory(@Nonnull BudgetCategory category) {
         this.category = Utils.checkNotNull(category, "category");
         return this;
     }
@@ -548,7 +548,7 @@ public class BudgetItemResponse {
     /**
      * This is used to denote the sub category for a budget.
      */
-    public BudgetItemResponse withSubCategory(@Nullable BudgetSubCategoryJson subCategory) {
+    public BudgetItemResponse withSubCategory(@Nullable BudgetSubCategory subCategory) {
         this.subCategory = subCategory;
         return this;
     }
@@ -556,7 +556,7 @@ public class BudgetItemResponse {
     /**
      * Denotes the status assigned to a budget item.
      */
-    public BudgetItemResponse withStatus(@Nonnull BudgetStatusJson status) {
+    public BudgetItemResponse withStatus(@Nonnull BudgetStatus status) {
         this.status = Utils.checkNotNull(status, "status");
         return this;
     }
@@ -564,7 +564,7 @@ public class BudgetItemResponse {
     /**
      * List of details for a vendor assigned to a budget item.
      */
-    public BudgetItemResponse withVendor(@Nullable BudgetVendorJson vendor) {
+    public BudgetItemResponse withVendor(@Nullable BudgetVendor vendor) {
         this.vendor = vendor;
         return this;
     }
@@ -572,7 +572,7 @@ public class BudgetItemResponse {
     /**
      * RFP associated with a budget item.
      */
-    public BudgetItemResponse withRfp(@Nullable BudgetRfpJson rfp) {
+    public BudgetItemResponse withRfp(@Nullable BudgetRFP rfp) {
         this.rfp = rfp;
         return this;
     }
@@ -597,7 +597,7 @@ public class BudgetItemResponse {
     /**
      * This is used to denote the general ledger code associated with budget.
      */
-    public BudgetItemResponse withGeneralLedger(@Nullable GeneralLedgerJson generalLedger) {
+    public BudgetItemResponse withGeneralLedger(@Nullable GeneralLedger1 generalLedger) {
         this.generalLedger = generalLedger;
         return this;
     }
@@ -605,7 +605,7 @@ public class BudgetItemResponse {
     /**
      * Budget cost avoidance information.
      */
-    public BudgetItemResponse withCostAvoidance(@Nullable BudgetCostAvoidanceJson costAvoidance) {
+    public BudgetItemResponse withCostAvoidance(@Nullable BudgetCostAvoidance costAvoidance) {
         this.costAvoidance = costAvoidance;
         return this;
     }
@@ -629,7 +629,7 @@ public class BudgetItemResponse {
     /**
      * Denotes the type of tax or gratuity.
      */
-    public BudgetItemResponse withGratuityType(@Nonnull BudgetTaxGratuityTypeJson gratuityType) {
+    public BudgetItemResponse withGratuityType(@Nonnull BudgetTaxGratuityType gratuityType) {
         this.gratuityType = Utils.checkNotNull(gratuityType, "gratuityType");
         return this;
     }
@@ -672,7 +672,7 @@ public class BudgetItemResponse {
     /**
      * The list of cost details for a budget item.
      */
-    public BudgetItemResponse withCostDetail(@Nullable List<BudgetCostDetailJson> costDetail) {
+    public BudgetItemResponse withCostDetail(@Nullable List<BudgetCostDetail11> costDetail) {
         this.costDetail = costDetail;
         return this;
     }
@@ -681,7 +681,7 @@ public class BudgetItemResponse {
      * Result of user-defined formula comparing two columns of a budget item cost. Typically this is the
      * difference between budgeted and actual cost.
      */
-    public BudgetItemResponse withSavings(@Nullable List<BudgetSavingsDetailJson> savings) {
+    public BudgetItemResponse withSavings(@Nullable List<BudgetSavings> savings) {
         this.savings = savings;
         return this;
     }
@@ -691,7 +691,7 @@ public class BudgetItemResponse {
      * registrants in reporting.
      */
     public BudgetItemResponse withAssociatedRegistrants(
-            @Nullable List<BudgetAssociatedRegistrantJson> associatedRegistrants) {
+            @Nullable List<BudgetAssociatedRegistrant> associatedRegistrants) {
         this.associatedRegistrants = associatedRegistrants;
         return this;
     }
@@ -707,7 +707,7 @@ public class BudgetItemResponse {
     /**
      * List of budget item custom fields.
      */
-    public BudgetItemResponse withCustomFields(@Nullable List<BudgetItemCustomFieldJson> customFields) {
+    public BudgetItemResponse withCustomFields(@Nullable List<BudgetItemCustomField> customFields) {
         this.customFields = customFields;
         return this;
     }
@@ -845,35 +845,35 @@ public class BudgetItemResponse {
 
         private String id;
 
-        private BudgetCostTypeJson costType;
+        private BudgetCostType costType;
 
         private String name;
 
         private String code;
 
-        private BudgetCategoryJson category;
+        private BudgetCategory category;
 
-        private BudgetSubCategoryJson subCategory;
+        private BudgetSubCategory subCategory;
 
-        private BudgetStatusJson status;
+        private BudgetStatus status;
 
-        private BudgetVendorJson vendor;
+        private BudgetVendor vendor;
 
-        private BudgetRfpJson rfp;
+        private BudgetRFP rfp;
 
         private OffsetDateTime date;
 
         private OffsetDateTime lastModifiedDate;
 
-        private GeneralLedgerJson generalLedger;
+        private GeneralLedger1 generalLedger;
 
-        private BudgetCostAvoidanceJson costAvoidance;
+        private BudgetCostAvoidance costAvoidance;
 
         private boolean costIncludesTaxGratuity;
 
         private boolean calculateTaxOnGratuity;
 
-        private BudgetTaxGratuityTypeJson gratuityType;
+        private BudgetTaxGratuityType gratuityType;
 
         private String internalNote;
 
@@ -883,15 +883,15 @@ public class BudgetItemResponse {
 
         private double conversionRate;
 
-        private List<BudgetCostDetailJson> costDetail;
+        private List<BudgetCostDetail11> costDetail;
 
-        private List<BudgetSavingsDetailJson> savings;
+        private List<BudgetSavings> savings;
 
-        private List<BudgetAssociatedRegistrantJson> associatedRegistrants;
+        private List<BudgetAssociatedRegistrant> associatedRegistrants;
 
         private String associatedSession;
 
-        private List<BudgetItemCustomFieldJson> customFields;
+        private List<BudgetItemCustomField> customFields;
 
         private Builder() {
             // force use of static builder() method
@@ -917,7 +917,7 @@ public class BudgetItemResponse {
          * Denotes the cost type of a budget item. FIXED costs stay the same regardless of quantity. VARIABLE
          * costs are based on a quantity.
          */
-        public Builder costType(@Nonnull BudgetCostTypeJson costType) {
+        public Builder costType(@Nonnull BudgetCostType costType) {
             this.costType = Utils.checkNotNull(costType, "costType");
             return this;
         }
@@ -941,7 +941,7 @@ public class BudgetItemResponse {
         /**
          * Denotes the category assigned to the budget item.
          */
-        public Builder category(@Nonnull BudgetCategoryJson category) {
+        public Builder category(@Nonnull BudgetCategory category) {
             this.category = Utils.checkNotNull(category, "category");
             return this;
         }
@@ -949,7 +949,7 @@ public class BudgetItemResponse {
         /**
          * This is used to denote the sub category for a budget.
          */
-        public Builder subCategory(@Nullable BudgetSubCategoryJson subCategory) {
+        public Builder subCategory(@Nullable BudgetSubCategory subCategory) {
             this.subCategory = subCategory;
             return this;
         }
@@ -957,7 +957,7 @@ public class BudgetItemResponse {
         /**
          * Denotes the status assigned to a budget item.
          */
-        public Builder status(@Nonnull BudgetStatusJson status) {
+        public Builder status(@Nonnull BudgetStatus status) {
             this.status = Utils.checkNotNull(status, "status");
             return this;
         }
@@ -965,7 +965,7 @@ public class BudgetItemResponse {
         /**
          * List of details for a vendor assigned to a budget item.
          */
-        public Builder vendor(@Nullable BudgetVendorJson vendor) {
+        public Builder vendor(@Nullable BudgetVendor vendor) {
             this.vendor = vendor;
             return this;
         }
@@ -973,7 +973,7 @@ public class BudgetItemResponse {
         /**
          * RFP associated with a budget item.
          */
-        public Builder rfp(@Nullable BudgetRfpJson rfp) {
+        public Builder rfp(@Nullable BudgetRFP rfp) {
             this.rfp = rfp;
             return this;
         }
@@ -998,7 +998,7 @@ public class BudgetItemResponse {
         /**
          * This is used to denote the general ledger code associated with budget.
          */
-        public Builder generalLedger(@Nullable GeneralLedgerJson generalLedger) {
+        public Builder generalLedger(@Nullable GeneralLedger1 generalLedger) {
             this.generalLedger = generalLedger;
             return this;
         }
@@ -1006,7 +1006,7 @@ public class BudgetItemResponse {
         /**
          * Budget cost avoidance information.
          */
-        public Builder costAvoidance(@Nullable BudgetCostAvoidanceJson costAvoidance) {
+        public Builder costAvoidance(@Nullable BudgetCostAvoidance costAvoidance) {
             this.costAvoidance = costAvoidance;
             return this;
         }
@@ -1030,7 +1030,7 @@ public class BudgetItemResponse {
         /**
          * Denotes the type of tax or gratuity.
          */
-        public Builder gratuityType(@Nonnull BudgetTaxGratuityTypeJson gratuityType) {
+        public Builder gratuityType(@Nonnull BudgetTaxGratuityType gratuityType) {
             this.gratuityType = Utils.checkNotNull(gratuityType, "gratuityType");
             return this;
         }
@@ -1073,7 +1073,7 @@ public class BudgetItemResponse {
         /**
          * The list of cost details for a budget item.
          */
-        public Builder costDetail(@Nullable List<BudgetCostDetailJson> costDetail) {
+        public Builder costDetail(@Nullable List<BudgetCostDetail11> costDetail) {
             this.costDetail = costDetail;
             return this;
         }
@@ -1082,7 +1082,7 @@ public class BudgetItemResponse {
          * Result of user-defined formula comparing two columns of a budget item cost. Typically this is the
          * difference between budgeted and actual cost.
          */
-        public Builder savings(@Nullable List<BudgetSavingsDetailJson> savings) {
+        public Builder savings(@Nullable List<BudgetSavings> savings) {
             this.savings = savings;
             return this;
         }
@@ -1091,7 +1091,7 @@ public class BudgetItemResponse {
          * The list of registrants associated to a budget item. Typically used to attribute cost to specific
          * registrants in reporting.
          */
-        public Builder associatedRegistrants(@Nullable List<BudgetAssociatedRegistrantJson> associatedRegistrants) {
+        public Builder associatedRegistrants(@Nullable List<BudgetAssociatedRegistrant> associatedRegistrants) {
             this.associatedRegistrants = associatedRegistrants;
             return this;
         }
@@ -1107,7 +1107,7 @@ public class BudgetItemResponse {
         /**
          * List of budget item custom fields.
          */
-        public Builder customFields(@Nullable List<BudgetItemCustomFieldJson> customFields) {
+        public Builder customFields(@Nullable List<BudgetItemCustomField> customFields) {
             this.customFields = customFields;
             return this;
         }

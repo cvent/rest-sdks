@@ -1,6 +1,6 @@
 # Segment
 
-The audience segment associated with the session.
+Segment details 
 
 ## Example Usage
 
@@ -8,12 +8,12 @@ The audience segment associated with the session.
 import { Segment } from "@cvent/sdk/models/components";
 
 let value: Segment = {
-  id: "788426ac-5d83-11ee-8c99-0242ac120002",
+  id: "b13497ea-c117-4d62-a17b-e6c14d7e49d4",
 };
 ```
 
 ## Fields
 
-| Field                                         | Type                                          | Required                                      | Description                                   | Example                                       |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| `id`                                          | *string*                                      | :heavy_check_mark:                            | The unique identifier for an audience segment | 788426ac-5d83-11ee-8c99-0242ac120002          |
+| Field                                | Type                                 | Required                             | Description                          | Example                              |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| `id`                                 | *string*                             | :heavy_check_mark:                   | Segment Id                           | b13497ea-c117-4d62-a17b-e6c14d7e49d4 |

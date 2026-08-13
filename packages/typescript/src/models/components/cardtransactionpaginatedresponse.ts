@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  CardTransactionJson,
-  CardTransactionJson$inboundSchema,
-} from "./cardtransactionjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  CardTransaction,
+  CardTransaction$inboundSchema,
+} from "./cardtransaction.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to get the list of transaction for the event.
@@ -19,11 +19,11 @@ export type CardTransactionPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of virtual card transaction.
    */
-  data: Array<CardTransactionJson>;
+  data: Array<CardTransaction>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const CardTransactionPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(CardTransactionJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(CardTransaction$inboundSchema),
 });
 
 export function cardTransactionPaginatedResponseFromJSON(

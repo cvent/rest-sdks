@@ -8,12 +8,12 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { CustomField, CustomField$inboundSchema } from "./customfield.js";
-import { Location, Location$inboundSchema } from "./location.js";
+import { Location1, Location1$inboundSchema } from "./location1.js";
 import {
-  LocationInput,
-  LocationInput$Outbound,
-  LocationInput$outboundSchema,
-} from "./locationinput.js";
+  Location1Input,
+  Location1Input$Outbound,
+  Location1Input$outboundSchema,
+} from "./location1input.js";
 import {
   NamedObject,
   NamedObject$inboundSchema,
@@ -110,7 +110,7 @@ export type Session = {
   /**
    * Used to denote a locations name and abbreviation.
    */
-  location?: Location | undefined;
+  location?: Location1 | undefined;
   /**
    * Detailed description of the session. HTML is supported, but only a limited set of elements and attributes are allowed. Use of HTML will count towards the character limit. Planners are responsible for confirming the visual output of HTML content.
    *
@@ -264,7 +264,7 @@ export type SessionInput = {
   /**
    * Used to denote a locations name and abbreviation.
    */
-  location?: LocationInput | undefined;
+  location?: Location1Input | undefined;
   /**
    * Detailed description of the session. HTML is supported, but only a limited set of elements and attributes are allowed. Use of HTML will count towards the character limit. Planners are responsible for confirming the visual output of HTML content.
    *
@@ -473,7 +473,7 @@ export const Session$inboundSchema: z.ZodType<Session, z.ZodTypeDef, unknown> =
     code: z.string().optional(),
     category: NamedObject$inboundSchema.optional(),
     type: z.lazy(() => SessionLookup$inboundSchema).optional(),
-    location: Location$inboundSchema.optional(),
+    location: Location1$inboundSchema.optional(),
     description: z.string().optional(),
     start: z.string().datetime({ offset: true }).transform(v => new Date(v)),
     end: z.string().datetime({ offset: true }).transform(v => new Date(v)),
@@ -522,7 +522,7 @@ export type SessionInput$Outbound = {
   code?: string | undefined;
   category?: NamedObject$Outbound | undefined;
   type?: SessionLookup$Outbound | undefined;
-  location?: LocationInput$Outbound | undefined;
+  location?: Location1Input$Outbound | undefined;
   description?: string | undefined;
   start: string;
   end: string;
@@ -562,7 +562,7 @@ export const SessionInput$outboundSchema: z.ZodType<
   code: z.string().optional(),
   category: NamedObject$outboundSchema.optional(),
   type: z.lazy(() => SessionLookup$outboundSchema).optional(),
-  location: LocationInput$outboundSchema.optional(),
+  location: Location1Input$outboundSchema.optional(),
   description: z.string().optional(),
   start: z.date().transform(v => v.toISOString()),
   end: z.date().transform(v => v.toISOString()),

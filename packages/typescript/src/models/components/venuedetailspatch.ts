@@ -18,10 +18,10 @@ import {
   LocationType$outboundSchema,
 } from "./locationtype.js";
 import {
-  StateProvince1,
-  StateProvince1$inboundSchema,
-  StateProvince1$outboundSchema,
-} from "./stateprovince1.js";
+  StateProvince,
+  StateProvince$inboundSchema,
+  StateProvince$outboundSchema,
+} from "./stateprovince.js";
 import {
   VenueType,
   VenueType$inboundSchema,
@@ -276,7 +276,7 @@ export type VenueDetailsPatchAddress = {
   /**
    * The state province code used for contact information.
    */
-  stateProvince?: StateProvince1 | undefined;
+  stateProvince?: StateProvince | undefined;
   /**
    * ZIP or postal code.
    */
@@ -413,7 +413,7 @@ export const VenueDetailsPatchAddress$inboundSchema: z.ZodType<
   streetAddress1: z.nullable(z.string()).optional(),
   streetAddress2: z.nullable(z.string()).optional(),
   city: z.string().optional(),
-  stateProvince: StateProvince1$inboundSchema.optional(),
+  stateProvince: StateProvince$inboundSchema.optional(),
   zipPostalCode: z.nullable(z.string()).optional(),
   country: Country$inboundSchema.optional(),
   directions: z.nullable(z.string()).optional(),
@@ -438,7 +438,7 @@ export const VenueDetailsPatchAddress$outboundSchema: z.ZodType<
   streetAddress1: z.nullable(z.string()).optional(),
   streetAddress2: z.nullable(z.string()).optional(),
   city: z.string().optional(),
-  stateProvince: StateProvince1$outboundSchema.optional(),
+  stateProvince: StateProvince$outboundSchema.optional(),
   zipPostalCode: z.nullable(z.string()).optional(),
   country: Country$outboundSchema.optional(),
   directions: z.nullable(z.string()).optional(),

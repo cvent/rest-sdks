@@ -54,7 +54,7 @@ public class ExistingELiteratureRequestDataForLead {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event3 event;
+    private Event4 event;
 
     /**
      * The Associated Exhibitor.
@@ -87,7 +87,7 @@ public class ExistingELiteratureRequestDataForLead {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nonnull Event3 event,
+            @JsonProperty("event") @Nonnull Event4 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
             @JsonProperty("lead") @Nonnull Lead2 lead,
             @JsonProperty("documents") @Nonnull List<ELiteratureDocument> documents,
@@ -106,7 +106,7 @@ public class ExistingELiteratureRequestDataForLead {
     }
 
     public ExistingELiteratureRequestDataForLead(
-            @Nonnull Event3 event,
+            @Nonnull Event4 event,
             @Nonnull Exhibitor exhibitor,
             @Nonnull Lead2 lead,
             @Nonnull List<ELiteratureDocument> documents) {
@@ -144,7 +144,7 @@ public class ExistingELiteratureRequestDataForLead {
     /**
      * The Associated Event.
      */
-    public Event3 event() {
+    public Event4 event() {
         return this.event;
     }
 
@@ -215,7 +215,7 @@ public class ExistingELiteratureRequestDataForLead {
     /**
      * The Associated Event.
      */
-    public ExistingELiteratureRequestDataForLead withEvent(@Nonnull Event3 event) {
+    public ExistingELiteratureRequestDataForLead withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -313,7 +313,7 @@ public class ExistingELiteratureRequestDataForLead {
 
         private String lastModifiedBy;
 
-        private Event3 event;
+        private Event4 event;
 
         private Exhibitor exhibitor;
 
@@ -362,7 +362,7 @@ public class ExistingELiteratureRequestDataForLead {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event3 event) {
+        public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

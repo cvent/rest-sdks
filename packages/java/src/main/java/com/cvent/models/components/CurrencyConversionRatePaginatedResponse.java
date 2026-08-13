@@ -22,18 +22,18 @@ public class CurrencyConversionRatePaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of conversion rate for a currency in an account.
      */
     @JsonProperty("data")
-    private List<CurrencyConversionRateListResponseJson> data;
+    private List<CurrencyConversionRateListResponse> data;
 
     @JsonCreator
     public CurrencyConversionRatePaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<CurrencyConversionRateListResponseJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<CurrencyConversionRateListResponse> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +42,14 @@ public class CurrencyConversionRatePaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of conversion rate for a currency in an account.
      */
-    public List<CurrencyConversionRateListResponseJson> data() {
+    public List<CurrencyConversionRateListResponse> data() {
         return this.data;
     }
 
@@ -60,7 +60,7 @@ public class CurrencyConversionRatePaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public CurrencyConversionRatePaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public CurrencyConversionRatePaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,8 +68,7 @@ public class CurrencyConversionRatePaginatedResponse {
     /**
      * Collection of conversion rate for a currency in an account.
      */
-    public CurrencyConversionRatePaginatedResponse withData(
-            @Nonnull List<CurrencyConversionRateListResponseJson> data) {
+    public CurrencyConversionRatePaginatedResponse withData(@Nonnull List<CurrencyConversionRateListResponse> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -99,9 +98,9 @@ public class CurrencyConversionRatePaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<CurrencyConversionRateListResponseJson> data;
+        private List<CurrencyConversionRateListResponse> data;
 
         private Builder() {
             // force use of static builder() method
@@ -110,7 +109,7 @@ public class CurrencyConversionRatePaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -118,7 +117,7 @@ public class CurrencyConversionRatePaginatedResponse {
         /**
          * Collection of conversion rate for a currency in an account.
          */
-        public Builder data(@Nonnull List<CurrencyConversionRateListResponseJson> data) {
+        public Builder data(@Nonnull List<CurrencyConversionRateListResponse> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

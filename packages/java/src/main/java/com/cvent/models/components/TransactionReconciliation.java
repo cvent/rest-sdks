@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
-import java.lang.Deprecated;
 import java.lang.Double;
 import java.lang.Override;
 import java.lang.String;
@@ -19,25 +18,22 @@ import java.util.Optional;
 /**
  * TransactionReconciliation
  *
- * <p>This property is deprecated to support more then one items. Use 'reconciliations'.
- *
- * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
+ * <p>A transaction reconciliation record.
  */
-@Deprecated
 public class TransactionReconciliation {
     /**
      * The identifier of reconciled budget item.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("budgetItem")
-    private CardTransactionJsonBudgetItem budgetItem;
+    private TransactionReconciliationBudgetItem budgetItem;
 
     /**
      * This is used to denote the reconciliation status for a transaction.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private ReconciliationStatusJson status;
+    private ReconciliationStatus status;
 
     /**
      * Reconciliation amount.
@@ -62,8 +58,8 @@ public class TransactionReconciliation {
 
     @JsonCreator
     public TransactionReconciliation(
-            @JsonProperty("budgetItem") @Nullable CardTransactionJsonBudgetItem budgetItem,
-            @JsonProperty("status") @Nullable ReconciliationStatusJson status,
+            @JsonProperty("budgetItem") @Nullable TransactionReconciliationBudgetItem budgetItem,
+            @JsonProperty("status") @Nullable ReconciliationStatus status,
             @JsonProperty("amount") @Nullable Double amount,
             @JsonProperty("reconciledBy") @Nullable String reconciledBy,
             @JsonProperty("reconciledDate") @Nullable OffsetDateTime reconciledDate) {
@@ -81,14 +77,14 @@ public class TransactionReconciliation {
     /**
      * The identifier of reconciled budget item.
      */
-    public Optional<CardTransactionJsonBudgetItem> budgetItem() {
+    public Optional<TransactionReconciliationBudgetItem> budgetItem() {
         return Optional.ofNullable(this.budgetItem);
     }
 
     /**
      * This is used to denote the reconciliation status for a transaction.
      */
-    public Optional<ReconciliationStatusJson> status() {
+    public Optional<ReconciliationStatus> status() {
         return Optional.ofNullable(this.status);
     }
 
@@ -120,7 +116,7 @@ public class TransactionReconciliation {
     /**
      * The identifier of reconciled budget item.
      */
-    public TransactionReconciliation withBudgetItem(@Nullable CardTransactionJsonBudgetItem budgetItem) {
+    public TransactionReconciliation withBudgetItem(@Nullable TransactionReconciliationBudgetItem budgetItem) {
         this.budgetItem = budgetItem;
         return this;
     }
@@ -128,7 +124,7 @@ public class TransactionReconciliation {
     /**
      * This is used to denote the reconciliation status for a transaction.
      */
-    public TransactionReconciliation withStatus(@Nullable ReconciliationStatusJson status) {
+    public TransactionReconciliation withStatus(@Nullable ReconciliationStatus status) {
         this.status = status;
         return this;
     }
@@ -197,9 +193,9 @@ public class TransactionReconciliation {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private CardTransactionJsonBudgetItem budgetItem;
+        private TransactionReconciliationBudgetItem budgetItem;
 
-        private ReconciliationStatusJson status;
+        private ReconciliationStatus status;
 
         private Double amount;
 
@@ -214,7 +210,7 @@ public class TransactionReconciliation {
         /**
          * The identifier of reconciled budget item.
          */
-        public Builder budgetItem(@Nullable CardTransactionJsonBudgetItem budgetItem) {
+        public Builder budgetItem(@Nullable TransactionReconciliationBudgetItem budgetItem) {
             this.budgetItem = budgetItem;
             return this;
         }
@@ -222,7 +218,7 @@ public class TransactionReconciliation {
         /**
          * This is used to denote the reconciliation status for a transaction.
          */
-        public Builder status(@Nullable ReconciliationStatusJson status) {
+        public Builder status(@Nullable ReconciliationStatus status) {
             this.status = status;
             return this;
         }

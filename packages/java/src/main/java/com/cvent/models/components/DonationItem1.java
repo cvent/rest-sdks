@@ -80,7 +80,7 @@ public class DonationItem1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generalLedger")
-    private GeneralLedger1 generalLedger;
+    private GeneralLedger2 generalLedger;
 
     /**
      * Contains unique identifiers for registration types associated with this donation item.
@@ -113,7 +113,7 @@ public class DonationItem1 {
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("minimumAmountAllowedPerInvitee") @Nullable Double minimumAmountAllowedPerInvitee,
             @JsonProperty("maximumAmountAllowedPerInvitee") @Nullable Double maximumAmountAllowedPerInvitee,
-            @JsonProperty("generalLedger") @Nullable GeneralLedger1 generalLedger,
+            @JsonProperty("generalLedger") @Nullable GeneralLedger2 generalLedger,
             @JsonProperty("registrationTypes") @Nullable List<String> registrationTypes,
             @JsonProperty("openForRegistration") @Nullable Boolean openForRegistration,
             @JsonProperty("automaticallyClosesOn") @Nullable LocalDate automaticallyClosesOn) {
@@ -188,7 +188,7 @@ public class DonationItem1 {
     /**
      * This is used to denote the general ledger code associated with donation item.
      */
-    public Optional<GeneralLedger1> generalLedger() {
+    public Optional<GeneralLedger2> generalLedger() {
         return Optional.ofNullable(this.generalLedger);
     }
 
@@ -279,7 +279,7 @@ public class DonationItem1 {
     /**
      * This is used to denote the general ledger code associated with donation item.
      */
-    public DonationItem1 withGeneralLedger(@Nullable GeneralLedger1 generalLedger) {
+    public DonationItem1 withGeneralLedger(@Nullable GeneralLedger2 generalLedger) {
         this.generalLedger = generalLedger;
         return this;
     }
@@ -392,7 +392,7 @@ public class DonationItem1 {
 
         private Double maximumAmountAllowedPerInvitee;
 
-        private GeneralLedger1 generalLedger;
+        private GeneralLedger2 generalLedger;
 
         private List<String> registrationTypes;
 
@@ -465,7 +465,7 @@ public class DonationItem1 {
         /**
          * This is used to denote the general ledger code associated with donation item.
          */
-        public Builder generalLedger(@Nullable GeneralLedger1 generalLedger) {
+        public Builder generalLedger(@Nullable GeneralLedger2 generalLedger) {
             this.generalLedger = generalLedger;
             return this;
         }

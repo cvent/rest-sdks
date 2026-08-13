@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AccountBudgetItemListResponseJson,
-  AccountBudgetItemListResponseJson$inboundSchema,
-} from "./accountbudgetitemlistresponsejson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  AccountBudgetItemListResponse,
+  AccountBudgetItemListResponse$inboundSchema,
+} from "./accountbudgetitemlistresponse.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to retrieve a paginated list of budget items across all events linked to the account.
@@ -19,11 +19,11 @@ export type AccountBudgetItemsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of budget items.
    */
-  data: Array<AccountBudgetItemListResponseJson>;
+  data: Array<AccountBudgetItemListResponse>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const AccountBudgetItemsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(AccountBudgetItemListResponseJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(AccountBudgetItemListResponse$inboundSchema),
 });
 
 export function accountBudgetItemsPaginatedResponseFromJSON(

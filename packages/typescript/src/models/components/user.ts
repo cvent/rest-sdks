@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Address5, Address5$inboundSchema } from "./address5.js";
-import { Email, Email$inboundSchema } from "./email.js";
+import { Email1, Email1$inboundSchema } from "./email1.js";
 import { Group, Group$inboundSchema } from "./group.js";
 import { Meta, Meta$inboundSchema } from "./meta.js";
 import { Name, Name$inboundSchema } from "./name.js";
-import { PhoneNumber, PhoneNumber$inboundSchema } from "./phonenumber.js";
+import { PhoneNumber1, PhoneNumber1$inboundSchema } from "./phonenumber1.js";
 import {
   UserEnterpriseExtension,
   UserEnterpriseExtension$inboundSchema,
@@ -46,7 +46,7 @@ export type User = {
   /**
    * The email of the user. The Cvent user can have only one email address.<br> If multiple email addresses are provided, only one is accepted and rest are ignored. One email is selected based on the following sequence of criteria: primary email, then work type, and finally first in the sequence.
    */
-  emails: Array<Email>;
+  emails: Array<Email1>;
   /**
    * The title of the user.
    */
@@ -54,7 +54,7 @@ export type User = {
   /**
    * The phone numbers of the user.<br> If more than one number per type is provided, only one is accepted and rest are ignored.
    */
-  phoneNumbers?: Array<PhoneNumber> | undefined;
+  phoneNumbers?: Array<PhoneNumber1> | undefined;
   /**
    * The address of the user. The user can have only one address. <br> If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence
    */
@@ -93,9 +93,9 @@ export const User$inboundSchema: z.ZodType<User, z.ZodTypeDef, unknown> = z
     name: Name$inboundSchema,
     userName: z.string(),
     active: z.boolean().default(true),
-    emails: z.array(Email$inboundSchema),
+    emails: z.array(Email1$inboundSchema),
     title: z.string().optional(),
-    phoneNumbers: z.array(PhoneNumber$inboundSchema).optional(),
+    phoneNumbers: z.array(PhoneNumber1$inboundSchema).optional(),
     addresses: z.array(Address5$inboundSchema).optional(),
     userType: UserType$inboundSchema,
     timezone: z.string().default("America/New_York"),

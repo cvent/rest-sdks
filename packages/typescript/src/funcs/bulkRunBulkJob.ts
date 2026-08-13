@@ -42,7 +42,7 @@ export function bulkRunBulkJob(
   Result<
     components.BulkJob,
     | errors.ErrorResponse
-    | errors.ErrorResponse1
+    | errors.ErrorResponse11
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -69,7 +69,7 @@ async function $do(
     Result<
       components.BulkJob,
       | errors.ErrorResponse
-      | errors.ErrorResponse1
+      | errors.ErrorResponse11
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -167,7 +167,7 @@ async function $do(
   const [result] = await M.match<
     components.BulkJob,
     | errors.ErrorResponse
-    | errors.ErrorResponse1
+    | errors.ErrorResponse11
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -179,7 +179,7 @@ async function $do(
   >(
     M.json(200, components.BulkJob$inboundSchema),
     M.jsonErr(409, errors.ErrorResponse$inboundSchema),
-    M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse1$inboundSchema),
+    M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse11$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

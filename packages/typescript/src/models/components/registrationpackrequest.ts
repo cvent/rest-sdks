@@ -8,7 +8,7 @@ import {
   Capacity$Outbound,
   Capacity$outboundSchema,
 } from "./capacity.js";
-import { Event3, Event3$Outbound, Event3$outboundSchema } from "./event3.js";
+import { Event4, Event4$Outbound, Event4$outboundSchema } from "./event4.js";
 import {
   Exhibitor,
   Exhibitor$Outbound,
@@ -22,7 +22,7 @@ export type RegistrationPackRequest = {
   /**
    * The Associated Event.
    */
-  event: Event3;
+  event: Event4;
   /**
    * The Associated Exhibitor.
    */
@@ -35,7 +35,7 @@ export type RegistrationPackRequest = {
 
 /** @internal */
 export type RegistrationPackRequest$Outbound = {
-  event: Event3$Outbound;
+  event: Event4$Outbound;
   exhibitor: Exhibitor$Outbound;
   capacities: Array<Capacity$Outbound>;
 };
@@ -46,7 +46,7 @@ export const RegistrationPackRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RegistrationPackRequest
 > = z.object({
-  event: Event3$outboundSchema,
+  event: Event4$outboundSchema,
   exhibitor: Exhibitor$outboundSchema,
   capacities: z.array(Capacity$outboundSchema),
 });

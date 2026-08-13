@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.UserGroups;
+import com.cvent.models.components.UserGroups1;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,20 +34,20 @@ public class GetUserGroupsResponse implements Response {
     /**
      * Successfully retrieved a list of SCIM groups.
      */
-    private UserGroups userGroups;
+    private UserGroups1 userGroups1;
 
     @JsonCreator
     public GetUserGroupsResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable UserGroups userGroups) {
+            @Nullable UserGroups1 userGroups1) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
                 .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
-        this.userGroups = userGroups;
+        this.userGroups1 = userGroups1;
     }
 
     public GetUserGroupsResponse(
@@ -79,8 +79,8 @@ public class GetUserGroupsResponse implements Response {
     /**
      * Successfully retrieved a list of SCIM groups.
      */
-    public Optional<UserGroups> userGroups() {
-        return Optional.ofNullable(this.userGroups);
+    public Optional<UserGroups1> userGroups1() {
+        return Optional.ofNullable(this.userGroups1);
     }
 
     public static Builder builder() {
@@ -114,8 +114,8 @@ public class GetUserGroupsResponse implements Response {
     /**
      * Successfully retrieved a list of SCIM groups.
      */
-    public GetUserGroupsResponse withUserGroups(@Nullable UserGroups userGroups) {
-        this.userGroups = userGroups;
+    public GetUserGroupsResponse withUserGroups1(@Nullable UserGroups1 userGroups1) {
+        this.userGroups1 = userGroups1;
         return this;
     }
 
@@ -131,12 +131,12 @@ public class GetUserGroupsResponse implements Response {
         return Utils.enhancedDeepEquals(this.contentType, other.contentType)
                 && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
                 && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
-                && Utils.enhancedDeepEquals(this.userGroups, other.userGroups);
+                && Utils.enhancedDeepEquals(this.userGroups1, other.userGroups1);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(contentType, statusCode, rawResponse, userGroups);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, userGroups1);
     }
 
     @Override
@@ -149,8 +149,8 @@ public class GetUserGroupsResponse implements Response {
                 statusCode,
                 "rawResponse",
                 rawResponse,
-                "userGroups",
-                userGroups);
+                "userGroups1",
+                userGroups1);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -162,7 +162,7 @@ public class GetUserGroupsResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private UserGroups userGroups;
+        private UserGroups1 userGroups1;
 
         private Builder() {
             // force use of static builder() method
@@ -195,13 +195,13 @@ public class GetUserGroupsResponse implements Response {
         /**
          * Successfully retrieved a list of SCIM groups.
          */
-        public Builder userGroups(@Nullable UserGroups userGroups) {
-            this.userGroups = userGroups;
+        public Builder userGroups1(@Nullable UserGroups1 userGroups1) {
+            this.userGroups1 = userGroups1;
             return this;
         }
 
         public GetUserGroupsResponse build() {
-            return new GetUserGroupsResponse(contentType, statusCode, rawResponse, userGroups);
+            return new GetUserGroupsResponse(contentType, statusCode, rawResponse, userGroups1);
         }
     }
 }

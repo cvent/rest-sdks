@@ -56,7 +56,7 @@ public class ExistingWeblink {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event3 event;
+    private Event4 event;
 
     /**
      * The Associated Exhibitor.
@@ -102,7 +102,7 @@ public class ExistingWeblink {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nonnull Event3 event,
+            @JsonProperty("event") @Nonnull Event4 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("url") @Nonnull String url,
@@ -124,7 +124,7 @@ public class ExistingWeblink {
     }
 
     public ExistingWeblink(
-            @Nonnull Event3 event,
+            @Nonnull Event4 event,
             @Nonnull Exhibitor exhibitor,
             @Nonnull String name,
             @Nonnull String url,
@@ -163,7 +163,7 @@ public class ExistingWeblink {
     /**
      * The Associated Event.
      */
-    public Event3 event() {
+    public Event4 event() {
         return this.event;
     }
 
@@ -248,7 +248,7 @@ public class ExistingWeblink {
     /**
      * The Associated Event.
      */
-    public ExistingWeblink withEvent(@Nonnull Event3 event) {
+    public ExistingWeblink withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -368,7 +368,7 @@ public class ExistingWeblink {
 
         private String lastModifiedBy;
 
-        private Event3 event;
+        private Event4 event;
 
         private Exhibitor exhibitor;
 
@@ -421,7 +421,7 @@ public class ExistingWeblink {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event3 event) {
+        public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

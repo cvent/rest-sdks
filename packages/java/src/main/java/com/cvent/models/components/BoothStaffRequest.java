@@ -27,7 +27,7 @@ public class BoothStaffRequest {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event3 event;
+    private Event4 event;
 
     /**
      * The Associated Exhibitor.
@@ -38,7 +38,7 @@ public class BoothStaffRequest {
     @JsonCreator
     public BoothStaffRequest(
             @JsonProperty("attendee") @Nonnull Attendee12 attendee,
-            @JsonProperty("event") @Nonnull Event3 event,
+            @JsonProperty("event") @Nonnull Event4 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor) {
         this.attendee = Optional.ofNullable(attendee)
                 .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
@@ -57,7 +57,7 @@ public class BoothStaffRequest {
     /**
      * The Associated Event.
      */
-    public Event3 event() {
+    public Event4 event() {
         return this.event;
     }
 
@@ -83,7 +83,7 @@ public class BoothStaffRequest {
     /**
      * The Associated Event.
      */
-    public BoothStaffRequest withEvent(@Nonnull Event3 event) {
+    public BoothStaffRequest withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -125,7 +125,7 @@ public class BoothStaffRequest {
 
         private Attendee12 attendee;
 
-        private Event3 event;
+        private Event4 event;
 
         private Exhibitor exhibitor;
 
@@ -144,7 +144,7 @@ public class BoothStaffRequest {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event3 event) {
+        public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

@@ -25,18 +25,18 @@ public class BudgetAllocationsList {
      * budget).
      */
     @JsonProperty("allocateBy")
-    private BudgetAllocatebyJson allocateBy;
+    private AllocateBy allocateBy;
 
     /**
      * List of budget allocations.
      */
     @JsonProperty("allocations")
-    private List<BudgetAllocationJson> allocations;
+    private List<BudgetAllocation> allocations;
 
     @JsonCreator
     public BudgetAllocationsList(
-            @JsonProperty("allocateBy") @Nonnull BudgetAllocatebyJson allocateBy,
-            @JsonProperty("allocations") @Nonnull List<BudgetAllocationJson> allocations) {
+            @JsonProperty("allocateBy") @Nonnull AllocateBy allocateBy,
+            @JsonProperty("allocations") @Nonnull List<BudgetAllocation> allocations) {
         this.allocateBy = Optional.ofNullable(allocateBy)
                 .orElseThrow(() -> new IllegalArgumentException("allocateBy cannot be null"));
         this.allocations = Optional.ofNullable(allocations)
@@ -48,14 +48,14 @@ public class BudgetAllocationsList {
      * from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000
      * budget).
      */
-    public BudgetAllocatebyJson allocateBy() {
+    public AllocateBy allocateBy() {
         return this.allocateBy;
     }
 
     /**
      * List of budget allocations.
      */
-    public List<BudgetAllocationJson> allocations() {
+    public List<BudgetAllocation> allocations() {
         return this.allocations;
     }
 
@@ -68,7 +68,7 @@ public class BudgetAllocationsList {
      * from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000
      * budget).
      */
-    public BudgetAllocationsList withAllocateBy(@Nonnull BudgetAllocatebyJson allocateBy) {
+    public BudgetAllocationsList withAllocateBy(@Nonnull AllocateBy allocateBy) {
         this.allocateBy = Utils.checkNotNull(allocateBy, "allocateBy");
         return this;
     }
@@ -76,7 +76,7 @@ public class BudgetAllocationsList {
     /**
      * List of budget allocations.
      */
-    public BudgetAllocationsList withAllocations(@Nonnull List<BudgetAllocationJson> allocations) {
+    public BudgetAllocationsList withAllocations(@Nonnull List<BudgetAllocation> allocations) {
         this.allocations = Utils.checkNotNull(allocations, "allocations");
         return this;
     }
@@ -107,9 +107,9 @@ public class BudgetAllocationsList {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private BudgetAllocatebyJson allocateBy;
+        private AllocateBy allocateBy;
 
-        private List<BudgetAllocationJson> allocations;
+        private List<BudgetAllocation> allocations;
 
         private Builder() {
             // force use of static builder() method
@@ -120,7 +120,7 @@ public class BudgetAllocationsList {
          * from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000
          * budget).
          */
-        public Builder allocateBy(@Nonnull BudgetAllocatebyJson allocateBy) {
+        public Builder allocateBy(@Nonnull AllocateBy allocateBy) {
             this.allocateBy = Utils.checkNotNull(allocateBy, "allocateBy");
             return this;
         }
@@ -128,7 +128,7 @@ public class BudgetAllocationsList {
         /**
          * List of budget allocations.
          */
-        public Builder allocations(@Nonnull List<BudgetAllocationJson> allocations) {
+        public Builder allocations(@Nonnull List<BudgetAllocation> allocations) {
             this.allocations = Utils.checkNotNull(allocations, "allocations");
             return this;
         }
