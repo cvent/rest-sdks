@@ -1,0 +1,16 @@
+# ~~CardTransactionTransactionReconciliation~~
+
+This property is deprecated to support more then one items. Use 'reconciliations'.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `BudgetItem`                                                                          | [CardTransactionBudgetItem](../../Models/Components/CardTransactionBudgetItem.md)     | :heavy_minus_sign:                                                                    | The identifier of reconciled budget item.                                             |                                                                                       |
+| `Status`                                                                              | [ReconciliationStatus](../../Models/Components/ReconciliationStatus.md)               | :heavy_minus_sign:                                                                    | This is used to denote the reconciliation status for a transaction.                   | Reconciled                                                                            |
+| `Amount`                                                                              | *double*                                                                              | :heavy_minus_sign:                                                                    | Reconciliation amount.                                                                | 100.5                                                                                 |
+| `ReconciledBy`                                                                        | *string*                                                                              | :heavy_minus_sign:                                                                    | Reconciled by user.                                                                   | Test User                                                                             |
+| `ReconciledDate`                                                                      | [DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-5.0) | :heavy_minus_sign:                                                                    | The ISO 8601 zoned date and time for Reconciled date.                                 | 2020-02-07T09:37:50Z                                                                  |

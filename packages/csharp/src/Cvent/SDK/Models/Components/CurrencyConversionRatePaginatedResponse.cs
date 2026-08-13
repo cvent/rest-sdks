@@ -23,12 +23,12 @@ namespace Cvent.SDK.Models.Components
         /// Represents pagination information for a collection of resources.
         /// </summary>
         [JsonProperty("paging")]
-        public PagingJson Paging { get; set; } = default!;
+        public Paging Paging { get; set; } = default!;
 
         /// <summary>
         /// Collection of conversion rate for a currency in an account.
         /// </summary>
         [JsonProperty("data")]
-        public List<CurrencyConversionRateListResponseJson> Data { get; set; } = default!;
+        public List<CurrencyConversionRateListResponse> Data { get; set; } = default!;
     }
 }

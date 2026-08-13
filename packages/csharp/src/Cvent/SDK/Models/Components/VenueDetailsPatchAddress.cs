@@ -40,7 +40,7 @@ namespace Cvent.SDK.Models.Components
         /// The state province code used for contact information.
         /// </summary>
         [JsonProperty("stateProvince")]
-        public StateProvince1? StateProvince { get; set; }
+        public StateProvince? StateProvince { get; set; }
 
         /// <summary>
         /// ZIP or postal code.

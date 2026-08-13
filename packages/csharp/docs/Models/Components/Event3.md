@@ -1,10 +1,10 @@
 # Event3
 
-The Associated Event.
+ID of the event.
 
 
 ## Fields
 
 | Field                                | Type                                 | Required                             | Description                          | Example                              |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `Id`                                 | *string*                             | :heavy_check_mark:                   | Event id                             | 3db28cfc-db22-11eb-8d19-0242ac130003 |
+| `Id`                                 | *string*                             | :heavy_check_mark:                   | UUID of the event.                   | 103097a4-143d-11e5-9f99-d0a637ee0032 |

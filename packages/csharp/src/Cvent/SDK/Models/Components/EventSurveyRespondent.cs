@@ -124,7 +124,7 @@ namespace Cvent.SDK.Models.Components
         /// Detail object of an event which is associated to a survey.
         /// </summary>
         [JsonProperty("event")]
-        public EventJson3? Event { get; set; }
+        public EventJson1? Event { get; set; }
 
         /// <summary>
         /// Associated attendee.

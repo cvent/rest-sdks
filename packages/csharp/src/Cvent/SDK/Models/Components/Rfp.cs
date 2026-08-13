@@ -241,6 +241,12 @@ namespace Cvent.SDK.Models.Components
         public bool? FeeTransparencyEnabled { get; set; } = false;
 
         /// <summary>
+        /// Venue integrations the planner prefers when sourcing venues. An empty array or absent field indicates no preference has been recorded.
+        /// </summary>
+        [JsonProperty("preferredVenueIntegrations")]
+        public List<VenueIntegrationType>? PreferredVenueIntegrations { get; set; }
+
+        /// <summary>
         /// Unique identifier for RFP.
         /// </summary>
         [JsonProperty("id")]

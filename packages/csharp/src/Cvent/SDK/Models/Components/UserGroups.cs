@@ -15,38 +15,20 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Groups.
+    /// A paginated result for a list of user groups.
     /// </summary>
     public class UserGroups
     {
         /// <summary>
-        /// The collection of user schemas.
+        /// Represents pagination information for a collection of resources.
         /// </summary>
-        [JsonProperty("schemas")]
-        public List<string>? Schemas { get; set; }
+        [JsonProperty("paging")]
+        public Paging Paging { get; set; } = default!;
 
         /// <summary>
-        /// The number of schemas per page.
+        /// The list of user groups retrieved for the specified page.
         /// </summary>
-        [JsonProperty("itemsPerPage")]
-        public long? ItemsPerPage { get; set; }
-
-        /// <summary>
-        /// Starting index of the response.
-        /// </summary>
-        [JsonProperty("startIndex")]
-        public long? StartIndex { get; set; }
-
-        /// <summary>
-        /// The total count of schemas.
-        /// </summary>
-        [JsonProperty("totalResults")]
-        public long? TotalResults { get; set; }
-
-        /// <summary>
-        /// The collection of schema resources.
-        /// </summary>
-        [JsonProperty("Resources")]
-        public List<Group1>? Resources { get; set; }
+        [JsonProperty("data")]
+        public List<AccountUserGroup> Data { get; set; } = default!;
     }
 }

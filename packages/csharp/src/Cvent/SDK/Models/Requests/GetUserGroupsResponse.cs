@@ -21,6 +21,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// Successfully retrieved a list of SCIM groups.
         /// </summary>
-        public UserGroups? UserGroups { get; set; }
+        public UserGroups1? UserGroups1 { get; set; }
     }
 }

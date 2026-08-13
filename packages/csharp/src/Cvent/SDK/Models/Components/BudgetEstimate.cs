@@ -35,6 +35,6 @@ namespace Cvent.SDK.Models.Components
         /// A list of budget entry details. Each entry consists of the budget category or sub-category, the number of units, the cost per unit, and the total amount.
         /// </summary>
         [JsonProperty("costDetail")]
-        public List<BudgetCostDetail>? CostDetail { get; set; }
+        public List<BudgetCostDetail12>? CostDetail { get; set; }
     }
 }

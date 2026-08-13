@@ -293,10 +293,10 @@ catch (CventSDKException ex) // all SDK exceptions inherit from CventSDKExceptio
     var statusCode = (int)response.StatusCode;
     var responseBody = ex.Body;
 
-    if (ex is Models.Errors.ErrorResponse1) // different exceptions may be thrown depending on the method
+    if (ex is Models.Errors.ErrorResponse11) // different exceptions may be thrown depending on the method
     {
         // Check error data fields
-        Models.Errors.ErrorResponse1Payload payload = ex.Payload;
+        Models.Errors.ErrorResponse11Payload payload = ex.Payload;
         long Code = payload.Code;
         string Message = payload.Message;
         // ...
@@ -318,7 +318,7 @@ catch (System.Net.Http.HttpRequestException ex)
 
 **Primary exceptions:**
 * [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs): The base class for HTTP error responses.
-  * [`ErrorResponse1`](./src/Cvent/SDK/Models/Errors/ErrorResponse1.cs): Represents an error response with additional details of cascading error messages. *
+  * [`ErrorResponse11`](./src/Cvent/SDK/Models/Errors/ErrorResponse11.cs): Represents an error response with additional details of cascading error messages. *
 
 **Less common exceptions (6)**
 
@@ -327,7 +327,7 @@ catch (System.Net.Http.HttpRequestException ex)
 * Inheriting from [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs):
   * [`ErrorResponse2`](./src/Cvent/SDK/Models/Errors/ErrorResponse2.cs): The error response. Applicable to 11 of 458 methods.*
   * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 9 of 458 methods.*
-  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 458 methods.*
+  * [`ErrorResponse12`](./src/Cvent/SDK/Models/Errors/ErrorResponse12.cs): Segments error response details. Status code `400`. Applicable to 2 of 458 methods.*
   * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 458 methods.*
   * [`ResponseValidationError`](./src/Cvent/SDK/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
 

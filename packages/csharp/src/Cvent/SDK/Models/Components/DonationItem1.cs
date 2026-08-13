@@ -66,7 +66,7 @@ namespace Cvent.SDK.Models.Components
         /// This is used to denote the general ledger code associated with donation item.
         /// </summary>
         [JsonProperty("generalLedger")]
-        public GeneralLedger1? GeneralLedger { get; set; }
+        public GeneralLedger2? GeneralLedger { get; set; }
 
         /// <summary>
         /// Contains unique identifiers for registration types associated with this donation item.

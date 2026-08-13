@@ -13,26 +13,26 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// This is used to denote the general ledger code associated with donation item.
+    /// This is used to denote the general ledger code associated with budget.
     /// </summary>
     public class GeneralLedger1
     {
         /// <summary>
-        /// A unique identifier of the general ledger.
+        /// A string that has to be a format matching the industry standard uuid.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
-
-        /// <summary>
-        /// Name of the General Ledger.
-        /// </summary>
-        [JsonProperty("name")]
-        public string? Name { get; set; }
 
         /// <summary>
         /// General Ledger Code.
         /// </summary>
         [JsonProperty("code")]
         public string? Code { get; set; }
+
+        /// <summary>
+        /// Name of the General Ledger.
+        /// </summary>
+        [JsonProperty("name")]
+        public string? Name { get; set; }
     }
 }

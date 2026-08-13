@@ -24,6 +24,6 @@ namespace Cvent.SDK.Models.Requests
         /// A User Group.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public UserGroupJsonInput? UserGroupJson { get; set; }
+        public AccountUserGroupInput? AccountUserGroup { get; set; }
     }
 }
