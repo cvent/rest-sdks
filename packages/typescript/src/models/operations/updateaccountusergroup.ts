@@ -16,13 +16,13 @@ export type UpdateAccountUserGroupRequest = {
   /**
    * A User Group
    */
-  userGroupJson?: components.UserGroupJsonInput | undefined;
+  accountUserGroup?: components.AccountUserGroupInput | undefined;
 };
 
 /** @internal */
 export type UpdateAccountUserGroupRequest$Outbound = {
   userGroupId: string;
-  "user-group.json"?: components.UserGroupJsonInput$Outbound | undefined;
+  AccountUserGroup?: components.AccountUserGroupInput$Outbound | undefined;
 };
 
 /** @internal */
@@ -32,10 +32,10 @@ export const UpdateAccountUserGroupRequest$outboundSchema: z.ZodType<
   UpdateAccountUserGroupRequest
 > = z.object({
   userGroupId: z.string(),
-  userGroupJson: components.UserGroupJsonInput$outboundSchema.optional(),
+  accountUserGroup: components.AccountUserGroupInput$outboundSchema.optional(),
 }).transform((v) => {
   return remap$(v, {
-    userGroupJson: "user-group.json",
+    accountUserGroup: "AccountUserGroup",
   });
 });
 

@@ -82,7 +82,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.GetAccountUserGroupsRequest;
 import com.cvent.models.operations.GetAccountUserGroupsResponse;
 import java.lang.Exception;
@@ -90,7 +90,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -260,7 +260,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.GetAccountUserGroupsRequest;
 import com.cvent.models.operations.GetAccountUserGroupsResponse;
 import java.lang.Exception;
@@ -268,7 +268,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -985,7 +985,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.GetAccountUserGroupsRequest;
 import com.cvent.models.operations.GetAccountUserGroupsResponse;
 import java.lang.Exception;
@@ -994,7 +994,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1095,7 +1095,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.GetAccountUserGroupsRequest;
 import com.cvent.models.operations.GetAccountUserGroupsResponse;
 import com.cvent.utils.BackoffStrategy;
@@ -1106,7 +1106,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1152,7 +1152,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.GetAccountUserGroupsRequest;
 import com.cvent.models.operations.GetAccountUserGroupsResponse;
 import com.cvent.utils.BackoffStrategy;
@@ -1163,7 +1163,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .retryConfig(RetryConfig.builder()
@@ -1225,7 +1225,7 @@ import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
 import com.cvent.models.errors.CventSDKError;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.GetAccountUserGroupsRequest;
 import com.cvent.models.operations.GetAccountUserGroupsResponse;
 import java.io.UncheckedIOException;
@@ -1236,7 +1236,7 @@ import java.util.Optional;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1274,8 +1274,8 @@ public class Application {
 
             // different error subclasses may be thrown
             // depending on the service call
-            if (ex instanceof ErrorResponse1) {
-                var e = (ErrorResponse1) ex;
+            if (ex instanceof ErrorResponse11) {
+                var e = (ErrorResponse11) ex;
                 // Check error data fields
                 e.data().ifPresent(payload -> {
                     long code = payload.code();
@@ -1301,7 +1301,7 @@ public class Application {
 ### Error Classes
 **Primary errors:**
 * [`CventSDKError`](./src/main/java/models/errors/CventSDKError.java): The base class for HTTP error responses.
-  * [`com.cvent.models.errors.ErrorResponse1`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse1.java): Represents an error response with additional details of cascading error messages. *
+  * [`com.cvent.models.errors.ErrorResponse11`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse11.java): Represents an error response with additional details of cascading error messages. *
 
 <details><summary>Less common errors (10)</summary>
 
@@ -1315,7 +1315,7 @@ many more subclasses in the JDK platform).
 **Inherit from [`CventSDKError`](./src/main/java/models/errors/CventSDKError.java)**:
 * [`com.cvent.models.errors.ErrorResponse2`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse2.java): The error response. Applicable to 11 of 458 methods.*
 * [`com.cvent.models.errors.ErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse.java): Represents an error response with additional details of cascading error messages. Applicable to 9 of 458 methods.*
-* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 458 methods.*
+* [`com.cvent.models.errors.ErrorResponse12`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse12.java): Segments error response details. Status code `400`. Applicable to 2 of 458 methods.*
 * [`com.cvent.models.errors.BadRequestException`](./src/main/java/models/errors/com.cvent.models.errors.BadRequestException.java): A bad token response. Status code `400`. Applicable to 1 of 458 methods.*
 
 
@@ -1344,7 +1344,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.GetAccountUserGroupsRequest;
 import com.cvent.models.operations.GetAccountUserGroupsResponse;
 import java.lang.Exception;
@@ -1352,7 +1352,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .serverIndex(0)
@@ -1388,7 +1388,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.GetAccountUserGroupsRequest;
 import com.cvent.models.operations.GetAccountUserGroupsResponse;
 import java.lang.Exception;
@@ -1396,7 +1396,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .serverURL("https://api-platform-eur.cvent.com/ea")
@@ -1431,14 +1431,14 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.CreateCardTokensResponse;
 import java.lang.Exception;
 import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()

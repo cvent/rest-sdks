@@ -13,12 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The audience segment associated with the session.
+    /// Segment details.
     /// </summary>
     public class Segment
     {
         /// <summary>
-        /// The unique identifier for an audience segment.
+        /// Segment Id.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

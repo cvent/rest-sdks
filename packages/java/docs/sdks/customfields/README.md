@@ -30,7 +30,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.ListCustomFieldsRequest;
 import com.cvent.models.operations.ListCustomFieldsResponse;
 import java.lang.Exception;
@@ -39,7 +39,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -82,10 +82,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse1 | 400, 401, 403, 429           | application/json             |
-| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse11 | 400, 401, 403, 429            | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## createCustomField
 
@@ -102,14 +102,14 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.CreateCustomFieldResponse;
 import java.lang.Exception;
 import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -122,12 +122,12 @@ public class Application {
                     .build())
             .build();
 
-        CustomField3 req = CustomField3.builder()
+        CustomField2 req = CustomField2.builder()
                 .category(CustomFieldCategory.CONTACT)
                 .name("What is a your favorite color?")
                 .code("FAVORITE_COLOR_CODE")
                 .type(CustomFieldType2.OPEN_ENDED_TEXT_ONE_LINE)
-                .details(CustomField3Details.of(OpenEndedOneLine.builder()
+                .details(CustomField2Details.of(OpenEndedOneLine.builder()
                     .answerFormat("General")
                     .minimum(2L)
                     .maximum(8L)
@@ -151,7 +151,7 @@ public class Application {
 
 | Parameter                                           | Type                                                | Required                                            | Description                                         |
 | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| `request`                                           | [CustomField3](../../models/shared/CustomField3.md) | :heavy_check_mark:                                  | The request object to use for the request.          |
+| `request`                                           | [CustomField2](../../models/shared/CustomField2.md) | :heavy_check_mark:                                  | The request object to use for the request.          |
 
 ### Response
 
@@ -159,10 +159,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse1 | 400, 401, 403, 429           | application/json             |
-| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse11 | 400, 401, 403, 429            | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## updateCustomField
 
@@ -179,7 +179,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.UpdateCustomFieldRequest;
 import com.cvent.models.operations.UpdateCustomFieldResponse;
 import java.lang.Exception;
@@ -187,7 +187,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -241,10 +241,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
-| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## getCustomField
 
@@ -262,7 +262,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.GetCustomFieldRequest;
 import com.cvent.models.operations.GetCustomFieldResponse;
 import java.lang.Exception;
@@ -270,7 +270,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -310,10 +310,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse1 | 401, 403, 404, 429           | application/json             |
-| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse11 | 401, 403, 404, 429            | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## updateCustomFieldAdvancedLogic
 
@@ -330,7 +330,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.UpdateCustomFieldAdvancedLogicRequest;
 import com.cvent.models.operations.UpdateCustomFieldAdvancedLogicResponse;
 import java.lang.Exception;
@@ -338,7 +338,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -381,10 +381,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
-| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## createCustomFieldTranslation
 
@@ -401,7 +401,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.CreateCustomFieldTranslationRequest;
 import com.cvent.models.operations.CreateCustomFieldTranslationResponse;
 import java.lang.Exception;
@@ -409,7 +409,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -460,10 +460,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
-| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## updateCustomFieldTranslation
 
@@ -480,7 +480,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.UpdateCustomFieldTranslationRequest;
 import com.cvent.models.operations.UpdateCustomFieldTranslationResponse;
 import java.lang.Exception;
@@ -488,7 +488,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -539,7 +539,7 @@ public class Application {
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
-| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |

@@ -12,7 +12,7 @@ import { Appointment1, Appointment1$inboundSchema } from "./appointment1.js";
 import { Attendee13, Attendee13$inboundSchema } from "./attendee13.js";
 import { BoothStaff, BoothStaff$inboundSchema } from "./boothstaff.js";
 import { Device, Device$inboundSchema } from "./device.js";
-import { Event3, Event3$inboundSchema } from "./event3.js";
+import { Event4, Event4$inboundSchema } from "./event4.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 
 /**
@@ -100,7 +100,7 @@ export type Lead = {
   /**
    * The Associated Event.
    */
-  event?: Event3 | undefined;
+  event?: Event4 | undefined;
   /**
    * The Associated Exhibitor.
    */
@@ -251,7 +251,7 @@ export const Lead$inboundSchema: z.ZodType<Lead, z.ZodTypeDef, unknown> = z
       new Date(v)
     ).optional(),
     lastModifiedBy: z.string().optional(),
-    event: Event3$inboundSchema.optional(),
+    event: Event4$inboundSchema.optional(),
     exhibitor: Exhibitor$inboundSchema.optional(),
     attendee: Attendee13$inboundSchema.optional(),
     boothStaff: BoothStaff$inboundSchema.optional(),

@@ -91,10 +91,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetAppointmentAttendeeById
 
@@ -141,10 +141,10 @@ var res = await sdk.Appointments.GetAppointmentAttendeeByIdAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 401, 403, 404, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListAvailability
 
@@ -200,10 +200,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetAvailabilityById
 
@@ -250,10 +250,10 @@ var res = await sdk.Appointments.GetAvailabilityByIdAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404                          | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 401, 403, 404                           | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListAppointmentEvents
 
@@ -309,10 +309,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetAppointmentEventById
 
@@ -359,10 +359,10 @@ var res = await sdk.Appointments.GetAppointmentEventByIdAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 401, 403, 404, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListAvailableTimes
 
@@ -416,10 +416,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListAppointmentTypes
 
@@ -472,10 +472,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## CreateAppointment
 
@@ -544,10 +544,10 @@ var res = await sdk.Appointments.CreateAppointmentAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 422, 429           | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 422, 429            | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## UpdateAppointment
 
@@ -615,10 +615,10 @@ var res = await sdk.Appointments.UpdateAppointmentAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 422, 429           | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 422, 429            | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## CancelAppointment
 
@@ -666,10 +666,10 @@ var res = await sdk.Appointments.CancelAppointmentAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListLocations
 
@@ -722,10 +722,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListMeetingInterests
 
@@ -781,10 +781,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403                          | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403                           | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetMeetingInterestById
 
@@ -831,10 +831,10 @@ var res = await sdk.Appointments.GetMeetingInterestByIdAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404                          | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 401, 403, 404                           | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListAppointments
 
@@ -890,10 +890,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403                          | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403                           | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetAppointmentById
 
@@ -940,7 +940,7 @@ var res = await sdk.Appointments.GetAppointmentByIdAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404                          | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 401, 403, 404                           | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |

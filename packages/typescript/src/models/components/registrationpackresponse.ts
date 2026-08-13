@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Event3, Event3$inboundSchema } from "./event3.js";
+import { Event4, Event4$inboundSchema } from "./event4.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 import {
   ExistingCapacity,
@@ -24,7 +24,7 @@ export type RegistrationPackResponse = {
   /**
    * The Associated Event.
    */
-  event: Event3;
+  event: Event4;
   /**
    * The Associated Exhibitor.
    */
@@ -42,7 +42,7 @@ export const RegistrationPackResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  event: Event3$inboundSchema,
+  event: Event4$inboundSchema,
   exhibitor: Exhibitor$inboundSchema,
   capacities: z.array(ExistingCapacity$inboundSchema),
 });

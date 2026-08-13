@@ -22,18 +22,18 @@ public class EventBudgetPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of Event Budget Totals Information.
      */
     @JsonProperty("data")
-    private List<EventBudgetTotalsJson> data;
+    private List<EventBudgetTotals> data;
 
     @JsonCreator
     public EventBudgetPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<EventBudgetTotalsJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<EventBudgetTotals> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +42,14 @@ public class EventBudgetPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of Event Budget Totals Information.
      */
-    public List<EventBudgetTotalsJson> data() {
+    public List<EventBudgetTotals> data() {
         return this.data;
     }
 
@@ -60,7 +60,7 @@ public class EventBudgetPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public EventBudgetPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public EventBudgetPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +68,7 @@ public class EventBudgetPaginatedResponse {
     /**
      * Collection of Event Budget Totals Information.
      */
-    public EventBudgetPaginatedResponse withData(@Nonnull List<EventBudgetTotalsJson> data) {
+    public EventBudgetPaginatedResponse withData(@Nonnull List<EventBudgetTotals> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +98,9 @@ public class EventBudgetPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<EventBudgetTotalsJson> data;
+        private List<EventBudgetTotals> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +109,7 @@ public class EventBudgetPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +117,7 @@ public class EventBudgetPaginatedResponse {
         /**
          * Collection of Event Budget Totals Information.
          */
-        public Builder data(@Nonnull List<EventBudgetTotalsJson> data) {
+        public Builder data(@Nonnull List<EventBudgetTotals> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

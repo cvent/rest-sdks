@@ -7,54 +7,45 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BudgetAssociatedRegistrantJson,
-  BudgetAssociatedRegistrantJson$inboundSchema,
-} from "./budgetassociatedregistrantjson.js";
+  BudgetAssociatedRegistrant,
+  BudgetAssociatedRegistrant$inboundSchema,
+} from "./budgetassociatedregistrant.js";
 import {
-  BudgetCategoryJson,
-  BudgetCategoryJson$inboundSchema,
-} from "./budgetcategoryjson.js";
+  BudgetCategory,
+  BudgetCategory$inboundSchema,
+} from "./budgetcategory.js";
 import {
-  BudgetCostAvoidanceJson,
-  BudgetCostAvoidanceJson$inboundSchema,
-} from "./budgetcostavoidancejson.js";
+  BudgetCostAvoidance,
+  BudgetCostAvoidance$inboundSchema,
+} from "./budgetcostavoidance.js";
 import {
-  BudgetCostDetailJson,
-  BudgetCostDetailJson$inboundSchema,
-} from "./budgetcostdetailjson.js";
+  BudgetCostDetail11,
+  BudgetCostDetail11$inboundSchema,
+} from "./budgetcostdetail11.js";
 import {
-  BudgetCostTypeJson,
-  BudgetCostTypeJson$inboundSchema,
-} from "./budgetcosttypejson.js";
+  BudgetCostType,
+  BudgetCostType$inboundSchema,
+} from "./budgetcosttype.js";
 import {
-  BudgetItemCustomFieldJson,
-  BudgetItemCustomFieldJson$inboundSchema,
-} from "./budgetitemcustomfieldjson.js";
-import { BudgetRfpJson, BudgetRfpJson$inboundSchema } from "./budgetrfpjson.js";
+  BudgetItemCustomField,
+  BudgetItemCustomField$inboundSchema,
+} from "./budgetitemcustomfield.js";
+import { BudgetRFP, BudgetRFP$inboundSchema } from "./budgetrfp.js";
+import { BudgetSavings, BudgetSavings$inboundSchema } from "./budgetsavings.js";
+import { BudgetStatus, BudgetStatus$inboundSchema } from "./budgetstatus.js";
 import {
-  BudgetSavingsDetailJson,
-  BudgetSavingsDetailJson$inboundSchema,
-} from "./budgetsavingsdetailjson.js";
+  BudgetSubCategory,
+  BudgetSubCategory$inboundSchema,
+} from "./budgetsubcategory.js";
 import {
-  BudgetStatusJson,
-  BudgetStatusJson$inboundSchema,
-} from "./budgetstatusjson.js";
+  BudgetTaxGratuityType,
+  BudgetTaxGratuityType$inboundSchema,
+} from "./budgettaxgratuitytype.js";
+import { BudgetVendor, BudgetVendor$inboundSchema } from "./budgetvendor.js";
 import {
-  BudgetSubCategoryJson,
-  BudgetSubCategoryJson$inboundSchema,
-} from "./budgetsubcategoryjson.js";
-import {
-  BudgetTaxGratuityTypeJson,
-  BudgetTaxGratuityTypeJson$inboundSchema,
-} from "./budgettaxgratuitytypejson.js";
-import {
-  BudgetVendorJson,
-  BudgetVendorJson$inboundSchema,
-} from "./budgetvendorjson.js";
-import {
-  GeneralLedgerJson,
-  GeneralLedgerJson$inboundSchema,
-} from "./generalledgerjson.js";
+  GeneralLedger1,
+  GeneralLedger1$inboundSchema,
+} from "./generalledger1.js";
 
 /**
  * The identifier of the Event.
@@ -81,7 +72,7 @@ export type BudgetItemResponse = {
   /**
    * Denotes the cost type of a budget item. FIXED costs stay the same regardless of quantity. VARIABLE costs are based on a quantity.
    */
-  costType: BudgetCostTypeJson;
+  costType: BudgetCostType;
   /**
    * Name of the budget item.
    */
@@ -93,23 +84,23 @@ export type BudgetItemResponse = {
   /**
    * Denotes the category assigned to the budget item.
    */
-  category: BudgetCategoryJson;
+  category: BudgetCategory;
   /**
    * This is used to denote the sub category for a budget.
    */
-  subCategory?: BudgetSubCategoryJson | undefined;
+  subCategory?: BudgetSubCategory | undefined;
   /**
    * Denotes the status assigned to a budget item.
    */
-  status: BudgetStatusJson;
+  status: BudgetStatus;
   /**
    * List of details for a vendor assigned to a budget item.
    */
-  vendor?: BudgetVendorJson | undefined;
+  vendor?: BudgetVendor | undefined;
   /**
    * RFP associated with a budget item.
    */
-  rfp?: BudgetRfpJson | undefined;
+  rfp?: BudgetRFP | undefined;
   /**
    * The ISO 8601 zoned date and time assigned to the budget item, typically denotes the date and time of spending.
    */
@@ -121,11 +112,11 @@ export type BudgetItemResponse = {
   /**
    * This is used to denote the general ledger code associated with budget.
    */
-  generalLedger?: GeneralLedgerJson | undefined;
+  generalLedger?: GeneralLedger1 | undefined;
   /**
    * Budget cost avoidance information.
    */
-  costAvoidance?: BudgetCostAvoidanceJson | undefined;
+  costAvoidance?: BudgetCostAvoidance | undefined;
   /**
    * True indicates the budget item cost includes tax and gratuity.
    */
@@ -137,7 +128,7 @@ export type BudgetItemResponse = {
   /**
    * Denotes the type of tax or gratuity.
    */
-  gratuityType: BudgetTaxGratuityTypeJson;
+  gratuityType: BudgetTaxGratuityType;
   /**
    * User defined note associated with the budget item.
    */
@@ -157,15 +148,15 @@ export type BudgetItemResponse = {
   /**
    * The list of cost details for a budget item.
    */
-  costDetail?: Array<BudgetCostDetailJson> | undefined;
+  costDetail?: Array<BudgetCostDetail11> | undefined;
   /**
    * Result of user-defined formula comparing two columns of a budget item cost. Typically this is the difference between budgeted and actual cost.
    */
-  savings?: Array<BudgetSavingsDetailJson> | undefined;
+  savings?: Array<BudgetSavings> | undefined;
   /**
    * The list of registrants associated to a budget item. Typically used to attribute cost to specific registrants in reporting.
    */
-  associatedRegistrants?: Array<BudgetAssociatedRegistrantJson> | undefined;
+  associatedRegistrants?: Array<BudgetAssociatedRegistrant> | undefined;
   /**
    * Identifies the session associated with the budget item.
    */
@@ -173,7 +164,7 @@ export type BudgetItemResponse = {
   /**
    * List of budget item custom fields.
    */
-  customFields?: Array<BudgetItemCustomFieldJson> | undefined;
+  customFields?: Array<BudgetItemCustomField> | undefined;
 };
 
 /** @internal */
@@ -203,33 +194,33 @@ export const BudgetItemResponse$inboundSchema: z.ZodType<
 > = z.object({
   event: z.lazy(() => BudgetItemResponseEvent$inboundSchema).optional(),
   id: z.string().optional(),
-  costType: BudgetCostTypeJson$inboundSchema,
+  costType: BudgetCostType$inboundSchema,
   name: z.string(),
   code: z.string().optional(),
-  category: BudgetCategoryJson$inboundSchema,
-  subCategory: BudgetSubCategoryJson$inboundSchema.optional(),
-  status: BudgetStatusJson$inboundSchema,
-  vendor: BudgetVendorJson$inboundSchema.optional(),
-  rfp: BudgetRfpJson$inboundSchema.optional(),
+  category: BudgetCategory$inboundSchema,
+  subCategory: BudgetSubCategory$inboundSchema.optional(),
+  status: BudgetStatus$inboundSchema,
+  vendor: BudgetVendor$inboundSchema.optional(),
+  rfp: BudgetRFP$inboundSchema.optional(),
   date: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   lastModifiedDate: z.string().datetime({ offset: true }).transform(v =>
     new Date(v)
   ).optional(),
-  generalLedger: GeneralLedgerJson$inboundSchema.optional(),
-  costAvoidance: BudgetCostAvoidanceJson$inboundSchema.optional(),
+  generalLedger: GeneralLedger1$inboundSchema.optional(),
+  costAvoidance: BudgetCostAvoidance$inboundSchema.optional(),
   costIncludesTaxGratuity: z.boolean(),
   calculateTaxOnGratuity: z.boolean(),
-  gratuityType: BudgetTaxGratuityTypeJson$inboundSchema,
+  gratuityType: BudgetTaxGratuityType$inboundSchema,
   internalNote: z.string().optional(),
   currency: z.string(),
   conversionRateLocked: z.boolean().optional(),
   conversionRate: z.number(),
-  costDetail: z.array(BudgetCostDetailJson$inboundSchema).optional(),
-  savings: z.array(BudgetSavingsDetailJson$inboundSchema).optional(),
-  associatedRegistrants: z.array(BudgetAssociatedRegistrantJson$inboundSchema)
+  costDetail: z.array(BudgetCostDetail11$inboundSchema).optional(),
+  savings: z.array(BudgetSavings$inboundSchema).optional(),
+  associatedRegistrants: z.array(BudgetAssociatedRegistrant$inboundSchema)
     .optional(),
   associatedSession: z.string().optional(),
-  customFields: z.array(BudgetItemCustomFieldJson$inboundSchema).optional(),
+  customFields: z.array(BudgetItemCustomField$inboundSchema).optional(),
 });
 
 export function budgetItemResponseFromJSON(

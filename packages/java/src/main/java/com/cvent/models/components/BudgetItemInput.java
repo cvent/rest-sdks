@@ -28,7 +28,7 @@ public class BudgetItemInput {
      * costs are based on a quantity.
      */
     @JsonProperty("costType")
-    private BudgetCostTypeJson costType;
+    private BudgetCostType costType;
 
     /**
      * Name of the budget item.
@@ -47,27 +47,27 @@ public class BudgetItemInput {
      * Denotes the category assigned to the budget item.
      */
     @JsonProperty("category")
-    private BudgetCategoryJsonInput category;
+    private BudgetCategoryInput category;
 
     /**
      * This is used to denote the sub category for a budget.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("subCategory")
-    private BudgetSubCategoryJsonInput subCategory;
+    private BudgetSubCategoryInput subCategory;
 
     /**
      * Denotes the status assigned to a budget item.
      */
     @JsonProperty("status")
-    private BudgetStatusJson status;
+    private BudgetStatus status;
 
     /**
      * List of details for a vendor assigned to a budget item.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("vendor")
-    private BudgetVendorJsonInput vendor;
+    private BudgetVendorInput vendor;
 
     /**
      * The ISO 8601 zoned date and time assigned to the budget item, typically denotes the date and time of
@@ -81,14 +81,14 @@ public class BudgetItemInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generalLedger")
-    private GeneralLedgerJsonInput generalLedger;
+    private GeneralLedger1Input generalLedger;
 
     /**
      * Budget cost avoidance information.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("costAvoidance")
-    private BudgetCostAvoidanceJson costAvoidance;
+    private BudgetCostAvoidance costAvoidance;
 
     /**
      * True indicates the budget item cost includes tax and gratuity.
@@ -106,7 +106,7 @@ public class BudgetItemInput {
      * Denotes the type of tax or gratuity.
      */
     @JsonProperty("gratuityType")
-    private BudgetTaxGratuityTypeJson gratuityType;
+    private BudgetTaxGratuityType gratuityType;
 
     /**
      * User defined note associated with the budget item.
@@ -142,7 +142,7 @@ public class BudgetItemInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("costDetail")
-    private List<BudgetCostDetailJsonInput> costDetail;
+    private List<BudgetCostDetail1Input> costDetail;
 
     /**
      * The list of registrants associated to a budget item. Typically used to attribute cost to specific
@@ -150,7 +150,7 @@ public class BudgetItemInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("associatedRegistrants")
-    private List<BudgetAssociatedRegistrantJsonInput> associatedRegistrants;
+    private List<BudgetAssociatedRegistrantInput> associatedRegistrants;
 
     /**
      * Identifies the session associated with the budget item.
@@ -161,26 +161,26 @@ public class BudgetItemInput {
 
     @JsonCreator
     public BudgetItemInput(
-            @JsonProperty("costType") @Nonnull BudgetCostTypeJson costType,
+            @JsonProperty("costType") @Nonnull BudgetCostType costType,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("code") @Nullable String code,
-            @JsonProperty("category") @Nonnull BudgetCategoryJsonInput category,
-            @JsonProperty("subCategory") @Nullable BudgetSubCategoryJsonInput subCategory,
-            @JsonProperty("status") @Nonnull BudgetStatusJson status,
-            @JsonProperty("vendor") @Nullable BudgetVendorJsonInput vendor,
+            @JsonProperty("category") @Nonnull BudgetCategoryInput category,
+            @JsonProperty("subCategory") @Nullable BudgetSubCategoryInput subCategory,
+            @JsonProperty("status") @Nonnull BudgetStatus status,
+            @JsonProperty("vendor") @Nullable BudgetVendorInput vendor,
             @JsonProperty("date") @Nonnull OffsetDateTime date,
-            @JsonProperty("generalLedger") @Nullable GeneralLedgerJsonInput generalLedger,
-            @JsonProperty("costAvoidance") @Nullable BudgetCostAvoidanceJson costAvoidance,
+            @JsonProperty("generalLedger") @Nullable GeneralLedger1Input generalLedger,
+            @JsonProperty("costAvoidance") @Nullable BudgetCostAvoidance costAvoidance,
             @JsonProperty("costIncludesTaxGratuity") boolean costIncludesTaxGratuity,
             @JsonProperty("calculateTaxOnGratuity") boolean calculateTaxOnGratuity,
-            @JsonProperty("gratuityType") @Nonnull BudgetTaxGratuityTypeJson gratuityType,
+            @JsonProperty("gratuityType") @Nonnull BudgetTaxGratuityType gratuityType,
             @JsonProperty("internalNote") @Nullable String internalNote,
             @JsonProperty("currency") @Nonnull String currency,
             @JsonProperty("conversionRateLocked") @Nullable Boolean conversionRateLocked,
             @JsonProperty("conversionRate") double conversionRate,
-            @JsonProperty("costDetail") @Nullable List<BudgetCostDetailJsonInput> costDetail,
+            @JsonProperty("costDetail") @Nullable List<BudgetCostDetail1Input> costDetail,
             @JsonProperty("associatedRegistrants") @Nullable
-                    List<BudgetAssociatedRegistrantJsonInput> associatedRegistrants,
+                    List<BudgetAssociatedRegistrantInput> associatedRegistrants,
             @JsonProperty("associatedSession") @Nullable String associatedSession) {
         this.costType = Optional.ofNullable(costType)
                 .orElseThrow(() -> new IllegalArgumentException("costType cannot be null"));
@@ -210,14 +210,14 @@ public class BudgetItemInput {
     }
 
     public BudgetItemInput(
-            @Nonnull BudgetCostTypeJson costType,
+            @Nonnull BudgetCostType costType,
             @Nonnull String name,
-            @Nonnull BudgetCategoryJsonInput category,
-            @Nonnull BudgetStatusJson status,
+            @Nonnull BudgetCategoryInput category,
+            @Nonnull BudgetStatus status,
             @Nonnull OffsetDateTime date,
             boolean costIncludesTaxGratuity,
             boolean calculateTaxOnGratuity,
-            @Nonnull BudgetTaxGratuityTypeJson gratuityType,
+            @Nonnull BudgetTaxGratuityType gratuityType,
             @Nonnull String currency,
             double conversionRate) {
         this(
@@ -247,7 +247,7 @@ public class BudgetItemInput {
      * Denotes the cost type of a budget item. FIXED costs stay the same regardless of quantity. VARIABLE
      * costs are based on a quantity.
      */
-    public BudgetCostTypeJson costType() {
+    public BudgetCostType costType() {
         return this.costType;
     }
 
@@ -268,28 +268,28 @@ public class BudgetItemInput {
     /**
      * Denotes the category assigned to the budget item.
      */
-    public BudgetCategoryJsonInput category() {
+    public BudgetCategoryInput category() {
         return this.category;
     }
 
     /**
      * This is used to denote the sub category for a budget.
      */
-    public Optional<BudgetSubCategoryJsonInput> subCategory() {
+    public Optional<BudgetSubCategoryInput> subCategory() {
         return Optional.ofNullable(this.subCategory);
     }
 
     /**
      * Denotes the status assigned to a budget item.
      */
-    public BudgetStatusJson status() {
+    public BudgetStatus status() {
         return this.status;
     }
 
     /**
      * List of details for a vendor assigned to a budget item.
      */
-    public Optional<BudgetVendorJsonInput> vendor() {
+    public Optional<BudgetVendorInput> vendor() {
         return Optional.ofNullable(this.vendor);
     }
 
@@ -304,14 +304,14 @@ public class BudgetItemInput {
     /**
      * This is used to denote the general ledger code associated with budget.
      */
-    public Optional<GeneralLedgerJsonInput> generalLedger() {
+    public Optional<GeneralLedger1Input> generalLedger() {
         return Optional.ofNullable(this.generalLedger);
     }
 
     /**
      * Budget cost avoidance information.
      */
-    public Optional<BudgetCostAvoidanceJson> costAvoidance() {
+    public Optional<BudgetCostAvoidance> costAvoidance() {
         return Optional.ofNullable(this.costAvoidance);
     }
 
@@ -332,7 +332,7 @@ public class BudgetItemInput {
     /**
      * Denotes the type of tax or gratuity.
      */
-    public BudgetTaxGratuityTypeJson gratuityType() {
+    public BudgetTaxGratuityType gratuityType() {
         return this.gratuityType;
     }
 
@@ -370,7 +370,7 @@ public class BudgetItemInput {
     /**
      * The list of cost details for a budget item.
      */
-    public Optional<List<BudgetCostDetailJsonInput>> costDetail() {
+    public Optional<List<BudgetCostDetail1Input>> costDetail() {
         return Optional.ofNullable(this.costDetail);
     }
 
@@ -378,7 +378,7 @@ public class BudgetItemInput {
      * The list of registrants associated to a budget item. Typically used to attribute cost to specific
      * registrants in reporting.
      */
-    public Optional<List<BudgetAssociatedRegistrantJsonInput>> associatedRegistrants() {
+    public Optional<List<BudgetAssociatedRegistrantInput>> associatedRegistrants() {
         return Optional.ofNullable(this.associatedRegistrants);
     }
 
@@ -397,7 +397,7 @@ public class BudgetItemInput {
      * Denotes the cost type of a budget item. FIXED costs stay the same regardless of quantity. VARIABLE
      * costs are based on a quantity.
      */
-    public BudgetItemInput withCostType(@Nonnull BudgetCostTypeJson costType) {
+    public BudgetItemInput withCostType(@Nonnull BudgetCostType costType) {
         this.costType = Utils.checkNotNull(costType, "costType");
         return this;
     }
@@ -421,7 +421,7 @@ public class BudgetItemInput {
     /**
      * Denotes the category assigned to the budget item.
      */
-    public BudgetItemInput withCategory(@Nonnull BudgetCategoryJsonInput category) {
+    public BudgetItemInput withCategory(@Nonnull BudgetCategoryInput category) {
         this.category = Utils.checkNotNull(category, "category");
         return this;
     }
@@ -429,7 +429,7 @@ public class BudgetItemInput {
     /**
      * This is used to denote the sub category for a budget.
      */
-    public BudgetItemInput withSubCategory(@Nullable BudgetSubCategoryJsonInput subCategory) {
+    public BudgetItemInput withSubCategory(@Nullable BudgetSubCategoryInput subCategory) {
         this.subCategory = subCategory;
         return this;
     }
@@ -437,7 +437,7 @@ public class BudgetItemInput {
     /**
      * Denotes the status assigned to a budget item.
      */
-    public BudgetItemInput withStatus(@Nonnull BudgetStatusJson status) {
+    public BudgetItemInput withStatus(@Nonnull BudgetStatus status) {
         this.status = Utils.checkNotNull(status, "status");
         return this;
     }
@@ -445,7 +445,7 @@ public class BudgetItemInput {
     /**
      * List of details for a vendor assigned to a budget item.
      */
-    public BudgetItemInput withVendor(@Nullable BudgetVendorJsonInput vendor) {
+    public BudgetItemInput withVendor(@Nullable BudgetVendorInput vendor) {
         this.vendor = vendor;
         return this;
     }
@@ -462,7 +462,7 @@ public class BudgetItemInput {
     /**
      * This is used to denote the general ledger code associated with budget.
      */
-    public BudgetItemInput withGeneralLedger(@Nullable GeneralLedgerJsonInput generalLedger) {
+    public BudgetItemInput withGeneralLedger(@Nullable GeneralLedger1Input generalLedger) {
         this.generalLedger = generalLedger;
         return this;
     }
@@ -470,7 +470,7 @@ public class BudgetItemInput {
     /**
      * Budget cost avoidance information.
      */
-    public BudgetItemInput withCostAvoidance(@Nullable BudgetCostAvoidanceJson costAvoidance) {
+    public BudgetItemInput withCostAvoidance(@Nullable BudgetCostAvoidance costAvoidance) {
         this.costAvoidance = costAvoidance;
         return this;
     }
@@ -494,7 +494,7 @@ public class BudgetItemInput {
     /**
      * Denotes the type of tax or gratuity.
      */
-    public BudgetItemInput withGratuityType(@Nonnull BudgetTaxGratuityTypeJson gratuityType) {
+    public BudgetItemInput withGratuityType(@Nonnull BudgetTaxGratuityType gratuityType) {
         this.gratuityType = Utils.checkNotNull(gratuityType, "gratuityType");
         return this;
     }
@@ -537,7 +537,7 @@ public class BudgetItemInput {
     /**
      * The list of cost details for a budget item.
      */
-    public BudgetItemInput withCostDetail(@Nullable List<BudgetCostDetailJsonInput> costDetail) {
+    public BudgetItemInput withCostDetail(@Nullable List<BudgetCostDetail1Input> costDetail) {
         this.costDetail = costDetail;
         return this;
     }
@@ -547,7 +547,7 @@ public class BudgetItemInput {
      * registrants in reporting.
      */
     public BudgetItemInput withAssociatedRegistrants(
-            @Nullable List<BudgetAssociatedRegistrantJsonInput> associatedRegistrants) {
+            @Nullable List<BudgetAssociatedRegistrantInput> associatedRegistrants) {
         this.associatedRegistrants = associatedRegistrants;
         return this;
     }
@@ -665,31 +665,31 @@ public class BudgetItemInput {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private BudgetCostTypeJson costType;
+        private BudgetCostType costType;
 
         private String name;
 
         private String code;
 
-        private BudgetCategoryJsonInput category;
+        private BudgetCategoryInput category;
 
-        private BudgetSubCategoryJsonInput subCategory;
+        private BudgetSubCategoryInput subCategory;
 
-        private BudgetStatusJson status;
+        private BudgetStatus status;
 
-        private BudgetVendorJsonInput vendor;
+        private BudgetVendorInput vendor;
 
         private OffsetDateTime date;
 
-        private GeneralLedgerJsonInput generalLedger;
+        private GeneralLedger1Input generalLedger;
 
-        private BudgetCostAvoidanceJson costAvoidance;
+        private BudgetCostAvoidance costAvoidance;
 
         private boolean costIncludesTaxGratuity;
 
         private boolean calculateTaxOnGratuity;
 
-        private BudgetTaxGratuityTypeJson gratuityType;
+        private BudgetTaxGratuityType gratuityType;
 
         private String internalNote;
 
@@ -699,9 +699,9 @@ public class BudgetItemInput {
 
         private double conversionRate;
 
-        private List<BudgetCostDetailJsonInput> costDetail;
+        private List<BudgetCostDetail1Input> costDetail;
 
-        private List<BudgetAssociatedRegistrantJsonInput> associatedRegistrants;
+        private List<BudgetAssociatedRegistrantInput> associatedRegistrants;
 
         private String associatedSession;
 
@@ -713,7 +713,7 @@ public class BudgetItemInput {
          * Denotes the cost type of a budget item. FIXED costs stay the same regardless of quantity. VARIABLE
          * costs are based on a quantity.
          */
-        public Builder costType(@Nonnull BudgetCostTypeJson costType) {
+        public Builder costType(@Nonnull BudgetCostType costType) {
             this.costType = Utils.checkNotNull(costType, "costType");
             return this;
         }
@@ -737,7 +737,7 @@ public class BudgetItemInput {
         /**
          * Denotes the category assigned to the budget item.
          */
-        public Builder category(@Nonnull BudgetCategoryJsonInput category) {
+        public Builder category(@Nonnull BudgetCategoryInput category) {
             this.category = Utils.checkNotNull(category, "category");
             return this;
         }
@@ -745,7 +745,7 @@ public class BudgetItemInput {
         /**
          * This is used to denote the sub category for a budget.
          */
-        public Builder subCategory(@Nullable BudgetSubCategoryJsonInput subCategory) {
+        public Builder subCategory(@Nullable BudgetSubCategoryInput subCategory) {
             this.subCategory = subCategory;
             return this;
         }
@@ -753,7 +753,7 @@ public class BudgetItemInput {
         /**
          * Denotes the status assigned to a budget item.
          */
-        public Builder status(@Nonnull BudgetStatusJson status) {
+        public Builder status(@Nonnull BudgetStatus status) {
             this.status = Utils.checkNotNull(status, "status");
             return this;
         }
@@ -761,7 +761,7 @@ public class BudgetItemInput {
         /**
          * List of details for a vendor assigned to a budget item.
          */
-        public Builder vendor(@Nullable BudgetVendorJsonInput vendor) {
+        public Builder vendor(@Nullable BudgetVendorInput vendor) {
             this.vendor = vendor;
             return this;
         }
@@ -778,7 +778,7 @@ public class BudgetItemInput {
         /**
          * This is used to denote the general ledger code associated with budget.
          */
-        public Builder generalLedger(@Nullable GeneralLedgerJsonInput generalLedger) {
+        public Builder generalLedger(@Nullable GeneralLedger1Input generalLedger) {
             this.generalLedger = generalLedger;
             return this;
         }
@@ -786,7 +786,7 @@ public class BudgetItemInput {
         /**
          * Budget cost avoidance information.
          */
-        public Builder costAvoidance(@Nullable BudgetCostAvoidanceJson costAvoidance) {
+        public Builder costAvoidance(@Nullable BudgetCostAvoidance costAvoidance) {
             this.costAvoidance = costAvoidance;
             return this;
         }
@@ -810,7 +810,7 @@ public class BudgetItemInput {
         /**
          * Denotes the type of tax or gratuity.
          */
-        public Builder gratuityType(@Nonnull BudgetTaxGratuityTypeJson gratuityType) {
+        public Builder gratuityType(@Nonnull BudgetTaxGratuityType gratuityType) {
             this.gratuityType = Utils.checkNotNull(gratuityType, "gratuityType");
             return this;
         }
@@ -853,7 +853,7 @@ public class BudgetItemInput {
         /**
          * The list of cost details for a budget item.
          */
-        public Builder costDetail(@Nullable List<BudgetCostDetailJsonInput> costDetail) {
+        public Builder costDetail(@Nullable List<BudgetCostDetail1Input> costDetail) {
             this.costDetail = costDetail;
             return this;
         }
@@ -862,8 +862,7 @@ public class BudgetItemInput {
          * The list of registrants associated to a budget item. Typically used to attribute cost to specific
          * registrants in reporting.
          */
-        public Builder associatedRegistrants(
-                @Nullable List<BudgetAssociatedRegistrantJsonInput> associatedRegistrants) {
+        public Builder associatedRegistrants(@Nullable List<BudgetAssociatedRegistrantInput> associatedRegistrants) {
             this.associatedRegistrants = associatedRegistrants;
             return this;
         }

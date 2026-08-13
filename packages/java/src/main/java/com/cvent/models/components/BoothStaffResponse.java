@@ -59,7 +59,7 @@ public class BoothStaffResponse {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event3 event;
+    private Event4 event;
 
     /**
      * The Associated Exhibitor.
@@ -81,7 +81,7 @@ public class BoothStaffResponse {
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("attendee") @Nonnull Attendee12 attendee,
-            @JsonProperty("event") @Nonnull Event3 event,
+            @JsonProperty("event") @Nonnull Event4 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
             @JsonProperty("id") @Nullable String id) {
         this.created = created;
@@ -96,7 +96,7 @@ public class BoothStaffResponse {
         this.id = id;
     }
 
-    public BoothStaffResponse(@Nonnull Attendee12 attendee, @Nonnull Event3 event, @Nonnull Exhibitor exhibitor) {
+    public BoothStaffResponse(@Nonnull Attendee12 attendee, @Nonnull Event4 event, @Nonnull Exhibitor exhibitor) {
         this(null, null, null, null, attendee, event, exhibitor, null);
     }
 
@@ -138,7 +138,7 @@ public class BoothStaffResponse {
     /**
      * The Associated Event.
      */
-    public Event3 event() {
+    public Event4 event() {
         return this.event;
     }
 
@@ -203,7 +203,7 @@ public class BoothStaffResponse {
     /**
      * The Associated Event.
      */
-    public BoothStaffResponse withEvent(@Nonnull Event3 event) {
+    public BoothStaffResponse withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -283,7 +283,7 @@ public class BoothStaffResponse {
 
         private Attendee12 attendee;
 
-        private Event3 event;
+        private Event4 event;
 
         private Exhibitor exhibitor;
 
@@ -336,7 +336,7 @@ public class BoothStaffResponse {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event3 event) {
+        public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

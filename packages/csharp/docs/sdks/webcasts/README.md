@@ -104,10 +104,10 @@ var res = await sdk.Webcasts.CreateWebcastAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 409, 429                | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 409, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListWebcasts
 
@@ -163,10 +163,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListAttendeeLinks
 
@@ -222,10 +222,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListPlayers
 
@@ -281,10 +281,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetWebcastById
 
@@ -331,10 +331,10 @@ var res = await sdk.Webcasts.GetWebcastByIdAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## DeleteWebcast
 
@@ -381,10 +381,10 @@ var res = await sdk.Webcasts.DeleteWebcastAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 401, 403, 404, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## UpdateWebcast
 
@@ -476,10 +476,10 @@ var res = await sdk.Webcasts.UpdateWebcastAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 409, 429           | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 409, 429            | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## CreateAttendeeLinks
 
@@ -528,10 +528,10 @@ var res = await sdk.Webcasts.CreateAttendeeLinksAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## UpdateAttendeeLinks
 
@@ -580,10 +580,10 @@ var res = await sdk.Webcasts.UpdateAttendeeLinksAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~ListWebcastAttendeeLinks~~
 
@@ -642,10 +642,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## DeleteAttendeeLink
 
@@ -693,7 +693,7 @@ var res = await sdk.Webcasts.DeleteAttendeeLinkAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 401, 403, 404, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |

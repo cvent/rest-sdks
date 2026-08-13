@@ -75,13 +75,13 @@ public class SendEmailEventResponse {
      * Details of the event.
      */
     @JsonProperty("event")
-    private EventJson6 event;
+    private EventJson4 event;
 
     /**
      * Details of an email to be send.
      */
     @JsonProperty("email")
-    private EmailJson1 email;
+    private EmailJson email;
 
     /**
      * True indicates this email should be resent to attendees who had already received this email
@@ -106,8 +106,8 @@ public class SendEmailEventResponse {
             @JsonProperty("requestId") @Nonnull String requestId,
             @JsonProperty("status") @Nullable SendEmailRequestStatusJson status,
             @JsonProperty("description") @Nullable String description,
-            @JsonProperty("event") @Nonnull EventJson6 event,
-            @JsonProperty("email") @Nonnull EmailJson1 email,
+            @JsonProperty("event") @Nonnull EventJson4 event,
+            @JsonProperty("email") @Nonnull EmailJson email,
             @JsonProperty("resendToPreviousRecipients") boolean resendToPreviousRecipients,
             @JsonProperty("attendeeResponses") @Nullable List<AttendeeResponseJson> attendeeResponses) {
         this.created = created;
@@ -126,8 +126,8 @@ public class SendEmailEventResponse {
 
     public SendEmailEventResponse(
             @Nonnull String requestId,
-            @Nonnull EventJson6 event,
-            @Nonnull EmailJson1 email,
+            @Nonnull EventJson4 event,
+            @Nonnull EmailJson email,
             boolean resendToPreviousRecipients) {
         this(null, null, null, null, requestId, null, null, event, email, resendToPreviousRecipients, null);
     }
@@ -185,14 +185,14 @@ public class SendEmailEventResponse {
     /**
      * Details of the event.
      */
-    public EventJson6 event() {
+    public EventJson4 event() {
         return this.event;
     }
 
     /**
      * Details of an email to be send.
      */
-    public EmailJson1 email() {
+    public EmailJson email() {
         return this.email;
     }
 
@@ -275,7 +275,7 @@ public class SendEmailEventResponse {
     /**
      * Details of the event.
      */
-    public SendEmailEventResponse withEvent(@Nonnull EventJson6 event) {
+    public SendEmailEventResponse withEvent(@Nonnull EventJson4 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -283,7 +283,7 @@ public class SendEmailEventResponse {
     /**
      * Details of an email to be send.
      */
-    public SendEmailEventResponse withEmail(@Nonnull EmailJson1 email) {
+    public SendEmailEventResponse withEmail(@Nonnull EmailJson email) {
         this.email = Utils.checkNotNull(email, "email");
         return this;
     }
@@ -388,9 +388,9 @@ public class SendEmailEventResponse {
 
         private String description;
 
-        private EventJson6 event;
+        private EventJson4 event;
 
-        private EmailJson1 email;
+        private EmailJson email;
 
         private boolean resendToPreviousRecipients;
 
@@ -460,7 +460,7 @@ public class SendEmailEventResponse {
         /**
          * Details of the event.
          */
-        public Builder event(@Nonnull EventJson6 event) {
+        public Builder event(@Nonnull EventJson4 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -468,7 +468,7 @@ public class SendEmailEventResponse {
         /**
          * Details of an email to be send.
          */
-        public Builder email(@Nonnull EmailJson1 email) {
+        public Builder email(@Nonnull EmailJson email) {
             this.email = Utils.checkNotNull(email, "email");
             return this;
         }

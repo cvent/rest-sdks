@@ -40,7 +40,7 @@ export function userSCIMGetUserGroups(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    components.UserGroups,
+    components.UserGroups1,
     | errors.ErrorResponse2
     | CventSDKError
     | ResponseValidationError
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      components.UserGroups,
+      components.UserGroups1,
       | errors.ErrorResponse2
       | CventSDKError
       | ResponseValidationError
@@ -162,7 +162,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    components.UserGroups,
+    components.UserGroups1,
     | errors.ErrorResponse2
     | CventSDKError
     | ResponseValidationError
@@ -173,7 +173,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, components.UserGroups$inboundSchema),
+    M.json(200, components.UserGroups1$inboundSchema),
     M.jsonErr([400, 401, 403, 429], errors.ErrorResponse2$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

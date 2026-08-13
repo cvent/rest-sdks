@@ -17,61 +17,56 @@ import java.util.Optional;
 /**
  * BudgetCostDetail
  *
- * <p>The budget entry in detail, which consists of the budget category or sub-category, the number of
- * units, the cost per unit, and the total amount.
+ * <p>Event Budget cost detail information.
  */
 public class BudgetCostDetail {
     /**
-     * Denotes the category assigned to the budget item.
+     * A string that has to be a format matching the industry standard uuid
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("category")
-    private BudgetCategory category;
+    @JsonProperty("id")
+    private String id;
 
     /**
-     * This is used to denote the sub category for a budget.
+     * Denotes the name of the budget column associated to this cost.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("subCategory")
-    private BudgetSubCategory subCategory;
+    @JsonProperty("name")
+    private String name;
 
     /**
-     * The number of units associated with a budget item. This field can be any number if the budget item
-     * is a *Variable* cost type. If the budget item uses a *Fixed* cost type, set this field to 1.
+     * The total cost amount of the budget version in an event.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("units")
-    private Double units;
+    @JsonProperty("totalCostValue")
+    private Double totalCostValue;
 
     /**
-     * The cost amount of the budget item. If the budget item uses a *Fixed* cost type, the value of this
-     * field won't be applied to the creation or update of a Meeting Request.
+     * The total tax amount of the budget version in an event for the cost column.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("cost")
-    private Double cost;
+    @JsonProperty("totalAppliedTax")
+    private Double totalAppliedTax;
 
     /**
-     * The total cost of the budget item. If the budget item uses a *Variable* cost type, this field will
-     * be set as the result of units times cost. The value of this field will be applied to the creation or
-     * update of a Meeting Request only if the cost type is *Fixed*.
+     * The total gratuity amount of the budget version in an event for the cost column.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("totalCost")
-    private Double totalCost;
+    @JsonProperty("totalAppliedGratuity")
+    private Double totalAppliedGratuity;
 
     @JsonCreator
     public BudgetCostDetail(
-            @JsonProperty("category") @Nullable BudgetCategory category,
-            @JsonProperty("subCategory") @Nullable BudgetSubCategory subCategory,
-            @JsonProperty("units") @Nullable Double units,
-            @JsonProperty("cost") @Nullable Double cost,
-            @JsonProperty("totalCost") @Nullable Double totalCost) {
-        this.category = category;
-        this.subCategory = subCategory;
-        this.units = units;
-        this.cost = cost;
-        this.totalCost = totalCost;
+            @JsonProperty("id") @Nullable String id,
+            @JsonProperty("name") @Nullable String name,
+            @JsonProperty("totalCostValue") @Nullable Double totalCostValue,
+            @JsonProperty("totalAppliedTax") @Nullable Double totalAppliedTax,
+            @JsonProperty("totalAppliedGratuity") @Nullable Double totalAppliedGratuity) {
+        this.id = id;
+        this.name = name;
+        this.totalCostValue = totalCostValue;
+        this.totalAppliedTax = totalAppliedTax;
+        this.totalAppliedGratuity = totalAppliedGratuity;
     }
 
     public BudgetCostDetail() {
@@ -79,42 +74,38 @@ public class BudgetCostDetail {
     }
 
     /**
-     * Denotes the category assigned to the budget item.
+     * A string that has to be a format matching the industry standard uuid
      */
-    public Optional<BudgetCategory> category() {
-        return Optional.ofNullable(this.category);
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     /**
-     * This is used to denote the sub category for a budget.
+     * Denotes the name of the budget column associated to this cost.
      */
-    public Optional<BudgetSubCategory> subCategory() {
-        return Optional.ofNullable(this.subCategory);
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
-     * The number of units associated with a budget item. This field can be any number if the budget item
-     * is a *Variable* cost type. If the budget item uses a *Fixed* cost type, set this field to 1.
+     * The total cost amount of the budget version in an event.
      */
-    public Optional<Double> units() {
-        return Optional.ofNullable(this.units);
+    public Optional<Double> totalCostValue() {
+        return Optional.ofNullable(this.totalCostValue);
     }
 
     /**
-     * The cost amount of the budget item. If the budget item uses a *Fixed* cost type, the value of this
-     * field won't be applied to the creation or update of a Meeting Request.
+     * The total tax amount of the budget version in an event for the cost column.
      */
-    public Optional<Double> cost() {
-        return Optional.ofNullable(this.cost);
+    public Optional<Double> totalAppliedTax() {
+        return Optional.ofNullable(this.totalAppliedTax);
     }
 
     /**
-     * The total cost of the budget item. If the budget item uses a *Variable* cost type, this field will
-     * be set as the result of units times cost. The value of this field will be applied to the creation or
-     * update of a Meeting Request only if the cost type is *Fixed*.
+     * The total gratuity amount of the budget version in an event for the cost column.
      */
-    public Optional<Double> totalCost() {
-        return Optional.ofNullable(this.totalCost);
+    public Optional<Double> totalAppliedGratuity() {
+        return Optional.ofNullable(this.totalAppliedGratuity);
     }
 
     public static Builder builder() {
@@ -122,46 +113,42 @@ public class BudgetCostDetail {
     }
 
     /**
-     * Denotes the category assigned to the budget item.
+     * A string that has to be a format matching the industry standard uuid
      */
-    public BudgetCostDetail withCategory(@Nullable BudgetCategory category) {
-        this.category = category;
+    public BudgetCostDetail withId(@Nullable String id) {
+        this.id = id;
         return this;
     }
 
     /**
-     * This is used to denote the sub category for a budget.
+     * Denotes the name of the budget column associated to this cost.
      */
-    public BudgetCostDetail withSubCategory(@Nullable BudgetSubCategory subCategory) {
-        this.subCategory = subCategory;
+    public BudgetCostDetail withName(@Nullable String name) {
+        this.name = name;
         return this;
     }
 
     /**
-     * The number of units associated with a budget item. This field can be any number if the budget item
-     * is a *Variable* cost type. If the budget item uses a *Fixed* cost type, set this field to 1.
+     * The total cost amount of the budget version in an event.
      */
-    public BudgetCostDetail withUnits(@Nullable Double units) {
-        this.units = units;
+    public BudgetCostDetail withTotalCostValue(@Nullable Double totalCostValue) {
+        this.totalCostValue = totalCostValue;
         return this;
     }
 
     /**
-     * The cost amount of the budget item. If the budget item uses a *Fixed* cost type, the value of this
-     * field won't be applied to the creation or update of a Meeting Request.
+     * The total tax amount of the budget version in an event for the cost column.
      */
-    public BudgetCostDetail withCost(@Nullable Double cost) {
-        this.cost = cost;
+    public BudgetCostDetail withTotalAppliedTax(@Nullable Double totalAppliedTax) {
+        this.totalAppliedTax = totalAppliedTax;
         return this;
     }
 
     /**
-     * The total cost of the budget item. If the budget item uses a *Variable* cost type, this field will
-     * be set as the result of units times cost. The value of this field will be applied to the creation or
-     * update of a Meeting Request only if the cost type is *Fixed*.
+     * The total gratuity amount of the budget version in an event for the cost column.
      */
-    public BudgetCostDetail withTotalCost(@Nullable Double totalCost) {
-        this.totalCost = totalCost;
+    public BudgetCostDetail withTotalAppliedGratuity(@Nullable Double totalAppliedGratuity) {
+        this.totalAppliedGratuity = totalAppliedGratuity;
         return this;
     }
 
@@ -174,97 +161,93 @@ public class BudgetCostDetail {
             return false;
         }
         BudgetCostDetail other = (BudgetCostDetail) o;
-        return Utils.enhancedDeepEquals(this.category, other.category)
-                && Utils.enhancedDeepEquals(this.subCategory, other.subCategory)
-                && Utils.enhancedDeepEquals(this.units, other.units)
-                && Utils.enhancedDeepEquals(this.cost, other.cost)
-                && Utils.enhancedDeepEquals(this.totalCost, other.totalCost);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.totalCostValue, other.totalCostValue)
+                && Utils.enhancedDeepEquals(this.totalAppliedTax, other.totalAppliedTax)
+                && Utils.enhancedDeepEquals(this.totalAppliedGratuity, other.totalAppliedGratuity);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(category, subCategory, units, cost, totalCost);
+        return Utils.enhancedHash(id, name, totalCostValue, totalAppliedTax, totalAppliedGratuity);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
                 BudgetCostDetail.class,
-                "category",
-                category,
-                "subCategory",
-                subCategory,
-                "units",
-                units,
-                "cost",
-                cost,
-                "totalCost",
-                totalCost);
+                "id",
+                id,
+                "name",
+                name,
+                "totalCostValue",
+                totalCostValue,
+                "totalAppliedTax",
+                totalAppliedTax,
+                "totalAppliedGratuity",
+                totalAppliedGratuity);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private BudgetCategory category;
+        private String id;
 
-        private BudgetSubCategory subCategory;
+        private String name;
 
-        private Double units;
+        private Double totalCostValue;
 
-        private Double cost;
+        private Double totalAppliedTax;
 
-        private Double totalCost;
+        private Double totalAppliedGratuity;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * Denotes the category assigned to the budget item.
+         * A string that has to be a format matching the industry standard uuid
          */
-        public Builder category(@Nullable BudgetCategory category) {
-            this.category = category;
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
 
         /**
-         * This is used to denote the sub category for a budget.
+         * Denotes the name of the budget column associated to this cost.
          */
-        public Builder subCategory(@Nullable BudgetSubCategory subCategory) {
-            this.subCategory = subCategory;
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
 
         /**
-         * The number of units associated with a budget item. This field can be any number if the budget item
-         * is a *Variable* cost type. If the budget item uses a *Fixed* cost type, set this field to 1.
+         * The total cost amount of the budget version in an event.
          */
-        public Builder units(@Nullable Double units) {
-            this.units = units;
+        public Builder totalCostValue(@Nullable Double totalCostValue) {
+            this.totalCostValue = totalCostValue;
             return this;
         }
 
         /**
-         * The cost amount of the budget item. If the budget item uses a *Fixed* cost type, the value of this
-         * field won't be applied to the creation or update of a Meeting Request.
+         * The total tax amount of the budget version in an event for the cost column.
          */
-        public Builder cost(@Nullable Double cost) {
-            this.cost = cost;
+        public Builder totalAppliedTax(@Nullable Double totalAppliedTax) {
+            this.totalAppliedTax = totalAppliedTax;
             return this;
         }
 
         /**
-         * The total cost of the budget item. If the budget item uses a *Variable* cost type, this field will
-         * be set as the result of units times cost. The value of this field will be applied to the creation or
-         * update of a Meeting Request only if the cost type is *Fixed*.
+         * The total gratuity amount of the budget version in an event for the cost column.
          */
-        public Builder totalCost(@Nullable Double totalCost) {
-            this.totalCost = totalCost;
+        public Builder totalAppliedGratuity(@Nullable Double totalAppliedGratuity) {
+            this.totalAppliedGratuity = totalAppliedGratuity;
             return this;
         }
 
         public BudgetCostDetail build() {
-            return new BudgetCostDetail(category, subCategory, units, cost, totalCost);
+            return new BudgetCostDetail(id, name, totalCostValue, totalAppliedTax, totalAppliedGratuity);
         }
     }
 }

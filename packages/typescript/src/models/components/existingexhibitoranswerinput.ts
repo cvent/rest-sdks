@@ -8,7 +8,7 @@ import {
   Answer22$Outbound,
   Answer22$outboundSchema,
 } from "./answer22.js";
-import { Event3, Event3$Outbound, Event3$outboundSchema } from "./event3.js";
+import { Event4, Event4$Outbound, Event4$outboundSchema } from "./event4.js";
 import {
   Exhibitor,
   Exhibitor$Outbound,
@@ -27,7 +27,7 @@ export type ExistingExhibitorAnswerInput = {
   /**
    * The Associated Event.
    */
-  event: Event3;
+  event: Event4;
   /**
    * The Associated Exhibitor.
    */
@@ -41,7 +41,7 @@ export type ExistingExhibitorAnswerInput = {
 /** @internal */
 export type ExistingExhibitorAnswerInput$Outbound = {
   question: Uuid$Outbound;
-  event: Event3$Outbound;
+  event: Event4$Outbound;
   exhibitor: Exhibitor$Outbound;
   answers: Array<Answer22$Outbound>;
 };
@@ -53,7 +53,7 @@ export const ExistingExhibitorAnswerInput$outboundSchema: z.ZodType<
   ExistingExhibitorAnswerInput
 > = z.object({
   question: Uuid$outboundSchema,
-  event: Event3$outboundSchema,
+  event: Event4$outboundSchema,
   exhibitor: Exhibitor$outboundSchema,
   answers: z.array(Answer22$outboundSchema),
 });

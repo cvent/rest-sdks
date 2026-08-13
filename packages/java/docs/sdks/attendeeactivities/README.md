@@ -42,7 +42,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.ListAttendeeActivitiesRequest;
 import com.cvent.models.operations.ListAttendeeActivitiesResponse;
 import java.lang.Exception;
@@ -51,7 +51,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -94,10 +94,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
-| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## createAttendeeActivity
 
@@ -115,7 +115,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.CreateAttendeeActivityResponse;
 import java.lang.Exception;
 import java.time.OffsetDateTime;
@@ -124,7 +124,7 @@ import java.util.Map;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -178,10 +178,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse1 | 400, 401, 403, 429           | application/json             |
-| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse11 | 400, 401, 403, 429            | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## listExternalAttendeeActivitiesMetadata
 
@@ -199,7 +199,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.ListExternalAttendeeActivitiesMetadataRequest;
 import com.cvent.models.operations.ListExternalAttendeeActivitiesMetadataResponse;
 import java.lang.Exception;
@@ -208,7 +208,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -251,10 +251,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse1 | 400, 401, 403, 429           | application/json             |
-| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse11 | 400, 401, 403, 429            | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## createExternalAttendeeActivityMetadata
 
@@ -272,14 +272,14 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.CreateExternalAttendeeActivityMetadataResponse;
 import java.lang.Exception;
 import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -326,10 +326,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse1 | 400, 401, 403, 429           | application/json             |
-| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse11 | 400, 401, 403, 429            | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## deleteExternalAttendeeActivityMetadata
 
@@ -347,7 +347,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.DeleteExternalAttendeeActivityMetadataRequest;
 import com.cvent.models.operations.DeleteExternalAttendeeActivityMetadataResponse;
 import java.lang.Exception;
@@ -355,7 +355,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -393,10 +393,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse1 | 401, 403, 404, 429           | application/json             |
-| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse11 | 401, 403, 404, 429            | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## updateExternalAttendeeActivityMetadata
 
@@ -413,7 +413,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.UpdateExternalAttendeeActivityMetadataRequest;
 import com.cvent.models.operations.UpdateExternalAttendeeActivityMetadataResponse;
 import java.lang.Exception;
@@ -421,7 +421,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse11, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -471,7 +471,7 @@ public class Application {
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
-| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |

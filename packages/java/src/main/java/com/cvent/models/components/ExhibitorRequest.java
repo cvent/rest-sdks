@@ -27,7 +27,7 @@ public class ExhibitorRequest {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event3 event;
+    private Event4 event;
 
     /**
      * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal
@@ -150,7 +150,7 @@ public class ExhibitorRequest {
 
     @JsonCreator
     public ExhibitorRequest(
-            @JsonProperty("event") @Nonnull Event3 event,
+            @JsonProperty("event") @Nonnull Event4 event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("code") @Nullable String code,
@@ -188,7 +188,7 @@ public class ExhibitorRequest {
         this.sponsorshipLevel = sponsorshipLevel;
     }
 
-    public ExhibitorRequest(@Nonnull Event3 event, @Nonnull String name) {
+    public ExhibitorRequest(@Nonnull Event4 event, @Nonnull String name) {
         this(
                 event,
                 name,
@@ -213,7 +213,7 @@ public class ExhibitorRequest {
     /**
      * The Associated Event.
      */
-    public Event3 event() {
+    public Event4 event() {
         return this.event;
     }
 
@@ -344,7 +344,7 @@ public class ExhibitorRequest {
     /**
      * The Associated Event.
      */
-    public ExhibitorRequest withEvent(@Nonnull Event3 event) {
+    public ExhibitorRequest withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -583,7 +583,7 @@ public class ExhibitorRequest {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private Event3 event;
+        private Event4 event;
 
         private String name;
 
@@ -626,7 +626,7 @@ public class ExhibitorRequest {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event3 event) {
+        public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

@@ -4,15 +4,15 @@
 
 import * as z from "zod/v3";
 import {
-  EmailJson1,
-  EmailJson1$Outbound,
-  EmailJson1$outboundSchema,
-} from "./emailjson1.js";
+  EmailJson,
+  EmailJson$Outbound,
+  EmailJson$outboundSchema,
+} from "./emailjson.js";
 import {
-  EventJson6,
-  EventJson6$Outbound,
-  EventJson6$outboundSchema,
-} from "./eventjson6.js";
+  EventJson4,
+  EventJson4$Outbound,
+  EventJson4$outboundSchema,
+} from "./eventjson4.js";
 
 /**
  * Request object to send an email to one or more event attendees.
@@ -21,11 +21,11 @@ export type SendEmailEventRequest = {
   /**
    * Details of the event.
    */
-  event: EventJson6;
+  event: EventJson4;
   /**
    * Details of an email to be send.
    */
-  email: EmailJson1;
+  email: EmailJson;
   /**
    * True indicates this email should be resent to attendees who had already received this email previously.
    */
@@ -38,8 +38,8 @@ export type SendEmailEventRequest = {
 
 /** @internal */
 export type SendEmailEventRequest$Outbound = {
-  event: EventJson6$Outbound;
-  email: EmailJson1$Outbound;
+  event: EventJson4$Outbound;
+  email: EmailJson$Outbound;
   resendToPreviousRecipients: boolean;
   attendees: Array<string>;
 };
@@ -50,8 +50,8 @@ export const SendEmailEventRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SendEmailEventRequest
 > = z.object({
-  event: EventJson6$outboundSchema,
-  email: EmailJson1$outboundSchema,
+  event: EventJson4$outboundSchema,
+  email: EmailJson$outboundSchema,
   resendToPreviousRecipients: z.boolean(),
   attendees: z.array(z.string()),
 });

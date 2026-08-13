@@ -114,7 +114,7 @@ public class Calendar implements MembershipItemsPaginatedResponseData {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generalLedger")
-    private GeneralLedger1 generalLedger;
+    private GeneralLedger2 generalLedger;
 
     /**
      * The ISO 4217 currency code for this membership item.
@@ -151,7 +151,7 @@ public class Calendar implements MembershipItemsPaginatedResponseData {
             @JsonProperty("registrationTypes") @Nullable List<String> registrationTypes,
             @JsonProperty("openForRegistration") @Nullable Boolean openForRegistration,
             @JsonProperty("automaticClosureDate") @Nullable LocalDate automaticClosureDate,
-            @JsonProperty("generalLedger") @Nullable GeneralLedger1 generalLedger,
+            @JsonProperty("generalLedger") @Nullable GeneralLedger2 generalLedger,
             @JsonProperty("currency") @Nullable String currency,
             @JsonProperty("renewalType") @Nonnull String renewalType,
             @JsonProperty("proRated") @Nullable Boolean proRated) {
@@ -266,7 +266,7 @@ public class Calendar implements MembershipItemsPaginatedResponseData {
     /**
      * This is used to denote the general ledger code associated with donation item.
      */
-    public Optional<GeneralLedger1> generalLedger() {
+    public Optional<GeneralLedger2> generalLedger() {
         return Optional.ofNullable(this.generalLedger);
     }
 
@@ -397,7 +397,7 @@ public class Calendar implements MembershipItemsPaginatedResponseData {
     /**
      * This is used to denote the general ledger code associated with donation item.
      */
-    public Calendar withGeneralLedger(@Nullable GeneralLedger1 generalLedger) {
+    public Calendar withGeneralLedger(@Nullable GeneralLedger2 generalLedger) {
         this.generalLedger = generalLedger;
         return this;
     }
@@ -540,7 +540,7 @@ public class Calendar implements MembershipItemsPaginatedResponseData {
 
         private LocalDate automaticClosureDate;
 
-        private GeneralLedger1 generalLedger;
+        private GeneralLedger2 generalLedger;
 
         private String currency;
 
@@ -652,7 +652,7 @@ public class Calendar implements MembershipItemsPaginatedResponseData {
         /**
          * This is used to denote the general ledger code associated with donation item.
          */
-        public Builder generalLedger(@Nullable GeneralLedger1 generalLedger) {
+        public Builder generalLedger(@Nullable GeneralLedger2 generalLedger) {
             this.generalLedger = generalLedger;
             return this;
         }

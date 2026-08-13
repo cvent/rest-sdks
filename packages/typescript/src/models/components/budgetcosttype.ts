@@ -21,3 +21,7 @@ export type BudgetCostType = ClosedEnum<typeof BudgetCostType>;
 export const BudgetCostType$inboundSchema: z.ZodNativeEnum<
   typeof BudgetCostType
 > = z.nativeEnum(BudgetCostType);
+/** @internal */
+export const BudgetCostType$outboundSchema: z.ZodNativeEnum<
+  typeof BudgetCostType
+> = BudgetCostType$inboundSchema;

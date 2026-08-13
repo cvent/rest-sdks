@@ -62,8 +62,8 @@ public class Application {
                 .request(req)
                 .call();
 
-        if (res.userGroups().isPresent()) {
-            System.out.println(res.userGroups().get());
+        if (res.userGroups1().isPresent()) {
+            System.out.println(res.userGroups1().get());
         }
     }
 }
@@ -451,7 +451,7 @@ public class Application {
                     .build())
                 .title("Vice President")
                 .phoneNumbers(List.of(
-                    PhoneNumber.builder()
+                    PhoneNumber1.builder()
                         .type(PhoneType.WORK)
                         .value("+911234567890")
                         .build()))
@@ -696,7 +696,7 @@ public class Application {
                         .build())
                     .title("Vice President")
                     .phoneNumbers(List.of(
-                        PhoneNumber.builder()
+                        PhoneNumber1.builder()
                             .type(PhoneType.WORK)
                             .value("+911234567890")
                             .build()))

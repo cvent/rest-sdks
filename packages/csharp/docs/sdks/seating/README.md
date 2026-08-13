@@ -71,10 +71,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetEventTableAssignments
 
@@ -133,10 +133,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetSeating
 
@@ -184,10 +184,10 @@ var res = await sdk.Seating.GetSeatingAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 401, 403, 404, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetTableAssignment
 
@@ -247,10 +247,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListTables
 
@@ -309,10 +309,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetTable
 
@@ -365,10 +365,10 @@ var res = await sdk.Seating.GetTableAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListSeats
 
@@ -424,10 +424,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetSeat
 
@@ -477,7 +477,7 @@ var res = await sdk.Seating.GetSeatAsync(req);
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
-| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 401, 403, 404, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |

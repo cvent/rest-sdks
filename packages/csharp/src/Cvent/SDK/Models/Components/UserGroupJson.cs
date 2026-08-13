@@ -11,37 +11,12 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
-    /// A collection of account users which is used to help manage access and visibility to various other Cvent domain entities like events, surveys, account emails, and more. For example, a user group can be associated to specific events to allow the users within that group to view the events within Cvent's platform.
+    /// Contains information about a user group associated with an event.
     /// </summary>
     public class UserGroupJson
     {
-        /// <summary>
-        /// The ISO 8601 zoned date time when this record was created.
-        /// </summary>
-        [JsonProperty("created")]
-        public DateTime Created { get; set; } = default!;
-
-        /// <summary>
-        /// The identifier of the user that created this record.
-        /// </summary>
-        [JsonProperty("createdBy")]
-        public string CreatedBy { get; set; } = default!;
-
-        /// <summary>
-        /// The ISO 8601 zoned date time when this record was updated.
-        /// </summary>
-        [JsonProperty("lastModified")]
-        public DateTime LastModified { get; set; } = default!;
-
-        /// <summary>
-        /// The identifier of the user that last updated this record.
-        /// </summary>
-        [JsonProperty("lastModifiedBy")]
-        public string LastModifiedBy { get; set; } = default!;
-
         /// <summary>
         /// The unique identifier of the user group.
         /// </summary>
@@ -53,11 +28,5 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
-
-        /// <summary>
-        /// The description of the user group.
-        /// </summary>
-        [JsonProperty("description")]
-        public string? Description { get; set; }
     }
 }

@@ -27,7 +27,7 @@ public class Weblink {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event3 event;
+    private Event4 event;
 
     /**
      * The Associated Exhibitor.
@@ -62,7 +62,7 @@ public class Weblink {
 
     @JsonCreator
     public Weblink(
-            @JsonProperty("event") @Nonnull Event3 event,
+            @JsonProperty("event") @Nonnull Event4 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("url") @Nonnull String url,
@@ -78,7 +78,7 @@ public class Weblink {
     }
 
     public Weblink(
-            @Nonnull Event3 event,
+            @Nonnull Event4 event,
             @Nonnull Exhibitor exhibitor,
             @Nonnull String name,
             @Nonnull String url,
@@ -89,7 +89,7 @@ public class Weblink {
     /**
      * The Associated Event.
      */
-    public Event3 event() {
+    public Event4 event() {
         return this.event;
     }
 
@@ -135,7 +135,7 @@ public class Weblink {
     /**
      * The Associated Event.
      */
-    public Weblink withEvent(@Nonnull Event3 event) {
+    public Weblink withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -223,7 +223,7 @@ public class Weblink {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private Event3 event;
+        private Event4 event;
 
         private Exhibitor exhibitor;
 
@@ -242,7 +242,7 @@ public class Weblink {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event3 event) {
+        public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

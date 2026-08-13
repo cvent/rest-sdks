@@ -22,18 +22,18 @@ public class BudgetVendorsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of budget vendor entities.
      */
     @JsonProperty("data")
-    private List<BudgetVendorResponseJson> data;
+    private List<BudgetVendorResponse> data;
 
     @JsonCreator
     public BudgetVendorsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<BudgetVendorResponseJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<BudgetVendorResponse> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +42,14 @@ public class BudgetVendorsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of budget vendor entities.
      */
-    public List<BudgetVendorResponseJson> data() {
+    public List<BudgetVendorResponse> data() {
         return this.data;
     }
 
@@ -60,7 +60,7 @@ public class BudgetVendorsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public BudgetVendorsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public BudgetVendorsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +68,7 @@ public class BudgetVendorsPaginatedResponse {
     /**
      * Collection of budget vendor entities.
      */
-    public BudgetVendorsPaginatedResponse withData(@Nonnull List<BudgetVendorResponseJson> data) {
+    public BudgetVendorsPaginatedResponse withData(@Nonnull List<BudgetVendorResponse> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +98,9 @@ public class BudgetVendorsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<BudgetVendorResponseJson> data;
+        private List<BudgetVendorResponse> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +109,7 @@ public class BudgetVendorsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +117,7 @@ public class BudgetVendorsPaginatedResponse {
         /**
          * Collection of budget vendor entities.
          */
-        public Builder data(@Nonnull List<BudgetVendorResponseJson> data) {
+        public Builder data(@Nonnull List<BudgetVendorResponse> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

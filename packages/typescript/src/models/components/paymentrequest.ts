@@ -5,9 +5,9 @@
 import * as z from "zod/v3";
 import { RFCDate } from "../../types/rfcdate.js";
 import {
-  PaymentTypeJson,
-  PaymentTypeJson$outboundSchema,
-} from "./paymenttypejson.js";
+  PaymentType11,
+  PaymentType11$outboundSchema,
+} from "./paymenttype11.js";
 
 /**
  * Payment request for a budget item in an event.
@@ -40,7 +40,7 @@ export type PaymentRequest = {
   /**
    * Denotes the method of payment.
    */
-  type?: PaymentTypeJson | undefined;
+  type?: PaymentType11 | undefined;
   /**
    * The ID of the payment.
    */
@@ -71,7 +71,7 @@ export const PaymentRequest$outboundSchema: z.ZodType<
   amount: z.number(),
   date: z.instanceof(RFCDate).transform(v => v.toString()),
   note: z.string().optional(),
-  type: PaymentTypeJson$outboundSchema.optional(),
+  type: PaymentType11$outboundSchema.optional(),
   id: z.string(),
 });
 

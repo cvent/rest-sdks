@@ -109,10 +109,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getVideoViews
 
@@ -210,10 +210,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listAudioTracks
 
@@ -298,10 +298,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listVideoRenditions
 
@@ -388,7 +388,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## createTextTrack
@@ -494,7 +494,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listVideoTextTracks
@@ -580,10 +580,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## updateTextTrack
 
@@ -694,5 +694,5 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |

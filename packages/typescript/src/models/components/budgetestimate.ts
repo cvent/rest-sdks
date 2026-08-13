@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BudgetCostDetail,
-  BudgetCostDetail$inboundSchema,
-} from "./budgetcostdetail.js";
+  BudgetCostDetail12,
+  BudgetCostDetail12$inboundSchema,
+} from "./budgetcostdetail12.js";
 import {
   BudgetCostType,
   BudgetCostType$inboundSchema,
@@ -30,7 +30,7 @@ export type BudgetEstimate = {
   /**
    * A list of budget entry details. Each entry consists of the budget category or sub-category, the number of units, the cost per unit, and the total amount.
    */
-  costDetail?: Array<BudgetCostDetail> | undefined;
+  costDetail?: Array<BudgetCostDetail12> | undefined;
 };
 
 /** @internal */
@@ -41,7 +41,7 @@ export const BudgetEstimate$inboundSchema: z.ZodType<
 > = z.object({
   currency: z.string().optional(),
   costType: BudgetCostType$inboundSchema.optional(),
-  costDetail: z.array(BudgetCostDetail$inboundSchema).optional(),
+  costDetail: z.array(BudgetCostDetail12$inboundSchema).optional(),
 });
 
 export function budgetEstimateFromJSON(

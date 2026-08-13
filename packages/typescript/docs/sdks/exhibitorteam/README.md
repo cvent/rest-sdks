@@ -114,7 +114,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## postExhibitorAdmin
@@ -223,7 +223,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getExhibitorAdmin
@@ -318,7 +318,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateExhibitorAdmin
@@ -429,7 +429,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listBoothStaff
@@ -528,7 +528,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## associateBoothStaff
@@ -643,7 +643,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getBoothStaff
@@ -738,7 +738,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## deleteBoothStaff
@@ -831,7 +831,7 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |

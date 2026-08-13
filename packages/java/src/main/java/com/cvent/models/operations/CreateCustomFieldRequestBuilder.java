@@ -6,7 +6,7 @@ package com.cvent.models.operations;
 import static com.cvent.operations.Operations.RequestOperation;
 
 import com.cvent.SDKConfiguration;
-import com.cvent.models.components.CustomField3;
+import com.cvent.models.components.CustomField2;
 import com.cvent.operations.CreateCustomField;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
@@ -18,7 +18,7 @@ import jakarta.annotation.Nullable;
 public class CreateCustomFieldRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
-    private CustomField3 request;
+    private CustomField2 request;
     private final Options.Builder optionsBuilder;
 
     public CreateCustomFieldRequestBuilder(SDKConfiguration sdkConfiguration) {
@@ -31,12 +31,12 @@ public class CreateCustomFieldRequestBuilder {
         return this;
     }
 
-    public CreateCustomFieldRequestBuilder request(@Nonnull CustomField3 request) {
+    public CreateCustomFieldRequestBuilder request(@Nonnull CustomField2 request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
 
-    private CustomField3 _buildRequest() {
+    private CustomField2 _buildRequest() {
         return this.request;
     }
 
@@ -54,7 +54,7 @@ public class CreateCustomFieldRequestBuilder {
      */
     public CreateCustomFieldResponse call() {
         Options options = optionsBuilder.build();
-        RequestOperation<CustomField3, CreateCustomFieldResponse> operation =
+        RequestOperation<CustomField2, CreateCustomFieldResponse> operation =
                 new CreateCustomField.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }

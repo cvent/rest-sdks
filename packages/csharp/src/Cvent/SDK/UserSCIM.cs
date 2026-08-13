@@ -338,14 +338,14 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    UserGroups obj;
+                    UserGroups1 obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<UserGroups>(httpResponseBody, NullValueHandling.Include);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<UserGroups1>(httpResponseBody, NullValueHandling.Include);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into UserGroups.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into UserGroups1.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new GetUserGroupsResponse() {
@@ -354,7 +354,7 @@ namespace Cvent.SDK
                             Request = httpRequest
                         }
                     };
-                    response.UserGroups = obj;
+                    response.UserGroups1 = obj;
                     return response;
                 }
 

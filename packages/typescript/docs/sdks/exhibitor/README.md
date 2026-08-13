@@ -142,7 +142,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## createExhibitorCategory
@@ -251,7 +251,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateExhibitorCategory
@@ -362,7 +362,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## deleteExhibitorCategory
@@ -453,10 +453,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## updateExhibitorCategoryBanner
 
@@ -553,7 +553,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## deleteExhibitorCategoryImage
@@ -646,10 +646,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listExhibitors
 
@@ -747,7 +747,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## addExhibitorToExhibitorCategory
@@ -842,7 +842,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## removeExhibitorFromExhibitorCategory
@@ -935,10 +935,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getExhibitorQuestions
 
@@ -1026,10 +1026,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getExhibitors
 
@@ -1131,7 +1131,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## createExhibitor
@@ -1302,7 +1302,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getExhibitor
@@ -1395,7 +1395,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateExhibitor
@@ -1568,7 +1568,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## deleteExhibitor
@@ -1659,10 +1659,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## updateExhibitorBanner
 
@@ -1759,7 +1759,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## deleteExhibitorBanner
@@ -1852,10 +1852,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getExhibitorAnswers
 
@@ -1945,10 +1945,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## updateExhibitorAnswers
 
@@ -2082,7 +2082,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listExhibitorCategories
@@ -2181,7 +2181,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateExhibitorLogo
@@ -2279,7 +2279,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## deleteExhibitorLogo
@@ -2372,10 +2372,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getLeadQualificationQuestions
 
@@ -2467,7 +2467,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## postRegistrationPack
@@ -2593,7 +2593,7 @@ run();
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
 | errors.ErrorResponse    | 409                     | application/json        |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getExhibitorRegistrationPacks
@@ -2686,10 +2686,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getRegistrationPack
 
@@ -2781,10 +2781,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## updateRegistrationPack
 
@@ -2910,7 +2910,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## deleteRegistrationPack
@@ -3003,11 +3003,11 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse  | 409                   | application/json      |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse   | 409                    | application/json       |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getSponsorshipLevels
 
@@ -3095,10 +3095,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getSponsorshipLevel
 
@@ -3188,7 +3188,7 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |

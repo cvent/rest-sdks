@@ -34,10 +34,10 @@ namespace Cvent.SDK.Models.Components
             }
         }
 
-        public static ContactBulkResponseItemDataType ErrorResponse1
+        public static ContactBulkResponseItemDataType ErrorResponse11
         {
             get {
-                return new ContactBulkResponseItemDataType("ErrorResponse1");
+                return new ContactBulkResponseItemDataType("ErrorResponse1_1");
             }
         }
 
@@ -55,8 +55,8 @@ namespace Cvent.SDK.Models.Components
             {
                 case "contact":
                     return Contact;
-                case "ErrorResponse1":
-                    return ErrorResponse1;
+                case "ErrorResponse1_1":
+                    return ErrorResponse11;
                 default:
                     throw new ArgumentException("Invalid value for ContactBulkResponseItemDataType");
             }
@@ -88,7 +88,7 @@ namespace Cvent.SDK.Models.Components
         public Contact? Contact { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public Models.Components.ErrorResponse1? ErrorResponse1 { get; set; }
+        public Models.Components.ErrorResponse11? ErrorResponse11 { get; set; }
 
         public ContactBulkResponseItemDataType Type { get; set; }
         public static ContactBulkResponseItemData CreateContact(Contact contact)
@@ -99,12 +99,12 @@ namespace Cvent.SDK.Models.Components
             res.Contact = contact;
             return res;
         }
-        public static ContactBulkResponseItemData CreateErrorResponse1(Models.Components.ErrorResponse1 errorResponse1)
+        public static ContactBulkResponseItemData CreateErrorResponse11(Models.Components.ErrorResponse11 errorResponse11)
         {
-            ContactBulkResponseItemDataType typ = ContactBulkResponseItemDataType.ErrorResponse1;
+            ContactBulkResponseItemDataType typ = ContactBulkResponseItemDataType.ErrorResponse11;
 
             ContactBulkResponseItemData res = new ContactBulkResponseItemData(typ);
-            res.ErrorResponse1 = errorResponse1;
+            res.ErrorResponse11 = errorResponse11;
             return res;
         }
 
@@ -126,13 +126,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ContactBulkResponseItemData(ContactBulkResponseItemDataType.ErrorResponse1) {
-                        ErrorResponse1 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Models.Components.ErrorResponse1>(json)
+                    return new ContactBulkResponseItemData(ContactBulkResponseItemDataType.ErrorResponse11) {
+                        ErrorResponse11 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Models.Components.ErrorResponse11>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(Models.Components.ErrorResponse1), new ContactBulkResponseItemData(ContactBulkResponseItemDataType.ErrorResponse1), "ErrorResponse1"));
+                    fallbackCandidates.Add((typeof(Models.Components.ErrorResponse11), new ContactBulkResponseItemData(ContactBulkResponseItemDataType.ErrorResponse11), "ErrorResponse11"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -200,9 +200,9 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
 
-                if (res.ErrorResponse1 != null)
+                if (res.ErrorResponse11 != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.ErrorResponse1));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.ErrorResponse11));
                     return;
                 }
             }

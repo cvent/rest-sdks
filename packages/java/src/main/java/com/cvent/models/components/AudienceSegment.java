@@ -26,7 +26,7 @@ public class AudienceSegment {
      * ID of the event.
      */
     @JsonProperty("event")
-    private EventJson event;
+    private Event3 event;
 
     /**
      * Name of the audience segment. Must be unique in the event where the segment exists.
@@ -43,7 +43,7 @@ public class AudienceSegment {
 
     @JsonCreator
     public AudienceSegment(
-            @JsonProperty("event") @Nonnull EventJson event,
+            @JsonProperty("event") @Nonnull Event3 event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description) {
         this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
@@ -51,14 +51,14 @@ public class AudienceSegment {
         this.description = description;
     }
 
-    public AudienceSegment(@Nonnull EventJson event, @Nonnull String name) {
+    public AudienceSegment(@Nonnull Event3 event, @Nonnull String name) {
         this(event, name, null);
     }
 
     /**
      * ID of the event.
      */
-    public EventJson event() {
+    public Event3 event() {
         return this.event;
     }
 
@@ -83,7 +83,7 @@ public class AudienceSegment {
     /**
      * ID of the event.
      */
-    public AudienceSegment withEvent(@Nonnull EventJson event) {
+    public AudienceSegment withEvent(@Nonnull Event3 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -131,7 +131,7 @@ public class AudienceSegment {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EventJson event;
+        private Event3 event;
 
         private String name;
 
@@ -144,7 +144,7 @@ public class AudienceSegment {
         /**
          * ID of the event.
          */
-        public Builder event(@Nonnull EventJson event) {
+        public Builder event(@Nonnull Event3 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

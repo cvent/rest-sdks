@@ -8,9 +8,9 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  GeneralLedger1,
-  GeneralLedger1$inboundSchema,
-} from "./generalledger1.js";
+  GeneralLedger2,
+  GeneralLedger2$inboundSchema,
+} from "./generalledger2.js";
 
 /**
  * Represents a donation item. Donation items give event invitees the option to contribute money to an association, charity, or cause during registration.
@@ -47,7 +47,7 @@ export type DonationItem1 = {
   /**
    * This is used to denote the general ledger code associated with donation item.
    */
-  generalLedger?: GeneralLedger1 | undefined;
+  generalLedger?: GeneralLedger2 | undefined;
   /**
    * Contains unique identifiers for registration types associated with this donation item.
    */
@@ -75,7 +75,7 @@ export const DonationItem1$inboundSchema: z.ZodType<
   code: z.string().optional(),
   minimumAmountAllowedPerInvitee: z.number().optional(),
   maximumAmountAllowedPerInvitee: z.number().optional(),
-  generalLedger: GeneralLedger1$inboundSchema.optional(),
+  generalLedger: GeneralLedger2$inboundSchema.optional(),
   registrationTypes: z.array(z.string()).optional(),
   openForRegistration: z.boolean().optional(),
   automaticallyClosesOn: z.string().transform(v => new RFCDate(v)).optional(),

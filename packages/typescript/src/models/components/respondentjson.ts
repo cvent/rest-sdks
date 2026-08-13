@@ -7,7 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { EventJson3, EventJson3$inboundSchema } from "./eventjson3.js";
+import { EventJson1, EventJson1$inboundSchema } from "./eventjson1.js";
 import {
   InvitationListCommonJson,
   InvitationListCommonJson$inboundSchema,
@@ -116,7 +116,7 @@ export type RespondentJson = {
   /**
    * Detail object of an event which is associated to a survey.
    */
-  event?: EventJson3 | undefined;
+  event?: EventJson1 | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
@@ -198,7 +198,7 @@ export const RespondentJson$inboundSchema: z.ZodType<
   percentageScore: z.number().optional(),
   _links: z.lazy(() => RespondentJsonLinks$inboundSchema).optional(),
   sourceId: z.string().optional(),
-  event: EventJson3$inboundSchema.optional(),
+  event: EventJson1$inboundSchema.optional(),
   contact: UuidJson$inboundSchema.optional(),
   attendee: UuidJson$inboundSchema.optional(),
   survey: UuidJson$inboundSchema.optional(),

@@ -8,37 +8,17 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * A collection of account users which is used to help manage access and visibility to various other Cvent domain entities like events, surveys, account emails, and more. For example, a user group can be associated to specific events to allow the users within that group to view the events within Cvent's platform.
+ * Contains information about a user group associated with an event
  */
 export type UserGroupJson = {
   /**
-   * The ISO 8601 zoned date time when this record was created.
-   */
-  created: Date;
-  /**
-   * The identifier of the user that created this record.
-   */
-  createdBy: string;
-  /**
-   * The ISO 8601 zoned date time when this record was updated.
-   */
-  lastModified: Date;
-  /**
-   * The identifier of the user that last updated this record.
-   */
-  lastModifiedBy: string;
-  /**
-   * The unique identifier of the user group.
+   * The unique identifier of the user group
    */
   id: string;
   /**
-   * The name of the user group.
+   * The name of the user group
    */
   name: string;
-  /**
-   * The description of the user group.
-   */
-  description?: string | undefined;
 };
 
 /** @internal */
@@ -47,15 +27,8 @@ export const UserGroupJson$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  created: z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  createdBy: z.string(),
-  lastModified: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
-  ),
-  lastModifiedBy: z.string(),
   id: z.string(),
   name: z.string(),
-  description: z.string().optional(),
 });
 
 export function userGroupJsonFromJSON(

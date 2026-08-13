@@ -8,7 +8,7 @@ import {
   Attendee12$Outbound,
   Attendee12$outboundSchema,
 } from "./attendee12.js";
-import { Event3, Event3$Outbound, Event3$outboundSchema } from "./event3.js";
+import { Event4, Event4$Outbound, Event4$outboundSchema } from "./event4.js";
 import {
   Exhibitor,
   Exhibitor$Outbound,
@@ -26,7 +26,7 @@ export type BoothStaffRequest = {
   /**
    * The Associated Event.
    */
-  event: Event3;
+  event: Event4;
   /**
    * The Associated Exhibitor.
    */
@@ -36,7 +36,7 @@ export type BoothStaffRequest = {
 /** @internal */
 export type BoothStaffRequest$Outbound = {
   attendee: Attendee12$Outbound;
-  event: Event3$Outbound;
+  event: Event4$Outbound;
   exhibitor: Exhibitor$Outbound;
 };
 
@@ -47,7 +47,7 @@ export const BoothStaffRequest$outboundSchema: z.ZodType<
   BoothStaffRequest
 > = z.object({
   attendee: Attendee12$outboundSchema,
-  event: Event3$outboundSchema,
+  event: Event4$outboundSchema,
   exhibitor: Exhibitor$outboundSchema,
 });
 

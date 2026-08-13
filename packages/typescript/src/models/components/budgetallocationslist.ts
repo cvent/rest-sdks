@@ -7,16 +7,16 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BudgetAllocatebyJson,
-  BudgetAllocatebyJson$inboundSchema,
-  BudgetAllocatebyJson$outboundSchema,
-} from "./budgetallocatebyjson.js";
+  AllocateBy,
+  AllocateBy$inboundSchema,
+  AllocateBy$outboundSchema,
+} from "./allocateby.js";
 import {
-  BudgetAllocationJson,
-  BudgetAllocationJson$inboundSchema,
-  BudgetAllocationJson$Outbound,
-  BudgetAllocationJson$outboundSchema,
-} from "./budgetallocationjson.js";
+  BudgetAllocation,
+  BudgetAllocation$inboundSchema,
+  BudgetAllocation$Outbound,
+  BudgetAllocation$outboundSchema,
+} from "./budgetallocation.js";
 
 /**
  * Request body  for creating or updating the budget allocations for the event. The soft limit for the maximum number of allocations is 100.
@@ -25,11 +25,11 @@ export type BudgetAllocationsList = {
   /**
    * Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700 from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000 budget).
    */
-  allocateBy: BudgetAllocatebyJson;
+  allocateBy: AllocateBy;
   /**
    * List of budget allocations.
    */
-  allocations: Array<BudgetAllocationJson>;
+  allocations: Array<BudgetAllocation>;
 };
 
 /** @internal */
@@ -38,13 +38,13 @@ export const BudgetAllocationsList$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  allocateBy: BudgetAllocatebyJson$inboundSchema,
-  allocations: z.array(BudgetAllocationJson$inboundSchema),
+  allocateBy: AllocateBy$inboundSchema,
+  allocations: z.array(BudgetAllocation$inboundSchema),
 });
 /** @internal */
 export type BudgetAllocationsList$Outbound = {
   allocateBy: string;
-  allocations: Array<BudgetAllocationJson$Outbound>;
+  allocations: Array<BudgetAllocation$Outbound>;
 };
 
 /** @internal */
@@ -53,8 +53,8 @@ export const BudgetAllocationsList$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BudgetAllocationsList
 > = z.object({
-  allocateBy: BudgetAllocatebyJson$outboundSchema,
-  allocations: z.array(BudgetAllocationJson$outboundSchema),
+  allocateBy: AllocateBy$outboundSchema,
+  allocations: z.array(BudgetAllocation$outboundSchema),
 });
 
 export function budgetAllocationsListToJSON(

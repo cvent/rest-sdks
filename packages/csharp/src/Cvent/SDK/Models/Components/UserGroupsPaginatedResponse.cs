@@ -23,7 +23,7 @@ namespace Cvent.SDK.Models.Components
         /// List of user groups.
         /// </summary>
         [JsonProperty("data")]
-        public List<UserGroupJson1> Data { get; set; } = default!;
+        public List<UserGroupJson> Data { get; set; } = default!;
 
         /// <summary>
         /// Represents pagination information for a collection of resources.

@@ -106,7 +106,7 @@ public class Session {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("location")
-    private Location location;
+    private Location1 location;
 
     /**
      * Detailed description of the session. HTML is supported, but only a limited set of elements and
@@ -338,7 +338,7 @@ public class Session {
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("category") @Nullable NamedObject category,
             @JsonProperty("type") @Nullable SessionLookup type,
-            @JsonProperty("location") @Nullable Location location,
+            @JsonProperty("location") @Nullable Location1 location,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("start") @Nonnull OffsetDateTime start,
             @JsonProperty("end") @Nonnull OffsetDateTime end,
@@ -541,7 +541,7 @@ public class Session {
     /**
      * Used to denote a locations name and abbreviation.
      */
-    public Optional<Location> location() {
+    public Optional<Location1> location() {
         return Optional.ofNullable(this.location);
     }
 
@@ -857,7 +857,7 @@ public class Session {
     /**
      * Used to denote a locations name and abbreviation.
      */
-    public Session withLocation(@Nullable Location location) {
+    public Session withLocation(@Nullable Location1 location) {
         this.location = location;
         return this;
     }
@@ -1322,7 +1322,7 @@ public class Session {
 
         private SessionLookup type;
 
-        private Location location;
+        private Location1 location;
 
         private String description;
 
@@ -1475,7 +1475,7 @@ public class Session {
         /**
          * Used to denote a locations name and abbreviation.
          */
-        public Builder location(@Nullable Location location) {
+        public Builder location(@Nullable Location1 location) {
             this.location = location;
             return this;
         }

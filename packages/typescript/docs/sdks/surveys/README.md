@@ -125,7 +125,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getEventSurveys
@@ -225,7 +225,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getEventSurveyQuestions
@@ -325,7 +325,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getEventSurveyRespondents
@@ -427,7 +427,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## createEventSurveyRespondent
@@ -535,7 +535,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateEventSurveyRespondent
@@ -645,7 +645,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## createEventSurveyResponses
@@ -801,7 +801,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getEventSurveyResponses
@@ -903,7 +903,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getLargeChoices
@@ -995,10 +995,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getQuestions
 
@@ -1093,10 +1093,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getRespondents
 
@@ -1191,10 +1191,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getResponses
 
@@ -1289,10 +1289,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getStandardSurveys
 
@@ -1387,10 +1387,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getStandardSurveyResponses
 
@@ -1485,10 +1485,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getStandardSurveyEmailTemplates
 
@@ -1581,7 +1581,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getStandardSurveyQuestions
@@ -1679,7 +1679,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getStandardSurveyRespondents
@@ -1779,7 +1779,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## createStandardSurveyRespondent
@@ -1895,7 +1895,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateStandardSurveyRespondent
@@ -2013,7 +2013,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## sendStandardSurveyEmail
@@ -2105,7 +2105,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## createStandardSurveyResponses
@@ -2219,7 +2219,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateStandardSurveyResponses
@@ -2369,7 +2369,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getSurvey
@@ -2465,7 +2465,7 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |

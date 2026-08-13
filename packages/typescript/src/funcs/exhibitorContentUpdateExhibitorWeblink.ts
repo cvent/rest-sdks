@@ -41,7 +41,7 @@ export function exhibitorContentUpdateExhibitorWeblink(
 ): APIPromise<
   Result<
     components.ExistingWeblink,
-    | errors.ErrorResponse1
+    | errors.ErrorResponse11
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -67,7 +67,7 @@ async function $do(
   [
     Result<
       components.ExistingWeblink,
-      | errors.ErrorResponse1
+      | errors.ErrorResponse11
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -176,7 +176,7 @@ async function $do(
 
   const [result] = await M.match<
     components.ExistingWeblink,
-    | errors.ErrorResponse1
+    | errors.ErrorResponse11
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -189,7 +189,7 @@ async function $do(
     M.json(200, components.ExistingWeblink$inboundSchema),
     M.jsonErr(
       [400, 401, 403, 404, 422, 429],
-      errors.ErrorResponse1$inboundSchema,
+      errors.ErrorResponse11$inboundSchema,
     ),
     M.fail("4XX"),
     M.fail("5XX"),

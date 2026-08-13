@@ -5,11 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.annotation.Nullable;
-import java.lang.Long;
+import jakarta.annotation.Nonnull;
 import java.lang.Override;
 import java.lang.String;
 import java.util.List;
@@ -18,95 +15,42 @@ import java.util.Optional;
 /**
  * UserGroups
  *
- * <p>Groups
+ * <p>A paginated result for a list of user groups.
  */
 public class UserGroups {
     /**
-     * The collection of user schemas.
+     * Represents pagination information for a collection of resources.
      */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("schemas")
-    private List<String> schemas;
+    @JsonProperty("paging")
+    private Paging paging;
 
     /**
-     * The number of schemas per page.
+     * The list of user groups retrieved for the specified page.
      */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("itemsPerPage")
-    private Long itemsPerPage;
-
-    /**
-     * Starting index of the response.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("startIndex")
-    private Long startIndex;
-
-    /**
-     * The total count of schemas.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("totalResults")
-    private Long totalResults;
-
-    /**
-     * The collection of schema resources.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("Resources")
-    private List<Group1> resources;
+    @JsonProperty("data")
+    private List<AccountUserGroup> data;
 
     @JsonCreator
     public UserGroups(
-            @JsonProperty("schemas") @Nullable List<String> schemas,
-            @JsonProperty("itemsPerPage") @Nullable Long itemsPerPage,
-            @JsonProperty("startIndex") @Nullable Long startIndex,
-            @JsonProperty("totalResults") @Nullable Long totalResults,
-            @JsonProperty("Resources") @Nullable List<Group1> resources) {
-        this.schemas = schemas;
-        this.itemsPerPage = itemsPerPage;
-        this.startIndex = startIndex;
-        this.totalResults = totalResults;
-        this.resources = resources;
-    }
-
-    public UserGroups() {
-        this(null, null, null, null, null);
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<AccountUserGroup> data) {
+        this.paging =
+                Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     /**
-     * The collection of user schemas.
+     * Represents pagination information for a collection of resources.
      */
-    public Optional<List<String>> schemas() {
-        return Optional.ofNullable(this.schemas);
+    public Paging paging() {
+        return this.paging;
     }
 
     /**
-     * The number of schemas per page.
+     * The list of user groups retrieved for the specified page.
      */
-    public Optional<Long> itemsPerPage() {
-        return Optional.ofNullable(this.itemsPerPage);
-    }
-
-    /**
-     * Starting index of the response.
-     */
-    public Optional<Long> startIndex() {
-        return Optional.ofNullable(this.startIndex);
-    }
-
-    /**
-     * The total count of schemas.
-     */
-    public Optional<Long> totalResults() {
-        return Optional.ofNullable(this.totalResults);
-    }
-
-    /**
-     * The collection of schema resources.
-     */
-    public Optional<List<Group1>> resources() {
-        return Optional.ofNullable(this.resources);
+    public List<AccountUserGroup> data() {
+        return this.data;
     }
 
     public static Builder builder() {
@@ -114,42 +58,18 @@ public class UserGroups {
     }
 
     /**
-     * The collection of user schemas.
+     * Represents pagination information for a collection of resources.
      */
-    public UserGroups withSchemas(@Nullable List<String> schemas) {
-        this.schemas = schemas;
+    public UserGroups withPaging(@Nonnull Paging paging) {
+        this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
 
     /**
-     * The number of schemas per page.
+     * The list of user groups retrieved for the specified page.
      */
-    public UserGroups withItemsPerPage(@Nullable Long itemsPerPage) {
-        this.itemsPerPage = itemsPerPage;
-        return this;
-    }
-
-    /**
-     * Starting index of the response.
-     */
-    public UserGroups withStartIndex(@Nullable Long startIndex) {
-        this.startIndex = startIndex;
-        return this;
-    }
-
-    /**
-     * The total count of schemas.
-     */
-    public UserGroups withTotalResults(@Nullable Long totalResults) {
-        this.totalResults = totalResults;
-        return this;
-    }
-
-    /**
-     * The collection of schema resources.
-     */
-    public UserGroups withResources(@Nullable List<Group1> resources) {
-        this.resources = resources;
+    public UserGroups withData(@Nonnull List<AccountUserGroup> data) {
+        this.data = Utils.checkNotNull(data, "data");
         return this;
     }
 
@@ -162,93 +82,48 @@ public class UserGroups {
             return false;
         }
         UserGroups other = (UserGroups) o;
-        return Utils.enhancedDeepEquals(this.schemas, other.schemas)
-                && Utils.enhancedDeepEquals(this.itemsPerPage, other.itemsPerPage)
-                && Utils.enhancedDeepEquals(this.startIndex, other.startIndex)
-                && Utils.enhancedDeepEquals(this.totalResults, other.totalResults)
-                && Utils.enhancedDeepEquals(this.resources, other.resources);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(schemas, itemsPerPage, startIndex, totalResults, resources);
+        return Utils.enhancedHash(paging, data);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(
-                UserGroups.class,
-                "schemas",
-                schemas,
-                "itemsPerPage",
-                itemsPerPage,
-                "startIndex",
-                startIndex,
-                "totalResults",
-                totalResults,
-                "resources",
-                resources);
+        return Utils.toString(UserGroups.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private List<String> schemas;
+        private Paging paging;
 
-        private Long itemsPerPage;
-
-        private Long startIndex;
-
-        private Long totalResults;
-
-        private List<Group1> resources;
+        private List<AccountUserGroup> data;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The collection of user schemas.
+         * Represents pagination information for a collection of resources.
          */
-        public Builder schemas(@Nullable List<String> schemas) {
-            this.schemas = schemas;
+        public Builder paging(@Nonnull Paging paging) {
+            this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
 
         /**
-         * The number of schemas per page.
+         * The list of user groups retrieved for the specified page.
          */
-        public Builder itemsPerPage(@Nullable Long itemsPerPage) {
-            this.itemsPerPage = itemsPerPage;
-            return this;
-        }
-
-        /**
-         * Starting index of the response.
-         */
-        public Builder startIndex(@Nullable Long startIndex) {
-            this.startIndex = startIndex;
-            return this;
-        }
-
-        /**
-         * The total count of schemas.
-         */
-        public Builder totalResults(@Nullable Long totalResults) {
-            this.totalResults = totalResults;
-            return this;
-        }
-
-        /**
-         * The collection of schema resources.
-         */
-        public Builder resources(@Nullable List<Group1> resources) {
-            this.resources = resources;
+        public Builder data(@Nonnull List<AccountUserGroup> data) {
+            this.data = Utils.checkNotNull(data, "data");
             return this;
         }
 
         public UserGroups build() {
-            return new UserGroups(schemas, itemsPerPage, startIndex, totalResults, resources);
+            return new UserGroups(paging, data);
         }
     }
 }

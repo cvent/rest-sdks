@@ -77,7 +77,7 @@ namespace Cvent.SDK.Models.Components
         /// Region where the live stream originates (These regions are only for Brightcove player).
         /// </summary>
         [JsonProperty("region")]
-        public RegionJson1? Region { get; set; }
+        public RegionJson? Region { get; set; }
 
         /// <summary>
         /// Video duration (milliseconds).

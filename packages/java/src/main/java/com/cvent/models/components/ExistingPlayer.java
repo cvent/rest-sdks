@@ -89,7 +89,7 @@ public class ExistingPlayer {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("region")
-    private RegionJson1 region;
+    private RegionJson region;
 
     /**
      * Video duration (milliseconds)
@@ -137,7 +137,7 @@ public class ExistingPlayer {
             @JsonProperty("videoUrl") @Nullable String videoUrl,
             @JsonProperty("password") @Nullable String password,
             @JsonProperty("stream") @Nullable LiveStreamJson stream,
-            @JsonProperty("region") @Nullable RegionJson1 region,
+            @JsonProperty("region") @Nullable RegionJson region,
             @JsonProperty("duration") @Nullable Long duration,
             @JsonProperty("schedule") @Nullable ScheduleJson schedule,
             @JsonProperty("playerTypeProvider") @Nullable PlayerTypeProviderJson playerTypeProvider,
@@ -230,7 +230,7 @@ public class ExistingPlayer {
     /**
      * Region where the live stream originates (These regions are only for Brightcove player)
      */
-    public Optional<RegionJson1> region() {
+    public Optional<RegionJson> region() {
         return Optional.ofNullable(this.region);
     }
 
@@ -348,7 +348,7 @@ public class ExistingPlayer {
     /**
      * Region where the live stream originates (These regions are only for Brightcove player)
      */
-    public ExistingPlayer withRegion(@Nullable RegionJson1 region) {
+    public ExistingPlayer withRegion(@Nullable RegionJson region) {
         this.region = region;
         return this;
     }
@@ -496,7 +496,7 @@ public class ExistingPlayer {
 
         private LiveStreamJson stream;
 
-        private RegionJson1 region;
+        private RegionJson region;
 
         private Long duration;
 
@@ -587,7 +587,7 @@ public class ExistingPlayer {
         /**
          * Region where the live stream originates (These regions are only for Brightcove player)
          */
-        public Builder region(@Nullable RegionJson1 region) {
+        public Builder region(@Nullable RegionJson region) {
             this.region = region;
             return this;
         }

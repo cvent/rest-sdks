@@ -29,6 +29,6 @@ namespace Cvent.SDK.Models.Components
         /// List of housing events with key information, providing a summarized view of each event.
         /// </summary>
         [JsonProperty("data")]
-        public List<ZeroAllOf6> Data { get; set; } = default!;
+        public List<ZeroAllOf5> Data { get; set; } = default!;
     }
 }

@@ -9,14 +9,14 @@ import {
   Address5$Outbound,
   Address5$outboundSchema,
 } from "./address5.js";
-import { Email, Email$Outbound, Email$outboundSchema } from "./email.js";
+import { Email1, Email1$Outbound, Email1$outboundSchema } from "./email1.js";
 import { Group, Group$Outbound, Group$outboundSchema } from "./group.js";
 import { Name, Name$Outbound, Name$outboundSchema } from "./name.js";
 import {
-  PhoneNumber,
-  PhoneNumber$Outbound,
-  PhoneNumber$outboundSchema,
-} from "./phonenumber.js";
+  PhoneNumber1,
+  PhoneNumber1$Outbound,
+  PhoneNumber1$outboundSchema,
+} from "./phonenumber1.js";
 import {
   UserEnterpriseExtension,
   UserEnterpriseExtension$Outbound,
@@ -43,7 +43,7 @@ export type UserInput = {
   /**
    * The email of the user. The Cvent user can have only one email address.<br> If multiple email addresses are provided, only one is accepted and rest are ignored. One email is selected based on the following sequence of criteria: primary email, then work type, and finally first in the sequence.
    */
-  emails: Array<Email>;
+  emails: Array<Email1>;
   /**
    * The title of the user.
    */
@@ -51,7 +51,7 @@ export type UserInput = {
   /**
    * The phone numbers of the user.<br> If more than one number per type is provided, only one is accepted and rest are ignored.
    */
-  phoneNumbers?: Array<PhoneNumber> | undefined;
+  phoneNumbers?: Array<PhoneNumber1> | undefined;
   /**
    * The address of the user. The user can have only one address. <br> If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence
    */
@@ -83,9 +83,9 @@ export type UserInput$Outbound = {
   name: Name$Outbound;
   userName: string;
   active: boolean;
-  emails: Array<Email$Outbound>;
+  emails: Array<Email1$Outbound>;
   title?: string | undefined;
-  phoneNumbers?: Array<PhoneNumber$Outbound> | undefined;
+  phoneNumbers?: Array<PhoneNumber1$Outbound> | undefined;
   addresses?: Array<Address5$Outbound> | undefined;
   userType: string;
   timezone: string;
@@ -104,9 +104,9 @@ export const UserInput$outboundSchema: z.ZodType<
   name: Name$outboundSchema,
   userName: z.string(),
   active: z.boolean().default(true),
-  emails: z.array(Email$outboundSchema),
+  emails: z.array(Email1$outboundSchema),
   title: z.string().optional(),
-  phoneNumbers: z.array(PhoneNumber$outboundSchema).optional(),
+  phoneNumbers: z.array(PhoneNumber1$outboundSchema).optional(),
   addresses: z.array(Address5$outboundSchema).optional(),
   userType: UserType$outboundSchema,
   timezone: z.string().default("America/New_York"),

@@ -43,13 +43,13 @@ public class BudgetEstimate {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("costDetail")
-    private List<BudgetCostDetail> costDetail;
+    private List<BudgetCostDetail12> costDetail;
 
     @JsonCreator
     public BudgetEstimate(
             @JsonProperty("currency") @Nullable String currency,
             @JsonProperty("costType") @Nullable BudgetCostType costType,
-            @JsonProperty("costDetail") @Nullable List<BudgetCostDetail> costDetail) {
+            @JsonProperty("costDetail") @Nullable List<BudgetCostDetail12> costDetail) {
         this.currency = currency;
         this.costType = costType;
         this.costDetail = costDetail;
@@ -80,7 +80,7 @@ public class BudgetEstimate {
      * A list of budget entry details. Each entry consists of the budget category or sub-category, the
      * number of units, the cost per unit, and the total amount.
      */
-    public Optional<List<BudgetCostDetail>> costDetail() {
+    public Optional<List<BudgetCostDetail12>> costDetail() {
         return Optional.ofNullable(this.costDetail);
     }
 
@@ -111,7 +111,7 @@ public class BudgetEstimate {
      * A list of budget entry details. Each entry consists of the budget category or sub-category, the
      * number of units, the cost per unit, and the total amount.
      */
-    public BudgetEstimate withCostDetail(@Nullable List<BudgetCostDetail> costDetail) {
+    public BudgetEstimate withCostDetail(@Nullable List<BudgetCostDetail12> costDetail) {
         this.costDetail = costDetail;
         return this;
     }
@@ -148,7 +148,7 @@ public class BudgetEstimate {
 
         private BudgetCostType costType;
 
-        private List<BudgetCostDetail> costDetail;
+        private List<BudgetCostDetail12> costDetail;
 
         private Builder() {
             // force use of static builder() method
@@ -177,7 +177,7 @@ public class BudgetEstimate {
          * A list of budget entry details. Each entry consists of the budget category or sub-category, the
          * number of units, the cost per unit, and the total amount.
          */
-        public Builder costDetail(@Nullable List<BudgetCostDetail> costDetail) {
+        public Builder costDetail(@Nullable List<BudgetCostDetail12> costDetail) {
             this.costDetail = costDetail;
             return this;
         }

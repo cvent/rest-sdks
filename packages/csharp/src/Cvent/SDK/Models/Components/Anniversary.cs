@@ -96,7 +96,7 @@ namespace Cvent.SDK.Models.Components
         /// This is used to denote the general ledger code associated with donation item.
         /// </summary>
         [JsonProperty("generalLedger")]
-        public GeneralLedger1? GeneralLedger { get; set; }
+        public GeneralLedger2? GeneralLedger { get; set; }
 
         /// <summary>
         /// The ISO 4217 currency code for this membership item.

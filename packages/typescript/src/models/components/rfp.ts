@@ -42,6 +42,10 @@ import { RfpEvent, RfpEvent$inboundSchema } from "./rfpevent.js";
 import { RfpStatus1, RfpStatus1$inboundSchema } from "./rfpstatus1.js";
 import { RfpType1, RfpType1$inboundSchema } from "./rfptype1.js";
 import {
+  VenueIntegrationType,
+  VenueIntegrationType$inboundSchema,
+} from "./venueintegrationtype.js";
+import {
   WeddingDetails1,
   WeddingDetails1$inboundSchema,
 } from "./weddingdetails1.js";
@@ -201,6 +205,10 @@ export type Rfp = {
    */
   feeTransparencyEnabled: boolean;
   /**
+   * Venue integrations the planner prefers when sourcing venues. An empty array or absent field indicates no preference has been recorded.
+   */
+  preferredVenueIntegrations?: Array<VenueIntegrationType> | undefined;
+  /**
    * Unique identifier for RFP.
    */
   id: string;
@@ -310,6 +318,8 @@ export const Rfp$inboundSchema: z.ZodType<Rfp, z.ZodTypeDef, unknown> = z
       "NO_PREFERENCE",
     ),
     feeTransparencyEnabled: z.boolean().default(false),
+    preferredVenueIntegrations: z.array(VenueIntegrationType$inboundSchema)
+      .optional(),
     id: z.string(),
     code: z.string().optional(),
     status: RfpStatus1$inboundSchema.optional(),

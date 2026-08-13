@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.UserGroupsJson;
+import com.cvent.models.components.UserGroups;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,20 +34,20 @@ public class GetAccountUserGroupsResponse implements Response {
     /**
      * List of User Groups
      */
-    private UserGroupsJson userGroupsJson;
+    private UserGroups userGroups;
 
     @JsonCreator
     public GetAccountUserGroupsResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable UserGroupsJson userGroupsJson) {
+            @Nullable UserGroups userGroups) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
                 .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
-        this.userGroupsJson = userGroupsJson;
+        this.userGroups = userGroups;
     }
 
     public GetAccountUserGroupsResponse(
@@ -79,8 +79,8 @@ public class GetAccountUserGroupsResponse implements Response {
     /**
      * List of User Groups
      */
-    public Optional<UserGroupsJson> userGroupsJson() {
-        return Optional.ofNullable(this.userGroupsJson);
+    public Optional<UserGroups> userGroups() {
+        return Optional.ofNullable(this.userGroups);
     }
 
     public static Builder builder() {
@@ -114,8 +114,8 @@ public class GetAccountUserGroupsResponse implements Response {
     /**
      * List of User Groups
      */
-    public GetAccountUserGroupsResponse withUserGroupsJson(@Nullable UserGroupsJson userGroupsJson) {
-        this.userGroupsJson = userGroupsJson;
+    public GetAccountUserGroupsResponse withUserGroups(@Nullable UserGroups userGroups) {
+        this.userGroups = userGroups;
         return this;
     }
 
@@ -131,12 +131,12 @@ public class GetAccountUserGroupsResponse implements Response {
         return Utils.enhancedDeepEquals(this.contentType, other.contentType)
                 && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
                 && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
-                && Utils.enhancedDeepEquals(this.userGroupsJson, other.userGroupsJson);
+                && Utils.enhancedDeepEquals(this.userGroups, other.userGroups);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(contentType, statusCode, rawResponse, userGroupsJson);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, userGroups);
     }
 
     @Override
@@ -149,8 +149,8 @@ public class GetAccountUserGroupsResponse implements Response {
                 statusCode,
                 "rawResponse",
                 rawResponse,
-                "userGroupsJson",
-                userGroupsJson);
+                "userGroups",
+                userGroups);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -162,7 +162,7 @@ public class GetAccountUserGroupsResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private UserGroupsJson userGroupsJson;
+        private UserGroups userGroups;
 
         private Builder() {
             // force use of static builder() method
@@ -195,13 +195,13 @@ public class GetAccountUserGroupsResponse implements Response {
         /**
          * List of User Groups
          */
-        public Builder userGroupsJson(@Nullable UserGroupsJson userGroupsJson) {
-            this.userGroupsJson = userGroupsJson;
+        public Builder userGroups(@Nullable UserGroups userGroups) {
+            this.userGroups = userGroups;
             return this;
         }
 
         public GetAccountUserGroupsResponse build() {
-            return new GetAccountUserGroupsResponse(contentType, statusCode, rawResponse, userGroupsJson);
+            return new GetAccountUserGroupsResponse(contentType, statusCode, rawResponse, userGroups);
         }
     }
 }

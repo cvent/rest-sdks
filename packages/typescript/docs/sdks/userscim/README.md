@@ -96,7 +96,7 @@ run();
 
 ### Response
 
-**Promise\<[components.UserGroups](../../models/components/usergroups.md)\>**
+**Promise\<[components.UserGroups1](../../models/components/usergroups1.md)\>**
 
 ### Errors
 

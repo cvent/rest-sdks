@@ -1,14 +1,11 @@
 # UserGroups
 
-Groups
+A paginated result for a list of user groups.
 
 
 ## Fields
 
-| Field                                             | Type                                              | Required                                          | Description                                       | Example                                           |
-| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| `Schemas`                                         | List<*string*>                                    | :heavy_minus_sign:                                | The collection of user schemas.                   |                                                   |
-| `ItemsPerPage`                                    | *long*                                            | :heavy_minus_sign:                                | The number of schemas per page.                   | 50                                                |
-| `StartIndex`                                      | *long*                                            | :heavy_minus_sign:                                | Starting index of the response.                   | 1                                                 |
-| `TotalResults`                                    | *long*                                            | :heavy_minus_sign:                                | The total count of schemas.                       | 5                                                 |
-| `Resources`                                       | List<[Group1](../../Models/Components/Group1.md)> | :heavy_minus_sign:                                | The collection of schema resources.               |                                                   |
+| Field                                                                 | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `Paging`                                                              | [Paging](../../Models/Components/Paging.md)                           | :heavy_check_mark:                                                    | Represents pagination information for a collection of resources.      |
+| `Data`                                                                | List<[AccountUserGroup](../../Models/Components/AccountUserGroup.md)> | :heavy_check_mark:                                                    | The list of user groups retrieved for the specified page.             |

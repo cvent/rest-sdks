@@ -38,7 +38,7 @@ export type GetAccountUserGroupsRequest = {
 };
 
 export type GetAccountUserGroupsResponse = {
-  result: components.UserGroupsJson;
+  result: components.UserGroups;
 };
 
 /** @internal */
@@ -75,7 +75,7 @@ export const GetAccountUserGroupsResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.UserGroupsJson$inboundSchema,
+  Result: components.UserGroups$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",

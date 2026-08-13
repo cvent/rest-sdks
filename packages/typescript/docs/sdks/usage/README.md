@@ -90,10 +90,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getUsageTier
 
@@ -177,7 +177,7 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 429         | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 429          | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |

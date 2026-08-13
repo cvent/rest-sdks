@@ -9,9 +9,9 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  GeneralLedger1,
-  GeneralLedger1$inboundSchema,
-} from "./generalledger1.js";
+  GeneralLedger2,
+  GeneralLedger2$inboundSchema,
+} from "./generalledger2.js";
 
 /**
  * The contact type associated with this membership item.
@@ -103,7 +103,7 @@ export type Anniversary = {
   /**
    * This is used to denote the general ledger code associated with donation item.
    */
-  generalLedger?: GeneralLedger1 | undefined;
+  generalLedger?: GeneralLedger2 | undefined;
   /**
    * The ISO 4217 currency code for this membership item.
    */
@@ -182,7 +182,7 @@ export const Anniversary$inboundSchema: z.ZodType<
   registrationTypes: z.array(z.string()).optional(),
   openForRegistration: z.boolean().optional(),
   automaticClosureDate: z.string().transform(v => new RFCDate(v)).optional(),
-  generalLedger: GeneralLedger1$inboundSchema.optional(),
+  generalLedger: GeneralLedger2$inboundSchema.optional(),
   currency: z.string().optional(),
   renewalType: z.literal("Anniversary"),
   duration: Duration$inboundSchema.optional(),

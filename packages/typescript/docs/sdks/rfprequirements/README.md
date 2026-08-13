@@ -107,7 +107,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listRfpAgendaItemSchedules
@@ -201,7 +201,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listRfpAttachments
@@ -297,7 +297,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listRfpCustomFields
@@ -397,7 +397,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getRfpGuestRooms
@@ -483,10 +483,10 @@ run();
 
 ### Errors
 
-| Error Type            | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
-| errors.APIError       | 4XX, 5XX              | \*/\*                 |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listRfpInternalDocuments
 
@@ -581,7 +581,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listRfpQuestions
@@ -675,5 +675,5 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |

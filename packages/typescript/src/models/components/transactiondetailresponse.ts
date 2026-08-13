@@ -14,7 +14,7 @@ import {
 import { Event2, Event2$inboundSchema } from "./event2.js";
 import { Order, Order$inboundSchema } from "./order.js";
 import { PaymentMethod, PaymentMethod$inboundSchema } from "./paymentmethod.js";
-import { PaymentType1, PaymentType1$inboundSchema } from "./paymenttype1.js";
+import { PaymentType12, PaymentType12$inboundSchema } from "./paymenttype12.js";
 
 /**
  * This is used to denote the details of the transaction made by an attendee.
@@ -63,7 +63,7 @@ export type TransactionDetailResponse = {
   /**
    * Denotes the type of payment made by an attendee. Authorization: Online payment that has been approved by the cardholder's bank but has not been executed. Online Charge: Online payment recieved in Cvent. Online Refund: Online refund to attendee processed in Cvent. Offline Charge: The transaction is a payment made to the attendee's order electronically in another system of record, or paid in physical currency. Offline Refund: The transaction is a refund issued to the attendee electronically in another system of record, or paid in physical currency.
    */
-  paymentType?: PaymentType1 | undefined;
+  paymentType?: PaymentType12 | undefined;
   /**
    * This denotes the payment method in a transaction.
    */
@@ -129,7 +129,7 @@ export const TransactionDetailResponse$inboundSchema: z.ZodType<
   attendee: Attendee$inboundSchema.optional(),
   orders: z.array(Order$inboundSchema).optional(),
   journalNumber: z.string().optional(),
-  paymentType: PaymentType1$inboundSchema.optional(),
+  paymentType: PaymentType12$inboundSchema.optional(),
   paymentMethod: PaymentMethod$inboundSchema.optional(),
   success: z.boolean().optional(),
   date: z.string().datetime({ offset: true }).transform(v => new Date(v))

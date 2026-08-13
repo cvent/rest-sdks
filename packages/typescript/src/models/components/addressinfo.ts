@@ -12,10 +12,10 @@ import {
   Country$outboundSchema,
 } from "./country.js";
 import {
-  StateProvince1,
-  StateProvince1$inboundSchema,
-  StateProvince1$outboundSchema,
-} from "./stateprovince1.js";
+  StateProvince,
+  StateProvince$inboundSchema,
+  StateProvince$outboundSchema,
+} from "./stateprovince.js";
 
 /**
  * Venue address information.
@@ -36,7 +36,7 @@ export type AddressInfo = {
   /**
    * The state province code used for contact information.
    */
-  stateProvince?: StateProvince1 | undefined;
+  stateProvince?: StateProvince | undefined;
   /**
    * ZIP or postal code.
    */
@@ -60,7 +60,7 @@ export const AddressInfo$inboundSchema: z.ZodType<
   streetAddress1: z.string().optional(),
   streetAddress2: z.string().optional(),
   city: z.string(),
-  stateProvince: StateProvince1$inboundSchema.optional(),
+  stateProvince: StateProvince$inboundSchema.optional(),
   zipPostalCode: z.string().optional(),
   country: Country$inboundSchema,
   directions: z.string().optional(),
@@ -85,7 +85,7 @@ export const AddressInfo$outboundSchema: z.ZodType<
   streetAddress1: z.string().optional(),
   streetAddress2: z.string().optional(),
   city: z.string(),
-  stateProvince: StateProvince1$outboundSchema.optional(),
+  stateProvince: StateProvince$outboundSchema.optional(),
   zipPostalCode: z.string().optional(),
   country: Country$outboundSchema,
   directions: z.string().optional(),

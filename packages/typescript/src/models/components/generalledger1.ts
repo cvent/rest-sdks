@@ -8,21 +8,21 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * This is used to denote the general ledger code associated with donation item.
+ * This is used to denote the general ledger code associated with budget.
  */
 export type GeneralLedger1 = {
   /**
-   * A unique identifier of the general ledger.
+   * A string that has to be a format matching the industry standard uuid
    */
   id?: string | undefined;
-  /**
-   * Name of the General Ledger.
-   */
-  name?: string | undefined;
   /**
    * General Ledger Code.
    */
   code?: string | undefined;
+  /**
+   * Name of the General Ledger.
+   */
+  name?: string | undefined;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const GeneralLedger1$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string().optional(),
-  name: z.string().optional(),
   code: z.string().optional(),
+  name: z.string().optional(),
 });
 
 export function generalLedger1FromJSON(

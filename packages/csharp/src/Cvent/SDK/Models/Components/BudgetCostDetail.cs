@@ -9,43 +9,42 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
-    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The budget entry in detail, which consists of the budget category or sub-category, the number of units, the cost per unit, and the total amount.
+    /// Event Budget cost detail information.
     /// </summary>
     public class BudgetCostDetail
     {
         /// <summary>
-        /// Denotes the category assigned to the budget item.
+        /// A string that has to be a format matching the industry standard uuid.
         /// </summary>
-        [JsonProperty("category")]
-        public BudgetCategory? Category { get; set; }
+        [JsonProperty("id")]
+        public string? Id { get; set; }
 
         /// <summary>
-        /// This is used to denote the sub category for a budget.
+        /// Denotes the name of the budget column associated to this cost.
         /// </summary>
-        [JsonProperty("subCategory")]
-        public BudgetSubCategory? SubCategory { get; set; }
+        [JsonProperty("name")]
+        public string? Name { get; set; }
 
         /// <summary>
-        /// The number of units associated with a budget item. This field can be any number if the budget item is a *Variable* cost type. If the budget item uses a *Fixed* cost type, set this field to 1.
+        /// The total cost amount of the budget version in an event.
         /// </summary>
-        [JsonProperty("units")]
-        public double? Units { get; set; }
+        [JsonProperty("totalCostValue")]
+        public double? TotalCostValue { get; set; }
 
         /// <summary>
-        /// The cost amount of the budget item. If the budget item uses a *Fixed* cost type, the value of this field won't be applied to the creation or update of a Meeting Request.
+        /// The total tax amount of the budget version in an event for the cost column.
         /// </summary>
-        [JsonProperty("cost")]
-        public double? Cost { get; set; }
+        [JsonProperty("totalAppliedTax")]
+        public double? TotalAppliedTax { get; set; }
 
         /// <summary>
-        /// The total cost of the budget item. If the budget item uses a *Variable* cost type, this field will be set as the result of units times cost. The value of this field will be applied to the creation or update of a Meeting Request only if the cost type is *Fixed*.
+        /// The total gratuity amount of the budget version in an event for the cost column.
         /// </summary>
-        [JsonProperty("totalCost")]
-        public double? TotalCost { get; set; }
+        [JsonProperty("totalAppliedGratuity")]
+        public double? TotalAppliedGratuity { get; set; }
     }
 }

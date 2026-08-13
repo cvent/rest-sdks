@@ -9,10 +9,10 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.UserGroupJson;
-import com.cvent.models.components.UserGroupJsonInput;
+import com.cvent.models.components.AccountUserGroup;
+import com.cvent.models.components.AccountUserGroupInput;
 import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse11;
 import com.cvent.models.operations.CreateAccountUserGroupResponse;
 import com.cvent.utils.AsyncRetries;
 import com.cvent.utils.BackoffStrategy;
@@ -126,13 +126,13 @@ public class CreateAccountUserGroup {
     }
 
     public static class Sync extends Base
-            implements RequestOperation<UserGroupJsonInput, CreateAccountUserGroupResponse> {
+            implements RequestOperation<AccountUserGroupInput, CreateAccountUserGroupResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, @Nullable Options options, Headers _headers) {
             super(sdkConfiguration, options, _headers);
         }
 
-        private HttpRequest onBuildRequest(UserGroupJsonInput request) throws Exception {
-            HttpRequest req = buildRequest(request, new TypeReference<UserGroupJsonInput>() {});
+        private HttpRequest onBuildRequest(AccountUserGroupInput request) throws Exception {
+            HttpRequest req = buildRequest(request, new TypeReference<AccountUserGroupInput>() {});
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -148,7 +148,7 @@ public class CreateAccountUserGroup {
         }
 
         @Override
-        public HttpResponse<InputStream> doRequest(UserGroupJsonInput request) {
+        public HttpResponse<InputStream> doRequest(AccountUserGroupInput request) {
             Retries retries = Retries.builder()
                     .action(() -> {
                         HttpRequest r;
@@ -185,14 +185,15 @@ public class CreateAccountUserGroup {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withUserGroupJson(Utils.unmarshal(response, new TypeReference<UserGroupJson>() {}));
+                    return res.withAccountUserGroup(
+                            Utils.unmarshal(response, new TypeReference<AccountUserGroup>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw ErrorResponse1.from(response);
+                    throw ErrorResponse11.from(response);
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -211,7 +212,7 @@ public class CreateAccountUserGroup {
 
     public static class Async extends Base
             implements AsyncRequestOperation<
-                    UserGroupJsonInput, com.cvent.models.operations.async.CreateAccountUserGroupResponse> {
+                    AccountUserGroupInput, com.cvent.models.operations.async.CreateAccountUserGroupResponse> {
         private final ScheduledExecutorService retryScheduler;
 
         public Async(
@@ -223,8 +224,8 @@ public class CreateAccountUserGroup {
             this.retryScheduler = retryScheduler;
         }
 
-        private CompletableFuture<HttpRequest> onBuildRequest(UserGroupJsonInput request) throws Exception {
-            HttpRequest req = buildRequest(request, new TypeReference<UserGroupJsonInput>() {});
+        private CompletableFuture<HttpRequest> onBuildRequest(AccountUserGroupInput request) throws Exception {
+            HttpRequest req = buildRequest(request, new TypeReference<AccountUserGroupInput>() {});
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -237,7 +238,7 @@ public class CreateAccountUserGroup {
         }
 
         @Override
-        public CompletableFuture<HttpResponse<Blob>> doRequest(UserGroupJsonInput request) {
+        public CompletableFuture<HttpResponse<Blob>> doRequest(AccountUserGroupInput request) {
             AsyncRetries retries = AsyncRetries.builder()
                     .retryConfig(retryConfig)
                     .statusCodes(retryStatusCodes)
@@ -273,15 +274,15 @@ public class CreateAccountUserGroup {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<UserGroupJson>() {})
-                            .thenApply(res::withUserGroupJson);
+                    return Utils.unmarshalAsync(response, new TypeReference<AccountUserGroup>() {})
+                            .thenApply(res::withAccountUserGroup);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse1.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse11.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

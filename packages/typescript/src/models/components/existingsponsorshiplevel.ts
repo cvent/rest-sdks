@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Event3, Event3$inboundSchema } from "./event3.js";
+import { Event4, Event4$inboundSchema } from "./event4.js";
 
 /**
  * Existing sponsorship level model
@@ -31,7 +31,7 @@ export type ExistingSponsorshipLevel = {
   /**
    * The Associated Event.
    */
-  event: Event3;
+  event: Event4;
   /**
    * Name of the sponsorship level
    */
@@ -59,7 +59,7 @@ export const ExistingSponsorshipLevel$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: Event3$inboundSchema,
+  event: Event4$inboundSchema,
   name: z.string(),
   id: z.string().optional(),
   rank: z.number().int().optional(),

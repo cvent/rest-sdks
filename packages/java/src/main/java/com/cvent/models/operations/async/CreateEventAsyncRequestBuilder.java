@@ -6,7 +6,7 @@ package com.cvent.models.operations.async;
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
-import com.cvent.models.components.EventInput;
+import com.cvent.models.components.Event1Input;
 import com.cvent.operations.CreateEventAsync;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
@@ -19,7 +19,7 @@ import java.util.concurrent.CompletableFuture;
 public class CreateEventAsyncRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
-    private EventInput request;
+    private Event1Input request;
     private final Options.Builder optionsBuilder;
 
     public CreateEventAsyncRequestBuilder(SDKConfiguration sdkConfiguration) {
@@ -32,12 +32,12 @@ public class CreateEventAsyncRequestBuilder {
         return this;
     }
 
-    public CreateEventAsyncRequestBuilder request(@Nonnull EventInput request) {
+    public CreateEventAsyncRequestBuilder request(@Nonnull Event1Input request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
 
-    private EventInput _buildRequest() {
+    private Event1Input _buildRequest() {
         return this.request;
     }
 
@@ -55,7 +55,7 @@ public class CreateEventAsyncRequestBuilder {
      */
     public CompletableFuture<CreateEventAsyncResponse> call() {
         Options options = optionsBuilder.build();
-        AsyncRequestOperation<EventInput, CreateEventAsyncResponse> operation =
+        AsyncRequestOperation<Event1Input, CreateEventAsyncResponse> operation =
                 new CreateEventAsync.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }

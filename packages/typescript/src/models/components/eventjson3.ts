@@ -8,13 +8,13 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Detail object of an event which is associated to a survey.
+ * An event reference used in attendee insights to identify the event context for engagement data
  */
 export type EventJson3 = {
   /**
-   * Id of the associated event
+   * A unique identifier (UUID) for the event where the engagement score applies
    */
-  id?: string | undefined;
+  id: string;
 };
 
 /** @internal */
@@ -23,7 +23,7 @@ export const EventJson3$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
+  id: z.string(),
 });
 
 export function eventJson3FromJSON(

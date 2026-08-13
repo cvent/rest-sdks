@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.UserGroupJsonInput;
+import com.cvent.models.components.AccountUserGroupInput;
 import com.cvent.utils.SpeakeasyMetadata;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,13 +24,14 @@ public class UpdateAccountUserGroupRequest {
      * A User Group
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    private UserGroupJsonInput userGroupJson;
+    private AccountUserGroupInput accountUserGroup;
 
     @JsonCreator
-    public UpdateAccountUserGroupRequest(@Nonnull String userGroupId, @Nullable UserGroupJsonInput userGroupJson) {
+    public UpdateAccountUserGroupRequest(
+            @Nonnull String userGroupId, @Nullable AccountUserGroupInput accountUserGroup) {
         this.userGroupId = Optional.ofNullable(userGroupId)
                 .orElseThrow(() -> new IllegalArgumentException("userGroupId cannot be null"));
-        this.userGroupJson = userGroupJson;
+        this.accountUserGroup = accountUserGroup;
     }
 
     public UpdateAccountUserGroupRequest(@Nonnull String userGroupId) {
@@ -47,8 +48,8 @@ public class UpdateAccountUserGroupRequest {
     /**
      * A User Group
      */
-    public Optional<UserGroupJsonInput> userGroupJson() {
-        return Optional.ofNullable(this.userGroupJson);
+    public Optional<AccountUserGroupInput> accountUserGroup() {
+        return Optional.ofNullable(this.accountUserGroup);
     }
 
     public static Builder builder() {
@@ -66,8 +67,8 @@ public class UpdateAccountUserGroupRequest {
     /**
      * A User Group
      */
-    public UpdateAccountUserGroupRequest withUserGroupJson(@Nullable UserGroupJsonInput userGroupJson) {
-        this.userGroupJson = userGroupJson;
+    public UpdateAccountUserGroupRequest withAccountUserGroup(@Nullable AccountUserGroupInput accountUserGroup) {
+        this.accountUserGroup = accountUserGroup;
         return this;
     }
 
@@ -81,18 +82,18 @@ public class UpdateAccountUserGroupRequest {
         }
         UpdateAccountUserGroupRequest other = (UpdateAccountUserGroupRequest) o;
         return Utils.enhancedDeepEquals(this.userGroupId, other.userGroupId)
-                && Utils.enhancedDeepEquals(this.userGroupJson, other.userGroupJson);
+                && Utils.enhancedDeepEquals(this.accountUserGroup, other.accountUserGroup);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(userGroupId, userGroupJson);
+        return Utils.enhancedHash(userGroupId, accountUserGroup);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
-                UpdateAccountUserGroupRequest.class, "userGroupId", userGroupId, "userGroupJson", userGroupJson);
+                UpdateAccountUserGroupRequest.class, "userGroupId", userGroupId, "accountUserGroup", accountUserGroup);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -100,7 +101,7 @@ public class UpdateAccountUserGroupRequest {
 
         private String userGroupId;
 
-        private UserGroupJsonInput userGroupJson;
+        private AccountUserGroupInput accountUserGroup;
 
         private Builder() {
             // force use of static builder() method
@@ -117,13 +118,13 @@ public class UpdateAccountUserGroupRequest {
         /**
          * A User Group
          */
-        public Builder userGroupJson(@Nullable UserGroupJsonInput userGroupJson) {
-            this.userGroupJson = userGroupJson;
+        public Builder accountUserGroup(@Nullable AccountUserGroupInput accountUserGroup) {
+            this.accountUserGroup = accountUserGroup;
             return this;
         }
 
         public UpdateAccountUserGroupRequest build() {
-            return new UpdateAccountUserGroupRequest(userGroupId, userGroupJson);
+            return new UpdateAccountUserGroupRequest(userGroupId, accountUserGroup);
         }
     }
 }

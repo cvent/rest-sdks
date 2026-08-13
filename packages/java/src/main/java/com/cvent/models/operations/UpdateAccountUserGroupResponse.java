@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.UserGroupJson;
+import com.cvent.models.components.AccountUserGroup;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,20 +34,20 @@ public class UpdateAccountUserGroupResponse implements Response {
     /**
      * A User Group
      */
-    private UserGroupJson userGroupJson;
+    private AccountUserGroup accountUserGroup;
 
     @JsonCreator
     public UpdateAccountUserGroupResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable UserGroupJson userGroupJson) {
+            @Nullable AccountUserGroup accountUserGroup) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
                 .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
-        this.userGroupJson = userGroupJson;
+        this.accountUserGroup = accountUserGroup;
     }
 
     public UpdateAccountUserGroupResponse(
@@ -79,8 +79,8 @@ public class UpdateAccountUserGroupResponse implements Response {
     /**
      * A User Group
      */
-    public Optional<UserGroupJson> userGroupJson() {
-        return Optional.ofNullable(this.userGroupJson);
+    public Optional<AccountUserGroup> accountUserGroup() {
+        return Optional.ofNullable(this.accountUserGroup);
     }
 
     public static Builder builder() {
@@ -114,8 +114,8 @@ public class UpdateAccountUserGroupResponse implements Response {
     /**
      * A User Group
      */
-    public UpdateAccountUserGroupResponse withUserGroupJson(@Nullable UserGroupJson userGroupJson) {
-        this.userGroupJson = userGroupJson;
+    public UpdateAccountUserGroupResponse withAccountUserGroup(@Nullable AccountUserGroup accountUserGroup) {
+        this.accountUserGroup = accountUserGroup;
         return this;
     }
 
@@ -131,12 +131,12 @@ public class UpdateAccountUserGroupResponse implements Response {
         return Utils.enhancedDeepEquals(this.contentType, other.contentType)
                 && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
                 && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
-                && Utils.enhancedDeepEquals(this.userGroupJson, other.userGroupJson);
+                && Utils.enhancedDeepEquals(this.accountUserGroup, other.accountUserGroup);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(contentType, statusCode, rawResponse, userGroupJson);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, accountUserGroup);
     }
 
     @Override
@@ -149,8 +149,8 @@ public class UpdateAccountUserGroupResponse implements Response {
                 statusCode,
                 "rawResponse",
                 rawResponse,
-                "userGroupJson",
-                userGroupJson);
+                "accountUserGroup",
+                accountUserGroup);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -162,7 +162,7 @@ public class UpdateAccountUserGroupResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private UserGroupJson userGroupJson;
+        private AccountUserGroup accountUserGroup;
 
         private Builder() {
             // force use of static builder() method
@@ -195,13 +195,13 @@ public class UpdateAccountUserGroupResponse implements Response {
         /**
          * A User Group
          */
-        public Builder userGroupJson(@Nullable UserGroupJson userGroupJson) {
-            this.userGroupJson = userGroupJson;
+        public Builder accountUserGroup(@Nullable AccountUserGroup accountUserGroup) {
+            this.accountUserGroup = accountUserGroup;
             return this;
         }
 
         public UpdateAccountUserGroupResponse build() {
-            return new UpdateAccountUserGroupResponse(contentType, statusCode, rawResponse, userGroupJson);
+            return new UpdateAccountUserGroupResponse(contentType, statusCode, rawResponse, accountUserGroup);
         }
     }
 }

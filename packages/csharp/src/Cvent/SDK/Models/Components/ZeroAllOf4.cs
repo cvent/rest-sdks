@@ -9,44 +9,36 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
-    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
-    /// A transaction reconciliation record.
+    /// Represents an error response for the checkin APIs that includes a unique id.
     /// </summary>
     public class ZeroAllOf4
     {
         /// <summary>
-        /// The identifier of reconciled budget item.
+        /// The unique identifier for the error response.
         /// </summary>
-        [JsonProperty("budgetItem")]
-        public BudgetItemAllOf? BudgetItem { get; set; }
+        [JsonProperty("id")]
+        public string? Id { get; set; }
 
         /// <summary>
-        /// This is used to denote the reconciliation status for a transaction.
+        /// The HTTP status code representing the error.
         /// </summary>
-        [JsonProperty("status")]
-        public ReconciliationStatusJson? Status { get; set; }
+        [JsonProperty("code")]
+        public long Code { get; set; } = default!;
 
         /// <summary>
-        /// Reconciliation amount.
+        /// A brief description of the error.
         /// </summary>
-        [JsonProperty("amount")]
-        public double? Amount { get; set; }
+        [JsonProperty("message")]
+        public string Message { get; set; } = default!;
 
         /// <summary>
-        /// Reconciled by user.
+        /// The target resource of the error.
         /// </summary>
-        [JsonProperty("reconciledBy")]
-        public string? ReconciledBy { get; set; }
-
-        /// <summary>
-        /// The ISO 8601 zoned date and time for Reconciled date.
-        /// </summary>
-        [JsonProperty("reconciledDate")]
-        public DateTime? ReconciledDate { get; set; }
+        [JsonProperty("target")]
+        public string? Target { get; set; }
     }
 }

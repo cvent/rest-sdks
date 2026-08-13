@@ -178,7 +178,7 @@ export class Events extends ClientSDK {
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
   async createEventAsync(
-    request: components.EventInput,
+    request: components.Event1Input,
     options?: RequestOptions,
   ): Promise<operations.CreateEventAsyncResponse> {
     return unwrapAsync(eventsCreateEventAsync(
@@ -296,7 +296,7 @@ export class Events extends ClientSDK {
   async getEventById(
     request: operations.GetEventByIdRequest,
     options?: RequestOptions,
-  ): Promise<components.Event1> {
+  ): Promise<components.Event11> {
     return unwrapAsync(eventsGetEventById(
       this,
       request,
@@ -393,7 +393,7 @@ export class Events extends ClientSDK {
   async answerEventCustomField(
     request: operations.AnswerEventCustomFieldRequest,
     options?: RequestOptions,
-  ): Promise<components.CustomField2> {
+  ): Promise<components.CustomField1> {
     return unwrapAsync(eventsAnswerEventCustomField(
       this,
       request,

@@ -77,7 +77,7 @@ public class Badge {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event3 event;
+    private Event4 event;
 
     @JsonCreator
     public Badge(
@@ -89,7 +89,7 @@ public class Badge {
             @JsonProperty("status") @Nonnull BadgeStatus status,
             @JsonProperty("type") @Nonnull BadgeType type,
             @JsonProperty("attendee") @Nonnull Attendee12 attendee,
-            @JsonProperty("event") @Nonnull Event3 event) {
+            @JsonProperty("event") @Nonnull Event4 event) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -108,7 +108,7 @@ public class Badge {
             @Nonnull BadgeStatus status,
             @Nonnull BadgeType type,
             @Nonnull Attendee12 attendee,
-            @Nonnull Event3 event) {
+            @Nonnull Event4 event) {
         this(null, null, null, null, id, status, type, attendee, event);
     }
 
@@ -171,7 +171,7 @@ public class Badge {
     /**
      * The Associated Event.
      */
-    public Event3 event() {
+    public Event4 event() {
         return this.event;
     }
 
@@ -246,7 +246,7 @@ public class Badge {
     /**
      * The Associated Event.
      */
-    public Badge withEvent(@Nonnull Event3 event) {
+    public Badge withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -319,7 +319,7 @@ public class Badge {
 
         private Attendee12 attendee;
 
-        private Event3 event;
+        private Event4 event;
 
         private Builder() {
             // force use of static builder() method
@@ -392,7 +392,7 @@ public class Badge {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event3 event) {
+        public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

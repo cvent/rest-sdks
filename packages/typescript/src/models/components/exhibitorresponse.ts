@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Address4, Address4$inboundSchema } from "./address4.js";
 import { ContactLinks1, ContactLinks1$inboundSchema } from "./contactlinks1.js";
-import { Event3, Event3$inboundSchema } from "./event3.js";
+import { Event4, Event4$inboundSchema } from "./event4.js";
 import {
   SponsorshipLevel,
   SponsorshipLevel$inboundSchema,
@@ -37,7 +37,7 @@ export type ExhibitorResponse = {
   /**
    * The Associated Event.
    */
-  event: Event3;
+  event: Event4;
   /**
    * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal results.
    */
@@ -141,7 +141,7 @@ export const ExhibitorResponse$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: Event3$inboundSchema,
+  event: Event4$inboundSchema,
   name: z.string(),
   description: z.string().optional(),
   code: z.string().optional(),

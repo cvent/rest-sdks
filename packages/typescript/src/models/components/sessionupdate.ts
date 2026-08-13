@@ -5,10 +5,10 @@
 import * as z from "zod/v3";
 import { RFCDate } from "../../types/rfcdate.js";
 import {
-  LocationInput,
-  LocationInput$Outbound,
-  LocationInput$outboundSchema,
-} from "./locationinput.js";
+  Location1Input,
+  Location1Input$Outbound,
+  Location1Input$outboundSchema,
+} from "./location1input.js";
 import {
   NamedObject,
   NamedObject$Outbound,
@@ -74,7 +74,7 @@ export type SessionUpdate = {
   /**
    * Used to denote a locations name and abbreviation.
    */
-  location?: LocationInput | undefined;
+  location?: Location1Input | undefined;
   /**
    * Detailed description of the session. HTML is supported, but only a limited set of elements and attributes are allowed. Use of HTML will count towards the character limit. Planners are responsible for confirming the visual output of HTML content.
    *
@@ -237,7 +237,7 @@ export type SessionUpdate$Outbound = {
   code?: string | undefined;
   category?: NamedObject$Outbound | undefined;
   type?: SessionUpdateLookup$Outbound | undefined;
-  location?: LocationInput$Outbound | undefined;
+  location?: Location1Input$Outbound | undefined;
   description?: string | undefined;
   start: string;
   end: string;
@@ -275,7 +275,7 @@ export const SessionUpdate$outboundSchema: z.ZodType<
   code: z.string().optional(),
   category: NamedObject$outboundSchema.optional(),
   type: z.lazy(() => SessionUpdateLookup$outboundSchema).optional(),
-  location: LocationInput$outboundSchema.optional(),
+  location: Location1Input$outboundSchema.optional(),
   description: z.string().optional(),
   start: z.date().transform(v => v.toISOString()),
   end: z.date().transform(v => v.toISOString()),

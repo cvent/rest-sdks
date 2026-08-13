@@ -9,8 +9,8 @@
 ContactBulkResponseItemData.CreateContact(/* values here */);
 ```
 
-### ErrorResponse1
+### ErrorResponse11
 
 ```csharp
-ContactBulkResponseItemData.CreateErrorResponse1(/* values here */);
+ContactBulkResponseItemData.CreateErrorResponse11(/* values here */);
 ```

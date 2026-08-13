@@ -65,7 +65,7 @@ namespace Cvent.SDK.Models.Components
         /// The audience segment associated with the session.
         /// </summary>
         [JsonProperty("segment")]
-        public Segment Segment { get; set; } = default!;
+        public Segment1 Segment { get; set; } = default!;
 
         /// <summary>
         /// True indicates the session segment is active.

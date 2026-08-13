@@ -87,7 +87,7 @@ namespace Cvent.SDK.Models.Components
         /// Used to denote a locations name and abbreviation.
         /// </summary>
         [JsonProperty("location")]
-        public Location? Location { get; set; }
+        public Location1? Location { get; set; }
 
         /// <summary>
         /// Detailed description of the session. HTML is supported, but only a limited set of elements and attributes are allowed. Use of HTML will count towards the character limit. Planners are responsible for confirming the visual output of HTML content.<br/>

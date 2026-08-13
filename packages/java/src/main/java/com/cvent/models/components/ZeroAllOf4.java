@@ -8,105 +8,87 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
-import java.lang.Double;
 import java.lang.Override;
 import java.lang.String;
-import java.time.OffsetDateTime;
 import java.util.Optional;
 
 /**
  * ZeroAllOf4
  *
- * <p>A transaction reconciliation record.
+ * <p>Represents an error response for the checkin APIs that includes a unique id.
  */
 public class ZeroAllOf4 {
     /**
-     * The identifier of reconciled budget item.
+     * The unique identifier for the error response.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("budgetItem")
-    private BudgetItemAllOf budgetItem;
+    @JsonProperty("id")
+    private String id;
 
     /**
-     * This is used to denote the reconciliation status for a transaction.
+     * The HTTP status code representing the error.
      */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("status")
-    private ReconciliationStatusJson status;
+    @JsonProperty("code")
+    private long code;
 
     /**
-     * Reconciliation amount.
+     * A brief description of the error.
      */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("amount")
-    private Double amount;
+    @JsonProperty("message")
+    private String message;
 
     /**
-     * Reconciled by user.
+     * The target resource of the error.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("reconciledBy")
-    private String reconciledBy;
-
-    /**
-     * The ISO 8601 zoned date and time for Reconciled date.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("reconciledDate")
-    private OffsetDateTime reconciledDate;
+    @JsonProperty("target")
+    private String target;
 
     @JsonCreator
     public ZeroAllOf4(
-            @JsonProperty("budgetItem") @Nullable BudgetItemAllOf budgetItem,
-            @JsonProperty("status") @Nullable ReconciliationStatusJson status,
-            @JsonProperty("amount") @Nullable Double amount,
-            @JsonProperty("reconciledBy") @Nullable String reconciledBy,
-            @JsonProperty("reconciledDate") @Nullable OffsetDateTime reconciledDate) {
-        this.budgetItem = budgetItem;
-        this.status = status;
-        this.amount = amount;
-        this.reconciledBy = reconciledBy;
-        this.reconciledDate = reconciledDate;
+            @JsonProperty("id") @Nullable String id,
+            @JsonProperty("code") long code,
+            @JsonProperty("message") @Nonnull String message,
+            @JsonProperty("target") @Nullable String target) {
+        this.id = id;
+        this.code = code;
+        this.message =
+                Optional.ofNullable(message).orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
+        this.target = target;
     }
 
-    public ZeroAllOf4() {
-        this(null, null, null, null, null);
-    }
-
-    /**
-     * The identifier of reconciled budget item.
-     */
-    public Optional<BudgetItemAllOf> budgetItem() {
-        return Optional.ofNullable(this.budgetItem);
+    public ZeroAllOf4(long code, @Nonnull String message) {
+        this(null, code, message, null);
     }
 
     /**
-     * This is used to denote the reconciliation status for a transaction.
+     * The unique identifier for the error response.
      */
-    public Optional<ReconciliationStatusJson> status() {
-        return Optional.ofNullable(this.status);
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     /**
-     * Reconciliation amount.
+     * The HTTP status code representing the error.
      */
-    public Optional<Double> amount() {
-        return Optional.ofNullable(this.amount);
+    public long code() {
+        return this.code;
     }
 
     /**
-     * Reconciled by user.
+     * A brief description of the error.
      */
-    public Optional<String> reconciledBy() {
-        return Optional.ofNullable(this.reconciledBy);
+    public String message() {
+        return this.message;
     }
 
     /**
-     * The ISO 8601 zoned date and time for Reconciled date.
+     * The target resource of the error.
      */
-    public Optional<OffsetDateTime> reconciledDate() {
-        return Optional.ofNullable(this.reconciledDate);
+    public Optional<String> target() {
+        return Optional.ofNullable(this.target);
     }
 
     public static Builder builder() {
@@ -114,42 +96,34 @@ public class ZeroAllOf4 {
     }
 
     /**
-     * The identifier of reconciled budget item.
+     * The unique identifier for the error response.
      */
-    public ZeroAllOf4 withBudgetItem(@Nullable BudgetItemAllOf budgetItem) {
-        this.budgetItem = budgetItem;
+    public ZeroAllOf4 withId(@Nullable String id) {
+        this.id = id;
         return this;
     }
 
     /**
-     * This is used to denote the reconciliation status for a transaction.
+     * The HTTP status code representing the error.
      */
-    public ZeroAllOf4 withStatus(@Nullable ReconciliationStatusJson status) {
-        this.status = status;
+    public ZeroAllOf4 withCode(long code) {
+        this.code = code;
         return this;
     }
 
     /**
-     * Reconciliation amount.
+     * A brief description of the error.
      */
-    public ZeroAllOf4 withAmount(@Nullable Double amount) {
-        this.amount = amount;
+    public ZeroAllOf4 withMessage(@Nonnull String message) {
+        this.message = Utils.checkNotNull(message, "message");
         return this;
     }
 
     /**
-     * Reconciled by user.
+     * The target resource of the error.
      */
-    public ZeroAllOf4 withReconciledBy(@Nullable String reconciledBy) {
-        this.reconciledBy = reconciledBy;
-        return this;
-    }
-
-    /**
-     * The ISO 8601 zoned date and time for Reconciled date.
-     */
-    public ZeroAllOf4 withReconciledDate(@Nullable OffsetDateTime reconciledDate) {
-        this.reconciledDate = reconciledDate;
+    public ZeroAllOf4 withTarget(@Nullable String target) {
+        this.target = target;
         return this;
     }
 
@@ -162,93 +136,71 @@ public class ZeroAllOf4 {
             return false;
         }
         ZeroAllOf4 other = (ZeroAllOf4) o;
-        return Utils.enhancedDeepEquals(this.budgetItem, other.budgetItem)
-                && Utils.enhancedDeepEquals(this.status, other.status)
-                && Utils.enhancedDeepEquals(this.amount, other.amount)
-                && Utils.enhancedDeepEquals(this.reconciledBy, other.reconciledBy)
-                && Utils.enhancedDeepEquals(this.reconciledDate, other.reconciledDate);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.message, other.message)
+                && Utils.enhancedDeepEquals(this.target, other.target);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(budgetItem, status, amount, reconciledBy, reconciledDate);
+        return Utils.enhancedHash(id, code, message, target);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(
-                ZeroAllOf4.class,
-                "budgetItem",
-                budgetItem,
-                "status",
-                status,
-                "amount",
-                amount,
-                "reconciledBy",
-                reconciledBy,
-                "reconciledDate",
-                reconciledDate);
+        return Utils.toString(ZeroAllOf4.class, "id", id, "code", code, "message", message, "target", target);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private BudgetItemAllOf budgetItem;
+        private String id;
 
-        private ReconciliationStatusJson status;
+        private long code;
 
-        private Double amount;
+        private String message;
 
-        private String reconciledBy;
-
-        private OffsetDateTime reconciledDate;
+        private String target;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The identifier of reconciled budget item.
+         * The unique identifier for the error response.
          */
-        public Builder budgetItem(@Nullable BudgetItemAllOf budgetItem) {
-            this.budgetItem = budgetItem;
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
 
         /**
-         * This is used to denote the reconciliation status for a transaction.
+         * The HTTP status code representing the error.
          */
-        public Builder status(@Nullable ReconciliationStatusJson status) {
-            this.status = status;
+        public Builder code(long code) {
+            this.code = code;
             return this;
         }
 
         /**
-         * Reconciliation amount.
+         * A brief description of the error.
          */
-        public Builder amount(@Nullable Double amount) {
-            this.amount = amount;
+        public Builder message(@Nonnull String message) {
+            this.message = Utils.checkNotNull(message, "message");
             return this;
         }
 
         /**
-         * Reconciled by user.
+         * The target resource of the error.
          */
-        public Builder reconciledBy(@Nullable String reconciledBy) {
-            this.reconciledBy = reconciledBy;
-            return this;
-        }
-
-        /**
-         * The ISO 8601 zoned date and time for Reconciled date.
-         */
-        public Builder reconciledDate(@Nullable OffsetDateTime reconciledDate) {
-            this.reconciledDate = reconciledDate;
+        public Builder target(@Nullable String target) {
+            this.target = target;
             return this;
         }
 
         public ZeroAllOf4 build() {
-            return new ZeroAllOf4(budgetItem, status, amount, reconciledBy, reconciledDate);
+            return new ZeroAllOf4(id, code, message, target);
         }
     }
 }

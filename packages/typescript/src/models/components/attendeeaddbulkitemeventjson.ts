@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { ZeroAllOf5, ZeroAllOf5$inboundSchema } from "./zeroallof5.js";
+import { ZeroAllOf4, ZeroAllOf4$inboundSchema } from "./zeroallof4.js";
 import { ZeroOneOf, ZeroOneOf$inboundSchema } from "./zerooneof.js";
 
 /**
@@ -32,7 +32,7 @@ export type AttendeeAddBulkItemEventJsonErrorResponse = {
   /**
    * Additional details of cascading error messages.
    */
-  details?: Array<ZeroAllOf5> | undefined;
+  details?: Array<ZeroAllOf4> | undefined;
 };
 
 export type AttendeeAddBulkItemEventJsonData =
@@ -68,7 +68,7 @@ export const AttendeeAddBulkItemEventJsonErrorResponse$inboundSchema: z.ZodType<
   code: z.number().int(),
   message: z.string(),
   target: z.string().optional(),
-  details: z.array(ZeroAllOf5$inboundSchema).optional(),
+  details: z.array(ZeroAllOf4$inboundSchema).optional(),
 });
 
 export function attendeeAddBulkItemEventJsonErrorResponseFromJSON(

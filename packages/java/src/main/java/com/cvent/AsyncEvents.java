@@ -5,7 +5,7 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
-import com.cvent.models.components.EventInput;
+import com.cvent.models.components.Event1Input;
 import com.cvent.models.components.SendEmailEventRequest;
 import com.cvent.models.operations.AnswerEventCustomFieldRequest;
 import com.cvent.models.operations.AssociateDiscountCodeToOrderItemRequest;
@@ -504,7 +504,7 @@ public class AsyncEvents {
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateEventAsyncResponse>} - The async response
      */
-    public CompletableFuture<CreateEventAsyncResponse> createEventAsync(@Nonnull EventInput request) {
+    public CompletableFuture<CreateEventAsyncResponse> createEventAsync(@Nonnull Event1Input request) {
         return createEventAsync(request, null);
     }
 
@@ -522,8 +522,8 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<CreateEventAsyncResponse>} - The async response
      */
     public CompletableFuture<CreateEventAsyncResponse> createEventAsync(
-            @Nonnull EventInput request, @Nullable Options options) {
-        AsyncRequestOperation<EventInput, CreateEventAsyncResponse> operation =
+            @Nonnull Event1Input request, @Nullable Options options) {
+        AsyncRequestOperation<Event1Input, CreateEventAsyncResponse> operation =
                 new CreateEventAsync.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }

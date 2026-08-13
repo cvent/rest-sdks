@@ -33,12 +33,12 @@ import { Result } from "../types/fp.js";
  */
 export function usersCreateAccountUserGroup(
   client: CventSDKCore,
-  request?: components.UserGroupJsonInput | undefined,
+  request?: components.AccountUserGroupInput | undefined,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    components.UserGroupJson,
-    | errors.ErrorResponse1
+    components.AccountUserGroup,
+    | errors.ErrorResponse11
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -58,13 +58,13 @@ export function usersCreateAccountUserGroup(
 
 async function $do(
   client: CventSDKCore,
-  request?: components.UserGroupJsonInput | undefined,
+  request?: components.AccountUserGroupInput | undefined,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      components.UserGroupJson,
-      | errors.ErrorResponse1
+      components.AccountUserGroup,
+      | errors.ErrorResponse11
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -80,7 +80,7 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      components.UserGroupJsonInput$outboundSchema.optional().parse(value),
+      components.AccountUserGroupInput$outboundSchema.optional().parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -157,8 +157,8 @@ async function $do(
   };
 
   const [result] = await M.match<
-    components.UserGroupJson,
-    | errors.ErrorResponse1
+    components.AccountUserGroup,
+    | errors.ErrorResponse11
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -168,8 +168,8 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, components.UserGroupJson$inboundSchema),
-    M.jsonErr([400, 401, 403, 429], errors.ErrorResponse1$inboundSchema),
+    M.json(200, components.AccountUserGroup$inboundSchema),
+    M.jsonErr([400, 401, 403, 429], errors.ErrorResponse11$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

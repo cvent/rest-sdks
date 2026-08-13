@@ -56,7 +56,7 @@ public class Lead {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private Event3 event;
+    private Event4 event;
 
     /**
      * The Associated Exhibitor.
@@ -246,7 +246,7 @@ public class Lead {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nullable Event3 event,
+            @JsonProperty("event") @Nullable Event4 event,
             @JsonProperty("exhibitor") @Nullable Exhibitor exhibitor,
             @JsonProperty("attendee") @Nullable Attendee13 attendee,
             @JsonProperty("boothStaff") @Nullable BoothStaff boothStaff,
@@ -372,7 +372,7 @@ public class Lead {
     /**
      * The Associated Event.
      */
-    public Optional<Event3> event() {
+    public Optional<Event4> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -597,7 +597,7 @@ public class Lead {
     /**
      * The Associated Event.
      */
-    public Lead withEvent(@Nullable Event3 event) {
+    public Lead withEvent(@Nullable Event4 event) {
         this.event = event;
         return this;
     }
@@ -967,7 +967,7 @@ public class Lead {
 
         private String lastModifiedBy;
 
-        private Event3 event;
+        private Event4 event;
 
         private Exhibitor exhibitor;
 
@@ -1060,7 +1060,7 @@ public class Lead {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nullable Event3 event) {
+        public Builder event(@Nullable Event4 event) {
             this.event = event;
             return this;
         }

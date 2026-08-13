@@ -24,6 +24,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// List of User Groups.
         /// </summary>
-        public UserGroupsJson? UserGroupsJson { get; set; }
+        public UserGroups? UserGroups { get; set; }
     }
 }

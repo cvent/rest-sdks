@@ -3,36 +3,27 @@
  */
 
 import * as z from "zod/v3";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Group1, Group1$inboundSchema } from "./group1.js";
+import {
+  AccountUserGroup,
+  AccountUserGroup$inboundSchema,
+} from "./accountusergroup.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
- * Groups
+ * A paginated result for a list of user groups.
  */
 export type UserGroups = {
   /**
-   * The collection of user schemas.
+   * Represents pagination information for a collection of resources.
    */
-  schemas?: Array<string> | undefined;
+  paging: Paging;
   /**
-   * The number of schemas per page.
+   * The list of user groups retrieved for the specified page.
    */
-  itemsPerPage?: number | undefined;
-  /**
-   * Starting index of the response.
-   */
-  startIndex?: number | undefined;
-  /**
-   * The total count of schemas.
-   */
-  totalResults?: number | undefined;
-  /**
-   * The collection of schema resources.
-   */
-  resources?: Array<Group1> | undefined;
+  data: Array<AccountUserGroup>;
 };
 
 /** @internal */
@@ -41,15 +32,8 @@ export const UserGroups$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  schemas: z.array(z.string()).optional(),
-  itemsPerPage: z.number().int().optional(),
-  startIndex: z.number().int().optional(),
-  totalResults: z.number().int().optional(),
-  Resources: z.array(Group1$inboundSchema).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "Resources": "resources",
-  });
+  paging: Paging$inboundSchema,
+  data: z.array(AccountUserGroup$inboundSchema),
 });
 
 export function userGroupsFromJSON(

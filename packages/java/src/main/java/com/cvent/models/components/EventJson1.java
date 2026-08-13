@@ -16,11 +16,11 @@ import java.util.Optional;
 /**
  * EventJson1
  *
- * <p>Event ID Information.
+ * <p>Detail object of an event which is associated to a survey.
  */
 public class EventJson1 {
     /**
-     * Identifier of a particular Event.
+     * Id of the associated event
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -36,7 +36,7 @@ public class EventJson1 {
     }
 
     /**
-     * Identifier of a particular Event.
+     * Id of the associated event
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -47,7 +47,7 @@ public class EventJson1 {
     }
 
     /**
-     * Identifier of a particular Event.
+     * Id of the associated event
      */
     public EventJson1 withId(@Nullable String id) {
         this.id = id;
@@ -86,7 +86,7 @@ public class EventJson1 {
         }
 
         /**
-         * Identifier of a particular Event.
+         * Id of the associated event
          */
         public Builder id(@Nullable String id) {
             this.id = id;

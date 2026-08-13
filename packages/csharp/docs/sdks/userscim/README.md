@@ -315,10 +315,10 @@ UserInput req = new UserInput() {
         HonorificPrefix = "Mr.",
     },
     UserName = "aMike@test.com",
-    Emails = new List<Email>() {},
+    Emails = new List<Email1>() {},
     Title = "Vice President",
-    PhoneNumbers = new List<PhoneNumber>() {
-        new PhoneNumber() {
+    PhoneNumbers = new List<PhoneNumber1>() {
+        new PhoneNumber1() {
             Type = PhoneType.Work,
             Value = "+911234567890",
         },
@@ -503,10 +503,10 @@ UpdateUserRequest req = new UpdateUserRequest() {
             HonorificPrefix = "Mr.",
         },
         UserName = "aMike@test.com",
-        Emails = new List<Email>() {},
+        Emails = new List<Email1>() {},
         Title = "Vice President",
-        PhoneNumbers = new List<PhoneNumber>() {
-            new PhoneNumber() {
+        PhoneNumbers = new List<PhoneNumber1>() {
+            new PhoneNumber1() {
                 Type = PhoneType.Work,
                 Value = "+911234567890",
             },

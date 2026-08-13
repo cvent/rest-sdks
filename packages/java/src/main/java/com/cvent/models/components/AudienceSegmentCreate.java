@@ -26,7 +26,7 @@ public class AudienceSegmentCreate {
      * ID of the event.
      */
     @JsonProperty("event")
-    private EventJson event;
+    private Event3 event;
 
     /**
      * Name of the audience segment. Must be unique in the event where the segment exists.
@@ -46,28 +46,28 @@ public class AudienceSegmentCreate {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("creationType")
-    private AudienceSegmentCreationTypeJson creationType;
+    private AudienceSegmentCreationType creationType;
 
     @JsonCreator
     public AudienceSegmentCreate(
-            @JsonProperty("event") @Nonnull EventJson event,
+            @JsonProperty("event") @Nonnull Event3 event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description,
-            @JsonProperty("creationType") @Nullable AudienceSegmentCreationTypeJson creationType) {
+            @JsonProperty("creationType") @Nullable AudienceSegmentCreationType creationType) {
         this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
         this.creationType = Optional.ofNullable(creationType).orElse(Builder._SINGLETON_VALUE_CreationType.value());
     }
 
-    public AudienceSegmentCreate(@Nonnull EventJson event, @Nonnull String name) {
+    public AudienceSegmentCreate(@Nonnull Event3 event, @Nonnull String name) {
         this(event, name, null, null);
     }
 
     /**
      * ID of the event.
      */
-    public EventJson event() {
+    public Event3 event() {
         return this.event;
     }
 
@@ -88,7 +88,7 @@ public class AudienceSegmentCreate {
     /**
      * Creation type of the audience segment.
      */
-    public Optional<AudienceSegmentCreationTypeJson> creationType() {
+    public Optional<AudienceSegmentCreationType> creationType() {
         return Optional.ofNullable(this.creationType);
     }
 
@@ -99,7 +99,7 @@ public class AudienceSegmentCreate {
     /**
      * ID of the event.
      */
-    public AudienceSegmentCreate withEvent(@Nonnull EventJson event) {
+    public AudienceSegmentCreate withEvent(@Nonnull Event3 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -123,7 +123,7 @@ public class AudienceSegmentCreate {
     /**
      * Creation type of the audience segment.
      */
-    public AudienceSegmentCreate withCreationType(@Nullable AudienceSegmentCreationTypeJson creationType) {
+    public AudienceSegmentCreate withCreationType(@Nullable AudienceSegmentCreationType creationType) {
         this.creationType = creationType;
         return this;
     }
@@ -165,13 +165,13 @@ public class AudienceSegmentCreate {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EventJson event;
+        private Event3 event;
 
         private String name;
 
         private String description;
 
-        private AudienceSegmentCreationTypeJson creationType;
+        private AudienceSegmentCreationType creationType;
 
         private Builder() {
             // force use of static builder() method
@@ -180,7 +180,7 @@ public class AudienceSegmentCreate {
         /**
          * ID of the event.
          */
-        public Builder event(@Nonnull EventJson event) {
+        public Builder event(@Nonnull Event3 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -204,7 +204,7 @@ public class AudienceSegmentCreate {
         /**
          * Creation type of the audience segment.
          */
-        public Builder creationType(@Nullable AudienceSegmentCreationTypeJson creationType) {
+        public Builder creationType(@Nullable AudienceSegmentCreationType creationType) {
             this.creationType = creationType;
             return this;
         }
@@ -213,7 +213,7 @@ public class AudienceSegmentCreate {
             return new AudienceSegmentCreate(event, name, description, creationType);
         }
 
-        private static final LazySingletonValue<AudienceSegmentCreationTypeJson> _SINGLETON_VALUE_CreationType =
-                new LazySingletonValue<>("creationType", "\"MANUAL\"", new TypeReference<AudienceSegmentCreationTypeJson>() {});
+        private static final LazySingletonValue<AudienceSegmentCreationType> _SINGLETON_VALUE_CreationType =
+                new LazySingletonValue<>("creationType", "\"MANUAL\"", new TypeReference<AudienceSegmentCreationType>() {});
     }
 }

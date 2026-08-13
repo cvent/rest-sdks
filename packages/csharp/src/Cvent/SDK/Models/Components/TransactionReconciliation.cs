@@ -15,22 +15,21 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// This property is deprecated to support more then one items. Use 'reconciliations'.
+    /// A transaction reconciliation record.
     /// </summary>
-    [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class TransactionReconciliation
     {
         /// <summary>
         /// The identifier of reconciled budget item.
         /// </summary>
         [JsonProperty("budgetItem")]
-        public CardTransactionJsonBudgetItem? BudgetItem { get; set; }
+        public TransactionReconciliationBudgetItem? BudgetItem { get; set; }
 
         /// <summary>
         /// This is used to denote the reconciliation status for a transaction.
         /// </summary>
         [JsonProperty("status")]
-        public ReconciliationStatusJson? Status { get; set; }
+        public ReconciliationStatus? Status { get; set; }
 
         /// <summary>
         /// Reconciliation amount.

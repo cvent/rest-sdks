@@ -6,7 +6,7 @@ package com.cvent.models.operations;
 import static com.cvent.operations.Operations.RequestOperation;
 
 import com.cvent.SDKConfiguration;
-import com.cvent.models.components.UserGroupJsonInput;
+import com.cvent.models.components.AccountUserGroupInput;
 import com.cvent.operations.CreateAccountUserGroup;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
@@ -17,7 +17,7 @@ import jakarta.annotation.Nullable;
 public class CreateAccountUserGroupRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
-    private UserGroupJsonInput request;
+    private AccountUserGroupInput request;
     private final Options.Builder optionsBuilder;
 
     public CreateAccountUserGroupRequestBuilder(SDKConfiguration sdkConfiguration) {
@@ -30,12 +30,12 @@ public class CreateAccountUserGroupRequestBuilder {
         return this;
     }
 
-    public CreateAccountUserGroupRequestBuilder request(@Nullable UserGroupJsonInput request) {
+    public CreateAccountUserGroupRequestBuilder request(@Nullable AccountUserGroupInput request) {
         this.request = request;
         return this;
     }
 
-    private UserGroupJsonInput _buildRequest() {
+    private AccountUserGroupInput _buildRequest() {
         return this.request;
     }
 
@@ -53,7 +53,7 @@ public class CreateAccountUserGroupRequestBuilder {
      */
     public CreateAccountUserGroupResponse call() {
         Options options = optionsBuilder.build();
-        RequestOperation<UserGroupJsonInput, CreateAccountUserGroupResponse> operation =
+        RequestOperation<AccountUserGroupInput, CreateAccountUserGroupResponse> operation =
                 new CreateAccountUserGroup.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }

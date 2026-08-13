@@ -9,7 +9,7 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.UserGroups;
+import com.cvent.models.components.UserGroups1;
 import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse2;
 import com.cvent.models.operations.GetUserGroupsRequest;
@@ -180,7 +180,7 @@ public class GetUserGroups {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withUserGroups(Utils.unmarshal(response, new TypeReference<UserGroups>() {}));
+                    return res.withUserGroups1(Utils.unmarshal(response, new TypeReference<UserGroups1>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -268,8 +268,8 @@ public class GetUserGroups {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<UserGroups>() {})
-                            .thenApply(res::withUserGroups);
+                    return Utils.unmarshalAsync(response, new TypeReference<UserGroups1>() {})
+                            .thenApply(res::withUserGroups1);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

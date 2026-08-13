@@ -36,7 +36,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the cost type of a budget item. FIXED costs stay the same regardless of quantity. VARIABLE costs are based on a quantity.
         /// </summary>
         [JsonProperty("costType")]
-        public BudgetCostTypeJson CostType { get; set; } = default!;
+        public BudgetCostType CostType { get; set; } = default!;
 
         /// <summary>
         /// Name of the budget item.
@@ -54,31 +54,31 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the category assigned to the budget item.
         /// </summary>
         [JsonProperty("category")]
-        public BudgetCategoryJson Category { get; set; } = default!;
+        public BudgetCategory Category { get; set; } = default!;
 
         /// <summary>
         /// This is used to denote the sub category for a budget.
         /// </summary>
         [JsonProperty("subCategory")]
-        public BudgetSubCategoryJson? SubCategory { get; set; }
+        public BudgetSubCategory? SubCategory { get; set; }
 
         /// <summary>
         /// Denotes the status assigned to a budget item.
         /// </summary>
         [JsonProperty("status")]
-        public BudgetStatusJson Status { get; set; } = default!;
+        public BudgetStatus Status { get; set; } = default!;
 
         /// <summary>
         /// List of details for a vendor assigned to a budget item.
         /// </summary>
         [JsonProperty("vendor")]
-        public BudgetVendorJson? Vendor { get; set; }
+        public BudgetVendor? Vendor { get; set; }
 
         /// <summary>
         /// RFP associated with a budget item.
         /// </summary>
         [JsonProperty("rfp")]
-        public BudgetRfpJson? Rfp { get; set; }
+        public BudgetRFP? Rfp { get; set; }
 
         /// <summary>
         /// The ISO 8601 zoned date and time assigned to the budget item, typically denotes the date and time of spending.
@@ -96,13 +96,13 @@ namespace Cvent.SDK.Models.Components
         /// This is used to denote the general ledger code associated with budget.
         /// </summary>
         [JsonProperty("generalLedger")]
-        public GeneralLedgerJson? GeneralLedger { get; set; }
+        public GeneralLedger1? GeneralLedger { get; set; }
 
         /// <summary>
         /// Budget cost avoidance information.
         /// </summary>
         [JsonProperty("costAvoidance")]
-        public BudgetCostAvoidanceJson? CostAvoidance { get; set; }
+        public BudgetCostAvoidance? CostAvoidance { get; set; }
 
         /// <summary>
         /// True indicates the budget item cost includes tax and gratuity.
@@ -120,7 +120,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the type of tax or gratuity.
         /// </summary>
         [JsonProperty("gratuityType")]
-        public BudgetTaxGratuityTypeJson GratuityType { get; set; } = default!;
+        public BudgetTaxGratuityType GratuityType { get; set; } = default!;
 
         /// <summary>
         /// User defined note associated with the budget item.
@@ -150,19 +150,19 @@ namespace Cvent.SDK.Models.Components
         /// The list of cost details for a budget item.
         /// </summary>
         [JsonProperty("costDetail")]
-        public List<BudgetCostDetailJson>? CostDetail { get; set; }
+        public List<BudgetCostDetail11>? CostDetail { get; set; }
 
         /// <summary>
         /// Result of user-defined formula comparing two columns of a budget item cost. Typically this is the difference between budgeted and actual cost.
         /// </summary>
         [JsonProperty("savings")]
-        public List<BudgetSavingsDetailJson>? Savings { get; set; }
+        public List<BudgetSavings>? Savings { get; set; }
 
         /// <summary>
         /// The list of registrants associated to a budget item. Typically used to attribute cost to specific registrants in reporting.
         /// </summary>
         [JsonProperty("associatedRegistrants")]
-        public List<BudgetAssociatedRegistrantJson>? AssociatedRegistrants { get; set; }
+        public List<BudgetAssociatedRegistrant>? AssociatedRegistrants { get; set; }
 
         /// <summary>
         /// Identifies the session associated with the budget item.
@@ -174,6 +174,6 @@ namespace Cvent.SDK.Models.Components
         /// List of budget item custom fields.
         /// </summary>
         [JsonProperty("customFields")]
-        public List<BudgetItemCustomFieldJson>? CustomFields { get; set; }
+        public List<BudgetItemCustomField>? CustomFields { get; set; }
     }
 }

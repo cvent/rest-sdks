@@ -41,7 +41,7 @@ namespace Cvent.SDK.Models.Components
         /// The email of the user. The Cvent user can have only one email address.&lt;br&gt; If multiple email addresses are provided, only one is accepted and rest are ignored. One email is selected based on the following sequence of criteria: primary email, then work type, and finally first in the sequence.
         /// </summary>
         [JsonProperty("emails")]
-        public List<Email> Emails { get; set; } = default!;
+        public List<Email1> Emails { get; set; } = default!;
 
         /// <summary>
         /// The title of the user.
@@ -53,7 +53,7 @@ namespace Cvent.SDK.Models.Components
         /// The phone numbers of the user.&lt;br&gt; If more than one number per type is provided, only one is accepted and rest are ignored.
         /// </summary>
         [JsonProperty("phoneNumbers")]
-        public List<PhoneNumber>? PhoneNumbers { get; set; }
+        public List<PhoneNumber1>? PhoneNumbers { get; set; }
 
         /// <summary>
         /// The address of the user. The user can have only one address. &lt;br&gt; If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence.

@@ -7,10 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
-import {
-  UserGroupJson1,
-  UserGroupJson1$inboundSchema,
-} from "./usergroupjson1.js";
+import { UserGroupJson, UserGroupJson$inboundSchema } from "./usergroupjson.js";
 
 /**
  * Contains a paginated list of user groups associated with an event
@@ -19,7 +16,7 @@ export type UserGroupsPaginatedResponse = {
   /**
    * List of user groups
    */
-  data: Array<UserGroupJson1>;
+  data: Array<UserGroupJson>;
   /**
    * Represents pagination information for a collection of resources.
    */
@@ -32,7 +29,7 @@ export const UserGroupsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(UserGroupJson1$inboundSchema),
+  data: z.array(UserGroupJson$inboundSchema),
   paging: PagingJson$inboundSchema,
 });
 

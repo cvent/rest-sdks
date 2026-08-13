@@ -63,7 +63,7 @@ public class SessionInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("location")
-    private LocationInput location;
+    private Location1Input location;
 
     /**
      * Detailed description of the session. HTML is supported, but only a limited set of elements and
@@ -265,7 +265,7 @@ public class SessionInput {
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("category") @Nullable NamedObject category,
             @JsonProperty("type") @Nullable SessionLookup type,
-            @JsonProperty("location") @Nullable LocationInput location,
+            @JsonProperty("location") @Nullable Location1Input location,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("start") @Nonnull OffsetDateTime start,
             @JsonProperty("end") @Nonnull OffsetDateTime end,
@@ -405,7 +405,7 @@ public class SessionInput {
     /**
      * Used to denote a locations name and abbreviation.
      */
-    public Optional<LocationInput> location() {
+    public Optional<Location1Input> location() {
         return Optional.ofNullable(this.location);
     }
 
@@ -649,7 +649,7 @@ public class SessionInput {
     /**
      * Used to denote a locations name and abbreviation.
      */
-    public SessionInput withLocation(@Nullable LocationInput location) {
+    public SessionInput withLocation(@Nullable Location1Input location) {
         this.location = location;
         return this;
     }
@@ -1039,7 +1039,7 @@ public class SessionInput {
 
         private SessionLookup type;
 
-        private LocationInput location;
+        private Location1Input location;
 
         private String description;
 
@@ -1137,7 +1137,7 @@ public class SessionInput {
         /**
          * Used to denote a locations name and abbreviation.
          */
-        public Builder location(@Nullable LocationInput location) {
+        public Builder location(@Nullable Location1Input location) {
             this.location = location;
             return this;
         }

@@ -23,18 +23,18 @@ public class AttendeeAudienceSegmentAssociationsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of audience segment associations for the attendee.
      */
     @JsonProperty("data")
-    private List<AttendeeAudienceSegmentAssociationJson> data;
+    private List<AttendeeAudienceSegmentAssociation> data;
 
     @JsonCreator
     public AttendeeAudienceSegmentAssociationsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<AttendeeAudienceSegmentAssociationJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<AttendeeAudienceSegmentAssociation> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -43,14 +43,14 @@ public class AttendeeAudienceSegmentAssociationsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of audience segment associations for the attendee.
      */
-    public List<AttendeeAudienceSegmentAssociationJson> data() {
+    public List<AttendeeAudienceSegmentAssociation> data() {
         return this.data;
     }
 
@@ -61,7 +61,7 @@ public class AttendeeAudienceSegmentAssociationsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public AttendeeAudienceSegmentAssociationsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public AttendeeAudienceSegmentAssociationsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -70,7 +70,7 @@ public class AttendeeAudienceSegmentAssociationsPaginatedResponse {
      * Collection of audience segment associations for the attendee.
      */
     public AttendeeAudienceSegmentAssociationsPaginatedResponse withData(
-            @Nonnull List<AttendeeAudienceSegmentAssociationJson> data) {
+            @Nonnull List<AttendeeAudienceSegmentAssociation> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -102,9 +102,9 @@ public class AttendeeAudienceSegmentAssociationsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<AttendeeAudienceSegmentAssociationJson> data;
+        private List<AttendeeAudienceSegmentAssociation> data;
 
         private Builder() {
             // force use of static builder() method
@@ -113,7 +113,7 @@ public class AttendeeAudienceSegmentAssociationsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -121,7 +121,7 @@ public class AttendeeAudienceSegmentAssociationsPaginatedResponse {
         /**
          * Collection of audience segment associations for the attendee.
          */
-        public Builder data(@Nonnull List<AttendeeAudienceSegmentAssociationJson> data) {
+        public Builder data(@Nonnull List<AttendeeAudienceSegmentAssociation> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }
