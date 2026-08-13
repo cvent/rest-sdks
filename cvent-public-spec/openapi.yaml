@@ -1140,7 +1140,7 @@ paths:
         - $ref: '#/components/parameters/before'
         - $ref: '#/components/parameters/attendeeCreditLimit'
         - $ref: '#/components/parameters/token'
-        - $ref: '#/components/parameters/sort9'
+        - $ref: '#/components/parameters/sort10'
         - $ref: '#/components/parameters/expand1'
         - name: filter
           in: query
@@ -2704,15 +2704,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-job-with-data'
         '400':
-          $ref: '#/components/responses/BadRequest24'
+          $ref: '#/components/responses/BadRequest20'
         '401':
-          $ref: '#/components/responses/Unauthorized24'
+          $ref: '#/components/responses/Unauthorized20'
         '403':
-          $ref: '#/components/responses/Forbidden24'
+          $ref: '#/components/responses/Forbidden20'
         '409':
           $ref: '#/components/responses/JobLimitExceeded'
         '429':
-          $ref: '#/components/responses/TooManyRequests24'
+          $ref: '#/components/responses/TooManyRequests20'
       deprecated: false
   /bulk-jobs/{id}:
     parameters:
@@ -2735,15 +2735,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-job'
         '400':
-          $ref: '#/components/responses/BadRequest24'
+          $ref: '#/components/responses/BadRequest20'
         '401':
-          $ref: '#/components/responses/Unauthorized24'
+          $ref: '#/components/responses/Unauthorized20'
         '403':
-          $ref: '#/components/responses/Forbidden24'
+          $ref: '#/components/responses/Forbidden20'
         '404':
-          $ref: '#/components/responses/NotFound24'
+          $ref: '#/components/responses/NotFound20'
         '429':
-          $ref: '#/components/responses/TooManyRequests24'
+          $ref: '#/components/responses/TooManyRequests20'
   /bulk-jobs/{id}/cancel:
     parameters:
       - $ref: '#/components/parameters/uuid1'
@@ -2765,15 +2765,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-job'
         '400':
-          $ref: '#/components/responses/BadRequest24'
+          $ref: '#/components/responses/BadRequest20'
         '401':
-          $ref: '#/components/responses/Unauthorized24'
+          $ref: '#/components/responses/Unauthorized20'
         '403':
-          $ref: '#/components/responses/Forbidden24'
+          $ref: '#/components/responses/Forbidden20'
         '404':
-          $ref: '#/components/responses/NotFound24'
+          $ref: '#/components/responses/NotFound20'
         '429':
-          $ref: '#/components/responses/TooManyRequests24'
+          $ref: '#/components/responses/TooManyRequests20'
   /bulk-jobs/{id}/data:
     parameters:
       - $ref: '#/components/parameters/uuid1'
@@ -2806,17 +2806,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-data-upload-response'
         '400':
-          $ref: '#/components/responses/BadRequest24'
+          $ref: '#/components/responses/BadRequest20'
         '401':
-          $ref: '#/components/responses/Unauthorized24'
+          $ref: '#/components/responses/Unauthorized20'
         '403':
-          $ref: '#/components/responses/Forbidden24'
+          $ref: '#/components/responses/Forbidden20'
         '404':
-          $ref: '#/components/responses/NotFound24'
+          $ref: '#/components/responses/NotFound20'
         '409':
           $ref: '#/components/responses/DataLimitExceeded'
         '429':
-          $ref: '#/components/responses/TooManyRequests24'
+          $ref: '#/components/responses/TooManyRequests20'
   /bulk-jobs/{id}/results:
     parameters:
       - $ref: '#/components/parameters/uuid1'
@@ -2870,15 +2870,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-results-paginated-response'
         '400':
-          $ref: '#/components/responses/BadRequest24'
+          $ref: '#/components/responses/BadRequest20'
         '401':
-          $ref: '#/components/responses/Unauthorized24'
+          $ref: '#/components/responses/Unauthorized20'
         '403':
-          $ref: '#/components/responses/Forbidden24'
+          $ref: '#/components/responses/Forbidden20'
         '404':
-          $ref: '#/components/responses/NotFound24'
+          $ref: '#/components/responses/NotFound20'
         '429':
-          $ref: '#/components/responses/TooManyRequests24'
+          $ref: '#/components/responses/TooManyRequests20'
   /bulk-jobs/{id}/run:
     parameters:
       - $ref: '#/components/parameters/uuid1'
@@ -2903,17 +2903,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-job'
         '400':
-          $ref: '#/components/responses/BadRequest24'
+          $ref: '#/components/responses/BadRequest20'
         '401':
-          $ref: '#/components/responses/Unauthorized24'
+          $ref: '#/components/responses/Unauthorized20'
         '403':
-          $ref: '#/components/responses/Forbidden24'
+          $ref: '#/components/responses/Forbidden20'
         '404':
-          $ref: '#/components/responses/NotFound24'
+          $ref: '#/components/responses/NotFound20'
         '409':
           $ref: '#/components/responses/JobLimitExceeded'
         '429':
-          $ref: '#/components/responses/TooManyRequests24'
+          $ref: '#/components/responses/TooManyRequests20'
   /campaigns:
     get:
       summary: List eMarketing Campaigns
@@ -4911,7 +4911,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/custom-field3'
+              $ref: '#/components/schemas/custom-field2'
       tags:
         - Custom Fields
       responses:
@@ -5690,7 +5690,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/event'
+              $ref: '#/components/schemas/event1'
       responses:
         '202':
           description: |
@@ -6267,7 +6267,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/event'
+                $ref: '#/components/schemas/event1'
         '401':
           $ref: '#/components/responses/Unauthorized1'
         '403':
@@ -7278,7 +7278,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/custom-field2'
+              $ref: '#/components/schemas/custom-field1'
         required: true
       responses:
         '200':
@@ -7287,7 +7287,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/custom-field2'
+                $ref: '#/components/schemas/custom-field1'
         '400':
           $ref: '#/components/responses/BadRequest1'
         '401':
@@ -7723,7 +7723,7 @@ paths:
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/expandAirActualQuestionAnswer'
         - $ref: '#/components/parameters/sortForAirActual'
-        - $ref: '#/components/parameters/filter1'
+        - $ref: '#/components/parameters/filter2'
   /events/{id}/event-travel/air-requests:
     parameters:
       - $ref: '#/components/parameters/id2'
@@ -7763,7 +7763,7 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/sortForAirRequest'
-        - $ref: '#/components/parameters/filter1'
+        - $ref: '#/components/parameters/filter2'
         - $ref: '#/components/parameters/expandAirRequestQuestionAnswer'
   /events/{id}/event-travel/alternate-answers:
     parameters:
@@ -7802,7 +7802,7 @@ paths:
         - $ref: '#/components/parameters/before'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
-        - $ref: '#/components/parameters/filter1'
+        - $ref: '#/components/parameters/filter2'
   /events/{id}/event-travel/hotel-requests:
     parameters:
       - $ref: '#/components/parameters/id2'
@@ -7843,7 +7843,7 @@ paths:
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/expandHotelRequestQuestionAnswer'
         - $ref: '#/components/parameters/sortForHotelRequest'
-        - $ref: '#/components/parameters/filter1'
+        - $ref: '#/components/parameters/filter2'
   /events/{id}/event-travel/housing-reservation-requests:
     parameters:
       - $ref: '#/components/parameters/id2'
@@ -7882,7 +7882,7 @@ paths:
         - $ref: '#/components/parameters/before'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
-        - $ref: '#/components/parameters/filter1'
+        - $ref: '#/components/parameters/filter2'
   /events/{id}/exhibitor-categories:
     get:
       summary: List Exhibitor Categories
@@ -14988,13 +14988,13 @@ paths:
         '200':
           $ref: '#/components/responses/UsersGroupsResponse'
         '400':
-          $ref: '#/components/responses/BadRequest17'
+          $ref: '#/components/responses/BadRequest14'
         '401':
-          $ref: '#/components/responses/Unauthorized17'
+          $ref: '#/components/responses/Unauthorized14'
         '403':
-          $ref: '#/components/responses/Forbidden17'
+          $ref: '#/components/responses/Forbidden14'
         '429':
-          $ref: '#/components/responses/TooManyRequests17'
+          $ref: '#/components/responses/TooManyRequests14'
       parameters:
         - $ref: '#/components/parameters/startIndex'
         - $ref: '#/components/parameters/count1'
@@ -15017,11 +15017,11 @@ paths:
         '200':
           $ref: '#/components/responses/ResourceTypes'
         '401':
-          $ref: '#/components/responses/Unauthorized17'
+          $ref: '#/components/responses/Unauthorized14'
         '403':
-          $ref: '#/components/responses/Forbidden17'
+          $ref: '#/components/responses/Forbidden14'
         '429':
-          $ref: '#/components/responses/TooManyRequests17'
+          $ref: '#/components/responses/TooManyRequests14'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15047,15 +15047,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResourceType'
         '400':
-          $ref: '#/components/responses/BadRequest17'
+          $ref: '#/components/responses/BadRequest14'
         '401':
-          $ref: '#/components/responses/Unauthorized17'
+          $ref: '#/components/responses/Unauthorized14'
         '403':
-          $ref: '#/components/responses/Forbidden17'
+          $ref: '#/components/responses/Forbidden14'
         '404':
-          $ref: '#/components/responses/NotFound17'
+          $ref: '#/components/responses/NotFound14'
         '429':
-          $ref: '#/components/responses/TooManyRequests17'
+          $ref: '#/components/responses/TooManyRequests14'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15075,11 +15075,11 @@ paths:
         '200':
           $ref: '#/components/responses/UsersSchemaResponse'
         '401':
-          $ref: '#/components/responses/Unauthorized17'
+          $ref: '#/components/responses/Unauthorized14'
         '403':
-          $ref: '#/components/responses/Forbidden17'
+          $ref: '#/components/responses/Forbidden14'
         '429':
-          $ref: '#/components/responses/TooManyRequests17'
+          $ref: '#/components/responses/TooManyRequests14'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15105,15 +15105,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/UsersSchema'
         '400':
-          $ref: '#/components/responses/BadRequest17'
+          $ref: '#/components/responses/BadRequest14'
         '401':
-          $ref: '#/components/responses/Unauthorized17'
+          $ref: '#/components/responses/Unauthorized14'
         '403':
-          $ref: '#/components/responses/Forbidden17'
+          $ref: '#/components/responses/Forbidden14'
         '404':
-          $ref: '#/components/responses/NotFound17'
+          $ref: '#/components/responses/NotFound14'
         '429':
-          $ref: '#/components/responses/TooManyRequests17'
+          $ref: '#/components/responses/TooManyRequests14'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15133,11 +15133,11 @@ paths:
         '200':
           $ref: '#/components/responses/ServiceProviderConfig'
         '401':
-          $ref: '#/components/responses/Unauthorized17'
+          $ref: '#/components/responses/Unauthorized14'
         '403':
-          $ref: '#/components/responses/Forbidden17'
+          $ref: '#/components/responses/Forbidden14'
         '429':
-          $ref: '#/components/responses/TooManyRequests17'
+          $ref: '#/components/responses/TooManyRequests14'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15166,15 +15166,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '400':
-          $ref: '#/components/responses/BadRequest17'
+          $ref: '#/components/responses/BadRequest14'
         '401':
-          $ref: '#/components/responses/Unauthorized17'
+          $ref: '#/components/responses/Unauthorized14'
         '403':
-          $ref: '#/components/responses/Forbidden17'
+          $ref: '#/components/responses/Forbidden14'
         '409':
-          $ref: '#/components/responses/Conflict10'
+          $ref: '#/components/responses/Conflict9'
         '429':
-          $ref: '#/components/responses/TooManyRequests17'
+          $ref: '#/components/responses/TooManyRequests14'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15226,13 +15226,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/Users'
         '400':
-          $ref: '#/components/responses/BadRequest17'
+          $ref: '#/components/responses/BadRequest14'
         '401':
-          $ref: '#/components/responses/Unauthorized17'
+          $ref: '#/components/responses/Unauthorized14'
         '403':
-          $ref: '#/components/responses/Forbidden17'
+          $ref: '#/components/responses/Forbidden14'
         '429':
-          $ref: '#/components/responses/TooManyRequests17'
+          $ref: '#/components/responses/TooManyRequests14'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15258,15 +15258,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '400':
-          $ref: '#/components/responses/BadRequest17'
+          $ref: '#/components/responses/BadRequest14'
         '401':
-          $ref: '#/components/responses/Unauthorized17'
+          $ref: '#/components/responses/Unauthorized14'
         '403':
-          $ref: '#/components/responses/Forbidden17'
+          $ref: '#/components/responses/Forbidden14'
         '404':
-          $ref: '#/components/responses/NotFound17'
+          $ref: '#/components/responses/NotFound14'
         '429':
-          $ref: '#/components/responses/TooManyRequests17'
+          $ref: '#/components/responses/TooManyRequests14'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15296,15 +15296,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '400':
-          $ref: '#/components/responses/BadRequest17'
+          $ref: '#/components/responses/BadRequest14'
         '401':
-          $ref: '#/components/responses/Unauthorized17'
+          $ref: '#/components/responses/Unauthorized14'
         '403':
-          $ref: '#/components/responses/Forbidden17'
+          $ref: '#/components/responses/Forbidden14'
         '404':
-          $ref: '#/components/responses/NotFound17'
+          $ref: '#/components/responses/NotFound14'
         '429':
-          $ref: '#/components/responses/TooManyRequests17'
+          $ref: '#/components/responses/TooManyRequests14'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15326,13 +15326,13 @@ paths:
           description: Successfully deleted a User.
           headers: {}
         '401':
-          $ref: '#/components/responses/Unauthorized17'
+          $ref: '#/components/responses/Unauthorized14'
         '403':
-          $ref: '#/components/responses/Forbidden17'
+          $ref: '#/components/responses/Forbidden14'
         '404':
-          $ref: '#/components/responses/NotFound17'
+          $ref: '#/components/responses/NotFound14'
         '429':
-          $ref: '#/components/responses/TooManyRequests17'
+          $ref: '#/components/responses/TooManyRequests14'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -20453,7 +20453,7 @@ components:
       schema:
         type: string
         example: event.id eq '103097a4-143d-11e5-9f99-d0a637ee0032' and id in ('313097a4-143d-11e5-9f99-d0a637ee0897','423097a4-143d-11e5-9f99-d0a637ee0897') and deleted eq 'false' and creationType eq 'MANUAL'
-    filter1:
+    filter2:
       name: filter
       in: query
       required: false
@@ -21335,6 +21335,21 @@ components:
       schema:
         type: string
         example: lastModifiedBy:DESC
+    sort10:
+      in: query
+      name: sort
+      required: false
+      description: |
+        The `sort` query parameter sorts items in the list of results and organizes them according to your preference.
+        There are two orders:
+          * ascending: ASC
+          * descending: DESC
+
+        The following fields are sortable:
+          * lastModified
+      schema:
+        example: lastModified:DESC
+        type: string
     sort3:
       name: sort
       required: false
@@ -21453,21 +21468,6 @@ components:
           * checkIn
       schema:
         example: contact.company:DESC,contact.title:ASC
-        type: string
-    sort9:
-      in: query
-      name: sort
-      required: false
-      description: |
-        The `sort` query parameter sorts items in the list of results and organizes them according to your preference.
-        There are two orders:
-          * ascending: ASC
-          * descending: DESC
-
-        The following fields are sortable:
-          * lastModified
-      schema:
-        example: lastModified:DESC
         type: string
     sortForAirActual:
       name: sort
@@ -21958,7 +21958,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/user-group.json'
+            $ref: '#/components/schemas/AccountUserGroup'
   responses:
     BadRequest1:
       description: Bad request
@@ -21969,7 +21969,7 @@ components:
           example:
             code: 400
             message: Bad Request
-    BadRequest17:
+    BadRequest14:
       description: Bad request
       content:
         application/json:
@@ -21981,7 +21981,7 @@ components:
             status: 400
             detail: Request is unparsable, syntactically incorrect, or violates schema.
             scimType: invalidSyntax
-    BadRequest24:
+    BadRequest20:
       description: Bad request
       content:
         application/json:
@@ -22002,7 +22002,7 @@ components:
           example:
             code: 409
             message: Conflict
-    Conflict10:
+    Conflict9:
       description: The request conflicts with current state of the target resource
       content:
         application/json:
@@ -22044,7 +22044,7 @@ components:
           example:
             code: 403
             message: Access Forbidden
-    Forbidden17:
+    Forbidden14:
       description: You do not have access to the resource
       content:
         application/json:
@@ -22055,7 +22055,7 @@ components:
               - urn:ietf:params:scim:api:messages:2.0:Error
             status: 403
             detail: User is Forbidden to make this request
-    Forbidden24:
+    Forbidden20:
       description: You do not have access to the resource
       content:
         application/json:
@@ -22097,7 +22097,7 @@ components:
           example:
             code: 404
             message: Not found
-    NotFound17:
+    NotFound14:
       description: Resource not found
       content:
         application/json:
@@ -22108,7 +22108,7 @@ components:
               - urn:ietf:params:scim:api:messages:2.0:Error
             status: 404
             detail: HTTP 404 Not Found
-    NotFound24:
+    NotFound20:
       description: Resource not found
       content:
         application/json:
@@ -22147,7 +22147,7 @@ components:
           example:
             code: 429
             message: Limit Exceeded
-    TooManyRequests17:
+    TooManyRequests14:
       description: Too Many Requests
       content:
         application/json:
@@ -22158,7 +22158,7 @@ components:
               - urn:ietf:params:scim:api:messages:2.0:Error
             status: 429
             detail: Too Many Requests
-    TooManyRequests24:
+    TooManyRequests20:
       description: Too many requests
       content:
         application/json:
@@ -22173,7 +22173,7 @@ components:
           example:
             code: 401
             message: Unauthorized
-    Unauthorized17:
+    Unauthorized14:
       description: Bad or expired token
       content:
         application/json:
@@ -22185,7 +22185,7 @@ components:
             status: 401
             detail: Request failed authentication/authorization process
             scimType: invalidValue
-    Unauthorized24:
+    Unauthorized20:
       description: Bad or expired token
       content:
         application/json:
@@ -22211,19 +22211,19 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/user-group.json'
+            $ref: '#/components/schemas/AccountUserGroup'
     UserGroups:
       description: List of User Groups
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/user-groups.json'
+            $ref: '#/components/schemas/UserGroups'
     UsersGroupsResponse:
       description: Successfully retrieved a list of SCIM groups.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/UserGroups'
+            $ref: '#/components/schemas/UserGroups1'
     UsersSchemaResponse:
       description: Successfully retrieved a list of schemas.
       content:
@@ -22238,180 +22238,35 @@ components:
           schema:
             $ref: '#/components/schemas/ValidToken'
   schemas:
-    Account:
-      title: Account
-      description: The definition of a Cvent Core Account. This is the primary entity a Cvent User interacts. Once logged into the Cvent platform, the User can interact with the different product lines the account is allotted to.
+    account-budget-items-paginated-response:
+      title: AccountBudgetItemsPaginatedResponse
+      description: The response from a request to retrieve a paginated list of budget items across all events linked to the account.
       required:
-        - id
-        - tinyId
-        - number
-        - stub
-        - activated
-        - inactivated
-        - audit
+        - paging
+        - data
       type: object
-      allOf:
-        - title: Account Base
-          description: The base definition of a Cvent Core Account.
-          required:
-            - status
-            - type
-            - name
-            - company
-            - url
-            - showCreditCardWarning
-            - creditCardEntryDeadline
-          type: object
-          properties:
-            customer:
-              $ref: '#/components/schemas/customer-reference.json'
-            name:
-              type: string
-              description: The name of the Account.
-              example: Cvent
-            company:
-              type: string
-              description: The Account's company name.
-              example: Cvent
-            url:
-              type: string
-              format: uri
-              description: A url which points to the Account's company website.
-              example: https://www.cvent.com
-            status:
-              $ref: '#/components/schemas/account-status.json'
-            type:
-              $ref: '#/components/schemas/account-type.json'
-            showCreditCardWarning:
-              type: boolean
-              description: True means to show the credit card warning for the Account.
-            creditCardEntryDeadline:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date time of the Account's credit card entry deadline.
-              example: '2019-07-15T09:00:39Z'
       properties:
-        organization:
-          type: object
-          allOf:
-            - title: Organization Reference
-              description: A model used to reference the identifier to a Cvent Organization.
-              required:
-                - id
-                - number
-                - stub
-              type: object
-              properties:
-                id:
-                  $ref: '#/components/schemas/organization-id.json'
-                stub:
-                  $ref: '#/components/schemas/Organization1/properties/stub/allOf/0'
-                number:
-                  $ref: '#/components/schemas/organization-number.json'
-            - readOnly: true
-        id:
-          $ref: '#/components/schemas/account-id.json'
-        tinyId:
-          type: string
-          description: The Account's shortened alphanumeric identifier.
-          example: vnzb
-          readOnly: true
-        number:
-          $ref: '#/components/schemas/account-number.json'
-        stub:
-          $ref: '#/components/schemas/account-stub.json'
-        administratorRole:
-          type: object
-          allOf:
-            - title: Account User Role Reference
-              description: A model used to reference a Cvent core account user role by its ID.
-              required:
-                - id
-              type: object
-              properties:
-                id:
-                  $ref: '#/components/schemas/AccountUserRole/properties/id/allOf/1'
-            - readOnly: true
-        activated:
-          type: string
-          format: date-time
-          description: The ISO 8601 zoned date time when this Account has been activated.
-          readOnly: true
-          example: '2019-07-15T09:00:39Z'
-        inactivated:
-          type: string
-          format: date-time
-          description: The ISO 8601 zoned date time when this Account has been inactivated.
-          readOnly: true
-          example: '2019-07-15T09:00:39Z'
-        audit:
-          type: object
-          allOf:
-            - title: Audit
-              description: Audit information
-              type: object
-              properties:
-                created:
-                  type: string
-                  format: date-time
-                  description: The ISO 8601 zoned date time when this record was created.
-                  readOnly: true
-                  example: '2017-01-02T02:00:00Z'
-                createdBy:
-                  type: string
-                  description: The identifier of the user that created this record.
-                  readOnly: true
-                  example: hporter
-                lastModified:
-                  type: string
-                  format: date-time
-                  description: The ISO 8601 zoned date time when this record was updated.
-                  readOnly: true
-                  example: '2019-02-12T03:00:00Z'
-                lastModifiedBy:
-                  type: string
-                  description: The identifier of the user that last updated this record.
-                  readOnly: true
-                  example: hporter
-            - readOnly: true
-    account-budget-item-list-response.json:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        data:
+          type: array
+          maxItems: 200
+          items:
+            $ref: '#/components/schemas/AccountBudgetItemListResponse'
+          description: Collection of budget items.
+    AccountBudgetItemListResponse:
       title: AccountBudgetItemListResponse
       description: The response from a request to retrieve list of budget items across all events linked to the account.
       type: object
       allOf:
-        - title: Audit
-          description: Audit information
-          type: object
-          properties:
-            created:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date time when this record was created.
-              readOnly: true
-              example: '2017-01-02T02:00:00Z'
-            createdBy:
-              type: string
-              description: The identifier of the user that created this record.
-              readOnly: true
-              example: hporter
-            lastModified:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date time when this record was updated.
-              readOnly: true
-              example: '2019-02-12T03:00:00Z'
-            lastModifiedBy:
-              type: string
-              description: The identifier of the user that last updated this record.
-              readOnly: true
-              example: hporter
+        - $ref: '#/components/schemas/Audit'
       properties:
         event:
-          $ref: '#/components/schemas/event.json1'
+          $ref: '#/components/schemas/event'
         rfp:
-          $ref: '#/components/schemas/rfp-id.json'
+          $ref: '#/components/schemas/event'
         budgetVersion:
-          $ref: '#/components/schemas/budget-version-id.json'
+          $ref: '#/components/schemas/event'
         id:
           type: string
           description: The identifier of the budget item.
@@ -22430,161 +22285,44 @@ components:
           description: User defined code of the budget item.
           example: AIRTRP
         category:
-          $ref: '#/components/schemas/budget-category.json'
+          $ref: '#/components/schemas/BudgetCategory'
         subCategory:
-          $ref: '#/components/schemas/budget-sub-category.json'
+          $ref: '#/components/schemas/BudgetSubCategory'
         deleted:
           type: boolean
           description: True indicates the event budget item is deleted.
           example: false
-    account-budget-items-paginated-response:
-      title: AccountBudgetItemsPaginatedResponse
-      description: The response from a request to retrieve a paginated list of budget items across all events linked to the account.
-      required:
-        - paging
-        - data
-      type: object
-      properties:
-        paging:
-          $ref: '#/components/schemas/paging.json'
-        data:
-          type: array
-          maxItems: 200
-          items:
-            $ref: '#/components/schemas/account-budget-item-list-response.json'
-          description: Collection of budget items.
-    account-id.json:
-      title: Account Id
-      description: The unique auto-incremented numeric identifier generated for an Account.
-      type: integer
-      readOnly: true
-      example: 801472078
-    account-number.json:
-      title: Account Number
-      description: The unique customer defined alphanumeric identifier used by customers to differentiate accounts when logging into the Cvent Platform. This identifier can be modified to a different unused identifier.
-      type: string
-      example: CVENT00001
-      minLength: 10
-      maxLength: 10
-      pattern: ^[A-Z]{3,}[0-9]*$
-    account-status.json:
-      title: Account Status
-      description: |-
-        Enumerated value representing the status of an Account.
-
-        Possible values:
-        * ACTIVE - Account is operational.
-        * INACTIVE - Account deactivated either temporarily or permanently and pending archival or purge process.
-        * PURGED - Account data deleted from main database.
-        * PURGING_ERROR - Purging of the account by Archival Service failed.
-        * READ_ONLY - Account allows users to log in and access existing data (e.g., run reports, export/download), but prevents creation or activation of any new data or workflow.
-        * SUSPENDED - Account temporarily disabled due to payment or other non compliance.
-        * QUEUED_FOR_PURGE - Account is queued to be purged with Archival Service with standard priority. Expected to be purged within 30 days.
-      readOnly: true
-      type: string
-      enum:
-        - ACTIVE
-        - INACTIVE
-        - PURGED
-        - PURGING_ERROR
-        - READ_ONLY
-        - SUSPENDED
-        - QUEUED_FOR_PURGE
-    account-stub.json:
-      title: Account Stub
-      type: string
-      format: uuid
-      description: Unique identifier for an account. This identifier is safe to use for external references.
-      readOnly: true
-      example: 1CC2F054-B174-4FC3-9501-F63AA5FF84BD
-    account-type.json:
-      title: Account Type
-      description: |-
-        An enumeration of different available account types.
-        Possible values:
-        * CUSTOMER - The account is owned by a Customer at Cvent.
-        * CVENT_MARKETING - The account is owned by Cvent's Marketing Team.
-        * CVENT_INTERNAL - The account is owned by an internal Cvent team or individual employee.
-        * CUSTOMER_SANDBOX - The account is owned by a Customer for sandbox testing purposes.
-      type: string
-      enum:
-        - CUSTOMER
-        - CVENT_MARKETING
-        - CVENT_INTERNAL
-        - CUSTOMER_SANDBOX
-      example: CUSTOMER
-    AccountStateCategory:
-      title: Account State Category
-      description: Cvent-specific grouping of state/province values for a country, used to determine which states/provinces are available to an account and how they are grouped in address dropdowns.
+    AccountUserGroup:
+      title: Account User Group
+      description: A collection of account users which is used to help manage access and visibility to various other Cvent domain entities like events, surveys, account emails, and more. For example, a user group can be associated to specific events to allow the users within that group to view the events within Cvent's platform.
       required:
         - id
         - name
-        - description
-        - countryCode
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The state category id
-          example: 1
-        name:
-          type: string
-          description: The state category name.
-          example: U.S. States
-          readOnly: true
-        description:
-          type: string
-          description: A description of the state category.
-          example: United States
-          readOnly: true
-        countryCode:
-          type: string
-          allOf:
-            - title: Country Code
-              type: string
-              example: US
-              description: The ISO 3166-1 code which represents the Country. Visit [Cvent's Country Code API Standards](https://developers.cvent.com/docs/rest-api/api-standards#country-codes) to learn more.
-          example: US
-          readOnly: true
-    AccountUserRole:
-      title: Account User Role
-      description: Represents an account user role in Cvent. An account user role defines a set of permissions and is assigned to account users. The permissions associated with the role determine what actions the user can perform within the account.
-      required:
-        - id
-        - name
-        - administratorRole
         - created
         - createdBy
         - lastModified
         - lastModifiedBy
-      allOf:
-        - $ref: '#/components/schemas/Account/properties/audit/allOf/0'
       type: object
+      allOf:
+        - $ref: '#/components/schemas/Audit'
       properties:
         id:
           type: string
-          allOf:
-            - readOnly: true
-            - title: Account User Role Id
-              description: Represents the unique ID of an account user role.
-              type: string
-              format: uuid
-              example: 946505F6-6B29-421A-BDA2-0815FCDEA73C
+          format: uuid
+          description: The unique identifier of the user group.
+          example: EBF2273A-35A5-BD67-A292-397539D13270
+          readOnly: true
         name:
           type: string
-          description: The name of the account user role.
-          example: Administrators
+          description: The name of the user group.
+          example: MyUserGroup
           minLength: 1
           maxLength: 50
         description:
           type: string
-          description: The description of the account user role.
-          example: A descriptive message about the account user role.
+          description: The description of the user group.
+          example: MyUserGroupDescription
           maxLength: 300
-        administratorRole:
-          type: boolean
-          description: True means this account user role is an administrative account user role.
-          readOnly: true
     ActivityAd:
       type: object
       title: ActivityAd
@@ -23471,7 +23209,7 @@ components:
           maxLength: 40
           example: Vienna
         stateProvince:
-          $ref: '#/components/schemas/StateProvince1'
+          $ref: '#/components/schemas/StateProvince'
         zipPostalCode:
           type: string
           description: ZIP or postal code.
@@ -23644,7 +23382,7 @@ components:
       description: A general ledger code associated to a fee.
       type: object
       allOf:
-        - $ref: '#/components/schemas/GeneralLedger1'
+        - $ref: '#/components/schemas/GeneralLedger2'
       properties:
         allocation:
           type: number
@@ -23678,6 +23416,8 @@ components:
           items:
             $ref: '#/components/schemas/AirActualDetail'
           description: Collection of air actuals for attendees.
+          minItems: 0
+          maxItems: 200
     air-reservation-detail:
       title: AirReservationPaginatedResponse
       description: The response from a request to get the list of air reservation for the attendees.  This includes the paging object as well as the collection of air actual details.
@@ -23768,6 +23508,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AirActual'
+          minItems: 0
+          maxItems: 200
     AirlinePreference:
       title: Airline Preference
       description: Representation of airlines based on preference
@@ -23910,7 +23652,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AirRequest'
-    allocation-budget-item-id.json:
+    AllocateBy:
+      title: AllocateBy
+      enum:
+        - PERCENTAGE
+        - AMOUNT
+      type: string
+      description: Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700 from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000 budget).
+      example: AMOUNT
+    AllocationBudgetItemId:
       title: AllocationBudgetItemId
       description: Represents the budget item where the allocation was made.
       type: object
@@ -23920,7 +23670,7 @@ components:
           description: Identifier of a particular budget item.
           format: uuid
           example: 49037583-aec5-4ca7-8f2a-0afd499b10da
-    allocation-category.json:
+    AllocationCategory:
       title: AllocationCategory
       description: Allocation category in which budget item cost is allocated.
       type: object
@@ -23930,7 +23680,7 @@ components:
           type: string
           format: uuid
           example: e9ee2669-65db-46f8-872c-dbafbf9b0e92
-    allocation-general-ledger.json:
+    AllocationGeneralLedger:
       title: AllocationGeneralLedger
       description: General Ledger to which the budget of a budget item is allocated.
       type: object
@@ -23940,7 +23690,7 @@ components:
           type: string
           format: uuid
           example: ff28f935-3670-43d2-98f6-5247a18f686c
-    allocation-subcategory.json:
+    AllocationSubCategory:
       title: AllocationSubCategory
       description: Allocation subcategory in which budget item cost is allocated.
       type: object
@@ -25329,7 +25079,7 @@ components:
           items:
             $ref: '#/components/schemas/attendee-appointment-meeting-interest'
           description: Collection of appointment meeting interests.
-    attendee-audience-segment-association.json:
+    attendee-audience-segment-association:
       title: AttendeeAudienceSegmentAssociation
       description: Represents an audience segment associated with an attendee.
       required:
@@ -25337,7 +25087,7 @@ components:
       type: object
       properties:
         segment:
-          $ref: '#/components/schemas/segment.json'
+          $ref: '#/components/schemas/Segment'
     attendee-audience-segment-associations-paginated-response:
       title: AttendeeAudienceSegmentAssociationsPaginatedResponse
       description: The paginated response from a request to get the list of audience segments associated with an attendee.
@@ -25347,11 +25097,11 @@ components:
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
-            $ref: '#/components/schemas/attendee-audience-segment-association.json'
+            $ref: '#/components/schemas/attendee-audience-segment-association'
           description: Collection of audience segment associations for the attendee.
     attendee-credit-type.json:
       title: AttendeeCreditType
@@ -25466,7 +25216,7 @@ components:
           description: Description of the engagement score.
           example: A score to capture engagement for general attendees.
         event:
-          $ref: '#/components/schemas/event.json5'
+          $ref: '#/components/schemas/event.json3'
         default:
           type: boolean
           description: True indicates this is the default engagement score in the event.
@@ -25639,64 +25389,6 @@ components:
           type: string
           description: The error message contains reason of a failed email.
           example: attendee does not exist.
-    attendee-segment:
-      title: AttendeeSegment
-      required:
-        - eventId
-        - name
-      description: Represents an attendee segment. Attendee segments are assigned to events and provide the ability for planners to segment their attendees into groups and better manage the attendee experience based on their defined segments.
-      allOf:
-        - title: Audit
-          description: Audit information
-          type: object
-          properties:
-            created:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date time when this record was created.
-              readOnly: true
-              example: '2017-01-02T02:00:00Z'
-            createdBy:
-              type: string
-              description: The identifier of the user that created this record.
-              readOnly: true
-              example: hporter
-            lastModified:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date time when this record was updated.
-              readOnly: true
-              example: '2019-02-12T03:00:00Z'
-            lastModifiedBy:
-              type: string
-              description: The identifier of the user that last updated this record.
-              readOnly: true
-              example: hporter
-      type: object
-      properties:
-        eventId:
-          type: string
-          format: uuid
-          description: ID of the event where the attendee segment exists.
-          example: 103097a4-143d-11e5-9f99-d0a637ee0032
-        name:
-          type: string
-          description: Name of the attendee segment. Must be unique in the event where the segment exists.
-          maxLength: 100
-          example: VIP Attendees
-        description:
-          type: string
-          description: Description of the attendee segment.
-          maxLength: 2500
-          example: A group of VIP attendees.
-        status:
-          type: string
-          description: 'Status of the attendee segment. ACTIVE: This attendee segment is active and in use. INACTIVE: This attendee segment is marked as inactive.'
-          example: ACTIVE
-          enum:
-            - ACTIVE
-            - INACTIVE
-          default: ACTIVE
     attendee-signature-response.json:
       title: AttendeeSignatureResponse
       description: Attendee's Signature Response.
@@ -26649,11 +26341,11 @@ components:
         - name
       description: Represents an audience segment. Audience segments are assigned to events and provide the ability for planners to segment their attendees into groups and better manage the attendee experience based on their defined segments.
       allOf:
-        - $ref: '#/components/schemas/attendee-segment/allOf/0'
+        - $ref: '#/components/schemas/Audit'
       type: object
       properties:
         event:
-          $ref: '#/components/schemas/event.json'
+          $ref: '#/components/schemas/Event3'
         name:
           type: string
           description: Name of the audience segment. Must be unique in the event where the segment exists.
@@ -26668,44 +26360,16 @@ components:
       title: AudienceSegmentCreate
       description: Represents a request to create an audience segment.
       allOf:
-        - title: AudienceSegment
-          required:
-            - event
-            - name
-          description: Represents an audience segment. Audience segments are assigned to events and provide the ability for planners to segment their attendees into groups and better manage the attendee experience based on their defined segments.
-          allOf:
-            - $ref: '#/components/schemas/attendee-segment/allOf/0'
-          type: object
-          properties:
-            event:
-              $ref: '#/components/schemas/event.json'
-            name:
-              type: string
-              description: Name of the audience segment. Must be unique in the event where the segment exists.
-              maxLength: 100
-              example: VIP Attendees
-            description:
-              type: string
-              description: Description of the audience segment.
-              maxLength: 2500
-              example: A group of VIP attendees.
+        - $ref: '#/components/schemas/audience-segment'
       type: object
       properties:
         creationType:
-          $ref: '#/components/schemas/audience-segment-creation-type.json'
-    audience-segment-creation-type.json:
-      title: AudienceSegmentCreationType
-      type: string
-      description: Creation type of the audience segment.
-      example: MANUAL
-      enum:
-        - MANUAL
-      default: MANUAL
+          $ref: '#/components/schemas/AudienceSegmentCreationType'
     audience-segment-response:
       title: AudienceSegmentResponse
       description: Details of an audience segment.
       allOf:
-        - $ref: '#/components/schemas/audience-segment-create/allOf/0'
+        - $ref: '#/components/schemas/audience-segment'
       type: object
       properties:
         id:
@@ -26715,7 +26379,7 @@ components:
           readOnly: true
           example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
         creationType:
-          $ref: '#/components/schemas/existing-audience-segment-creation-type.json'
+          $ref: '#/components/schemas/ExistingAudienceSegmentCreationType'
         deleted:
           type: boolean
           description: Boolean representing whether segment is deleted or not.
@@ -26731,12 +26395,20 @@ components:
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
             $ref: '#/components/schemas/audience-segment-response'
           description: Collection of audience segments.
+    AudienceSegmentCreationType:
+      title: AudienceSegmentCreationType
+      type: string
+      description: Creation type of the audience segment.
+      example: MANUAL
+      enum:
+        - MANUAL
+      default: MANUAL
     audio-track:
       title: AudioTrack
       description: The audio track.
@@ -27052,7 +26724,7 @@ components:
         attendee:
           $ref: '#/components/schemas/Attendee1'
         event:
-          $ref: '#/components/schemas/Event3'
+          $ref: '#/components/schemas/Event4'
     badge-paginated-response:
       title: BadgeListResponse
       type: object
@@ -27197,42 +26869,6 @@ components:
           type: string
           description: The details of the target associated with the banner link.
           example: https://www.cvent.com
-    base-address.json:
-      title: Base Address
-      description: Base Address Model
-      type: object
-      properties:
-        address1:
-          type: string
-          maxLength: 40
-          description: The first line of an address.
-          example: Cvent Inc.
-        address2:
-          type: string
-          maxLength: 40
-          description: The second line of an address.
-          example: 4001 West Parmer Lane
-        address3:
-          type: string
-          maxLength: 40
-          description: The third line of an address.
-          example: PO Box 123
-        city:
-          type: string
-          maxLength: 40
-          description: The name of the city.
-          example: Austin
-        countryCode:
-          type: string
-          maxLength: 3
-          minLength: 2
-          description: ISO 3166 two-letter (alpha-2) country code.
-          example: US
-        postalCode:
-          type: string
-          maxLength: 25
-          description: Postal code (also known as zipcode) of the address.
-          example: '78727'
     BaseAddress:
       title: Base Address
       description: Base Address Model
@@ -27455,7 +27091,7 @@ components:
         attendee:
           $ref: '#/components/schemas/Attendee1'
         event:
-          $ref: '#/components/schemas/Event3'
+          $ref: '#/components/schemas/Event4'
         exhibitor:
           $ref: '#/components/schemas/Exhibitor'
     booth-staff-response:
@@ -27591,35 +27227,6 @@ components:
       enum:
         - BRIDE
         - GROOM
-    budget-allocateby.json:
-      title: AllocateBy
-      enum:
-        - PERCENTAGE
-        - AMOUNT
-      type: string
-      description: Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700 from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000 budget).
-      example: AMOUNT
-    budget-allocation.json:
-      title: BudgetAllocation
-      description: Budget allocations within a budget item for an event.
-      type: object
-      required:
-        - value
-      properties:
-        category:
-          $ref: '#/components/schemas/allocation-category.json'
-        subcategory:
-          $ref: '#/components/schemas/allocation-subcategory.json'
-        generalLedger:
-          $ref: '#/components/schemas/allocation-general-ledger.json'
-        value:
-          type: number
-          description: 'Amount from the actual budget allocated to this category or subcategory. Note: The sum of amounts for all allocations should equal the total actual amount for that budget item.'
-          example: 200.5
-        note:
-          type: string
-          description: Remark by an allocator for an allocation.
-          example: This will be handled by manager.
     budget-allocations-list:
       title: BudgetAllocationsList
       description: Request body  for creating or updating the budget allocations for the event. The soft limit for the maximum number of allocations is 100.
@@ -27629,12 +27236,12 @@ components:
         - allocations
       properties:
         allocateBy:
-          $ref: '#/components/schemas/budget-allocateby.json'
+          $ref: '#/components/schemas/AllocateBy'
         allocations:
           type: array
           maxItems: 120
           items:
-            $ref: '#/components/schemas/budget-allocation.json'
+            $ref: '#/components/schemas/BudgetAllocation'
           description: List of budget allocations.
     budget-allocations-paginated-list-response:
       title: BudgetAllocationsPaginatedListResponse
@@ -27645,13 +27252,82 @@ components:
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
-            $ref: '#/components/schemas/budget-allocations-paginated-response.json'
+            $ref: '#/components/schemas/BudgetAllocationsPaginatedResponse'
           description: Collection of budget allocations.
-    budget-allocations-paginated-response.json:
+    budget-item:
+      title: CreateUpdateBudgetItem
+      description: Budget item updates associated with an event.
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/BudgetItem'
+    budget-item-response:
+      title: BudgetItemResponse
+      description: Customized budget item associated with an event.
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/BudgetItem'
+      properties:
+        customFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/BudgetItemCustomField'
+          description: List of budget item custom fields.
+    budget-items-paginated-response:
+      title: BudgetItemsPaginatedResponse
+      description: The response from a request to get the list of budget items for the event.
+      required:
+        - paging
+        - data
+      type: object
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/BudgetItemListResponse'
+          description: Collection of budget items.
+    budget-vendors-paginated-response:
+      title: Budget Vendors Paginated Response
+      description: The response from a request to get the list of vendors.
+      required:
+        - paging
+        - data
+      type: object
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        data:
+          type: array
+          description: Collection of budget vendor entities.
+          items:
+            $ref: '#/components/schemas/BudgetVendorResponse'
+    BudgetAllocation:
+      title: BudgetAllocation
+      description: Budget allocations within a budget item for an event.
+      type: object
+      required:
+        - value
+      properties:
+        category:
+          $ref: '#/components/schemas/AllocationCategory'
+        subcategory:
+          $ref: '#/components/schemas/AllocationSubCategory'
+        generalLedger:
+          $ref: '#/components/schemas/AllocationGeneralLedger'
+        value:
+          type: number
+          description: 'Amount from the actual budget allocated to this category or subcategory. Note: The sum of amounts for all allocations should equal the total actual amount for that budget item.'
+          example: 200.5
+        note:
+          type: string
+          description: Remark by an allocator for an allocation.
+          example: This will be handled by manager.
+    BudgetAllocationsPaginatedResponse:
       title: BudgetAllocationsPaginatedResponse
       description: Information about an allocation.
       type: object
@@ -27666,15 +27342,15 @@ components:
               example: 3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329
           description: This is the budget version where this allocation was made.
         budgetItem:
-          $ref: '#/components/schemas/allocation-budget-item-id.json'
+          $ref: '#/components/schemas/AllocationBudgetItemId'
         category:
-          $ref: '#/components/schemas/allocation-category.json'
+          $ref: '#/components/schemas/AllocationCategory'
         subcategory:
-          $ref: '#/components/schemas/allocation-subcategory.json'
+          $ref: '#/components/schemas/AllocationSubCategory'
         generalLedger:
-          $ref: '#/components/schemas/allocation-general-ledger.json'
+          $ref: '#/components/schemas/AllocationGeneralLedger'
         method:
-          $ref: '#/components/schemas/budget-allocateby.json'
+          $ref: '#/components/schemas/AllocateBy'
         value:
           type: number
           description: 'Amount from the actual budget allocated to this category/subcategory or general ledger. Note: The sum of amounts for all allocations should equal the total actual amount for that budget item.'
@@ -27683,7 +27359,7 @@ components:
           type: string
           description: Remark by an allocator for an allocation.
           example: This will be handled by manager.
-    budget-associated-registrant.json:
+    BudgetAssociatedRegistrant:
       title: BudgetAssociatedRegistrant
       description: Contains information about a registrant associated with a budget.
       type: object
@@ -27713,7 +27389,7 @@ components:
           description: Unique identifier for the contact associated with the budget.
           example: 0c478ddc-cf11-4026-a8e5-e6a59ae1c902
           format: uuid
-    budget-category.json:
+    BudgetCategory:
       title: BudgetCategory
       description: Denotes the category assigned to the budget item.
       type: object
@@ -27729,7 +27405,7 @@ components:
           description: Name of the budget category assigned to the budget item.
           example: Travel
           readOnly: true
-    budget-cost-avoidance.json:
+    BudgetCostAvoidance:
       title: BudgetCostAvoidance
       description: Budget cost avoidance information.
       type: object
@@ -27743,7 +27419,28 @@ components:
           maxLength: 5000
           description: Cost avoidance description.
           example: Discounted Cost
-    budget-cost-detail.json:
+    BudgetCostDetail:
+      title: Budget Cost Detail
+      description: Event Budget cost detail information.
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/uuid-property'
+        name:
+          $ref: '#/components/schemas/BudgetCostName'
+        totalCostValue:
+          type: number
+          description: The total cost amount of the budget version in an event.
+          example: 5500.5
+        totalAppliedTax:
+          type: number
+          description: The total tax amount of the budget version in an event for the cost column.
+          example: 500
+        totalAppliedGratuity:
+          type: number
+          description: The total gratuity amount of the budget version in an event for the cost column.
+          example: 100.5
+    BudgetCostDetail-1:
       title: BudgetCostDetail
       description: Budget item cost details.
       type: object
@@ -27755,7 +27452,7 @@ components:
         id:
           $ref: '#/components/schemas/uuid-property'
         name:
-          $ref: '#/components/schemas/budget-cost-name.json'
+          $ref: '#/components/schemas/BudgetCostName'
         units:
           type: number
           description: The number of units associated with a budget item. This field can be any number if the budget item is a Variable cost type. If the budget item uses a Fixed cost type, set this field to 1.
@@ -27765,24 +27462,45 @@ components:
           description: Budget item cost amount.
           example: 100.5
         gratuityDetail:
-          $ref: '#/components/schemas/budget-gratuity.json'
+          $ref: '#/components/schemas/BudgetGratuity'
         taxDetail:
           type: array
           items:
-            $ref: '#/components/schemas/budget-tax.json'
+            $ref: '#/components/schemas/BudgetTax'
           description: Collection of tax related information.
         totalCost:
           type: number
           description: Total cost of budget item including applicable tax and gratuity.
           example: 100.5
           readOnly: true
-    budget-cost-name.json:
+    BudgetCostDetail1:
+      title: BudgetCostDetail
+      description: The budget entry in detail, which consists of the budget category or sub-category, the number of units, the cost per unit, and the total amount.
+      properties:
+        category:
+          $ref: '#/components/schemas/BudgetCategory'
+        subCategory:
+          $ref: '#/components/schemas/BudgetSubCategory'
+        units:
+          type: number
+          description: The number of units associated with a budget item. This field can be any number if the budget item is a *Variable* cost type. If the budget item uses a *Fixed* cost type, set this field to 1.
+          example: 5.2
+        cost:
+          type: number
+          description: The cost amount of the budget item. If the budget item uses a *Fixed* cost type, the value of this field won't be applied to the creation or update of a Meeting Request.
+          example: 100.5
+        totalCost:
+          type: number
+          description: The total cost of the budget item. If the budget item uses a *Variable* cost type, this field will be set as the result of units times cost. The value of this field will be applied to the creation or update of a Meeting Request only if the cost type is *Fixed*.
+          example: 100.5
+          readOnly: true
+    BudgetCostName:
       title: BudgetCostName
       type: string
       description: Denotes the name of the budget column associated to this cost.
       example: Budgeted
       readOnly: true
-    budget-cost-type.json:
+    BudgetCostType:
       title: BudgetCostType
       enum:
         - FIXED
@@ -27790,7 +27508,23 @@ components:
       type: string
       description: Denotes the cost type of a budget item. FIXED costs stay the same regardless of quantity. VARIABLE costs are based on a quantity.
       example: FIXED
-    budget-gratuity.json:
+    BudgetEstimate:
+      title: BudgetEstimate
+      description: The estimated budget of the Meeting Request.
+      properties:
+        currency:
+          type: string
+          description: 'The ISO 4217 standard format currency code used for this budget. Note: the allowed currencies are configured per account. A **BAD REQUEST (400)** error will be returned if the specified currency is not allowed for the account during the creation or update of the Meeting Request.'
+          example: USD
+        costType:
+          $ref: '#/components/schemas/BudgetCostType'
+        costDetail:
+          type: array
+          title: Cost Detail
+          description: A list of budget entry details. Each entry consists of the budget category or sub-category, the number of units, the cost per unit, and the total amount.
+          items:
+            $ref: '#/components/schemas/BudgetCostDetail1'
+    BudgetGratuity:
       title: BudgetGratuity
       description: Budget item gratuity details.
       type: object
@@ -27806,134 +27540,120 @@ components:
           description: Calculated gratuity amount based on gratuity field.
           example: 25.2
           readOnly: true
-    budget-item:
-      title: CreateUpdateBudgetItem
-      description: Budget item updates associated with an event.
+    BudgetItem:
+      title: BudgetItem
+      description: Budget item associated with an event.
       type: object
+      required:
+        - name
+        - costType
+        - category
+        - date
+        - costIncludesTaxGratuity
+        - calculateTaxOnGratuity
+        - currency
+        - conversionRate
+        - gratuityType
+        - status
       allOf:
-        - title: BudgetItem
-          description: Budget item associated with an event.
-          type: object
-          required:
-            - name
-            - costType
-            - category
-            - date
-            - costIncludesTaxGratuity
-            - calculateTaxOnGratuity
-            - currency
-            - conversionRate
-            - gratuityType
-            - status
-          allOf:
-            - title: EventId
-              description: Event ID Information.
-              type: object
-              properties:
-                event:
-                  type: object
-                  properties:
-                    id:
-                      $ref: '#/components/schemas/uuid-property'
-                  description: The identifier of the Event.
-                  readOnly: true
-          properties:
-            id:
-              type: string
-              description: The identifier of the budget item.
-              format: uuid
-              example: 9463c74e-18c6-401a-a710-ae0f485bf959
-              readOnly: true
-            costType:
-              $ref: '#/components/schemas/budget-cost-type.json'
-            name:
-              type: string
-              minLength: 1
-              maxLength: 200
-              description: Name of the budget item.
-              example: Airport Transportation
-            code:
-              type: string
-              maxLength: 60
-              description: User defined code of the budget item.
-              example: AIRTRP
-            category:
-              $ref: '#/components/schemas/budget-category.json'
-            subCategory:
-              $ref: '#/components/schemas/budget-sub-category.json'
-            status:
-              $ref: '#/components/schemas/budget-status.json'
-            vendor:
-              $ref: '#/components/schemas/budget-vendor.json'
-            rfp:
-              $ref: '#/components/schemas/budget-rfp.json'
-            date:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date and time assigned to the budget item, typically denotes the date and time of spending.
-              example: '2020-02-07T00:00:00.000Z'
-            lastModifiedDate:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date and time when the budget item was last modified.
-              example: '2020-02-07T00:00:00.000Z'
-              readOnly: true
-            generalLedger:
-              $ref: '#/components/schemas/general-ledger.json'
-            costAvoidance:
-              $ref: '#/components/schemas/budget-cost-avoidance.json'
-            costIncludesTaxGratuity:
-              type: boolean
-              description: True indicates the budget item cost includes tax and gratuity.
-              example: true
-            calculateTaxOnGratuity:
-              type: boolean
-              description: True indicates the tax should be calculated on gratuity.
-              example: false
-            gratuityType:
-              $ref: '#/components/schemas/budget-tax-gratuity-type.json'
-            internalNote:
-              type: string
-              maxLength: 5000
-              description: User defined note associated with the budget item.
-              example: This item is inclusive of taxes.
-            currency:
-              type: string
-              description: The ISO 4217 currency code assigned to the budget item's costs.
-              maxLength: 3
-              example: USD
-            conversionRateLocked:
-              type: boolean
-              description: Determines which conversion rate to apply when a currency has multiple conversion rates for the same dates. If set as 'True', the conversion rate defined in the budget item is used for reporting and calculations.
-              example: true
-            conversionRate:
-              type: number
-              description: Conversion rate for converting an amount into a different currency. Value must be greater than 0.000001
-              example: 5.2
-            costDetail:
-              type: array
-              maxItems: 5
-              minItems: 1
-              items:
-                $ref: '#/components/schemas/budget-cost-detail.json'
-              description: The list of cost details for a budget item.
-            savings:
-              type: array
-              items:
-                $ref: '#/components/schemas/budget-savings-detail.json'
-              description: Result of user-defined formula comparing two columns of a budget item cost. Typically this is the difference between budgeted and actual cost.
-              readOnly: true
-            associatedRegistrants:
-              type: array
-              items:
-                $ref: '#/components/schemas/budget-associated-registrant.json'
-              description: The list of registrants associated to a budget item. Typically used to attribute cost to specific registrants in reporting.
-            associatedSession:
-              type: string
-              description: Identifies the session associated with the budget item.
-              format: uuid
-              example: 9463c74e-18c6-401a-a710-ae0f485bf959
-    budget-item-custom-field.json:
+        - $ref: '#/components/schemas/EventId2'
+      properties:
+        id:
+          type: string
+          description: The identifier of the budget item.
+          format: uuid
+          example: 9463c74e-18c6-401a-a710-ae0f485bf959
+          readOnly: true
+        costType:
+          $ref: '#/components/schemas/BudgetCostType'
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+          description: Name of the budget item.
+          example: Airport Transportation
+        code:
+          type: string
+          maxLength: 60
+          description: User defined code of the budget item.
+          example: AIRTRP
+        category:
+          $ref: '#/components/schemas/BudgetCategory'
+        subCategory:
+          $ref: '#/components/schemas/BudgetSubCategory'
+        status:
+          $ref: '#/components/schemas/BudgetStatus'
+        vendor:
+          $ref: '#/components/schemas/BudgetVendor'
+        rfp:
+          $ref: '#/components/schemas/BudgetRFP'
+        date:
+          type: string
+          format: date-time
+          description: The ISO 8601 zoned date and time assigned to the budget item, typically denotes the date and time of spending.
+          example: '2020-02-07T00:00:00.000Z'
+        lastModifiedDate:
+          type: string
+          format: date-time
+          description: The ISO 8601 zoned date and time when the budget item was last modified.
+          example: '2020-02-07T00:00:00.000Z'
+          readOnly: true
+        generalLedger:
+          $ref: '#/components/schemas/GeneralLedger1'
+        costAvoidance:
+          $ref: '#/components/schemas/BudgetCostAvoidance'
+        costIncludesTaxGratuity:
+          type: boolean
+          description: True indicates the budget item cost includes tax and gratuity.
+          example: true
+        calculateTaxOnGratuity:
+          type: boolean
+          description: True indicates the tax should be calculated on gratuity.
+          example: false
+        gratuityType:
+          $ref: '#/components/schemas/BudgetTaxGratuityType'
+        internalNote:
+          type: string
+          maxLength: 5000
+          description: User defined note associated with the budget item.
+          example: This item is inclusive of taxes.
+        currency:
+          type: string
+          description: The ISO 4217 currency code assigned to the budget item's costs.
+          maxLength: 3
+          example: USD
+        conversionRateLocked:
+          type: boolean
+          description: Determines which conversion rate to apply when a currency has multiple conversion rates for the same dates. If set as 'True', the conversion rate defined in the budget item is used for reporting and calculations.
+          example: true
+        conversionRate:
+          type: number
+          description: Conversion rate for converting an amount into a different currency. Value must be greater than 0.000001
+          example: 5.2
+        costDetail:
+          type: array
+          maxItems: 5
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/BudgetCostDetail-1'
+          description: The list of cost details for a budget item.
+        savings:
+          type: array
+          items:
+            $ref: '#/components/schemas/BudgetSavings'
+          description: Result of user-defined formula comparing two columns of a budget item cost. Typically this is the difference between budgeted and actual cost.
+          readOnly: true
+        associatedRegistrants:
+          type: array
+          items:
+            $ref: '#/components/schemas/BudgetAssociatedRegistrant'
+          description: The list of registrants associated to a budget item. Typically used to attribute cost to specific registrants in reporting.
+        associatedSession:
+          type: string
+          description: Identifies the session associated with the budget item.
+          format: uuid
+          example: 9463c74e-18c6-401a-a710-ae0f485bf959
+    BudgetItemCustomField:
       title: BudgetItemCustomField
       description: A Budget Item Custom Field
       required:
@@ -27954,7 +27674,7 @@ components:
           description: The type of data collected by a custom field.
           type: string
           allOf:
-            - $ref: '#/components/schemas/custom-field/properties/type/allOf/0'
+            - $ref: '#/components/schemas/CustomFieldType'
             - readOnly: true
               example: MultiSelect
         value:
@@ -27972,55 +27692,18 @@ components:
           description: The order of this question in the bigger list of questions.
           example: 1
           readOnly: true
-    budget-item-list-response.json:
+    BudgetItemListResponse:
       title: BudgetItemListResponse
       description: The response from a request to get the budget items for the event.
       type: object
       allOf:
-        - title: BudgetItemResponse
-          description: Customized budget item associated with an event.
-          type: object
-          allOf:
-            - $ref: '#/components/schemas/budget-item/allOf/0'
-          properties:
-            customFields:
-              type: array
-              items:
-                $ref: '#/components/schemas/budget-item-custom-field.json'
-              description: List of budget item custom fields.
+        - $ref: '#/components/schemas/budget-item-response'
       properties:
         deleted:
           type: boolean
           description: True indicates the event budget item is deleted.
           example: false
-    budget-item-response:
-      title: BudgetItemResponse
-      description: Customized budget item associated with an event.
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/budget-item/allOf/0'
-      properties:
-        customFields:
-          type: array
-          items:
-            $ref: '#/components/schemas/budget-item-custom-field.json'
-          description: List of budget item custom fields.
-    budget-items-paginated-response:
-      title: BudgetItemsPaginatedResponse
-      description: The response from a request to get the list of budget items for the event.
-      required:
-        - paging
-        - data
-      type: object
-      properties:
-        paging:
-          $ref: '#/components/schemas/paging.json'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/budget-item-list-response.json'
-          description: Collection of budget items.
-    budget-rfp.json:
+    BudgetRFP:
       title: BudgetRFP
       description: RFP associated with a budget item.
       readOnly: true
@@ -28031,7 +27714,7 @@ components:
           description: The identifier of the related RFP. If an ID is present, the budget item originates from an RFP. You can use this ID to get more details on the related RFP via the [CSN APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/rfp-objects).
           format: uuid
           example: 79b975b9-07e2-4d78-b7bc-941eb1bf894b
-    budget-savings-detail.json:
+    BudgetSavings:
       title: BudgetSavings
       description: Budget savings detail information.
       type: object
@@ -28051,7 +27734,7 @@ components:
           description: Calculated value based on the savings formula.
           example: 15.8
           readOnly: true
-    budget-status.json:
+    BudgetStatus:
       title: BudgetStatus
       enum:
         - ESTIMATED
@@ -28063,7 +27746,7 @@ components:
       type: string
       description: Denotes the status assigned to a budget item.
       example: ESTIMATED
-    budget-sub-category.json:
+    BudgetSubCategory:
       title: BudgetSubCategory
       type: object
       description: This is used to denote the sub category for a budget.
@@ -28075,15 +27758,7 @@ components:
           description: Name of the budget subcategory assigned to the budget item.
           readOnly: true
           example: utilities
-    budget-tax-gratuity-type.json:
-      title: BudgetTaxGratuityType
-      enum:
-        - AMOUNT
-        - PERCENTAGE
-      type: string
-      description: Denotes the type of tax or gratuity.
-      example: PERCENTAGE
-    budget-tax.json:
+    BudgetTax:
       title: BudgetTax
       description: Budget item tax details.
       type: object
@@ -28100,7 +27775,7 @@ components:
           example: Applicable Tax
           readOnly: true
         taxType:
-          $ref: '#/components/schemas/budget-tax-gratuity-type.json'
+          $ref: '#/components/schemas/BudgetTaxGratuityType'
         tax:
           type: number
           description: Tax applied to the budget item. This value can be a percentage of the cost or a flat dollar amount.
@@ -28110,7 +27785,40 @@ components:
           description: Calculated tax amount based on tax field.
           example: 5.2
           readOnly: true
-    budget-vendor-response.json:
+    BudgetTaxGratuityType:
+      title: BudgetTaxGratuityType
+      enum:
+        - AMOUNT
+        - PERCENTAGE
+      type: string
+      description: Denotes the type of tax or gratuity.
+      example: PERCENTAGE
+    BudgetVendor:
+      title: BudgetVendor
+      description: List of details for a vendor assigned to a budget item.
+      type: object
+      properties:
+        id:
+          description: The vendor's unique ID. If the `type` field is `CSN`, this vendor ID correlates to a venueID in the [CSN APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects).
+          type: string
+          format: uuid
+          example: d64380fd-3631-43e9-aac7-bd6bb6eccf6b
+        name:
+          type: string
+          description: Vendor name.
+          example: Best Rest Hotels
+          readOnly: true
+        type:
+          type: string
+          enum:
+            - NOT_SPECIFIED
+            - VENDOR
+            - CSN
+            - REPOSITE
+          description: Indicates how the vendor was added to your account. CSN indicates the vendor was sourced from the Cvent Supplier Network. VENDOR indicates a user added the vendor information to your account. REPOSITE indicates the vendor was sourced from the Reposite.
+          example: CSN
+          readOnly: true
+    BudgetVendorResponse:
       title: BudgetVendorResponse
       description: Represents an account-level budget vendor configured in Admin > Budget > Vendors.
       type: object
@@ -28150,9 +27858,9 @@ components:
           description: Official website URL for the vendor organization.
           example: https://www.example.com
         contactInformation:
-          $ref: '#/components/schemas/contact-information.json'
+          $ref: '#/components/schemas/ContactInformation'
         addressInformation:
-          $ref: '#/components/schemas/base-address.json'
+          $ref: '#/components/schemas/BaseAddress'
         created:
           type: string
           format: date-time
@@ -28177,127 +27885,6 @@ components:
           description: User who last modified the vendor record.
           example: jane.smith@cvent.com
           readOnly: true
-    budget-vendor.json:
-      title: BudgetVendor
-      description: List of details for a vendor assigned to a budget item.
-      type: object
-      properties:
-        id:
-          description: The vendor's unique ID. If the `type` field is `CSN`, this vendor ID correlates to a venueID in the [CSN APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects).
-          type: string
-          format: uuid
-          example: d64380fd-3631-43e9-aac7-bd6bb6eccf6b
-        name:
-          type: string
-          description: Vendor name.
-          example: Best Rest Hotels
-          readOnly: true
-        type:
-          type: string
-          enum:
-            - NOT_SPECIFIED
-            - VENDOR
-            - CSN
-          description: Indicates how the vendor was added to your account. CSN indicates the vendor was sourced from the Cvent Supplier Network. VENDOR indicates a user added the vendor information to your account.
-          example: CSN
-          readOnly: true
-    budget-vendors-paginated-response:
-      title: Budget Vendors Paginated Response
-      description: The response from a request to get the list of vendors.
-      required:
-        - paging
-        - data
-      type: object
-      properties:
-        paging:
-          $ref: '#/components/schemas/paging.json'
-        data:
-          type: array
-          description: Collection of budget vendor entities.
-          items:
-            $ref: '#/components/schemas/budget-vendor-response.json'
-    budget-version-id.json:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Identifier of a particular budget version.
-          format: uuid
-          example: 3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329
-      description: Budget Version ID Information.
-    BudgetCategory:
-      title: BudgetCategory
-      description: Denotes the category assigned to the budget item.
-      type: object
-      required:
-        - id
-      properties:
-        id:
-          type: integer
-          description: Unique identifier of the budget category.
-          example: 3
-        name:
-          type: string
-          description: Name of the budget category assigned to the budget item.
-          example: Travel
-          readOnly: true
-    BudgetCostDetail:
-      title: BudgetCostDetail
-      description: The budget entry in detail, which consists of the budget category or sub-category, the number of units, the cost per unit, and the total amount.
-      properties:
-        category:
-          $ref: '#/components/schemas/BudgetCategory'
-        subCategory:
-          $ref: '#/components/schemas/BudgetSubCategory'
-        units:
-          type: number
-          description: The number of units associated with a budget item. This field can be any number if the budget item is a *Variable* cost type. If the budget item uses a *Fixed* cost type, set this field to 1.
-          example: 5.2
-        cost:
-          type: number
-          description: The cost amount of the budget item. If the budget item uses a *Fixed* cost type, the value of this field won't be applied to the creation or update of a Meeting Request.
-          example: 100.5
-        totalCost:
-          type: number
-          description: The total cost of the budget item. If the budget item uses a *Variable* cost type, this field will be set as the result of units times cost. The value of this field will be applied to the creation or update of a Meeting Request only if the cost type is *Fixed*.
-          example: 100.5
-          readOnly: true
-    BudgetCostType:
-      title: BudgetCostType
-      enum:
-        - FIXED
-        - VARIABLE
-      type: string
-      description: Denotes the cost type of a budget item. FIXED costs stay the same regardless of quantity. VARIABLE costs are based on a quantity.
-      example: FIXED
-    BudgetEstimate:
-      title: BudgetEstimate
-      description: The estimated budget of the Meeting Request.
-      properties:
-        currency:
-          type: string
-          description: 'The ISO 4217 standard format currency code used for this budget. Note: the allowed currencies are configured per account. A **BAD REQUEST (400)** error will be returned if the specified currency is not allowed for the account during the creation or update of the Meeting Request.'
-          example: USD
-        costType:
-          $ref: '#/components/schemas/BudgetCostType'
-        costDetail:
-          type: array
-          title: Cost Detail
-          description: A list of budget entry details. Each entry consists of the budget category or sub-category, the number of units, the cost per unit, and the total amount.
-          items:
-            $ref: '#/components/schemas/BudgetCostDetail'
-    BudgetSubCategory:
-      title: BudgetSubCategory
-      type: object
-      description: This is used to denote the sub category for a budget.
-      properties:
-        id:
-          $ref: '#/components/schemas/uuid-property'
-        name:
-          type: string
-          description: Name of the budget subcategory assigned to the budget item.
-          readOnly: true
-          example: utilities
     bulk-attendee-link:
       title: AttendeeLinkBulk
       description: Collection of attendee links.
@@ -28751,18 +28338,81 @@ components:
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
-            $ref: '#/components/schemas/card-details.json'
+            $ref: '#/components/schemas/CardDetails'
           description: Collection of Card Details.
-    card-details.json:
+    card-transaction-create:
+      title: CardTransactionPost
+      type: object
+      description: The transaction you're posting and its associated details.
+      properties:
+        id:
+          type: string
+          description: A unique ID assigned to the transaction, typically generated by the payment processor or gateway. Must be a unique value.
+          example: 1VCAPITRAN18012023
+        eventId:
+          type: string
+          description: Unique ID of the event where the transaction will be posted.
+          format: uuid
+          example: 9463c74e-18c6-401a-a710-ae0f485bf959
+        cardDescription:
+          type: string
+          description: Description of the card associated with the transaction.
+          example: API Card Transaction
+        transactionAmount:
+          type: number
+          description: The transaction amount.
+          example: 1000.87
+        transactionDate:
+          type: string
+          description: ISO 8601 date and time of the transaction (in UTC).
+          format: date-time
+          example: '2020-02-07T00:00:00.000Z'
+        transactionCurrency:
+          type: string
+          description: ISO 4217 currency code of the transaction currency.
+          maxLength: 3
+          example: USD
+        transactionMerchant:
+          type: string
+          description: Name of the merchant used in the transaction.
+          example: API Merchant
+    card-transaction-create-response:
+      title: CardTransactionPostResponse
+      type: object
+      description: Create card transaction response details.
+      allOf:
+        - $ref: '#/components/schemas/card-transaction-create'
+    card-transaction-paginated-response:
+      title: CardTransactionsPaginatedResponse
+      description: The response from a request to get the list of transaction for the event.
+      required:
+        - paging
+        - data
+      type: object
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CardTransaction'
+          description: Collection of virtual card transaction.
+    card-transaction-update:
+      title: CardTransactionUpdate
+      type: object
+      description: The transaction you're updating and its associated details.
+      allOf:
+        - $ref: '#/components/schemas/card-transaction-create'
+    CardDetails:
       title: CardDetails
       description: Card details associated with an event.
       type: object
       allOf:
-        - $ref: '#/components/schemas/budget-item/allOf/0/allOf/0'
+        - $ref: '#/components/schemas/EventId2'
       properties:
         id:
           type: string
@@ -28779,9 +28429,9 @@ components:
           description: Card's last four digits.
           example: '4352'
         type:
-          $ref: '#/components/schemas/card-type.json'
+          $ref: '#/components/schemas/CardType1'
         status:
-          $ref: '#/components/schemas/card-status.json'
+          $ref: '#/components/schemas/CardStatus'
         issuer:
           type: string
           description: Card issuer name.
@@ -28834,7 +28484,7 @@ components:
           maxItems: 20
           minItems: 0
           items:
-            $ref: '#/components/schemas/reportingField.json'
+            $ref: '#/components/schemas/VirtualCardReportingFieldAndValue'
           description: The list of report fields and their values for a virtual card.
         cardHolderName:
           type: string
@@ -28849,7 +28499,7 @@ components:
           description: "Card's last seven digits. DEPRECATED: This field will return '0000000' for American Express (Amex) cards and will not be present for other card types. Use the last 4 digits from the last4 field instead."
           example: '0000000'
           deprecated: true
-    card-status.json:
+    CardStatus:
       title: CardStatus
       enum:
         - Pending
@@ -28860,198 +28510,6 @@ components:
       type: string
       description: This is used to denote the card status for a card.
       example: Pending
-    card-transaction-create:
-      title: CardTransactionPost
-      type: object
-      description: The transaction you're posting and its associated details.
-      properties:
-        id:
-          type: string
-          description: A unique ID assigned to the transaction, typically generated by the payment processor or gateway. Must be a unique value.
-          example: 1VCAPITRAN18012023
-        eventId:
-          type: string
-          description: Unique ID of the event where the transaction will be posted.
-          format: uuid
-          example: 9463c74e-18c6-401a-a710-ae0f485bf959
-        cardDescription:
-          type: string
-          description: Description of the card associated with the transaction.
-          example: API Card Transaction
-        transactionAmount:
-          type: number
-          description: The transaction amount.
-          example: 1000.87
-        transactionDate:
-          type: string
-          description: ISO 8601 date and time of the transaction (in UTC).
-          format: date-time
-          example: '2020-02-07T00:00:00.000Z'
-        transactionCurrency:
-          type: string
-          description: ISO 4217 currency code of the transaction currency.
-          maxLength: 3
-          example: USD
-        transactionMerchant:
-          type: string
-          description: Name of the merchant used in the transaction.
-          example: API Merchant
-    card-transaction-create-response:
-      title: CardTransactionPostResponse
-      type: object
-      description: Create card transaction response details.
-      allOf:
-        - title: CardTransactionPost
-          type: object
-          description: The transaction you're posting and its associated details.
-          properties:
-            id:
-              type: string
-              description: A unique ID assigned to the transaction, typically generated by the payment processor or gateway. Must be a unique value.
-              example: 1VCAPITRAN18012023
-            eventId:
-              type: string
-              description: Unique ID of the event where the transaction will be posted.
-              format: uuid
-              example: 9463c74e-18c6-401a-a710-ae0f485bf959
-            cardDescription:
-              type: string
-              description: Description of the card associated with the transaction.
-              example: API Card Transaction
-            transactionAmount:
-              type: number
-              description: The transaction amount.
-              example: 1000.87
-            transactionDate:
-              type: string
-              description: ISO 8601 date and time of the transaction (in UTC).
-              format: date-time
-              example: '2020-02-07T00:00:00.000Z'
-            transactionCurrency:
-              type: string
-              description: ISO 4217 currency code of the transaction currency.
-              maxLength: 3
-              example: USD
-            transactionMerchant:
-              type: string
-              description: Name of the merchant used in the transaction.
-              example: API Merchant
-    card-transaction-paginated-response:
-      title: CardTransactionsPaginatedResponse
-      description: The response from a request to get the list of transaction for the event.
-      required:
-        - paging
-        - data
-      type: object
-      properties:
-        paging:
-          $ref: '#/components/schemas/paging.json'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/card-transaction.json'
-          description: Collection of virtual card transaction.
-    card-transaction-update:
-      title: CardTransactionUpdate
-      type: object
-      description: The transaction you're updating and its associated details.
-      allOf:
-        - $ref: '#/components/schemas/card-transaction-create-response/allOf/0'
-    card-transaction.json:
-      title: CardTransaction
-      description: Card transaction associated with an event.
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/budget-item/allOf/0/allOf/0'
-      properties:
-        card:
-          type: object
-          properties:
-            id:
-              $ref: '#/components/schemas/uuid-property'
-          description: The identifier of the Card.
-        id:
-          type: string
-          description: Card transaction ID.
-          example: '1000000012'
-        transactionDate:
-          type: string
-          format: date-time
-          description: The ISO 8601 zoned date and time for Card transaction date.
-          example: '2020-02-07T09:37:50Z'
-        type:
-          $ref: '#/components/schemas/transaction-type.json1'
-        amount:
-          type: number
-          description: Transaction amount.
-          example: 100.5
-        currency:
-          type: string
-          description: The ISO 4217 standard format currency code used of transaction currency.
-          maxLength: 3
-          example: USD
-        merchant:
-          type: string
-          description: Merchant name.
-          example: Test Merchant
-        reconciliation:
-          type: object
-          allOf:
-            - title: Transaction Reconciliation
-              description: A transaction reconciliation record.
-              type: object
-              properties:
-                budgetItem:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                      description: The budget item ID.
-                      format: uuid
-                  description: The identifier of reconciled budget item.
-                status:
-                  $ref: '#/components/schemas/reconciliation-status.json'
-                amount:
-                  type: number
-                  description: Reconciliation amount.
-                  example: 100.5
-                reconciledBy:
-                  type: string
-                  description: Reconciled by user.
-                  example: Test User
-                reconciledDate:
-                  type: string
-                  format: date-time
-                  description: The ISO 8601 zoned date and time for Reconciled date.
-                  example: '2020-02-07T09:37:50Z'
-            - deprecated: true
-              description: This property is deprecated to support more then one items. Use 'reconciliations'.
-        reconciliations:
-          type: array
-          items:
-            $ref: '#/components/schemas/card-transaction.json/properties/reconciliation/allOf/0'
-          description: The list of reconciled item.
-        descriptions:
-          type: array
-          maxItems: 5
-          minItems: 0
-          items:
-            type: string
-          example:
-            - Electricity bill
-            - Event ticket
-            - Miscellaneous charge
-            - Purchase car
-            - Accommodation charge
-          description: The list of transaction description.
-    card-type.json:
-      title: CardType
-      enum:
-        - Virtual
-        - Plastic
-      type: string
-      description: This is used to denote the card type for a card.
-      example: Virtual
     cardTokenRequest:
       title: Card Token Resource
       description: Generate a card token for a credit card.
@@ -29073,6 +28531,75 @@ components:
           example: 00000000-0000-0000-0000-000000000000
         creditCard:
           $ref: '#/components/schemas/credit-card-response.json'
+    CardTransaction:
+      title: CardTransaction
+      description: Card transaction associated with an event.
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/EventId2'
+      properties:
+        card:
+          type: object
+          properties:
+            id:
+              $ref: '#/components/schemas/uuid-property'
+          description: The identifier of the Card.
+        id:
+          type: string
+          description: Card transaction ID.
+          example: '1000000012'
+        transactionDate:
+          type: string
+          format: date-time
+          description: The ISO 8601 zoned date and time for Card transaction date.
+          example: '2020-02-07T09:37:50Z'
+        type:
+          $ref: '#/components/schemas/TransactionType'
+        amount:
+          type: number
+          description: Transaction amount.
+          example: 100.5
+        currency:
+          type: string
+          description: The ISO 4217 standard format currency code used of transaction currency.
+          maxLength: 3
+          example: USD
+        merchant:
+          type: string
+          description: Merchant name.
+          example: Test Merchant
+        reconciliation:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/TransactionReconciliation'
+            - deprecated: true
+              description: This property is deprecated to support more then one items. Use 'reconciliations'.
+        reconciliations:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionReconciliation'
+          description: The list of reconciled item.
+        descriptions:
+          type: array
+          maxItems: 5
+          minItems: 0
+          items:
+            type: string
+          example:
+            - Electricity bill
+            - Event ticket
+            - Miscellaneous charge
+            - Purchase car
+            - Accommodation charge
+          description: The list of transaction description.
+    CardType1:
+      title: CardType
+      enum:
+        - Virtual
+        - Plastic
+      type: string
+      description: This is used to denote the card type for a card.
+      example: Virtual
     Category:
       title: Category
       description: A question category.
@@ -30223,49 +29750,6 @@ components:
           items:
             $ref: '#/components/schemas/IdOnlyEntity'
           description: Collection of contact ids.
-    contact-information.json:
-      title: ContactInformation
-      description: Primary contact details associated with the entity.
-      type: object
-      properties:
-        firstName:
-          type: string
-          minLength: 1
-          maxLength: 50
-          description: First name of the contact person.
-          example: Rahul
-        lastName:
-          type: string
-          minLength: 1
-          maxLength: 50
-          description: Last name of the contact person.
-          example: Sharma
-        title:
-          type: string
-          maxLength: 50
-          description: Professional title or designation of the contact person.
-          example: Operations Manager
-        phone:
-          type: string
-          maxLength: 30
-          description: Primary phone number of the contact person, including country and area code if applicable.
-          example: +91-9876543210
-        fax:
-          type: string
-          maxLength: 30
-          description: Fax number of the contact person, if available.
-          example: +91-11-23456789
-        emailAddress:
-          type: string
-          format: email
-          maxLength: 80
-          description: Email address of the contact person.
-          example: rahul.sharma@example.com
-        additionalInformation:
-          type: string
-          maxLength: 1000
-          description: Any additional contact-related notes or instructions.
-          example: Available only during business hours (9 AM – 6 PM IST).
     contact-merge:
       title: ContactMergeRequest
       description: This entity represents a request to merge one or two contacts with another 'main' contact.
@@ -30603,6 +30087,49 @@ components:
           type: string
           format: uuid
           description: The ID of the contact.
+    ContactInformation:
+      title: ContactInformation
+      description: Primary contact details associated with the entity.
+      type: object
+      properties:
+        firstName:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: First name of the contact person.
+          example: Rahul
+        lastName:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: Last name of the contact person.
+          example: Sharma
+        title:
+          type: string
+          maxLength: 50
+          description: Professional title or designation of the contact person.
+          example: Operations Manager
+        phone:
+          type: string
+          maxLength: 30
+          description: Primary phone number of the contact person, including country and area code if applicable.
+          example: +91-9876543210
+        fax:
+          type: string
+          maxLength: 30
+          description: Fax number of the contact person, if available.
+          example: +91-11-23456789
+        emailAddress:
+          type: string
+          format: email
+          maxLength: 80
+          description: Email address of the contact person.
+          example: rahul.sharma@example.com
+        additionalInformation:
+          type: string
+          maxLength: 1000
+          description: Any additional contact-related notes or instructions.
+          example: Available only during business hours (9 AM – 6 PM IST).
     ContactLinks:
       title: ContactLinks
       type: object
@@ -31936,38 +31463,6 @@ components:
           format: date
           description: The ISO 8601 date format for the currency conversion, typically denotes end date till when defined conversion rate is applicable.
           example: '2020-02-08'
-    currency-conversion-rate-list-response.json:
-      title: CurrencyConversionRateListResponse
-      description: Currency conversion rate list response for a currency in an account.
-      type: object
-      allOf:
-        - title: CurrencyConversionRateResponse
-          description: Currency conversion rate response for a currency in an account.
-          type: object
-          allOf:
-            - $ref: '#/components/schemas/currency-conversion-rate-response/allOf/0'
-          properties:
-            baseCurrency:
-              type: string
-              description: The ISO 4217 standard format currency code for account base currency.
-              maxLength: 3
-              example: USD
-            currency:
-              type: string
-              description: The ISO 4217 standard format currency code of currency for which conversion rate is defined.
-              maxLength: 3
-              example: EUR
-            lastModified:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date and time when the conversion rate was last modified.
-              example: '2020-02-07T00:00:00.000Z'
-              readOnly: true
-      properties:
-        currentConversionRate:
-          type: boolean
-          description: True indicates this conversion rate is current applicable.
-          example: true
     currency-conversion-rate-paginated-response:
       title: Currency Conversion Rate Paginated Response
       description: The response from a request to get the list of conversions rate for a currency.
@@ -31977,11 +31472,11 @@ components:
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
-            $ref: '#/components/schemas/currency-conversion-rate-list-response.json'
+            $ref: '#/components/schemas/CurrencyConversionRateListResponse'
           description: Collection of conversion rate for a currency in an account.
     currency-conversion-rate-request:
       title: CurrencyConversionRateRequest
@@ -31990,27 +31485,7 @@ components:
         - id
       type: object
       allOf:
-        - title: CurrencyConversionRate
-          description: Currency conversion rate for a currency based on dates in an account.
-          required:
-            - conversionRate
-            - startDate
-          type: object
-          properties:
-            conversionRate:
-              type: number
-              description: Currency conversion rate from accounts base currency to the other defined currency in this conversion rate.
-              example: 5.2
-            startDate:
-              type: string
-              format: date
-              description: The ISO 8601 date format assigned for the currency conversion, typically denotes start date from when defined conversion rate is applicable.
-              example: '2020-02-07'
-            endDate:
-              type: string
-              format: date
-              description: The ISO 8601 date format for the currency conversion, typically denotes end date till when defined conversion rate is applicable.
-              example: '2020-02-08'
+        - $ref: '#/components/schemas/currency-conversion-rate'
       properties:
         id:
           type: string
@@ -32022,19 +31497,7 @@ components:
       description: Currency conversion rate response for a currency in an account.
       type: object
       allOf:
-        - title: CurrencyConversionRateRequest
-          description: Currency conversion rate request for a currency in an account.
-          required:
-            - id
-          type: object
-          allOf:
-            - $ref: '#/components/schemas/currency-conversion-rate-request/allOf/0'
-          properties:
-            id:
-              type: string
-              description: The unique ID for this defined conversion rate.
-              format: uuid
-              example: 9463c74e-18c6-401a-a710-ae0f485bf959
+        - $ref: '#/components/schemas/currency-conversion-rate-request'
       properties:
         baseCurrency:
           type: string
@@ -32235,6 +31698,17 @@ components:
         - SCR
         - ZMW
         - ZWL
+    CurrencyConversionRateListResponse:
+      title: CurrencyConversionRateListResponse
+      description: Currency conversion rate list response for a currency in an account.
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/currency-conversion-rate-response'
+      properties:
+        currentConversionRate:
+          type: boolean
+          description: True indicates this conversion rate is current applicable.
+          example: true
     custom-field:
       title: CustomField
       description: A Custom Field
@@ -32364,16 +31838,16 @@ components:
       description: A Custom Field
       type: object
       allOf:
-        - $ref: '#/components/schemas/custom-field2/allOf/0'
+        - $ref: '#/components/schemas/custom-field1/allOf/0'
       properties:
         type:
           description: The type of data collected by a custom field.
           type: string
           allOf:
-            - $ref: '#/components/schemas/custom-field2/properties/type/allOf/0'
+            - $ref: '#/components/schemas/custom-field1/properties/type/allOf/0'
             - readOnly: true
               example: MultiSelect
-    custom-field2:
+    custom-field1:
       title: CustomField
       description: A Custom Field
       type: object
@@ -32440,7 +31914,7 @@ components:
               example: General
             - readOnly: true
               example: MultiSelect
-    custom-field3:
+    custom-field2:
       title: CustomField
       required:
         - category
@@ -32564,156 +32038,6 @@ components:
           description: Custom field 6.
           type: string
           example: CustomField6
-    Customer:
-      title: Customer
-      description: The definition of a Cvent Customer. This is an independent contractual business unit underneath an Organization. The contractual agreements between different Customers underneath the same Organization can differ. A Customer may associate to 0 to many Cvent Core Accounts.
-      required:
-        - organization
-        - id
-        - number
-        - stub
-        - name
-        - salesforceId
-        - status
-      type: object
-      properties:
-        organization:
-          $ref: '#/components/schemas/Account/properties/organization/allOf/0'
-        id:
-          $ref: '#/components/schemas/customer-id.json'
-        stub:
-          type: string
-          format: uuid
-          allOf:
-            - title: Customer Stub
-              type: string
-              format: uuid
-              description: The globally unique identifier which represents this customer for a specific region.
-            - readOnly: true
-        number:
-          $ref: '#/components/schemas/customer-number.json'
-        name:
-          type: string
-          minLength: 1
-          maxLength: 100
-          description: The name of this customer
-          example: Cvent
-        salesforceId:
-          $ref: '#/components/schemas/salesforce-account-id.json'
-        status:
-          $ref: '#/components/schemas/customer-status.json'
-        creditCardDetails:
-          $ref: '#/components/schemas/customer-credit-card-details.json'
-        autoSendInvoice:
-          type: boolean
-          default: true
-          description: True means that the billing invoice will automatically be sent.
-        convertedTrial:
-          type: boolean
-          readOnly: true
-          description: True means that this customer has been converted from a trial using Cvent's product.
-        salesTaxExempt:
-          type: boolean
-          default: false
-          description: True means that sales tax for this Customer will be exempt.
-        note:
-          type: string
-          maxLength: 1000
-          description: Additional details about this customer.
-          example: Additional details about this customer.
-          default: ''
-    customer-address.json:
-      title: Customer Address
-      description: The Customer's address details.
-      required:
-        - address1
-        - city
-        - countryCode
-        - postalCode
-      type: object
-      properties:
-        address1:
-          type: string
-          description: First line of the address.
-          example: 1765 Greensboro Station Pl
-        address2:
-          type: string
-          description: Second line of the address.
-          example: 7th Floor
-        address3:
-          type: string
-          description: Third line of the address.
-          example: ''
-        city:
-          type: string
-          description: City
-          example: McLean
-        regionCode:
-          $ref: '#/components/schemas/region-code.json'
-        countryCode:
-          $ref: '#/components/schemas/AccountStateCategory/properties/countryCode/allOf/0'
-        postalCode:
-          type: string
-          description: Postal Code
-          example: '12345'
-    customer-credit-card-details.json:
-      title: Customer Credit Card Details
-      description: Details related to the Customer's Credit Card information.
-      type: object
-      properties:
-        address:
-          $ref: '#/components/schemas/customer-address.json'
-        creditCardRequired:
-          type: boolean
-          default: false
-          description: True means that credit card information is required. When this value is true, then address is required.
-        audit:
-          type: object
-          allOf:
-            - $ref: '#/components/schemas/Account/properties/audit/allOf/0'
-            - readOnly: true
-    customer-id.json:
-      title: Customer Id
-      type: integer
-      example: 1234
-      description: The globally unique numeric identifier which represents this customer.
-      readOnly: true
-    customer-number.json:
-      title: Customer Number
-      type: string
-      minLength: 1
-      maxLength: 50
-      description: The globally unique numeric identifier represented as a string.
-      example: '1234'
-      readOnly: true
-    customer-reference.json:
-      title: Customer Reference
-      description: A model used to reference the identifier to a Cvent Customer.
-      required:
-        - id
-        - number
-        - stub
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/customer-id.json'
-        stub:
-          $ref: '#/components/schemas/Customer/properties/stub/allOf/0'
-        number:
-          $ref: '#/components/schemas/customer-number.json'
-    customer-status.json:
-      title: Customer Reference
-      description: The current status of the customer
-      type: string
-      enum:
-        - ACTIVE
-        - INACTIVE
-        - TRIAL
-        - ENDED_TRIAL
-        - FREE_SUPPLIER
-        - FREE_RFP
-        - PROSPECT
-        - ARCHIVED
     CustomField:
       title: CustomField
       description: A Custom Field
@@ -33523,7 +32847,7 @@ components:
           description: The maximum amount of money an invitee can donate during registration. Donations are in the event currency.
           example: 5
         generalLedger:
-          $ref: '#/components/schemas/GeneralLedger1'
+          $ref: '#/components/schemas/GeneralLedger2'
         registrationTypes:
           maxItems: 200
           type: array
@@ -33717,7 +33041,7 @@ components:
         - $ref: '#/components/schemas/Audit'
       properties:
         event:
-          $ref: '#/components/schemas/Event3'
+          $ref: '#/components/schemas/Event4'
         exhibitor:
           $ref: '#/components/schemas/Exhibitor'
         lead:
@@ -33729,28 +33053,6 @@ components:
           minItems: 1
           maxItems: 25
           description: Collection of E-literature documents sent to lead.
-    Email:
-      title: Email
-      description: Email
-      type: object
-      required:
-        - value
-        - type
-        - primary
-      properties:
-        type:
-          $ref: '#/components/schemas/EmailType1'
-        value:
-          type: string
-          description: The email of the user.
-          example: support@cvent.com
-          minLength: 1
-          maxLength: 80
-        primary:
-          type: boolean
-          description: True indicates the email is primary.
-          example: true
-          default: false
     email-history-paginated-response:
       title: Email History Paginated Response
       description: The response from a request to get the list of email history. This includes the paging object as well as the collection of email history.
@@ -34030,7 +33332,7 @@ components:
       type: string
       description: Denotes the type of the email.
       example: Invitation
-    email.json1:
+    email.json:
       title: Email
       description: Details of an email to be send.
       type: object
@@ -34042,6 +33344,28 @@ components:
           format: uuid
           example: a150f1ee-6c54-4b01-90e6-d701748f0851
           description: The unique ID of the email to be sent.
+    Email1:
+      title: Email
+      description: Email
+      type: object
+      required:
+        - value
+        - type
+        - primary
+      properties:
+        type:
+          $ref: '#/components/schemas/EmailType1'
+        value:
+          type: string
+          description: The email of the user.
+          example: support@cvent.com
+          minLength: 1
+          maxLength: 80
+        primary:
+          type: boolean
+          description: True indicates the email is primary.
+          example: true
+          default: false
     EmailActivity:
       type: object
       title: EmailActivity
@@ -34321,220 +33645,14 @@ components:
           description: Unique identifier of the event.
           example: 4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56
     event:
-      title: Event
-      description: Represents an event.
       type: object
-      required:
-        - title
-        - format
-        - planners
-        - timezone
-        - languages
-        - type
       properties:
         id:
           type: string
+          description: Identifier of a particular Event.
           format: uuid
-          description: The identifier of the event.
-          example: 9463c74e-18c6-401a-a710-ae0f485bf059
-          readOnly: true
-        title:
-          type: string
-          description: Title of the event being organized.
-          maxLength: 300
-          example: Cvent Connect 2020
-        code:
-          type: string
-          description: A system-generated code for this event.
-          maxLength: 18
-          readOnly: true
-          example: R5NP4NJYB3D
-        virtual:
-          type: boolean
-          description: True indicates the event is virtual. DEPRECATED - Refer to the 'format' field for the 'virtual' indicator.
-          example: true
-          deprecated: true
-          readOnly: true
-        format:
-          $ref: '#/components/schemas/event-format.json'
-        description:
-          type: string
-          description: Detailed description of the event.
-          maxLength: 20000
-          example: Cvent annual user conference.
-        start:
-          type: string
-          format: date-time
-          description: The ISO 8601 formatted date and time when the event starts.
-          example: '2020-02-03T13:00:00.000Z'
-        end:
-          type: string
-          format: date-time
-          description: The ISO 8601 formatted date and time when the event ends.
-          example: '2020-02-07T17:00:00.000Z'
-        closeAfter:
-          type: string
-          format: date-time
-          description: The event will be closed for registration after this ISO 8601 formatted date and time.
-          example: '2020-02-01T23:59:00.000Z'
-          readOnly: true
-        archiveAfter:
-          type: string
-          format: date-time
-          description: The event will be archived after this ISO 8601 formatted date and time.
-          example: '2020-05-07T12:00:00.000Z'
-          readOnly: true
-        launchAfter:
-          type: string
-          format: date-time
-          description: The event will launch after this ISO 8601 formatted date and time. If the event has not yet launched, this field shows a date of 1/1/1900.
-          example: '2020-01-07T12:00:00.000Z'
-          readOnly: true
-        timezone:
-          type: string
-          description: List of supported [timezones](https://developers.cvent.com/docs/rest-api/reference/api-standards#time-zones).
-          maxLength: 29
-          example: America/New_York
-        venues:
-          type: array
-          maxItems: 1
-          items:
-            $ref: '#/components/schemas/venue.json'
-          description: Collection of venues.
-        showVenueLocation:
-          type: boolean
-          description: True indicates the venue location is visible to guests for essential events. If used with other event types, the request returns a 400 error.
-        showPointOfContact:
-          type: boolean
-          description: True indicates the venue location is visible to guests for essential events. If used with other event types, the request returns a 400 error.
-        phone:
-          type: string
-          description: The phone number for the event.
-          maxLength: 13
-          example: 555-555-5555
-          readOnly: true
-        note:
-          type: string
-          description: Event note created by planners for internal use.
-          maxLength: 300
-          example: This event will need some coordination with external systems.
-        defaultLocale:
-          type: string
-          description: The event default locale using the IETF language tag format.
-          maxLength: 35
-          example: en-US
-          readOnly: true
-        languages:
-          type: array
-          uniqueItems: true
-          maxItems: 32
-          items:
-            type: string
-            example: en-US
-          description: List of IETF language tags enabled for the event. This field supports reading multiple language tags but supports writing only one language to an event.
-        currency:
-          type: string
-          description: The ISO 4217 standard format currency code used of this event.
-          maxLength: 3
-          example: USD
-          readOnly: true
-        registrationSecurityLevel:
-          $ref: '#/components/schemas/event-security-level.json'
-        status:
-          $ref: '#/components/schemas/registration-status.json'
-        eventStatus:
-          $ref: '#/components/schemas/event-status.json'
-        planningStatus:
-          type: string
-          description: The planner-created planning status for this event. Used for internal tracking purposes.
-          maxLength: 50
-          example: Submitted
-          readOnly: true
-        testMode:
-          type: boolean
-          description: True indicates the event is in test mode.
-          example: false
-          readOnly: true
-        capacity:
-          type: integer
-          description: The maximum amount of attendees that can attend the event. Only used for events with the registration feature.
-          example: 50
-          readOnly: true
-        planners:
-          type: array
-          maxItems: 1
-          items:
-            $ref: '#/components/schemas/planner.json2'
-          description: A collection of contacts representing the event planners.
-        stakeholders:
-          type: array
-          maxItems: 1
-          items:
-            $ref: '#/components/schemas/stakeholder.json'
-          description: A collection of contacts representing event stakeholders.
-          readOnly: true
-        customFields:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/custom-field.json2'
-          description: Collection of custom fields.
-        category:
-          type: object
-          deprecated: true
-          readOnly: true
-          description: The category to which this event belongs (no longer supported).
-          allOf:
-            - title: Lookup
-              description: Lookup response object
-              type: object
-              properties:
-                id:
-                  $ref: '#/components/schemas/uuid-property'
-                code:
-                  type: string
-                  description: Code / Abbreviation of the lookup item.
-                  maxLength: 30
-                  example: MU
-                name:
-                  type: string
-                  description: Name of the lookup item.
-                  maxLength: 30
-                  example: Meet up
-        type:
-          $ref: '#/components/schemas/event-type.json'
-        _links:
-          $ref: '#/components/schemas/event-links.json'
-        created:
-          type: string
-          format: date-time
-          description: The ISO 8601 zoned date time when this record was created.
-          readOnly: true
-          example: '2017-01-02T02:00:00Z'
-        lastModified:
-          type: string
-          format: date-time
-          description: The ISO 8601 zoned date time when this record was updated.
-          readOnly: true
-          example: '2019-02-12T03:00:00Z'
-        meetingRequestId:
-          type: string
-          format: uuid
-          description: The identifier of the meeting request related to the event, if any.
-          readOnly: true
-          example: b566c24e-12a8-452d-c490-ad0e796be093
-        createdBy:
-          type: string
-          maxLength: 100
-          description: The name of the user who created the event.
-          readOnly: true
-          example: John Doe
-        lastModifiedBy:
-          type: string
-          maxLength: 100
-          description: The name of the user who last modified the event.
-          readOnly: true
-          example: Jane Doe
+          example: 3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329
+      description: Event ID Information.
     Event-1:
       title: Event
       description: Event details.
@@ -34606,27 +33724,6 @@ components:
               description: The identifier of the event that was created or copied.
               example: 9463c74e-18c6-401a-a710-ae0f485bf059
               readOnly: true
-    event-budget-cost-detail.json:
-      title: Budget Cost Detail
-      description: Event Budget cost detail information.
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/uuid-property'
-        name:
-          $ref: '#/components/schemas/budget-cost-name.json'
-        totalCostValue:
-          type: number
-          description: The total cost amount of the budget version in an event.
-          example: 5500.5
-        totalAppliedTax:
-          type: number
-          description: The total tax amount of the budget version in an event for the cost column.
-          example: 500
-        totalAppliedGratuity:
-          type: number
-          description: The total gratuity amount of the budget version in an event for the cost column.
-          example: 100.5
     event-budget-paginated-response:
       title: Event Budget Paginated Response
       description: The response from a request to get the list of event budget totals.
@@ -34636,56 +33733,12 @@ components:
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
-            $ref: '#/components/schemas/event-budget-totals.json'
+            $ref: '#/components/schemas/EventBudgetTotals'
           description: Collection of Event Budget Totals Information.
-    event-budget-totals.json:
-      title: Event Budget Totals
-      description: Budget Totals for a Event.
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/budget-item/allOf/0/allOf/0'
-      properties:
-        version:
-          type: object
-          properties:
-            id:
-              $ref: '#/components/schemas/uuid-property'
-            name:
-              type: string
-              description: Name of the budget version.
-              example: Budget Version 2
-            default:
-              type: boolean
-              description: True indicates the associated budget is the default budget version of the event.
-              example: true
-          description: The identifier of the Budget version for an event.
-        lastModifiedDate:
-          type: string
-          format: date-time
-          description: The ISO 8601 zoned date and time for budget version last modified date.
-          example: '2020-02-07T00:00:00.000Z'
-        currency:
-          type: string
-          description: The ISO 4217 standard format currency code used of transaction currency.
-          maxLength: 3
-          example: USD
-        totalHighLevelEstimate:
-          type: object
-          description: Total High-level estimation details.
-          properties:
-            amount:
-              type: number
-              description: The total amount of high level estimate of the event.
-              example: 5001.99
-        costDetail:
-          type: array
-          items:
-            $ref: '#/components/schemas/event-budget-cost-detail.json'
-          description: The list of cost details.
     event-copy:
       title: EventCopy
       description: Represents directives for the event copy operation.
@@ -34996,7 +34049,7 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/event'
+            $ref: '#/components/schemas/event.json2'
           description: A collection of event objects.
     event-question-choice.json:
       title: Choice
@@ -35267,7 +34320,7 @@ components:
               description: Source IDs track respondents in an external system integrated with the Cvent survey.
       properties:
         event:
-          $ref: '#/components/schemas/event.json3'
+          $ref: '#/components/schemas/event.json1'
         attendee:
           description: Associated attendee.
           type: object
@@ -35348,7 +34401,7 @@ components:
               readOnly: true
       properties:
         event:
-          $ref: '#/components/schemas/event.json3'
+          $ref: '#/components/schemas/event.json1'
         survey:
           $ref: '#/components/schemas/uuid.json'
         session:
@@ -35463,7 +34516,7 @@ components:
       description: Represents updates to an event.
       type: object
       allOf:
-        - $ref: '#/components/schemas/event'
+        - $ref: '#/components/schemas/event.json2'
       properties:
         closeAfter:
           type: string
@@ -35524,28 +34577,7 @@ components:
           items:
             $ref: '#/components/schemas/event-weblink.json'
           description: Collection of event weblinks.
-    event.json:
-      title: Event
-      required:
-        - id
-      description: ID of the event.
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          description: UUID of the event.
-          example: 103097a4-143d-11e5-9f99-d0a637ee0032
     event.json1:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Identifier of a particular Event.
-          format: uuid
-          example: 3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329
-      description: Event ID Information.
-    event.json3:
       title: Event
       type: object
       description: Detail object of an event which is associated to a survey.
@@ -35556,7 +34588,207 @@ components:
           example: 9463c74e-18c6-401a-a710-ae0f485bf059
           description: Id of the associated event
       readOnly: true
-    event.json5:
+    event.json2:
+      title: Event
+      description: Represents an event.
+      type: object
+      required:
+        - title
+        - format
+        - planners
+        - timezone
+        - languages
+        - type
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The identifier of the event.
+          example: 9463c74e-18c6-401a-a710-ae0f485bf059
+          readOnly: true
+        title:
+          type: string
+          description: Title of the event being organized.
+          maxLength: 300
+          example: Cvent Connect 2020
+        code:
+          type: string
+          description: A system-generated code for this event.
+          maxLength: 18
+          readOnly: true
+          example: R5NP4NJYB3D
+        virtual:
+          type: boolean
+          description: True indicates the event is virtual. DEPRECATED - Refer to the 'format' field for the 'virtual' indicator.
+          example: true
+          deprecated: true
+          readOnly: true
+        format:
+          $ref: '#/components/schemas/event-format.json'
+        description:
+          type: string
+          description: Detailed description of the event.
+          maxLength: 20000
+          example: Cvent annual user conference.
+        start:
+          type: string
+          format: date-time
+          description: The ISO 8601 formatted date and time when the event starts.
+          example: '2020-02-03T13:00:00.000Z'
+        end:
+          type: string
+          format: date-time
+          description: The ISO 8601 formatted date and time when the event ends.
+          example: '2020-02-07T17:00:00.000Z'
+        closeAfter:
+          type: string
+          format: date-time
+          description: The event will be closed for registration after this ISO 8601 formatted date and time.
+          example: '2020-02-01T23:59:00.000Z'
+          readOnly: true
+        archiveAfter:
+          type: string
+          format: date-time
+          description: The event will be archived after this ISO 8601 formatted date and time.
+          example: '2020-05-07T12:00:00.000Z'
+          readOnly: true
+        launchAfter:
+          type: string
+          format: date-time
+          description: The event will launch after this ISO 8601 formatted date and time. If the event has not yet launched, this field shows a date of 1/1/1900.
+          example: '2020-01-07T12:00:00.000Z'
+          readOnly: true
+        timezone:
+          type: string
+          description: List of supported [timezones](https://developers.cvent.com/docs/rest-api/reference/api-standards#time-zones).
+          maxLength: 29
+          example: America/New_York
+        venues:
+          type: array
+          maxItems: 1
+          items:
+            $ref: '#/components/schemas/venue.json'
+          description: Collection of venues.
+        showVenueLocation:
+          type: boolean
+          description: True indicates the venue location is visible to guests for essential events. If used with other event types, the request returns a 400 error.
+        showPointOfContact:
+          type: boolean
+          description: True indicates the venue location is visible to guests for essential events. If used with other event types, the request returns a 400 error.
+        phone:
+          type: string
+          description: The phone number for the event.
+          maxLength: 13
+          example: 555-555-5555
+          readOnly: true
+        note:
+          type: string
+          description: Event note created by planners for internal use.
+          maxLength: 300
+          example: This event will need some coordination with external systems.
+        defaultLocale:
+          type: string
+          description: The event default locale using the IETF language tag format.
+          maxLength: 35
+          example: en-US
+          readOnly: true
+        languages:
+          type: array
+          uniqueItems: true
+          maxItems: 32
+          items:
+            type: string
+            example: en-US
+          description: List of IETF language tags enabled for the event. This field supports reading multiple language tags but supports writing only one language to an event.
+        currency:
+          type: string
+          description: The ISO 4217 standard format currency code used of this event.
+          maxLength: 3
+          example: USD
+          readOnly: true
+        registrationSecurityLevel:
+          $ref: '#/components/schemas/event-security-level.json'
+        status:
+          $ref: '#/components/schemas/registration-status.json'
+        eventStatus:
+          $ref: '#/components/schemas/event-status.json'
+        planningStatus:
+          type: string
+          description: The planner-created planning status for this event. Used for internal tracking purposes.
+          maxLength: 50
+          example: Submitted
+          readOnly: true
+        testMode:
+          type: boolean
+          description: True indicates the event is in test mode.
+          example: false
+          readOnly: true
+        capacity:
+          type: integer
+          description: The maximum amount of attendees that can attend the event. Only used for events with the registration feature.
+          example: 50
+          readOnly: true
+        planners:
+          type: array
+          maxItems: 1
+          items:
+            $ref: '#/components/schemas/planner.json2'
+          description: A collection of contacts representing the event planners.
+        stakeholders:
+          type: array
+          maxItems: 1
+          items:
+            $ref: '#/components/schemas/stakeholder.json'
+          description: A collection of contacts representing event stakeholders.
+          readOnly: true
+        customFields:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/custom-field.json2'
+          description: Collection of custom fields.
+        category:
+          type: object
+          deprecated: true
+          readOnly: true
+          description: The category to which this event belongs (no longer supported).
+          allOf:
+            - $ref: '#/components/schemas/event1/properties/category/allOf/0'
+        type:
+          $ref: '#/components/schemas/event-type.json'
+        _links:
+          $ref: '#/components/schemas/event-links.json'
+        created:
+          type: string
+          format: date-time
+          description: The ISO 8601 zoned date time when this record was created.
+          readOnly: true
+          example: '2017-01-02T02:00:00Z'
+        lastModified:
+          type: string
+          format: date-time
+          description: The ISO 8601 zoned date time when this record was updated.
+          readOnly: true
+          example: '2019-02-12T03:00:00Z'
+        meetingRequestId:
+          type: string
+          format: uuid
+          description: The identifier of the meeting request related to the event, if any.
+          readOnly: true
+          example: b566c24e-12a8-452d-c490-ad0e796be093
+        createdBy:
+          type: string
+          maxLength: 100
+          description: The name of the user who created the event.
+          readOnly: true
+          example: John Doe
+        lastModifiedBy:
+          type: string
+          maxLength: 100
+          description: The name of the user who last modified the event.
+          readOnly: true
+          example: Jane Doe
+    event.json3:
       title: Event
       description: An event reference used in attendee insights to identify the event context for engagement data
       type: object
@@ -35568,7 +34800,7 @@ components:
           format: uuid
           description: A unique identifier (UUID) for the event where the engagement score applies
           example: 04cb6ae2-0dc3-487b-953e-86d6abbdf7d3
-    event.json6:
+    event.json4:
       title: Event
       description: Details of the event.
       type: object
@@ -35580,7 +34812,234 @@ components:
           format: uuid
           example: a150f1ee-6c54-4b01-90e6-d701748f0851
           description: The unique ID of the event.
+    event1:
+      title: Event
+      description: Represents an event.
+      type: object
+      required:
+        - title
+        - format
+        - planners
+        - timezone
+        - languages
+        - type
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The identifier of the event.
+          example: 9463c74e-18c6-401a-a710-ae0f485bf059
+          readOnly: true
+        title:
+          type: string
+          description: Title of the event being organized.
+          maxLength: 300
+          example: Cvent Connect 2020
+        code:
+          type: string
+          description: A system-generated code for this event.
+          maxLength: 18
+          readOnly: true
+          example: R5NP4NJYB3D
+        virtual:
+          type: boolean
+          description: True indicates the event is virtual. DEPRECATED - Refer to the 'format' field for the 'virtual' indicator.
+          example: true
+          deprecated: true
+          readOnly: true
+        format:
+          $ref: '#/components/schemas/event-format.json'
+        description:
+          type: string
+          description: Detailed description of the event.
+          maxLength: 20000
+          example: Cvent annual user conference.
+        start:
+          type: string
+          format: date-time
+          description: The ISO 8601 formatted date and time when the event starts.
+          example: '2020-02-03T13:00:00.000Z'
+        end:
+          type: string
+          format: date-time
+          description: The ISO 8601 formatted date and time when the event ends.
+          example: '2020-02-07T17:00:00.000Z'
+        closeAfter:
+          type: string
+          format: date-time
+          description: The event will be closed for registration after this ISO 8601 formatted date and time.
+          example: '2020-02-01T23:59:00.000Z'
+          readOnly: true
+        archiveAfter:
+          type: string
+          format: date-time
+          description: The event will be archived after this ISO 8601 formatted date and time.
+          example: '2020-05-07T12:00:00.000Z'
+          readOnly: true
+        launchAfter:
+          type: string
+          format: date-time
+          description: The event will launch after this ISO 8601 formatted date and time. If the event has not yet launched, this field shows a date of 1/1/1900.
+          example: '2020-01-07T12:00:00.000Z'
+          readOnly: true
+        timezone:
+          type: string
+          description: List of supported [timezones](https://developers.cvent.com/docs/rest-api/reference/api-standards#time-zones).
+          maxLength: 29
+          example: America/New_York
+        venues:
+          type: array
+          maxItems: 1
+          items:
+            $ref: '#/components/schemas/venue.json'
+          description: Collection of venues.
+        showVenueLocation:
+          type: boolean
+          description: True indicates the venue location is visible to guests for essential events. If used with other event types, the request returns a 400 error.
+        showPointOfContact:
+          type: boolean
+          description: True indicates the venue location is visible to guests for essential events. If used with other event types, the request returns a 400 error.
+        phone:
+          type: string
+          description: The phone number for the event.
+          maxLength: 13
+          example: 555-555-5555
+          readOnly: true
+        note:
+          type: string
+          description: Event note created by planners for internal use.
+          maxLength: 300
+          example: This event will need some coordination with external systems.
+        defaultLocale:
+          type: string
+          description: The event default locale using the IETF language tag format.
+          maxLength: 35
+          example: en-US
+          readOnly: true
+        languages:
+          type: array
+          uniqueItems: true
+          maxItems: 32
+          items:
+            type: string
+            example: en-US
+          description: List of IETF language tags enabled for the event. This field supports reading multiple language tags but supports writing only one language to an event.
+        currency:
+          type: string
+          description: The ISO 4217 standard format currency code used of this event.
+          maxLength: 3
+          example: USD
+          readOnly: true
+        registrationSecurityLevel:
+          $ref: '#/components/schemas/event-security-level.json'
+        status:
+          $ref: '#/components/schemas/registration-status.json'
+        eventStatus:
+          $ref: '#/components/schemas/event-status.json'
+        planningStatus:
+          type: string
+          description: The planner-created planning status for this event. Used for internal tracking purposes.
+          maxLength: 50
+          example: Submitted
+          readOnly: true
+        testMode:
+          type: boolean
+          description: True indicates the event is in test mode.
+          example: false
+          readOnly: true
+        capacity:
+          type: integer
+          description: The maximum amount of attendees that can attend the event. Only used for events with the registration feature.
+          example: 50
+          readOnly: true
+        planners:
+          type: array
+          maxItems: 1
+          items:
+            $ref: '#/components/schemas/planner.json2'
+          description: A collection of contacts representing the event planners.
+        stakeholders:
+          type: array
+          maxItems: 1
+          items:
+            $ref: '#/components/schemas/stakeholder.json'
+          description: A collection of contacts representing event stakeholders.
+          readOnly: true
+        customFields:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/custom-field.json2'
+          description: Collection of custom fields.
+        category:
+          type: object
+          deprecated: true
+          readOnly: true
+          description: The category to which this event belongs (no longer supported).
+          allOf:
+            - title: Lookup
+              description: Lookup response object
+              type: object
+              properties:
+                id:
+                  $ref: '#/components/schemas/uuid-property'
+                code:
+                  type: string
+                  description: Code / Abbreviation of the lookup item.
+                  maxLength: 30
+                  example: MU
+                name:
+                  type: string
+                  description: Name of the lookup item.
+                  maxLength: 30
+                  example: Meet up
+        type:
+          $ref: '#/components/schemas/event-type.json'
+        _links:
+          $ref: '#/components/schemas/event-links.json'
+        created:
+          type: string
+          format: date-time
+          description: The ISO 8601 zoned date time when this record was created.
+          readOnly: true
+          example: '2017-01-02T02:00:00Z'
+        lastModified:
+          type: string
+          format: date-time
+          description: The ISO 8601 zoned date time when this record was updated.
+          readOnly: true
+          example: '2019-02-12T03:00:00Z'
+        meetingRequestId:
+          type: string
+          format: uuid
+          description: The identifier of the meeting request related to the event, if any.
+          readOnly: true
+          example: b566c24e-12a8-452d-c490-ad0e796be093
+        createdBy:
+          type: string
+          maxLength: 100
+          description: The name of the user who created the event.
+          readOnly: true
+          example: John Doe
+        lastModifiedBy:
+          type: string
+          maxLength: 100
+          description: The name of the user who last modified the event.
+          readOnly: true
+          example: Jane Doe
     Event3:
+      title: Event
+      required:
+        - id
+      description: ID of the event.
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: UUID of the event.
+          example: 103097a4-143d-11e5-9f99-d0a637ee0032
+    Event4:
       description: The Associated Event.
       title: Event
       type: object
@@ -35699,6 +35158,50 @@ components:
               description: Banner ID
         target:
           $ref: '#/components/schemas/BannerLinkTarget'
+    EventBudgetTotals:
+      title: Event Budget Totals
+      description: Budget Totals for a Event.
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/EventId2'
+      properties:
+        version:
+          type: object
+          properties:
+            id:
+              $ref: '#/components/schemas/uuid-property'
+            name:
+              type: string
+              description: Name of the budget version.
+              example: Budget Version 2
+            default:
+              type: boolean
+              description: True indicates the associated budget is the default budget version of the event.
+              example: true
+          description: The identifier of the Budget version for an event.
+        lastModifiedDate:
+          type: string
+          format: date-time
+          description: The ISO 8601 zoned date and time for budget version last modified date.
+          example: '2020-02-07T00:00:00.000Z'
+        currency:
+          type: string
+          description: The ISO 4217 standard format currency code used of transaction currency.
+          maxLength: 3
+          example: USD
+        totalHighLevelEstimate:
+          type: object
+          description: Total High-level estimation details.
+          properties:
+            amount:
+              type: number
+              description: The total amount of high level estimate of the event.
+              example: 5001.99
+        costDetail:
+          type: array
+          items:
+            $ref: '#/components/schemas/BudgetCostDetail'
+          description: The list of cost details.
     EventCheckedIn:
       type: object
       title: event.checkedIn
@@ -35790,6 +35293,18 @@ components:
       type: string
       format: uuid
       example: 78842378-5d83-11ee-8c99-0242ac120002
+    EventId2:
+      title: EventId
+      description: Event ID Information.
+      type: object
+      properties:
+        event:
+          type: object
+          properties:
+            id:
+              $ref: '#/components/schemas/uuid-property'
+          description: The identifier of the Event.
+          readOnly: true
     EventInsurance:
       title: Event Insurance
       description: |-
@@ -36190,7 +35705,7 @@ components:
         - $ref: '#/components/schemas/Audit'
       properties:
         event:
-          $ref: '#/components/schemas/Event3'
+          $ref: '#/components/schemas/Event4'
         name:
           type: string
           description: Name of the exhibitor category
@@ -36264,7 +35779,7 @@ components:
         - required
       properties:
         event:
-          $ref: '#/components/schemas/Event3'
+          $ref: '#/components/schemas/Event4'
         text:
           type: string
           description: The actual text of the exhibitor question.
@@ -36342,7 +35857,7 @@ components:
         - name
       properties:
         event:
-          $ref: '#/components/schemas/Event3'
+          $ref: '#/components/schemas/Event4'
         name:
           type: string
           description: Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal results.
@@ -36484,7 +35999,7 @@ components:
         question:
           $ref: '#/components/schemas/UUID'
         event:
-          $ref: '#/components/schemas/Event3'
+          $ref: '#/components/schemas/Event4'
         exhibitor:
           $ref: '#/components/schemas/Exhibitor'
         answers:
@@ -36690,7 +36205,7 @@ components:
       title: ExistingAudienceSegment
       description: Details of an audience segment.
       allOf:
-        - $ref: '#/components/schemas/audience-segment-create/allOf/0'
+        - $ref: '#/components/schemas/audience-segment'
       type: object
       properties:
         id:
@@ -36700,22 +36215,13 @@ components:
           readOnly: true
           example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
         creationType:
-          $ref: '#/components/schemas/audience-segment-creation-type.json'
+          $ref: '#/components/schemas/AudienceSegmentCreationType'
         deleted:
           type: boolean
           description: Boolean representing whether segment is deleted or not.
           readOnly: true
           example: true
           default: false
-    existing-audience-segment-creation-type.json:
-      title: ExistingAudienceSegmentCreationType
-      type: string
-      description: Creation type of the audience segment.
-      example: MANUAL
-      enum:
-        - MANUAL
-        - RULE_BASED
-      default: MANUAL
     existing-audio-track:
       title: ExistingAudioTrack
       description: Existing audio track.
@@ -36818,7 +36324,7 @@ components:
       description: This is used to denote an existing custom field.
       type: object
       allOf:
-        - $ref: '#/components/schemas/custom-field3'
+        - $ref: '#/components/schemas/custom-field2'
       properties:
         id:
           type: string
@@ -37000,7 +36506,7 @@ components:
             stream:
               $ref: '#/components/schemas/live-stream.json'
             region:
-              $ref: '#/components/schemas/region.json1'
+              $ref: '#/components/schemas/region.json'
             duration:
               type: integer
               description: Video duration (milliseconds)
@@ -37904,6 +37410,15 @@ components:
           format: uuid
           example: 4d44b9e4-8c1a-403d-a20a-0b981f539935
           type: string
+    ExistingAudienceSegmentCreationType:
+      title: ExistingAudienceSegmentCreationType
+      type: string
+      description: Creation type of the audience segment.
+      example: MANUAL
+      enum:
+        - MANUAL
+        - RULE_BASED
+      default: MANUAL
     ExistingCapacity:
       title: ExistingCapacity
       type: object
@@ -38566,7 +38081,7 @@ components:
         - $ref: '#/components/schemas/Audit'
       properties:
         event:
-          $ref: '#/components/schemas/Event3'
+          $ref: '#/components/schemas/Event4'
         exhibitor:
           $ref: '#/components/schemas/Exhibitor'
         displayName:
@@ -38811,25 +38326,6 @@ components:
         - Rather not say
       type: string
       example: Male
-    general-ledger.json:
-      title: GeneralLedger
-      type: object
-      description: This is used to denote the general ledger code associated with budget.
-      properties:
-        id:
-          $ref: '#/components/schemas/uuid-property'
-        code:
-          type: string
-          description: General Ledger Code.
-          maxLength: 30
-          example: MU
-          readOnly: true
-        name:
-          type: string
-          description: Name of the General Ledger.
-          maxLength: 30
-          example: Meet up
-          readOnly: true
     GeneralLedger:
       title: GeneralLedger
       type: object
@@ -38862,6 +38358,25 @@ components:
           maximum: 100
           example: 50
     GeneralLedger1:
+      title: GeneralLedger
+      type: object
+      description: This is used to denote the general ledger code associated with budget.
+      properties:
+        id:
+          $ref: '#/components/schemas/uuid-property'
+        code:
+          type: string
+          description: General Ledger Code.
+          maxLength: 30
+          example: MU
+          readOnly: true
+        name:
+          type: string
+          description: Name of the General Ledger.
+          maxLength: 30
+          example: Meet up
+          readOnly: true
+    GeneralLedger2:
       title: General Ledger
       type: object
       description: This is used to denote the general ledger code associated with donation item.
@@ -40359,7 +39874,7 @@ components:
         - $ref: '#/components/schemas/Audit'
       properties:
         event:
-          $ref: '#/components/schemas/Event3'
+          $ref: '#/components/schemas/Event4'
         exhibitor:
           $ref: '#/components/schemas/Exhibitor'
         attendee:
@@ -40554,7 +40069,7 @@ components:
         question:
           $ref: '#/components/schemas/UUID'
         event:
-          $ref: '#/components/schemas/Event3'
+          $ref: '#/components/schemas/Event4'
         exhibitor:
           $ref: '#/components/schemas/Exhibitor'
         lead:
@@ -40577,7 +40092,7 @@ components:
           example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
           description: Lead Qualification Question id
         event:
-          $ref: '#/components/schemas/Event3'
+          $ref: '#/components/schemas/Event4'
         exhibitor:
           $ref: '#/components/schemas/Exhibitor'
         type:
@@ -40826,25 +40341,6 @@ components:
       type: string
       example: es-DO
       maxLength: 8
-    Location:
-      title: Location
-      type: object
-      description: Used to denote a locations name and abbreviation.
-      properties:
-        id:
-          $ref: '#/components/schemas/uuid-property'
-        code:
-          type: string
-          description: Code / Abbreviation of the location.
-          maxLength: 30
-          example: ConfA
-          readOnly: true
-        name:
-          type: string
-          description: Name of the location.
-          maxLength: 100
-          example: Conference Room A
-          readOnly: true
     location.json:
       title: Location
       type: object
@@ -40873,6 +40369,25 @@ components:
           type: integer
           description: The number of attendees that can be accommodated in this location. -1 indicates unlimited capacity.
           example: 5
+    Location1:
+      title: Location
+      type: object
+      description: Used to denote a locations name and abbreviation.
+      properties:
+        id:
+          $ref: '#/components/schemas/uuid-property'
+        code:
+          type: string
+          description: Code / Abbreviation of the location.
+          maxLength: 30
+          example: ConfA
+          readOnly: true
+        name:
+          type: string
+          description: Name of the location.
+          maxLength: 100
+          example: Conference Room A
+          readOnly: true
     locations-paginated-response:
       title: Locations Paginated Response
       type: object
@@ -41821,7 +41336,7 @@ components:
           description: The ISO 8601 formatted date when the membership item registration automatically closes. The item closes at the start (12:00 AM) of the chosen date, according to the UTC timezone.
           example: '2026-08-12'
         generalLedger:
-          $ref: '#/components/schemas/GeneralLedger1'
+          $ref: '#/components/schemas/GeneralLedger2'
         currency:
           type: string
           description: The ISO 4217 currency code for this membership item.
@@ -42453,65 +41968,6 @@ components:
           format: uuid
           description: Unique identifier for the organization.
           example: 50dc08af-24a9-4d01-84be-3d43133dc945
-    organization-id.json:
-      title: Organization Id
-      type: integer
-      description: The globally unique numeric identifier which represents this organization.
-      example: 123
-      readOnly: true
-    organization-number.json:
-      title: Organization Number
-      type: string
-      description: The globally unique numeric identifier represented as a string.
-      minLength: 1
-      maxLength: 100
-      example: '1234'
-      readOnly: true
-    Organization1:
-      title: Organization
-      description: The definition of a Cvent Organization. This is the overseeing entity representing the entire enterprise Cvent is in business with. An Organization has 1 to many Customers associated to it, which represent different lines of business within the organization.
-      required:
-        - id
-        - number
-        - stub
-        - salesforceId
-        - name
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/organization-id.json'
-        stub:
-          type: string
-          format: uuid
-          allOf:
-            - title: Organization Stub
-              type: string
-              description: The unique identifier which represents this organization for a specific region.
-              format: uuid
-            - readOnly: true
-        number:
-          $ref: '#/components/schemas/organization-number.json'
-        salesforceId:
-          $ref: '#/components/schemas/salesforce-account-id.json'
-        name:
-          type: string
-          description: The name of this organization.
-          minLength: 1
-          maxLength: 255
-          example: Cvent
-        url:
-          type: string
-          description: The Url to this organization's website.
-          format: uri
-          maxLength: 255
-          default: ''
-          example: https://www.cvent.com
-        note:
-          type: string
-          description: Additional details about this organization.
-          maxLength: 1000
-          default: ''
-          example: Additional details about this organization.
     OrganizationType-1:
       title: OrganizationType
       description: Organization type.
@@ -43042,7 +42498,7 @@ components:
           description: Note for the payment done.
           example: This payment is for admission.
         type:
-          $ref: '#/components/schemas/payment-type.json'
+          $ref: '#/components/schemas/PaymentType1'
         lastModified:
           type: string
           format: date-time
@@ -43131,7 +42587,7 @@ components:
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
@@ -43144,53 +42600,7 @@ components:
         - id
       type: object
       allOf:
-        - title: Payment
-          description: Payment for a budget item in an event.
-          required:
-            - name
-            - date
-            - amount
-            - currency
-          type: object
-          properties:
-            name:
-              type: string
-              minLength: 1
-              maxLength: 100
-              description: Name of the payment.
-              example: Check Payment
-            referenceNumber:
-              type: string
-              maxLength: 30
-              description: Reference number for the payment. Assists the user in reconciling the payment with their bank statement.
-              example: abc12bde
-            currency:
-              type: string
-              description: The ISO 4217 standard format currency code used of payment currency.
-              maxLength: 3
-              example: USD
-            amount:
-              type: number
-              description: Payment amount.
-              example: 5.2
-            date:
-              type: string
-              format: date
-              description: The ISO 8601 zoned date assigned to the payment, typically denotes the date of payment.
-              example: '2020-02-07'
-            note:
-              type: string
-              maxLength: 300
-              description: Note for the payment done.
-              example: This payment is for admission.
-            type:
-              $ref: '#/components/schemas/payment-type.json'
-            lastModified:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date and time when the budget item was last modified.
-              example: '2020-02-07T00:00:00.000Z'
-              readOnly: true
+        - $ref: '#/components/schemas/payment'
       properties:
         id:
           type: string
@@ -43202,19 +42612,7 @@ components:
       description: Payment for a budget item in an event.
       type: object
       allOf:
-        - title: PaymentRequest
-          description: Payment request for a budget item in an event.
-          required:
-            - id
-          type: object
-          allOf:
-            - $ref: '#/components/schemas/payment-request/allOf/0'
-          properties:
-            id:
-              type: string
-              description: The ID of the payment.
-              format: uuid
-              example: 9463c74e-18c6-401a-a710-ae0f485bf959
+        - $ref: '#/components/schemas/payment-request'
       properties:
         budgetVersion:
           type: object
@@ -43234,59 +42632,6 @@ components:
               format: uuid
               example: 9463c74e-18c6-401a-a710-ae0f485bf959
           description: This is the budget item where this payment was made.
-    payment-type.json:
-      title: PaymentType
-      enum:
-        - AIRPLUS
-        - AMERICAN_EXPRESS
-        - AURORA
-        - AURORE
-        - AUTHORIZE_NET_SIM
-        - BANK_TRANSFER
-        - BCMC
-        - BILLY
-        - CASH
-        - CB
-        - CHECK
-        - COFINOGA
-        - CORPORATE_CARD
-        - CREDIT
-        - CYBERSOURCE_HOSTED_ORDER_PAGE
-        - CYBERSOURCE_SECURE_ACCEPTANCE
-        - DANKORT
-        - DINERS_CLUB
-        - DIRECT_BILL
-        - DISCOVER
-        - EUROCARD_MASTERCARD
-        - INVOICE
-        - JCB
-        - LASER
-        - MAESTRO
-        - MAESTROUK
-        - MASTERCARD
-        - MASTERCARD_DEBIT
-        - MONEY_ORDER
-        - NETRESERVE
-        - OTHER
-        - OTHER_2
-        - OTHER_3
-        - PAY_GOV
-        - PAYMENT_CREDITS
-        - PAYPAL
-        - P_CARD
-        - PRIVILEGE
-        - PURCHASE_ORDER
-        - SOLO
-        - TOUCHNET
-        - UATP
-        - UNIONPAY
-        - VISA
-        - VISA_DEBIT
-        - VISA_ELECTRON
-        - WPM
-      type: string
-      description: Denotes the method of payment.
-      example: Visa
     payment-types.json:
       description: Payment type.
       type: string
@@ -43366,7 +42711,60 @@ components:
       type: string
       description: "Denotes the type of payment made by an attendee. Authorization: Online payment that has been approved by the cardholder's bank but has not been executed. Online Charge: Online payment recieved in Cvent. Online Refund: Online refund to attendee processed in Cvent. Offline Charge: The transaction is a payment made to the attendee's order electronically in another system of record, or paid in physical currency. Offline Refund: The transaction is a refund issued to the attendee electronically in another system of record, or paid in physical currency."
       example: Online Refund
-    PhoneNumber:
+    PaymentType1:
+      title: PaymentType
+      enum:
+        - AIRPLUS
+        - AMERICAN_EXPRESS
+        - AURORA
+        - AURORE
+        - AUTHORIZE_NET_SIM
+        - BANK_TRANSFER
+        - BCMC
+        - BILLY
+        - CASH
+        - CB
+        - CHECK
+        - COFINOGA
+        - CORPORATE_CARD
+        - CREDIT
+        - CYBERSOURCE_HOSTED_ORDER_PAGE
+        - CYBERSOURCE_SECURE_ACCEPTANCE
+        - DANKORT
+        - DINERS_CLUB
+        - DIRECT_BILL
+        - DISCOVER
+        - EUROCARD_MASTERCARD
+        - INVOICE
+        - JCB
+        - LASER
+        - MAESTRO
+        - MAESTROUK
+        - MASTERCARD
+        - MASTERCARD_DEBIT
+        - MONEY_ORDER
+        - NETRESERVE
+        - OTHER
+        - OTHER_2
+        - OTHER_3
+        - PAY_GOV
+        - PAYMENT_CREDITS
+        - PAYPAL
+        - P_CARD
+        - PRIVILEGE
+        - PURCHASE_ORDER
+        - SOLO
+        - TOUCHNET
+        - UATP
+        - UNIONPAY
+        - VISA
+        - VISA_DEBIT
+        - VISA_ELECTRON
+        - WPM
+      type: string
+      description: Denotes the method of payment.
+      example: Visa
+    PhoneNumber1:
       title: Phone Number
       description: Phone Number
       type: object
@@ -45676,7 +45074,7 @@ components:
         - EMAIL
         - ACCOUNT_USER
         - ACCOUNT_USER_GROUP
-    reconciliation-status.json:
+    ReconciliationStatus:
       title: ReconciliationStatus
       enum:
         - Reconciled
@@ -45742,12 +45140,7 @@ components:
         - RefundByCancellationAmount
         - RefundByPercentage
       example: RefundByPercentage
-    region-code.json:
-      title: Region Code
-      type: string
-      example: VA
-      description: The region, province, or state code. Visit [Cvent's Region Code API Standards](https://developers.cvent.com/docs/rest-api/api-standards#region-codes) to learn more.
-    region.json1:
+    region.json:
       title: Region
       enum:
         - Oregon
@@ -45771,7 +45164,7 @@ components:
       description: A registration pack defining the registration type capacity allocations for an exhibitor at an event.
       properties:
         event:
-          $ref: '#/components/schemas/Event3'
+          $ref: '#/components/schemas/Event4'
         exhibitor:
           $ref: '#/components/schemas/Exhibitor'
         capacities:
@@ -45796,7 +45189,7 @@ components:
           example: 50f4f0df-0c2d-4e6b-8e68-e1413b6917f5
           description: Registration pack id
         event:
-          $ref: '#/components/schemas/Event3'
+          $ref: '#/components/schemas/Event4'
         exhibitor:
           $ref: '#/components/schemas/Exhibitor'
         capacities:
@@ -45933,21 +45326,6 @@ components:
       exclusiveMinimum: true
       example: 2.3
       minimum: 0
-    reportingField.json:
-      title: Virtual card reporting field and value.
-      description: Reporting fields and values for a virtual card.
-      type: object
-      properties:
-        name:
-          type: string
-          description: The reporting field's name.
-          example: Department Code
-          readOnly: true
-        value:
-          type: string
-          description: The reporting field value.
-          example: '12'
-          readOnly: true
     reservation-contact.json:
       title: ReservationContact
       description: Reservation contact details for this event.
@@ -46360,7 +45738,7 @@ components:
         - $ref: '#/components/schemas/event-survey-respondent/allOf/0'
       properties:
         event:
-          $ref: '#/components/schemas/event.json3'
+          $ref: '#/components/schemas/event.json1'
         contact:
           $ref: '#/components/schemas/uuid.json'
         attendee:
@@ -46611,15 +45989,6 @@ components:
           readOnly: true
           description: Represents the AI generation source for the RFP. This field is set during RFP creation and cannot be modified afterwards.
           example: MCP-Visual Studio Code/1.107.1
-    rfp-id.json:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Identifier of a particular RFP.
-          format: uuid
-          example: 3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329
-      description: RFP ID Information.
     rfp-summary.json:
       description: Schema for Rfp details associated with this proposal.
       type: object
@@ -47387,6 +46756,13 @@ components:
           type: boolean
           description: True indicates RFP was created with fee transparency enabled.
           default: false
+        preferredVenueIntegrations:
+          type: array
+          description: Venue integrations the planner prefers when sourcing venues. An empty array or absent field indicates no preference has been recorded.
+          maxItems: 1
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/VenueIntegrationType'
     RfpResponseReason:
       title: RfpResponseReason
       description: Reason given for a response to an RFP.
@@ -47879,12 +47255,6 @@ components:
         - CustomOrder
         - PriceAscending
         - PriceDescending
-    salesforce-account-id.json:
-      title: Salesforce Account Id
-      type: string
-      description: The 18 or 15 character Salesforce Account Identifier.
-      pattern: ^[a-zA-Z0-9]{15}[A-Z0-5]{3}|[a-zA-Z0-9]{15}$
-      example: 006U8000002dzQg
     schedule-action.json:
       title: ScheduleAction
       enum:
@@ -47949,7 +47319,7 @@ components:
               description: Attendee ID
           description: The attendee with points in this engagement score.
         event:
-          $ref: '#/components/schemas/event.json5'
+          $ref: '#/components/schemas/event.json3'
         points:
           type: integer
           default: 0
@@ -48022,55 +47392,6 @@ components:
       type: string
       example: The other answer for the question.
     Segment:
-      required:
-        - id
-      type: object
-      title: Segment
-      description: The audience segment associated with the session.
-      properties:
-        id:
-          $ref: '#/components/schemas/segment-id'
-    segment-attendee-response.json:
-      title: SegmentAttendee
-      description: Represents the attendees that are associated/disassociated to/from a segment
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/attendee-segment/allOf/0'
-      properties:
-        segment:
-          $ref: '#/components/schemas/segment.json'
-        id:
-          type: string
-          format: uuid
-          description: ID of the attendee.
-          example: 103097a4-143d-11e5-9f99-d0a637ee0032
-        disassociated:
-          type: boolean
-          description: Represents whether the attendee is dissociated from the segment. True if the attendee is disassociated from the segment, false if the attendee is associated with the segment.
-          readOnly: true
-          example: false
-    segment-attendees-associated-paginated-response:
-      title: SegmentAttendeesPaginatedResponse
-      description: The response from a request to get the paginated list of attendees associated/disassociated to/from an audience segment.
-      required:
-        - paging
-        - data
-      type: object
-      properties:
-        paging:
-          $ref: '#/components/schemas/paging.json'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/segment-attendee-response.json'
-          description: Collection of list of attendees associated/disassociated to/from an audience segment.
-    segment-id:
-      title: SegmentId
-      description: The unique identifier for an audience segment
-      type: string
-      format: uuid
-      example: 788426ac-5d83-11ee-8c99-0242ac120002
-    segment.json:
       title: Segment
       required:
         - id
@@ -48082,42 +47403,60 @@ components:
           format: uuid
           description: Segment Id
           example: b13497ea-c117-4d62-a17b-e6c14d7e49d4
+    segment-attendees-associated-paginated-response:
+      title: SegmentAttendeesPaginatedResponse
+      description: The response from a request to get the paginated list of attendees associated/disassociated to/from an audience segment.
+      required:
+        - paging
+        - data
+      type: object
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SegmentAttendee'
+          description: Collection of list of attendees associated/disassociated to/from an audience segment.
+    segment-id:
+      title: SegmentId
+      description: The unique identifier for an audience segment
+      type: string
+      format: uuid
+      example: 788426ac-5d83-11ee-8c99-0242ac120002
+    Segment1:
+      required:
+        - id
+      type: object
+      title: Segment
+      description: The audience segment associated with the session.
+      properties:
+        id:
+          $ref: '#/components/schemas/segment-id'
+    SegmentAttendee:
+      title: SegmentAttendee
+      description: Represents the attendees that are associated/disassociated to/from a segment
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Audit'
+      properties:
+        segment:
+          $ref: '#/components/schemas/Segment'
+        id:
+          type: string
+          format: uuid
+          description: ID of the attendee.
+          example: 103097a4-143d-11e5-9f99-d0a637ee0032
+        disassociated:
+          type: boolean
+          description: Represents whether the attendee is dissociated from the segment. True if the attendee is disassociated from the segment, false if the attendee is associated with the segment.
+          readOnly: true
+          example: false
     segments-error-response:
       title: SegmentsErrorResponse
       description: Segments error response details.
       allOf:
-        - title: ErrorResponse
-          description: Represents an error response with additional details of cascading error messages.
-          allOf:
-            - title: ErrorResponseBase
-              type: object
-              description: Represents an error response with no additional details.
-              required:
-                - code
-                - message
-              properties:
-                code:
-                  type: integer
-                  description: The HTTP status code representing the error.
-                  example: 400
-                message:
-                  type: string
-                  description: A brief description of the error.
-                  example: Bad Request
-                target:
-                  type: string
-                  description: The target resource of the error.
-                  example: example target
-          type: object
-          required:
-            - code
-            - message
-          properties:
-            details:
-              type: array
-              items:
-                $ref: '#/components/schemas/segments-error-response/allOf/0/allOf/0'
-              description: Additional details of cascading error messages.
+        - $ref: '#/components/schemas/ErrorResponse'
       type: object
       properties:
         validationCode:
@@ -48163,9 +47502,9 @@ components:
       type: object
       properties:
         event:
-          $ref: '#/components/schemas/event.json6'
+          $ref: '#/components/schemas/event.json4'
         email:
-          $ref: '#/components/schemas/email.json1'
+          $ref: '#/components/schemas/email.json'
         resendToPreviousRecipients:
           type: boolean
           description: True indicates this email should be resent to attendees who had already received this email previously.
@@ -48236,9 +47575,9 @@ components:
         - attendeeResponse
       properties:
         event:
-          $ref: '#/components/schemas/event.json6'
+          $ref: '#/components/schemas/event.json4'
         email:
-          $ref: '#/components/schemas/email.json1'
+          $ref: '#/components/schemas/email.json'
         resendToPreviousRecipients:
           type: boolean
           description: True indicates this email should be resent to attendees who had already received this email previously.
@@ -48661,7 +48000,7 @@ components:
         session:
           $ref: '#/components/schemas/Session-1'
         segment:
-          $ref: '#/components/schemas/Segment'
+          $ref: '#/components/schemas/Segment1'
         active:
           description: True indicates the session segment is active.
           type: boolean
@@ -48785,9 +48124,9 @@ components:
           type: object
           deprecated: true
           allOf:
-            - $ref: '#/components/schemas/event/properties/category/allOf/0'
+            - $ref: '#/components/schemas/event1/properties/category/allOf/0'
         location:
-          $ref: '#/components/schemas/event/properties/category/allOf/0'
+          $ref: '#/components/schemas/event1/properties/category/allOf/0'
         description:
           type: string
           description: Detailed description of the session.
@@ -48919,7 +48258,7 @@ components:
               description: Whether a session is in-person, virtual or hybrid. Use virtual field instead.
             - $ref: '#/components/schemas/Lookup'
         location:
-          $ref: '#/components/schemas/Location'
+          $ref: '#/components/schemas/Location1'
         description:
           type: string
           description: |-
@@ -49892,7 +49231,7 @@ components:
         - $ref: '#/components/schemas/Audit'
       properties:
         event:
-          $ref: '#/components/schemas/Event3'
+          $ref: '#/components/schemas/Event4'
         name:
           type: string
           description: Name of the sponsorship level
@@ -51210,7 +50549,7 @@ components:
         - YOR
         - YT
         - ZET
-    StateProvince1:
+    StateProvince:
       type: string
       title: StateProvince
       description: The state province code used for contact information.
@@ -52264,7 +51603,7 @@ components:
           type: array
           uniqueItems: true
           items:
-            $ref: '#/components/schemas/event.json3'
+            $ref: '#/components/schemas/event.json1'
           description: List of events with which this survey is linked.
     SurveyContactId:
       title: SurveyContactId
@@ -52903,17 +52242,6 @@ components:
         - SUBMIT
         - VALIDATE
         - WITHDRAW
-    transaction-type.json1:
-      title: TransactionType
-      enum:
-        - Payments
-        - Refunds
-        - Authorized
-        - Approved
-        - Declined
-      type: string
-      description: This is used to denote the transaction type for a transaction.
-      example: Approved
     transaction.json:
       description: The latest transaction that took place on a given proposal
       type: object
@@ -52957,6 +52285,45 @@ components:
           type: number
           description: Amount of the overall transaction you're allotting to the specified product. This amount is in the same currency used by the event.
           example: 15.25
+    TransactionReconciliation:
+      title: Transaction Reconciliation
+      description: A transaction reconciliation record.
+      type: object
+      properties:
+        budgetItem:
+          type: object
+          properties:
+            id:
+              type: string
+              description: The budget item ID.
+              format: uuid
+          description: The identifier of reconciled budget item.
+        status:
+          $ref: '#/components/schemas/ReconciliationStatus'
+        amount:
+          type: number
+          description: Reconciliation amount.
+          example: 100.5
+        reconciledBy:
+          type: string
+          description: Reconciled by user.
+          example: Test User
+        reconciledDate:
+          type: string
+          format: date-time
+          description: The ISO 8601 zoned date and time for Reconciled date.
+          example: '2020-02-07T09:37:50Z'
+    TransactionType:
+      title: TransactionType
+      enum:
+        - Payments
+        - Refunds
+        - Authorized
+        - Approved
+        - Declined
+      type: string
+      description: This is used to denote the transaction type for a transaction.
+      example: Approved
     translation1:
       title: CustomFieldTranslation
       description: A custom-field translation for a particular language.
@@ -54547,7 +53914,7 @@ components:
           minItems: 1
           description: 'The email of the user. The Cvent user can have only one email address.<br> If multiple email addresses are provided, only one is accepted and rest are ignored. One email is selected based on the following sequence of criteria: primary email, then work type, and finally first in the sequence.'
           items:
-            $ref: '#/components/schemas/Email'
+            $ref: '#/components/schemas/Email1'
         title:
           type: string
           description: The title of the user.
@@ -54557,7 +53924,7 @@ components:
           type: array
           description: The phone numbers of the user.<br> If more than one number per type is provided, only one is accepted and rest are ignored.
           items:
-            $ref: '#/components/schemas/PhoneNumber'
+            $ref: '#/components/schemas/PhoneNumber1'
         addresses:
           type: array
           description: 'The address of the user. The user can have only one address. <br> If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence'
@@ -54589,37 +53956,6 @@ components:
         meta:
           $ref: '#/components/schemas/Meta'
     user-group.json:
-      title: Account User Group
-      description: A collection of account users which is used to help manage access and visibility to various other Cvent domain entities like events, surveys, account emails, and more. For example, a user group can be associated to specific events to allow the users within that group to view the events within Cvent's platform.
-      required:
-        - id
-        - name
-        - created
-        - createdBy
-        - lastModified
-        - lastModifiedBy
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/Account/properties/audit/allOf/0'
-      properties:
-        id:
-          type: string
-          format: uuid
-          description: The unique identifier of the user group.
-          example: EBF2273A-35A5-BD67-A292-397539D13270
-          readOnly: true
-        name:
-          type: string
-          description: The name of the user group.
-          example: MyUserGroup
-          minLength: 1
-          maxLength: 50
-        description:
-          type: string
-          description: The description of the user group.
-          example: MyUserGroupDescription
-          maxLength: 300
-    user-group.json1:
       title: UserGroup
       description: Contains information about a user group associated with an event
       required:
@@ -54648,25 +53984,9 @@ components:
           type: array
           description: List of user groups
           items:
-            $ref: '#/components/schemas/user-group.json1'
-        paging:
-          $ref: '#/components/schemas/paging.json'
-    user-groups.json:
-      title: User Groups
-      description: A paginated result for a list of user groups.
-      required:
-        - paging
-        - data
-      type: object
-      properties:
-        paging:
-          $ref: '#/components/schemas/paging.json'
-        data:
-          type: array
-          items:
             $ref: '#/components/schemas/user-group.json'
-          description: The list of user groups retrieved for the specified page.
-          readOnly: true
+        paging:
+          $ref: '#/components/schemas/paging.json'
     UserEnterpriseExtension:
       title: User Enterprise Extension
       description: Enterprise extension model for the user.
@@ -54706,6 +54026,22 @@ components:
           example: '+1123456'
           maxLength: 30
     UserGroups:
+      title: User Groups
+      description: A paginated result for a list of user groups.
+      required:
+        - paging
+        - data
+      type: object
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountUserGroup'
+          description: The list of user groups retrieved for the specified page.
+          readOnly: true
+    UserGroups1:
       title: Groups
       description: Groups
       type: object
@@ -55226,7 +54562,7 @@ components:
               maxLength: 40
               example: Vienna
             stateProvince:
-              $ref: '#/components/schemas/StateProvince1'
+              $ref: '#/components/schemas/StateProvince'
             zipPostalCode:
               type: string
               nullable: true
@@ -55573,6 +54909,14 @@ components:
       type: string
       format: uuid
       example: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+    VenueIntegrationType:
+      title: VenueIntegrationType
+      description: The type of venue integration a planner prefers when sourcing venues through an RFP. PASSKEY represents Passkey room-block management. CED represents Cvent Event Diagramming (3D diagramming / Interactive Floor Plans).
+      type: string
+      enum:
+        - CED
+        - PASSKEY
+      example: PASSKEY
     VenueType:
       title: Venue Type
       description: |-
@@ -56122,6 +55466,21 @@ components:
       enum:
         - LIVE
         - RECORDING
+    VirtualCardReportingFieldAndValue:
+      title: Virtual card reporting field and value.
+      description: Reporting fields and values for a virtual card.
+      type: object
+      properties:
+        name:
+          type: string
+          description: The reporting field's name.
+          example: Department Code
+          readOnly: true
+        value:
+          type: string
+          description: The reporting field value.
+          example: '12'
+          readOnly: true
     VolumeDiscount:
       title: Volume Discount
       description: Representation of a volume based discount.
@@ -56505,7 +55864,7 @@ components:
         - $ref: '#/components/schemas/Audit'
       properties:
         event:
-          $ref: '#/components/schemas/Event3'
+          $ref: '#/components/schemas/Event4'
         exhibitor:
           $ref: '#/components/schemas/Exhibitor'
         name:
