@@ -1,0 +1,13 @@
+# ReservationNight
+
+Reservation night details.
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     | Example                                                                         |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `stayDate`                                                                      | [LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html) | :heavy_check_mark:                                                              | Night date.                                                                     | 2024-12-01                                                                      |
+| `status`                                                                        | [ReservationNightStatus](../../models/components/ReservationNightStatus.md)     | :heavy_check_mark:                                                              | Indicator of night's status.                                                    |                                                                                 |
+| `hideRates`                                                                     | *Optional\<Boolean>*                                                            | :heavy_minus_sign:                                                              | True indicates the rates are hidden for this night.                             | false                                                                           |
+| `rate`                                                                          | [ReservationNightRate](../../models/components/ReservationNightRate.md)         | :heavy_check_mark:                                                              | Rate details for a single reservation night.                                    |                                                                                 |

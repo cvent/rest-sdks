@@ -406,10 +406,12 @@ public class CventSDK {
     /**
      * These API's provide compliance support for regulated industries.
      *
-     * <p>**Communication Compliance** lets you view communication activities across your account.
-     * Various written forms of communication are captured. For example, emails, SMS, chat messages, or
-     * push notifications
-     * can be downloaded for archival or analysis.
+     * <p>**Communication Compliance** lets you view communication activities across your account for archival
+     * or analysis.
+     *
+     * <p>Various written forms of communication are captured. This includes: emails, SMS, session chats,
+     * exhibitor chats,
+     * text discussions, 1:1 attendee messaging, group messaging, or push notifications.
      */
     private final Compliance compliance;
 
@@ -417,6 +419,12 @@ public class CventSDK {
      * Endpoints for obtaining, refreshing, and validating OAuth2 access tokens.
      */
     private final Authentication authentication;
+
+    /**
+     * Orders represent a collection of order items purchased by an attendee. Use these APIs to get
+     * information about orders and order items.
+     */
+    private final Orders orders;
 
     /**
      * Process forms automate data collection and notifications related to planning and executing events.
@@ -472,6 +480,13 @@ public class CventSDK {
      * Retrieves Check-In &amp; Check-Out Signatures Of Attendees
      */
     private final Signatures signatures;
+
+    /**
+     * Transactions represent the financial exchanges that occur within your account. Use these APIs to
+     * retrieve and manage transaction data, including charges, refunds, and adjustments associated with
+     * your events and attendees.
+     */
+    private final Transactions transactions;
 
     /**
      * The travel account, or corporation that represents the demand-side of travel RFPs.
@@ -974,10 +989,12 @@ public class CventSDK {
     /**
      * These API's provide compliance support for regulated industries.
      *
-     * <p>**Communication Compliance** lets you view communication activities across your account.
-     * Various written forms of communication are captured. For example, emails, SMS, chat messages, or
-     * push notifications
-     * can be downloaded for archival or analysis.
+     * <p>**Communication Compliance** lets you view communication activities across your account for archival
+     * or analysis.
+     *
+     * <p>Various written forms of communication are captured. This includes: emails, SMS, session chats,
+     * exhibitor chats,
+     * text discussions, 1:1 attendee messaging, group messaging, or push notifications.
      */
     public Compliance compliance() {
         return compliance;
@@ -988,6 +1005,14 @@ public class CventSDK {
      */
     public Authentication authentication() {
         return authentication;
+    }
+
+    /**
+     * Orders represent a collection of order items purchased by an attendee. Use these APIs to get
+     * information about orders and order items.
+     */
+    public Orders orders() {
+        return orders;
     }
 
     /**
@@ -1061,6 +1086,15 @@ public class CventSDK {
      */
     public Signatures signatures() {
         return signatures;
+    }
+
+    /**
+     * Transactions represent the financial exchanges that occur within your account. Use these APIs to
+     * retrieve and manage transaction data, including charges, refunds, and adjustments associated with
+     * your events and attendees.
+     */
+    public Transactions transactions() {
+        return transactions;
     }
 
     /**
@@ -1318,6 +1352,7 @@ public class CventSDK {
         this.eventsPlusHub = new EventsPlusHub(sdkConfiguration);
         this.compliance = new Compliance(sdkConfiguration);
         this.authentication = new Authentication(sdkConfiguration);
+        this.orders = new Orders(sdkConfiguration);
         this.processForm = new ProcessForm(sdkConfiguration);
         this.speakers = new Speakers(sdkConfiguration);
         this.proposalDraft = new ProposalDraft(sdkConfiguration);
@@ -1327,6 +1362,7 @@ public class CventSDK {
         this.rfpSuppliers = new RFPSuppliers(sdkConfiguration);
         this.userSCIM = new UserSCIM(sdkConfiguration);
         this.signatures = new Signatures(sdkConfiguration);
+        this.transactions = new Transactions(sdkConfiguration);
         this.travelAccounts = new TravelAccounts(sdkConfiguration);
         this.travelRFPs = new TravelRFPs(sdkConfiguration);
         this.travelSuppliers = new TravelSuppliers(sdkConfiguration);

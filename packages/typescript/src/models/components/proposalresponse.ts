@@ -16,7 +16,7 @@ import {
   CategoryItemsCostJson$inboundSchema,
 } from "./categoryitemscostjson.js";
 import { ContactJson, ContactJson$inboundSchema } from "./contactjson.js";
-import { CurrencyJson2, CurrencyJson2$inboundSchema } from "./currencyjson2.js";
+import { CurrencyJson1, CurrencyJson1$inboundSchema } from "./currencyjson1.js";
 import {
   EstimatedCostJson,
   EstimatedCostJson$inboundSchema,
@@ -172,7 +172,7 @@ export type ProposalResponse = {
   /**
    * The ISO 4217 standard format currency code used for RFPs.
    */
-  currencyCode?: CurrencyJson2 | undefined;
+  currencyCode?: CurrencyJson1 | undefined;
   /**
    * True indicates this is a commissionable bid.
    */
@@ -305,7 +305,7 @@ export const ProposalResponse$inboundSchema: z.ZodType<
   statusSummary: StatusSummaryJson$inboundSchema.optional(),
   introduction: z.string().optional(),
   billingContractualResponse: z.string().optional(),
-  currencyCode: CurrencyJson2$inboundSchema.optional(),
+  currencyCode: CurrencyJson1$inboundSchema.optional(),
   commissionableBid: z.boolean().optional(),
   commissionRate: z.number().optional(),
   name: z.string().optional(),

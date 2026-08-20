@@ -30,10 +30,12 @@ import java.util.concurrent.CompletableFuture;
 /**
  * These API's provide compliance support for regulated industries.
  *
- * <p>**Communication Compliance** lets you view communication activities across your account.
- * Various written forms of communication are captured. For example, emails, SMS, chat messages, or
- * push notifications
- * can be downloaded for archival or analysis.
+ * <p>**Communication Compliance** lets you view communication activities across your account for archival
+ * or analysis.
+ *
+ * <p>Various written forms of communication are captured. This includes: emails, SMS, session chats,
+ * exhibitor chats,
+ * text discussions, 1:1 attendee messaging, group messaging, or push notifications.
  */
 public class AsyncCompliance {
     private static final Headers _headers = Headers.EMPTY;
@@ -157,10 +159,10 @@ public class AsyncCompliance {
      * dates.
      *
      * <p>Supported types are:
-     *
-     * <p>* email
-     * * chat
-     * * session_qa
+     * * `email`
+     * * `chat` (session chats, exhibitor chats, text discussions, 1:1 messaging (attendees), group
+     * messaging (groups))
+     * * `session_qa`
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -179,10 +181,10 @@ public class AsyncCompliance {
      * dates.
      *
      * <p>Supported types are:
-     *
-     * <p>* email
-     * * chat
-     * * session_qa
+     * * `email`
+     * * `chat` (session chats, exhibitor chats, text discussions, 1:1 messaging (attendees), group
+     * messaging (groups))
+     * * `session_qa`
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -203,10 +205,10 @@ public class AsyncCompliance {
      * dates.
      *
      * <p>Supported types are:
-     *
-     * <p>* email
-     * * chat
-     * * session_qa
+     * * `email`
+     * * `chat` (session chats, exhibitor chats, text discussions, 1:1 messaging (attendees), group
+     * messaging (groups))
+     * * `session_qa`
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -230,10 +232,10 @@ public class AsyncCompliance {
      * dates.
      *
      * <p>Supported types are:
-     *
-     * <p>* email
-     * * chat
-     * * session_qa
+     * * `email`
+     * * `chat` (session chats, exhibitor chats, text discussions, 1:1 messaging (attendees), group
+     * messaging (groups))
+     * * `session_qa`
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -252,10 +254,10 @@ public class AsyncCompliance {
      * dates.
      *
      * <p>Supported types are:
-     *
-     * <p>* email
-     * * chat
-     * * session_qa
+     * * `email`
+     * * `chat` (session chats, exhibitor chats, text discussions, 1:1 messaging (attendees), group
+     * messaging (groups))
+     * * `session_qa`
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -276,10 +278,10 @@ public class AsyncCompliance {
      * dates.
      *
      * <p>Supported types are:
-     *
-     * <p>* email
-     * * chat
-     * * session_qa
+     * * `email`
+     * * `chat` (session chats, exhibitor chats, text discussions, 1:1 messaging (attendees), group
+     * messaging (groups))
+     * * `session_qa`
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *

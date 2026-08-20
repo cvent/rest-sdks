@@ -181,7 +181,7 @@ namespace Cvent.SDK.Models.Components
         /// A collection of contacts representing the event planners.
         /// </summary>
         [JsonProperty("planners")]
-        public List<PlannerJson2> Planners { get; set; } = default!;
+        public List<PlannerJson1> Planners { get; set; } = default!;
 
         /// <summary>
         /// A collection of contacts representing event stakeholders.

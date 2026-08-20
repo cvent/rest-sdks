@@ -25,19 +25,19 @@ public class AvailableNights {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * List of available room nights and their associated details.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<AvailableNightJson> data;
+    private List<AvailableNight> data;
 
     @JsonCreator
     public AvailableNights(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<AvailableNightJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging,
+            @JsonProperty("data") @Nullable List<AvailableNight> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +49,14 @@ public class AvailableNights {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * List of available room nights and their associated details.
      */
-    public Optional<List<AvailableNightJson>> data() {
+    public Optional<List<AvailableNight>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +67,7 @@ public class AvailableNights {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public AvailableNights withPaging(@Nullable PagingJson paging) {
+    public AvailableNights withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +75,7 @@ public class AvailableNights {
     /**
      * List of available room nights and their associated details.
      */
-    public AvailableNights withData(@Nullable List<AvailableNightJson> data) {
+    public AvailableNights withData(@Nullable List<AvailableNight> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +105,9 @@ public class AvailableNights {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<AvailableNightJson> data;
+        private List<AvailableNight> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class AvailableNights {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +124,7 @@ public class AvailableNights {
         /**
          * List of available room nights and their associated details.
          */
-        public Builder data(@Nullable List<AvailableNightJson> data) {
+        public Builder data(@Nullable List<AvailableNight> data) {
             this.data = data;
             return this;
         }

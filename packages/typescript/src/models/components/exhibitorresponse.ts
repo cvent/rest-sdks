@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Address4, Address4$inboundSchema } from "./address4.js";
+import { Address5, Address5$inboundSchema } from "./address5.js";
 import { ContactLinks1, ContactLinks1$inboundSchema } from "./contactlinks1.js";
 import { Event4, Event4$inboundSchema } from "./event4.js";
 import {
@@ -61,7 +61,7 @@ export type ExhibitorResponse = {
   /**
    * An object representing an address with various properties.
    */
-  address?: Address4 | undefined;
+  address?: Address5 | undefined;
   /**
    * Email address of the exhibitor
    */
@@ -147,7 +147,7 @@ export const ExhibitorResponse$inboundSchema: z.ZodType<
   code: z.string().optional(),
   sourceId: z.string().optional(),
   location: z.string().optional(),
-  address: Address4$inboundSchema.optional(),
+  address: Address5$inboundSchema.optional(),
   email: z.string().optional(),
   mobilePhone: z.string().optional(),
   workPhone: z.string().optional(),

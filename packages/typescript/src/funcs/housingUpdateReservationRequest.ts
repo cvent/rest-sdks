@@ -30,7 +30,13 @@ import { Result } from "../types/fp.js";
  * Update Reservation Request
  *
  * @remarks
- * Update a reservation request using the given reservation ID. If the reservation has been booked, changes to the reservation request do not affect the linked reservation.
+ * Update a reservation request using the given reservation request ID. Use this endpoint to update guest details
+ * (name, email, preferences) on the reservation request. The request body overwrites the current version entirely.
+ *
+ * If a reservation has already been booked through this request, changes to the reservation request do not affect
+ * the linked reservation. To update the hotel booking itself, use [Update Reservation](#operation/updateReservationSync) instead.
+ *
+ * You cannot update a cancelled reservation request.
  */
 export function housingUpdateReservationRequest(
   client: CventSDKCore,

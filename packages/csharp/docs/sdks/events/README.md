@@ -410,8 +410,8 @@ Event1Input req = new Event1Input() {
     Languages = new List<string>() {
         "en-US",
     },
-    Planners = new List<PlannerJson2Input>() {
-        new PlannerJson2Input() {
+    Planners = new List<PlannerJson1Input>() {
+        new PlannerJson1Input() {
             Prefix = "Dr.",
             FirstName = "Henry",
             LastName = "Smith",
@@ -823,7 +823,7 @@ UpdateEventRequest req = new UpdateEventRequest() {
             "en-US",
         },
         Capacity = 50,
-        Planners = new List<PlannerJson2Input>() {},
+        Planners = new List<PlannerJson1Input>() {},
         Type = EventTypeJson.Conference,
     },
 };

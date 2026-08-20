@@ -10,7 +10,7 @@ import {
   AdditionalChoiceJson,
   AdditionalChoiceJson$inboundSchema,
 } from "./additionalchoicejson.js";
-import { ChoiceJson1, ChoiceJson1$inboundSchema } from "./choicejson1.js";
+import { ChoiceJson, ChoiceJson$inboundSchema } from "./choicejson.js";
 import { FieldTypeJson, FieldTypeJson$inboundSchema } from "./fieldtypejson.js";
 
 /**
@@ -36,7 +36,7 @@ export type FieldJson = {
   /**
    * List of choices for this field.
    */
-  choices?: Array<ChoiceJson1> | undefined;
+  choices?: Array<ChoiceJson> | undefined;
   /**
    * Contains text of additional choice i.e N/A choice or otherAnswer choice
    */
@@ -61,7 +61,7 @@ export const FieldJson$inboundSchema: z.ZodType<
   text: z.string().optional(),
   shortText: z.string().optional(),
   type: FieldTypeJson$inboundSchema.optional(),
-  choices: z.array(ChoiceJson1$inboundSchema).optional(),
+  choices: z.array(ChoiceJson$inboundSchema).optional(),
   notApplicableAnswer: AdditionalChoiceJson$inboundSchema.optional(),
   otherAnswer: AdditionalChoiceJson$inboundSchema.optional(),
   required: z.boolean().default(false),

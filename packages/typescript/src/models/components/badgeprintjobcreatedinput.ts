@@ -4,14 +4,14 @@
 
 import * as z from "zod/v3";
 import {
-  BadgePrinterPoolReferenceJson,
-  BadgePrinterPoolReferenceJson$Outbound,
-  BadgePrinterPoolReferenceJson$outboundSchema,
-} from "./badgeprinterpoolreferencejson.js";
+  BadgePrinterPoolRef,
+  BadgePrinterPoolRef$Outbound,
+  BadgePrinterPoolRef$outboundSchema,
+} from "./badgeprinterpoolref.js";
 import {
-  BadgePrintJobStatusJson,
-  BadgePrintJobStatusJson$outboundSchema,
-} from "./badgeprintjobstatusjson.js";
+  BadgePrintJobStatus,
+  BadgePrintJobStatus$outboundSchema,
+} from "./badgeprintjobstatus.js";
 
 /**
  * The Badge Print Job that was created.
@@ -20,11 +20,11 @@ export type BadgePrintJobCreatedInput = {
   /**
    * This is used to indicate the status of the badge print job.
    */
-  status?: BadgePrintJobStatusJson | undefined;
+  status?: BadgePrintJobStatus | undefined;
   /**
    * Reference to a Badge Print Pool.
    */
-  pool: BadgePrinterPoolReferenceJson;
+  pool: BadgePrinterPoolRef;
   /**
    * A unique id of the attendee for badge printing, which could be confirmation number or secured badge id depending on whether secured badge id is enabled
    */
@@ -34,7 +34,7 @@ export type BadgePrintJobCreatedInput = {
 /** @internal */
 export type BadgePrintJobCreatedInput$Outbound = {
   status?: string | undefined;
-  pool: BadgePrinterPoolReferenceJson$Outbound;
+  pool: BadgePrinterPoolRef$Outbound;
   badgeId: string;
 };
 
@@ -44,8 +44,8 @@ export const BadgePrintJobCreatedInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BadgePrintJobCreatedInput
 > = z.object({
-  status: BadgePrintJobStatusJson$outboundSchema.optional(),
-  pool: BadgePrinterPoolReferenceJson$outboundSchema,
+  status: BadgePrintJobStatus$outboundSchema.optional(),
+  pool: BadgePrinterPoolRef$outboundSchema,
   badgeId: z.string(),
 });
 

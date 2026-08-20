@@ -3,12 +3,16 @@
  */
 package com.cvent.models.components;
 
+import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
+import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
+import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
@@ -16,159 +20,126 @@ import java.util.Optional;
 /**
  * Address6
  *
- * <p>Address of the hotel.
+ * <p>Address
  */
 public class Address6 {
     /**
-     * The first line of an address.
+     * The type of the address.
      */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("address1")
-    private String address1;
+    @JsonProperty("type")
+    private AddressType1 type;
 
     /**
-     * The second line of an address.
+     * The street address of the user.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("address2")
-    private String address2;
+    @JsonProperty("streetAddress")
+    private String streetAddress;
 
     /**
-     * The third line of an address.
+     * The locality/city of the user.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("address3")
-    private String address3;
+    @JsonProperty("locality")
+    private String locality;
 
     /**
-     * The name of the city.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("city")
-    private String city;
-
-    /**
-     * ISO 3166 two-letter (alpha-2) country code.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("countryCode")
-    private String countryCode;
-
-    /**
-     * Postal code (also known as zipcode) of the address.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("postalCode")
-    private String postalCode;
-
-    /**
-     * The name of the state/province/region of the address.
+     * The region/state/province of the user.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("region")
     private String region;
 
     /**
-     * The abbreviation of the state/province/region of the address.
+     * Postal code (also known as zipcode) of the user.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("regionCode")
-    private String regionCode;
+    @JsonProperty("postalCode")
+    private String postalCode;
 
     /**
-     * Name of the country.
+     * The country of the user.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("country")
     private String country;
 
+    /**
+     * True indicates the address is primary.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("primary")
+    private Boolean primary;
+
     @JsonCreator
     public Address6(
-            @JsonProperty("address1") @Nullable String address1,
-            @JsonProperty("address2") @Nullable String address2,
-            @JsonProperty("address3") @Nullable String address3,
-            @JsonProperty("city") @Nullable String city,
-            @JsonProperty("countryCode") @Nullable String countryCode,
-            @JsonProperty("postalCode") @Nullable String postalCode,
+            @JsonProperty("type") @Nonnull AddressType1 type,
+            @JsonProperty("streetAddress") @Nullable String streetAddress,
+            @JsonProperty("locality") @Nullable String locality,
             @JsonProperty("region") @Nullable String region,
-            @JsonProperty("regionCode") @Nullable String regionCode,
-            @JsonProperty("country") @Nullable String country) {
-        this.address1 = address1;
-        this.address2 = address2;
-        this.address3 = address3;
-        this.city = city;
-        this.countryCode = countryCode;
-        this.postalCode = postalCode;
+            @JsonProperty("postalCode") @Nullable String postalCode,
+            @JsonProperty("country") @Nullable String country,
+            @JsonProperty("primary") @Nullable Boolean primary) {
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.streetAddress = streetAddress;
+        this.locality = locality;
         this.region = region;
-        this.regionCode = regionCode;
+        this.postalCode = postalCode;
         this.country = country;
+        this.primary = Optional.ofNullable(primary).orElse(Builder._SINGLETON_VALUE_Primary.value());
     }
 
-    public Address6() {
-        this(null, null, null, null, null, null, null, null, null);
+    public Address6(@Nonnull AddressType1 type) {
+        this(type, null, null, null, null, null, null);
     }
 
     /**
-     * The first line of an address.
+     * The type of the address.
      */
-    public Optional<String> address1() {
-        return Optional.ofNullable(this.address1);
+    public AddressType1 type() {
+        return this.type;
     }
 
     /**
-     * The second line of an address.
+     * The street address of the user.
      */
-    public Optional<String> address2() {
-        return Optional.ofNullable(this.address2);
+    public Optional<String> streetAddress() {
+        return Optional.ofNullable(this.streetAddress);
     }
 
     /**
-     * The third line of an address.
+     * The locality/city of the user.
      */
-    public Optional<String> address3() {
-        return Optional.ofNullable(this.address3);
+    public Optional<String> locality() {
+        return Optional.ofNullable(this.locality);
     }
 
     /**
-     * The name of the city.
-     */
-    public Optional<String> city() {
-        return Optional.ofNullable(this.city);
-    }
-
-    /**
-     * ISO 3166 two-letter (alpha-2) country code.
-     */
-    public Optional<String> countryCode() {
-        return Optional.ofNullable(this.countryCode);
-    }
-
-    /**
-     * Postal code (also known as zipcode) of the address.
-     */
-    public Optional<String> postalCode() {
-        return Optional.ofNullable(this.postalCode);
-    }
-
-    /**
-     * The name of the state/province/region of the address.
+     * The region/state/province of the user.
      */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
     /**
-     * The abbreviation of the state/province/region of the address.
+     * Postal code (also known as zipcode) of the user.
      */
-    public Optional<String> regionCode() {
-        return Optional.ofNullable(this.regionCode);
+    public Optional<String> postalCode() {
+        return Optional.ofNullable(this.postalCode);
     }
 
     /**
-     * Name of the country.
+     * The country of the user.
      */
     public Optional<String> country() {
         return Optional.ofNullable(this.country);
+    }
+
+    /**
+     * True indicates the address is primary.
+     */
+    public Optional<Boolean> primary() {
+        return Optional.ofNullable(this.primary);
     }
 
     public static Builder builder() {
@@ -176,55 +147,31 @@ public class Address6 {
     }
 
     /**
-     * The first line of an address.
+     * The type of the address.
      */
-    public Address6 withAddress1(@Nullable String address1) {
-        this.address1 = address1;
+    public Address6 withType(@Nonnull AddressType1 type) {
+        this.type = Utils.checkNotNull(type, "type");
         return this;
     }
 
     /**
-     * The second line of an address.
+     * The street address of the user.
      */
-    public Address6 withAddress2(@Nullable String address2) {
-        this.address2 = address2;
+    public Address6 withStreetAddress(@Nullable String streetAddress) {
+        this.streetAddress = streetAddress;
         return this;
     }
 
     /**
-     * The third line of an address.
+     * The locality/city of the user.
      */
-    public Address6 withAddress3(@Nullable String address3) {
-        this.address3 = address3;
+    public Address6 withLocality(@Nullable String locality) {
+        this.locality = locality;
         return this;
     }
 
     /**
-     * The name of the city.
-     */
-    public Address6 withCity(@Nullable String city) {
-        this.city = city;
-        return this;
-    }
-
-    /**
-     * ISO 3166 two-letter (alpha-2) country code.
-     */
-    public Address6 withCountryCode(@Nullable String countryCode) {
-        this.countryCode = countryCode;
-        return this;
-    }
-
-    /**
-     * Postal code (also known as zipcode) of the address.
-     */
-    public Address6 withPostalCode(@Nullable String postalCode) {
-        this.postalCode = postalCode;
-        return this;
-    }
-
-    /**
-     * The name of the state/province/region of the address.
+     * The region/state/province of the user.
      */
     public Address6 withRegion(@Nullable String region) {
         this.region = region;
@@ -232,18 +179,26 @@ public class Address6 {
     }
 
     /**
-     * The abbreviation of the state/province/region of the address.
+     * Postal code (also known as zipcode) of the user.
      */
-    public Address6 withRegionCode(@Nullable String regionCode) {
-        this.regionCode = regionCode;
+    public Address6 withPostalCode(@Nullable String postalCode) {
+        this.postalCode = postalCode;
         return this;
     }
 
     /**
-     * Name of the country.
+     * The country of the user.
      */
     public Address6 withCountry(@Nullable String country) {
         this.country = country;
+        return this;
+    }
+
+    /**
+     * True indicates the address is primary.
+     */
+    public Address6 withPrimary(@Nullable Boolean primary) {
+        this.primary = primary;
         return this;
     }
 
@@ -256,122 +211,87 @@ public class Address6 {
             return false;
         }
         Address6 other = (Address6) o;
-        return Utils.enhancedDeepEquals(this.address1, other.address1)
-                && Utils.enhancedDeepEquals(this.address2, other.address2)
-                && Utils.enhancedDeepEquals(this.address3, other.address3)
-                && Utils.enhancedDeepEquals(this.city, other.city)
-                && Utils.enhancedDeepEquals(this.countryCode, other.countryCode)
-                && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.streetAddress, other.streetAddress)
+                && Utils.enhancedDeepEquals(this.locality, other.locality)
                 && Utils.enhancedDeepEquals(this.region, other.region)
-                && Utils.enhancedDeepEquals(this.regionCode, other.regionCode)
-                && Utils.enhancedDeepEquals(this.country, other.country);
+                && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
+                && Utils.enhancedDeepEquals(this.country, other.country)
+                && Utils.enhancedDeepEquals(this.primary, other.primary);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-                address1, address2, address3, city, countryCode, postalCode, region, regionCode, country);
+        return Utils.enhancedHash(type, streetAddress, locality, region, postalCode, country, primary);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
                 Address6.class,
-                "address1",
-                address1,
-                "address2",
-                address2,
-                "address3",
-                address3,
-                "city",
-                city,
-                "countryCode",
-                countryCode,
-                "postalCode",
-                postalCode,
+                "type",
+                type,
+                "streetAddress",
+                streetAddress,
+                "locality",
+                locality,
                 "region",
                 region,
-                "regionCode",
-                regionCode,
+                "postalCode",
+                postalCode,
                 "country",
-                country);
+                country,
+                "primary",
+                primary);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private String address1;
+        private AddressType1 type;
 
-        private String address2;
+        private String streetAddress;
 
-        private String address3;
-
-        private String city;
-
-        private String countryCode;
-
-        private String postalCode;
+        private String locality;
 
         private String region;
 
-        private String regionCode;
+        private String postalCode;
 
         private String country;
+
+        private Boolean primary;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The first line of an address.
+         * The type of the address.
          */
-        public Builder address1(@Nullable String address1) {
-            this.address1 = address1;
+        public Builder type(@Nonnull AddressType1 type) {
+            this.type = Utils.checkNotNull(type, "type");
             return this;
         }
 
         /**
-         * The second line of an address.
+         * The street address of the user.
          */
-        public Builder address2(@Nullable String address2) {
-            this.address2 = address2;
+        public Builder streetAddress(@Nullable String streetAddress) {
+            this.streetAddress = streetAddress;
             return this;
         }
 
         /**
-         * The third line of an address.
+         * The locality/city of the user.
          */
-        public Builder address3(@Nullable String address3) {
-            this.address3 = address3;
+        public Builder locality(@Nullable String locality) {
+            this.locality = locality;
             return this;
         }
 
         /**
-         * The name of the city.
-         */
-        public Builder city(@Nullable String city) {
-            this.city = city;
-            return this;
-        }
-
-        /**
-         * ISO 3166 two-letter (alpha-2) country code.
-         */
-        public Builder countryCode(@Nullable String countryCode) {
-            this.countryCode = countryCode;
-            return this;
-        }
-
-        /**
-         * Postal code (also known as zipcode) of the address.
-         */
-        public Builder postalCode(@Nullable String postalCode) {
-            this.postalCode = postalCode;
-            return this;
-        }
-
-        /**
-         * The name of the state/province/region of the address.
+         * The region/state/province of the user.
          */
         public Builder region(@Nullable String region) {
             this.region = region;
@@ -379,24 +299,34 @@ public class Address6 {
         }
 
         /**
-         * The abbreviation of the state/province/region of the address.
+         * Postal code (also known as zipcode) of the user.
          */
-        public Builder regionCode(@Nullable String regionCode) {
-            this.regionCode = regionCode;
+        public Builder postalCode(@Nullable String postalCode) {
+            this.postalCode = postalCode;
             return this;
         }
 
         /**
-         * Name of the country.
+         * The country of the user.
          */
         public Builder country(@Nullable String country) {
             this.country = country;
             return this;
         }
 
-        public Address6 build() {
-            return new Address6(
-                    address1, address2, address3, city, countryCode, postalCode, region, regionCode, country);
+        /**
+         * True indicates the address is primary.
+         */
+        public Builder primary(@Nullable Boolean primary) {
+            this.primary = primary;
+            return this;
         }
+
+        public Address6 build() {
+            return new Address6(type, streetAddress, locality, region, postalCode, country, primary);
+        }
+
+        private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Primary =
+                new LazySingletonValue<>("primary", "false", new TypeReference<Boolean>() {});
     }
 }

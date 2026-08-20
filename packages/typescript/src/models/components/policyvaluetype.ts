@@ -16,6 +16,7 @@ export const PolicyValueType = {
   MultiSelect: "multi_select",
   TextMultiLine: "text_multi_line",
   PercentOrMoney: "percent_or_money",
+  Boolean: "boolean",
 } as const;
 /**
  * Value type of the policy

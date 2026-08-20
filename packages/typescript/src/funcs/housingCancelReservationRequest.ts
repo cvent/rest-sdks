@@ -30,7 +30,12 @@ import { Result } from "../types/fp.js";
  * Cancel Reservation Request
  *
  * @remarks
- * Update the status of a reservation request to cancelled. If the reservation has already been booked, any changes made to the reservation request will not affect the linked reservation.
+ * Update the status of a reservation request to cancelled. If a reservation has already been booked through this
+ * request, cancelling the request does not cancel the linked reservation. To cancel the hotel booking itself,
+ * use [Cancel Reservation](#operation/cancelReservation).
+ *
+ * You cannot cancel a reservation request that already has a linked reservation. [Unlink the reservation](#operation/unlinkReservation) first,
+ * then cancel the request.
  */
 export function housingCancelReservationRequest(
   client: CventSDKCore,

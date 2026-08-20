@@ -29,13 +29,13 @@ namespace Cvent.SDK.Models.Components
         /// This is used to indicate the status of the badge print job.
         /// </summary>
         [JsonProperty("status")]
-        public BadgePrintJobStatusJson Status { get; set; } = default!;
+        public BadgePrintJobStatus Status { get; set; } = default!;
 
         /// <summary>
         /// A unique identifier of the badge printer pool.
         /// </summary>
         [JsonProperty("pool")]
-        public BadgePrinterPoolRef? Pool { get; set; }
+        public ExistingBadgePrintJobBadgePrinterPoolRef? Pool { get; set; }
 
         /// <summary>
         /// A unique id of the attendee for badge printing, which could be confirmation number or secured badge id depending on whether secured badge id is enabled.
@@ -53,7 +53,7 @@ namespace Cvent.SDK.Models.Components
         /// This is used to indicate the error code returned from a badge printer.
         /// </summary>
         [JsonProperty("code")]
-        public BadgePrintJobErrorCodeJson? Code { get; set; }
+        public BadgePrintJobErrorCode? Code { get; set; }
 
         /// <summary>
         /// A human readable message that summarizes the context, cause, and general solution for the error at hand.

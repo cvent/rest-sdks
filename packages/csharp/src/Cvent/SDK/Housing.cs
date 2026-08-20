@@ -44,7 +44,9 @@ namespace Cvent.SDK
         /// Create Connection.
         /// </summary>
         /// <remarks>
-        /// Create a connection between an integration partner and an event using an access code provided by the Passkey event owner. This connection (manually or using this API) is required to authorize ANY other API calls for the event.
+        /// Create a connection between an integration partner and an event using an access code provided by the Passkey<br/>
+        /// event owner. This connection is required to authorize all other API calls for the event. Only one active<br/>
+        /// connection is supported per access code at a time.
         /// </remarks>
         /// <param name="request">A <see cref="CreateConnectionRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -63,7 +65,8 @@ namespace Cvent.SDK
         /// Get Housing Events Summaries.
         /// </summary>
         /// <remarks>
-        /// Gets a paginated list of summary information for your individual housing events.
+        /// Gets a paginated list of summary information for your individual housing events. Use this endpoint to discover<br/>
+        /// which events your integration has access to and to retrieve housing event IDs for use in other endpoints.
         /// </remarks>
         /// <param name="request">A <see cref="GetHousingEventsSummariesRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -81,7 +84,10 @@ namespace Cvent.SDK
         /// Get Housing Event Info.
         /// </summary>
         /// <remarks>
-        /// Retrieves housing event details based on the given housing event ID.
+        /// Retrieves housing event details based on the given housing event ID. Use this endpoint to get event-level<br/>
+        /// information such as event name, dates, attendee types, and related configuration. Get the housing event ID<br/>
+        /// from the <a href="#operation/getHousingEventsSummaries">Get Housing Events Summaries</a> endpoint, from the<br/>
+        /// <a href="#operation/createConnection">Create Connection</a> response, or directly from the Passkey event owner.
         /// </remarks>
         /// <param name="request">A <see cref="GetHousingEventInfoRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -100,7 +106,9 @@ namespace Cvent.SDK
         /// Get Housing Event Hotels.
         /// </summary>
         /// <remarks>
-        /// Get list of hotels for the given housing event.
+        /// Get a list of hotels for the given housing event. Returns a paginated list of all hotels in the housing event's<br/>
+        /// room block, including hotel names, addresses, and IDs. Use the hotel IDs from this response to query<br/>
+        /// <a href="#operation/getHousingEventRoomTypes">room types</a>, <a href="#operation/getHousingEventHotelAvailability">availability</a>, and <a href="#operation/getRoomTypeInventory">inventory</a>.
         /// </remarks>
         /// <param name="request">A <see cref="GetHousingEventHotelsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -119,7 +127,9 @@ namespace Cvent.SDK
         /// Get Housing Event Hotel.
         /// </summary>
         /// <remarks>
-        /// Gets a single hotel's details in a housing event.
+        /// Gets a single hotel's details in a housing event. Returns detailed information about a specific hotel,<br/>
+        /// including address and localized content. Use this endpoint when you need full details for<br/>
+        /// a single hotel rather than the <a href="#operation/getHousingEventHotels">summary list</a>.
         /// </remarks>
         /// <param name="request">A <see cref="GetHousingEventHotelRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -138,7 +148,10 @@ namespace Cvent.SDK
         /// Get Event Hotel Availability.
         /// </summary>
         /// <remarks>
-        /// Get a filterable list of available room nights for a particular hotel and housing event.
+        /// Get a filterable list of available room nights for a particular hotel and housing event. Returns availability<br/>
+        /// by date, showing which nights have rooms remaining.<br/>
+        /// <br/>
+        /// Filter by attendee type and date range to narrow results.
         /// </remarks>
         /// <param name="request">A <see cref="GetHousingEventHotelAvailabilityRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -157,7 +170,11 @@ namespace Cvent.SDK
         /// Get Housing Event Room Types.
         /// </summary>
         /// <remarks>
-        /// Get a filterable list of room types for a given hotel in a housing event.
+        /// Get a filterable list of room types for a given hotel in a housing event. Room types represent categories of<br/>
+        /// rooms (for example, Standard King or Double Queen) available at the hotel for this event. Use the returned<br/>
+        /// room type IDs to query <a href="#operation/getRoomTypeDetails">room details</a> and <a href="#operation/getRoomTypeInventory">inventory</a>.<br/>
+        /// <br/>
+        /// Filter by attendee type to retrieve only the room types available to a specific attendee segment.
         /// </remarks>
         /// <param name="request">A <see cref="GetHousingEventRoomTypesRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -176,7 +193,8 @@ namespace Cvent.SDK
         /// Get Room Type Details.
         /// </summary>
         /// <remarks>
-        /// Get a room type's details for the given housing event, hotel and room type.
+        /// Get a room type's details for the given housing event, hotel, and room type. Returns detailed information about<br/>
+        /// a specific room type, including room description and available images.
         /// </remarks>
         /// <param name="request">A <see cref="GetRoomTypeDetailsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -195,7 +213,10 @@ namespace Cvent.SDK
         /// Get Room Type Inventory.
         /// </summary>
         /// <remarks>
-        /// Gets a list of room type inventory details (by date) for the given housing event, hotel and room type.
+        /// Gets a list of room type inventory details (by date) for the given housing event, hotel, and room type. Returns<br/>
+        /// date-by-date inventory counts (total rooms, rooms picked up, and rooms remaining) for a specific room type.<br/>
+        /// <br/>
+        /// Filter by date range to retrieve inventory for specific nights.
         /// </remarks>
         /// <param name="request">A <see cref="GetRoomTypeInventoryRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -214,7 +235,11 @@ namespace Cvent.SDK
         /// Get Housing Event Inventory.
         /// </summary>
         /// <remarks>
-        /// Gets a list (sorted by date) of housing event inventory details for the given housing event.
+        /// Gets a list (sorted by date) of housing event inventory details for the given housing event. Returns aggregated<br/>
+        /// inventory across all hotels and room types in the event. This provides a high-level view of total event capacity<br/>
+        /// and pickup.<br/>
+        /// <br/>
+        /// For per-hotel or per-room-type breakdowns, use <a href="#operation/getRoomTypeInventory">Get Room Type Inventory</a> instead.
         /// </remarks>
         /// <param name="request">A <see cref="GetHousingEventInventoryRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -233,7 +258,11 @@ namespace Cvent.SDK
         /// Get Housing Event Reservations.
         /// </summary>
         /// <remarks>
-        /// Get list of reservation details for the given housing event.
+        /// Get a list of reservation details for the given housing event. Returns a paginated list of all reservations in<br/>
+        /// the event, including guest details, stay dates, hotel, room type, and reservation status. Use the `before`<br/>
+        /// and `after` parameters to filter by when a reservation was added or last updated, which is useful for incremental syncing.<br/>
+        /// <br/>
+        /// Returns an empty list when no reservations match the criteria.
         /// </remarks>
         /// <param name="request">A <see cref="GetHousingEventReservationsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -252,7 +281,11 @@ namespace Cvent.SDK
         /// Create Reservation Request.
         /// </summary>
         /// <remarks>
-        /// Creates a reservation request from guest details. A reservation request represents a registration and stores guest details. Reservations booked with the guest-specific “bookingSite” URL in the response will pre-populate guest data and link the new reservation to the reservation request for tracking.
+        /// Creates a reservation request from guest details.<br/>
+        /// <br/>
+        /// A reservation request represents a registration and stores guest details such as name, email, and preferences.<br/>
+        /// The response includes a guest-specific `bookingSite` URL. When the guest books through that URL, Passkey<br/>
+        /// pre-populates their details and links the new reservation to the reservation request for tracking.
         /// </remarks>
         /// <param name="request">Reservation request information.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -271,7 +304,8 @@ namespace Cvent.SDK
         /// Get Reservation Request.
         /// </summary>
         /// <remarks>
-        /// Returns reservation request details for a given reservation ID.
+        /// Returns reservation request details for a given reservation request ID. The response includes guest details,<br/>
+        /// the `bookingSite` URL, and a linked Reservation ID/ack number if present.
         /// </remarks>
         /// <param name="request">A <see cref="GetReservationRequestRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -290,7 +324,13 @@ namespace Cvent.SDK
         /// Update Reservation Request.
         /// </summary>
         /// <remarks>
-        /// Update a reservation request using the given reservation ID. If the reservation has been booked, changes to the reservation request do not affect the linked reservation.
+        /// Update a reservation request using the given reservation request ID. Use this endpoint to update guest details<br/>
+        /// (name, email, preferences) on the reservation request. The request body overwrites the current version entirely.<br/>
+        /// <br/>
+        /// If a reservation has already been booked through this request, changes to the reservation request do not affect<br/>
+        /// the linked reservation. To update the hotel booking itself, use <a href="#operation/updateReservationSync">Update Reservation</a> instead.<br/>
+        /// <br/>
+        /// You cannot update a cancelled reservation request.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateReservationRequestRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -310,7 +350,12 @@ namespace Cvent.SDK
         /// Cancel Reservation Request.
         /// </summary>
         /// <remarks>
-        /// Update the status of a reservation request to cancelled. If the reservation has already been booked, any changes made to the reservation request will not affect the linked reservation.
+        /// Update the status of a reservation request to cancelled. If a reservation has already been booked through this<br/>
+        /// request, cancelling the request does not cancel the linked reservation. To cancel the hotel booking itself,<br/>
+        /// use <a href="#operation/cancelReservation">Cancel Reservation</a>.<br/>
+        /// <br/>
+        /// You cannot cancel a reservation request that already has a linked reservation. <a href="#operation/unlinkReservation">Unlink the reservation</a> first,<br/>
+        /// then cancel the request.
         /// </remarks>
         /// <param name="request">A <see cref="CancelReservationRequestRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -330,7 +375,10 @@ namespace Cvent.SDK
         /// Link Reservation.
         /// </summary>
         /// <remarks>
-        /// Link an existing reservation to a reservation request. Commonly used when associating a reservation created outside the normal booking flow (such as a guest calling the hotel).
+        /// Link an existing reservation to a reservation request. Commonly used when a reservation was created outside the<br/>
+        /// normal booking flow, such as when a guest calls the hotel directly or when staff books through the Passkey<br/>
+        /// Call Center. Linking associates the reservation with the registration represented by the reservation request,<br/>
+        /// enabling tracking and callback reporting.
         /// </remarks>
         /// <param name="request">A <see cref="LinkReservationRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -349,7 +397,12 @@ namespace Cvent.SDK
         /// Unlink Reservation.
         /// </summary>
         /// <remarks>
-        /// Unlink reservation from reservation request. Commonly used for removing a cancelled reservation from a reservation request so that a new reservation can be linked in its place.
+        /// Unlink a reservation from a reservation request. Commonly used when a linked reservation has been cancelled and<br/>
+        /// you need to free up the reservation request so a new reservation can be linked in its place.<br/>
+        /// Unlinking does not cancel or change the reservation itself.<br/>
+        /// <br/>
+        /// After unlinking, you can <a href="#operation/linkReservation">link a new reservation</a> or allow the guest to book again using the reservation<br/>
+        /// request's `bookingSite` URL.
         /// </remarks>
         /// <param name="request">A <see cref="UnlinkReservationRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -368,7 +421,11 @@ namespace Cvent.SDK
         /// Create Reservation.
         /// </summary>
         /// <remarks>
-        /// Create a hotel reservation in a housing event based on the details provided in the request body.
+        /// Create a hotel reservation in a housing event based on the details provided in the request body. This endpoint<br/>
+        /// directly creates a hotel booking on behalf of a guest. Requires a valid hotel ID, room type ID, and guest<br/>
+        /// details (including arrival and departure dates).<br/>
+        /// <br/>
+        /// To generate a booking URL that guests complete themselves, use <a href="#operation/createReservationRequest">Create Reservation Request</a> instead.
         /// </remarks>
         /// <param name="request">Reservation you are creating.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -387,7 +444,9 @@ namespace Cvent.SDK
         /// Get Reservation.
         /// </summary>
         /// <remarks>
-        /// Get reservation details for the given reservation ID. Commonly used in response to <a href="https://developers.cvent.com/docs/passkey/REST/callbacks">passkey callbacks</a>.
+        /// Get reservation details for the given reservation ID. Commonly used in response to<br/>
+        /// <a href="https://developers.cvent.com/docs/passkey/REST/callbacks">Passkey callbacks</a>, where a callback payload includes the reservation ID.<br/>
+        /// Call this endpoint to retrieve the full reservation details after receiving a callback notification.
         /// </remarks>
         /// <param name="request">A <see cref="GetReservationRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -406,7 +465,9 @@ namespace Cvent.SDK
         /// Cancel Reservation.
         /// </summary>
         /// <remarks>
-        /// Cancel reservation for given reservation ID.
+        /// Cancel a reservation for the given reservation ID. Cancelling a reservation does not cancel the linked<br/>
+        /// reservation request. If you need to also <a href="#operation/cancelReservationRequest">cancel the reservation request</a>, do so separately. After cancellation,<br/>
+        /// <a href="#operation/unlinkReservation">unlink the reservation</a> from its reservation request so you can link a new one.
         /// </remarks>
         /// <param name="request">A <see cref="CancelReservationRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -425,7 +486,11 @@ namespace Cvent.SDK
         /// Update Reservation.
         /// </summary>
         /// <remarks>
-        /// Updates an existing reservation for given reservation ID.
+        /// Updates an existing reservation for the given reservation ID. This is a synchronous operation that returns<br/>
+        /// the updated reservation in the response. The request body must include the full reservation object.<br/>
+        /// Use <a href="#operation/getReservation">Get Reservation</a> to retrieve the current reservation before making changes.<br/>
+        /// <br/>
+        /// To update stay dates, room type, or guest details, include all required fields in the request body.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateReservationSyncRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -474,7 +539,9 @@ namespace Cvent.SDK
         /// Create Connection.
         /// </summary>
         /// <remarks>
-        /// Create a connection between an integration partner and an event using an access code provided by the Passkey event owner. This connection (manually or using this API) is required to authorize ANY other API calls for the event.
+        /// Create a connection between an integration partner and an event using an access code provided by the Passkey<br/>
+        /// event owner. This connection is required to authorize all other API calls for the event. Only one active<br/>
+        /// connection is supported per access code at a time.
         /// </remarks>
         /// <param name="request">A <see cref="CreateConnectionRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -641,7 +708,8 @@ namespace Cvent.SDK
         /// Get Housing Events Summaries.
         /// </summary>
         /// <remarks>
-        /// Gets a paginated list of summary information for your individual housing events.
+        /// Gets a paginated list of summary information for your individual housing events. Use this endpoint to discover<br/>
+        /// which events your integration has access to and to retrieve housing event IDs for use in other endpoints.
         /// </remarks>
         /// <param name="request">A <see cref="GetHousingEventsSummariesRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -804,7 +872,10 @@ namespace Cvent.SDK
         /// Get Housing Event Info.
         /// </summary>
         /// <remarks>
-        /// Retrieves housing event details based on the given housing event ID.
+        /// Retrieves housing event details based on the given housing event ID. Use this endpoint to get event-level<br/>
+        /// information such as event name, dates, attendee types, and related configuration. Get the housing event ID<br/>
+        /// from the <a href="#operation/getHousingEventsSummaries">Get Housing Events Summaries</a> endpoint, from the<br/>
+        /// <a href="#operation/createConnection">Create Connection</a> response, or directly from the Passkey event owner.
         /// </remarks>
         /// <param name="request">A <see cref="GetHousingEventInfoRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -970,7 +1041,9 @@ namespace Cvent.SDK
         /// Get Housing Event Hotels.
         /// </summary>
         /// <remarks>
-        /// Get list of hotels for the given housing event.
+        /// Get a list of hotels for the given housing event. Returns a paginated list of all hotels in the housing event's<br/>
+        /// room block, including hotel names, addresses, and IDs. Use the hotel IDs from this response to query<br/>
+        /// <a href="#operation/getHousingEventRoomTypes">room types</a>, <a href="#operation/getHousingEventHotelAvailability">availability</a>, and <a href="#operation/getRoomTypeInventory">inventory</a>.
         /// </remarks>
         /// <param name="request">A <see cref="GetHousingEventHotelsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1136,7 +1209,9 @@ namespace Cvent.SDK
         /// Get Housing Event Hotel.
         /// </summary>
         /// <remarks>
-        /// Gets a single hotel's details in a housing event.
+        /// Gets a single hotel's details in a housing event. Returns detailed information about a specific hotel,<br/>
+        /// including address and localized content. Use this endpoint when you need full details for<br/>
+        /// a single hotel rather than the <a href="#operation/getHousingEventHotels">summary list</a>.
         /// </remarks>
         /// <param name="request">A <see cref="GetHousingEventHotelRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1302,7 +1377,10 @@ namespace Cvent.SDK
         /// Get Event Hotel Availability.
         /// </summary>
         /// <remarks>
-        /// Get a filterable list of available room nights for a particular hotel and housing event.
+        /// Get a filterable list of available room nights for a particular hotel and housing event. Returns availability<br/>
+        /// by date, showing which nights have rooms remaining.<br/>
+        /// <br/>
+        /// Filter by attendee type and date range to narrow results.
         /// </remarks>
         /// <param name="request">A <see cref="GetHousingEventHotelAvailabilityRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1468,7 +1546,11 @@ namespace Cvent.SDK
         /// Get Housing Event Room Types.
         /// </summary>
         /// <remarks>
-        /// Get a filterable list of room types for a given hotel in a housing event.
+        /// Get a filterable list of room types for a given hotel in a housing event. Room types represent categories of<br/>
+        /// rooms (for example, Standard King or Double Queen) available at the hotel for this event. Use the returned<br/>
+        /// room type IDs to query <a href="#operation/getRoomTypeDetails">room details</a> and <a href="#operation/getRoomTypeInventory">inventory</a>.<br/>
+        /// <br/>
+        /// Filter by attendee type to retrieve only the room types available to a specific attendee segment.
         /// </remarks>
         /// <param name="request">A <see cref="GetHousingEventRoomTypesRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1634,7 +1716,8 @@ namespace Cvent.SDK
         /// Get Room Type Details.
         /// </summary>
         /// <remarks>
-        /// Get a room type's details for the given housing event, hotel and room type.
+        /// Get a room type's details for the given housing event, hotel, and room type. Returns detailed information about<br/>
+        /// a specific room type, including room description and available images.
         /// </remarks>
         /// <param name="request">A <see cref="GetRoomTypeDetailsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1800,7 +1883,10 @@ namespace Cvent.SDK
         /// Get Room Type Inventory.
         /// </summary>
         /// <remarks>
-        /// Gets a list of room type inventory details (by date) for the given housing event, hotel and room type.
+        /// Gets a list of room type inventory details (by date) for the given housing event, hotel, and room type. Returns<br/>
+        /// date-by-date inventory counts (total rooms, rooms picked up, and rooms remaining) for a specific room type.<br/>
+        /// <br/>
+        /// Filter by date range to retrieve inventory for specific nights.
         /// </remarks>
         /// <param name="request">A <see cref="GetRoomTypeInventoryRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1966,7 +2052,11 @@ namespace Cvent.SDK
         /// Get Housing Event Inventory.
         /// </summary>
         /// <remarks>
-        /// Gets a list (sorted by date) of housing event inventory details for the given housing event.
+        /// Gets a list (sorted by date) of housing event inventory details for the given housing event. Returns aggregated<br/>
+        /// inventory across all hotels and room types in the event. This provides a high-level view of total event capacity<br/>
+        /// and pickup.<br/>
+        /// <br/>
+        /// For per-hotel or per-room-type breakdowns, use <a href="#operation/getRoomTypeInventory">Get Room Type Inventory</a> instead.
         /// </remarks>
         /// <param name="request">A <see cref="GetHousingEventInventoryRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2132,7 +2222,11 @@ namespace Cvent.SDK
         /// Get Housing Event Reservations.
         /// </summary>
         /// <remarks>
-        /// Get list of reservation details for the given housing event.
+        /// Get a list of reservation details for the given housing event. Returns a paginated list of all reservations in<br/>
+        /// the event, including guest details, stay dates, hotel, room type, and reservation status. Use the `before`<br/>
+        /// and `after` parameters to filter by when a reservation was added or last updated, which is useful for incremental syncing.<br/>
+        /// <br/>
+        /// Returns an empty list when no reservations match the criteria.
         /// </remarks>
         /// <param name="request">A <see cref="GetHousingEventReservationsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2298,7 +2392,11 @@ namespace Cvent.SDK
         /// Create Reservation Request.
         /// </summary>
         /// <remarks>
-        /// Creates a reservation request from guest details. A reservation request represents a registration and stores guest details. Reservations booked with the guest-specific “bookingSite” URL in the response will pre-populate guest data and link the new reservation to the reservation request for tracking.
+        /// Creates a reservation request from guest details.<br/>
+        /// <br/>
+        /// A reservation request represents a registration and stores guest details such as name, email, and preferences.<br/>
+        /// The response includes a guest-specific `bookingSite` URL. When the guest books through that URL, Passkey<br/>
+        /// pre-populates their details and links the new reservation to the reservation request for tracking.
         /// </remarks>
         /// <param name="request">Reservation request information.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2470,7 +2568,8 @@ namespace Cvent.SDK
         /// Get Reservation Request.
         /// </summary>
         /// <remarks>
-        /// Returns reservation request details for a given reservation ID.
+        /// Returns reservation request details for a given reservation request ID. The response includes guest details,<br/>
+        /// the `bookingSite` URL, and a linked Reservation ID/ack number if present.
         /// </remarks>
         /// <param name="request">A <see cref="GetReservationRequestRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2636,7 +2735,13 @@ namespace Cvent.SDK
         /// Update Reservation Request.
         /// </summary>
         /// <remarks>
-        /// Update a reservation request using the given reservation ID. If the reservation has been booked, changes to the reservation request do not affect the linked reservation.
+        /// Update a reservation request using the given reservation request ID. Use this endpoint to update guest details<br/>
+        /// (name, email, preferences) on the reservation request. The request body overwrites the current version entirely.<br/>
+        /// <br/>
+        /// If a reservation has already been booked through this request, changes to the reservation request do not affect<br/>
+        /// the linked reservation. To update the hotel booking itself, use <a href="#operation/updateReservationSync">Update Reservation</a> instead.<br/>
+        /// <br/>
+        /// You cannot update a cancelled reservation request.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateReservationRequestRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2829,7 +2934,12 @@ namespace Cvent.SDK
         /// Cancel Reservation Request.
         /// </summary>
         /// <remarks>
-        /// Update the status of a reservation request to cancelled. If the reservation has already been booked, any changes made to the reservation request will not affect the linked reservation.
+        /// Update the status of a reservation request to cancelled. If a reservation has already been booked through this<br/>
+        /// request, cancelling the request does not cancel the linked reservation. To cancel the hotel booking itself,<br/>
+        /// use <a href="#operation/cancelReservation">Cancel Reservation</a>.<br/>
+        /// <br/>
+        /// You cannot cancel a reservation request that already has a linked reservation. <a href="#operation/unlinkReservation">Unlink the reservation</a> first,<br/>
+        /// then cancel the request.
         /// </remarks>
         /// <param name="request">A <see cref="CancelReservationRequestRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2998,7 +3108,10 @@ namespace Cvent.SDK
         /// Link Reservation.
         /// </summary>
         /// <remarks>
-        /// Link an existing reservation to a reservation request. Commonly used when associating a reservation created outside the normal booking flow (such as a guest calling the hotel).
+        /// Link an existing reservation to a reservation request. Commonly used when a reservation was created outside the<br/>
+        /// normal booking flow, such as when a guest calls the hotel directly or when staff books through the Passkey<br/>
+        /// Call Center. Linking associates the reservation with the registration represented by the reservation request,<br/>
+        /// enabling tracking and callback reporting.
         /// </remarks>
         /// <param name="request">A <see cref="LinkReservationRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -3146,7 +3259,12 @@ namespace Cvent.SDK
         /// Unlink Reservation.
         /// </summary>
         /// <remarks>
-        /// Unlink reservation from reservation request. Commonly used for removing a cancelled reservation from a reservation request so that a new reservation can be linked in its place.
+        /// Unlink a reservation from a reservation request. Commonly used when a linked reservation has been cancelled and<br/>
+        /// you need to free up the reservation request so a new reservation can be linked in its place.<br/>
+        /// Unlinking does not cancel or change the reservation itself.<br/>
+        /// <br/>
+        /// After unlinking, you can <a href="#operation/linkReservation">link a new reservation</a> or allow the guest to book again using the reservation<br/>
+        /// request's `bookingSite` URL.
         /// </remarks>
         /// <param name="request">A <see cref="UnlinkReservationRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -3294,7 +3412,11 @@ namespace Cvent.SDK
         /// Create Reservation.
         /// </summary>
         /// <remarks>
-        /// Create a hotel reservation in a housing event based on the details provided in the request body.
+        /// Create a hotel reservation in a housing event based on the details provided in the request body. This endpoint<br/>
+        /// directly creates a hotel booking on behalf of a guest. Requires a valid hotel ID, room type ID, and guest<br/>
+        /// details (including arrival and departure dates).<br/>
+        /// <br/>
+        /// To generate a booking URL that guests complete themselves, use <a href="#operation/createReservationRequest">Create Reservation Request</a> instead.
         /// </remarks>
         /// <param name="request">Reservation you are creating.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -3466,7 +3588,9 @@ namespace Cvent.SDK
         /// Get Reservation.
         /// </summary>
         /// <remarks>
-        /// Get reservation details for the given reservation ID. Commonly used in response to <a href="https://developers.cvent.com/docs/passkey/REST/callbacks">passkey callbacks</a>.
+        /// Get reservation details for the given reservation ID. Commonly used in response to<br/>
+        /// <a href="https://developers.cvent.com/docs/passkey/REST/callbacks">Passkey callbacks</a>, where a callback payload includes the reservation ID.<br/>
+        /// Call this endpoint to retrieve the full reservation details after receiving a callback notification.
         /// </remarks>
         /// <param name="request">A <see cref="GetReservationRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -3632,7 +3756,9 @@ namespace Cvent.SDK
         /// Cancel Reservation.
         /// </summary>
         /// <remarks>
-        /// Cancel reservation for given reservation ID.
+        /// Cancel a reservation for the given reservation ID. Cancelling a reservation does not cancel the linked<br/>
+        /// reservation request. If you need to also <a href="#operation/cancelReservationRequest">cancel the reservation request</a>, do so separately. After cancellation,<br/>
+        /// <a href="#operation/unlinkReservation">unlink the reservation</a> from its reservation request so you can link a new one.
         /// </remarks>
         /// <param name="request">A <see cref="CancelReservationRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -3780,7 +3906,11 @@ namespace Cvent.SDK
         /// Update Reservation.
         /// </summary>
         /// <remarks>
-        /// Updates an existing reservation for given reservation ID.
+        /// Updates an existing reservation for the given reservation ID. This is a synchronous operation that returns<br/>
+        /// the updated reservation in the response. The request body must include the full reservation object.<br/>
+        /// Use <a href="#operation/getReservation">Get Reservation</a> to retrieve the current reservation before making changes.<br/>
+        /// <br/>
+        /// To update stay dates, room type, or guest details, include all required fields in the request body.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateReservationSyncRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

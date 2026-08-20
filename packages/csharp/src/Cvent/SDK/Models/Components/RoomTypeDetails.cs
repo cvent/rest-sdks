@@ -29,19 +29,19 @@ namespace Cvent.SDK.Models.Components
         /// Contains unique ID of the housing event.
         /// </summary>
         [JsonProperty("housingEvent")]
-        public HousingEventIdJson HousingEvent { get; set; } = default!;
+        public HousingEventId HousingEvent { get; set; } = default!;
 
         /// <summary>
         /// Contains unique ID of the hotel.
         /// </summary>
         [JsonProperty("hotel")]
-        public HotelIdJson Hotel { get; set; } = default!;
+        public HotelId Hotel { get; set; } = default!;
 
         /// <summary>
         /// List of supported attendee types for this room type, and their individual room policies.
         /// </summary>
         [JsonProperty("attendeeTypes")]
-        public List<RoomAttendeeTypeJson>? AttendeeTypes { get; set; }
+        public List<RoomAttendeeType>? AttendeeTypes { get; set; }
 
         /// <summary>
         /// Name of the room type.
@@ -59,7 +59,7 @@ namespace Cvent.SDK.Models.Components
         /// List of room images.
         /// </summary>
         [JsonProperty("images")]
-        public List<ImageLinkJson>? Images { get; set; }
+        public List<ImageLink>? Images { get; set; }
 
         /// <summary>
         /// Specifies a custom sort order defined by the user. This property is applicable only when the default price-based sorting is not active.

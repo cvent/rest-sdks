@@ -30,7 +30,8 @@ import { Result } from "../types/fp.js";
  * Get Room Type Details
  *
  * @remarks
- * Get a room type's details for the given housing event, hotel and room type.
+ * Get a room type's details for the given housing event, hotel, and room type. Returns detailed information about
+ * a specific room type, including room description and available images.
  */
 export function housingGetRoomTypeDetails(
   client: CventSDKCore,

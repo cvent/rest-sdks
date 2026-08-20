@@ -10,6 +10,9 @@ Manage meeting rooms for a venue, including creating and updating room details, 
 * [listMeetingRoomsOverviews](#listmeetingroomsoverviews) - List Meeting Rooms Overviews
 * [updateMeetingRoom](#updatemeetingroom) - Update Meeting Room
 * [patchMeetingRoom](#patchmeetingroom) - Patch Meeting Room
+* [associateMeetingRoomImage](#associatemeetingroomimage) - Associate Meeting Room Image
+* [listMeetingRoomImages](#listmeetingroomimages) - List Meeting Room Images
+* [disassociateMeetingRoomImage](#disassociatemeetingroomimage) - Remove Meeting Room Image
 * [getMeetingRoomOverview](#getmeetingroomoverview) - Get Meeting Room Overview
 
 ## createMeetingRoom
@@ -414,6 +417,213 @@ public class Application {
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
+
+## associateMeetingRoomImage
+
+Associate a previously uploaded image with a meeting room using a file UUID from the <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current image if one is already associated.
+
+**Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg, .jpeg) are accepted. Maximum file size is 10 MB.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="associateMeetingRoomImage" method="put" path="/venues/{venueId}/meeting-rooms/{meetingRoomId}/images" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.*;
+import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.operations.AssociateMeetingRoomImageRequest;
+import com.cvent.models.operations.AssociateMeetingRoomImageResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse11, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        AssociateMeetingRoomImageRequest req = AssociateMeetingRoomImageRequest.builder()
+                .venueId("6bb0e2db-861f-46e3-a923-eb4d959ffa00")
+                .meetingRoomId("00944672-3602-4b8e-aea3-cb1278b2d143")
+                .meetingRoomImageAssociationRequest(MeetingRoomImageAssociationRequest.builder()
+                    .file(MeetingRoomImageAssociationRequestFile.builder()
+                        .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
+                        .build())
+                    .build())
+                .build();
+
+        AssociateMeetingRoomImageResponse res = sdk.venueMeetingRooms().associateMeetingRoomImage()
+                .request(req)
+                .call();
+
+        if (res.meetingRoomImageAssociationResponse().isPresent()) {
+            System.out.println(res.meetingRoomImageAssociationResponse().get());
+        }
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [AssociateMeetingRoomImageRequest](../../models/operations/AssociateMeetingRoomImageRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+
+### Response
+
+**[AssociateMeetingRoomImageResponse](../../models/operations/AssociateMeetingRoomImageResponse.md)**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
+
+## listMeetingRoomImages
+
+Retrieves the images associated with a meeting room. Each meeting room has at most one image.
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="listMeetingRoomImages" method="get" path="/venues/{venueId}/meeting-rooms/{meetingRoomId}/images" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.operations.ListMeetingRoomImagesRequest;
+import com.cvent.models.operations.ListMeetingRoomImagesResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse11, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        ListMeetingRoomImagesRequest req = ListMeetingRoomImagesRequest.builder()
+                .venueId("6bb0e2db-861f-46e3-a923-eb4d959ffa00")
+                .meetingRoomId("880546b3-292e-4a70-95a5-3afae3e3f759")
+                .build();
+
+        ListMeetingRoomImagesResponse res = sdk.venueMeetingRooms().listMeetingRoomImages()
+                .request(req)
+                .call();
+
+        if (res.meetingRoomImagesResponse().isPresent()) {
+            System.out.println(res.meetingRoomImagesResponse().get());
+        }
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [ListMeetingRoomImagesRequest](../../models/operations/ListMeetingRoomImagesRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+
+### Response
+
+**[ListMeetingRoomImagesResponse](../../models/operations/ListMeetingRoomImagesResponse.md)**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse11 | 401, 403, 404, 429            | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
+
+## disassociateMeetingRoomImage
+
+Disassociates the current image from a meeting room.
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="disassociateMeetingRoomImage" method="delete" path="/venues/{venueId}/meeting-rooms/{meetingRoomId}/images/{imageId}" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.operations.DisassociateMeetingRoomImageRequest;
+import com.cvent.models.operations.DisassociateMeetingRoomImageResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse11, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        DisassociateMeetingRoomImageRequest req = DisassociateMeetingRoomImageRequest.builder()
+                .venueId("6bb0e2db-861f-46e3-a923-eb4d959ffa00")
+                .meetingRoomId("13e75adc-1d1b-4598-b520-f17774484472")
+                .imageId("e5b29ab7-8c63-446c-9663-66202b0d037f")
+                .build();
+
+        DisassociateMeetingRoomImageResponse res = sdk.venueMeetingRooms().disassociateMeetingRoomImage()
+                .request(req)
+                .call();
+
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `request`                                                                                             | [DisassociateMeetingRoomImageRequest](../../models/operations/DisassociateMeetingRoomImageRequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+
+### Response
+
+**[DisassociateMeetingRoomImageResponse](../../models/operations/DisassociateMeetingRoomImageResponse.md)**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse11 | 401, 403, 404, 429            | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## getMeetingRoomOverview

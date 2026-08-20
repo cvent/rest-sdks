@@ -300,9 +300,10 @@ namespace Cvent.SDK
         /// <summary>
         /// These API's provide compliance support for regulated industries.<br/>
         /// <br/>
-        /// **Communication Compliance** lets you view communication activities across your account.<br/>
-        /// Various written forms of communication are captured. For example, emails, SMS, chat messages, or push notifications<br/>
-        /// can be downloaded for archival or analysis.
+        /// **Communication Compliance** lets you view communication activities across your account for archival or analysis.<br/>
+        /// <br/>
+        /// Various written forms of communication are captured. This includes: emails, SMS, session chats, exhibitor chats,<br/>
+        /// text discussions, 1:1 attendee messaging, group messaging, or push notifications.
         /// </summary>
         public ICompliance Compliance { get; }
 
@@ -310,6 +311,11 @@ namespace Cvent.SDK
         /// Endpoints for obtaining, refreshing, and validating OAuth2 access tokens.
         /// </summary>
         public IAuthentication Authentication { get; }
+
+        /// <summary>
+        /// Orders represent a collection of order items purchased by an attendee. Use these APIs to get information about orders and order items.
+        /// </summary>
+        public IOrders Orders { get; }
 
         /// <summary>
         /// Process forms automate data collection and notifications related to planning and executing events. Process form submissions are responses to a specific process form, providing data the form requests. Use these APIs to manage process form submissions in your account.
@@ -355,6 +361,11 @@ namespace Cvent.SDK
         /// Retrieves Check-In &amp; Check-Out Signatures Of Attendees.
         /// </summary>
         public ISignatures Signatures { get; }
+
+        /// <summary>
+        /// Transactions represent the financial exchanges that occur within your account. Use these APIs to retrieve and manage transaction data, including charges, refunds, and adjustments associated with your events and attendees.
+        /// </summary>
+        public ITransactions Transactions { get; }
 
         /// <summary>
         /// The travel account, or corporation that represents the demand-side of travel RFPs.
@@ -562,6 +573,10 @@ namespace Cvent.SDK
         /// </summary>
         public IAuthentication Authentication { get; private set; }
         /// <summary>
+        /// The Orders sub-SDK.
+        /// </summary>
+        public IOrders Orders { get; private set; }
+        /// <summary>
         /// The ProcessForm sub-SDK.
         /// </summary>
         public IProcessForm ProcessForm { get; private set; }
@@ -597,6 +612,10 @@ namespace Cvent.SDK
         /// The Signatures sub-SDK.
         /// </summary>
         public ISignatures Signatures { get; private set; }
+        /// <summary>
+        /// The Transactions sub-SDK.
+        /// </summary>
+        public ITransactions Transactions { get; private set; }
         /// <summary>
         /// The TravelAccounts sub-SDK.
         /// </summary>
@@ -713,6 +732,8 @@ namespace Cvent.SDK
 
             Authentication = new Authentication(SDKConfiguration);
 
+            Orders = new Orders(SDKConfiguration);
+
             ProcessForm = new ProcessForm(SDKConfiguration);
 
             Speakers = new Speakers(SDKConfiguration);
@@ -730,6 +751,8 @@ namespace Cvent.SDK
             UserSCIM = new UserSCIM(SDKConfiguration);
 
             Signatures = new Signatures(SDKConfiguration);
+
+            Transactions = new Transactions(SDKConfiguration);
 
             TravelAccounts = new TravelAccounts(SDKConfiguration);
 
@@ -878,6 +901,8 @@ namespace Cvent.SDK
 
             Authentication = new Authentication(SDKConfiguration);
 
+            Orders = new Orders(SDKConfiguration);
+
             ProcessForm = new ProcessForm(SDKConfiguration);
 
             Speakers = new Speakers(SDKConfiguration);
@@ -895,6 +920,8 @@ namespace Cvent.SDK
             UserSCIM = new UserSCIM(SDKConfiguration);
 
             Signatures = new Signatures(SDKConfiguration);
+
+            Transactions = new Transactions(SDKConfiguration);
 
             TravelAccounts = new TravelAccounts(SDKConfiguration);
 

@@ -115,8 +115,8 @@ public class AttendeeUpdate {
      * Approval <br> * Cancelled -&gt; Accepted <br> * Cancelled -&gt; Pending Approval <br> * Visited
      * -&gt; Accepted <br> * Visited -&gt; Pending Approval <br> * Declined -&gt; Accepted <br> * Declined
      * -&gt; Pending Approval <br> * Accepted -&gt; Cancelled <br> * Pending Approval -&gt; Accepted <br> *
-     * Pending Approval -&gt; Denied Approval <br> * Denied Approval -&gt; Pending Approval <br> *
-     * Waitlisted -&gt; Accepted
+     * Pending Approval -&gt; Cancelled <br> * Pending Approval -&gt; Denied Approval <br> * Denied
+     * Approval -&gt; Pending Approval <br> * Waitlisted -&gt; Accepted
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
@@ -280,8 +280,8 @@ public class AttendeeUpdate {
      * Approval <br> * Cancelled -&gt; Accepted <br> * Cancelled -&gt; Pending Approval <br> * Visited
      * -&gt; Accepted <br> * Visited -&gt; Pending Approval <br> * Declined -&gt; Accepted <br> * Declined
      * -&gt; Pending Approval <br> * Accepted -&gt; Cancelled <br> * Pending Approval -&gt; Accepted <br> *
-     * Pending Approval -&gt; Denied Approval <br> * Denied Approval -&gt; Pending Approval <br> *
-     * Waitlisted -&gt; Accepted
+     * Pending Approval -&gt; Cancelled <br> * Pending Approval -&gt; Denied Approval <br> * Denied
+     * Approval -&gt; Pending Approval <br> * Waitlisted -&gt; Accepted
      */
     public Optional<AttendeeUpdateStatus> status() {
         return Optional.ofNullable(this.status);
@@ -422,8 +422,8 @@ public class AttendeeUpdate {
      * Approval <br> * Cancelled -&gt; Accepted <br> * Cancelled -&gt; Pending Approval <br> * Visited
      * -&gt; Accepted <br> * Visited -&gt; Pending Approval <br> * Declined -&gt; Accepted <br> * Declined
      * -&gt; Pending Approval <br> * Accepted -&gt; Cancelled <br> * Pending Approval -&gt; Accepted <br> *
-     * Pending Approval -&gt; Denied Approval <br> * Denied Approval -&gt; Pending Approval <br> *
-     * Waitlisted -&gt; Accepted
+     * Pending Approval -&gt; Cancelled <br> * Pending Approval -&gt; Denied Approval <br> * Denied
+     * Approval -&gt; Pending Approval <br> * Waitlisted -&gt; Accepted
      */
     public AttendeeUpdate withStatus(@Nullable AttendeeUpdateStatus status) {
         this.status = status;
@@ -679,8 +679,8 @@ public class AttendeeUpdate {
          * Approval <br> * Cancelled -&gt; Accepted <br> * Cancelled -&gt; Pending Approval <br> * Visited
          * -&gt; Accepted <br> * Visited -&gt; Pending Approval <br> * Declined -&gt; Accepted <br> * Declined
          * -&gt; Pending Approval <br> * Accepted -&gt; Cancelled <br> * Pending Approval -&gt; Accepted <br> *
-         * Pending Approval -&gt; Denied Approval <br> * Denied Approval -&gt; Pending Approval <br> *
-         * Waitlisted -&gt; Accepted
+         * Pending Approval -&gt; Cancelled <br> * Pending Approval -&gt; Denied Approval <br> * Denied
+         * Approval -&gt; Pending Approval <br> * Waitlisted -&gt; Accepted
          */
         public Builder status(@Nullable AttendeeUpdateStatus status) {
             this.status = status;

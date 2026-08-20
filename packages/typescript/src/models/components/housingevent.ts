@@ -6,24 +6,18 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { AttendeeType, AttendeeType$inboundSchema } from "./attendeetype.js";
 import {
-  AttendeeTypeJson,
-  AttendeeTypeJson$inboundSchema,
-} from "./attendeetypejson.js";
+  HousingEventStatus,
+  HousingEventStatus$inboundSchema,
+} from "./housingeventstatus.js";
+import { Planner, Planner$inboundSchema } from "./planner.js";
 import {
-  HousingEventStatusesJson,
-  HousingEventStatusesJson$inboundSchema,
-} from "./housingeventstatusesjson.js";
-import { PlannerJson1, PlannerJson1$inboundSchema } from "./plannerjson1.js";
-import {
-  ReservationContactJson,
-  ReservationContactJson$inboundSchema,
-} from "./reservationcontactjson.js";
-import {
-  RoomsSortTypeJson,
-  RoomsSortTypeJson$inboundSchema,
-} from "./roomssorttypejson.js";
-import { VenueJson1, VenueJson1$inboundSchema } from "./venuejson1.js";
+  ReservationContact,
+  ReservationContact$inboundSchema,
+} from "./reservationcontact.js";
+import { RoomsSortType, RoomsSortType$inboundSchema } from "./roomssorttype.js";
+import { Venue, Venue$inboundSchema } from "./venue.js";
 
 /**
  * Information about housing event.
@@ -56,11 +50,11 @@ export type HousingEvent = {
   /**
    * Event venue details.
    */
-  venue: VenueJson1;
+  venue: Venue;
   /**
    * Housing event status.
    */
-  status: HousingEventStatusesJson;
+  status: HousingEventStatus;
   /**
    * The ISO 8601 formatted date and time when event will launch.
    */
@@ -92,15 +86,15 @@ export type HousingEvent = {
   /**
    * Reservation contact details for this event.
    */
-  reservationContact: ReservationContactJson;
+  reservationContact: ReservationContact;
   /**
    * List of attendee types for this event.
    */
-  attendeeTypes: Array<AttendeeTypeJson>;
+  attendeeTypes: Array<AttendeeType>;
   /**
    * A collection of event planners for this housing event.
    */
-  planners: Array<PlannerJson1>;
+  planners: Array<Planner>;
   /**
    * ISO 4217 currency code.
    */
@@ -108,7 +102,7 @@ export type HousingEvent = {
   /**
    * Rooms sort type. CustomOrder: A user-defined sort order. PriceAscending: Data sorted with lowest price first. PriceDescending: Data sorted by highest price first.
    */
-  roomsSortType?: RoomsSortTypeJson | undefined;
+  roomsSortType?: RoomsSortType | undefined;
 };
 
 /** @internal */
@@ -123,8 +117,8 @@ export const HousingEvent$inboundSchema: z.ZodType<
   end: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   cutOff: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   timeZone: z.string(),
-  venue: VenueJson1$inboundSchema,
-  status: HousingEventStatusesJson$inboundSchema,
+  venue: Venue$inboundSchema,
+  status: HousingEventStatus$inboundSchema,
   launchAfter: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),
   closeAfter: z.string().datetime({ offset: true }).transform(v => new Date(v))
@@ -138,11 +132,11 @@ export const HousingEvent$inboundSchema: z.ZodType<
   defaultLocale: z.string(),
   locales: z.array(z.string()),
   image: z.string(),
-  reservationContact: ReservationContactJson$inboundSchema,
-  attendeeTypes: z.array(AttendeeTypeJson$inboundSchema),
-  planners: z.array(PlannerJson1$inboundSchema),
+  reservationContact: ReservationContact$inboundSchema,
+  attendeeTypes: z.array(AttendeeType$inboundSchema),
+  planners: z.array(Planner$inboundSchema),
   currency: z.string(),
-  roomsSortType: RoomsSortTypeJson$inboundSchema.optional(),
+  roomsSortType: RoomsSortType$inboundSchema.optional(),
 });
 
 export function housingEventFromJSON(

@@ -30,7 +30,11 @@ import { Result } from "../types/fp.js";
  * Get Housing Event Inventory
  *
  * @remarks
- * Gets a list (sorted by date) of housing event inventory details for the given housing event.
+ * Gets a list (sorted by date) of housing event inventory details for the given housing event. Returns aggregated
+ * inventory across all hotels and room types in the event. This provides a high-level view of total event capacity
+ * and pickup.
+ *
+ * For per-hotel or per-room-type breakdowns, use [Get Room Type Inventory](#operation/getRoomTypeInventory) instead.
  */
 export function housingGetHousingEventInventory(
   client: CventSDKCore,

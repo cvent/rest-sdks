@@ -30,7 +30,10 @@ import { Result } from "../types/fp.js";
  * Link Reservation
  *
  * @remarks
- * Link an existing reservation to a reservation request. Commonly used when associating a reservation created outside the normal booking flow (such as a guest calling the hotel).
+ * Link an existing reservation to a reservation request. Commonly used when a reservation was created outside the
+ * normal booking flow, such as when a guest calls the hotel directly or when staff books through the Passkey
+ * Call Center. Linking associates the reservation with the registration represented by the reservation request,
+ * enabling tracking and callback reporting.
  */
 export function housingLinkReservation(
   client: CventSDKCore,

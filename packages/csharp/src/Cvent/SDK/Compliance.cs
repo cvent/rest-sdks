@@ -27,9 +27,10 @@ namespace Cvent.SDK
     /// <summary>
     /// These API's provide compliance support for regulated industries.<br/>
     /// <br/>
-    /// **Communication Compliance** lets you view communication activities across your account.<br/>
-    /// Various written forms of communication are captured. For example, emails, SMS, chat messages, or push notifications<br/>
-    /// can be downloaded for archival or analysis.
+    /// **Communication Compliance** lets you view communication activities across your account for archival or analysis.<br/>
+    /// <br/>
+    /// Various written forms of communication are captured. This includes: emails, SMS, session chats, exhibitor chats,<br/>
+    /// text discussions, 1:1 attendee messaging, group messaging, or push notifications.
     /// </summary>
     public interface ICompliance
     {
@@ -80,10 +81,9 @@ namespace Cvent.SDK
         /// is provided then the API will return communication log messages of all types between the specified dates.<br/>
         /// <br/>
         /// Supported types are:<br/>
-        /// <br/>
-        ///   * email<br/>
-        ///   * chat<br/>
-        ///   * session_qa.
+        ///   * `email`<br/>
+        ///   * `chat` (session chats, exhibitor chats, text discussions, 1:1 messaging (attendees), group messaging (groups))<br/>
+        ///   * `session_qa`
         /// </remarks>
         /// <param name="request">A <see cref="GetCommunicationLogMessagesRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -107,10 +107,9 @@ namespace Cvent.SDK
         /// is provided then the API will return communication log messages of all types between the specified dates.<br/>
         /// <br/>
         /// Supported types are:<br/>
-        /// <br/>
-        ///   * email<br/>
-        ///   * chat<br/>
-        ///   * session_qa.
+        ///   * `email`<br/>
+        ///   * `chat` (session chats, exhibitor chats, text discussions, 1:1 messaging (attendees), group messaging (groups))<br/>
+        ///   * `session_qa`
         /// </remarks>
         /// <param name="request">A <see cref="FilterCommunicationLogMessagesRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -128,9 +127,10 @@ namespace Cvent.SDK
     /// <summary>
     /// These API's provide compliance support for regulated industries.<br/>
     /// <br/>
-    /// **Communication Compliance** lets you view communication activities across your account.<br/>
-    /// Various written forms of communication are captured. For example, emails, SMS, chat messages, or push notifications<br/>
-    /// can be downloaded for archival or analysis.
+    /// **Communication Compliance** lets you view communication activities across your account for archival or analysis.<br/>
+    /// <br/>
+    /// Various written forms of communication are captured. This includes: emails, SMS, session chats, exhibitor chats,<br/>
+    /// text discussions, 1:1 attendee messaging, group messaging, or push notifications.
     /// </summary>
     public class Compliance : ICompliance
     {
@@ -490,10 +490,9 @@ namespace Cvent.SDK
         /// is provided then the API will return communication log messages of all types between the specified dates.<br/>
         /// <br/>
         /// Supported types are:<br/>
-        /// <br/>
-        ///   * email<br/>
-        ///   * chat<br/>
-        ///   * session_qa.
+        ///   * `email`<br/>
+        ///   * `chat` (session chats, exhibitor chats, text discussions, 1:1 messaging (attendees), group messaging (groups))<br/>
+        ///   * `session_qa`
         /// </remarks>
         /// <param name="request">A <see cref="GetCommunicationLogMessagesRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -693,10 +692,9 @@ namespace Cvent.SDK
         /// is provided then the API will return communication log messages of all types between the specified dates.<br/>
         /// <br/>
         /// Supported types are:<br/>
-        /// <br/>
-        ///   * email<br/>
-        ///   * chat<br/>
-        ///   * session_qa.
+        ///   * `email`<br/>
+        ///   * `chat` (session chats, exhibitor chats, text discussions, 1:1 messaging (attendees), group messaging (groups))<br/>
+        ///   * `session_qa`
         /// </remarks>
         /// <param name="request">A <see cref="FilterCommunicationLogMessagesRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

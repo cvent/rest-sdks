@@ -20,7 +20,8 @@ public enum PolicyValueType {
     PERCENT("percent"),
     MULTI_SELECT("multi_select"),
     TEXT_MULTI_LINE("text_multi_line"),
-    PERCENT_OR_MONEY("percent_or_money");
+    PERCENT_OR_MONEY("percent_or_money"),
+    BOOLEAN("boolean");
 
     @JsonValue
     private final String value;

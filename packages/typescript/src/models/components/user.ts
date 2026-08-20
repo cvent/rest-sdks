@@ -7,7 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Address5, Address5$inboundSchema } from "./address5.js";
+import { Address6, Address6$inboundSchema } from "./address6.js";
 import { Email1, Email1$inboundSchema } from "./email1.js";
 import { Group, Group$inboundSchema } from "./group.js";
 import { Meta, Meta$inboundSchema } from "./meta.js";
@@ -58,7 +58,7 @@ export type User = {
   /**
    * The address of the user. The user can have only one address. <br> If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence
    */
-  addresses?: Array<Address5> | undefined;
+  addresses?: Array<Address6> | undefined;
   /**
    * The type of the user.
    */
@@ -96,7 +96,7 @@ export const User$inboundSchema: z.ZodType<User, z.ZodTypeDef, unknown> = z
     emails: z.array(Email1$inboundSchema),
     title: z.string().optional(),
     phoneNumbers: z.array(PhoneNumber1$inboundSchema).optional(),
-    addresses: z.array(Address5$inboundSchema).optional(),
+    addresses: z.array(Address6$inboundSchema).optional(),
     userType: UserType$inboundSchema,
     timezone: z.string().default("America/New_York"),
     locale: z.string(),

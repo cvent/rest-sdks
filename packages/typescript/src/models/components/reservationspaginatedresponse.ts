@@ -10,7 +10,7 @@ import {
   ExistingReservation,
   ExistingReservation$inboundSchema,
 } from "./existingreservation.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * Details list about existing reservations.
@@ -19,7 +19,7 @@ export type ReservationsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * List of reservation details.
    */
@@ -32,7 +32,7 @@ export const ReservationsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
+  paging: Paging$inboundSchema.optional(),
   data: z.array(ExistingReservation$inboundSchema).optional(),
 });
 

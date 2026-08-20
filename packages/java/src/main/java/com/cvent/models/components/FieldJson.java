@@ -56,7 +56,7 @@ public class FieldJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("choices")
-    private List<ChoiceJson1> choices;
+    private List<ChoiceJson> choices;
 
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
@@ -85,7 +85,7 @@ public class FieldJson {
             @JsonProperty("text") @Nullable String text,
             @JsonProperty("shortText") @Nullable String shortText,
             @JsonProperty("type") @Nullable FieldTypeJson type,
-            @JsonProperty("choices") @Nullable List<ChoiceJson1> choices,
+            @JsonProperty("choices") @Nullable List<ChoiceJson> choices,
             @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoiceJson notApplicableAnswer,
             @JsonProperty("otherAnswer") @Nullable AdditionalChoiceJson otherAnswer,
             @JsonProperty("required") @Nullable Boolean required) {
@@ -134,7 +134,7 @@ public class FieldJson {
     /**
      * List of choices for this field.
      */
-    public Optional<List<ChoiceJson1>> choices() {
+    public Optional<List<ChoiceJson>> choices() {
         return Optional.ofNullable(this.choices);
     }
 
@@ -198,7 +198,7 @@ public class FieldJson {
     /**
      * List of choices for this field.
      */
-    public FieldJson withChoices(@Nullable List<ChoiceJson1> choices) {
+    public FieldJson withChoices(@Nullable List<ChoiceJson> choices) {
         this.choices = choices;
         return this;
     }
@@ -284,7 +284,7 @@ public class FieldJson {
 
         private FieldTypeJson type;
 
-        private List<ChoiceJson1> choices;
+        private List<ChoiceJson> choices;
 
         private AdditionalChoiceJson notApplicableAnswer;
 
@@ -331,7 +331,7 @@ public class FieldJson {
         /**
          * List of choices for this field.
          */
-        public Builder choices(@Nullable List<ChoiceJson1> choices) {
+        public Builder choices(@Nullable List<ChoiceJson> choices) {
             this.choices = choices;
             return this;
         }

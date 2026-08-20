@@ -7,65 +7,65 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AttendeeTypeIdJson,
-  AttendeeTypeIdJson$inboundSchema,
-  AttendeeTypeIdJson$Outbound,
-  AttendeeTypeIdJson$outboundSchema,
-} from "./attendeetypeidjson.js";
+  AttendeeTypeId,
+  AttendeeTypeId$inboundSchema,
+  AttendeeTypeId$Outbound,
+  AttendeeTypeId$outboundSchema,
+} from "./attendeetypeid.js";
 import {
-  BookingWebsiteLinkJson,
-  BookingWebsiteLinkJson$inboundSchema,
-} from "./bookingwebsitelinkjson.js";
+  BookingWebsiteLink,
+  BookingWebsiteLink$inboundSchema,
+} from "./bookingwebsitelink.js";
 import {
-  CallCenterLinkJson,
-  CallCenterLinkJson$inboundSchema,
-} from "./callcenterlinkjson.js";
+  CallCenterLink,
+  CallCenterLink$inboundSchema,
+} from "./callcenterlink.js";
 import {
-  CustomFieldsJson,
-  CustomFieldsJson$inboundSchema,
-  CustomFieldsJson$Outbound,
-  CustomFieldsJson$outboundSchema,
-} from "./customfieldsjson.js";
+  CustomFields,
+  CustomFields$inboundSchema,
+  CustomFields$Outbound,
+  CustomFields$outboundSchema,
+} from "./customfields.js";
 import {
-  GuestJson,
-  GuestJson$inboundSchema,
-  GuestJson$Outbound,
-  GuestJson$outboundSchema,
-} from "./guestjson.js";
+  Guest1,
+  Guest1$inboundSchema,
+  Guest1$Outbound,
+  Guest1$outboundSchema,
+} from "./guest1.js";
 import {
-  HotelIdJson,
-  HotelIdJson$inboundSchema,
-  HotelIdJson$Outbound,
-  HotelIdJson$outboundSchema,
-} from "./hotelidjson.js";
+  HotelId,
+  HotelId$inboundSchema,
+  HotelId$Outbound,
+  HotelId$outboundSchema,
+} from "./hotelid.js";
 import {
-  HousingEventIdJson,
-  HousingEventIdJson$inboundSchema,
-  HousingEventIdJson$Outbound,
-  HousingEventIdJson$outboundSchema,
-} from "./housingeventidjson.js";
+  HousingEventId,
+  HousingEventId$inboundSchema,
+  HousingEventId$Outbound,
+  HousingEventId$outboundSchema,
+} from "./housingeventid.js";
 import {
-  ReservationRequestStatusesJson,
-  ReservationRequestStatusesJson$inboundSchema,
-} from "./reservationrequeststatusesjson.js";
+  ReservationRequestStatus,
+  ReservationRequestStatus$inboundSchema,
+} from "./reservationrequeststatus.js";
 import {
-  RewardProgramJson,
-  RewardProgramJson$inboundSchema,
-  RewardProgramJson$Outbound,
-  RewardProgramJson$outboundSchema,
-} from "./rewardprogramjson.js";
+  RewardProgram,
+  RewardProgram$inboundSchema,
+  RewardProgram$Outbound,
+  RewardProgram$outboundSchema,
+} from "./rewardprogram.js";
 import {
-  RoomTypeIdJson,
-  RoomTypeIdJson$inboundSchema,
-  RoomTypeIdJson$Outbound,
-  RoomTypeIdJson$outboundSchema,
-} from "./roomtypeidjson.js";
+  RoomTypeId,
+  RoomTypeId$inboundSchema,
+  RoomTypeId$Outbound,
+  RoomTypeId$outboundSchema,
+} from "./roomtypeid.js";
 import {
-  TravelDetailsJson,
-  TravelDetailsJson$inboundSchema,
-  TravelDetailsJson$Outbound,
-  TravelDetailsJson$outboundSchema,
-} from "./traveldetailsjson.js";
+  TravelDetails,
+  TravelDetails$inboundSchema,
+  TravelDetails$Outbound,
+  TravelDetails$outboundSchema,
+} from "./traveldetails.js";
 
 /**
  * Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
@@ -104,7 +104,7 @@ export type ExistingReservationRequest = {
   /**
    * Contains unique ID of the housing event.
    */
-  housingEvent: HousingEventIdJson;
+  housingEvent: HousingEventId;
   /**
    * Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
    *
@@ -114,15 +114,15 @@ export type ExistingReservationRequest = {
   /**
    * Contains the unique ID of the attendee type.
    */
-  attendeeType?: AttendeeTypeIdJson | undefined;
+  attendeeType?: AttendeeTypeId | undefined;
   /**
    * Contains unique ID of the room type.
    */
-  roomType?: RoomTypeIdJson | undefined;
+  roomType?: RoomTypeId | undefined;
   /**
    * Contains unique ID of the hotel.
    */
-  hotel?: HotelIdJson | undefined;
+  hotel?: HotelId | undefined;
   /**
    * True indicates the system will send email acknowledgement after reservation creation.
    */
@@ -138,11 +138,11 @@ export type ExistingReservationRequest = {
   /**
    * Guests information.
    */
-  guests: Array<GuestJson>;
+  guests: Array<Guest1>;
   /**
    * Custom fields.
    */
-  customFields?: CustomFieldsJson | undefined;
+  customFields?: CustomFields | undefined;
   /**
    * True indicates this reservation request is for an accessible room.
    */
@@ -154,7 +154,7 @@ export type ExistingReservationRequest = {
   /**
    * Represents reward program information.
    */
-  rewardProgram?: RewardProgramJson | undefined;
+  rewardProgram?: RewardProgram | undefined;
   /**
    * Reward program membership number.
    */
@@ -162,7 +162,7 @@ export type ExistingReservationRequest = {
   /**
    * Common object that holds travel details information.
    */
-  travelDetails?: TravelDetailsJson | undefined;
+  travelDetails?: TravelDetails | undefined;
   /**
    * Reservation request ID.
    */
@@ -170,15 +170,15 @@ export type ExistingReservationRequest = {
   /**
    * Reservation request status.
    */
-  status: ReservationRequestStatusesJson;
+  status: ReservationRequestStatus;
   /**
    * Unique URL for a guest to access a reservation in Passkey's booking tool.
    */
-  bookingSite?: BookingWebsiteLinkJson | undefined;
+  bookingSite?: BookingWebsiteLink | undefined;
   /**
    * Unique URL for Passkey users (rather than guests) to access a reservation in Passkey's call center tool.
    */
-  callCenter?: CallCenterLinkJson | undefined;
+  callCenter?: CallCenterLink | undefined;
 };
 
 /**
@@ -200,7 +200,7 @@ export type ExistingReservationRequestInput = {
   /**
    * Contains unique ID of the housing event.
    */
-  housingEvent: HousingEventIdJson;
+  housingEvent: HousingEventId;
   /**
    * Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
    *
@@ -210,15 +210,15 @@ export type ExistingReservationRequestInput = {
   /**
    * Contains the unique ID of the attendee type.
    */
-  attendeeType?: AttendeeTypeIdJson | undefined;
+  attendeeType?: AttendeeTypeId | undefined;
   /**
    * Contains unique ID of the room type.
    */
-  roomType?: RoomTypeIdJson | undefined;
+  roomType?: RoomTypeId | undefined;
   /**
    * Contains unique ID of the hotel.
    */
-  hotel?: HotelIdJson | undefined;
+  hotel?: HotelId | undefined;
   /**
    * True indicates the system will send email acknowledgement after reservation creation.
    */
@@ -234,11 +234,11 @@ export type ExistingReservationRequestInput = {
   /**
    * Guests information.
    */
-  guests: Array<GuestJson>;
+  guests: Array<Guest1>;
   /**
    * Custom fields.
    */
-  customFields?: CustomFieldsJson | undefined;
+  customFields?: CustomFields | undefined;
   /**
    * True indicates this reservation request is for an accessible room.
    */
@@ -250,7 +250,7 @@ export type ExistingReservationRequestInput = {
   /**
    * Represents reward program information.
    */
-  rewardProgram?: RewardProgramJson | undefined;
+  rewardProgram?: RewardProgram | undefined;
   /**
    * Reward program membership number.
    */
@@ -258,7 +258,7 @@ export type ExistingReservationRequestInput = {
   /**
    * Common object that holds travel details information.
    */
-  travelDetails?: TravelDetailsJson | undefined;
+  travelDetails?: TravelDetails | undefined;
   /**
    * Reservation request ID.
    */
@@ -316,25 +316,25 @@ export const ExistingReservationRequest$inboundSchema: z.ZodType<
   attendeeTypeCode: z.string().optional(),
   confirmationNumber: z.string().optional(),
   locale: z.string().optional(),
-  housingEvent: HousingEventIdJson$inboundSchema,
+  housingEvent: HousingEventId$inboundSchema,
   block: z.lazy(() => ExistingReservationRequestBlock$inboundSchema).optional(),
-  attendeeType: AttendeeTypeIdJson$inboundSchema.optional(),
-  roomType: RoomTypeIdJson$inboundSchema.optional(),
-  hotel: HotelIdJson$inboundSchema.optional(),
+  attendeeType: AttendeeTypeId$inboundSchema.optional(),
+  roomType: RoomTypeId$inboundSchema.optional(),
+  hotel: HotelId$inboundSchema.optional(),
   sendAcknowledgement: z.boolean().optional(),
   splitFolio: z.boolean().optional(),
   redirectURL: z.string().optional(),
-  guests: z.array(GuestJson$inboundSchema),
-  customFields: CustomFieldsJson$inboundSchema.optional(),
+  guests: z.array(Guest1$inboundSchema),
+  customFields: CustomFields$inboundSchema.optional(),
   accessible: z.boolean().optional(),
   specialRequest: z.string().optional(),
-  rewardProgram: RewardProgramJson$inboundSchema.optional(),
+  rewardProgram: RewardProgram$inboundSchema.optional(),
   membershipId: z.string().optional(),
-  travelDetails: TravelDetailsJson$inboundSchema.optional(),
+  travelDetails: TravelDetails$inboundSchema.optional(),
   id: z.string(),
-  status: ReservationRequestStatusesJson$inboundSchema,
-  bookingSite: BookingWebsiteLinkJson$inboundSchema.optional(),
-  callCenter: CallCenterLinkJson$inboundSchema.optional(),
+  status: ReservationRequestStatus$inboundSchema,
+  bookingSite: BookingWebsiteLink$inboundSchema.optional(),
+  callCenter: CallCenterLink$inboundSchema.optional(),
 });
 
 export function existingReservationRequestFromJSON(
@@ -352,21 +352,21 @@ export type ExistingReservationRequestInput$Outbound = {
   sourceId?: string | undefined;
   attendeeTypeCode?: string | undefined;
   locale?: string | undefined;
-  housingEvent: HousingEventIdJson$Outbound;
+  housingEvent: HousingEventId$Outbound;
   block?: ExistingReservationRequestBlock$Outbound | undefined;
-  attendeeType?: AttendeeTypeIdJson$Outbound | undefined;
-  roomType?: RoomTypeIdJson$Outbound | undefined;
-  hotel?: HotelIdJson$Outbound | undefined;
+  attendeeType?: AttendeeTypeId$Outbound | undefined;
+  roomType?: RoomTypeId$Outbound | undefined;
+  hotel?: HotelId$Outbound | undefined;
   sendAcknowledgement?: boolean | undefined;
   splitFolio?: boolean | undefined;
   redirectURL?: string | undefined;
-  guests: Array<GuestJson$Outbound>;
-  customFields?: CustomFieldsJson$Outbound | undefined;
+  guests: Array<Guest1$Outbound>;
+  customFields?: CustomFields$Outbound | undefined;
   accessible?: boolean | undefined;
   specialRequest?: string | undefined;
-  rewardProgram?: RewardProgramJson$Outbound | undefined;
+  rewardProgram?: RewardProgram$Outbound | undefined;
   membershipId?: string | undefined;
-  travelDetails?: TravelDetailsJson$Outbound | undefined;
+  travelDetails?: TravelDetails$Outbound | undefined;
   id: string;
 };
 
@@ -379,22 +379,22 @@ export const ExistingReservationRequestInput$outboundSchema: z.ZodType<
   sourceId: z.string().optional(),
   attendeeTypeCode: z.string().optional(),
   locale: z.string().optional(),
-  housingEvent: HousingEventIdJson$outboundSchema,
+  housingEvent: HousingEventId$outboundSchema,
   block: z.lazy(() => ExistingReservationRequestBlock$outboundSchema)
     .optional(),
-  attendeeType: AttendeeTypeIdJson$outboundSchema.optional(),
-  roomType: RoomTypeIdJson$outboundSchema.optional(),
-  hotel: HotelIdJson$outboundSchema.optional(),
+  attendeeType: AttendeeTypeId$outboundSchema.optional(),
+  roomType: RoomTypeId$outboundSchema.optional(),
+  hotel: HotelId$outboundSchema.optional(),
   sendAcknowledgement: z.boolean().optional(),
   splitFolio: z.boolean().optional(),
   redirectURL: z.string().optional(),
-  guests: z.array(GuestJson$outboundSchema),
-  customFields: CustomFieldsJson$outboundSchema.optional(),
+  guests: z.array(Guest1$outboundSchema),
+  customFields: CustomFields$outboundSchema.optional(),
   accessible: z.boolean().optional(),
   specialRequest: z.string().optional(),
-  rewardProgram: RewardProgramJson$outboundSchema.optional(),
+  rewardProgram: RewardProgram$outboundSchema.optional(),
   membershipId: z.string().optional(),
-  travelDetails: TravelDetailsJson$outboundSchema.optional(),
+  travelDetails: TravelDetails$outboundSchema.optional(),
   id: z.string(),
 });
 

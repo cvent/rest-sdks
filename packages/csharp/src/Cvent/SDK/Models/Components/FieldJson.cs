@@ -47,7 +47,7 @@ namespace Cvent.SDK.Models.Components
         /// List of choices for this field.
         /// </summary>
         [JsonProperty("choices")]
-        public List<ChoiceJson1>? Choices { get; set; }
+        public List<ChoiceJson>? Choices { get; set; }
 
         /// <summary>
         /// Contains text of additional choice i.e N/A choice or otherAnswer choice.

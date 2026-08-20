@@ -64,13 +64,13 @@ public class HousingEvent {
      * Event venue details.
      */
     @JsonProperty("venue")
-    private VenueJson1 venue;
+    private Venue venue;
 
     /**
      * Housing event status.
      */
     @JsonProperty("status")
-    private HousingEventStatusesJson status;
+    private HousingEventStatus status;
 
     /**
      * The ISO 8601 formatted date and time when event will launch.
@@ -122,19 +122,19 @@ public class HousingEvent {
      * Reservation contact details for this event.
      */
     @JsonProperty("reservationContact")
-    private ReservationContactJson reservationContact;
+    private ReservationContact reservationContact;
 
     /**
      * List of attendee types for this event.
      */
     @JsonProperty("attendeeTypes")
-    private List<AttendeeTypeJson> attendeeTypes;
+    private List<AttendeeType> attendeeTypes;
 
     /**
      * A collection of event planners for this housing event.
      */
     @JsonProperty("planners")
-    private List<PlannerJson1> planners;
+    private List<Planner> planners;
 
     /**
      * ISO 4217 currency code.
@@ -150,7 +150,7 @@ public class HousingEvent {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("roomsSortType")
-    private RoomsSortTypeJson roomsSortType;
+    private RoomsSortType roomsSortType;
 
     @JsonCreator
     public HousingEvent(
@@ -160,8 +160,8 @@ public class HousingEvent {
             @JsonProperty("end") @Nonnull OffsetDateTime end,
             @JsonProperty("cutOff") @Nonnull OffsetDateTime cutOff,
             @JsonProperty("timeZone") @Nonnull String timeZone,
-            @JsonProperty("venue") @Nonnull VenueJson1 venue,
-            @JsonProperty("status") @Nonnull HousingEventStatusesJson status,
+            @JsonProperty("venue") @Nonnull Venue venue,
+            @JsonProperty("status") @Nonnull HousingEventStatus status,
             @JsonProperty("launchAfter") @Nullable OffsetDateTime launchAfter,
             @JsonProperty("closeAfter") @Nullable OffsetDateTime closeAfter,
             @JsonProperty("webLaunchAfter") @Nullable OffsetDateTime webLaunchAfter,
@@ -169,11 +169,11 @@ public class HousingEvent {
             @JsonProperty("defaultLocale") @Nonnull String defaultLocale,
             @JsonProperty("locales") @Nonnull List<String> locales,
             @JsonProperty("image") @Nonnull String image,
-            @JsonProperty("reservationContact") @Nonnull ReservationContactJson reservationContact,
-            @JsonProperty("attendeeTypes") @Nonnull List<AttendeeTypeJson> attendeeTypes,
-            @JsonProperty("planners") @Nonnull List<PlannerJson1> planners,
+            @JsonProperty("reservationContact") @Nonnull ReservationContact reservationContact,
+            @JsonProperty("attendeeTypes") @Nonnull List<AttendeeType> attendeeTypes,
+            @JsonProperty("planners") @Nonnull List<Planner> planners,
             @JsonProperty("currency") @Nonnull String currency,
-            @JsonProperty("roomsSortType") @Nullable RoomsSortTypeJson roomsSortType) {
+            @JsonProperty("roomsSortType") @Nullable RoomsSortType roomsSortType) {
         this.id = id;
         this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.start = Optional.ofNullable(start).orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
@@ -212,14 +212,14 @@ public class HousingEvent {
             @Nonnull OffsetDateTime end,
             @Nonnull OffsetDateTime cutOff,
             @Nonnull String timeZone,
-            @Nonnull VenueJson1 venue,
-            @Nonnull HousingEventStatusesJson status,
+            @Nonnull Venue venue,
+            @Nonnull HousingEventStatus status,
             @Nonnull String defaultLocale,
             @Nonnull List<String> locales,
             @Nonnull String image,
-            @Nonnull ReservationContactJson reservationContact,
-            @Nonnull List<AttendeeTypeJson> attendeeTypes,
-            @Nonnull List<PlannerJson1> planners,
+            @Nonnull ReservationContact reservationContact,
+            @Nonnull List<AttendeeType> attendeeTypes,
+            @Nonnull List<Planner> planners,
             @Nonnull String currency) {
         this(
                 id,
@@ -291,14 +291,14 @@ public class HousingEvent {
     /**
      * Event venue details.
      */
-    public VenueJson1 venue() {
+    public Venue venue() {
         return this.venue;
     }
 
     /**
      * Housing event status.
      */
-    public HousingEventStatusesJson status() {
+    public HousingEventStatus status() {
         return this.status;
     }
 
@@ -354,21 +354,21 @@ public class HousingEvent {
     /**
      * Reservation contact details for this event.
      */
-    public ReservationContactJson reservationContact() {
+    public ReservationContact reservationContact() {
         return this.reservationContact;
     }
 
     /**
      * List of attendee types for this event.
      */
-    public List<AttendeeTypeJson> attendeeTypes() {
+    public List<AttendeeType> attendeeTypes() {
         return this.attendeeTypes;
     }
 
     /**
      * A collection of event planners for this housing event.
      */
-    public List<PlannerJson1> planners() {
+    public List<Planner> planners() {
         return this.planners;
     }
 
@@ -385,7 +385,7 @@ public class HousingEvent {
      *
      * <p>PriceDescending: Data sorted by highest price first.
      */
-    public Optional<RoomsSortTypeJson> roomsSortType() {
+    public Optional<RoomsSortType> roomsSortType() {
         return Optional.ofNullable(this.roomsSortType);
     }
 
@@ -446,7 +446,7 @@ public class HousingEvent {
     /**
      * Event venue details.
      */
-    public HousingEvent withVenue(@Nonnull VenueJson1 venue) {
+    public HousingEvent withVenue(@Nonnull Venue venue) {
         this.venue = Utils.checkNotNull(venue, "venue");
         return this;
     }
@@ -454,7 +454,7 @@ public class HousingEvent {
     /**
      * Housing event status.
      */
-    public HousingEvent withStatus(@Nonnull HousingEventStatusesJson status) {
+    public HousingEvent withStatus(@Nonnull HousingEventStatus status) {
         this.status = Utils.checkNotNull(status, "status");
         return this;
     }
@@ -518,7 +518,7 @@ public class HousingEvent {
     /**
      * Reservation contact details for this event.
      */
-    public HousingEvent withReservationContact(@Nonnull ReservationContactJson reservationContact) {
+    public HousingEvent withReservationContact(@Nonnull ReservationContact reservationContact) {
         this.reservationContact = Utils.checkNotNull(reservationContact, "reservationContact");
         return this;
     }
@@ -526,7 +526,7 @@ public class HousingEvent {
     /**
      * List of attendee types for this event.
      */
-    public HousingEvent withAttendeeTypes(@Nonnull List<AttendeeTypeJson> attendeeTypes) {
+    public HousingEvent withAttendeeTypes(@Nonnull List<AttendeeType> attendeeTypes) {
         this.attendeeTypes = Utils.checkNotNull(attendeeTypes, "attendeeTypes");
         return this;
     }
@@ -534,7 +534,7 @@ public class HousingEvent {
     /**
      * A collection of event planners for this housing event.
      */
-    public HousingEvent withPlanners(@Nonnull List<PlannerJson1> planners) {
+    public HousingEvent withPlanners(@Nonnull List<Planner> planners) {
         this.planners = Utils.checkNotNull(planners, "planners");
         return this;
     }
@@ -553,7 +553,7 @@ public class HousingEvent {
      *
      * <p>PriceDescending: Data sorted by highest price first.
      */
-    public HousingEvent withRoomsSortType(@Nullable RoomsSortTypeJson roomsSortType) {
+    public HousingEvent withRoomsSortType(@Nullable RoomsSortType roomsSortType) {
         this.roomsSortType = roomsSortType;
         return this;
     }
@@ -675,9 +675,9 @@ public class HousingEvent {
 
         private String timeZone;
 
-        private VenueJson1 venue;
+        private Venue venue;
 
-        private HousingEventStatusesJson status;
+        private HousingEventStatus status;
 
         private OffsetDateTime launchAfter;
 
@@ -693,15 +693,15 @@ public class HousingEvent {
 
         private String image;
 
-        private ReservationContactJson reservationContact;
+        private ReservationContact reservationContact;
 
-        private List<AttendeeTypeJson> attendeeTypes;
+        private List<AttendeeType> attendeeTypes;
 
-        private List<PlannerJson1> planners;
+        private List<Planner> planners;
 
         private String currency;
 
-        private RoomsSortTypeJson roomsSortType;
+        private RoomsSortType roomsSortType;
 
         private Builder() {
             // force use of static builder() method
@@ -760,7 +760,7 @@ public class HousingEvent {
         /**
          * Event venue details.
          */
-        public Builder venue(@Nonnull VenueJson1 venue) {
+        public Builder venue(@Nonnull Venue venue) {
             this.venue = Utils.checkNotNull(venue, "venue");
             return this;
         }
@@ -768,7 +768,7 @@ public class HousingEvent {
         /**
          * Housing event status.
          */
-        public Builder status(@Nonnull HousingEventStatusesJson status) {
+        public Builder status(@Nonnull HousingEventStatus status) {
             this.status = Utils.checkNotNull(status, "status");
             return this;
         }
@@ -832,7 +832,7 @@ public class HousingEvent {
         /**
          * Reservation contact details for this event.
          */
-        public Builder reservationContact(@Nonnull ReservationContactJson reservationContact) {
+        public Builder reservationContact(@Nonnull ReservationContact reservationContact) {
             this.reservationContact = Utils.checkNotNull(reservationContact, "reservationContact");
             return this;
         }
@@ -840,7 +840,7 @@ public class HousingEvent {
         /**
          * List of attendee types for this event.
          */
-        public Builder attendeeTypes(@Nonnull List<AttendeeTypeJson> attendeeTypes) {
+        public Builder attendeeTypes(@Nonnull List<AttendeeType> attendeeTypes) {
             this.attendeeTypes = Utils.checkNotNull(attendeeTypes, "attendeeTypes");
             return this;
         }
@@ -848,7 +848,7 @@ public class HousingEvent {
         /**
          * A collection of event planners for this housing event.
          */
-        public Builder planners(@Nonnull List<PlannerJson1> planners) {
+        public Builder planners(@Nonnull List<Planner> planners) {
             this.planners = Utils.checkNotNull(planners, "planners");
             return this;
         }
@@ -867,7 +867,7 @@ public class HousingEvent {
          *
          * <p>PriceDescending: Data sorted by highest price first.
          */
-        public Builder roomsSortType(@Nullable RoomsSortTypeJson roomsSortType) {
+        public Builder roomsSortType(@Nullable RoomsSortType roomsSortType) {
             this.roomsSortType = roomsSortType;
             return this;
         }

@@ -30,7 +30,12 @@ import { Result } from "../types/fp.js";
  * Unlink Reservation
  *
  * @remarks
- * Unlink reservation from reservation request. Commonly used for removing a cancelled reservation from a reservation request so that a new reservation can be linked in its place.
+ * Unlink a reservation from a reservation request. Commonly used when a linked reservation has been cancelled and
+ * you need to free up the reservation request so a new reservation can be linked in its place.
+ * Unlinking does not cancel or change the reservation itself.
+ *
+ * After unlinking, you can [link a new reservation](#operation/linkReservation) or allow the guest to book again using the reservation
+ * request's `bookingSite` URL.
  */
 export function housingUnlinkReservation(
   client: CventSDKCore,

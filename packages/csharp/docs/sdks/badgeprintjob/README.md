@@ -37,8 +37,8 @@ var sdk = new CventSDK(security: new Security() {
 CreateBadgePrintJobRequest req = new CreateBadgePrintJobRequest() {
     EventId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     BadgePrintJobCreated = new BadgePrintJobCreatedInput() {
-        Status = BadgePrintJobStatusJson.Scheduled,
-        Pool = new BadgePrinterPoolReferenceJson() {
+        Status = BadgePrintJobStatus.Scheduled,
+        Pool = new BadgePrinterPoolRef() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
         BadgeId = "VNNDLJ6DKVK",

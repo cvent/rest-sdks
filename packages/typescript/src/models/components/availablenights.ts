@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AvailableNightJson,
-  AvailableNightJson$inboundSchema,
-} from "./availablenightjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  AvailableNight,
+  AvailableNight$inboundSchema,
+} from "./availablenight.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * List of available room nights and the availabilities associated details.
@@ -19,11 +19,11 @@ export type AvailableNights = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * List of available room nights and their associated details.
    */
-  data?: Array<AvailableNightJson> | undefined;
+  data?: Array<AvailableNight> | undefined;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const AvailableNights$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(AvailableNightJson$inboundSchema).optional(),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(AvailableNight$inboundSchema).optional(),
 });
 
 export function availableNightsFromJSON(

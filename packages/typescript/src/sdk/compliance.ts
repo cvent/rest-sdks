@@ -57,10 +57,9 @@ export class Compliance extends ClientSDK {
    * is provided then the API will return communication log messages of all types between the specified dates.
    *
    * Supported types are:
-   *
-   *   * email
-   *   * chat
-   *   * session_qa
+   *   * `email`
+   *   * `chat` (session chats, exhibitor chats, text discussions, 1:1 messaging (attendees), group messaging (groups))
+   *   * `session_qa`
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -88,10 +87,9 @@ export class Compliance extends ClientSDK {
    * is provided then the API will return communication log messages of all types between the specified dates.
    *
    * Supported types are:
-   *
-   *   * email
-   *   * chat
-   *   * session_qa
+   *   * `email`
+   *   * `chat` (session chats, exhibitor chats, text discussions, 1:1 messaging (attendees), group messaging (groups))
+   *   * `session_qa`
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */

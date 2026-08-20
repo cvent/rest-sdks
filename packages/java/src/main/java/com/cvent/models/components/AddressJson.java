@@ -16,8 +16,7 @@ import java.util.Optional;
 /**
  * AddressJson
  *
- * <p>Address details. Required to create/update a guest's reservation if the hotel/event requires an
- * address in reservations.
+ * <p>A physical address.
  */
 public class AddressJson {
     /**

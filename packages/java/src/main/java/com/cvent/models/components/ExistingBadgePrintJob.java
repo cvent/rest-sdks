@@ -31,14 +31,14 @@ public class ExistingBadgePrintJob {
      * This is used to indicate the status of the badge print job.
      */
     @JsonProperty("status")
-    private BadgePrintJobStatusJson status;
+    private BadgePrintJobStatus status;
 
     /**
      * A unique identifier of the badge printer pool.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("pool")
-    private BadgePrinterPoolRef pool;
+    private ExistingBadgePrintJobBadgePrinterPoolRef pool;
 
     /**
      * A unique id of the attendee for badge printing, which could be confirmation number or secured badge
@@ -60,7 +60,7 @@ public class ExistingBadgePrintJob {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("code")
-    private BadgePrintJobErrorCodeJson code;
+    private BadgePrintJobErrorCode code;
 
     /**
      * A human readable message that summarizes the context, cause, and general solution for the error at
@@ -87,11 +87,11 @@ public class ExistingBadgePrintJob {
     @JsonCreator
     public ExistingBadgePrintJob(
             @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("status") @Nonnull BadgePrintJobStatusJson status,
-            @JsonProperty("pool") @Nullable BadgePrinterPoolRef pool,
+            @JsonProperty("status") @Nonnull BadgePrintJobStatus status,
+            @JsonProperty("pool") @Nullable ExistingBadgePrintJobBadgePrinterPoolRef pool,
             @JsonProperty("badgeId") @Nullable String badgeId,
             @JsonProperty("printer") @Nullable BadgePrinter printer,
-            @JsonProperty("code") @Nullable BadgePrintJobErrorCodeJson code,
+            @JsonProperty("code") @Nullable BadgePrintJobErrorCode code,
             @JsonProperty("message") @Nullable String message,
             @JsonProperty("created") @Nullable OffsetDateTime created,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified) {
@@ -107,7 +107,7 @@ public class ExistingBadgePrintJob {
         this.lastModified = lastModified;
     }
 
-    public ExistingBadgePrintJob(@Nonnull String id, @Nonnull BadgePrintJobStatusJson status) {
+    public ExistingBadgePrintJob(@Nonnull String id, @Nonnull BadgePrintJobStatus status) {
         this(id, status, null, null, null, null, null, null, null);
     }
 
@@ -121,14 +121,14 @@ public class ExistingBadgePrintJob {
     /**
      * This is used to indicate the status of the badge print job.
      */
-    public BadgePrintJobStatusJson status() {
+    public BadgePrintJobStatus status() {
         return this.status;
     }
 
     /**
      * A unique identifier of the badge printer pool.
      */
-    public Optional<BadgePrinterPoolRef> pool() {
+    public Optional<ExistingBadgePrintJobBadgePrinterPoolRef> pool() {
         return Optional.ofNullable(this.pool);
     }
 
@@ -150,7 +150,7 @@ public class ExistingBadgePrintJob {
     /**
      * This is used to indicate the error code returned from a badge printer.
      */
-    public Optional<BadgePrintJobErrorCodeJson> code() {
+    public Optional<BadgePrintJobErrorCode> code() {
         return Optional.ofNullable(this.code);
     }
 
@@ -191,7 +191,7 @@ public class ExistingBadgePrintJob {
     /**
      * This is used to indicate the status of the badge print job.
      */
-    public ExistingBadgePrintJob withStatus(@Nonnull BadgePrintJobStatusJson status) {
+    public ExistingBadgePrintJob withStatus(@Nonnull BadgePrintJobStatus status) {
         this.status = Utils.checkNotNull(status, "status");
         return this;
     }
@@ -199,7 +199,7 @@ public class ExistingBadgePrintJob {
     /**
      * A unique identifier of the badge printer pool.
      */
-    public ExistingBadgePrintJob withPool(@Nullable BadgePrinterPoolRef pool) {
+    public ExistingBadgePrintJob withPool(@Nullable ExistingBadgePrintJobBadgePrinterPoolRef pool) {
         this.pool = pool;
         return this;
     }
@@ -224,7 +224,7 @@ public class ExistingBadgePrintJob {
     /**
      * This is used to indicate the error code returned from a badge printer.
      */
-    public ExistingBadgePrintJob withCode(@Nullable BadgePrintJobErrorCodeJson code) {
+    public ExistingBadgePrintJob withCode(@Nullable BadgePrintJobErrorCode code) {
         this.code = code;
         return this;
     }
@@ -308,15 +308,15 @@ public class ExistingBadgePrintJob {
 
         private String id;
 
-        private BadgePrintJobStatusJson status;
+        private BadgePrintJobStatus status;
 
-        private BadgePrinterPoolRef pool;
+        private ExistingBadgePrintJobBadgePrinterPoolRef pool;
 
         private String badgeId;
 
         private BadgePrinter printer;
 
-        private BadgePrintJobErrorCodeJson code;
+        private BadgePrintJobErrorCode code;
 
         private String message;
 
@@ -339,7 +339,7 @@ public class ExistingBadgePrintJob {
         /**
          * This is used to indicate the status of the badge print job.
          */
-        public Builder status(@Nonnull BadgePrintJobStatusJson status) {
+        public Builder status(@Nonnull BadgePrintJobStatus status) {
             this.status = Utils.checkNotNull(status, "status");
             return this;
         }
@@ -347,7 +347,7 @@ public class ExistingBadgePrintJob {
         /**
          * A unique identifier of the badge printer pool.
          */
-        public Builder pool(@Nullable BadgePrinterPoolRef pool) {
+        public Builder pool(@Nullable ExistingBadgePrintJobBadgePrinterPoolRef pool) {
             this.pool = pool;
             return this;
         }
@@ -372,7 +372,7 @@ public class ExistingBadgePrintJob {
         /**
          * This is used to indicate the error code returned from a badge printer.
          */
-        public Builder code(@Nullable BadgePrintJobErrorCodeJson code) {
+        public Builder code(@Nullable BadgePrintJobErrorCode code) {
             this.code = code;
             return this;
         }

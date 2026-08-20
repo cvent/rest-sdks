@@ -53,7 +53,7 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("details")
-    private List<ZeroAllOf4> details;
+    private List<ZeroAllOf3> details;
 
     @JsonCreator
     public AttendeeAddBulkItemEventJsonErrorResponse(
@@ -61,7 +61,7 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
             @JsonProperty("code") long code,
             @JsonProperty("message") @Nonnull String message,
             @JsonProperty("target") @Nullable String target,
-            @JsonProperty("details") @Nullable List<ZeroAllOf4> details) {
+            @JsonProperty("details") @Nullable List<ZeroAllOf3> details) {
         this.id = id;
         this.code = code;
         this.message =
@@ -105,7 +105,7 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
     /**
      * Additional details of cascading error messages.
      */
-    public Optional<List<ZeroAllOf4>> details() {
+    public Optional<List<ZeroAllOf3>> details() {
         return Optional.ofNullable(this.details);
     }
 
@@ -148,7 +148,7 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
     /**
      * Additional details of cascading error messages.
      */
-    public AttendeeAddBulkItemEventJsonErrorResponse withDetails(@Nullable List<ZeroAllOf4> details) {
+    public AttendeeAddBulkItemEventJsonErrorResponse withDetails(@Nullable List<ZeroAllOf3> details) {
         this.details = details;
         return this;
     }
@@ -201,7 +201,7 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
 
         private String target;
 
-        private List<ZeroAllOf4> details;
+        private List<ZeroAllOf3> details;
 
         private Builder() {
             // force use of static builder() method
@@ -242,7 +242,7 @@ public class AttendeeAddBulkItemEventJsonErrorResponse {
         /**
          * Additional details of cascading error messages.
          */
-        public Builder details(@Nullable List<ZeroAllOf4> details) {
+        public Builder details(@Nullable List<ZeroAllOf3> details) {
             this.details = details;
             return this;
         }

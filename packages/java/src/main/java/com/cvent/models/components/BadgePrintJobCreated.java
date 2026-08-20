@@ -33,13 +33,13 @@ public class BadgePrintJobCreated {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private BadgePrintJobStatusJson status;
+    private BadgePrintJobStatus status;
 
     /**
      * Reference to a Badge Print Pool.
      */
     @JsonProperty("pool")
-    private BadgePrinterPoolReferenceJson pool;
+    private BadgePrinterPoolRef pool;
 
     /**
      * A unique id of the attendee for badge printing, which could be confirmation number or secured badge
@@ -58,8 +58,8 @@ public class BadgePrintJobCreated {
     @JsonCreator
     public BadgePrintJobCreated(
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("status") @Nullable BadgePrintJobStatusJson status,
-            @JsonProperty("pool") @Nonnull BadgePrinterPoolReferenceJson pool,
+            @JsonProperty("status") @Nullable BadgePrintJobStatus status,
+            @JsonProperty("pool") @Nonnull BadgePrinterPoolRef pool,
             @JsonProperty("badgeId") @Nonnull String badgeId,
             @JsonProperty("created") @Nullable OffsetDateTime created) {
         this.id = id;
@@ -70,7 +70,7 @@ public class BadgePrintJobCreated {
         this.created = created;
     }
 
-    public BadgePrintJobCreated(@Nonnull BadgePrinterPoolReferenceJson pool, @Nonnull String badgeId) {
+    public BadgePrintJobCreated(@Nonnull BadgePrinterPoolRef pool, @Nonnull String badgeId) {
         this(null, null, pool, badgeId, null);
     }
 
@@ -84,14 +84,14 @@ public class BadgePrintJobCreated {
     /**
      * This is used to indicate the status of the badge print job.
      */
-    public Optional<BadgePrintJobStatusJson> status() {
+    public Optional<BadgePrintJobStatus> status() {
         return Optional.ofNullable(this.status);
     }
 
     /**
      * Reference to a Badge Print Pool.
      */
-    public BadgePrinterPoolReferenceJson pool() {
+    public BadgePrinterPoolRef pool() {
         return this.pool;
     }
 
@@ -125,7 +125,7 @@ public class BadgePrintJobCreated {
     /**
      * This is used to indicate the status of the badge print job.
      */
-    public BadgePrintJobCreated withStatus(@Nullable BadgePrintJobStatusJson status) {
+    public BadgePrintJobCreated withStatus(@Nullable BadgePrintJobStatus status) {
         this.status = status;
         return this;
     }
@@ -133,7 +133,7 @@ public class BadgePrintJobCreated {
     /**
      * Reference to a Badge Print Pool.
      */
-    public BadgePrintJobCreated withPool(@Nonnull BadgePrinterPoolReferenceJson pool) {
+    public BadgePrintJobCreated withPool(@Nonnull BadgePrinterPoolRef pool) {
         this.pool = Utils.checkNotNull(pool, "pool");
         return this;
     }
@@ -197,9 +197,9 @@ public class BadgePrintJobCreated {
 
         private String id;
 
-        private BadgePrintJobStatusJson status;
+        private BadgePrintJobStatus status;
 
-        private BadgePrinterPoolReferenceJson pool;
+        private BadgePrinterPoolRef pool;
 
         private String badgeId;
 
@@ -220,7 +220,7 @@ public class BadgePrintJobCreated {
         /**
          * This is used to indicate the status of the badge print job.
          */
-        public Builder status(@Nullable BadgePrintJobStatusJson status) {
+        public Builder status(@Nullable BadgePrintJobStatus status) {
             this.status = status;
             return this;
         }
@@ -228,7 +228,7 @@ public class BadgePrintJobCreated {
         /**
          * Reference to a Badge Print Pool.
          */
-        public Builder pool(@Nonnull BadgePrinterPoolReferenceJson pool) {
+        public Builder pool(@Nonnull BadgePrinterPoolRef pool) {
             this.pool = Utils.checkNotNull(pool, "pool");
             return this;
         }

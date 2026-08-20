@@ -30,7 +30,10 @@ import { Result } from "../types/fp.js";
  * Get Event Hotel Availability
  *
  * @remarks
- * Get a filterable list of available room nights for a particular hotel and housing event.
+ * Get a filterable list of available room nights for a particular hotel and housing event. Returns availability
+ * by date, showing which nights have rooms remaining.
+ *
+ * Filter by attendee type and date range to narrow results.
  */
 export function housingGetHousingEventHotelAvailability(
   client: CventSDKCore,

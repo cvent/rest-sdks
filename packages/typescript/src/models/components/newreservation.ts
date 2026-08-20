@@ -4,35 +4,35 @@
 
 import * as z from "zod/v3";
 import {
-  AttendeeTypeIdJson,
-  AttendeeTypeIdJson$Outbound,
-  AttendeeTypeIdJson$outboundSchema,
-} from "./attendeetypeidjson.js";
+  AttendeeTypeId,
+  AttendeeTypeId$Outbound,
+  AttendeeTypeId$outboundSchema,
+} from "./attendeetypeid.js";
 import {
-  CustomFieldsJson,
-  CustomFieldsJson$Outbound,
-  CustomFieldsJson$outboundSchema,
-} from "./customfieldsjson.js";
+  CustomFields,
+  CustomFields$Outbound,
+  CustomFields$outboundSchema,
+} from "./customfields.js";
 import {
-  ReservationGuestJsonInput,
-  ReservationGuestJsonInput$Outbound,
-  ReservationGuestJsonInput$outboundSchema,
-} from "./reservationguestjsonoutput.js";
+  ReservationGuestInput,
+  ReservationGuestInput$Outbound,
+  ReservationGuestInput$outboundSchema,
+} from "./reservationguestoutput.js";
 import {
-  RewardProgramJson,
-  RewardProgramJson$Outbound,
-  RewardProgramJson$outboundSchema,
-} from "./rewardprogramjson.js";
+  RewardProgram,
+  RewardProgram$Outbound,
+  RewardProgram$outboundSchema,
+} from "./rewardprogram.js";
 import {
-  RoomInfoJsonInput,
-  RoomInfoJsonInput$Outbound,
-  RoomInfoJsonInput$outboundSchema,
-} from "./roominfojsoninput.js";
+  RoomInfoInput,
+  RoomInfoInput$Outbound,
+  RoomInfoInput$outboundSchema,
+} from "./roominfoinput.js";
 import {
-  TravelDetailsJson,
-  TravelDetailsJson$Outbound,
-  TravelDetailsJson$outboundSchema,
-} from "./traveldetailsjson.js";
+  TravelDetails,
+  TravelDetails$Outbound,
+  TravelDetails$outboundSchema,
+} from "./traveldetails.js";
 
 /**
  * Reservation request information.
@@ -52,7 +52,7 @@ export type NewReservationHousingEventId = {
 /**
  * Hotel information.
  */
-export type HotelId = {
+export type NewReservationHotelId = {
   /**
    * The unique ID of the hotel.
    */
@@ -80,11 +80,11 @@ export type NewReservation = {
   /**
    * Contains the unique ID of the attendee type.
    */
-  attendeeType: AttendeeTypeIdJson;
+  attendeeType: AttendeeTypeId;
   /**
    * Room information.
    */
-  roomType: RoomInfoJsonInput;
+  roomType: RoomInfoInput;
   /**
    * True indicates an email acknowledgement after reservation creation will be sent.
    */
@@ -104,11 +104,11 @@ export type NewReservation = {
   /**
    * Array of reservation guest details.
    */
-  guests: Array<ReservationGuestJsonInput>;
+  guests: Array<ReservationGuestInput>;
   /**
    * Custom fields.
    */
-  customFields?: CustomFieldsJson | undefined;
+  customFields?: CustomFields | undefined;
   /**
    * True indicates this reservation requires an accessible room.
    */
@@ -120,7 +120,7 @@ export type NewReservation = {
   /**
    * Represents reward program information.
    */
-  rewardProgram?: RewardProgramJson | undefined;
+  rewardProgram?: RewardProgram | undefined;
   /**
    * Reward program membership number.
    */
@@ -128,7 +128,7 @@ export type NewReservation = {
   /**
    * Common object that holds travel details information.
    */
-  travelDetails?: TravelDetailsJson | undefined;
+  travelDetails?: TravelDetails | undefined;
   /**
    * Information about Passkey event for this reservation.
    */
@@ -136,7 +136,7 @@ export type NewReservation = {
   /**
    * Hotel information.
    */
-  hotel: HotelId;
+  hotel: NewReservationHotelId;
   /**
    * Specifies reservation options for customizing reservation behavior.
    */
@@ -188,21 +188,25 @@ export function newReservationHousingEventIdToJSON(
 }
 
 /** @internal */
-export type HotelId$Outbound = {
+export type NewReservationHotelId$Outbound = {
   id: number;
 };
 
 /** @internal */
-export const HotelId$outboundSchema: z.ZodType<
-  HotelId$Outbound,
+export const NewReservationHotelId$outboundSchema: z.ZodType<
+  NewReservationHotelId$Outbound,
   z.ZodTypeDef,
-  HotelId
+  NewReservationHotelId
 > = z.object({
   id: z.number().int(),
 });
 
-export function hotelIdToJSON(hotelId: HotelId): string {
-  return JSON.stringify(HotelId$outboundSchema.parse(hotelId));
+export function newReservationHotelIdToJSON(
+  newReservationHotelId: NewReservationHotelId,
+): string {
+  return JSON.stringify(
+    NewReservationHotelId$outboundSchema.parse(newReservationHotelId),
+  );
 }
 
 /** @internal */
@@ -226,21 +230,21 @@ export function modifiersToJSON(modifiers: Modifiers): string {
 /** @internal */
 export type NewReservation$Outbound = {
   reservationRequest?: NewReservationReservationRequest$Outbound | undefined;
-  attendeeType: AttendeeTypeIdJson$Outbound;
-  roomType: RoomInfoJsonInput$Outbound;
+  attendeeType: AttendeeTypeId$Outbound;
+  roomType: RoomInfoInput$Outbound;
   sendAcknowledgement: boolean;
   splitFolio?: boolean | undefined;
   numberOfAdults: number;
   numberOfChildren?: number | undefined;
-  guests: Array<ReservationGuestJsonInput$Outbound>;
-  customFields?: CustomFieldsJson$Outbound | undefined;
+  guests: Array<ReservationGuestInput$Outbound>;
+  customFields?: CustomFields$Outbound | undefined;
   accessible?: boolean | undefined;
   specialRequest?: string | undefined;
-  rewardProgram?: RewardProgramJson$Outbound | undefined;
+  rewardProgram?: RewardProgram$Outbound | undefined;
   membershipId?: string | undefined;
-  travelDetails?: TravelDetailsJson$Outbound | undefined;
+  travelDetails?: TravelDetails$Outbound | undefined;
   housingEvent: NewReservationHousingEventId$Outbound;
-  hotel: HotelId$Outbound;
+  hotel: NewReservationHotelId$Outbound;
   modifiers?: Modifiers$Outbound | undefined;
 };
 
@@ -253,21 +257,21 @@ export const NewReservation$outboundSchema: z.ZodType<
   reservationRequest: z.lazy(() =>
     NewReservationReservationRequest$outboundSchema
   ).optional(),
-  attendeeType: AttendeeTypeIdJson$outboundSchema,
-  roomType: RoomInfoJsonInput$outboundSchema,
+  attendeeType: AttendeeTypeId$outboundSchema,
+  roomType: RoomInfoInput$outboundSchema,
   sendAcknowledgement: z.boolean().default(true),
   splitFolio: z.boolean().optional(),
   numberOfAdults: z.number().int(),
   numberOfChildren: z.number().int().optional(),
-  guests: z.array(ReservationGuestJsonInput$outboundSchema),
-  customFields: CustomFieldsJson$outboundSchema.optional(),
+  guests: z.array(ReservationGuestInput$outboundSchema),
+  customFields: CustomFields$outboundSchema.optional(),
   accessible: z.boolean().optional(),
   specialRequest: z.string().optional(),
-  rewardProgram: RewardProgramJson$outboundSchema.optional(),
+  rewardProgram: RewardProgram$outboundSchema.optional(),
   membershipId: z.string().optional(),
-  travelDetails: TravelDetailsJson$outboundSchema.optional(),
+  travelDetails: TravelDetails$outboundSchema.optional(),
   housingEvent: z.lazy(() => NewReservationHousingEventId$outboundSchema),
-  hotel: z.lazy(() => HotelId$outboundSchema),
+  hotel: z.lazy(() => NewReservationHotelId$outboundSchema),
   modifiers: z.lazy(() => Modifiers$outboundSchema).optional(),
 });
 

@@ -5,10 +5,10 @@
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
-  Address5,
-  Address5$Outbound,
-  Address5$outboundSchema,
-} from "./address5.js";
+  Address6,
+  Address6$Outbound,
+  Address6$outboundSchema,
+} from "./address6.js";
 import { Email1, Email1$Outbound, Email1$outboundSchema } from "./email1.js";
 import { Group, Group$Outbound, Group$outboundSchema } from "./group.js";
 import { Name, Name$Outbound, Name$outboundSchema } from "./name.js";
@@ -55,7 +55,7 @@ export type UserInput = {
   /**
    * The address of the user. The user can have only one address. <br> If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence
    */
-  addresses?: Array<Address5> | undefined;
+  addresses?: Array<Address6> | undefined;
   /**
    * The type of the user.
    */
@@ -86,7 +86,7 @@ export type UserInput$Outbound = {
   emails: Array<Email1$Outbound>;
   title?: string | undefined;
   phoneNumbers?: Array<PhoneNumber1$Outbound> | undefined;
-  addresses?: Array<Address5$Outbound> | undefined;
+  addresses?: Array<Address6$Outbound> | undefined;
   userType: string;
   timezone: string;
   locale: string;
@@ -107,7 +107,7 @@ export const UserInput$outboundSchema: z.ZodType<
   emails: z.array(Email1$outboundSchema),
   title: z.string().optional(),
   phoneNumbers: z.array(PhoneNumber1$outboundSchema).optional(),
-  addresses: z.array(Address5$outboundSchema).optional(),
+  addresses: z.array(Address6$outboundSchema).optional(),
   userType: UserType$outboundSchema,
   timezone: z.string().default("America/New_York"),
   locale: z.string(),

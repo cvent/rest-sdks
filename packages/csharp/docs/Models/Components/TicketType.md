@@ -1,6 +1,6 @@
 # TicketType
 
-Category of the passenger's ticket for an air booking.
+Category of the passenger's ticket class for an air booking.
 
 ## Example Usage
 

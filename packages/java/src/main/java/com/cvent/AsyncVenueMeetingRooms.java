@@ -5,23 +5,35 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
+import com.cvent.models.operations.AssociateMeetingRoomImageRequest;
 import com.cvent.models.operations.CreateMeetingRoomRequest;
+import com.cvent.models.operations.DisassociateMeetingRoomImageRequest;
 import com.cvent.models.operations.GetMeetingRoomOverviewRequest;
+import com.cvent.models.operations.ListMeetingRoomImagesRequest;
 import com.cvent.models.operations.ListMeetingRoomsOverviewsRequest;
 import com.cvent.models.operations.PatchMeetingRoomRequest;
 import com.cvent.models.operations.UpdateMeetingRoomRequest;
+import com.cvent.models.operations.async.AssociateMeetingRoomImageRequestBuilder;
+import com.cvent.models.operations.async.AssociateMeetingRoomImageResponse;
 import com.cvent.models.operations.async.CreateMeetingRoomRequestBuilder;
 import com.cvent.models.operations.async.CreateMeetingRoomResponse;
+import com.cvent.models.operations.async.DisassociateMeetingRoomImageRequestBuilder;
+import com.cvent.models.operations.async.DisassociateMeetingRoomImageResponse;
 import com.cvent.models.operations.async.GetMeetingRoomOverviewRequestBuilder;
 import com.cvent.models.operations.async.GetMeetingRoomOverviewResponse;
+import com.cvent.models.operations.async.ListMeetingRoomImagesRequestBuilder;
+import com.cvent.models.operations.async.ListMeetingRoomImagesResponse;
 import com.cvent.models.operations.async.ListMeetingRoomsOverviewsRequestBuilder;
 import com.cvent.models.operations.async.ListMeetingRoomsOverviewsResponse;
 import com.cvent.models.operations.async.PatchMeetingRoomRequestBuilder;
 import com.cvent.models.operations.async.PatchMeetingRoomResponse;
 import com.cvent.models.operations.async.UpdateMeetingRoomRequestBuilder;
 import com.cvent.models.operations.async.UpdateMeetingRoomResponse;
+import com.cvent.operations.AssociateMeetingRoomImage;
 import com.cvent.operations.CreateMeetingRoom;
+import com.cvent.operations.DisassociateMeetingRoomImage;
 import com.cvent.operations.GetMeetingRoomOverview;
+import com.cvent.operations.ListMeetingRoomImages;
 import com.cvent.operations.ListMeetingRoomsOverviews;
 import com.cvent.operations.PatchMeetingRoom;
 import com.cvent.operations.UpdateMeetingRoom;
@@ -226,6 +238,141 @@ public class AsyncVenueMeetingRooms {
             @Nonnull PatchMeetingRoomRequest request, @Nullable Options options) {
         AsyncRequestOperation<PatchMeetingRoomRequest, PatchMeetingRoomResponse> operation =
                 new PatchMeetingRoom.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Associate Meeting Room Image
+     *
+     * <p>Associate a previously uploaded image with a meeting room using a file UUID from the <a
+     * href="#operation/uploadFile">file upload</a> endpoint. This will replace the current image if one is
+     * already associated.
+     *
+     * <p>**Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg,
+     * .jpeg) are accepted. Maximum file size is 10 MB.
+     *
+     * @return The async call builder
+     */
+    public AssociateMeetingRoomImageRequestBuilder associateMeetingRoomImage() {
+        return new AssociateMeetingRoomImageRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Associate Meeting Room Image
+     *
+     * <p>Associate a previously uploaded image with a meeting room using a file UUID from the <a
+     * href="#operation/uploadFile">file upload</a> endpoint. This will replace the current image if one is
+     * already associated.
+     *
+     * <p>**Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg,
+     * .jpeg) are accepted. Maximum file size is 10 MB.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<AssociateMeetingRoomImageResponse>} - The async response
+     */
+    public CompletableFuture<AssociateMeetingRoomImageResponse> associateMeetingRoomImage(
+            @Nonnull AssociateMeetingRoomImageRequest request) {
+        return associateMeetingRoomImage(request, null);
+    }
+
+    /**
+     * Associate Meeting Room Image
+     *
+     * <p>Associate a previously uploaded image with a meeting room using a file UUID from the <a
+     * href="#operation/uploadFile">file upload</a> endpoint. This will replace the current image if one is
+     * already associated.
+     *
+     * <p>**Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg,
+     * .jpeg) are accepted. Maximum file size is 10 MB.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<AssociateMeetingRoomImageResponse>} - The async response
+     */
+    public CompletableFuture<AssociateMeetingRoomImageResponse> associateMeetingRoomImage(
+            @Nonnull AssociateMeetingRoomImageRequest request, @Nullable Options options) {
+        AsyncRequestOperation<AssociateMeetingRoomImageRequest, AssociateMeetingRoomImageResponse> operation =
+                new AssociateMeetingRoomImage.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * List Meeting Room Images
+     *
+     * <p>Retrieves the images associated with a meeting room. Each meeting room has at most one image.
+     *
+     * @return The async call builder
+     */
+    public ListMeetingRoomImagesRequestBuilder listMeetingRoomImages() {
+        return new ListMeetingRoomImagesRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Meeting Room Images
+     *
+     * <p>Retrieves the images associated with a meeting room. Each meeting room has at most one image.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<ListMeetingRoomImagesResponse>} - The async response
+     */
+    public CompletableFuture<ListMeetingRoomImagesResponse> listMeetingRoomImages(
+            @Nonnull ListMeetingRoomImagesRequest request) {
+        return listMeetingRoomImages(request, null);
+    }
+
+    /**
+     * List Meeting Room Images
+     *
+     * <p>Retrieves the images associated with a meeting room. Each meeting room has at most one image.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListMeetingRoomImagesResponse>} - The async response
+     */
+    public CompletableFuture<ListMeetingRoomImagesResponse> listMeetingRoomImages(
+            @Nonnull ListMeetingRoomImagesRequest request, @Nullable Options options) {
+        AsyncRequestOperation<ListMeetingRoomImagesRequest, ListMeetingRoomImagesResponse> operation =
+                new ListMeetingRoomImages.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Remove Meeting Room Image
+     *
+     * <p>Disassociates the current image from a meeting room.
+     *
+     * @return The async call builder
+     */
+    public DisassociateMeetingRoomImageRequestBuilder disassociateMeetingRoomImage() {
+        return new DisassociateMeetingRoomImageRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Remove Meeting Room Image
+     *
+     * <p>Disassociates the current image from a meeting room.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<DisassociateMeetingRoomImageResponse>} - The async response
+     */
+    public CompletableFuture<DisassociateMeetingRoomImageResponse> disassociateMeetingRoomImage(
+            @Nonnull DisassociateMeetingRoomImageRequest request) {
+        return disassociateMeetingRoomImage(request, null);
+    }
+
+    /**
+     * Remove Meeting Room Image
+     *
+     * <p>Disassociates the current image from a meeting room.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DisassociateMeetingRoomImageResponse>} - The async response
+     */
+    public CompletableFuture<DisassociateMeetingRoomImageResponse> disassociateMeetingRoomImage(
+            @Nonnull DisassociateMeetingRoomImageRequest request, @Nullable Options options) {
+        AsyncRequestOperation<DisassociateMeetingRoomImageRequest, DisassociateMeetingRoomImageResponse> operation =
+                new DisassociateMeetingRoomImage.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 

@@ -30,7 +30,11 @@ import { Result } from "../types/fp.js";
  * Get Housing Event Reservations
  *
  * @remarks
- * Get list of reservation details for the given housing event.
+ * Get a list of reservation details for the given housing event. Returns a paginated list of all reservations in
+ * the event, including guest details, stay dates, hotel, room type, and reservation status. Use the `before`
+ * and `after` parameters to filter by when a reservation was added or last updated, which is useful for incremental syncing.
+ *
+ * Returns an empty list when no reservations match the criteria.
  */
 export function housingGetHousingEventReservations(
   client: CventSDKCore,

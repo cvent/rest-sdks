@@ -356,16 +356,23 @@ public class AsyncCventSDK {
     /**
      * These API's provide compliance support for regulated industries.
      *
-     * <p>**Communication Compliance** lets you view communication activities across your account.
-     * Various written forms of communication are captured. For example, emails, SMS, chat messages, or
-     * push notifications
-     * can be downloaded for archival or analysis.
+     * <p>**Communication Compliance** lets you view communication activities across your account for archival
+     * or analysis.
+     *
+     * <p>Various written forms of communication are captured. This includes: emails, SMS, session chats,
+     * exhibitor chats,
+     * text discussions, 1:1 attendee messaging, group messaging, or push notifications.
      */
     private final AsyncCompliance compliance;
     /**
      * Endpoints for obtaining, refreshing, and validating OAuth2 access tokens.
      */
     private final AsyncAuthentication authentication;
+    /**
+     * Orders represent a collection of order items purchased by an attendee. Use these APIs to get
+     * information about orders and order items.
+     */
+    private final AsyncOrders orders;
     /**
      * Process forms automate data collection and notifications related to planning and executing events.
      * Process form submissions are responses to a specific process form, providing data the form requests.
@@ -412,6 +419,12 @@ public class AsyncCventSDK {
      * Retrieves Check-In &amp; Check-Out Signatures Of Attendees
      */
     private final AsyncSignatures signatures;
+    /**
+     * Transactions represent the financial exchanges that occur within your account. Use these APIs to
+     * retrieve and manage transaction data, including charges, refunds, and adjustments associated with
+     * your events and attendees.
+     */
+    private final AsyncTransactions transactions;
     /**
      * The travel account, or corporation that represents the demand-side of travel RFPs.
      */
@@ -870,10 +883,12 @@ public class AsyncCventSDK {
     /**
      * These API's provide compliance support for regulated industries.
      *
-     * <p>**Communication Compliance** lets you view communication activities across your account.
-     * Various written forms of communication are captured. For example, emails, SMS, chat messages, or
-     * push notifications
-     * can be downloaded for archival or analysis.
+     * <p>**Communication Compliance** lets you view communication activities across your account for archival
+     * or analysis.
+     *
+     * <p>Various written forms of communication are captured. This includes: emails, SMS, session chats,
+     * exhibitor chats,
+     * text discussions, 1:1 attendee messaging, group messaging, or push notifications.
      */
     public AsyncCompliance compliance() {
         return compliance;
@@ -883,6 +898,13 @@ public class AsyncCventSDK {
      */
     public AsyncAuthentication authentication() {
         return authentication;
+    }
+    /**
+     * Orders represent a collection of order items purchased by an attendee. Use these APIs to get
+     * information about orders and order items.
+     */
+    public AsyncOrders orders() {
+        return orders;
     }
     /**
      * Process forms automate data collection and notifications related to planning and executing events.
@@ -947,6 +969,14 @@ public class AsyncCventSDK {
      */
     public AsyncSignatures signatures() {
         return signatures;
+    }
+    /**
+     * Transactions represent the financial exchanges that occur within your account. Use these APIs to
+     * retrieve and manage transaction data, including charges, refunds, and adjustments associated with
+     * your events and attendees.
+     */
+    public AsyncTransactions transactions() {
+        return transactions;
     }
     /**
      * The travel account, or corporation that represents the demand-side of travel RFPs.
@@ -1055,6 +1085,7 @@ public class AsyncCventSDK {
         this.eventsPlusHub = new AsyncEventsPlusHub(syncSDK.eventsPlusHub(), sdkConfiguration);
         this.compliance = new AsyncCompliance(syncSDK.compliance(), sdkConfiguration);
         this.authentication = new AsyncAuthentication(syncSDK.authentication(), sdkConfiguration);
+        this.orders = new AsyncOrders(syncSDK.orders(), sdkConfiguration);
         this.processForm = new AsyncProcessForm(syncSDK.processForm(), sdkConfiguration);
         this.speakers = new AsyncSpeakers(syncSDK.speakers(), sdkConfiguration);
         this.proposalDraft = new AsyncProposalDraft(syncSDK.proposalDraft(), sdkConfiguration);
@@ -1064,6 +1095,7 @@ public class AsyncCventSDK {
         this.rfpSuppliers = new AsyncRFPSuppliers(syncSDK.rfpSuppliers(), sdkConfiguration);
         this.userSCIM = new AsyncUserSCIM(syncSDK.userSCIM(), sdkConfiguration);
         this.signatures = new AsyncSignatures(syncSDK.signatures(), sdkConfiguration);
+        this.transactions = new AsyncTransactions(syncSDK.transactions(), sdkConfiguration);
         this.travelAccounts = new AsyncTravelAccounts(syncSDK.travelAccounts(), sdkConfiguration);
         this.travelRFPs = new AsyncTravelRFPs(syncSDK.travelRFPs(), sdkConfiguration);
         this.travelSuppliers = new AsyncTravelSuppliers(syncSDK.travelSuppliers(), sdkConfiguration);

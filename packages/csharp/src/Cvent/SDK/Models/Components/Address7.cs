@@ -13,56 +13,62 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Address details.
+    /// Address of the hotel.
     /// </summary>
     public class Address7
     {
         /// <summary>
-        /// Address line 1.
+        /// The first line of an address.
         /// </summary>
         [JsonProperty("address1")]
         public string? Address1 { get; set; }
 
         /// <summary>
-        /// Address line 2.
+        /// The second line of an address.
         /// </summary>
         [JsonProperty("address2")]
         public string? Address2 { get; set; }
 
         /// <summary>
-        /// City name.
+        /// The third line of an address.
+        /// </summary>
+        [JsonProperty("address3")]
+        public string? Address3 { get; set; }
+
+        /// <summary>
+        /// The name of the city.
         /// </summary>
         [JsonProperty("city")]
         public string? City { get; set; }
 
         /// <summary>
-        /// Region name.
+        /// ISO 3166 two-letter (alpha-2) country code.
         /// </summary>
-        [JsonProperty("region")]
-        public string? Region { get; set; }
+        [JsonProperty("countryCode")]
+        public string? CountryCode { get; set; }
 
         /// <summary>
-        /// Region code.
-        /// </summary>
-        [JsonProperty("regionCode")]
-        public string? RegionCode { get; set; }
-
-        /// <summary>
-        /// Postal code.
+        /// Postal code (also known as zipcode) of the address.
         /// </summary>
         [JsonProperty("postalCode")]
         public string? PostalCode { get; set; }
 
         /// <summary>
-        /// Country name.
+        /// The name of the state/province/region of the address.
+        /// </summary>
+        [JsonProperty("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
+        /// The abbreviation of the state/province/region of the address.
+        /// </summary>
+        [JsonProperty("regionCode")]
+        public string? RegionCode { get; set; }
+
+        /// <summary>
+        /// Name of the country.
         /// </summary>
         [JsonProperty("country")]
         public string? Country { get; set; }
-
-        /// <summary>
-        /// ISO 3166 alpha-2 country code.
-        /// </summary>
-        [JsonProperty("countryCode")]
-        public string? CountryCode { get; set; }
     }
 }

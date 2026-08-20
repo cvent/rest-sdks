@@ -30,7 +30,8 @@ import { Result } from "../types/fp.js";
  * Get Reservation Request
  *
  * @remarks
- * Returns reservation request details for a given reservation ID.
+ * Returns reservation request details for a given reservation request ID. The response includes guest details,
+ * the `bookingSite` URL, and a linked Reservation ID/ack number if present.
  */
 export function housingGetReservationRequest(
   client: CventSDKCore,

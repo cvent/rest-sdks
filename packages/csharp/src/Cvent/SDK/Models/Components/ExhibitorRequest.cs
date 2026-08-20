@@ -58,7 +58,7 @@ namespace Cvent.SDK.Models.Components
         /// An object representing an address with various properties.
         /// </summary>
         [JsonProperty("address")]
-        public Address4? Address { get; set; }
+        public Address5? Address { get; set; }
 
         /// <summary>
         /// Email address of the exhibitor.

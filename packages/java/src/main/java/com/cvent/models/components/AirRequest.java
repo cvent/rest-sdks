@@ -147,7 +147,7 @@ public class AirRequest {
     private SeatType seatType;
 
     /**
-     * Category of the passenger's ticket for an air booking.
+     * Category of the passenger's ticket class for an air booking.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("ticketType")
@@ -431,7 +431,7 @@ public class AirRequest {
     }
 
     /**
-     * Category of the passenger's ticket for an air booking.
+     * Category of the passenger's ticket class for an air booking.
      */
     public Optional<TicketType> ticketType() {
         return Optional.ofNullable(this.ticketType);
@@ -647,7 +647,7 @@ public class AirRequest {
     }
 
     /**
-     * Category of the passenger's ticket for an air booking.
+     * Category of the passenger's ticket class for an air booking.
      */
     public AirRequest withTicketType(@Nullable TicketType ticketType) {
         this.ticketType = ticketType;
@@ -1060,7 +1060,7 @@ public class AirRequest {
         }
 
         /**
-         * Category of the passenger's ticket for an air booking.
+         * Category of the passenger's ticket class for an air booking.
          */
         public Builder ticketType(@Nullable TicketType ticketType) {
             this.ticketType = ticketType;

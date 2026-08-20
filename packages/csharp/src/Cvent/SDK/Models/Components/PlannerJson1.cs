@@ -9,30 +9,205 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
+    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
+    using System;
+    using System.Collections.Generic;
 
     /// <summary>
-    /// Planner details.
+    /// Represents the planner of an event.
     /// </summary>
     public class PlannerJson1
     {
         /// <summary>
-        /// Planner first name.
+        /// An honorific prefixing a planner's name.
+        /// </summary>
+        [JsonProperty("prefix")]
+        public string? Prefix { get; set; }
+
+        /// <summary>
+        /// The first name of the planner.
         /// </summary>
         [JsonProperty("firstName")]
         public string? FirstName { get; set; }
 
         /// <summary>
-        /// Planner last name.
+        /// The last name of the planner.
         /// </summary>
         [JsonProperty("lastName")]
         public string? LastName { get; set; }
 
         /// <summary>
-        /// Planner email.
+        /// The company/organization the planner belongs to.
+        /// </summary>
+        [JsonProperty("company")]
+        public string? Company { get; set; }
+
+        /// <summary>
+        /// The job title of the planner.
+        /// </summary>
+        [JsonProperty("title")]
+        public string? Title { get; set; }
+
+        /// <summary>
+        /// The email address of the planner. Field is case-sensitive. For create/update operations, emails must be <a href="https://support.cvent.com/s/communityarticle/Adding-or-Removing-Account-Email-Addresses">already added</a> in Cvent.
         /// </summary>
         [JsonProperty("email")]
         public string? Email { get; set; }
+
+        /// <summary>
+        /// The nickname of the planner.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("nickname")]
+        public string? Nickname { get; set; }
+
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("optOut")]
+        public PlannerJson1ContactOptOut? OptOut { get; set; }
+
+        /// <summary>
+        /// Planner's pager number.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("pager")]
+        public string? Pager { get; set; }
+
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("_links")]
+        public PlannerJson1ContactLinks? Links { get; set; }
+
+        /// <summary>
+        /// True indicates the contact is deleted and inactive.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("deleted")]
+        public bool? Deleted { get; set; } = true;
+
+        /// <summary>
+        /// The middle name of the contact.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("middleName")]
+        public string? MiddleName { get; set; }
+
+        /// <summary>
+        /// An alternate email address of the contact that will be cc'd on all email communications.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("ccEmail")]
+        public string? CcEmail { get; set; }
+
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("gender")]
+        public PlannerJson1Gender? Gender { get; set; }
+
+        /// <summary>
+        /// The designation of the contact.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("designation")]
+        public string? Designation { get; set; }
+
+        /// <summary>
+        /// Planner type.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("type")]
+        public PlannerJson1Type? Type { get; set; }
+
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("membership")]
+        public PlannerJson1ContactMembership? Membership { get; set; }
+
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("primaryAddressType")]
+        public PlannerJson1AddressType? PrimaryAddressType { get; set; }
+
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("homeAddress")]
+        public PlannerJson1HomeAddressAddress? HomeAddress { get; set; }
+
+        /// <summary>
+        /// Home phone number.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("homePhone")]
+        public string? HomePhone { get; set; }
+
+        /// <summary>
+        /// Home fax number.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("homeFax")]
+        public string? HomeFax { get; set; }
+
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("workAddress")]
+        public PlannerJson1WorkAddressAddress? WorkAddress { get; set; }
+
+        /// <summary>
+        /// Work phone number.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("workPhone")]
+        public string? WorkPhone { get; set; }
+
+        /// <summary>
+        /// Work fax number.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("workFax")]
+        public string? WorkFax { get; set; }
+
+        /// <summary>
+        /// Collection of custom fields.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("customFields")]
+        public List<CustomFieldJson2>? CustomFields { get; set; }
+
+        /// <summary>
+        /// This is an ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("sourceId")]
+        public string? SourceId { get; set; }
+
+        /// <summary>
+        /// Mobile phone number.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("mobilePhone")]
+        public string? MobilePhone { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 zoned date time when this record was created.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("created")]
+        public DateTime? Created { get; set; }
+
+        /// <summary>
+        /// The identifier of the user that created this record.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("createdBy")]
+        public string? CreatedBy { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 zoned date time when this record was updated.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("lastModified")]
+        public DateTime? LastModified { get; set; }
+
+        /// <summary>
+        /// The identifier of the user that last updated this record.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("lastModifiedBy")]
+        public string? LastModifiedBy { get; set; }
     }
 }

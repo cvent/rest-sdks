@@ -25,6 +25,7 @@ namespace Cvent.SDK.Models.Components
         [JsonProperty("multi_select")] MultiSelect,
         [JsonProperty("text_multi_line")] TextMultiLine,
         [JsonProperty("percent_or_money")] PercentOrMoney,
+        [JsonProperty("boolean")] Boolean,
     }
 
     public static class PolicyValueTypeExtension

@@ -456,7 +456,7 @@ public class Application {
                         .value("+911234567890")
                         .build()))
                 .addresses(List.of(
-                    Address5.builder()
+                    Address6.builder()
                         .type(AddressType1.WORK)
                         .streetAddress("100 Universal City Plaza")
                         .locality("Hollywood")
@@ -701,7 +701,7 @@ public class Application {
                             .value("+911234567890")
                             .build()))
                     .addresses(List.of(
-                        Address5.builder()
+                        Address6.builder()
                             .type(AddressType1.WORK)
                             .streetAddress("100 Universal City Plaza")
                             .locality("Hollywood")

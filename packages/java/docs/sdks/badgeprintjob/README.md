@@ -49,11 +49,11 @@ public class Application {
         CreateBadgePrintJobRequest req = CreateBadgePrintJobRequest.builder()
                 .eventId("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                 .badgePrintJobCreated(BadgePrintJobCreatedInput.builder()
-                    .pool(BadgePrinterPoolReferenceJson.builder()
+                    .pool(BadgePrinterPoolRef.builder()
                         .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                         .build())
                     .badgeId("VNNDLJ6DKVK")
-                    .status(BadgePrintJobStatusJson.SCHEDULED)
+                    .status(BadgePrintJobStatus.SCHEDULED)
                     .build())
                 .build();
 

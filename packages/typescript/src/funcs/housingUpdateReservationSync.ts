@@ -30,7 +30,11 @@ import { Result } from "../types/fp.js";
  * Update Reservation
  *
  * @remarks
- * Updates an existing reservation for given reservation ID.
+ * Updates an existing reservation for the given reservation ID. This is a synchronous operation that returns
+ * the updated reservation in the response. The request body must include the full reservation object.
+ * Use [Get Reservation](#operation/getReservation) to retrieve the current reservation before making changes.
+ *
+ * To update stay dates, room type, or guest details, include all required fields in the request body.
  */
 export function housingUpdateReservationSync(
   client: CventSDKCore,

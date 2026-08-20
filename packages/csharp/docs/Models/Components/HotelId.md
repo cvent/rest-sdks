@@ -1,6 +1,6 @@
 # HotelId
 
-Hotel information.
+Contains unique ID of the hotel.
 
 
 ## Fields

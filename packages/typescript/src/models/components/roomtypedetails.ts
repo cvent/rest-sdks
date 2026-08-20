@@ -6,16 +6,16 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { HotelIdJson, HotelIdJson$inboundSchema } from "./hotelidjson.js";
+import { HotelId, HotelId$inboundSchema } from "./hotelid.js";
 import {
-  HousingEventIdJson,
-  HousingEventIdJson$inboundSchema,
-} from "./housingeventidjson.js";
-import { ImageLinkJson, ImageLinkJson$inboundSchema } from "./imagelinkjson.js";
+  HousingEventId,
+  HousingEventId$inboundSchema,
+} from "./housingeventid.js";
+import { ImageLink, ImageLink$inboundSchema } from "./imagelink.js";
 import {
-  RoomAttendeeTypeJson,
-  RoomAttendeeTypeJson$inboundSchema,
-} from "./roomattendeetypejson.js";
+  RoomAttendeeType,
+  RoomAttendeeType$inboundSchema,
+} from "./roomattendeetype.js";
 
 /**
  * Room type details.
@@ -28,15 +28,15 @@ export type RoomTypeDetails = {
   /**
    * Contains unique ID of the housing event.
    */
-  housingEvent: HousingEventIdJson;
+  housingEvent: HousingEventId;
   /**
    * Contains unique ID of the hotel.
    */
-  hotel: HotelIdJson;
+  hotel: HotelId;
   /**
    * List of supported attendee types for this room type, and their individual room policies.
    */
-  attendeeTypes?: Array<RoomAttendeeTypeJson> | undefined;
+  attendeeTypes?: Array<RoomAttendeeType> | undefined;
   /**
    * Name of the room type.
    */
@@ -48,7 +48,7 @@ export type RoomTypeDetails = {
   /**
    * List of room images.
    */
-  images?: Array<ImageLinkJson> | undefined;
+  images?: Array<ImageLink> | undefined;
   /**
    * Specifies a custom sort order defined by the user. This property is applicable only when the default price-based sorting is not active.
    */
@@ -62,12 +62,12 @@ export const RoomTypeDetails$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.number().int(),
-  housingEvent: HousingEventIdJson$inboundSchema,
-  hotel: HotelIdJson$inboundSchema,
-  attendeeTypes: z.array(RoomAttendeeTypeJson$inboundSchema).optional(),
+  housingEvent: HousingEventId$inboundSchema,
+  hotel: HotelId$inboundSchema,
+  attendeeTypes: z.array(RoomAttendeeType$inboundSchema).optional(),
   name: z.string(),
   description: z.string(),
-  images: z.array(ImageLinkJson$inboundSchema).optional(),
+  images: z.array(ImageLink$inboundSchema).optional(),
   customOrder: z.number().int().optional(),
 });
 

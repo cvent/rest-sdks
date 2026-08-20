@@ -1,6 +1,6 @@
 # AddressJson
 
-Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
+A physical address.
 
 ## Example Usage
 
@@ -8,13 +8,13 @@ Address details. Required to create/update a guest's reservation if the hotel/ev
 import { AddressJson } from "@cvent/sdk/models/components";
 
 let value: AddressJson = {
-  address1: "West St. 1",
-  address2: "Apt. 16",
-  city: "Austin",
+  address1: "717 N Harwood St",
+  address2: "Suite 2800",
+  city: "Dallas",
   region: "Texas",
   regionCode: "TX",
-  postalCode: "23452AB",
-  country: "United States of America",
+  postalCode: "75201",
+  country: "United States",
   countryCode: "US",
 };
 ```
@@ -23,11 +23,11 @@ let value: AddressJson = {
 
 | Field                          | Type                           | Required                       | Description                    | Example                        |
 | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
-| `address1`                     | *string*                       | :heavy_minus_sign:             | Address line 1.                | West St. 1                     |
-| `address2`                     | *string*                       | :heavy_minus_sign:             | Address line 2.                | Apt. 16                        |
-| `city`                         | *string*                       | :heavy_minus_sign:             | City name.                     | Austin                         |
+| `address1`                     | *string*                       | :heavy_minus_sign:             | Address line 1.                | 717 N Harwood St               |
+| `address2`                     | *string*                       | :heavy_minus_sign:             | Address line 2.                | Suite 2800                     |
+| `city`                         | *string*                       | :heavy_minus_sign:             | City name.                     | Dallas                         |
 | `region`                       | *string*                       | :heavy_minus_sign:             | Region name.                   | Texas                          |
 | `regionCode`                   | *string*                       | :heavy_minus_sign:             | Region code.                   | TX                             |
-| `postalCode`                   | *string*                       | :heavy_minus_sign:             | Postal code.                   | 23452AB                        |
-| `country`                      | *string*                       | :heavy_minus_sign:             | Country name.                  | United States of America       |
+| `postalCode`                   | *string*                       | :heavy_minus_sign:             | Postal code.                   | 75201                          |
+| `country`                      | *string*                       | :heavy_minus_sign:             | Country name.                  | United States                  |
 | `countryCode`                  | *string*                       | :heavy_minus_sign:             | ISO 3166 alpha-2 country code. | US                             |

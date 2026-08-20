@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AttendeeSignatureResponseJson,
-  AttendeeSignatureResponseJson$inboundSchema,
-} from "./attendeesignatureresponsejson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  AttendeeSignatureResponse,
+  AttendeeSignatureResponse$inboundSchema,
+} from "./attendeesignatureresponse.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * Paginated Response of Attendee Signatures.
@@ -19,11 +19,11 @@ export type SignaturesResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * Collection of signatures.
    */
-  data?: Array<AttendeeSignatureResponseJson> | undefined;
+  data?: Array<AttendeeSignatureResponse> | undefined;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const SignaturesResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(AttendeeSignatureResponseJson$inboundSchema).optional(),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(AttendeeSignatureResponse$inboundSchema).optional(),
 });
 
 export function signaturesResponseFromJSON(

@@ -218,7 +218,7 @@ public class EventUpdate {
      * A collection of contacts representing the event planners.
      */
     @JsonProperty("planners")
-    private List<PlannerJson2> planners;
+    private List<PlannerJson1> planners;
 
     /**
      * A collection of contacts representing event stakeholders.
@@ -321,7 +321,7 @@ public class EventUpdate {
             @JsonProperty("planningStatus") @Nullable String planningStatus,
             @JsonProperty("testMode") @Nullable Boolean testMode,
             @JsonProperty("capacity") @Nullable Long capacity,
-            @JsonProperty("planners") @Nonnull List<PlannerJson2> planners,
+            @JsonProperty("planners") @Nonnull List<PlannerJson1> planners,
             @JsonProperty("stakeholders") @Nullable List<StakeholderJson> stakeholders,
             @JsonProperty("customFields") @Nullable List<CustomFieldJson2> customFields,
             @JsonProperty("category") @Nullable EventUpdateLookup category,
@@ -380,7 +380,7 @@ public class EventUpdate {
             @Nonnull EventFormatJson format,
             @Nonnull String timezone,
             @Nonnull List<String> languages,
-            @Nonnull List<PlannerJson2> planners,
+            @Nonnull List<PlannerJson1> planners,
             @Nonnull EventTypeJson type) {
         this(
                 null,
@@ -618,7 +618,7 @@ public class EventUpdate {
     /**
      * A collection of contacts representing the event planners.
      */
-    public List<PlannerJson2> planners() {
+    public List<PlannerJson1> planners() {
         return this.planners;
     }
 
@@ -922,7 +922,7 @@ public class EventUpdate {
     /**
      * A collection of contacts representing the event planners.
      */
-    public EventUpdate withPlanners(@Nonnull List<PlannerJson2> planners) {
+    public EventUpdate withPlanners(@Nonnull List<PlannerJson1> planners) {
         this.planners = Utils.checkNotNull(planners, "planners");
         return this;
     }
@@ -1237,7 +1237,7 @@ public class EventUpdate {
 
         private Long capacity;
 
-        private List<PlannerJson2> planners;
+        private List<PlannerJson1> planners;
 
         private List<StakeholderJson> stakeholders;
 
@@ -1486,7 +1486,7 @@ public class EventUpdate {
         /**
          * A collection of contacts representing the event planners.
          */
-        public Builder planners(@Nonnull List<PlannerJson2> planners) {
+        public Builder planners(@Nonnull List<PlannerJson1> planners) {
             this.planners = Utils.checkNotNull(planners, "planners");
             return this;
         }

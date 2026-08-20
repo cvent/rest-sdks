@@ -83,7 +83,7 @@ public class TravelAccount {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("addresses")
-    private List<Address7> addresses;
+    private List<Address8> addresses;
 
     @JsonCreator
     public TravelAccount(
@@ -95,7 +95,7 @@ public class TravelAccount {
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("type") @Nullable TravelAccountType type,
             @JsonProperty("certified") @Nullable Boolean certified,
-            @JsonProperty("addresses") @Nullable List<Address7> addresses) {
+            @JsonProperty("addresses") @Nullable List<Address8> addresses) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -170,7 +170,7 @@ public class TravelAccount {
     /**
      * List of addresses associated with the travel account.
      */
-    public Optional<List<Address7>> addresses() {
+    public Optional<List<Address8>> addresses() {
         return Optional.ofNullable(this.addresses);
     }
 
@@ -245,7 +245,7 @@ public class TravelAccount {
     /**
      * List of addresses associated with the travel account.
      */
-    public TravelAccount withAddresses(@Nullable List<Address7> addresses) {
+    public TravelAccount withAddresses(@Nullable List<Address8> addresses) {
         this.addresses = addresses;
         return this;
     }
@@ -319,7 +319,7 @@ public class TravelAccount {
 
         private Boolean certified;
 
-        private List<Address7> addresses;
+        private List<Address8> addresses;
 
         private Builder() {
             // force use of static builder() method
@@ -392,7 +392,7 @@ public class TravelAccount {
         /**
          * List of addresses associated with the travel account.
          */
-        public Builder addresses(@Nullable List<Address7> addresses) {
+        public Builder addresses(@Nullable List<Address8> addresses) {
             this.addresses = addresses;
             return this;
         }

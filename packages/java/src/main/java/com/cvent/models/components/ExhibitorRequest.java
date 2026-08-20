@@ -69,7 +69,7 @@ public class ExhibitorRequest {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address")
-    private Address4 address;
+    private Address5 address;
 
     /**
      * Email address of the exhibitor
@@ -156,7 +156,7 @@ public class ExhibitorRequest {
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("location") @Nullable String location,
-            @JsonProperty("address") @Nullable Address4 address,
+            @JsonProperty("address") @Nullable Address5 address,
             @JsonProperty("email") @Nullable String email,
             @JsonProperty("mobilePhone") @Nullable String mobilePhone,
             @JsonProperty("workPhone") @Nullable String workPhone,
@@ -256,7 +256,7 @@ public class ExhibitorRequest {
     /**
      * An object representing an address with various properties.
      */
-    public Optional<Address4> address() {
+    public Optional<Address5> address() {
         return Optional.ofNullable(this.address);
     }
 
@@ -393,7 +393,7 @@ public class ExhibitorRequest {
     /**
      * An object representing an address with various properties.
      */
-    public ExhibitorRequest withAddress(@Nullable Address4 address) {
+    public ExhibitorRequest withAddress(@Nullable Address5 address) {
         this.address = address;
         return this;
     }
@@ -595,7 +595,7 @@ public class ExhibitorRequest {
 
         private String location;
 
-        private Address4 address;
+        private Address5 address;
 
         private String email;
 
@@ -675,7 +675,7 @@ public class ExhibitorRequest {
         /**
          * An object representing an address with various properties.
          */
-        public Builder address(@Nullable Address4 address) {
+        public Builder address(@Nullable Address5 address) {
             this.address = address;
             return this;
         }
