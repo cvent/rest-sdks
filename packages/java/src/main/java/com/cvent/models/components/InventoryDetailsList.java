@@ -25,19 +25,18 @@ public class InventoryDetailsList {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * List of inventory details by night.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<RoomInventoryJson> data;
+    private List<RoomInventory> data;
 
     @JsonCreator
     public InventoryDetailsList(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<RoomInventoryJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging, @JsonProperty("data") @Nullable List<RoomInventory> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +48,14 @@ public class InventoryDetailsList {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * List of inventory details by night.
      */
-    public Optional<List<RoomInventoryJson>> data() {
+    public Optional<List<RoomInventory>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +66,7 @@ public class InventoryDetailsList {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public InventoryDetailsList withPaging(@Nullable PagingJson paging) {
+    public InventoryDetailsList withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +74,7 @@ public class InventoryDetailsList {
     /**
      * List of inventory details by night.
      */
-    public InventoryDetailsList withData(@Nullable List<RoomInventoryJson> data) {
+    public InventoryDetailsList withData(@Nullable List<RoomInventory> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +104,9 @@ public class InventoryDetailsList {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<RoomInventoryJson> data;
+        private List<RoomInventory> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +115,7 @@ public class InventoryDetailsList {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +123,7 @@ public class InventoryDetailsList {
         /**
          * List of inventory details by night.
          */
-        public Builder data(@Nullable List<RoomInventoryJson> data) {
+        public Builder data(@Nullable List<RoomInventory> data) {
             this.data = data;
             return this;
         }

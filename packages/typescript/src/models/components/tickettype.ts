@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Category of the passenger's ticket for an air booking.
+ * Category of the passenger's ticket class for an air booking.
  */
 export const TicketType = {
   EconomyCoach: "Economy/Coach",
@@ -14,7 +14,7 @@ export const TicketType = {
   FirstClass: "FirstClass",
 } as const;
 /**
- * Category of the passenger's ticket for an air booking.
+ * Category of the passenger's ticket class for an air booking.
  */
 export type TicketType = ClosedEnum<typeof TicketType>;
 

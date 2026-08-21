@@ -6,11 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
-import {
-  RoomInventoryJson,
-  RoomInventoryJson$inboundSchema,
-} from "./roominventoryjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
+import { RoomInventory, RoomInventory$inboundSchema } from "./roominventory.js";
 
 /**
  * List of inventory details for room type by night.
@@ -19,11 +16,11 @@ export type InventoryDetailsList = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * List of inventory details by night.
    */
-  data?: Array<RoomInventoryJson> | undefined;
+  data?: Array<RoomInventory> | undefined;
 };
 
 /** @internal */
@@ -32,8 +29,8 @@ export const InventoryDetailsList$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(RoomInventoryJson$inboundSchema).optional(),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(RoomInventory$inboundSchema).optional(),
 });
 
 export function inventoryDetailsListFromJSON(

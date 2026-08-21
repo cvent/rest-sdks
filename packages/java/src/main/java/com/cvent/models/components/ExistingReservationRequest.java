@@ -55,7 +55,7 @@ public class ExistingReservationRequest {
      * Contains unique ID of the housing event.
      */
     @JsonProperty("housingEvent")
-    private HousingEventIdJson housingEvent;
+    private HousingEventId housingEvent;
 
     /**
      * Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
@@ -72,21 +72,21 @@ public class ExistingReservationRequest {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("attendeeType")
-    private AttendeeTypeIdJson attendeeType;
+    private AttendeeTypeId attendeeType;
 
     /**
      * Contains unique ID of the room type.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("roomType")
-    private RoomTypeIdJson roomType;
+    private RoomTypeId roomType;
 
     /**
      * Contains unique ID of the hotel.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("hotel")
-    private HotelIdJson hotel;
+    private HotelId hotel;
 
     /**
      * True indicates the system will send email acknowledgement after reservation creation.
@@ -114,14 +114,14 @@ public class ExistingReservationRequest {
      * Guests information.
      */
     @JsonProperty("guests")
-    private List<GuestJson> guests;
+    private List<Guest1> guests;
 
     /**
      * Custom fields.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customFields")
-    private CustomFieldsJson customFields;
+    private CustomFields customFields;
 
     /**
      * True indicates this reservation request is for an accessible room.
@@ -142,7 +142,7 @@ public class ExistingReservationRequest {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rewardProgram")
-    private RewardProgramJson rewardProgram;
+    private RewardProgram rewardProgram;
 
     /**
      * Reward program membership number.
@@ -156,7 +156,7 @@ public class ExistingReservationRequest {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("travelDetails")
-    private TravelDetailsJson travelDetails;
+    private TravelDetails travelDetails;
 
     /**
      * Reservation request ID.
@@ -168,14 +168,14 @@ public class ExistingReservationRequest {
      * Reservation request status.
      */
     @JsonProperty("status")
-    private ReservationRequestStatusesJson status;
+    private ReservationRequestStatus status;
 
     /**
      * Unique URL for a guest to access a reservation in Passkey's booking tool.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bookingSite")
-    private BookingWebsiteLinkJson bookingSite;
+    private BookingWebsiteLink bookingSite;
 
     /**
      * Unique URL for Passkey users (rather than guests) to access a reservation in Passkey's call center
@@ -183,7 +183,7 @@ public class ExistingReservationRequest {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("callCenter")
-    private CallCenterLinkJson callCenter;
+    private CallCenterLink callCenter;
 
     @JsonCreator
     public ExistingReservationRequest(
@@ -191,25 +191,25 @@ public class ExistingReservationRequest {
             @JsonProperty("attendeeTypeCode") @Nullable String attendeeTypeCode,
             @JsonProperty("confirmationNumber") @Nullable String confirmationNumber,
             @JsonProperty("locale") @Nullable String locale,
-            @JsonProperty("housingEvent") @Nonnull HousingEventIdJson housingEvent,
+            @JsonProperty("housingEvent") @Nonnull HousingEventId housingEvent,
             @JsonProperty("block") @Nullable ExistingReservationRequestBlock block,
-            @JsonProperty("attendeeType") @Nullable AttendeeTypeIdJson attendeeType,
-            @JsonProperty("roomType") @Nullable RoomTypeIdJson roomType,
-            @JsonProperty("hotel") @Nullable HotelIdJson hotel,
+            @JsonProperty("attendeeType") @Nullable AttendeeTypeId attendeeType,
+            @JsonProperty("roomType") @Nullable RoomTypeId roomType,
+            @JsonProperty("hotel") @Nullable HotelId hotel,
             @JsonProperty("sendAcknowledgement") @Nullable Boolean sendAcknowledgement,
             @JsonProperty("splitFolio") @Nullable Boolean splitFolio,
             @JsonProperty("redirectURL") @Nullable String redirectURL,
-            @JsonProperty("guests") @Nonnull List<GuestJson> guests,
-            @JsonProperty("customFields") @Nullable CustomFieldsJson customFields,
+            @JsonProperty("guests") @Nonnull List<Guest1> guests,
+            @JsonProperty("customFields") @Nullable CustomFields customFields,
             @JsonProperty("accessible") @Nullable Boolean accessible,
             @JsonProperty("specialRequest") @Nullable String specialRequest,
-            @JsonProperty("rewardProgram") @Nullable RewardProgramJson rewardProgram,
+            @JsonProperty("rewardProgram") @Nullable RewardProgram rewardProgram,
             @JsonProperty("membershipId") @Nullable String membershipId,
-            @JsonProperty("travelDetails") @Nullable TravelDetailsJson travelDetails,
+            @JsonProperty("travelDetails") @Nullable TravelDetails travelDetails,
             @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("status") @Nonnull ReservationRequestStatusesJson status,
-            @JsonProperty("bookingSite") @Nullable BookingWebsiteLinkJson bookingSite,
-            @JsonProperty("callCenter") @Nullable CallCenterLinkJson callCenter) {
+            @JsonProperty("status") @Nonnull ReservationRequestStatus status,
+            @JsonProperty("bookingSite") @Nullable BookingWebsiteLink bookingSite,
+            @JsonProperty("callCenter") @Nullable CallCenterLink callCenter) {
         this.sourceId = sourceId;
         this.attendeeTypeCode = attendeeTypeCode;
         this.confirmationNumber = confirmationNumber;
@@ -239,10 +239,10 @@ public class ExistingReservationRequest {
     }
 
     public ExistingReservationRequest(
-            @Nonnull HousingEventIdJson housingEvent,
-            @Nonnull List<GuestJson> guests,
+            @Nonnull HousingEventId housingEvent,
+            @Nonnull List<Guest1> guests,
             @Nonnull String id,
-            @Nonnull ReservationRequestStatusesJson status) {
+            @Nonnull ReservationRequestStatus status) {
         this(
                 null,
                 null,
@@ -300,7 +300,7 @@ public class ExistingReservationRequest {
     /**
      * Contains unique ID of the housing event.
      */
-    public HousingEventIdJson housingEvent() {
+    public HousingEventId housingEvent() {
         return this.housingEvent;
     }
 
@@ -317,21 +317,21 @@ public class ExistingReservationRequest {
     /**
      * Contains the unique ID of the attendee type.
      */
-    public Optional<AttendeeTypeIdJson> attendeeType() {
+    public Optional<AttendeeTypeId> attendeeType() {
         return Optional.ofNullable(this.attendeeType);
     }
 
     /**
      * Contains unique ID of the room type.
      */
-    public Optional<RoomTypeIdJson> roomType() {
+    public Optional<RoomTypeId> roomType() {
         return Optional.ofNullable(this.roomType);
     }
 
     /**
      * Contains unique ID of the hotel.
      */
-    public Optional<HotelIdJson> hotel() {
+    public Optional<HotelId> hotel() {
         return Optional.ofNullable(this.hotel);
     }
 
@@ -360,14 +360,14 @@ public class ExistingReservationRequest {
     /**
      * Guests information.
      */
-    public List<GuestJson> guests() {
+    public List<Guest1> guests() {
         return this.guests;
     }
 
     /**
      * Custom fields.
      */
-    public Optional<CustomFieldsJson> customFields() {
+    public Optional<CustomFields> customFields() {
         return Optional.ofNullable(this.customFields);
     }
 
@@ -388,7 +388,7 @@ public class ExistingReservationRequest {
     /**
      * Represents reward program information.
      */
-    public Optional<RewardProgramJson> rewardProgram() {
+    public Optional<RewardProgram> rewardProgram() {
         return Optional.ofNullable(this.rewardProgram);
     }
 
@@ -402,7 +402,7 @@ public class ExistingReservationRequest {
     /**
      * Common object that holds travel details information.
      */
-    public Optional<TravelDetailsJson> travelDetails() {
+    public Optional<TravelDetails> travelDetails() {
         return Optional.ofNullable(this.travelDetails);
     }
 
@@ -416,14 +416,14 @@ public class ExistingReservationRequest {
     /**
      * Reservation request status.
      */
-    public ReservationRequestStatusesJson status() {
+    public ReservationRequestStatus status() {
         return this.status;
     }
 
     /**
      * Unique URL for a guest to access a reservation in Passkey's booking tool.
      */
-    public Optional<BookingWebsiteLinkJson> bookingSite() {
+    public Optional<BookingWebsiteLink> bookingSite() {
         return Optional.ofNullable(this.bookingSite);
     }
 
@@ -431,7 +431,7 @@ public class ExistingReservationRequest {
      * Unique URL for Passkey users (rather than guests) to access a reservation in Passkey's call center
      * tool.
      */
-    public Optional<CallCenterLinkJson> callCenter() {
+    public Optional<CallCenterLink> callCenter() {
         return Optional.ofNullable(this.callCenter);
     }
 
@@ -474,7 +474,7 @@ public class ExistingReservationRequest {
     /**
      * Contains unique ID of the housing event.
      */
-    public ExistingReservationRequest withHousingEvent(@Nonnull HousingEventIdJson housingEvent) {
+    public ExistingReservationRequest withHousingEvent(@Nonnull HousingEventId housingEvent) {
         this.housingEvent = Utils.checkNotNull(housingEvent, "housingEvent");
         return this;
     }
@@ -493,7 +493,7 @@ public class ExistingReservationRequest {
     /**
      * Contains the unique ID of the attendee type.
      */
-    public ExistingReservationRequest withAttendeeType(@Nullable AttendeeTypeIdJson attendeeType) {
+    public ExistingReservationRequest withAttendeeType(@Nullable AttendeeTypeId attendeeType) {
         this.attendeeType = attendeeType;
         return this;
     }
@@ -501,7 +501,7 @@ public class ExistingReservationRequest {
     /**
      * Contains unique ID of the room type.
      */
-    public ExistingReservationRequest withRoomType(@Nullable RoomTypeIdJson roomType) {
+    public ExistingReservationRequest withRoomType(@Nullable RoomTypeId roomType) {
         this.roomType = roomType;
         return this;
     }
@@ -509,7 +509,7 @@ public class ExistingReservationRequest {
     /**
      * Contains unique ID of the hotel.
      */
-    public ExistingReservationRequest withHotel(@Nullable HotelIdJson hotel) {
+    public ExistingReservationRequest withHotel(@Nullable HotelId hotel) {
         this.hotel = hotel;
         return this;
     }
@@ -542,7 +542,7 @@ public class ExistingReservationRequest {
     /**
      * Guests information.
      */
-    public ExistingReservationRequest withGuests(@Nonnull List<GuestJson> guests) {
+    public ExistingReservationRequest withGuests(@Nonnull List<Guest1> guests) {
         this.guests = Utils.checkNotNull(guests, "guests");
         return this;
     }
@@ -550,7 +550,7 @@ public class ExistingReservationRequest {
     /**
      * Custom fields.
      */
-    public ExistingReservationRequest withCustomFields(@Nullable CustomFieldsJson customFields) {
+    public ExistingReservationRequest withCustomFields(@Nullable CustomFields customFields) {
         this.customFields = customFields;
         return this;
     }
@@ -574,7 +574,7 @@ public class ExistingReservationRequest {
     /**
      * Represents reward program information.
      */
-    public ExistingReservationRequest withRewardProgram(@Nullable RewardProgramJson rewardProgram) {
+    public ExistingReservationRequest withRewardProgram(@Nullable RewardProgram rewardProgram) {
         this.rewardProgram = rewardProgram;
         return this;
     }
@@ -590,7 +590,7 @@ public class ExistingReservationRequest {
     /**
      * Common object that holds travel details information.
      */
-    public ExistingReservationRequest withTravelDetails(@Nullable TravelDetailsJson travelDetails) {
+    public ExistingReservationRequest withTravelDetails(@Nullable TravelDetails travelDetails) {
         this.travelDetails = travelDetails;
         return this;
     }
@@ -606,7 +606,7 @@ public class ExistingReservationRequest {
     /**
      * Reservation request status.
      */
-    public ExistingReservationRequest withStatus(@Nonnull ReservationRequestStatusesJson status) {
+    public ExistingReservationRequest withStatus(@Nonnull ReservationRequestStatus status) {
         this.status = Utils.checkNotNull(status, "status");
         return this;
     }
@@ -614,7 +614,7 @@ public class ExistingReservationRequest {
     /**
      * Unique URL for a guest to access a reservation in Passkey's booking tool.
      */
-    public ExistingReservationRequest withBookingSite(@Nullable BookingWebsiteLinkJson bookingSite) {
+    public ExistingReservationRequest withBookingSite(@Nullable BookingWebsiteLink bookingSite) {
         this.bookingSite = bookingSite;
         return this;
     }
@@ -623,7 +623,7 @@ public class ExistingReservationRequest {
      * Unique URL for Passkey users (rather than guests) to access a reservation in Passkey's call center
      * tool.
      */
-    public ExistingReservationRequest withCallCenter(@Nullable CallCenterLinkJson callCenter) {
+    public ExistingReservationRequest withCallCenter(@Nullable CallCenterLink callCenter) {
         this.callCenter = callCenter;
         return this;
     }
@@ -753,16 +753,16 @@ public class ExistingReservationRequest {
 
         private String locale;
 
-        private HousingEventIdJson housingEvent;
+        private HousingEventId housingEvent;
 
         @Deprecated
         private ExistingReservationRequestBlock block;
 
-        private AttendeeTypeIdJson attendeeType;
+        private AttendeeTypeId attendeeType;
 
-        private RoomTypeIdJson roomType;
+        private RoomTypeId roomType;
 
-        private HotelIdJson hotel;
+        private HotelId hotel;
 
         private Boolean sendAcknowledgement;
 
@@ -770,27 +770,27 @@ public class ExistingReservationRequest {
 
         private String redirectURL;
 
-        private List<GuestJson> guests;
+        private List<Guest1> guests;
 
-        private CustomFieldsJson customFields;
+        private CustomFields customFields;
 
         private Boolean accessible;
 
         private String specialRequest;
 
-        private RewardProgramJson rewardProgram;
+        private RewardProgram rewardProgram;
 
         private String membershipId;
 
-        private TravelDetailsJson travelDetails;
+        private TravelDetails travelDetails;
 
         private String id;
 
-        private ReservationRequestStatusesJson status;
+        private ReservationRequestStatus status;
 
-        private BookingWebsiteLinkJson bookingSite;
+        private BookingWebsiteLink bookingSite;
 
-        private CallCenterLinkJson callCenter;
+        private CallCenterLink callCenter;
 
         private Builder() {
             // force use of static builder() method
@@ -831,7 +831,7 @@ public class ExistingReservationRequest {
         /**
          * Contains unique ID of the housing event.
          */
-        public Builder housingEvent(@Nonnull HousingEventIdJson housingEvent) {
+        public Builder housingEvent(@Nonnull HousingEventId housingEvent) {
             this.housingEvent = Utils.checkNotNull(housingEvent, "housingEvent");
             return this;
         }
@@ -850,7 +850,7 @@ public class ExistingReservationRequest {
         /**
          * Contains the unique ID of the attendee type.
          */
-        public Builder attendeeType(@Nullable AttendeeTypeIdJson attendeeType) {
+        public Builder attendeeType(@Nullable AttendeeTypeId attendeeType) {
             this.attendeeType = attendeeType;
             return this;
         }
@@ -858,7 +858,7 @@ public class ExistingReservationRequest {
         /**
          * Contains unique ID of the room type.
          */
-        public Builder roomType(@Nullable RoomTypeIdJson roomType) {
+        public Builder roomType(@Nullable RoomTypeId roomType) {
             this.roomType = roomType;
             return this;
         }
@@ -866,7 +866,7 @@ public class ExistingReservationRequest {
         /**
          * Contains unique ID of the hotel.
          */
-        public Builder hotel(@Nullable HotelIdJson hotel) {
+        public Builder hotel(@Nullable HotelId hotel) {
             this.hotel = hotel;
             return this;
         }
@@ -899,7 +899,7 @@ public class ExistingReservationRequest {
         /**
          * Guests information.
          */
-        public Builder guests(@Nonnull List<GuestJson> guests) {
+        public Builder guests(@Nonnull List<Guest1> guests) {
             this.guests = Utils.checkNotNull(guests, "guests");
             return this;
         }
@@ -907,7 +907,7 @@ public class ExistingReservationRequest {
         /**
          * Custom fields.
          */
-        public Builder customFields(@Nullable CustomFieldsJson customFields) {
+        public Builder customFields(@Nullable CustomFields customFields) {
             this.customFields = customFields;
             return this;
         }
@@ -931,7 +931,7 @@ public class ExistingReservationRequest {
         /**
          * Represents reward program information.
          */
-        public Builder rewardProgram(@Nullable RewardProgramJson rewardProgram) {
+        public Builder rewardProgram(@Nullable RewardProgram rewardProgram) {
             this.rewardProgram = rewardProgram;
             return this;
         }
@@ -947,7 +947,7 @@ public class ExistingReservationRequest {
         /**
          * Common object that holds travel details information.
          */
-        public Builder travelDetails(@Nullable TravelDetailsJson travelDetails) {
+        public Builder travelDetails(@Nullable TravelDetails travelDetails) {
             this.travelDetails = travelDetails;
             return this;
         }
@@ -963,7 +963,7 @@ public class ExistingReservationRequest {
         /**
          * Reservation request status.
          */
-        public Builder status(@Nonnull ReservationRequestStatusesJson status) {
+        public Builder status(@Nonnull ReservationRequestStatus status) {
             this.status = Utils.checkNotNull(status, "status");
             return this;
         }
@@ -971,7 +971,7 @@ public class ExistingReservationRequest {
         /**
          * Unique URL for a guest to access a reservation in Passkey's booking tool.
          */
-        public Builder bookingSite(@Nullable BookingWebsiteLinkJson bookingSite) {
+        public Builder bookingSite(@Nullable BookingWebsiteLink bookingSite) {
             this.bookingSite = bookingSite;
             return this;
         }
@@ -980,7 +980,7 @@ public class ExistingReservationRequest {
          * Unique URL for Passkey users (rather than guests) to access a reservation in Passkey's call center
          * tool.
          */
-        public Builder callCenter(@Nullable CallCenterLinkJson callCenter) {
+        public Builder callCenter(@Nullable CallCenterLink callCenter) {
             this.callCenter = callCenter;
             return this;
         }

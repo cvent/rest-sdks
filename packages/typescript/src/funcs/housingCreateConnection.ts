@@ -30,7 +30,9 @@ import { Result } from "../types/fp.js";
  * Create Connection
  *
  * @remarks
- * Create a connection between an integration partner and an event using an access code provided by the Passkey event owner. This connection (manually or using this API) is required to authorize ANY other API calls for the event.
+ * Create a connection between an integration partner and an event using an access code provided by the Passkey
+ * event owner. This connection is required to authorize all other API calls for the event. Only one active
+ * connection is supported per access code at a time.
  */
 export function housingCreateConnection(
   client: CventSDKCore,

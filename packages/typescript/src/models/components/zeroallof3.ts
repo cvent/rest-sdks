@@ -8,9 +8,13 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Represents an error response with no additional details.
+ * Represents an error response for the checkin APIs that includes a unique id.
  */
 export type ZeroAllOf3 = {
+  /**
+   * The unique identifier for the error response.
+   */
+  id?: string | undefined;
   /**
    * The HTTP status code representing the error.
    */
@@ -31,6 +35,7 @@ export const ZeroAllOf3$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string().optional(),
   code: z.number().int(),
   message: z.string(),
   target: z.string().optional(),

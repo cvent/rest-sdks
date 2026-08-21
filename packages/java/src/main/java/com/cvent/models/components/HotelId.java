@@ -12,7 +12,7 @@ import java.lang.String;
 /**
  * HotelId
  *
- * <p>Hotel information.
+ * <p>Contains unique ID of the hotel.
  */
 public class HotelId {
     /**

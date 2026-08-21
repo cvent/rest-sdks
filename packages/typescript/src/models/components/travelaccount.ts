@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Address7, Address7$inboundSchema } from "./address7.js";
+import { Address8, Address8$inboundSchema } from "./address8.js";
 import {
   TravelAccountType,
   TravelAccountType$inboundSchema,
@@ -51,7 +51,7 @@ export type TravelAccount = {
   /**
    * List of addresses associated with the travel account.
    */
-  addresses?: Array<Address7> | undefined;
+  addresses?: Array<Address8> | undefined;
 };
 
 /** @internal */
@@ -71,7 +71,7 @@ export const TravelAccount$inboundSchema: z.ZodType<
   name: z.string().optional(),
   type: TravelAccountType$inboundSchema.optional(),
   certified: z.boolean().optional(),
-  addresses: z.array(Address7$inboundSchema).optional(),
+  addresses: z.array(Address8$inboundSchema).optional(),
 });
 
 export function travelAccountFromJSON(

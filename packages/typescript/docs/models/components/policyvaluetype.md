@@ -13,5 +13,5 @@ let value: PolicyValueType = "money";
 ## Values
 
 ```typescript
-"selection_list" | "integer" | "money" | "percent" | "multi_select" | "text_multi_line" | "percent_or_money"
+"selection_list" | "integer" | "money" | "percent" | "multi_select" | "text_multi_line" | "percent_or_money" | "boolean"
 ```

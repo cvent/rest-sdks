@@ -101,7 +101,7 @@ public class StandardSurveyQuestionJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("choices")
-    private List<ChoiceJson1> choices;
+    private List<ChoiceJson> choices;
 
     /**
      * List of categories for the question.
@@ -192,7 +192,7 @@ public class StandardSurveyQuestionJson {
             @JsonProperty("htmlText") @Nullable String htmlText,
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("type") @Nullable QuestionTypeJson type,
-            @JsonProperty("choices") @Nullable List<ChoiceJson1> choices,
+            @JsonProperty("choices") @Nullable List<ChoiceJson> choices,
             @JsonProperty("categories") @Nullable List<CategoryJson1> categories,
             @JsonProperty("subCategories") @Nullable List<TextFieldJson> subCategories,
             @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoiceJson notApplicableAnswer,
@@ -327,7 +327,7 @@ public class StandardSurveyQuestionJson {
     /**
      * List of choices for the question.
      */
-    public Optional<List<ChoiceJson1>> choices() {
+    public Optional<List<ChoiceJson>> choices() {
         return Optional.ofNullable(this.choices);
     }
 
@@ -495,7 +495,7 @@ public class StandardSurveyQuestionJson {
     /**
      * List of choices for the question.
      */
-    public StandardSurveyQuestionJson withChoices(@Nullable List<ChoiceJson1> choices) {
+    public StandardSurveyQuestionJson withChoices(@Nullable List<ChoiceJson> choices) {
         this.choices = choices;
         return this;
     }
@@ -721,7 +721,7 @@ public class StandardSurveyQuestionJson {
 
         private QuestionTypeJson type;
 
-        private List<ChoiceJson1> choices;
+        private List<ChoiceJson> choices;
 
         private List<CategoryJson1> categories;
 
@@ -832,7 +832,7 @@ public class StandardSurveyQuestionJson {
         /**
          * List of choices for the question.
          */
-        public Builder choices(@Nullable List<ChoiceJson1> choices) {
+        public Builder choices(@Nullable List<ChoiceJson> choices) {
             this.choices = choices;
             return this;
         }

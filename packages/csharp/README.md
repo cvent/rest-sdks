@@ -557,6 +557,13 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [GetMeetingRequestById](docs/sdks/meetingrequest/README.md#getmeetingrequestbyid) - Get MR
 * [ListMeetingRequestDocuments](docs/sdks/meetingrequest/README.md#listmeetingrequestdocuments) - List MR Documents
 
+### [Orders](docs/sdks/orders/README.md)
+
+* [GetAccountOrders](docs/sdks/orders/README.md#getaccountorders) - List Account Orders
+* [GetAccountOrderById](docs/sdks/orders/README.md#getaccountorderbyid) - Get Order
+* [GetAccountOrderItemsByOrderId](docs/sdks/orders/README.md#getaccountorderitemsbyorderid) - List Account Order Items
+* [GetAccountOrderItem](docs/sdks/orders/README.md#getaccountorderitem) - Get Order Item
+
 ### [ProcessForm](docs/sdks/processform/README.md)
 
 * [ListProcessFormSubmission](docs/sdks/processform/README.md#listprocessformsubmission) - List Process Form Submissions
@@ -685,6 +692,13 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [UpdateStandardSurveyResponses](docs/sdks/surveys/README.md#updatestandardsurveyresponses) - Update Stdl. Survey Responses
 * [GetSurvey](docs/sdks/surveys/README.md#getsurvey) - List Surveys
 
+### [Transactions](docs/sdks/transactions/README.md)
+
+* [GetAccountTransactions](docs/sdks/transactions/README.md#getaccounttransactions) - List Account Transactions
+* [GetTransaction](docs/sdks/transactions/README.md#gettransaction) - Get Transaction
+* [GetAccountTransactionItems](docs/sdks/transactions/README.md#getaccounttransactionitems) - List Account Transaction Items
+* [GetAccountTransactionItem](docs/sdks/transactions/README.md#getaccounttransactionitem) - List Transaction Item
+
 ### [TravelAccounts](docs/sdks/travelaccounts/README.md)
 
 * [ListTravelAccounts](docs/sdks/travelaccounts/README.md#listtravelaccounts) - List Travel Accounts
@@ -750,6 +764,9 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [ListMeetingRoomsOverviews](docs/sdks/venuemeetingrooms/README.md#listmeetingroomsoverviews) - List Meeting Rooms Overviews
 * [UpdateMeetingRoom](docs/sdks/venuemeetingrooms/README.md#updatemeetingroom) - Update Meeting Room
 * [PatchMeetingRoom](docs/sdks/venuemeetingrooms/README.md#patchmeetingroom) - Patch Meeting Room
+* [AssociateMeetingRoomImage](docs/sdks/venuemeetingrooms/README.md#associatemeetingroomimage) - Associate Meeting Room Image
+* [ListMeetingRoomImages](docs/sdks/venuemeetingrooms/README.md#listmeetingroomimages) - List Meeting Room Images
+* [DisassociateMeetingRoomImage](docs/sdks/venuemeetingrooms/README.md#disassociatemeetingroomimage) - Remove Meeting Room Image
 * [GetMeetingRoomOverview](docs/sdks/venuemeetingrooms/README.md#getmeetingroomoverview) - Get Meeting Room Overview
 
 ### [VenueProfiles](docs/sdks/venueprofiles/README.md)
@@ -1004,10 +1021,10 @@ catch (System.Net.Http.HttpRequestException ex)
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs):
-  * [`ErrorResponse2`](./src/Cvent/SDK/Models/Errors/ErrorResponse2.cs): The error response. Applicable to 11 of 458 methods.*
-  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 9 of 458 methods.*
-  * [`ErrorResponse12`](./src/Cvent/SDK/Models/Errors/ErrorResponse12.cs): Segments error response details. Status code `400`. Applicable to 2 of 458 methods.*
-  * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 458 methods.*
+  * [`ErrorResponse2`](./src/Cvent/SDK/Models/Errors/ErrorResponse2.cs): The error response. Applicable to 11 of 469 methods.*
+  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 9 of 469 methods.*
+  * [`ErrorResponse12`](./src/Cvent/SDK/Models/Errors/ErrorResponse12.cs): Segments error response details. Status code `400`. Applicable to 2 of 469 methods.*
+  * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 469 methods.*
   * [`ResponseValidationError`](./src/Cvent/SDK/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
 </details>
 

@@ -1017,6 +1017,21 @@ public final class OAuth2Scopes {
         SurveySurveysRead("survey/surveys:read"),
 
         /**
+         * Allows disassociating images from meeting rooms.
+         */
+        VenueMeetingRoomImagesDelete("venue/meeting-room-images:delete"),
+
+        /**
+         * Allows retrieving meeting room images.
+         */
+        VenueMeetingRoomImagesRead("venue/meeting-room-images:read"),
+
+        /**
+         * Allows associating images with meeting rooms.
+         */
+        VenueMeetingRoomImagesWrite("venue/meeting-room-images:write"),
+
+        /**
          * Allows read access for overview of meeting room.
          */
         VenueMeetingRoomOverviewsRead("venue/meeting-room-overviews:read"),
@@ -2217,6 +2232,21 @@ public final class OAuth2Scopes {
          * Allows the reading of event surveys
          */
         SurveySurveysRead("survey/surveys:read"),
+
+        /**
+         * Allows disassociating images from meeting rooms.
+         */
+        VenueMeetingRoomImagesDelete("venue/meeting-room-images:delete"),
+
+        /**
+         * Allows retrieving meeting room images.
+         */
+        VenueMeetingRoomImagesRead("venue/meeting-room-images:read"),
+
+        /**
+         * Allows associating images with meeting rooms.
+         */
+        VenueMeetingRoomImagesWrite("venue/meeting-room-images:write"),
 
         /**
          * Allows read access for overview of meeting room.

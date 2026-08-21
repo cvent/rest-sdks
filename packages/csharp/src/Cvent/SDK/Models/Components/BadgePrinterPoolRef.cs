@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// A unique identifier of the badge printer pool.
+    /// Reference to a Badge Print Pool.
     /// </summary>
     public class BadgePrinterPoolRef
     {

@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Category of the passenger's ticket for an air booking.
+    /// Category of the passenger's ticket class for an air booking.
     /// </summary>
     public enum TicketType
     {

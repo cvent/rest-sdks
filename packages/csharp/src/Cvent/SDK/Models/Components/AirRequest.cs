@@ -123,7 +123,7 @@ namespace Cvent.SDK.Models.Components
         public SeatType? SeatType { get; set; }
 
         /// <summary>
-        /// Category of the passenger's ticket for an air booking.
+        /// Category of the passenger's ticket class for an air booking.
         /// </summary>
         [JsonProperty("ticketType")]
         public TicketType? TicketType { get; set; }

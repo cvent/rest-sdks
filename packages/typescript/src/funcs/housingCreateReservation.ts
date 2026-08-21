@@ -29,7 +29,11 @@ import { Result } from "../types/fp.js";
  * Create Reservation
  *
  * @remarks
- * Create a hotel reservation in a housing event based on the details provided in the request body.
+ * Create a hotel reservation in a housing event based on the details provided in the request body. This endpoint
+ * directly creates a hotel booking on behalf of a guest. Requires a valid hotel ID, room type ID, and guest
+ * details (including arrival and departure dates).
+ *
+ * To generate a booking URL that guests complete themselves, use [Create Reservation Request](#operation/createReservationRequest) instead.
  */
 export function housingCreateReservation(
   client: CventSDKCore,

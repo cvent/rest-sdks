@@ -472,7 +472,7 @@ public class Application {
                 .languages(List.of(
                     "en-US"))
                 .planners(List.of(
-                    PlannerJson2Input.builder()
+                    PlannerJson1Input.builder()
                         .prefix("Dr.")
                         .firstName("Henry")
                         .lastName("Smith")

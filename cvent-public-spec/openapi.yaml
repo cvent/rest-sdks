@@ -2704,15 +2704,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-job-with-data'
         '400':
-          $ref: '#/components/responses/BadRequest20'
+          $ref: '#/components/responses/BadRequest18'
         '401':
-          $ref: '#/components/responses/Unauthorized20'
+          $ref: '#/components/responses/Unauthorized18'
         '403':
-          $ref: '#/components/responses/Forbidden20'
+          $ref: '#/components/responses/Forbidden18'
         '409':
           $ref: '#/components/responses/JobLimitExceeded'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests18'
       deprecated: false
   /bulk-jobs/{id}:
     parameters:
@@ -2735,15 +2735,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-job'
         '400':
-          $ref: '#/components/responses/BadRequest20'
+          $ref: '#/components/responses/BadRequest18'
         '401':
-          $ref: '#/components/responses/Unauthorized20'
+          $ref: '#/components/responses/Unauthorized18'
         '403':
-          $ref: '#/components/responses/Forbidden20'
+          $ref: '#/components/responses/Forbidden18'
         '404':
-          $ref: '#/components/responses/NotFound20'
+          $ref: '#/components/responses/NotFound18'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests18'
   /bulk-jobs/{id}/cancel:
     parameters:
       - $ref: '#/components/parameters/uuid1'
@@ -2765,15 +2765,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-job'
         '400':
-          $ref: '#/components/responses/BadRequest20'
+          $ref: '#/components/responses/BadRequest18'
         '401':
-          $ref: '#/components/responses/Unauthorized20'
+          $ref: '#/components/responses/Unauthorized18'
         '403':
-          $ref: '#/components/responses/Forbidden20'
+          $ref: '#/components/responses/Forbidden18'
         '404':
-          $ref: '#/components/responses/NotFound20'
+          $ref: '#/components/responses/NotFound18'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests18'
   /bulk-jobs/{id}/data:
     parameters:
       - $ref: '#/components/parameters/uuid1'
@@ -2806,17 +2806,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-data-upload-response'
         '400':
-          $ref: '#/components/responses/BadRequest20'
+          $ref: '#/components/responses/BadRequest18'
         '401':
-          $ref: '#/components/responses/Unauthorized20'
+          $ref: '#/components/responses/Unauthorized18'
         '403':
-          $ref: '#/components/responses/Forbidden20'
+          $ref: '#/components/responses/Forbidden18'
         '404':
-          $ref: '#/components/responses/NotFound20'
+          $ref: '#/components/responses/NotFound18'
         '409':
           $ref: '#/components/responses/DataLimitExceeded'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests18'
   /bulk-jobs/{id}/results:
     parameters:
       - $ref: '#/components/parameters/uuid1'
@@ -2870,15 +2870,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-results-paginated-response'
         '400':
-          $ref: '#/components/responses/BadRequest20'
+          $ref: '#/components/responses/BadRequest18'
         '401':
-          $ref: '#/components/responses/Unauthorized20'
+          $ref: '#/components/responses/Unauthorized18'
         '403':
-          $ref: '#/components/responses/Forbidden20'
+          $ref: '#/components/responses/Forbidden18'
         '404':
-          $ref: '#/components/responses/NotFound20'
+          $ref: '#/components/responses/NotFound18'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests18'
   /bulk-jobs/{id}/run:
     parameters:
       - $ref: '#/components/parameters/uuid1'
@@ -2903,17 +2903,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-job'
         '400':
-          $ref: '#/components/responses/BadRequest20'
+          $ref: '#/components/responses/BadRequest18'
         '401':
-          $ref: '#/components/responses/Unauthorized20'
+          $ref: '#/components/responses/Unauthorized18'
         '403':
-          $ref: '#/components/responses/Forbidden20'
+          $ref: '#/components/responses/Forbidden18'
         '404':
-          $ref: '#/components/responses/NotFound20'
+          $ref: '#/components/responses/NotFound18'
         '409':
           $ref: '#/components/responses/JobLimitExceeded'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests18'
   /campaigns:
     get:
       summary: List eMarketing Campaigns
@@ -3231,7 +3231,10 @@ paths:
       tags:
         - Housing
       summary: Create Connection
-      description: Create a connection between an integration partner and an event using an access code provided by the Passkey event owner. This connection (manually or using this API) is required to authorize ANY other API calls for the event.
+      description: |
+        Create a connection between an integration partner and an event using an access code provided by the Passkey
+        event owner. This connection is required to authorize all other API calls for the event. Only one active
+        connection is supported per access code at a time.
       operationId: createConnection
       security:
         - OAuth2.clientCredentials:
@@ -11924,7 +11927,9 @@ paths:
       tags:
         - Housing
       summary: Get Housing Events Summaries
-      description: Gets a paginated list of summary information for your individual housing events.
+      description: |
+        Gets a paginated list of summary information for your individual housing events. Use this endpoint to discover
+        which events your integration has access to and to retrieve housing event IDs for use in other endpoints.
       operationId: getHousingEventsSummaries
       security:
         - OAuth2.clientCredentials:
@@ -11954,7 +11959,11 @@ paths:
       tags:
         - Housing
       summary: Get Housing Event Info
-      description: Retrieves housing event details based on the given housing event ID.
+      description: |
+        Retrieves housing event details based on the given housing event ID. Use this endpoint to get event-level
+        information such as event name, dates, attendee types, and related configuration. Get the housing event ID
+        from the [Get Housing Events Summaries](#operation/getHousingEventsSummaries) endpoint, from the
+        [Create Connection](#operation/createConnection) response, or directly from the Passkey event owner.
       operationId: getHousingEventInfo
       security:
         - OAuth2.clientCredentials:
@@ -11982,7 +11991,10 @@ paths:
       tags:
         - Housing
       summary: Get Housing Event Hotels
-      description: Get list of hotels for the given housing event.
+      description: |
+        Get a list of hotels for the given housing event. Returns a paginated list of all hotels in the housing event's
+        room block, including hotel names, addresses, and IDs. Use the hotel IDs from this response to query
+        [room types](#operation/getHousingEventRoomTypes), [availability](#operation/getHousingEventHotelAvailability), and [inventory](#operation/getRoomTypeInventory).
       operationId: getHousingEventHotels
       security:
         - OAuth2.clientCredentials:
@@ -12015,7 +12027,10 @@ paths:
       tags:
         - Housing
       summary: Get Housing Event Hotel
-      description: Gets a single hotel's details in a housing event.
+      description: |
+        Gets a single hotel's details in a housing event. Returns detailed information about a specific hotel,
+        including address and localized content. Use this endpoint when you need full details for
+        a single hotel rather than the [summary list](#operation/getHousingEventHotels).
       operationId: getHousingEventHotel
       security:
         - OAuth2.clientCredentials:
@@ -12047,7 +12062,11 @@ paths:
       tags:
         - Housing
       summary: Get Event Hotel Availability
-      description: Get a filterable list of available room nights for a particular hotel and housing event.
+      description: |
+        Get a filterable list of available room nights for a particular hotel and housing event. Returns availability
+        by date, showing which nights have rooms remaining.
+
+        Filter by attendee type and date range to narrow results.
       operationId: getHousingEventHotelAvailability
       security:
         - OAuth2.clientCredentials:
@@ -12081,7 +12100,12 @@ paths:
       tags:
         - Housing
       summary: Get Housing Event Room Types
-      description: Get a filterable list of room types for a given hotel in a housing event.
+      description: |
+        Get a filterable list of room types for a given hotel in a housing event. Room types represent categories of
+        rooms (for example, Standard King or Double Queen) available at the hotel for this event. Use the returned
+        room type IDs to query [room details](#operation/getRoomTypeDetails) and [inventory](#operation/getRoomTypeInventory).
+
+        Filter by attendee type to retrieve only the room types available to a specific attendee segment.
       operationId: getHousingEventRoomTypes
       security:
         - OAuth2.clientCredentials:
@@ -12116,7 +12140,9 @@ paths:
       tags:
         - Housing
       summary: Get Room Type Details
-      description: Get a room type's details for the given housing event, hotel and room type.
+      description: |
+        Get a room type's details for the given housing event, hotel, and room type. Returns detailed information about
+        a specific room type, including room description and available images.
       operationId: getRoomTypeDetails
       security:
         - OAuth2.clientCredentials:
@@ -12149,7 +12175,11 @@ paths:
       tags:
         - Housing
       summary: Get Room Type Inventory
-      description: Gets a list of room type inventory details (by date) for the given housing event, hotel and room type.
+      description: |
+        Gets a list of room type inventory details (by date) for the given housing event, hotel, and room type. Returns
+        date-by-date inventory counts (total rooms, rooms picked up, and rooms remaining) for a specific room type.
+
+        Filter by date range to retrieve inventory for specific nights.
       operationId: getRoomTypeInventory
       security:
         - OAuth2.clientCredentials:
@@ -12184,7 +12214,12 @@ paths:
       tags:
         - Housing
       summary: Get Housing Event Inventory
-      description: Gets a list (sorted by date) of housing event inventory details for the given housing event.
+      description: |
+        Gets a list (sorted by date) of housing event inventory details for the given housing event. Returns aggregated
+        inventory across all hotels and room types in the event. This provides a high-level view of total event capacity
+        and pickup.
+
+        For per-hotel or per-room-type breakdowns, use [Get Room Type Inventory](#operation/getRoomTypeInventory) instead.
       operationId: getHousingEventInventory
       security:
         - OAuth2.clientCredentials:
@@ -12217,7 +12252,12 @@ paths:
       tags:
         - Housing
       summary: Get Housing Event Reservations
-      description: Get list of reservation details for the given housing event.
+      description: |
+        Get a list of reservation details for the given housing event. Returns a paginated list of all reservations in
+        the event, including guest details, stay dates, hotel, room type, and reservation status. Use the `before`
+        and `after` parameters to filter by when a reservation was added or last updated, which is useful for incremental syncing.
+
+        Returns an empty list when no reservations match the criteria.
       operationId: getHousingEventReservations
       security:
         - OAuth2.clientCredentials:
@@ -12586,10 +12626,9 @@ paths:
         is provided then the API will return communication log messages of all types between the specified dates.
 
         Supported types are:
-
-          * email
-          * chat
-          * session_qa
+          * `email`
+          * `chat` (session chats, exhibitor chats, text discussions, 1:1 messaging (attendees), group messaging (groups))
+          * `session_qa`
       operationId: getCommunicationLogMessages
       parameters:
         - $ref: '#/components/parameters/after'
@@ -12645,10 +12684,9 @@ paths:
         is provided then the API will return communication log messages of all types between the specified dates.
 
         Supported types are:
-
-          * email
-          * chat
-          * session_qa
+          * `email`
+          * `chat` (session chats, exhibitor chats, text discussions, 1:1 messaging (attendees), group messaging (groups))
+          * `session_qa`
       operationId: filterCommunicationLogMessages
       parameters:
         - $ref: '#/components/parameters/after'
@@ -13329,6 +13367,205 @@ paths:
                     example: invalid_request
         '401':
           description: Client authentication failed. The credentials provided in the Authorization header are invalid or missing.
+  /orders:
+    get:
+      security:
+        - OAuth2.clientCredentials:
+            - event/orders:read
+        - OAuth2.authorizationCode:
+            - event/orders:read
+      summary: List Account Orders
+      description: |
+        Gets a paginated list of orders in the account. Results are returned in ascending `lastModified` order, with a stable internal tie-breaker applied to guarantee a deterministic total order across pages. Ordering is not client-configurable. Newly created or updated orders may not be immediately reflected in the response.
+      operationId: getAccountOrders
+      parameters:
+        - $ref: '#/components/parameters/after'
+        - $ref: '#/components/parameters/before'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/token'
+        - name: filter
+          in: query
+          required: false
+          description: |
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+
+            Supported fields and operators are listed below:
+
+            | Field        | Operators                          |
+            |--------------|------------------------------------|
+            | id           | `eq`, `ne`                         |
+            | attendee.id  | `eq`, `ne`                         |
+            | event.id     | `eq`, `ne`                         |
+            | type         | `eq`, `ne`                         |
+            | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+            | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+
+            The following logical operators are supported for combining filters:
+            * and
+            * or
+          schema:
+            type: string
+          example: filter=event.id eq '7e8a9c45-2f1b-4d3e-9a67-8b5c4f2e1a90'
+        - $ref: '#/components/parameters/deleted'
+      tags:
+        - Orders
+      responses:
+        '200':
+          description: Successfully retrieved a Paginated list of Orders in the account.
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/order-details-paginated-response'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+      externalDocs:
+        description: More about OAuth2 authorization code support for administrators
+        url: '#oauth2-auth-code-planner-admin'
+  /orders/{orderId}:
+    get:
+      security:
+        - OAuth2.clientCredentials:
+            - event/orders:read
+        - OAuth2.authorizationCode:
+            - event/orders:read
+      summary: Get Order
+      description: Gets the order for a given orderId. Newly created or updated orders may not be immediately reflected in the response.
+      operationId: getAccountOrderById
+      parameters:
+        - $ref: '#/components/parameters/orderId'
+      tags:
+        - Orders
+      responses:
+        '200':
+          description: Successfully retrieved the order for a given orderId.
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/order-detail'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+      externalDocs:
+        description: More about OAuth2 authorization code support for administrators
+        url: '#oauth2-auth-code-planner-admin'
+  /orders/{orderId}/items:
+    get:
+      security:
+        - OAuth2.clientCredentials:
+            - event/orders:read
+        - OAuth2.authorizationCode:
+            - event/orders:read
+      summary: List Account Order Items
+      description: |
+        Gets a paginated list of order items for a given orderId in the account. Results are returned in ascending `lastModified` order, with a stable internal tie-breaker applied to guarantee a deterministic total order across pages. Ordering is not client-configurable. Newly created or updated order items may not be immediately reflected in the response.
+      operationId: getAccountOrderItemsByOrderId
+      parameters:
+        - $ref: '#/components/parameters/orderId'
+        - $ref: '#/components/parameters/after'
+        - $ref: '#/components/parameters/before'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/token'
+        - name: filter
+          in: query
+          required: false
+          description: |
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+
+            Supported fields and operators are listed below:
+
+            | Field        | Operators                          |
+            |--------------|------------------------------------|
+            | id           | `eq`, `ne`                         |
+            | product.id   | `eq`, `ne`                         |
+            | product.type | `eq`, `ne`                         |
+            | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+            | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+
+            The following logical operators are supported for combining filters:
+            * and
+            * or
+          schema:
+            type: string
+          example: id eq 'f82ea335-3844-47bf-92f6-4e00d60f7800' AND (created lt '2025-08-19T20:43:13.000Z' OR created gt '2023-08-19T20:43:13.000Z')
+        - $ref: '#/components/parameters/deleted'
+      tags:
+        - Orders
+      responses:
+        '200':
+          description: Successfully retrieved a Paginated list of order items for a given orderId in the account.
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/order-items-paginated-response'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+      externalDocs:
+        description: More about OAuth2 authorization code support for administrators
+        url: '#oauth2-auth-code-planner-admin'
+  /orders/{orderId}/items/{orderItemId}:
+    get:
+      security:
+        - OAuth2.clientCredentials:
+            - event/orders:read
+        - OAuth2.authorizationCode:
+            - event/orders:read
+      summary: Get Order Item
+      description: Gets a order item for a given orderItemId in the account. Newly created or updated order items may not be immediately reflected in the response.
+      operationId: getAccountOrderItem
+      parameters:
+        - $ref: '#/components/parameters/orderId'
+        - $ref: '#/components/parameters/orderItemId'
+      tags:
+        - Orders
+      responses:
+        '200':
+          description: Successfully retrieved an order item for a given orderItemId for a given orderId in the account.
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/order-item-response'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+      externalDocs:
+        description: More about OAuth2 authorization code support for administrators
+        url: '#oauth2-auth-code-planner-admin'
   /process-forms/submissions:
     get:
       tags:
@@ -14064,7 +14301,12 @@ paths:
       tags:
         - Housing
       summary: Create Reservation Request
-      description: Creates a reservation request from guest details. A reservation request represents a registration and stores guest details. Reservations booked with the guest-specific “bookingSite” URL in the response will pre-populate guest data and link the new reservation to the reservation request for tracking.
+      description: |
+        Creates a reservation request from guest details.
+
+        A reservation request represents a registration and stores guest details such as name, email, and preferences.
+        The response includes a guest-specific `bookingSite` URL. When the guest books through that URL, Passkey
+        pre-populates their details and links the new reservation to the reservation request for tracking.
       operationId: createReservationRequest
       security:
         - OAuth2.clientCredentials:
@@ -14097,7 +14339,9 @@ paths:
       tags:
         - Housing
       summary: Get Reservation Request
-      description: Returns reservation request details for a given reservation ID.
+      description: |
+        Returns reservation request details for a given reservation request ID. The response includes guest details,
+        the `bookingSite` URL, and a linked Reservation ID/ack number if present.
       operationId: getReservationRequest
       security:
         - OAuth2.clientCredentials:
@@ -14124,7 +14368,14 @@ paths:
       tags:
         - Housing
       summary: Update Reservation Request
-      description: Update a reservation request using the given reservation ID. If the reservation has been booked, changes to the reservation request do not affect the linked reservation.
+      description: |
+        Update a reservation request using the given reservation request ID. Use this endpoint to update guest details
+        (name, email, preferences) on the reservation request. The request body overwrites the current version entirely.
+
+        If a reservation has already been booked through this request, changes to the reservation request do not affect
+        the linked reservation. To update the hotel booking itself, use [Update Reservation](#operation/updateReservationSync) instead.
+
+        You cannot update a cancelled reservation request.
       operationId: updateReservationRequest
       security:
         - OAuth2.clientCredentials:
@@ -14167,7 +14418,13 @@ paths:
       tags:
         - Housing
       summary: Cancel Reservation Request
-      description: Update the status of a reservation request to cancelled. If the reservation has already been booked, any changes made to the reservation request will not affect the linked reservation.
+      description: |
+        Update the status of a reservation request to cancelled. If a reservation has already been booked through this
+        request, cancelling the request does not cancel the linked reservation. To cancel the hotel booking itself,
+        use [Cancel Reservation](#operation/cancelReservation).
+
+        You cannot cancel a reservation request that already has a linked reservation. [Unlink the reservation](#operation/unlinkReservation) first,
+        then cancel the request.
       operationId: cancelReservationRequest
       security:
         - OAuth2.clientCredentials:
@@ -14199,7 +14456,11 @@ paths:
       tags:
         - Housing
       summary: Link Reservation
-      description: Link an existing reservation to a reservation request. Commonly used when associating a reservation created outside the normal booking flow (such as a guest calling the hotel).
+      description: |
+        Link an existing reservation to a reservation request. Commonly used when a reservation was created outside the
+        normal booking flow, such as when a guest calls the hotel directly or when staff books through the Passkey
+        Call Center. Linking associates the reservation with the registration represented by the reservation request,
+        enabling tracking and callback reporting.
       operationId: linkReservation
       security:
         - OAuth2.clientCredentials:
@@ -14224,7 +14485,13 @@ paths:
       tags:
         - Housing
       summary: Unlink Reservation
-      description: Unlink reservation from reservation request. Commonly used for removing a cancelled reservation from a reservation request so that a new reservation can be linked in its place.
+      description: |
+        Unlink a reservation from a reservation request. Commonly used when a linked reservation has been cancelled and
+        you need to free up the reservation request so a new reservation can be linked in its place.
+        Unlinking does not cancel or change the reservation itself.
+
+        After unlinking, you can [link a new reservation](#operation/linkReservation) or allow the guest to book again using the reservation
+        request's `bookingSite` URL.
       operationId: unlinkReservation
       security:
         - OAuth2.clientCredentials:
@@ -14250,7 +14517,12 @@ paths:
       tags:
         - Housing
       summary: Create Reservation
-      description: Create a hotel reservation in a housing event based on the details provided in the request body.
+      description: |
+        Create a hotel reservation in a housing event based on the details provided in the request body. This endpoint
+        directly creates a hotel booking on behalf of a guest. Requires a valid hotel ID, room type ID, and guest
+        details (including arrival and departure dates).
+
+        To generate a booking URL that guests complete themselves, use [Create Reservation Request](#operation/createReservationRequest) instead.
       operationId: createReservation
       security:
         - OAuth2.clientCredentials:
@@ -14283,7 +14555,10 @@ paths:
       tags:
         - Housing
       summary: Get Reservation
-      description: 'Get reservation details for the given reservation ID. Commonly used in response to [passkey callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks). '
+      description: |
+        Get reservation details for the given reservation ID. Commonly used in response to
+        [Passkey callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks), where a callback payload includes the reservation ID.
+        Call this endpoint to retrieve the full reservation details after receiving a callback notification.
       operationId: getReservation
       security:
         - OAuth2.clientCredentials:
@@ -14310,7 +14585,10 @@ paths:
       tags:
         - Housing
       summary: Cancel Reservation
-      description: Cancel reservation for given reservation ID.
+      description: |
+        Cancel a reservation for the given reservation ID. Cancelling a reservation does not cancel the linked
+        reservation request. If you need to also [cancel the reservation request](#operation/cancelReservationRequest), do so separately. After cancellation,
+        [unlink the reservation](#operation/unlinkReservation) from its reservation request so you can link a new one.
       operationId: cancelReservation
       security:
         - OAuth2.clientCredentials:
@@ -14332,7 +14610,12 @@ paths:
       tags:
         - Housing
       summary: Update Reservation
-      description: Updates an existing reservation for given reservation ID.
+      description: |
+        Updates an existing reservation for the given reservation ID. This is a synchronous operation that returns
+        the updated reservation in the response. The request body must include the full reservation object.
+        Use [Get Reservation](#operation/getReservation) to retrieve the current reservation before making changes.
+
+        To update stay dates, room type, or guest details, include all required fields in the request body.
       operationId: updateReservationSync
       security:
         - OAuth2.clientCredentials:
@@ -14988,13 +15271,13 @@ paths:
         '200':
           $ref: '#/components/responses/UsersGroupsResponse'
         '400':
-          $ref: '#/components/responses/BadRequest14'
+          $ref: '#/components/responses/BadRequest11'
         '401':
-          $ref: '#/components/responses/Unauthorized14'
+          $ref: '#/components/responses/Unauthorized11'
         '403':
-          $ref: '#/components/responses/Forbidden14'
+          $ref: '#/components/responses/Forbidden11'
         '429':
-          $ref: '#/components/responses/TooManyRequests14'
+          $ref: '#/components/responses/TooManyRequests11'
       parameters:
         - $ref: '#/components/parameters/startIndex'
         - $ref: '#/components/parameters/count1'
@@ -15017,11 +15300,11 @@ paths:
         '200':
           $ref: '#/components/responses/ResourceTypes'
         '401':
-          $ref: '#/components/responses/Unauthorized14'
+          $ref: '#/components/responses/Unauthorized11'
         '403':
-          $ref: '#/components/responses/Forbidden14'
+          $ref: '#/components/responses/Forbidden11'
         '429':
-          $ref: '#/components/responses/TooManyRequests14'
+          $ref: '#/components/responses/TooManyRequests11'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15047,15 +15330,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResourceType'
         '400':
-          $ref: '#/components/responses/BadRequest14'
+          $ref: '#/components/responses/BadRequest11'
         '401':
-          $ref: '#/components/responses/Unauthorized14'
+          $ref: '#/components/responses/Unauthorized11'
         '403':
-          $ref: '#/components/responses/Forbidden14'
+          $ref: '#/components/responses/Forbidden11'
         '404':
-          $ref: '#/components/responses/NotFound14'
+          $ref: '#/components/responses/NotFound11'
         '429':
-          $ref: '#/components/responses/TooManyRequests14'
+          $ref: '#/components/responses/TooManyRequests11'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15075,11 +15358,11 @@ paths:
         '200':
           $ref: '#/components/responses/UsersSchemaResponse'
         '401':
-          $ref: '#/components/responses/Unauthorized14'
+          $ref: '#/components/responses/Unauthorized11'
         '403':
-          $ref: '#/components/responses/Forbidden14'
+          $ref: '#/components/responses/Forbidden11'
         '429':
-          $ref: '#/components/responses/TooManyRequests14'
+          $ref: '#/components/responses/TooManyRequests11'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15105,15 +15388,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/UsersSchema'
         '400':
-          $ref: '#/components/responses/BadRequest14'
+          $ref: '#/components/responses/BadRequest11'
         '401':
-          $ref: '#/components/responses/Unauthorized14'
+          $ref: '#/components/responses/Unauthorized11'
         '403':
-          $ref: '#/components/responses/Forbidden14'
+          $ref: '#/components/responses/Forbidden11'
         '404':
-          $ref: '#/components/responses/NotFound14'
+          $ref: '#/components/responses/NotFound11'
         '429':
-          $ref: '#/components/responses/TooManyRequests14'
+          $ref: '#/components/responses/TooManyRequests11'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15133,11 +15416,11 @@ paths:
         '200':
           $ref: '#/components/responses/ServiceProviderConfig'
         '401':
-          $ref: '#/components/responses/Unauthorized14'
+          $ref: '#/components/responses/Unauthorized11'
         '403':
-          $ref: '#/components/responses/Forbidden14'
+          $ref: '#/components/responses/Forbidden11'
         '429':
-          $ref: '#/components/responses/TooManyRequests14'
+          $ref: '#/components/responses/TooManyRequests11'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15166,15 +15449,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '400':
-          $ref: '#/components/responses/BadRequest14'
+          $ref: '#/components/responses/BadRequest11'
         '401':
-          $ref: '#/components/responses/Unauthorized14'
+          $ref: '#/components/responses/Unauthorized11'
         '403':
-          $ref: '#/components/responses/Forbidden14'
+          $ref: '#/components/responses/Forbidden11'
         '409':
-          $ref: '#/components/responses/Conflict9'
+          $ref: '#/components/responses/Conflict6'
         '429':
-          $ref: '#/components/responses/TooManyRequests14'
+          $ref: '#/components/responses/TooManyRequests11'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15226,13 +15509,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/Users'
         '400':
-          $ref: '#/components/responses/BadRequest14'
+          $ref: '#/components/responses/BadRequest11'
         '401':
-          $ref: '#/components/responses/Unauthorized14'
+          $ref: '#/components/responses/Unauthorized11'
         '403':
-          $ref: '#/components/responses/Forbidden14'
+          $ref: '#/components/responses/Forbidden11'
         '429':
-          $ref: '#/components/responses/TooManyRequests14'
+          $ref: '#/components/responses/TooManyRequests11'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15258,15 +15541,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '400':
-          $ref: '#/components/responses/BadRequest14'
+          $ref: '#/components/responses/BadRequest11'
         '401':
-          $ref: '#/components/responses/Unauthorized14'
+          $ref: '#/components/responses/Unauthorized11'
         '403':
-          $ref: '#/components/responses/Forbidden14'
+          $ref: '#/components/responses/Forbidden11'
         '404':
-          $ref: '#/components/responses/NotFound14'
+          $ref: '#/components/responses/NotFound11'
         '429':
-          $ref: '#/components/responses/TooManyRequests14'
+          $ref: '#/components/responses/TooManyRequests11'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15296,15 +15579,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '400':
-          $ref: '#/components/responses/BadRequest14'
+          $ref: '#/components/responses/BadRequest11'
         '401':
-          $ref: '#/components/responses/Unauthorized14'
+          $ref: '#/components/responses/Unauthorized11'
         '403':
-          $ref: '#/components/responses/Forbidden14'
+          $ref: '#/components/responses/Forbidden11'
         '404':
-          $ref: '#/components/responses/NotFound14'
+          $ref: '#/components/responses/NotFound11'
         '429':
-          $ref: '#/components/responses/TooManyRequests14'
+          $ref: '#/components/responses/TooManyRequests11'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15326,13 +15609,13 @@ paths:
           description: Successfully deleted a User.
           headers: {}
         '401':
-          $ref: '#/components/responses/Unauthorized14'
+          $ref: '#/components/responses/Unauthorized11'
         '403':
-          $ref: '#/components/responses/Forbidden14'
+          $ref: '#/components/responses/Forbidden11'
         '404':
-          $ref: '#/components/responses/NotFound14'
+          $ref: '#/components/responses/NotFound11'
         '429':
-          $ref: '#/components/responses/TooManyRequests14'
+          $ref: '#/components/responses/TooManyRequests11'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15859,7 +16142,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /sessions/{id}:
     parameters:
-      - $ref: '#/components/parameters/sessionId1'
+      - $ref: '#/components/parameters/sessionId2'
     get:
       summary: Get Session
       description: Gets a single session based on the provided session ID.
@@ -15962,7 +16245,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /sessions/{id}/attendance/{attendeeId}:
     parameters:
-      - $ref: '#/components/parameters/sessionId3'
+      - $ref: '#/components/parameters/sessionId4'
       - $ref: '#/components/parameters/attendeeId4'
     delete:
       security:
@@ -15993,7 +16276,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /sessions/{id}/check-in:
     parameters:
-      - $ref: '#/components/parameters/sessionId3'
+      - $ref: '#/components/parameters/sessionId4'
     post:
       tags:
         - Events
@@ -16076,7 +16359,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /sessions/{id}/custom-fields/{customFieldId}/answers:
     parameters:
-      - $ref: '#/components/parameters/sessionId1'
+      - $ref: '#/components/parameters/sessionId2'
       - $ref: '#/components/parameters/customFieldId2'
     put:
       summary: Update Custom Field Answers
@@ -16119,7 +16402,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /sessions/{id}/docs:
     parameters:
-      - $ref: '#/components/parameters/sessionId1'
+      - $ref: '#/components/parameters/sessionId2'
     get:
       security:
         - OAuth2.clientCredentials:
@@ -16178,7 +16461,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /sessions/{id}/docs/{fileId}:
     parameters:
-      - $ref: '#/components/parameters/sessionId1'
+      - $ref: '#/components/parameters/sessionId2'
       - $ref: '#/components/parameters/fileId'
     get:
       security:
@@ -16271,7 +16554,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /sessions/{id}/enrollment/{attendeeId}:
     parameters:
-      - $ref: '#/components/parameters/sessionId3'
+      - $ref: '#/components/parameters/sessionId4'
       - $ref: '#/components/parameters/attendeeId4'
     post:
       security:
@@ -16339,7 +16622,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /sessions/{id}/speakers:
     parameters:
-      - $ref: '#/components/parameters/sessionId'
+      - $ref: '#/components/parameters/sessionId1'
     get:
       security:
         - OAuth2.clientCredentials:
@@ -16378,7 +16661,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /sessions/{id}/speakers/{speakerId}:
     parameters:
-      - $ref: '#/components/parameters/sessionId1'
+      - $ref: '#/components/parameters/sessionId2'
       - $ref: '#/components/parameters/speakerId1'
     put:
       security:
@@ -17632,6 +17915,204 @@ paths:
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
+  /transactions:
+    get:
+      security:
+        - OAuth2.clientCredentials:
+            - event/transactions:read
+        - OAuth2.authorizationCode:
+            - event/transactions:read
+      summary: List Account Transactions
+      description: Gets a paginated list of transactions in the account. Results are returned in ascending `lastModified` order, with a stable internal tie-breaker applied to guarantee a deterministic total order across pages. Ordering is not client-configurable. Newly created or updated transaction records might not appear immediately in query results.
+      operationId: getAccountTransactions
+      parameters:
+        - $ref: '#/components/parameters/after'
+        - $ref: '#/components/parameters/before'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/token'
+        - name: filter
+          in: query
+          required: false
+          description: |
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+
+            Supported fields and operators are listed below:
+
+            | Field                  | Operators                          |
+            |------------------------|------------------------------------|
+            | id                     | `eq`, `ne`                         |
+            | processorTransactionId | `eq`, `ne`                         |
+            | attendee.id            | `eq`, `ne`                         |
+            | event.id               | `eq`, `ne`                         |
+            | success                | `eq`, `ne`                         |
+            | paymentType            | `eq`, `ne`                         |
+            | created                | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+            | lastModified           | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+
+            The following logical operators are supported for combining filters:
+            * and
+            * or
+          schema:
+            type: string
+          example: event.id eq '7e8a9c45-2f1b-4d3e-9a67-8b5c4f2e1a90' AND (paymentType eq 'Online Charge' OR paymentType eq 'Online Refund')
+      tags:
+        - Transactions
+      responses:
+        '200':
+          description: Successfully retrieved a paginated list of transactions in the account.
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/transaction-details-paginated-response'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+      externalDocs:
+        description: More about OAuth2 authorization code support for administrators
+        url: '#oauth2-auth-code-planner-admin'
+  /transactions/{transactionId}:
+    get:
+      security:
+        - OAuth2.clientCredentials:
+            - event/transactions:read
+        - OAuth2.authorizationCode:
+            - event/transactions:read
+      summary: Get Transaction
+      description: Gets the transaction for a given transactionId. Newly created or updated transaction records might not appear immediately in query results.
+      operationId: getTransaction
+      parameters:
+        - $ref: '#/components/parameters/transactionId'
+      tags:
+        - Transactions
+      responses:
+        '200':
+          description: Successfully retrieved the transaction for a given transactionId.
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/transaction-detail-response'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+      externalDocs:
+        description: More about OAuth2 authorization code support for administrators
+        url: '#oauth2-auth-code-planner-admin'
+  /transactions/{transactionId}/items:
+    get:
+      security:
+        - OAuth2.clientCredentials:
+            - event/transactions:read
+        - OAuth2.authorizationCode:
+            - event/transactions:read
+      summary: List Account Transaction Items
+      description: Gets a paginated list of transaction items for a given transactionId in the account. Results are returned in ascending `lastModified` order, with a stable internal tie-breaker applied to guarantee a deterministic total order across pages. Ordering is not client-configurable. Newly created or updated transaction item records might not appear immediately in query results.
+      operationId: getAccountTransactionItems
+      parameters:
+        - $ref: '#/components/parameters/transactionId'
+        - $ref: '#/components/parameters/after'
+        - $ref: '#/components/parameters/before'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/token'
+        - name: filter
+          in: query
+          required: false
+          description: |
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+
+            Supported fields and operators are listed below:
+
+            | Field        | Operators                          |
+            |--------------|------------------------------------|
+            | id           | `eq`, `ne`                         |
+            | attendee.id  | `eq`, `ne`                         |
+            | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+            | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+
+            The following logical operators are supported for combining filters:
+            * and
+            * or
+          schema:
+            type: string
+          example: lastModified gt '2022-04-21T17:15:48.000Z' AND (attendee.id eq '82da8c60-24f4-47d0-b6e2-429b18a4bb7c' OR attendee.id eq '034bb884-05de-4818-b9f9-5144495d5495')
+      tags:
+        - Transactions
+      responses:
+        '200':
+          description: Successfully retrieved a paginated list of transaction items for a given transactionId.
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/transaction-items-account-paginated-response'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+      externalDocs:
+        description: More about OAuth2 authorization code support for administrators
+        url: '#oauth2-auth-code-planner-admin'
+  /transactions/{transactionId}/items/{transactionItemId}:
+    get:
+      security:
+        - OAuth2.clientCredentials:
+            - event/transactions:read
+        - OAuth2.authorizationCode:
+            - event/transactions:read
+      summary: List Transaction Item
+      description: Gets a transaction item for a given transactionItemId for a given transactionId in the account. Newly created or updated transaction item records might not appear immediately in query results.
+      operationId: getAccountTransactionItem
+      parameters:
+        - $ref: '#/components/parameters/transactionId'
+        - $ref: '#/components/parameters/transactionItemId'
+      tags:
+        - Transactions
+      responses:
+        '200':
+          description: Successfully retrieved the transaction item for a given transactionItemId for a given transactionId in the account.
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/transaction-item-account-response'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+      externalDocs:
+        description: More about OAuth2 authorization code support for administrators
+        url: '#oauth2-auth-code-planner-admin'
   /travel-accounts:
     get:
       summary: List Travel Accounts
@@ -18761,6 +19242,103 @@ paths:
                 $ref: '#/components/schemas/patchMeetingRoom'
         '400':
           $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /venues/{venueId}/meeting-rooms/{meetingRoomId}/images:
+    put:
+      operationId: associateMeetingRoomImage
+      summary: Associate Meeting Room Image
+      description: |
+        Associate a previously uploaded image with a meeting room using a file UUID from the <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current image if one is already associated.
+
+        **Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg, .jpeg) are accepted. Maximum file size is 10 MB.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/meeting-room-images:write
+        - OAuth2.clientCredentials:
+            - venue/meeting-room-images:write
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - $ref: '#/components/parameters/meetingRoomId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/meetingRoomImageAssociationRequest'
+      tags:
+        - Venue Meeting Rooms
+      responses:
+        '200':
+          description: Successfully associated the image with the meeting room.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/meetingRoomImageAssociationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+    get:
+      operationId: listMeetingRoomImages
+      summary: List Meeting Room Images
+      description: Retrieves the images associated with a meeting room. Each meeting room has at most one image.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/meeting-room-images:read
+        - OAuth2.clientCredentials:
+            - venue/meeting-room-images:read
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - $ref: '#/components/parameters/meetingRoomId'
+      tags:
+        - Venue Meeting Rooms
+      responses:
+        '200':
+          description: Successfully retrieved the meeting room images.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/meetingRoomImagesResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /venues/{venueId}/meeting-rooms/{meetingRoomId}/images/{imageId}:
+    delete:
+      operationId: disassociateMeetingRoomImage
+      summary: Remove Meeting Room Image
+      description: Disassociates the current image from a meeting room.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/meeting-room-images:delete
+        - OAuth2.clientCredentials:
+            - venue/meeting-room-images:delete
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - $ref: '#/components/parameters/meetingRoomId'
+        - $ref: '#/components/parameters/imageId1'
+      tags:
+        - Venue Meeting Rooms
+      responses:
+        '204':
+          description: Successfully disassociated the image from the meeting room.
         '401':
           $ref: '#/components/responses/Unauthorized1'
         '403':
@@ -20637,6 +21215,14 @@ components:
       required: true
       schema:
         $ref: '#/components/schemas/uuid-property'
+    imageId1:
+      description: Unique identifier of a venue image.
+      name: imageId
+      required: true
+      in: path
+      schema:
+        type: string
+        format: uuid
     includeDeletedGuests:
       in: query
       name: includeDeletedGuests
@@ -20845,7 +21431,7 @@ components:
       description: Locale code in IETF Language tag format. Indicates desired locale of return values.
       in: query
       schema:
-        $ref: '#/components/schemas/locale.json'
+        $ref: '#/components/schemas/Locale'
     meetingRoomId:
       description: Unique identifier for a meeting room.
       name: meetingRoomId
@@ -21292,21 +21878,21 @@ components:
         allOf:
           - $ref: '#/components/schemas/uuid-property'
           - example: b054dd32-efb6-444a-b4a6-a797a18315ef
-    sessionId:
+    sessionId1:
       in: path
       name: id
       description: The unique identifier of a session.
       required: true
       schema:
         $ref: '#/components/schemas/uuid-property'
-    sessionId1:
+    sessionId2:
       in: path
       name: id
       description: Unique Id of a session
       required: true
       schema:
         $ref: '#/components/schemas/uuid-property'
-    sessionId3:
+    sessionId4:
       in: path
       name: id
       description: Unique ID of a session.
@@ -21652,6 +22238,13 @@ components:
       schema:
         type: string
         example: 1a2b3c4d5e6f7g8h9i10j11k
+    transactionId:
+      in: path
+      name: transactionId
+      description: Unique ID of a Transaction.
+      required: true
+      schema:
+        $ref: '#/components/schemas/uuid-property'
     transactionIdPathParam:
       in: path
       name: transactionId
@@ -21661,6 +22254,15 @@ components:
       schema:
         type: string
         format: transactionId
+    transactionItemId:
+      in: path
+      name: transactionItemId
+      description: Unique ID of a Transaction item.
+      required: true
+      schema:
+        type: string
+        maxLength: 75
+        example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3::7f3e2a1b-c4d5-6789-efab-2345678901bc
     travel-account-filter:
       name: filter
       in: query
@@ -21969,7 +22571,7 @@ components:
           example:
             code: 400
             message: Bad Request
-    BadRequest14:
+    BadRequest11:
       description: Bad request
       content:
         application/json:
@@ -21981,7 +22583,7 @@ components:
             status: 400
             detail: Request is unparsable, syntactically incorrect, or violates schema.
             scimType: invalidSyntax
-    BadRequest20:
+    BadRequest18:
       description: Bad request
       content:
         application/json:
@@ -22002,7 +22604,7 @@ components:
           example:
             code: 409
             message: Conflict
-    Conflict9:
+    Conflict6:
       description: The request conflicts with current state of the target resource
       content:
         application/json:
@@ -22044,7 +22646,7 @@ components:
           example:
             code: 403
             message: Access Forbidden
-    Forbidden14:
+    Forbidden11:
       description: You do not have access to the resource
       content:
         application/json:
@@ -22055,7 +22657,7 @@ components:
               - urn:ietf:params:scim:api:messages:2.0:Error
             status: 403
             detail: User is Forbidden to make this request
-    Forbidden20:
+    Forbidden18:
       description: You do not have access to the resource
       content:
         application/json:
@@ -22097,7 +22699,7 @@ components:
           example:
             code: 404
             message: Not found
-    NotFound14:
+    NotFound11:
       description: Resource not found
       content:
         application/json:
@@ -22108,7 +22710,7 @@ components:
               - urn:ietf:params:scim:api:messages:2.0:Error
             status: 404
             detail: HTTP 404 Not Found
-    NotFound20:
+    NotFound18:
       description: Resource not found
       content:
         application/json:
@@ -22147,7 +22749,7 @@ components:
           example:
             code: 429
             message: Limit Exceeded
-    TooManyRequests14:
+    TooManyRequests11:
       description: Too Many Requests
       content:
         application/json:
@@ -22158,7 +22760,7 @@ components:
               - urn:ietf:params:scim:api:messages:2.0:Error
             status: 429
             detail: Too Many Requests
-    TooManyRequests20:
+    TooManyRequests18:
       description: Too many requests
       content:
         application/json:
@@ -22173,7 +22775,7 @@ components:
           example:
             code: 401
             message: Unauthorized
-    Unauthorized14:
+    Unauthorized11:
       description: Bad or expired token
       content:
         application/json:
@@ -22185,7 +22787,7 @@ components:
             status: 401
             detail: Request failed authentication/authorization process
             scimType: invalidValue
-    Unauthorized20:
+    Unauthorized18:
       description: Bad or expired token
       content:
         application/json:
@@ -22769,52 +23371,6 @@ components:
         - event.adClicked
       type: string
       example: event.registered
-    add-on.json:
-      title: Add-on
-      type: object
-      description: Common object that holds add-on information.
-      required:
-        - id
-      properties:
-        id:
-          description: Add-on identifier.
-          type: integer
-          example: 43454324455
-        name:
-          description: Add-on name.
-          type: string
-          example: Fresh Towels
-        rate:
-          description: Add-on rate details.
-          type: object
-          required:
-            - base
-            - currency
-          properties:
-            base:
-              description: Base rate.
-              type: number
-              example: 15
-            currency:
-              $ref: '#/components/schemas/currency.json1'
-    additional-guest-fees.json:
-      title: AdditionalGuestFees
-      description: Details about additional fees for extra guests.
-      type: object
-      required:
-        - guestCount
-        - fee
-      properties:
-        guestCount:
-          description: The number of guests for which the additional fee applies.
-          type: integer
-          example: 2
-          minimum: 2
-          maximum: 5
-        fee:
-          description: The value of the additional fee for extra guests.
-          type: number
-          example: 20
     AdditionalChoice:
       title: additionalChoice
       description: Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
@@ -22850,6 +23406,52 @@ components:
           type: string
           description: Text Value of additional choice
           example: Not Applicable or Other
+    AdditionalGuestFees:
+      title: AdditionalGuestFees
+      description: Details about additional fees for extra guests.
+      type: object
+      required:
+        - guestCount
+        - fee
+      properties:
+        guestCount:
+          description: The number of guests for which the additional fee applies.
+          type: integer
+          example: 2
+          minimum: 2
+          maximum: 5
+        fee:
+          description: The value of the additional fee for extra guests.
+          type: number
+          example: 20
+    AddOn:
+      title: Add-on
+      type: object
+      description: Common object that holds add-on information.
+      required:
+        - id
+      properties:
+        id:
+          description: Add-on identifier.
+          type: integer
+          example: 43454324455
+        name:
+          description: Add-on name.
+          type: string
+          example: Fresh Towels
+        rate:
+          description: Add-on rate details.
+          type: object
+          required:
+            - base
+            - currency
+          properties:
+            base:
+              description: Base rate.
+              type: number
+              example: 15
+            currency:
+              $ref: '#/components/schemas/Currency1'
     Address:
       title: Address
       description: Contact address details.
@@ -22933,43 +23535,6 @@ components:
           example: US
     address.json:
       title: Address
-      description: Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
-      type: object
-      properties:
-        address1:
-          description: Address line 1.
-          type: string
-          example: West St. 1
-        address2:
-          description: Address line 2.
-          type: string
-          example: Apt. 16
-        city:
-          description: City name.
-          type: string
-          example: Austin
-        region:
-          description: Region name.
-          type: string
-          example: Texas
-        regionCode:
-          description: Region code.
-          type: string
-          example: TX
-        postalCode:
-          description: Postal code.
-          type: string
-          example: 23452AB
-        country:
-          description: Country name.
-          type: string
-          example: United States of America
-        countryCode:
-          description: ISO 3166 alpha-2 country code.
-          type: string
-          example: US
-    address.json1:
-      title: Address
       description: A physical address.
       type: object
       properties:
@@ -23016,6 +23581,43 @@ components:
           example: US
     Address3:
       title: Address
+      description: Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
+      type: object
+      properties:
+        address1:
+          description: Address line 1.
+          type: string
+          example: West St. 1
+        address2:
+          description: Address line 2.
+          type: string
+          example: Apt. 16
+        city:
+          description: City name.
+          type: string
+          example: Austin
+        region:
+          description: Region name.
+          type: string
+          example: Texas
+        regionCode:
+          description: Region code.
+          type: string
+          example: TX
+        postalCode:
+          description: Postal code.
+          type: string
+          example: 23452AB
+        country:
+          description: Country name.
+          type: string
+          example: United States of America
+        countryCode:
+          description: ISO 3166 alpha-2 country code.
+          type: string
+          example: US
+    Address4:
+      title: Address
       description: Address details
       type: object
       allOf:
@@ -23049,7 +23651,7 @@ components:
           minimum: -180
           maximum: 180
           example: -97
-    Address4:
+    Address5:
       title: Address
       type: object
       description: An object representing an address with various properties.
@@ -23078,7 +23680,7 @@ components:
           type: string
           description: Name of the country for example, 'United States'
           example: United States of America
-    Address5:
+    Address6:
       title: Address
       description: Address
       type: object
@@ -23115,7 +23717,7 @@ components:
           description: True indicates the address is primary.
           example: true
           default: false
-    Address6:
+    Address7:
       title: Address
       description: Address of the hotel.
       type: object
@@ -23138,7 +23740,7 @@ components:
           description: Name of the country.
           readOnly: true
           example: United States of America
-    Address7:
+    Address8:
       title: Address
       description: Address details.
       type: object
@@ -25287,43 +25889,6 @@ components:
             type: string
             example: '1234'
           description: The set of answers to a question.
-    attendee-inventory.json:
-      description: Inventory allocation for specific attendee type.
-      title: InventoryAllocation
-      type: object
-      required:
-        - attendeeType
-        - openForReservation
-      allOf:
-        - $ref: '#/components/schemas/room-inventory.json/allOf/0'
-      properties:
-        attendeeType:
-          $ref: '#/components/schemas/attendee-type-id.json'
-        openForReservation:
-          description: Indicates if this night is available for sale.
-          type: boolean
-          example: true
-        freeSellEnabled:
-          description: Indicates if free-sell is enabled for this night, which allows any attendee type to purchase the room.
-          type: boolean
-          example: true
-        sellHighestRate:
-          description: Indicates if this night inventory should be sold by highest possible rate.
-          type: boolean
-          example: false
-        waitListEnabled:
-          description: Indicates if wait list is enabled for this night.
-          type: boolean
-          example: false
-        guaranteed:
-          description: Indicates if attendee has guaranteed their blocks. Enabling this option will ensure that any unsold guaranteed rooms will be included in the total pickup.
-          type: boolean
-          example: true
-        arrivals:
-          description: Number of reservations starting from this night.
-          type: integer
-          example: 10
-          minimum: 0
     attendee-link-bulk-response:
       title: AttendeeLinkBulkResponse
       description: Collection of attendee linking responses.
@@ -25389,65 +25954,6 @@ components:
           type: string
           description: The error message contains reason of a failed email.
           example: attendee does not exist.
-    attendee-signature-response.json:
-      title: AttendeeSignatureResponse
-      description: Attendee's Signature Response.
-      type: object
-      required:
-        - id
-        - event
-        - attendee
-        - type
-        - checkinSignatureUrl
-      allOf:
-        - $ref: '#/components/schemas/check-in-message-request/allOf/0'
-      properties:
-        id:
-          description: Internal ID generated by the system.
-          type: string
-          format: uuid
-          example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
-        event:
-          description: Event information associated with the signature.
-          type: object
-          properties:
-            id:
-              description: ID of the event.
-              type: string
-              format: uuid
-              example: b62809dd-7556-49d2-884a-591bbf96cf1a
-        session:
-          description: Session information associated with the signature.
-          type: object
-          properties:
-            id:
-              description: ID of the session.
-              type: string
-              format: uuid
-              example: 4d44b9e4-8c1a-403d-a20a-0b981f539935
-        attendee:
-          description: Attendee information associated with the signature.
-          type: object
-          properties:
-            id:
-              description: ID of the attendee.
-              type: string
-              format: uuid
-              example: ce359543-61f5-492d-b8de-875c3473e8ae
-        type:
-          description: 'Type of entity this signature is associated with. Possible values are: `EVENT`, `SESSION`.'
-          type: string
-          enum:
-            - EVENT
-            - SESSION
-        checkinSignatureUrl:
-          description: Check-in signature image S3 url
-          type: string
-          example: https://custom.t2.cvent.com/files/contact/signatures/checkinSignature.jpg
-        checkoutSignatureUrl:
-          description: Check-out signature image S3 url
-          type: string
-          example: https://custom.t2.cvent.com/files/contact/signatures/checkoutSignature.jpg
     attendee-subscription-request:
       description: Request body for updating an attendee's email subscription status.
       type: object
@@ -25481,41 +25987,6 @@ components:
           type: boolean
           description: The updated subscription status. True means the attendee is unsubscribed from email communications, false means they are subscribed.
           example: true
-    attendee-type-id.json:
-      type: object
-      title: AttendeeTypeId
-      description: Contains the unique ID of the attendee type.
-      required:
-        - id
-      properties:
-        id:
-          description: The unique ID of the attendee type.
-          type: integer
-          example: 34549966
-    attendee-type.json:
-      title: AttendeeType
-      description: Attendee type details.
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/attendee-type-id.json'
-      required:
-        - id
-        - name
-        - codes
-      properties:
-        name:
-          description: The name of the attendee type.
-          type: string
-          example: Staff
-        codes:
-          description: A list of attendee type codes.
-          type: array
-          minItems: 1
-          maxItems: 6
-          items:
-            description: An attendee type code.
-            type: string
-            example: PEWATT0524317
     attendee-update:
       title: AttendeeUpdate
       description: Model representing an attendee to be updated in an event.
@@ -25852,7 +26323,7 @@ components:
         primaryAddressType:
           $ref: '#/components/schemas/AddressType'
         homeAddress:
-          $ref: '#/components/schemas/Address3'
+          $ref: '#/components/schemas/Address4'
         homePhone:
           type: string
           description: Home phone number
@@ -25864,7 +26335,7 @@ components:
           maxLength: 30
           example: 555-555-5555
         workAddress:
-          $ref: '#/components/schemas/Address3'
+          $ref: '#/components/schemas/Address4'
         workPhone:
           type: string
           description: Work phone number
@@ -26220,6 +26691,65 @@ components:
           items:
             $ref: '#/components/schemas/Attendee2'
           description: Collection of attendees who have redeemed the voucher.
+    AttendeeSignatureResponse:
+      title: AttendeeSignatureResponse
+      description: Attendee's Signature Response.
+      type: object
+      required:
+        - id
+        - event
+        - attendee
+        - type
+        - checkinSignatureUrl
+      allOf:
+        - $ref: '#/components/schemas/Audit'
+      properties:
+        id:
+          description: Internal ID generated by the system.
+          type: string
+          format: uuid
+          example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        event:
+          description: Event information associated with the signature.
+          type: object
+          properties:
+            id:
+              description: ID of the event.
+              type: string
+              format: uuid
+              example: b62809dd-7556-49d2-884a-591bbf96cf1a
+        session:
+          description: Session information associated with the signature.
+          type: object
+          properties:
+            id:
+              description: ID of the session.
+              type: string
+              format: uuid
+              example: 4d44b9e4-8c1a-403d-a20a-0b981f539935
+        attendee:
+          description: Attendee information associated with the signature.
+          type: object
+          properties:
+            id:
+              description: ID of the attendee.
+              type: string
+              format: uuid
+              example: ce359543-61f5-492d-b8de-875c3473e8ae
+        type:
+          description: 'Type of entity this signature is associated with. Possible values are: `EVENT`, `SESSION`.'
+          type: string
+          enum:
+            - EVENT
+            - SESSION
+        checkinSignatureUrl:
+          description: Check-in signature image S3 url
+          type: string
+          example: https://custom.t2.cvent.com/files/contact/signatures/checkinSignature.jpg
+        checkoutSignatureUrl:
+          description: Check-out signature image S3 url
+          type: string
+          example: https://custom.t2.cvent.com/files/contact/signatures/checkoutSignature.jpg
     AttendeeStatus:
       title: AttendeeStatus
       enum:
@@ -26234,6 +26764,41 @@ components:
       type: string
       description: This is used to denote the status of an attendee.
       example: Accepted
+    AttendeeType:
+      title: AttendeeType
+      description: Attendee type details.
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/AttendeeTypeId'
+      required:
+        - id
+        - name
+        - codes
+      properties:
+        name:
+          description: The name of the attendee type.
+          type: string
+          example: Staff
+        codes:
+          description: A list of attendee type codes.
+          type: array
+          minItems: 1
+          maxItems: 6
+          items:
+            description: An attendee type code.
+            type: string
+            example: PEWATT0524317
+    AttendeeTypeId:
+      type: object
+      title: AttendeeTypeId
+      description: Contains the unique ID of the attendee type.
+      required:
+        - id
+      properties:
+        id:
+          description: The unique ID of the attendee type.
+          type: integer
+          example: 34549966
     AttendeeUpdateStatus:
       title: AttendeeUpdateStatus
       enum:
@@ -26247,7 +26812,7 @@ components:
         - Waitlisted
       type: string
       default: No Response
-      description: "Denotes the status of an attendee to be updated. No Response: The attendee was added to an invitation list but hasn't taken any action. Accepted: The attendee is registered for the event. Cancelled: The attendee's registration for the event is cancelled. Visited: The attendee visited the event's webpage but didn't finish registration. Declined: The attendee declined to attend the event. Pending Approval: When registration approval is enabled, this status indicates the attendee is still waiting to be approved by the planner. Denied Approval: When registration approval is enabled, this status indicates the attendee has been denied approval by the planner. Waitlisted: The attendee is on the waitlist for the event. <br>The following status transitions are supported by this API:<br> * No Response -> Visited <br> * No Response -> Accepted <br> * No Response -> Declined <br> * No Response -> Pending Approval <br> * Cancelled -> Accepted <br> * Cancelled -> Pending Approval <br> * Visited -> Accepted <br> * Visited -> Pending Approval <br> * Declined -> Accepted <br> * Declined -> Pending Approval <br> * Accepted -> Cancelled <br> * Pending Approval -> Accepted <br> * Pending Approval -> Denied Approval <br> * Denied Approval -> Pending Approval <br> * Waitlisted -> Accepted"
+      description: "Denotes the status of an attendee to be updated. No Response: The attendee was added to an invitation list but hasn't taken any action. Accepted: The attendee is registered for the event. Cancelled: The attendee's registration for the event is cancelled. Visited: The attendee visited the event's webpage but didn't finish registration. Declined: The attendee declined to attend the event. Pending Approval: When registration approval is enabled, this status indicates the attendee is still waiting to be approved by the planner. Denied Approval: When registration approval is enabled, this status indicates the attendee has been denied approval by the planner. Waitlisted: The attendee is on the waitlist for the event. <br>The following status transitions are supported by this API:<br> * No Response -> Visited <br> * No Response -> Accepted <br> * No Response -> Declined <br> * No Response -> Pending Approval <br> * Cancelled -> Accepted <br> * Cancelled -> Pending Approval <br> * Visited -> Accepted <br> * Visited -> Pending Approval <br> * Declined -> Accepted <br> * Declined -> Pending Approval <br> * Accepted -> Cancelled <br> * Pending Approval -> Accepted <br> * Pending Approval -> Cancelled <br> * Pending Approval -> Denied Approval <br> * Denied Approval -> Pending Approval <br> * Waitlisted -> Accepted"
       example: Accepted
     AttendeeVisibility:
       title: AttendeeVisibility
@@ -26576,80 +27141,17 @@ components:
           type: boolean
           description: True indicates the authentication is primary.
           example: true
-    available-night.json:
-      description: Night availability details.
-      title: AvailableNight
-      type: object
-      required:
-        - hotel
-        - roomType
-        - attendeeType
-        - date
-        - quantity
-        - roomRate
-        - currency
-        - minLengthOfStay
-        - hideRate
-        - waitListEnabled
-      properties:
-        hotel:
-          $ref: '#/components/schemas/hotel-id.json'
-        roomType:
-          $ref: '#/components/schemas/room-type-id.json'
-        attendeeType:
-          $ref: '#/components/schemas/attendee-type.json'
-        date:
-          description: Date the rooms are available.
-          type: string
-          example: '2025-03-25'
-          format: date
-        quantity:
-          description: Number of rooms available.
-          type: integer
-          example: 130
-        roomRate:
-          description: Cost of room per night booked.
-          type: number
-          example: 150
-        displayRate:
-          $ref: '#/components/schemas/display-rate.json'
-        additionalGuestFees:
-          description: List of additional guest fees.
-          type: array
-          items:
-            $ref: '#/components/schemas/additional-guest-fees.json'
-          maxItems: 4
-        taxStructure:
-          $ref: '#/components/schemas/tax-structure.json'
-        currency:
-          $ref: '#/components/schemas/currency.json1'
-        maxGuests:
-          $ref: '#/components/schemas/max-guests.json'
-        minLengthOfStay:
-          description: Minimum number of nights required for a stay.
-          type: integer
-          example: 1
-          minimum: 1
-          maximum: 10
-        hideRate:
-          description: True indicates the cost of the room is hidden from attendees on the booking site.
-          type: boolean
-          example: false
-        waitListEnabled:
-          description: True indicates a waitlist is enabled for this night.
-          type: boolean
-          example: false
     available-nights:
       type: object
       title: AvailableNightsList
       description: List of available room nights and the availabilities associated details.
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
-            $ref: '#/components/schemas/available-night.json'
+            $ref: '#/components/schemas/AvailableNight'
           description: List of available room nights and their associated details.
     available-time.json:
       title: Available Times
@@ -26699,6 +27201,69 @@ components:
           items:
             $ref: '#/components/schemas/available-time.json'
           description: Collection of available time ranges and their associated details.
+    AvailableNight:
+      description: Night availability details.
+      title: AvailableNight
+      type: object
+      required:
+        - hotel
+        - roomType
+        - attendeeType
+        - date
+        - quantity
+        - roomRate
+        - currency
+        - minLengthOfStay
+        - hideRate
+        - waitListEnabled
+      properties:
+        hotel:
+          $ref: '#/components/schemas/HotelId'
+        roomType:
+          $ref: '#/components/schemas/RoomTypeId'
+        attendeeType:
+          $ref: '#/components/schemas/AttendeeType'
+        date:
+          description: Date the rooms are available.
+          type: string
+          example: '2025-03-25'
+          format: date
+        quantity:
+          description: Number of rooms available.
+          type: integer
+          example: 130
+        roomRate:
+          description: Cost of room per night booked.
+          type: number
+          example: 150
+        displayRate:
+          $ref: '#/components/schemas/DisplayRate'
+        additionalGuestFees:
+          description: List of additional guest fees.
+          type: array
+          items:
+            $ref: '#/components/schemas/AdditionalGuestFees'
+          maxItems: 4
+        taxStructure:
+          $ref: '#/components/schemas/TaxStructure'
+        currency:
+          $ref: '#/components/schemas/Currency1'
+        maxGuests:
+          $ref: '#/components/schemas/MaxGuests'
+        minLengthOfStay:
+          description: Minimum number of nights required for a stay.
+          type: integer
+          example: 1
+          minimum: 1
+          maximum: 10
+        hideRate:
+          description: True indicates the cost of the room is hidden from attendees on the booking site.
+          type: boolean
+          example: false
+        waitListEnabled:
+          description: True indicates a waitlist is enabled for this night.
+          type: boolean
+          example: false
     badge:
       title: Badge
       type: object
@@ -26746,11 +27311,11 @@ components:
         - badgeId
       properties:
         id:
-          $ref: '#/components/schemas/uuid-property-readonly.json'
+          $ref: '#/components/schemas/UUIDProperty1'
         status:
-          $ref: '#/components/schemas/badge-print-job-status.json'
+          $ref: '#/components/schemas/BadgePrintJobStatus'
         pool:
-          $ref: '#/components/schemas/badge-printer-pool-reference.json'
+          $ref: '#/components/schemas/BadgePrinterPoolRef'
         badgeId:
           type: string
           description: A unique id of the attendee for badge printing, which could be confirmation number or secured badge id depending on whether secured badge id is enabled
@@ -26762,51 +27327,19 @@ components:
           description: The ISO 8601 zoned date time when this record was created.
           readOnly: true
           example: '2017-01-02T02:00:00Z'
-    badge-print-job-error-code.json:
-      title: BadgePrintJobErrorCode
-      enum:
-        - BadgeNotFound
-        - BadgeRenderIssue
-        - Connection
-        - PrinterError
-        - AttendeeDataMissing
-        - Unknown
-      type: string
-      description: This is used to indicate the error code returned from a badge printer.
-      example: Connection
-    badge-print-job-status.json:
-      title: BadgePrintJobStatus
-      enum:
-        - Scheduled
-        - Rescheduled
-        - Assigned
-        - Failed
-        - Done
-        - Canceled
-      description: This is used to indicate the status of the badge print job.
-      example: Scheduled
     badge-print-jobs-paginated-response:
       title: BadgePrintJobsPaginatedResponse
       description: Page of Badge Print Jobs.
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
             $ref: '#/components/schemas/existing-badge-print-job'
           description: Collection of badge print jobs.
-    badge-printer-pool-reference.json:
-      title: BadgePrinterPoolRef
-      description: Reference to a Badge Print Pool.
-      type: object
-      required:
-        - id
-      properties:
-        id:
-          $ref: '#/components/schemas/uuid-property'
-    badge-printer-pool.json:
+    badge-printer-pool:
       title: BadgePrinterPool
       description: Badge Printer Pool.
       type: object
@@ -26825,12 +27358,59 @@ components:
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
             $ref: '#/components/schemas/existing-badge-printer-pool'
           description: Collection of badge printer pools.
+    BadgePrinter:
+      title: BadgePrinter
+      description: An entity that represents a badge printer.
+      required:
+        - id
+        - name
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/uuid-property'
+        name:
+          type: string
+          description: The name of the printer that will be displayed to attendees.
+          example: Printing Station 1
+          maxLength: 100
+    BadgePrinterPoolRef:
+      title: BadgePrinterPoolRef
+      description: Reference to a Badge Print Pool.
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          $ref: '#/components/schemas/uuid-property'
+    BadgePrintJobErrorCode:
+      title: BadgePrintJobErrorCode
+      enum:
+        - BadgeNotFound
+        - BadgeRenderIssue
+        - Connection
+        - PrinterError
+        - AttendeeDataMissing
+        - Unknown
+      type: string
+      description: This is used to indicate the error code returned from a badge printer.
+      example: Connection
+    BadgePrintJobStatus:
+      title: BadgePrintJobStatus
+      enum:
+        - Scheduled
+        - Rescheduled
+        - Assigned
+        - Failed
+        - Done
+        - Canceled
+      description: This is used to indicate the status of the badge print job.
+      example: Scheduled
     BadgeStatus:
       title: BadgeStatus
       type: string
@@ -27047,22 +27627,13 @@ components:
           minimum: 0
           maximum: 999999
           example: 10
-    booking-website-link.json:
+    BookingWebsiteLink:
       type: object
       title: BookingWebsiteLink
       description: Unique URL for a guest to access a reservation in Passkey's booking tool.
       readOnly: true
       allOf:
-        - title: Link
-          required:
-            - href
-          type: object
-          description: Represents a link to a related resource.
-          properties:
-            href:
-              type: string
-              description: A url provided that can be followed for linking
-              example: '?token=90c5f062-76ad-4ea4-aa53-00eb698d9262'
+        - $ref: '#/components/schemas/Link'
       example:
         href: https://book.passkey.com/entry?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXlsb2FkIjp7ImVudHJ5IjoiUkVHSVNUUkFUSU9OIiwicGFyYW1zIjpbeyJuYW1lIjoiYnJpZGdlSWQiLCJ2YWx1ZSI6IlQ3VFdNTEhQLUdFNEQifV19fQ.7sH1gO_1Aambk-SRRlO2c7ac2DOpqLmCB-zsxB71q_A
     booth-staff-list-response:
@@ -27201,7 +27772,7 @@ components:
           maxLength: 50
           example: Northern Hotel Group
         address:
-          $ref: '#/components/schemas/address.json1'
+          $ref: '#/components/schemas/address.json'
         deleted:
           type: boolean
           description: True indicates the brand is deleted.
@@ -28180,13 +28751,13 @@ components:
           type: boolean
           description: True indicates the membership item with calendar renewal type is pro-rated. The price of a pro-rated item will be reduced based on when it is purchased.
           example: false
-    call-center-link.json:
+    CallCenterLink:
       type: object
       title: CallCenterLink
       description: Unique URL for Passkey users (rather than guests) to access a reservation in Passkey's call center tool.
       readOnly: true
       allOf:
-        - $ref: '#/components/schemas/booking-website-link.json/allOf/0'
+        - $ref: '#/components/schemas/Link'
       example:
         href: https://manage.passkey.com/Login?src=api&redirect=ccbridge&regacknumber=WODS7LK4-GA8C
     campaign-data.json:
@@ -28705,7 +29276,7 @@ components:
               type: string
               example: NorthernHotels
         address:
-          $ref: '#/components/schemas/address.json1'
+          $ref: '#/components/schemas/address.json'
         deleted:
           type: boolean
           description: True indicates the chain is deleted.
@@ -28807,147 +29378,6 @@ components:
         - attendee
         - group
       example: session
-    check-in-message-criteria.json:
-      title: CheckInMessageCriteria
-      description: The criteria that an attendee needs to meet to be shown the check-in message.
-      type: object
-      required:
-        - field
-        - operator
-        - values
-      properties:
-        field:
-          type: string
-          description: The field to match.
-          example: CONTACT.email_address
-        operator:
-          type: string
-          title: FilterOperator
-          description: How criteria will be joined, only one operator is supported.
-          enum:
-            - EQ
-            - NEQ
-            - LT
-            - LTE
-            - GT
-            - GTE
-            - IN
-            - NOT_IN
-            - CONTAINS
-            - NOT_CONTAINS
-            - SW
-            - IS_EMPTY
-            - IS_NOT_EMPTY
-          example: CONTAINS
-        values:
-          type: array
-          description: Values to match.
-          items:
-            example: '@cvent.com'
-            type: string
-    check-in-message-request:
-      title: CheckInMessageRequest
-      description: A request to create a new check-in message.
-      type: object
-      required:
-        - message
-        - header
-        - event
-        - stopCheckin
-        - rules
-      allOf:
-        - title: Audit
-          description: Audit information
-          type: object
-          properties:
-            created:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date time when this record was created.
-              readOnly: true
-              example: '2017-01-02T02:00:00Z'
-            createdBy:
-              type: string
-              description: The identifier of the user that created this record.
-              readOnly: true
-              example: hporter
-            lastModified:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date time when this record was updated.
-              readOnly: true
-              example: '2019-02-12T03:00:00Z'
-            lastModifiedBy:
-              type: string
-              description: The identifier of the user that last updated this record.
-              readOnly: true
-              example: hporter
-      properties:
-        event:
-          type: string
-          format: uuid
-          description: The event ID this message belongs to.
-          example: 4fd24566-b176-432e-9d63-c579ec75a808
-        message:
-          type: string
-          description: The message that will be displayed in OnArrival.
-          minLength: 1
-          maxLength: 200
-          example: Thank you for checking into the event
-        header:
-          type: string
-          description: The message header.
-          minLength: 1
-          maxLength: 100
-          example: Welcome!
-        active:
-          type: boolean
-          description: If false, this message is disabled.
-          default: true
-          example: true
-        stopCheckin:
-          type: boolean
-          description: If true, OnArrival will stop the check-in flow.
-          default: false
-          example: true
-        sessionLevel:
-          type: boolean
-          description: If true, this message applies to session check-in.
-          default: false
-          example: true
-        sessions:
-          type: array
-          description: List of sessions this message is for.
-          items:
-            example: 01234567-89ab-cdef-0123-456789abcdef
-            format: uuid
-            type: string
-        rules:
-          type: array
-          description: Rules for when to display this message in OnArrival.
-          items:
-            $ref: '#/components/schemas/check-in-message-rule.json'
-    check-in-message-rule.json:
-      title: CheckInMessageRule
-      description: Contains the list of criteria that the check-in message needs to follow.
-      type: object
-      required:
-        - operator
-        - criteria
-      properties:
-        operator:
-          type: string
-          title: JoinOperator
-          description: How criteria will be joined, only one operator is supported.
-          enum:
-            - OR
-            - AND
-          example: AND
-        criteria:
-          type: array
-          description: Criteria for this Rule.
-          items:
-            $ref: '#/components/schemas/check-in-message-criteria.json'
     checkin.json:
       title: Checkin
       description: Represents event check-in details.
@@ -29008,7 +29438,7 @@ components:
       description: The type for the event question choice.
       default: StandardChoice
       example: StandardChoice
-    choice.json1:
+    choice.json:
       title: Choice
       description: A survey choice.
       type: object
@@ -31137,7 +31567,7 @@ components:
       nullable: true
       readOnly: true
       example: VISA
-    credit-card-types.json:
+    credit-card-types:
       description: Credit card type.
       type: string
       enum:
@@ -31269,6 +31699,22 @@ components:
           nullable: true
           writeOnly: true
           example: jdoe@example.com
+    CreditCard:
+      description: Credit card info.
+      title: CreditCard
+      type: object
+      properties:
+        number:
+          description: Card number.
+          type: string
+          example: '4444333322221111'
+        expiration:
+          description: Card expiration date in ISO 8601 format.
+          type: string
+          example: '2021-12-31'
+          format: date
+        type:
+          $ref: '#/components/schemas/credit-card-types'
     Currency:
       title: Currency
       type: string
@@ -31522,11 +31968,6 @@ components:
       example: USD
       default: USD
     currency.json1:
-      description: ISO 4217 currency code.
-      title: Currency
-      type: string
-      example: USD
-    currency.json2:
       title: Currency
       type: string
       description: The ISO 4217 standard format currency code used for RFPs.
@@ -31698,6 +32139,11 @@ components:
         - SCR
         - ZMW
         - ZWL
+    Currency1:
+      description: ISO 4217 currency code.
+      title: Currency
+      type: string
+      example: USD
     CurrencyConversionRateListResponse:
       title: CurrencyConversionRateListResponse
       description: Currency conversion rate list response for a currency in an account.
@@ -32002,42 +32448,6 @@ components:
           items:
             $ref: '#/components/schemas/existing-custom-field'
           description: Collection of custom fields.
-    custom-fields.json:
-      description: Custom fields.
-      title: CustomFields
-      type: object
-      example:
-        customField1: CustomField1
-        customField2: CustomField2
-        customField3: CustomField3
-        customField4: CustomField4
-        customField5: CustomField5
-        customField6: CustomField6
-      properties:
-        customField1:
-          description: Custom field 1.
-          type: string
-          example: CustomField1
-        customField2:
-          description: Custom field 2.
-          type: string
-          example: CustomField2
-        customField3:
-          description: Custom field 3.
-          type: string
-          example: CustomField3
-        customField4:
-          description: Custom field 4.
-          type: string
-          example: CustomField4
-        customField5:
-          description: Custom field 5.
-          type: string
-          example: CustomField5
-        customField6:
-          description: Custom field 6.
-          type: string
-          example: CustomField6
     CustomField:
       title: CustomField
       description: A Custom Field
@@ -32134,6 +32544,42 @@ components:
       type: string
       description: This is used to denote the category of a custom field.
       example: Contact
+    CustomFields:
+      description: Custom fields.
+      title: CustomFields
+      type: object
+      example:
+        customField1: CustomField1
+        customField2: CustomField2
+        customField3: CustomField3
+        customField4: CustomField4
+        customField5: CustomField5
+        customField6: CustomField6
+      properties:
+        customField1:
+          description: Custom field 1.
+          type: string
+          example: CustomField1
+        customField2:
+          description: Custom field 2.
+          type: string
+          example: CustomField2
+        customField3:
+          description: Custom field 3.
+          type: string
+          example: CustomField3
+        customField4:
+          description: Custom field 4.
+          type: string
+          example: CustomField4
+        customField5:
+          description: Custom field 5.
+          type: string
+          example: CustomField5
+        customField6:
+          description: Custom field 6.
+          type: string
+          example: CustomField6
     CustomFieldType:
       title: CustomFieldType
       enum:
@@ -32608,11 +33054,6 @@ components:
       type: string
       description: This is used to denote the type of discount
       example: Amount
-    display-rate.json:
-      description: The room rate displayed to guests, which includes any fees configured to display in the hotel tax settings.
-      title: DisplayRate
-      type: number
-      example: 150
     display-type:
       type: string
       description: 'The type of display for the field. `Bar`: It is associated with choice questions type. `DropDown`: It is associated with drop down type questions. `Horizontal`: It is associated with horizontal type questions. `List`: It is associated with list type questions. `MultiSelectBox`: It is associated with multi select box type questions. `Vertical`: It is associated with vertical type questions.'
@@ -32633,6 +33074,11 @@ components:
       description: This option allows you to choose whether to display the custom field in emails. The field name and the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to display always or only when answered. Only applicable to session custom fields.
       default: 'No'
       example: 'No'
+    DisplayRate:
+      description: The room rate displayed to guests, which includes any fees configured to display in the hotel tax settings.
+      title: DisplayRate
+      type: number
+      example: 150
     DisplayType1:
       title: DisplayType
       description: Display type indicating how to display the choices on UI. For 'Choice - Single Answer' custom field type, this defaults to Dropdown. For 'Choice - Multiple Answers' custom field type, this defaults to MultiSelectBox.
@@ -32642,7 +33088,7 @@ components:
         - Vertical
         - Horizontal
         - MultiSelectBox
-    distance.json:
+    Distance:
       description: Distance information.
       title: Distance
       type: object
@@ -33498,25 +33944,7 @@ components:
       title: ErrorResponse
       description: Represents an error response with additional details of cascading error messages.
       allOf:
-        - title: ErrorResponseBase
-          type: object
-          description: Represents an error response with no additional details.
-          required:
-            - code
-            - message
-          properties:
-            code:
-              type: integer
-              description: The HTTP status code representing the error.
-              example: 400
-            message:
-              type: string
-              description: A brief description of the error.
-              example: Bad Request
-            target:
-              type: string
-              description: The target resource of the error.
-              example: example target
+        - $ref: '#/components/schemas/ErrorResponseBase'
       type: object
       required:
         - code
@@ -33525,9 +33953,24 @@ components:
         details:
           type: array
           items:
-            $ref: '#/components/schemas/error-response/allOf/0'
+            $ref: '#/components/schemas/ErrorResponseBase'
           description: Additional details of cascading error messages.
     ErrorResponse:
+      title: ErrorResponse
+      description: Represents an error response with additional details of cascading error messages.
+      allOf:
+        - $ref: '#/components/schemas/ErrorResponseBase'
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorResponseBase'
+          description: Additional details of cascading error messages.
+    errorResponse:
       title: ErrorResponse
       description: Represents an error response with additional details of cascading error messages.
       allOf:
@@ -33874,7 +34317,7 @@ components:
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json2'
+          $ref: '#/components/schemas/paging.json1'
         data:
           type: array
           items:
@@ -34732,7 +35175,7 @@ components:
           type: array
           maxItems: 1
           items:
-            $ref: '#/components/schemas/planner.json2'
+            $ref: '#/components/schemas/planner.json1'
           description: A collection of contacts representing the event planners.
         stakeholders:
           type: array
@@ -34956,7 +35399,7 @@ components:
           type: array
           maxItems: 1
           items:
-            $ref: '#/components/schemas/planner.json2'
+            $ref: '#/components/schemas/planner.json1'
           description: A collection of contacts representing the event planners.
         stakeholders:
           type: array
@@ -35882,7 +36325,7 @@ components:
           type: string
           example: Taj Mahal
         address:
-          $ref: '#/components/schemas/Address4'
+          $ref: '#/components/schemas/Address5'
         email:
           type: string
           format: email
@@ -36251,11 +36694,11 @@ components:
         id:
           $ref: '#/components/schemas/uuid-property'
         status:
-          $ref: '#/components/schemas/badge-print-job-status.json'
+          $ref: '#/components/schemas/BadgePrintJobStatus'
         pool:
           type: object
           allOf:
-            - $ref: '#/components/schemas/badge-printer-pool-reference.json'
+            - $ref: '#/components/schemas/BadgePrinterPoolRef'
           readOnly: true
           description: A unique identifier of the badge printer pool.
         badgeId:
@@ -36268,23 +36711,10 @@ components:
           type: object
           description: Badge Print Jobs.
           allOf:
-            - title: BadgePrinter
-              description: An entity that represents a badge printer.
-              required:
-                - id
-                - name
-              type: object
-              properties:
-                id:
-                  $ref: '#/components/schemas/uuid-property'
-                name:
-                  type: string
-                  description: The name of the printer that will be displayed to attendees.
-                  example: Printing Station 1
-                  maxLength: 100
+            - $ref: '#/components/schemas/BadgePrinter'
           readOnly: true
         code:
-          $ref: '#/components/schemas/badge-print-job-error-code.json'
+          $ref: '#/components/schemas/BadgePrintJobErrorCode'
         message:
           type: string
           maxLength: 500
@@ -36311,10 +36741,10 @@ components:
         - disabled
         - name
       allOf:
-        - $ref: '#/components/schemas/badge-printer-pool.json'
+        - $ref: '#/components/schemas/badge-printer-pool'
       properties:
         id:
-          $ref: '#/components/schemas/uuid-property-readonly.json'
+          $ref: '#/components/schemas/UUIDProperty1'
         disabled:
           type: boolean
           description: A flag to indicate if the pool is disabled.
@@ -36587,169 +37017,7 @@ components:
       title: ExistingReservation
       description: Details about existing reservation.
       allOf:
-        - type: object
-          title: Reservation
-          description: Details about reservation.
-          allOf:
-            - title: Audit
-              description: Audit information
-              type: object
-              properties:
-                created:
-                  type: string
-                  format: date-time
-                  description: The ISO 8601 zoned date time when this record was created.
-                  readOnly: true
-                  example: '2017-01-02T02:00:00Z'
-                createdBy:
-                  type: string
-                  description: The identifier of the user that created this record.
-                  readOnly: true
-                  example: hporter
-                lastModified:
-                  type: string
-                  format: date-time
-                  description: The ISO 8601 zoned date time when this record was updated.
-                  readOnly: true
-                  example: '2019-02-12T03:00:00Z'
-                lastModifiedBy:
-                  type: string
-                  description: The identifier of the user that last updated this record.
-                  readOnly: true
-                  example: hporter
-          properties:
-            id:
-              description: Reservation identifier.
-              type: string
-              example: 327RVMXT
-              readOnly: true
-            confirmationNumber:
-              description: Housing system confirmation number.
-              type: string
-              example: 327RVMXT
-              readOnly: true
-            hotelConfirmationNumber:
-              description: Hotel system confirmation number.
-              type: string
-              example: '442173430305'
-              readOnly: true
-            reservationRequest:
-              description: Reservation request information.
-              type: object
-              required:
-                - id
-              properties:
-                id:
-                  description: Reservation request identifier.
-                  type: string
-                  readOnly: true
-                  example: D6A63423-G796
-                externalId:
-                  description: External reservation request identifier.
-                  type: string
-                  example: '1239350605'
-                  readOnly: true
-            attendeeTypeCode:
-              description: Attendee type code.
-              type: string
-              example: MVFBES0320484
-              readOnly: true
-            attendeeType:
-              $ref: '#/components/schemas/attendee-type-id.json'
-            roomType:
-              $ref: '#/components/schemas/room-info.json'
-            sendAcknowledgement:
-              description: True indicates an email acknowledgement after reservation creation will be sent.
-              type: boolean
-              default: true
-            splitFolio:
-              description: True indicates each guest in this reservation would pay separately.
-              type: boolean
-              example: false
-            startDate:
-              description: The ISO 8601 zoned date time when the reservation starts.
-              type: string
-              format: date-time
-              example: '2024-12-01T00:00:00Z'
-              readOnly: true
-            endDate:
-              description: The ISO 8601 zoned date time when the reservation ends.
-              type: string
-              format: date-time
-              example: '2024-12-06T00:00:00Z'
-              readOnly: true
-            numberOfAdults:
-              description: Number of adults for this reservation.
-              type: integer
-              example: 2
-            numberOfChildren:
-              description: Number of children for this reservation.
-              type: integer
-              example: 1
-            nights:
-              description: Array of nights for this reservation.
-              type: array
-              minItems: 1
-              items:
-                $ref: '#/components/schemas/reservation-night.json'
-              readOnly: true
-            guests:
-              description: Array of reservation guest details.
-              type: array
-              minItems: 1
-              maxItems: 10
-              items:
-                $ref: '#/components/schemas/reservation-guest.json'
-            customFields:
-              $ref: '#/components/schemas/custom-fields.json'
-            accessible:
-              description: True indicates this reservation requires an accessible room.
-              type: boolean
-              example: false
-            specialRequest:
-              description: Special requests.
-              type: string
-              example: Double bed
-            isCancelled:
-              description: True indicates this reservation is cancelled. DEPRECATED - use `isCanceled` instead.
-              type: boolean
-              default: false
-              deprecated: true
-              readOnly: true
-            isCanceled:
-              description: True indicates this reservation is cancelled.
-              type: boolean
-              default: false
-              readOnly: true
-            noShow:
-              description: True indicates this reservation is a NO SHOW.
-              type: boolean
-              default: false
-              readOnly: true
-            isModified:
-              description: True indicates this reservation was modified.
-              type: boolean
-              default: false
-              readOnly: true
-            isWaitListed:
-              description: True indicates this reservation is on the wait list.
-              type: boolean
-              default: false
-              readOnly: true
-            cancelled:
-              description: The ISO 8601 zoned date time when the reservation was cancelled.
-              type: string
-              format: date-time
-              example: '2024-12-01T00:00:00Z'
-              readOnly: true
-            rewardProgram:
-              $ref: '#/components/schemas/reward-program.json'
-            membershipId:
-              description: Reward program membership number.
-              type: string
-              example: 1154example
-            travelDetails:
-              $ref: '#/components/schemas/travel-details.json'
+        - $ref: '#/components/schemas/Reservation'
       required:
         - id
         - sendAcknowledgement
@@ -36769,48 +37037,19 @@ components:
           type: object
           allOf:
             - readOnly: true
-            - $ref: '#/components/schemas/housing-event-id.json'
+            - $ref: '#/components/schemas/HousingEventId'
         hotel:
-          $ref: '#/components/schemas/hotel-info.json'
+          $ref: '#/components/schemas/HotelInfo'
         totalCharges:
           description: Calculated total charges for this reservation.
           type: object
           allOf:
             - readOnly: true
-            - title: ReservationTotalCharges
-              type: object
-              description: Total charges for reservation.
-              properties:
-                amountBeforeTax:
-                  description: Total charges for the given reservation without taxes.
-                  type: integer
-                  example: 750
-                taxes:
-                  description: The amount of taxes.
-                  type: number
-                  example: 50
-                totalGuestFees:
-                  description: Total amount of additional guest fees.
-                  type: number
-                  example: 50
-                totalAddons:
-                  description: Total add-ons charges.
-                  type: number
-                  example: 30
-                amountAfterTax:
-                  description: Total charges for the given reservation including taxes.
-                  type: integer
-                  example: 800
-                totalAmount:
-                  description: Total charges for the given reservation including add-ons.
-                  type: number
-                  example: 830
-                currency:
-                  $ref: '#/components/schemas/currency.json1'
+            - $ref: '#/components/schemas/ReservationTotalCharges'
         bookingSite:
-          $ref: '#/components/schemas/booking-website-link.json'
+          $ref: '#/components/schemas/BookingWebsiteLink'
         callCenter:
-          $ref: '#/components/schemas/call-center-link.json'
+          $ref: '#/components/schemas/CallCenterLink'
         bookingContact:
           description: Booking contact information.
           type: object
@@ -36825,7 +37064,7 @@ components:
           description: List of room add-ons.
           type: array
           items:
-            $ref: '#/components/schemas/add-on.json'
+            $ref: '#/components/schemas/AddOn'
         blockCode:
           description: Block Code. DEPRECATED - use attendee type and room type to identify block code instead.
           type: string
@@ -36839,96 +37078,18 @@ components:
         - id
         - status
       allOf:
-        - type: object
-          title: ReservationRequest
-          description: Contains information about reservation request record.
-          required:
-            - housingEvent
-            - guests
-          properties:
-            sourceId:
-              description: Optional ID field you can use to attach ID's from your system to a reservation.
-              type: string
-              example: Ext ack number
-            attendeeTypeCode:
-              description: Attendee Type Code. If attendeeType is also included, the ID is used and this code is ignored.
-              type: string
-              example: MVFBES0320484
-            confirmationNumber:
-              description: Reservation request confirmation number in the Passkey housing event.
-              type: string
-              example: 327PP24H
-              readOnly: true
-            locale:
-              $ref: '#/components/schemas/locale.json-0'
-            housingEvent:
-              $ref: '#/components/schemas/housing-event-id.json'
-            block:
-              deprecated: true
-              description: Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
-              type: object
-              properties:
-                id:
-                  description: Property ID.
-                  type: integer
-                  example: 11549984
-                  deprecated: true
-            attendeeType:
-              $ref: '#/components/schemas/attendee-type-id.json'
-            roomType:
-              $ref: '#/components/schemas/room-type-id.json'
-            hotel:
-              $ref: '#/components/schemas/hotel-id.json'
-            sendAcknowledgement:
-              description: True indicates the system will send email acknowledgement after reservation creation.
-              type: boolean
-              example: true
-            splitFolio:
-              description: True indicates if each guest should have own payment.
-              type: boolean
-              example: false
-            redirectURL:
-              description: URL used to redirect a guest to another site after they create or update their reservation (commonly, back to the registration event).
-              type: string
-              format: uri
-              maxLength: 2048
-              example: https://cvent.com
-            guests:
-              description: Guests information.
-              type: array
-              minItems: 1
-              maxItems: 10
-              items:
-                $ref: '#/components/schemas/guest.json'
-            customFields:
-              $ref: '#/components/schemas/custom-fields.json'
-            accessible:
-              description: True indicates this reservation request is for an accessible room.
-              type: boolean
-              example: false
-            specialRequest:
-              description: Special requests for room.
-              type: string
-              example: Double bed
-            rewardProgram:
-              $ref: '#/components/schemas/reward-program.json'
-            membershipId:
-              description: Reward program membership number.
-              type: string
-              example: 1154example
-            travelDetails:
-              $ref: '#/components/schemas/travel-details.json'
+        - $ref: '#/components/schemas/reservation-request'
       properties:
         id:
           description: Reservation request ID.
           type: string
           example: D6A63423-G796
         status:
-          $ref: '#/components/schemas/reservation-request-statuses.json'
+          $ref: '#/components/schemas/ReservationRequestStatus'
         bookingSite:
-          $ref: '#/components/schemas/booking-website-link.json'
+          $ref: '#/components/schemas/BookingWebsiteLink'
         callCenter:
-          $ref: '#/components/schemas/call-center-link.json'
+          $ref: '#/components/schemas/CallCenterLink'
     existing-seat:
       title: ExistingSeat
       description: The response from a request to get the event seat for the event.
@@ -38053,7 +38214,7 @@ components:
           type: array
           description: List of choices for this field.
           items:
-            $ref: '#/components/schemas/choice.json1'
+            $ref: '#/components/schemas/choice.json'
         notApplicableAnswer:
           $ref: '#/components/schemas/additionalChoice.json'
         otherAnswer:
@@ -38453,7 +38614,7 @@ components:
           format: uuid
           description: Unique identifier of a guest.
           example: 07c1cf32-a603-4736-8b77-749c3cee3107
-    guest.json:
+    Guest1:
       description: Guest details.
       title: Guest
       type: object
@@ -38514,9 +38675,9 @@ components:
           type: string
           example: (231)-213-1222
         homeAddress:
-          $ref: '#/components/schemas/address.json'
+          $ref: '#/components/schemas/Address3'
         paymentInfo:
-          $ref: '#/components/schemas/payment-info.json'
+          $ref: '#/components/schemas/PaymentInfo'
     GuestRoomOccupancy:
       title: GuestRoomOccupancy
       description: 'Guest room occupancy. `SINGLE`: Single occupant. `DOUBLE`: Two occupants. `TRIPLE`: Three occupants. `QUAD`: Four occupants. '
@@ -38694,42 +38855,6 @@ components:
           items:
             $ref: '#/components/schemas/hook'
           description: Collection of contact hooks.
-    hotel-id.json:
-      type: object
-      title: HotelId
-      description: Contains unique ID of the hotel.
-      required:
-        - id
-      properties:
-        id:
-          description: The unique ID of the hotel.
-          type: integer
-          example: 49543342
-    hotel-info.json:
-      title: HotelInfo
-      type: object
-      description: Hotel information.
-      readOnly: true
-      allOf:
-        - $ref: '#/components/schemas/hotel-id.json'
-      properties:
-        name:
-          description: Hotel name.
-          type: string
-          example: Northern Hotel
-    hotel-rating.json:
-      description: The hotel's rating, used to classify the hotel's quality.
-      title: HotelRating
-      type: string
-      enum:
-        - N/A
-        - Budget
-        - 1 Star
-        - 2 Star
-        - 3 Star
-        - 4 Star
-        - 5 Star
-      example: 3 Star
     hotel-reservation-detail:
       title: HotelReservationPaginatedResponse
       description: The response from a request to get the list of hotel reservation for the attendees.  This includes the paging object as well as the collection of air actual details.
@@ -38745,6 +38870,42 @@ components:
           items:
             $ref: '#/components/schemas/HotelReservationDetail'
           description: Collection of hotel reservation for attendees.
+    HotelId:
+      type: object
+      title: HotelId
+      description: Contains unique ID of the hotel.
+      required:
+        - id
+      properties:
+        id:
+          description: The unique ID of the hotel.
+          type: integer
+          example: 49543342
+    HotelInfo:
+      title: HotelInfo
+      type: object
+      description: Hotel information.
+      readOnly: true
+      allOf:
+        - $ref: '#/components/schemas/HotelId'
+      properties:
+        name:
+          description: Hotel name.
+          type: string
+          example: Northern Hotel
+    HotelRating:
+      description: The hotel's rating, used to classify the hotel's quality.
+      title: HotelRating
+      type: string
+      enum:
+        - N/A
+        - Budget
+        - 1 Star
+        - 2 Star
+        - 3 Star
+        - 4 Star
+        - 5 Star
+      example: 3 Star
     HotelRequest:
       title: HotelRequest
       description: Representation of a hotel request.
@@ -38894,7 +39055,7 @@ components:
           description: Specifies who the hotel will charge incidental (extra) room expenses, like room service or long-distance calling.
           example: exceptions noted here.
         hotelAddress:
-          $ref: '#/components/schemas/Address6'
+          $ref: '#/components/schemas/Address7'
         hotelRoomRates:
           type: array
           description: Collection of hotel room rates the requester has taken.
@@ -39014,60 +39175,12 @@ components:
       title: HousingEvent
       description: Information about housing event.
       allOf:
-        - type: object
-          title: HousingEventSummary
-          description: Information about housing event with key information, providing a summarized view.
-          required:
-            - id
-            - name
-            - start
-            - end
-            - cutOff
-            - timeZone
-            - venue
-            - status
-          properties:
-            id:
-              description: The unique ID of the housing event.
-              type: integer
-              example: 21738574
-            name:
-              description: Event name.
-              type: string
-              example: Summit 2027
-            start:
-              description: The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder days.
-              type: string
-              example: '2027-01-13T05:00:00Z'
-              format: date-time
-            end:
-              description: The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.
-              type: string
-              example: '2027-01-15T05:00:00Z'
-              format: date-time
-            cutOff:
-              description: The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable business rules, like releasing reserved room blocks back to general availability.
-              type: string
-              example: '2026-10-13T04:00:00Z'
-              format: date-time
-            timeZone:
-              description: The event timezone from the Olson specification.
-              type: string
-              example: America/New_York
-              maxLength: 29
-            venue:
-              $ref: '#/components/schemas/venue.json1'
-            status:
-              $ref: '#/components/schemas/housing-event-statuses.json'
+        - $ref: '#/components/schemas/HousingEventSummary'
       required:
         - id
         - name
         - start
         - end
-        - resOpen
-        - resClose
-        - webResOpen
-        - webResClose
         - cutOff
         - timeZone
         - defaultLocale
@@ -39101,33 +39214,33 @@ components:
           example: '2026-12-13T05:00:00Z'
           format: date-time
         defaultLocale:
-          $ref: '#/components/schemas/locale.json-0'
+          $ref: '#/components/schemas/Locale-11'
         locales:
           description: List of event locales.
           type: array
           items:
-            $ref: '#/components/schemas/locale.json-0'
+            $ref: '#/components/schemas/Locale-11'
         image:
           description: Event image URL.
           type: string
           format: uri
           example: https://example.com/content/example.jpg
         reservationContact:
-          $ref: '#/components/schemas/reservation-contact.json'
+          $ref: '#/components/schemas/ReservationContact'
         attendeeTypes:
           description: List of attendee types for this event.
           type: array
           items:
-            $ref: '#/components/schemas/attendee-type.json'
+            $ref: '#/components/schemas/AttendeeType'
         planners:
           description: A collection of event planners for this housing event.
           type: array
           items:
-            $ref: '#/components/schemas/planner.json1'
+            $ref: '#/components/schemas/Planner'
         currency:
-          $ref: '#/components/schemas/currency.json1'
+          $ref: '#/components/schemas/Currency1'
         roomsSortType:
-          $ref: '#/components/schemas/rooms-sort-type.json'
+          $ref: '#/components/schemas/rooms-sort-type'
     housing-event-hotel:
       type: object
       title: HotelDetails
@@ -39143,7 +39256,7 @@ components:
           type: integer
           example: 125664
         housingEvent:
-          $ref: '#/components/schemas/housing-event-id.json'
+          $ref: '#/components/schemas/HousingEventId'
         name:
           description: The hotel's name.
           type: string
@@ -39160,9 +39273,9 @@ components:
           type: array
           description: List of hotel images.
           items:
-            $ref: '#/components/schemas/image-link.json'
+            $ref: '#/components/schemas/ImageLink'
         proximity:
-          $ref: '#/components/schemas/proximity.json'
+          $ref: '#/components/schemas/Proximity'
         amenities:
           type: array
           description: List of available amenities at the hotel.
@@ -39171,10 +39284,28 @@ components:
             type: string
             example: Room Service
           maxItems: 70
+        reservationAccessDate:
+          description: The hotel's reservation access date.
+          type: string
+          format: date
+          example: '2030-03-21'
+        hotelCloseDate:
+          description: The hotel's close date.
+          type: string
+          format: date
+          example: '2030-01-14'
         rating:
-          $ref: '#/components/schemas/hotel-rating.json'
+          $ref: '#/components/schemas/HotelRating'
         address:
-          $ref: '#/components/schemas/address.json'
+          $ref: '#/components/schemas/Address3'
+        rewardPrograms:
+          type: array
+          description: List of reward programs available at the hotel.
+          items:
+            $ref: '#/components/schemas/RewardProgram'
+          example:
+            - id: 10000
+              name: Hotel Rewards Program
     housing-event-hotels-list:
       type: object
       title: HotelsList
@@ -39184,13 +39315,40 @@ components:
         - data
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
             $ref: '#/components/schemas/housing-event-hotel'
           description: List of hotels associated with a particular housing event.
-    housing-event-id.json:
+    housing-event-room-types-list:
+      type: object
+      title: RoomTypesList
+      description: List of room types.
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/room-type-details'
+          description: List of room types and their associated details.
+    housing-event-summary-list:
+      type: object
+      title: HousingEventSummaryList
+      description: List of housing events with key information, providing a summarized view of each event.
+      required:
+        - paging
+        - data
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/HousingEventSummary'
+          description: List of housing events with key information, providing a summarized view of each event.
+    HousingEventId:
       type: object
       title: HousingEventId
       description: Contains unique ID of the housing event.
@@ -39201,19 +39359,7 @@ components:
           description: The unique ID of the housing event.
           type: integer
           example: 69121314
-    housing-event-room-types-list:
-      type: object
-      title: RoomTypesList
-      description: List of room types.
-      properties:
-        paging:
-          $ref: '#/components/schemas/paging.json'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/room-type-details'
-          description: List of room types and their associated details.
-    housing-event-statuses.json:
+    HousingEventStatus:
       description: Housing event status.
       title: HousingEventStatus
       type: string
@@ -39223,21 +39369,52 @@ components:
         - Closed
         - Cancelled
         - New
-    housing-event-summary-list:
+    HousingEventSummary:
       type: object
-      title: HousingEventSummaryList
-      description: List of housing events with key information, providing a summarized view of each event.
+      title: HousingEventSummary
+      description: Information about housing event with key information, providing a summarized view.
       required:
-        - paging
-        - data
+        - id
+        - name
+        - start
+        - end
+        - cutOff
+        - timeZone
+        - venue
+        - status
       properties:
-        paging:
-          $ref: '#/components/schemas/paging.json'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/housing-event/allOf/0'
-          description: List of housing events with key information, providing a summarized view of each event.
+        id:
+          description: The unique ID of the housing event.
+          type: integer
+          example: 21738574
+        name:
+          description: Event name.
+          type: string
+          example: Summit 2027
+        start:
+          description: The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder days.
+          type: string
+          example: '2027-01-13T05:00:00Z'
+          format: date-time
+        end:
+          description: The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.
+          type: string
+          example: '2027-01-15T05:00:00Z'
+          format: date-time
+        cutOff:
+          description: The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable business rules, like releasing reserved room blocks back to general availability.
+          type: string
+          example: '2026-10-13T04:00:00Z'
+          format: date-time
+        timeZone:
+          description: The event timezone from the Olson specification.
+          type: string
+          example: America/New_York
+          maxLength: 29
+        venue:
+          $ref: '#/components/schemas/Venue'
+        status:
+          $ref: '#/components/schemas/HousingEventStatus'
     HousingReservation:
       title: HousingReservation
       description: Representation of the housing reservation details.
@@ -39555,12 +39732,12 @@ components:
           type: string
           description: The entity's id value.
           example: abc-123
-    image-link.json:
+    ImageLink:
       type: object
       title: ImageLink
       description: Image URL.
       allOf:
-        - $ref: '#/components/schemas/booking-website-link.json/allOf/0'
+        - $ref: '#/components/schemas/Link'
       example:
         href: https://example.com/content/example.jpg
     Industry-1:
@@ -39587,18 +39764,107 @@ components:
         - TRANSPORTATION_AND_STORAGE
         - TRAVEL_RECREATION_AND_LEISURE
         - WHOLESALE_AND_DISTRIBUTION
+    inventory-details:
+      description: Inventory details for single night.
+      type: object
+      required:
+        - rate
+        - currentBlock
+        - pickup
+        - available
+      properties:
+        hideRates:
+          description: Indicates if rates are hidden on booking site for this night.
+          type: boolean
+          example: false
+        rate:
+          $ref: '#/components/schemas/night-rate'
+        originalBlock:
+          description: Number of inventory blocked on event creation.
+          type: integer
+          example: 100
+          minimum: 0
+        currentBlock:
+          description: Current inventory number.
+          type: integer
+          example: 150
+          minimum: 0
+        pickup:
+          description: Number of rooms sold.
+          type: integer
+          example: 50
+          minimum: 0
+        finalPickup:
+          description: Reported number of sold rooms.
+          type: integer
+          example: 45
+          minimum: 0
+        maxGuests:
+          $ref: '#/components/schemas/MaxGuests'
+        minLengthOfStay:
+          description: Minimum number nights of stay when starting from this night.
+          type: integer
+          example: 1
+          minimum: 1
+          maximum: 10
+        waitListRequests:
+          description: Number of reservations in wait list.
+          type: integer
+          example: 1
+          minimum: 0
+        available:
+          description: Number of unsold rooms.
+          type: integer
+          example: 30
     inventory-details-list:
       type: object
       title: InventoryDetailsList
       description: List of inventory details for room type by night.
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
-            $ref: '#/components/schemas/room-inventory.json'
+            $ref: '#/components/schemas/room-inventory'
           description: List of inventory details by night.
+    InventoryAllocation:
+      description: Inventory allocation for specific attendee type.
+      title: InventoryAllocation
+      type: object
+      required:
+        - attendeeType
+        - openForReservation
+      allOf:
+        - $ref: '#/components/schemas/inventory-details'
+      properties:
+        attendeeType:
+          $ref: '#/components/schemas/AttendeeTypeId'
+        openForReservation:
+          description: Indicates if this night is available for sale.
+          type: boolean
+          example: true
+        freeSellEnabled:
+          description: Indicates if free-sell is enabled for this night, which allows any attendee type to purchase the room.
+          type: boolean
+          example: true
+        sellHighestRate:
+          description: Indicates if this night inventory should be sold by highest possible rate.
+          type: boolean
+          example: false
+        waitListEnabled:
+          description: Indicates if wait list is enabled for this night.
+          type: boolean
+          example: false
+        guaranteed:
+          description: Indicates if attendee has guaranteed their blocks. Enabling this option will ensure that any unsold guaranteed rooms will be included in the total pickup.
+          type: boolean
+          example: true
+        arrivals:
+          description: Number of reservations starting from this night.
+          type: integer
+          example: 10
+          minimum: 0
     invitation-list-common.json:
       title: InvitationListCommon
       type: object
@@ -39630,7 +39896,7 @@ components:
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json2'
+          $ref: '#/components/schemas/paging.json1'
         data:
           type: array
           items:
@@ -40328,6 +40594,12 @@ components:
       example: en-US
       minLength: 1
       maxLength: 200
+    Locale-11:
+      description: Locale code in IETF language tag format.
+      title: Locale
+      type: string
+      example: es-DO
+      maxLength: 8
     locale.json:
       title: Locale
       description: Locale code
@@ -40335,12 +40607,6 @@ components:
       example: en-US
       minLength: 1
       maxLength: 200
-    locale.json-0:
-      description: Locale code in IETF language tag format.
-      title: Locale
-      type: string
-      example: es-DO
-      maxLength: 8
     location.json:
       title: Location
       type: object
@@ -40449,7 +40715,7 @@ components:
       type: string
       description: The management level of the travel account.  Defined by the supply-side.
       example: global
-    max-guests.json:
+    MaxGuests:
       title: MaxGuests
       description: Maximum number of guests the room can accommodate.
       type: integer
@@ -41020,6 +41286,76 @@ components:
       required:
         - layoutType
         - maxExhibits
+    meetingRoomImage:
+      title: Meeting Room Image
+      description: The image associated with a meeting room.
+      type: object
+      required:
+        - id
+        - href
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+          description: The ID of the associated meeting room image.
+          example: 286e2866-b443-4d09-ab0f-0fac45cc026f
+        href:
+          type: string
+          format: uri
+          readOnly: true
+          description: URL of the meeting room image.
+          example: https://images.cvent.com/production/csn/3c7be8c9-cddb-4eaf-93a8-27da3250ed4f/images/83142ebfecbb42d2ac3be0433a180829_extrasmall!_!5b5c517134afb758b6fbbefb0e94d819.jpg
+    meetingRoomImageAssociationRequest:
+      title: Meeting Room Image Association Request
+      description: Request body for associating an uploaded image file with a meeting room.
+      type: object
+      required:
+        - file
+      properties:
+        file:
+          type: object
+          description: The previously uploaded image file to associate with the meeting room.
+          required:
+            - id
+          properties:
+            id:
+              type: string
+              format: uuid
+              description: The unique identifier of a previously uploaded image file.
+              example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+    meetingRoomImageAssociationResponse:
+      title: Meeting Room Image Association Response
+      description: Response body after successfully associating an image with a meeting room.
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/meetingRoomImage'
+        - required:
+            - file
+          properties:
+            file:
+              type: object
+              description: The file uploaded to be associated with the meeting room.
+              readOnly: true
+              required:
+                - id
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                  description: The ID of the uploaded image file.
+                  example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+    meetingRoomImagesResponse:
+      title: Meeting Room Images Response
+      type: object
+      description: The images associated with a meeting room. Each meeting room has at most one image.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/meetingRoomImage'
+          maxItems: 1
+          description: The images for a meeting room. Contains at most one item.
     meetingRoomOverview:
       title: Meeting Room Overview
       description: An overview of a venue meeting room containing key identifiers and display properties.
@@ -41505,7 +41841,7 @@ components:
       title: NewReservation
       description: Details about reservation.
       allOf:
-        - $ref: '#/components/schemas/existing-reservation/allOf/0'
+        - $ref: '#/components/schemas/Reservation'
       required:
         - numberOfAdults
         - guests
@@ -41518,12 +41854,12 @@ components:
           description: Information about Passkey event for this reservation.
           type: object
           allOf:
-            - $ref: '#/components/schemas/housing-event-id.json'
+            - $ref: '#/components/schemas/HousingEventId'
         hotel:
           type: object
           description: Hotel information.
           allOf:
-            - $ref: '#/components/schemas/hotel-id.json'
+            - $ref: '#/components/schemas/HotelId'
         modifiers:
           type: object
           description: Specifies reservation options for customizing reservation behavior.
@@ -41533,7 +41869,7 @@ components:
               description: Indicates if waitlisted nights are allowed.
               example: true
               default: false
-    night-rate.json:
+    night-rate:
       description: Rate details for single night.
       type: object
       required:
@@ -41545,7 +41881,7 @@ components:
           type: number
           example: 150
         currency:
-          $ref: '#/components/schemas/currency.json1'
+          $ref: '#/components/schemas/Currency1'
     numeric-answer-format:
       type: string
       description: The answer format that a given number is stored in.
@@ -42010,7 +42346,7 @@ components:
           deprecated: true
           readOnly: true
           example: hporter
-    other-payment.json:
+    OtherPay:
       description: Other payment details.
       title: OtherPay
       type: object
@@ -42297,7 +42633,7 @@ components:
           example: 2
         _links:
           $ref: '#/components/schemas/pagination-links.json'
-    paging.json2:
+    paging.json1:
       title: Paging
       required:
         - _links
@@ -42505,25 +42841,6 @@ components:
           description: The ISO 8601 zoned date and time when the budget item was last modified.
           example: '2020-02-07T00:00:00.000Z'
           readOnly: true
-    payment-info.json:
-      description: Payment information.
-      title: PaymentInfo
-      type: object
-      properties:
-        paymentType:
-          $ref: '#/components/schemas/payment-types.json'
-        fullName:
-          description: Full name.
-          type: string
-          example: Gustav Schultz
-        address:
-          $ref: '#/components/schemas/address.json'
-        phone:
-          description: Phone number.
-          type: string
-          example: (231)213-1222
-        other:
-          $ref: '#/components/schemas/other-payment.json'
     payment-method-type.json:
       title: PaymentMethodType
       type: string
@@ -42632,12 +42949,31 @@ components:
               format: uuid
               example: 9463c74e-18c6-401a-a710-ae0f485bf959
           description: This is the budget item where this payment was made.
-    payment-types.json:
+    payment-types:
       description: Payment type.
       type: string
       enum:
         - CreditCard
         - Other
+    PaymentInfo:
+      description: Payment information.
+      title: PaymentInfo
+      type: object
+      properties:
+        paymentType:
+          $ref: '#/components/schemas/payment-types'
+        fullName:
+          description: Full name.
+          type: string
+          example: Gustav Schultz
+        address:
+          $ref: '#/components/schemas/Address3'
+        phone:
+          description: Phone number.
+          type: string
+          example: (231)213-1222
+        other:
+          $ref: '#/components/schemas/OtherPay'
     PaymentMethod:
       title: PaymentMethod
       enum:
@@ -42789,6 +43125,23 @@ components:
         - mobile
       type: string
       example: work
+    Planner:
+      title: Planner
+      description: Planner details.
+      type: object
+      properties:
+        firstName:
+          description: Planner first name.
+          type: string
+          example: Alan
+        lastName:
+          description: Planner last name.
+          type: string
+          example: Wood
+        email:
+          description: Planner email.
+          type: string
+          example: aw@example.com
     planner.json:
       title: Planner
       description: Represents a planner for an appointment event and the planner's related details.
@@ -42827,23 +43180,6 @@ components:
           maxLength: 30
           example: Mr.
     planner.json1:
-      title: Planner
-      description: Planner details.
-      type: object
-      properties:
-        firstName:
-          description: Planner first name.
-          type: string
-          example: Alan
-        lastName:
-          description: Planner last name.
-          type: string
-          example: Wood
-        email:
-          description: Planner email.
-          type: string
-          example: aw@example.com
-    planner.json2:
       title: Planner
       description: Represents the planner of an event.
       type: object
@@ -43167,7 +43503,7 @@ components:
           type: object
           deprecated: true
           allOf:
-            - $ref: '#/components/schemas/planner.json2/properties/homeAddress/allOf/0'
+            - $ref: '#/components/schemas/planner.json1/properties/homeAddress/allOf/0'
             - properties:
                 latitude:
                   type: integer
@@ -43395,6 +43731,7 @@ components:
         - multi_select
         - text_multi_line
         - percent_or_money
+        - boolean
       type: string
       description: Value type of the policy
     PollResponse:
@@ -43921,7 +44258,7 @@ components:
           example: USD
           description: The ISO 4217 standard format currency code specified for the property.
         address:
-          $ref: '#/components/schemas/address.json1'
+          $ref: '#/components/schemas/address.json'
         externalCodes:
           type: array
           items:
@@ -44161,7 +44498,7 @@ components:
               example: All invoices must be paid in 30 days.
               deprecated: true
             currencyCode:
-              $ref: '#/components/schemas/currency.json2'
+              $ref: '#/components/schemas/currency.json1'
             commissionableBid:
               type: boolean
               description: True indicates this is a commissionable bid.
@@ -44255,13 +44592,13 @@ components:
         - proposalCode
         - status
         - version
-    proximity.json:
+    Proximity:
       description: Proximity of the event venue to the hotel.
       title: Proximity
       type: object
       properties:
         distance:
-          $ref: '#/components/schemas/distance.json'
+          $ref: '#/components/schemas/Distance'
         mapMessage:
           description: Message shown on map.
           type: string
@@ -44558,7 +44895,7 @@ components:
               type: array
               description: List of choices for the question.
               items:
-                $ref: '#/components/schemas/choice.json1'
+                $ref: '#/components/schemas/choice.json'
             categories:
               type: array
               description: List of categories for the question.
@@ -45326,7 +45663,241 @@ components:
       exclusiveMinimum: true
       example: 2.3
       minimum: 0
-    reservation-contact.json:
+    Reservation:
+      type: object
+      title: Reservation
+      description: Details about reservation.
+      allOf:
+        - $ref: '#/components/schemas/Audit'
+      properties:
+        id:
+          description: Reservation identifier.
+          type: string
+          example: 327RVMXT
+          readOnly: true
+        confirmationNumber:
+          description: Housing system confirmation number.
+          type: string
+          example: 327RVMXT
+          readOnly: true
+        hotelConfirmationNumber:
+          description: Hotel system confirmation number.
+          type: string
+          example: '442173430305'
+          readOnly: true
+        reservationRequest:
+          description: Reservation request information.
+          type: object
+          required:
+            - id
+          properties:
+            id:
+              description: Reservation request identifier.
+              type: string
+              readOnly: true
+              example: D6A63423-G796
+            externalId:
+              description: External reservation request identifier.
+              type: string
+              example: '1239350605'
+              readOnly: true
+        attendeeTypeCode:
+          description: Attendee type code.
+          type: string
+          example: MVFBES0320484
+          readOnly: true
+        attendeeType:
+          $ref: '#/components/schemas/AttendeeTypeId'
+        roomType:
+          $ref: '#/components/schemas/RoomInfo'
+        sendAcknowledgement:
+          description: True indicates an email acknowledgement after reservation creation will be sent.
+          type: boolean
+          default: true
+        splitFolio:
+          description: True indicates each guest in this reservation would pay separately.
+          type: boolean
+          example: false
+        startDate:
+          description: The ISO 8601 zoned date time when the reservation starts.
+          type: string
+          format: date-time
+          example: '2024-12-01T00:00:00Z'
+          readOnly: true
+        endDate:
+          description: The ISO 8601 zoned date time when the reservation ends.
+          type: string
+          format: date-time
+          example: '2024-12-06T00:00:00Z'
+          readOnly: true
+        numberOfAdults:
+          description: Number of adults for this reservation.
+          type: integer
+          example: 2
+        numberOfChildren:
+          description: Number of children for this reservation.
+          type: integer
+          example: 1
+        nights:
+          description: Array of nights for this reservation.
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/ReservationNight'
+          readOnly: true
+        guests:
+          description: Array of reservation guest details.
+          type: array
+          minItems: 1
+          maxItems: 10
+          items:
+            $ref: '#/components/schemas/ReservationGuest'
+        customFields:
+          $ref: '#/components/schemas/CustomFields'
+        accessible:
+          description: True indicates this reservation requires an accessible room.
+          type: boolean
+          example: false
+        specialRequest:
+          description: Special requests.
+          type: string
+          example: Double bed
+        isCancelled:
+          description: True indicates this reservation is cancelled. DEPRECATED - use `isCanceled` instead.
+          type: boolean
+          default: false
+          deprecated: true
+          readOnly: true
+        isCanceled:
+          description: True indicates this reservation is cancelled.
+          type: boolean
+          default: false
+          readOnly: true
+        noShow:
+          description: True indicates this reservation is a NO SHOW.
+          type: boolean
+          default: false
+          readOnly: true
+        isModified:
+          description: True indicates this reservation was modified.
+          type: boolean
+          default: false
+          readOnly: true
+        isWaitListed:
+          description: True indicates this reservation is on the wait list.
+          type: boolean
+          default: false
+          readOnly: true
+        cancelled:
+          description: The ISO 8601 zoned date time when the reservation was cancelled.
+          type: string
+          format: date-time
+          example: '2024-12-01T00:00:00Z'
+          readOnly: true
+        rewardProgram:
+          $ref: '#/components/schemas/RewardProgram'
+        membershipId:
+          description: Reward program membership number.
+          type: string
+          example: 1154example
+        travelDetails:
+          $ref: '#/components/schemas/TravelDetails'
+    reservation-request:
+      type: object
+      title: ReservationRequest
+      description: Contains information about reservation request record.
+      required:
+        - housingEvent
+        - guests
+      properties:
+        sourceId:
+          description: Optional ID field you can use to attach ID's from your system to a reservation.
+          type: string
+          example: Ext ack number
+        attendeeTypeCode:
+          description: Attendee Type Code. If attendeeType is also included, the ID is used and this code is ignored.
+          type: string
+          example: MVFBES0320484
+        confirmationNumber:
+          description: Reservation request confirmation number in the Passkey housing event.
+          type: string
+          example: 327PP24H
+          readOnly: true
+        locale:
+          $ref: '#/components/schemas/Locale-11'
+        housingEvent:
+          $ref: '#/components/schemas/HousingEventId'
+        block:
+          deprecated: true
+          description: Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
+          type: object
+          properties:
+            id:
+              description: Property ID.
+              type: integer
+              example: 11549984
+              deprecated: true
+        attendeeType:
+          $ref: '#/components/schemas/AttendeeTypeId'
+        roomType:
+          $ref: '#/components/schemas/RoomTypeId'
+        hotel:
+          $ref: '#/components/schemas/HotelId'
+        sendAcknowledgement:
+          description: True indicates the system will send email acknowledgement after reservation creation.
+          type: boolean
+          example: true
+        splitFolio:
+          description: True indicates if each guest should have own payment.
+          type: boolean
+          example: false
+        redirectURL:
+          description: URL used to redirect a guest to another site after they create or update their reservation (commonly, back to the registration event).
+          type: string
+          format: uri
+          maxLength: 2048
+          example: https://cvent.com
+        guests:
+          description: Guests information.
+          type: array
+          minItems: 1
+          maxItems: 10
+          items:
+            $ref: '#/components/schemas/Guest1'
+        customFields:
+          $ref: '#/components/schemas/CustomFields'
+        accessible:
+          description: True indicates this reservation request is for an accessible room.
+          type: boolean
+          example: false
+        specialRequest:
+          description: Special requests for room.
+          type: string
+          example: Double bed
+        rewardProgram:
+          $ref: '#/components/schemas/RewardProgram'
+        membershipId:
+          description: Reward program membership number.
+          type: string
+          example: 1154example
+        travelDetails:
+          $ref: '#/components/schemas/TravelDetails'
+    reservation-request-paginated-response:
+      title: HousingReservationPaginatedResponse
+      description: The response from a request to get the list of housing reservation request details for the attendees. This includes the paging object as well as the collection of housing reservation request details.
+      required:
+        - paging
+        - data
+      type: object
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/HousingReservationResponse'
+          description: Collection of reservation request details for attendees.
+    ReservationContact:
       title: ReservationContact
       description: Reservation contact details for this event.
       type: object
@@ -45347,7 +45918,7 @@ components:
           description: Email address.
           type: string
           example: venue@example.com
-    reservation-guest.json:
+    ReservationGuest:
       type: object
       title: ReservationGuest
       description: Guest details for confirmed reservation.
@@ -45358,7 +45929,7 @@ components:
         - departure
         - email
       allOf:
-        - $ref: '#/components/schemas/guest.json'
+        - $ref: '#/components/schemas/Guest1'
       properties:
         ageQualifyingCode:
           description: Code that specifies if the guest is an adult or child. (10 - adult, 8 - child)
@@ -45373,28 +45944,10 @@ components:
           example: true
           default: false
         paymentInfo:
-          $ref: '#/components/schemas/reservation-payment-info.json'
+          $ref: '#/components/schemas/ReservationPaymentInfo'
         locale:
-          $ref: '#/components/schemas/locale.json-0'
-    reservation-night-rate.json:
-      description: Rate details for a single reservation night.
-      title: ReservationNightRate
-      type: object
-      required:
-        - base
-        - currency
-      allOf:
-        - $ref: '#/components/schemas/night-rate.json'
-      properties:
-        additionalGuestFees:
-          description: List of additional guest fees.
-          type: array
-          items:
-            $ref: '#/components/schemas/additional-guest-fees.json'
-          maxItems: 4
-        displayRate:
-          $ref: '#/components/schemas/display-rate.json'
-    reservation-night.json:
+          $ref: '#/components/schemas/Locale-11'
+    ReservationNight:
       description: Reservation night details.
       title: ReservationNight
       type: object
@@ -45419,111 +45972,34 @@ components:
           type: boolean
           example: false
         rate:
-          $ref: '#/components/schemas/reservation-night-rate.json'
-    reservation-payment-info.json:
+          $ref: '#/components/schemas/ReservationNightRate'
+    ReservationNightRate:
+      description: Rate details for a single reservation night.
+      title: ReservationNightRate
+      type: object
+      required:
+        - base
+        - currency
+      allOf:
+        - $ref: '#/components/schemas/night-rate'
+      properties:
+        additionalGuestFees:
+          description: List of additional guest fees.
+          type: array
+          items:
+            $ref: '#/components/schemas/AdditionalGuestFees'
+          maxItems: 4
+        displayRate:
+          $ref: '#/components/schemas/DisplayRate'
+    ReservationPaymentInfo:
       description: Payment information.
       title: Reservation Payment Info
       allOf:
-        - $ref: '#/components/schemas/payment-info.json'
+        - $ref: '#/components/schemas/PaymentInfo'
       properties:
         creditCard:
-          $ref: '#/components/schemas/tokenized-credit-card.json'
-    reservation-request:
-      type: object
-      title: ReservationRequest
-      description: Contains information about reservation request record.
-      required:
-        - housingEvent
-        - guests
-      properties:
-        sourceId:
-          description: Optional ID field you can use to attach ID's from your system to a reservation.
-          type: string
-          example: Ext ack number
-        attendeeTypeCode:
-          description: Attendee Type Code. If attendeeType is also included, the ID is used and this code is ignored.
-          type: string
-          example: MVFBES0320484
-        confirmationNumber:
-          description: Reservation request confirmation number in the Passkey housing event.
-          type: string
-          example: 327PP24H
-          readOnly: true
-        locale:
-          $ref: '#/components/schemas/locale.json-0'
-        housingEvent:
-          $ref: '#/components/schemas/housing-event-id.json'
-        block:
-          deprecated: true
-          description: Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
-          type: object
-          properties:
-            id:
-              description: Property ID.
-              type: integer
-              example: 11549984
-              deprecated: true
-        attendeeType:
-          $ref: '#/components/schemas/attendee-type-id.json'
-        roomType:
-          $ref: '#/components/schemas/room-type-id.json'
-        hotel:
-          $ref: '#/components/schemas/hotel-id.json'
-        sendAcknowledgement:
-          description: True indicates the system will send email acknowledgement after reservation creation.
-          type: boolean
-          example: true
-        splitFolio:
-          description: True indicates if each guest should have own payment.
-          type: boolean
-          example: false
-        redirectURL:
-          description: URL used to redirect a guest to another site after they create or update their reservation (commonly, back to the registration event).
-          type: string
-          format: uri
-          maxLength: 2048
-          example: https://cvent.com
-        guests:
-          description: Guests information.
-          type: array
-          minItems: 1
-          maxItems: 10
-          items:
-            $ref: '#/components/schemas/guest.json'
-        customFields:
-          $ref: '#/components/schemas/custom-fields.json'
-        accessible:
-          description: True indicates this reservation request is for an accessible room.
-          type: boolean
-          example: false
-        specialRequest:
-          description: Special requests for room.
-          type: string
-          example: Double bed
-        rewardProgram:
-          $ref: '#/components/schemas/reward-program.json'
-        membershipId:
-          description: Reward program membership number.
-          type: string
-          example: 1154example
-        travelDetails:
-          $ref: '#/components/schemas/travel-details.json'
-    reservation-request-paginated-response:
-      title: HousingReservationPaginatedResponse
-      description: The response from a request to get the list of housing reservation request details for the attendees. This includes the paging object as well as the collection of housing reservation request details.
-      required:
-        - paging
-        - data
-      type: object
-      properties:
-        paging:
-          $ref: '#/components/schemas/Paging'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/HousingReservationResponse'
-          description: Collection of reservation request details for attendees.
-    reservation-request-statuses.json:
+          $ref: '#/components/schemas/TokenizedCreditCard'
+    ReservationRequestStatus:
       title: ReservationRequestStatus
       description: Reservation request status.
       readOnly: true
@@ -45537,12 +46013,43 @@ components:
       description: Details list about existing reservations.
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
             $ref: '#/components/schemas/existing-reservation'
           description: List of reservation details.
+    ReservationTotalCharges:
+      title: ReservationTotalCharges
+      type: object
+      description: Total charges for reservation.
+      properties:
+        amountBeforeTax:
+          description: Total charges for the given reservation without taxes.
+          type: integer
+          example: 750
+        taxes:
+          description: The amount of taxes.
+          type: number
+          example: 50
+        totalGuestFees:
+          description: Total amount of additional guest fees.
+          type: number
+          example: 50
+        totalAddons:
+          description: Total add-ons charges.
+          type: number
+          example: 30
+        amountAfterTax:
+          description: Total charges for the given reservation including taxes.
+          type: integer
+          example: 800
+        totalAmount:
+          description: Total charges for the given reservation including add-ons.
+          type: number
+          example: 830
+        currency:
+          $ref: '#/components/schemas/Currency1'
     ResourceType:
       title: resourceType
       description: Resource Type
@@ -45886,7 +46393,7 @@ components:
         - request
       type: string
       example: always
-    reward-program.json:
+    RewardProgram:
       title: RewardProgram
       type: object
       description: Represents reward program information.
@@ -47007,21 +47514,6 @@ components:
         - GUEST_ROOMS_ONLY
         - RESTAURANT_RFP
         - SERVICE_PROVIDER
-    room-attendee-type.json:
-      title: RoomAttendeeType
-      description: Attendee type details specific to room.
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/attendee-type.json'
-      properties:
-        cancelPolicy:
-          description: Room cancellation policy for the attendee types.
-          type: string
-          example: If you wish to cancel your reservation, please do so 72 hours prior to your arrival date.
-        taxPolicy:
-          description: Room tax policy for the attendee types.
-          type: string
-          example: New York State Sales Tax is currently 8.875% per night.
     room-bed-type.json:
       title: Room bed type
       enum:
@@ -47037,30 +47529,7 @@ components:
       type: string
       description: Code representing the bed type.
       example: queen
-    room-id.json:
-      type: object
-      title: RoomId
-      description: Contains unique ID of the room.
-      required:
-        - id
-      properties:
-        id:
-          description: The unique ID of the room.
-          type: integer
-          example: 11549984
-    room-info.json:
-      title: RoomInfo
-      type: object
-      description: Room information.
-      allOf:
-        - $ref: '#/components/schemas/room-id.json'
-      properties:
-        name:
-          description: Room name.
-          type: string
-          example: King
-          readOnly: true
-    room-inventory.json:
+    room-inventory:
       description: Room inventory details for single night.
       type: object
       required:
@@ -47069,64 +47538,14 @@ components:
         - roomType
         - date
       allOf:
-        - description: Inventory details for single night.
-          type: object
-          required:
-            - rate
-            - currentBlock
-            - pickup
-            - available
-          properties:
-            hideRates:
-              description: Indicates if rates are hidden on booking site for this night.
-              type: boolean
-              example: false
-            rate:
-              $ref: '#/components/schemas/night-rate.json'
-            originalBlock:
-              description: Number of inventory blocked on event creation.
-              type: integer
-              example: 100
-              minimum: 0
-            currentBlock:
-              description: Current inventory number.
-              type: integer
-              example: 150
-              minimum: 0
-            pickup:
-              description: Number of rooms sold.
-              type: integer
-              example: 50
-              minimum: 0
-            finalPickup:
-              description: Reported number of sold rooms.
-              type: integer
-              example: 45
-              minimum: 0
-            maxGuests:
-              $ref: '#/components/schemas/max-guests.json'
-            minLengthOfStay:
-              description: Minimum number nights of stay when starting from this night.
-              type: integer
-              example: 1
-              minimum: 1
-              maximum: 10
-            waitListRequests:
-              description: Number of reservations in wait list.
-              type: integer
-              example: 1
-              minimum: 0
-            available:
-              description: Number of unsold rooms.
-              type: integer
-              example: 30
+        - $ref: '#/components/schemas/inventory-details'
       properties:
         housingEvent:
-          $ref: '#/components/schemas/housing-event-id.json'
+          $ref: '#/components/schemas/HousingEventId'
         hotel:
-          $ref: '#/components/schemas/hotel-id.json'
+          $ref: '#/components/schemas/HotelId'
         roomType:
-          $ref: '#/components/schemas/room-id.json'
+          $ref: '#/components/schemas/RoomId'
         date:
           description: Inventory date.
           type: string
@@ -47144,7 +47563,7 @@ components:
           description: Inventory allocation by attendee type.
           type: array
           items:
-            $ref: '#/components/schemas/attendee-inventory.json'
+            $ref: '#/components/schemas/InventoryAllocation'
           minItems: 1
     room-type-details:
       type: object
@@ -47154,7 +47573,6 @@ components:
         - id
         - housingEvent
         - hotel
-        - housingAttendees
         - name
         - description
       properties:
@@ -47163,14 +47581,14 @@ components:
           type: integer
           example: 2345
         housingEvent:
-          $ref: '#/components/schemas/housing-event-id.json'
+          $ref: '#/components/schemas/HousingEventId'
         hotel:
-          $ref: '#/components/schemas/hotel-id.json'
+          $ref: '#/components/schemas/HotelId'
         attendeeTypes:
           description: List of supported attendee types for this room type, and their individual room policies.
           type: array
           items:
-            $ref: '#/components/schemas/room-attendee-type.json'
+            $ref: '#/components/schemas/RoomAttendeeType'
         name:
           description: Name of the room type.
           type: string
@@ -47183,23 +47601,27 @@ components:
           type: array
           description: List of room images.
           items:
-            $ref: '#/components/schemas/image-link.json'
+            $ref: '#/components/schemas/ImageLink'
         customOrder:
           description: Specifies a custom sort order defined by the user. This property is applicable only when the default price-based sorting is not active.
           type: integer
           minimum: 1
           example: 1
-    room-type-id.json:
+    RoomAttendeeType:
+      title: RoomAttendeeType
+      description: Attendee type details specific to room.
       type: object
-      title: roomTypeId
-      description: Contains unique ID of the room type.
-      required:
-        - id
+      allOf:
+        - $ref: '#/components/schemas/AttendeeType'
       properties:
-        id:
-          description: The unique ID of the room type.
-          type: integer
-          example: 11549984
+        cancelPolicy:
+          description: Room cancellation policy for the attendee types.
+          type: string
+          example: If you wish to cancel your reservation, please do so 72 hours prior to your arrival date.
+        taxPolicy:
+          description: Room tax policy for the attendee types.
+          type: string
+          example: New York State Sales Tax is currently 8.875% per night.
     RoomBlock:
       title: RoomBlock
       description: Contains details related to room allotment for a day.
@@ -47248,13 +47670,47 @@ components:
           example: 24
         type:
           $ref: '#/components/schemas/GuestRoomType'
-    rooms-sort-type.json:
+    RoomId:
+      type: object
+      title: RoomId
+      description: Contains unique ID of the room.
+      required:
+        - id
+      properties:
+        id:
+          description: The unique ID of the room.
+          type: integer
+          example: 11549984
+    RoomInfo:
+      title: RoomInfo
+      type: object
+      description: Room information.
+      allOf:
+        - $ref: '#/components/schemas/RoomId'
+      properties:
+        name:
+          description: Room name.
+          type: string
+          example: King
+          readOnly: true
+    rooms-sort-type:
       description: 'Rooms sort type. CustomOrder: A user-defined sort order. PriceAscending: Data sorted with lowest price first. PriceDescending: Data sorted by highest price first.'
       type: string
       enum:
         - CustomOrder
         - PriceAscending
         - PriceDescending
+    RoomTypeId:
+      type: object
+      title: roomTypeId
+      description: Contains unique ID of the room type.
+      required:
+        - id
+      properties:
+        id:
+          description: The unique ID of the room type.
+          type: integer
+          example: 11549984
     schedule-action.json:
       title: ScheduleAction
       enum:
@@ -48630,11 +49086,11 @@ components:
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
-            $ref: '#/components/schemas/attendee-signature-response.json'
+            $ref: '#/components/schemas/AttendeeSignatureResponse'
           maxItems: 200
           description: Collection of signatures.
     sleeping-room-block.json:
@@ -49296,7 +49752,7 @@ components:
           readOnly: true
           description: The work address of the stakeholder (no longer supported).
           allOf:
-            - $ref: '#/components/schemas/planner.json2/properties/homeAddress/allOf/0'
+            - $ref: '#/components/schemas/planner.json1/properties/homeAddress/allOf/0'
         nickname:
           type: string
           deprecated: true
@@ -49309,7 +49765,7 @@ components:
           deprecated: true
           readOnly: true
           allOf:
-            - $ref: '#/components/schemas/planner.json2/properties/optOut/allOf/0'
+            - $ref: '#/components/schemas/planner.json1/properties/optOut/allOf/0'
         pager:
           description: Pager phone number.
           type: string
@@ -49322,7 +49778,7 @@ components:
           deprecated: true
           readOnly: true
           allOf:
-            - $ref: '#/components/schemas/planner.json2/properties/_links/allOf/0'
+            - $ref: '#/components/schemas/planner.json1/properties/_links/allOf/0'
         deleted:
           type: boolean
           deprecated: true
@@ -49351,7 +49807,7 @@ components:
           deprecated: true
           readOnly: true
           allOf:
-            - $ref: '#/components/schemas/planner.json2/properties/gender/allOf/0'
+            - $ref: '#/components/schemas/planner.json1/properties/gender/allOf/0'
         designation:
           type: string
           deprecated: true
@@ -49379,18 +49835,18 @@ components:
           deprecated: true
           readOnly: true
           allOf:
-            - $ref: '#/components/schemas/planner.json2/properties/membership/allOf/0'
+            - $ref: '#/components/schemas/planner.json1/properties/membership/allOf/0'
         primaryAddressType:
           type: string
           deprecated: true
           readOnly: true
           allOf:
-            - $ref: '#/components/schemas/planner.json2/properties/primaryAddressType/allOf/0'
+            - $ref: '#/components/schemas/planner.json1/properties/primaryAddressType/allOf/0'
         homeAddress:
           type: object
           deprecated: true
           allOf:
-            - $ref: '#/components/schemas/planner.json2/properties/homeAddress/allOf/0'
+            - $ref: '#/components/schemas/planner.json1/properties/homeAddress/allOf/0'
             - properties:
                 latitude:
                   type: integer
@@ -51792,7 +52248,7 @@ components:
           $ref: '#/components/schemas/TaxSchedule'
         generalLedgerCode:
           $ref: '#/components/schemas/AGeneralLedgerCodeUsedToCategorizeFinancialDataWhichHelpsBusinessesAnalyzeAndReportOnTheirFinancialActivity'
-    tax-and-fee.json:
+    TaxAndFee:
       title: TaxAndFee
       description: A single tax or fee applicable to a room.
       type: object
@@ -51849,25 +52305,6 @@ components:
             - false: The tax or fee is listed separately at the end of the booking process. (Displayed rate is the room rate only.)
           type: boolean
           example: false
-    tax-structure.json:
-      title: TaxStructure
-      description: Details about taxes and fees applicable to a room.
-      type: object
-      required:
-        - disclosureStatement
-        - items
-      properties:
-        disclosureStatement:
-          description: Statement disclosing tax and fee information.
-          type: string
-          example: Total room charges will include all room fees and taxes (Subject to change).
-        items:
-          description: List of tax or fee items.
-          type: array
-          items:
-            $ref: '#/components/schemas/tax-and-fee.json'
-          minItems: 0
-          maxItems: 15
     taxes-paginated-response:
       title: TaxesResponse
       required:
@@ -51905,6 +52342,25 @@ components:
           type: number
           description: Default tax rate for the schedule, expressed as a percentage.
           example: 8.875
+    TaxStructure:
+      title: TaxStructure
+      description: Details about taxes and fees applicable to a room.
+      type: object
+      required:
+        - disclosureStatement
+        - items
+      properties:
+        disclosureStatement:
+          description: Statement disclosing tax and fee information.
+          type: string
+          example: Total room charges will include all room fees and taxes (Subject to change).
+        items:
+          description: List of tax or fee items.
+          type: array
+          items:
+            $ref: '#/components/schemas/TaxAndFee'
+          minItems: 0
+          maxItems: 15
     TaxType1:
       title: Tax Type
       enum:
@@ -51990,7 +52446,7 @@ components:
       example: png
     TicketType:
       title: TicketType
-      description: Category of the passenger's ticket for an air booking.
+      description: Category of the passenger's ticket class for an air booking.
       type: string
       enum:
         - Economy/Coach
@@ -52016,28 +52472,14 @@ components:
       type: string
       description: "DEFINED: Appointments of this type can be created at time intervals and locations created by the planner. FLEXIBLE: Appointments of this type can be created any time on the schedule in a custom location of the host's choosing or within time intervals and locations created by the planner."
       example: DEFINED
-    tokenized-credit-card.json:
+    TokenizedCreditCard:
       description: Credit card info.
       title: Tokenized Credit Card
       type: object
       required:
         - paymentToken
       allOf:
-        - description: Credit card info.
-          title: CreditCard
-          type: object
-          properties:
-            number:
-              description: Card number.
-              type: string
-              example: '4444333322221111'
-            expiration:
-              description: Card expiration date in ISO 8601 format.
-              type: string
-              example: '2021-12-31'
-              format: date
-            type:
-              $ref: '#/components/schemas/credit-card-types.json'
+        - $ref: '#/components/schemas/CreditCard'
       properties:
         number:
           description: Credit card number. DEPRECATED - use 'lastFour' instead.
@@ -52166,6 +52608,40 @@ components:
       type: string
       example: TR5IDS4
       description: 'Authors use transaction IDs to collect feedback after a customer transaction: invoice numbers or order IDs are common transaction IDs. Respondents can take a survey by entering their transaction ID, and each transaction ID uniquely identifies a response for that transaction.'
+    transaction-item-account-response:
+      title: TransactionItem
+      type: object
+      description: This is used to denote an item in the transaction.
+      allOf:
+        - $ref: '#/components/schemas/Audit'
+      properties:
+        id:
+          type: string
+          description: A unique identifier for the transaction item. This is a composite ID made up of the transaction ID and the orderItem ID.
+          example: 9a8b7c6d-e5f4-3210-bacd-3456789012de::7f3e2a1b-c4d5-6789-efab-2345678901bc
+        transaction:
+          $ref: '#/components/schemas/TransactionId'
+        event:
+          $ref: '#/components/schemas/Event'
+        attendee:
+          $ref: '#/components/schemas/Attendee'
+        product:
+          $ref: '#/components/schemas/ProductOrderItem'
+        orderItem:
+          $ref: '#/components/schemas/OrderItemRef'
+        name:
+          type: string
+          description: This denotes the name of the item
+          maxLength: 100
+          example: Dinner Session
+        amount:
+          type: number
+          description: Transaction amount of the item
+          example: 15.25
+        currency:
+          type: string
+          description: This denotes the currency of this transaction
+          example: EUR
     transaction-item-response:
       title: TransactionItem
       type: object
@@ -52205,6 +52681,21 @@ components:
           type: string
           description: This denotes the currency of this transaction
           example: EUR
+    transaction-items-account-paginated-response:
+      title: TransactionItemsAccountPaginatedResponse
+      description: The response from a request to the list of transaction items. This includes the paging object as well.
+      required:
+        - paging
+        - data
+      type: object
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/transaction-item-account-response'
+          description: Collection of transaction items.
     transaction-items-paginated-response:
       title: TransactionDetailsPaginatedResponse
       description: The response from a request to list of transactions. This includes the paging object as well.
@@ -52384,7 +52875,7 @@ components:
           title: Addresses
           type: array
           items:
-            $ref: '#/components/schemas/Address7'
+            $ref: '#/components/schemas/Address8'
           description: List of addresses associated with the travel account.
     travel-account-paginated-response:
       title: Travel account paginated response
@@ -52455,40 +52946,6 @@ components:
           items:
             $ref: '#/components/schemas/travel-account-supplier-account'
           description: Collection of suppliers travel accounts and their related details.
-    travel-departure-arrival.json:
-      title: TravelDepartureArrival
-      type: object
-      description: Common object that holds travel departure/arrival information.
-      properties:
-        time:
-          description: The ISO 8601 formatted date.
-          type: string
-          format: date-time
-          example: '2024-12-01T00:00:00Z'
-        carrier:
-          description: ICAO code.
-          type: string
-          example: JBU
-          maxLength: 3
-        carrierNumber:
-          description: Carrier number.
-          type: string
-          example: '12345'
-          maxLength: 32
-    travel-details.json:
-      title: TravelDetails
-      type: object
-      description: Common object that holds travel details information.
-      properties:
-        arrival:
-          $ref: '#/components/schemas/travel-departure-arrival.json'
-        departure:
-          $ref: '#/components/schemas/travel-departure-arrival.json'
-        additionalInformation:
-          description: Additional information about travel.
-          type: string
-          example: Additional Information
-          maxLength: 1000
     travel-program:
       title: Travel Program
       description: Travel program details.
@@ -53247,6 +53704,40 @@ components:
       type: string
       description: Days considered weekend days for pricing purposes in the travel bid.
       example: Sunday
+    TravelDepartureArrival:
+      title: TravelDepartureArrival
+      type: object
+      description: Common object that holds travel departure/arrival information.
+      properties:
+        time:
+          description: The ISO 8601 formatted date.
+          type: string
+          format: date-time
+          example: '2024-12-01T00:00:00Z'
+        carrier:
+          description: ICAO code.
+          type: string
+          example: JBU
+          maxLength: 3
+        carrierNumber:
+          description: Carrier number.
+          type: string
+          example: '12345'
+          maxLength: 32
+    TravelDetails:
+      title: TravelDetails
+      type: object
+      description: Common object that holds travel details information.
+      properties:
+        arrival:
+          $ref: '#/components/schemas/TravelDepartureArrival'
+        departure:
+          $ref: '#/components/schemas/TravelDepartureArrival'
+        additionalInformation:
+          description: Additional information about travel.
+          type: string
+          example: Additional Information
+          maxLength: 1000
     TravelProgramFormatType:
       title: Travel Program Format Type
       enum:
@@ -53929,7 +54420,7 @@ components:
           type: array
           description: 'The address of the user. The user can have only one address. <br> If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence'
           items:
-            $ref: '#/components/schemas/Address5'
+            $ref: '#/components/schemas/Address6'
         userType:
           $ref: '#/components/schemas/UserType'
         timezone:
@@ -54185,13 +54676,6 @@ components:
       type: string
       format: uuid
       example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
-    uuid-property-readonly.json:
-      title: UUID Property
-      description: A string that has to be a format matching the industry standard uuid
-      type: string
-      format: uuid
-      readOnly: true
-      example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
     uuid.json:
       title: UUID
       description: The reference to the related entity. Contains only the ID of the related entity.
@@ -54207,6 +54691,13 @@ components:
       type: string
       format: uuid
       example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+    UUIDProperty1:
+      title: UUID Property
+      description: A string that has to be a format matching the industry standard uuid
+      type: string
+      format: uuid
+      readOnly: true
+      example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
     ValidToken:
       title: Valid Token
       description: Validity status of an authentication token.
@@ -54220,6 +54711,17 @@ components:
           type: integer
           description: Supplementary status code. Typically will be 200 for a success case.
           example: 200
+    Venue:
+      title: Venue
+      description: Event venue details.
+      type: object
+      properties:
+        name:
+          description: Venue name.
+          type: string
+          example: Holiday Inn
+        address:
+          $ref: '#/components/schemas/VenueAddress'
     venue-address.json:
       title: Venue Address
       description: Venue Address details
@@ -54291,21 +54793,6 @@ components:
           maximum: 180
           example: -97.71518
           readOnly: true
-    venue-address.json1:
-      type: object
-      title: VenueAddress
-      description: Address details for venue.
-      allOf:
-        - $ref: '#/components/schemas/address.json'
-      properties:
-        latitude:
-          description: Location latitude.
-          type: number
-          example: 2342.23423
-        longitude:
-          description: Location longitude.
-          type: number
-          example: 231234.23423
     venue.json:
       title: Venue
       description: An Event Venue
@@ -54318,17 +54805,21 @@ components:
           example: Capital Convention Center
         address:
           $ref: '#/components/schemas/venue-address.json'
-    venue.json1:
-      title: Venue
-      description: Event venue details.
+    VenueAddress:
       type: object
+      title: VenueAddress
+      description: Address details for venue.
+      allOf:
+        - $ref: '#/components/schemas/Address3'
       properties:
-        name:
-          description: Venue name.
-          type: string
-          example: Holiday Inn
-        address:
-          $ref: '#/components/schemas/venue-address.json1'
+        latitude:
+          description: Location latitude.
+          type: number
+          example: 2342.23423
+        longitude:
+          description: Location longitude.
+          type: number
+          example: 231234.23423
     venueDetails:
       title: VenueDetails
       description: Venue details model.
@@ -56166,6 +56657,9 @@ components:
             survey/survey-responses:read: Allows reading the event survey responses
             survey/survey-responses:write: Allows write operations on the event surveys respondent's responses
             survey/surveys:read: Allows the reading of event surveys
+            venue/meeting-room-images:delete: Allows disassociating images from meeting rooms.
+            venue/meeting-room-images:read: Allows retrieving meeting room images.
+            venue/meeting-room-images:write: Allows associating images with meeting rooms.
             venue/meeting-room-overviews:read: Allows read access for overview of meeting room.
             venue/meeting-rooms:write: Allows the creation and modification of meeting rooms.
             venue/venue-details-overview:read: Allows read access for overview of venue details.
@@ -56408,6 +56902,9 @@ components:
             survey/survey-responses:read: Allows reading the event survey responses
             survey/survey-responses:write: Allows write operations on the event surveys respondent's responses
             survey/surveys:read: Allows the reading of event surveys
+            venue/meeting-room-images:delete: Allows disassociating images from meeting rooms.
+            venue/meeting-room-images:read: Allows retrieving meeting room images.
+            venue/meeting-room-images:write: Allows associating images with meeting rooms.
             venue/meeting-room-overviews:read: Allows read access for overview of meeting room.
             venue/meeting-rooms:write: Allows the creation and modification of meeting rooms.
             venue/venue-details-overview:read: Allows read access for overview of venue details.
@@ -56510,9 +57007,10 @@ tags:
     description: |
       These API's provide compliance support for regulated industries.
 
-      **Communication Compliance** lets you view communication activities across your account.
-      Various written forms of communication are captured. For example, emails, SMS, chat messages, or push notifications
-      can be downloaded for archival or analysis.
+      **Communication Compliance** lets you view communication activities across your account for archival or analysis.
+
+      Various written forms of communication are captured. This includes: emails, SMS, session chats, exhibitor chats,
+      text discussions, 1:1 attendee messaging, group messaging, or push notifications.
   - name: Contacts
     description: A contact is a record in your account’s address book that represents an individual. The data stored within these records includes personal information, group memberships, and historical data on event attendance.  Contact APIs will allow you to get contact information, track updates to contact information, and create contacts.
   - name: Custom Fields
@@ -56598,6 +57096,8 @@ tags:
       * **Eliterature Requests -** List of E-literature requests data sent to lead.
   - name: Meeting Request
     description: When planning an event, meeting request forms are customizable online questionnaires to capture information about the event and facilitate the approval of events. When a meeting request form is submitted it becomes a meeting request. Use this API to view forms, create meeting requests and track the status of meeting requests. **Legacy meeting request forms are not supported by this API.**
+  - name: Orders
+    description: Orders represent a collection of order items purchased by an attendee. Use these APIs to get information about orders and order items.
   - name: Process Form
     description: Process forms automate data collection and notifications related to planning and executing events. Process form submissions are responses to a specific process form, providing data the form requests. Use these APIs to manage process form submissions in your account.
   - name: Proposal Draft
@@ -56625,6 +57125,8 @@ tags:
     description: Speakers are individuals presenting at your event's session(s). Use Speaker APIs to read existing speaker data, create new speakers or update existing speakers in your events.
   - name: Surveys
     description: Surveys are lists of questions deployed to your contacts. Surveys can be standalone or can be associated to a Cvent event. Use these APIs to search for surveys and retrieve the associated questions and responses.
+  - name: Transactions
+    description: Transactions represent the financial exchanges that occur within your account. Use these APIs to retrieve and manage transaction data, including charges, refunds, and adjustments associated with your events and attendees.
   - name: Travel Accounts
     description: The travel account, or corporation that represents the demand-side of travel RFPs.
   - name: Travel RFPs

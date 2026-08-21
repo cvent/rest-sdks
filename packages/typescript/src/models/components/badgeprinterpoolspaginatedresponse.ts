@@ -10,7 +10,7 @@ import {
   ExistingBadgePrinterPool,
   ExistingBadgePrinterPool$inboundSchema,
 } from "./existingbadgeprinterpool.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * Page of Badge Printer Pools.
@@ -19,7 +19,7 @@ export type BadgePrinterPoolsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * Collection of badge printer pools.
    */
@@ -32,7 +32,7 @@ export const BadgePrinterPoolsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
+  paging: Paging$inboundSchema.optional(),
   data: z.array(ExistingBadgePrinterPool$inboundSchema).optional(),
 });
 

@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Hotel information.
+    /// Contains unique ID of the hotel.
     /// </summary>
     public class HotelId
     {

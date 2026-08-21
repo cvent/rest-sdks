@@ -10,6 +10,9 @@ Manage meeting rooms for a venue, including creating and updating room details, 
 * [ListMeetingRoomsOverviews](#listmeetingroomsoverviews) - List Meeting Rooms Overviews
 * [UpdateMeetingRoom](#updatemeetingroom) - Update Meeting Room
 * [PatchMeetingRoom](#patchmeetingroom) - Patch Meeting Room
+* [AssociateMeetingRoomImage](#associatemeetingroomimage) - Associate Meeting Room Image
+* [ListMeetingRoomImages](#listmeetingroomimages) - List Meeting Room Images
+* [DisassociateMeetingRoomImage](#disassociatemeetingroomimage) - Remove Meeting Room Image
 * [GetMeetingRoomOverview](#getmeetingroomoverview) - Get Meeting Room Overview
 
 ## CreateMeetingRoom
@@ -351,6 +354,159 @@ var res = await sdk.VenueMeetingRooms.PatchMeetingRoomAsync(req);
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
 | Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## AssociateMeetingRoomImage
+
+Associate a previously uploaded image with a meeting room using a file UUID from the <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current image if one is already associated.
+
+**Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg, .jpeg) are accepted. Maximum file size is 10 MB.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="associateMeetingRoomImage" method="put" path="/venues/{venueId}/meeting-rooms/{meetingRoomId}/images" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+AssociateMeetingRoomImageRequest req = new AssociateMeetingRoomImageRequest() {
+    VenueId = "6bb0e2db-861f-46e3-a923-eb4d959ffa00",
+    MeetingRoomId = "00944672-3602-4b8e-aea3-cb1278b2d143",
+    MeetingRoomImageAssociationRequest = new MeetingRoomImageAssociationRequest() {
+        File = new MeetingRoomImageAssociationRequestFile() {
+            Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+        },
+    },
+};
+
+var res = await sdk.VenueMeetingRooms.AssociateMeetingRoomImageAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [AssociateMeetingRoomImageRequest](../../Models/Requests/AssociateMeetingRoomImageRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+
+### Response
+
+**[AssociateMeetingRoomImageResponse](../../Models/Requests/AssociateMeetingRoomImageResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## ListMeetingRoomImages
+
+Retrieves the images associated with a meeting room. Each meeting room has at most one image.
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="listMeetingRoomImages" method="get" path="/venues/{venueId}/meeting-rooms/{meetingRoomId}/images" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+ListMeetingRoomImagesRequest req = new ListMeetingRoomImagesRequest() {
+    VenueId = "6bb0e2db-861f-46e3-a923-eb4d959ffa00",
+    MeetingRoomId = "880546b3-292e-4a70-95a5-3afae3e3f759",
+};
+
+var res = await sdk.VenueMeetingRooms.ListMeetingRoomImagesAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [ListMeetingRoomImagesRequest](../../Models/Requests/ListMeetingRoomImagesRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+
+### Response
+
+**[ListMeetingRoomImagesResponse](../../Models/Requests/ListMeetingRoomImagesResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 401, 403, 404, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## DisassociateMeetingRoomImage
+
+Disassociates the current image from a meeting room.
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="disassociateMeetingRoomImage" method="delete" path="/venues/{venueId}/meeting-rooms/{meetingRoomId}/images/{imageId}" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+DisassociateMeetingRoomImageRequest req = new DisassociateMeetingRoomImageRequest() {
+    VenueId = "6bb0e2db-861f-46e3-a923-eb4d959ffa00",
+    MeetingRoomId = "13e75adc-1d1b-4598-b520-f17774484472",
+    ImageId = "e5b29ab7-8c63-446c-9663-66202b0d037f",
+};
+
+var res = await sdk.VenueMeetingRooms.DisassociateMeetingRoomImageAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [DisassociateMeetingRoomImageRequest](../../Models/Requests/DisassociateMeetingRoomImageRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+
+### Response
+
+**[DisassociateMeetingRoomImageResponse](../../Models/Requests/DisassociateMeetingRoomImageResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse11 | 401, 403, 404, 429                      | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetMeetingRoomOverview

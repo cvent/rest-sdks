@@ -30,7 +30,9 @@ import { Result } from "../types/fp.js";
  * Cancel Reservation
  *
  * @remarks
- * Cancel reservation for given reservation ID.
+ * Cancel a reservation for the given reservation ID. Cancelling a reservation does not cancel the linked
+ * reservation request. If you need to also [cancel the reservation request](#operation/cancelReservationRequest), do so separately. After cancellation,
+ * [unlink the reservation](#operation/unlinkReservation) from its reservation request so you can link a new one.
  */
 export function housingCancelReservation(
   client: CventSDKCore,

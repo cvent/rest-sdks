@@ -810,6 +810,18 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "survey/surveys:read"
   /**
+   * Allows disassociating images from meeting rooms.
+   */
+  | "venue/meeting-room-images:delete"
+  /**
+   * Allows retrieving meeting room images.
+   */
+  | "venue/meeting-room-images:read"
+  /**
+   * Allows associating images with meeting rooms.
+   */
+  | "venue/meeting-room-images:write"
+  /**
    * Allows read access for overview of meeting room.
    */
   | "venue/meeting-room-overviews:read"
@@ -1757,6 +1769,18 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    * Allows the reading of event surveys
    */
   | "survey/surveys:read"
+  /**
+   * Allows disassociating images from meeting rooms.
+   */
+  | "venue/meeting-room-images:delete"
+  /**
+   * Allows retrieving meeting room images.
+   */
+  | "venue/meeting-room-images:read"
+  /**
+   * Allows associating images with meeting rooms.
+   */
+  | "venue/meeting-room-images:write"
   /**
    * Allows read access for overview of meeting room.
    */

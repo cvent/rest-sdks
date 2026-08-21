@@ -32,20 +32,20 @@ public class RoomTypeDetails {
      * Contains unique ID of the housing event.
      */
     @JsonProperty("housingEvent")
-    private HousingEventIdJson housingEvent;
+    private HousingEventId housingEvent;
 
     /**
      * Contains unique ID of the hotel.
      */
     @JsonProperty("hotel")
-    private HotelIdJson hotel;
+    private HotelId hotel;
 
     /**
      * List of supported attendee types for this room type, and their individual room policies.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("attendeeTypes")
-    private List<RoomAttendeeTypeJson> attendeeTypes;
+    private List<RoomAttendeeType> attendeeTypes;
 
     /**
      * Name of the room type.
@@ -64,7 +64,7 @@ public class RoomTypeDetails {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("images")
-    private List<ImageLinkJson> images;
+    private List<ImageLink> images;
 
     /**
      * Specifies a custom sort order defined by the user. This property is applicable only when the default
@@ -77,12 +77,12 @@ public class RoomTypeDetails {
     @JsonCreator
     public RoomTypeDetails(
             @JsonProperty("id") long id,
-            @JsonProperty("housingEvent") @Nonnull HousingEventIdJson housingEvent,
-            @JsonProperty("hotel") @Nonnull HotelIdJson hotel,
-            @JsonProperty("attendeeTypes") @Nullable List<RoomAttendeeTypeJson> attendeeTypes,
+            @JsonProperty("housingEvent") @Nonnull HousingEventId housingEvent,
+            @JsonProperty("hotel") @Nonnull HotelId hotel,
+            @JsonProperty("attendeeTypes") @Nullable List<RoomAttendeeType> attendeeTypes,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nonnull String description,
-            @JsonProperty("images") @Nullable List<ImageLinkJson> images,
+            @JsonProperty("images") @Nullable List<ImageLink> images,
             @JsonProperty("customOrder") @Nullable Long customOrder) {
         this.id = id;
         this.housingEvent = Optional.ofNullable(housingEvent)
@@ -98,8 +98,8 @@ public class RoomTypeDetails {
 
     public RoomTypeDetails(
             long id,
-            @Nonnull HousingEventIdJson housingEvent,
-            @Nonnull HotelIdJson hotel,
+            @Nonnull HousingEventId housingEvent,
+            @Nonnull HotelId hotel,
             @Nonnull String name,
             @Nonnull String description) {
         this(id, housingEvent, hotel, null, name, description, null, null);
@@ -115,21 +115,21 @@ public class RoomTypeDetails {
     /**
      * Contains unique ID of the housing event.
      */
-    public HousingEventIdJson housingEvent() {
+    public HousingEventId housingEvent() {
         return this.housingEvent;
     }
 
     /**
      * Contains unique ID of the hotel.
      */
-    public HotelIdJson hotel() {
+    public HotelId hotel() {
         return this.hotel;
     }
 
     /**
      * List of supported attendee types for this room type, and their individual room policies.
      */
-    public Optional<List<RoomAttendeeTypeJson>> attendeeTypes() {
+    public Optional<List<RoomAttendeeType>> attendeeTypes() {
         return Optional.ofNullable(this.attendeeTypes);
     }
 
@@ -150,7 +150,7 @@ public class RoomTypeDetails {
     /**
      * List of room images.
      */
-    public Optional<List<ImageLinkJson>> images() {
+    public Optional<List<ImageLink>> images() {
         return Optional.ofNullable(this.images);
     }
 
@@ -177,7 +177,7 @@ public class RoomTypeDetails {
     /**
      * Contains unique ID of the housing event.
      */
-    public RoomTypeDetails withHousingEvent(@Nonnull HousingEventIdJson housingEvent) {
+    public RoomTypeDetails withHousingEvent(@Nonnull HousingEventId housingEvent) {
         this.housingEvent = Utils.checkNotNull(housingEvent, "housingEvent");
         return this;
     }
@@ -185,7 +185,7 @@ public class RoomTypeDetails {
     /**
      * Contains unique ID of the hotel.
      */
-    public RoomTypeDetails withHotel(@Nonnull HotelIdJson hotel) {
+    public RoomTypeDetails withHotel(@Nonnull HotelId hotel) {
         this.hotel = Utils.checkNotNull(hotel, "hotel");
         return this;
     }
@@ -193,7 +193,7 @@ public class RoomTypeDetails {
     /**
      * List of supported attendee types for this room type, and their individual room policies.
      */
-    public RoomTypeDetails withAttendeeTypes(@Nullable List<RoomAttendeeTypeJson> attendeeTypes) {
+    public RoomTypeDetails withAttendeeTypes(@Nullable List<RoomAttendeeType> attendeeTypes) {
         this.attendeeTypes = attendeeTypes;
         return this;
     }
@@ -217,7 +217,7 @@ public class RoomTypeDetails {
     /**
      * List of room images.
      */
-    public RoomTypeDetails withImages(@Nullable List<ImageLinkJson> images) {
+    public RoomTypeDetails withImages(@Nullable List<ImageLink> images) {
         this.images = images;
         return this;
     }
@@ -282,17 +282,17 @@ public class RoomTypeDetails {
 
         private long id;
 
-        private HousingEventIdJson housingEvent;
+        private HousingEventId housingEvent;
 
-        private HotelIdJson hotel;
+        private HotelId hotel;
 
-        private List<RoomAttendeeTypeJson> attendeeTypes;
+        private List<RoomAttendeeType> attendeeTypes;
 
         private String name;
 
         private String description;
 
-        private List<ImageLinkJson> images;
+        private List<ImageLink> images;
 
         private Long customOrder;
 
@@ -311,7 +311,7 @@ public class RoomTypeDetails {
         /**
          * Contains unique ID of the housing event.
          */
-        public Builder housingEvent(@Nonnull HousingEventIdJson housingEvent) {
+        public Builder housingEvent(@Nonnull HousingEventId housingEvent) {
             this.housingEvent = Utils.checkNotNull(housingEvent, "housingEvent");
             return this;
         }
@@ -319,7 +319,7 @@ public class RoomTypeDetails {
         /**
          * Contains unique ID of the hotel.
          */
-        public Builder hotel(@Nonnull HotelIdJson hotel) {
+        public Builder hotel(@Nonnull HotelId hotel) {
             this.hotel = Utils.checkNotNull(hotel, "hotel");
             return this;
         }
@@ -327,7 +327,7 @@ public class RoomTypeDetails {
         /**
          * List of supported attendee types for this room type, and their individual room policies.
          */
-        public Builder attendeeTypes(@Nullable List<RoomAttendeeTypeJson> attendeeTypes) {
+        public Builder attendeeTypes(@Nullable List<RoomAttendeeType> attendeeTypes) {
             this.attendeeTypes = attendeeTypes;
             return this;
         }
@@ -351,7 +351,7 @@ public class RoomTypeDetails {
         /**
          * List of room images.
          */
-        public Builder images(@Nullable List<ImageLinkJson> images) {
+        public Builder images(@Nullable List<ImageLink> images) {
             this.images = images;
             return this;
         }

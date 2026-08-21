@@ -36,13 +36,13 @@ public class NewReservation {
      * Contains the unique ID of the attendee type.
      */
     @JsonProperty("attendeeType")
-    private AttendeeTypeIdJson attendeeType;
+    private AttendeeTypeId attendeeType;
 
     /**
      * Room information.
      */
     @JsonProperty("roomType")
-    private RoomInfoJsonInput roomType;
+    private RoomInfoInput roomType;
 
     /**
      * True indicates an email acknowledgement after reservation creation will be sent.
@@ -75,14 +75,14 @@ public class NewReservation {
      * Array of reservation guest details.
      */
     @JsonProperty("guests")
-    private List<ReservationGuestJsonInput> guests;
+    private List<ReservationGuestInput> guests;
 
     /**
      * Custom fields.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customFields")
-    private CustomFieldsJson customFields;
+    private CustomFields customFields;
 
     /**
      * True indicates this reservation requires an accessible room.
@@ -103,7 +103,7 @@ public class NewReservation {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rewardProgram")
-    private RewardProgramJson rewardProgram;
+    private RewardProgram rewardProgram;
 
     /**
      * Reward program membership number.
@@ -117,7 +117,7 @@ public class NewReservation {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("travelDetails")
-    private TravelDetailsJson travelDetails;
+    private TravelDetails travelDetails;
 
     /**
      * Information about Passkey event for this reservation.
@@ -129,7 +129,7 @@ public class NewReservation {
      * Hotel information.
      */
     @JsonProperty("hotel")
-    private HotelId hotel;
+    private NewReservationHotelId hotel;
 
     /**
      * Specifies reservation options for customizing reservation behavior.
@@ -141,21 +141,21 @@ public class NewReservation {
     @JsonCreator
     public NewReservation(
             @JsonProperty("reservationRequest") @Nullable NewReservationReservationRequest reservationRequest,
-            @JsonProperty("attendeeType") @Nonnull AttendeeTypeIdJson attendeeType,
-            @JsonProperty("roomType") @Nonnull RoomInfoJsonInput roomType,
+            @JsonProperty("attendeeType") @Nonnull AttendeeTypeId attendeeType,
+            @JsonProperty("roomType") @Nonnull RoomInfoInput roomType,
             @JsonProperty("sendAcknowledgement") @Nullable Boolean sendAcknowledgement,
             @JsonProperty("splitFolio") @Nullable Boolean splitFolio,
             @JsonProperty("numberOfAdults") long numberOfAdults,
             @JsonProperty("numberOfChildren") @Nullable Long numberOfChildren,
-            @JsonProperty("guests") @Nonnull List<ReservationGuestJsonInput> guests,
-            @JsonProperty("customFields") @Nullable CustomFieldsJson customFields,
+            @JsonProperty("guests") @Nonnull List<ReservationGuestInput> guests,
+            @JsonProperty("customFields") @Nullable CustomFields customFields,
             @JsonProperty("accessible") @Nullable Boolean accessible,
             @JsonProperty("specialRequest") @Nullable String specialRequest,
-            @JsonProperty("rewardProgram") @Nullable RewardProgramJson rewardProgram,
+            @JsonProperty("rewardProgram") @Nullable RewardProgram rewardProgram,
             @JsonProperty("membershipId") @Nullable String membershipId,
-            @JsonProperty("travelDetails") @Nullable TravelDetailsJson travelDetails,
+            @JsonProperty("travelDetails") @Nullable TravelDetails travelDetails,
             @JsonProperty("housingEvent") @Nonnull NewReservationHousingEventId housingEvent,
-            @JsonProperty("hotel") @Nonnull HotelId hotel,
+            @JsonProperty("hotel") @Nonnull NewReservationHotelId hotel,
             @JsonProperty("modifiers") @Nullable Modifiers modifiers) {
         this.reservationRequest = reservationRequest;
         this.attendeeType = Optional.ofNullable(attendeeType)
@@ -182,12 +182,12 @@ public class NewReservation {
     }
 
     public NewReservation(
-            @Nonnull AttendeeTypeIdJson attendeeType,
-            @Nonnull RoomInfoJsonInput roomType,
+            @Nonnull AttendeeTypeId attendeeType,
+            @Nonnull RoomInfoInput roomType,
             long numberOfAdults,
-            @Nonnull List<ReservationGuestJsonInput> guests,
+            @Nonnull List<ReservationGuestInput> guests,
             @Nonnull NewReservationHousingEventId housingEvent,
-            @Nonnull HotelId hotel) {
+            @Nonnull NewReservationHotelId hotel) {
         this(
                 null,
                 attendeeType,
@@ -218,14 +218,14 @@ public class NewReservation {
     /**
      * Contains the unique ID of the attendee type.
      */
-    public AttendeeTypeIdJson attendeeType() {
+    public AttendeeTypeId attendeeType() {
         return this.attendeeType;
     }
 
     /**
      * Room information.
      */
-    public RoomInfoJsonInput roomType() {
+    public RoomInfoInput roomType() {
         return this.roomType;
     }
 
@@ -260,14 +260,14 @@ public class NewReservation {
     /**
      * Array of reservation guest details.
      */
-    public List<ReservationGuestJsonInput> guests() {
+    public List<ReservationGuestInput> guests() {
         return this.guests;
     }
 
     /**
      * Custom fields.
      */
-    public Optional<CustomFieldsJson> customFields() {
+    public Optional<CustomFields> customFields() {
         return Optional.ofNullable(this.customFields);
     }
 
@@ -288,7 +288,7 @@ public class NewReservation {
     /**
      * Represents reward program information.
      */
-    public Optional<RewardProgramJson> rewardProgram() {
+    public Optional<RewardProgram> rewardProgram() {
         return Optional.ofNullable(this.rewardProgram);
     }
 
@@ -302,7 +302,7 @@ public class NewReservation {
     /**
      * Common object that holds travel details information.
      */
-    public Optional<TravelDetailsJson> travelDetails() {
+    public Optional<TravelDetails> travelDetails() {
         return Optional.ofNullable(this.travelDetails);
     }
 
@@ -316,7 +316,7 @@ public class NewReservation {
     /**
      * Hotel information.
      */
-    public HotelId hotel() {
+    public NewReservationHotelId hotel() {
         return this.hotel;
     }
 
@@ -342,7 +342,7 @@ public class NewReservation {
     /**
      * Contains the unique ID of the attendee type.
      */
-    public NewReservation withAttendeeType(@Nonnull AttendeeTypeIdJson attendeeType) {
+    public NewReservation withAttendeeType(@Nonnull AttendeeTypeId attendeeType) {
         this.attendeeType = Utils.checkNotNull(attendeeType, "attendeeType");
         return this;
     }
@@ -350,7 +350,7 @@ public class NewReservation {
     /**
      * Room information.
      */
-    public NewReservation withRoomType(@Nonnull RoomInfoJsonInput roomType) {
+    public NewReservation withRoomType(@Nonnull RoomInfoInput roomType) {
         this.roomType = Utils.checkNotNull(roomType, "roomType");
         return this;
     }
@@ -390,7 +390,7 @@ public class NewReservation {
     /**
      * Array of reservation guest details.
      */
-    public NewReservation withGuests(@Nonnull List<ReservationGuestJsonInput> guests) {
+    public NewReservation withGuests(@Nonnull List<ReservationGuestInput> guests) {
         this.guests = Utils.checkNotNull(guests, "guests");
         return this;
     }
@@ -398,7 +398,7 @@ public class NewReservation {
     /**
      * Custom fields.
      */
-    public NewReservation withCustomFields(@Nullable CustomFieldsJson customFields) {
+    public NewReservation withCustomFields(@Nullable CustomFields customFields) {
         this.customFields = customFields;
         return this;
     }
@@ -422,7 +422,7 @@ public class NewReservation {
     /**
      * Represents reward program information.
      */
-    public NewReservation withRewardProgram(@Nullable RewardProgramJson rewardProgram) {
+    public NewReservation withRewardProgram(@Nullable RewardProgram rewardProgram) {
         this.rewardProgram = rewardProgram;
         return this;
     }
@@ -438,7 +438,7 @@ public class NewReservation {
     /**
      * Common object that holds travel details information.
      */
-    public NewReservation withTravelDetails(@Nullable TravelDetailsJson travelDetails) {
+    public NewReservation withTravelDetails(@Nullable TravelDetails travelDetails) {
         this.travelDetails = travelDetails;
         return this;
     }
@@ -454,7 +454,7 @@ public class NewReservation {
     /**
      * Hotel information.
      */
-    public NewReservation withHotel(@Nonnull HotelId hotel) {
+    public NewReservation withHotel(@Nonnull NewReservationHotelId hotel) {
         this.hotel = Utils.checkNotNull(hotel, "hotel");
         return this;
     }
@@ -562,9 +562,9 @@ public class NewReservation {
 
         private NewReservationReservationRequest reservationRequest;
 
-        private AttendeeTypeIdJson attendeeType;
+        private AttendeeTypeId attendeeType;
 
-        private RoomInfoJsonInput roomType;
+        private RoomInfoInput roomType;
 
         private Boolean sendAcknowledgement;
 
@@ -574,23 +574,23 @@ public class NewReservation {
 
         private Long numberOfChildren;
 
-        private List<ReservationGuestJsonInput> guests;
+        private List<ReservationGuestInput> guests;
 
-        private CustomFieldsJson customFields;
+        private CustomFields customFields;
 
         private Boolean accessible;
 
         private String specialRequest;
 
-        private RewardProgramJson rewardProgram;
+        private RewardProgram rewardProgram;
 
         private String membershipId;
 
-        private TravelDetailsJson travelDetails;
+        private TravelDetails travelDetails;
 
         private NewReservationHousingEventId housingEvent;
 
-        private HotelId hotel;
+        private NewReservationHotelId hotel;
 
         private Modifiers modifiers;
 
@@ -609,7 +609,7 @@ public class NewReservation {
         /**
          * Contains the unique ID of the attendee type.
          */
-        public Builder attendeeType(@Nonnull AttendeeTypeIdJson attendeeType) {
+        public Builder attendeeType(@Nonnull AttendeeTypeId attendeeType) {
             this.attendeeType = Utils.checkNotNull(attendeeType, "attendeeType");
             return this;
         }
@@ -617,7 +617,7 @@ public class NewReservation {
         /**
          * Room information.
          */
-        public Builder roomType(@Nonnull RoomInfoJsonInput roomType) {
+        public Builder roomType(@Nonnull RoomInfoInput roomType) {
             this.roomType = Utils.checkNotNull(roomType, "roomType");
             return this;
         }
@@ -657,7 +657,7 @@ public class NewReservation {
         /**
          * Array of reservation guest details.
          */
-        public Builder guests(@Nonnull List<ReservationGuestJsonInput> guests) {
+        public Builder guests(@Nonnull List<ReservationGuestInput> guests) {
             this.guests = Utils.checkNotNull(guests, "guests");
             return this;
         }
@@ -665,7 +665,7 @@ public class NewReservation {
         /**
          * Custom fields.
          */
-        public Builder customFields(@Nullable CustomFieldsJson customFields) {
+        public Builder customFields(@Nullable CustomFields customFields) {
             this.customFields = customFields;
             return this;
         }
@@ -689,7 +689,7 @@ public class NewReservation {
         /**
          * Represents reward program information.
          */
-        public Builder rewardProgram(@Nullable RewardProgramJson rewardProgram) {
+        public Builder rewardProgram(@Nullable RewardProgram rewardProgram) {
             this.rewardProgram = rewardProgram;
             return this;
         }
@@ -705,7 +705,7 @@ public class NewReservation {
         /**
          * Common object that holds travel details information.
          */
-        public Builder travelDetails(@Nullable TravelDetailsJson travelDetails) {
+        public Builder travelDetails(@Nullable TravelDetails travelDetails) {
             this.travelDetails = travelDetails;
             return this;
         }
@@ -721,7 +721,7 @@ public class NewReservation {
         /**
          * Hotel information.
          */
-        public Builder hotel(@Nonnull HotelId hotel) {
+        public Builder hotel(@Nonnull NewReservationHotelId hotel) {
             this.hotel = Utils.checkNotNull(hotel, "hotel");
             return this;
         }

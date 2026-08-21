@@ -104,7 +104,7 @@ public class Event1Input {
      * A collection of contacts representing the event planners.
      */
     @JsonProperty("planners")
-    private List<PlannerJson2Input> planners;
+    private List<PlannerJson1Input> planners;
 
     /**
      * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
@@ -126,7 +126,7 @@ public class Event1Input {
             @JsonProperty("showPointOfContact") @Nullable Boolean showPointOfContact,
             @JsonProperty("note") @Nullable String note,
             @JsonProperty("languages") @Nonnull List<String> languages,
-            @JsonProperty("planners") @Nonnull List<PlannerJson2Input> planners,
+            @JsonProperty("planners") @Nonnull List<PlannerJson1Input> planners,
             @JsonProperty("type") @Nonnull EventTypeJson type) {
         this.title = Optional.ofNullable(title).orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
         this.format =
@@ -152,7 +152,7 @@ public class Event1Input {
             @Nonnull EventFormatJson format,
             @Nonnull String timezone,
             @Nonnull List<String> languages,
-            @Nonnull List<PlannerJson2Input> planners,
+            @Nonnull List<PlannerJson1Input> planners,
             @Nonnull EventTypeJson type) {
         this(title, format, null, null, null, timezone, null, null, null, null, languages, planners, type);
     }
@@ -241,7 +241,7 @@ public class Event1Input {
     /**
      * A collection of contacts representing the event planners.
      */
-    public List<PlannerJson2Input> planners() {
+    public List<PlannerJson1Input> planners() {
         return this.planners;
     }
 
@@ -352,7 +352,7 @@ public class Event1Input {
     /**
      * A collection of contacts representing the event planners.
      */
-    public Event1Input withPlanners(@Nonnull List<PlannerJson2Input> planners) {
+    public Event1Input withPlanners(@Nonnull List<PlannerJson1Input> planners) {
         this.planners = Utils.checkNotNull(planners, "planners");
         return this;
     }
@@ -465,7 +465,7 @@ public class Event1Input {
 
         private List<String> languages;
 
-        private List<PlannerJson2Input> planners;
+        private List<PlannerJson1Input> planners;
 
         private EventTypeJson type;
 
@@ -568,7 +568,7 @@ public class Event1Input {
         /**
          * A collection of contacts representing the event planners.
          */
-        public Builder planners(@Nonnull List<PlannerJson2Input> planners) {
+        public Builder planners(@Nonnull List<PlannerJson1Input> planners) {
             this.planners = Utils.checkNotNull(planners, "planners");
             return this;
         }

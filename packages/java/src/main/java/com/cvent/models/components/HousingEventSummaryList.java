@@ -22,17 +22,18 @@ public class HousingEventSummaryList {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * List of housing events with key information, providing a summarized view of each event.
      */
     @JsonProperty("data")
-    private List<ZeroAllOf5> data;
+    private List<HousingEventSummary> data;
 
     @JsonCreator
     public HousingEventSummaryList(
-            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<ZeroAllOf5> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<HousingEventSummary> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -41,14 +42,14 @@ public class HousingEventSummaryList {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * List of housing events with key information, providing a summarized view of each event.
      */
-    public List<ZeroAllOf5> data() {
+    public List<HousingEventSummary> data() {
         return this.data;
     }
 
@@ -59,7 +60,7 @@ public class HousingEventSummaryList {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public HousingEventSummaryList withPaging(@Nonnull PagingJson paging) {
+    public HousingEventSummaryList withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -67,7 +68,7 @@ public class HousingEventSummaryList {
     /**
      * List of housing events with key information, providing a summarized view of each event.
      */
-    public HousingEventSummaryList withData(@Nonnull List<ZeroAllOf5> data) {
+    public HousingEventSummaryList withData(@Nonnull List<HousingEventSummary> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -97,9 +98,9 @@ public class HousingEventSummaryList {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<ZeroAllOf5> data;
+        private List<HousingEventSummary> data;
 
         private Builder() {
             // force use of static builder() method
@@ -108,7 +109,7 @@ public class HousingEventSummaryList {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -116,7 +117,7 @@ public class HousingEventSummaryList {
         /**
          * List of housing events with key information, providing a summarized view of each event.
          */
-        public Builder data(@Nonnull List<ZeroAllOf5> data) {
+        public Builder data(@Nonnull List<HousingEventSummary> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

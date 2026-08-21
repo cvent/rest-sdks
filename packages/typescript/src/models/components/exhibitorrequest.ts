@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  Address4,
-  Address4$Outbound,
-  Address4$outboundSchema,
-} from "./address4.js";
+  Address5,
+  Address5$Outbound,
+  Address5$outboundSchema,
+} from "./address5.js";
 import {
   ContactLinks1,
   ContactLinks1$Outbound,
@@ -51,7 +51,7 @@ export type ExhibitorRequest = {
   /**
    * An object representing an address with various properties.
    */
-  address?: Address4 | undefined;
+  address?: Address5 | undefined;
   /**
    * Email address of the exhibitor
    */
@@ -106,7 +106,7 @@ export type ExhibitorRequest$Outbound = {
   code?: string | undefined;
   sourceId?: string | undefined;
   location?: string | undefined;
-  address?: Address4$Outbound | undefined;
+  address?: Address5$Outbound | undefined;
   email?: string | undefined;
   mobilePhone?: string | undefined;
   workPhone?: string | undefined;
@@ -132,7 +132,7 @@ export const ExhibitorRequest$outboundSchema: z.ZodType<
   code: z.string().optional(),
   sourceId: z.string().optional(),
   location: z.string().optional(),
-  address: Address4$outboundSchema.optional(),
+  address: Address5$outboundSchema.optional(),
   email: z.string().optional(),
   mobilePhone: z.string().optional(),
   workPhone: z.string().optional(),

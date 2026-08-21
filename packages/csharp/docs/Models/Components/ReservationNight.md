@@ -1,0 +1,13 @@
+# ReservationNight
+
+Reservation night details.
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `StayDate`                                                                            | [DateOnly](https://learn.microsoft.com/en-us/dotnet/api/system.dateonly?view=net-6.0) | :heavy_check_mark:                                                                    | Night date.                                                                           | 2024-12-01                                                                            |
+| `Status`                                                                              | [ReservationNightStatus](../../Models/Components/ReservationNightStatus.md)           | :heavy_check_mark:                                                                    | Indicator of night's status.                                                          |                                                                                       |
+| `HideRates`                                                                           | *bool*                                                                                | :heavy_minus_sign:                                                                    | True indicates the rates are hidden for this night.                                   | false                                                                                 |
+| `Rate`                                                                                | [ReservationNightRate](../../Models/Components/ReservationNightRate.md)               | :heavy_check_mark:                                                                    | Rate details for a single reservation night.                                          |                                                                                       |

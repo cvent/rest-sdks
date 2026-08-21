@@ -22,3 +22,4 @@ var value = PolicyValueType.SelectionList;
 | `MultiSelect`    | multi_select     |
 | `TextMultiLine`  | text_multi_line  |
 | `PercentOrMoney` | percent_or_money |
+| `Boolean`        | boolean          |

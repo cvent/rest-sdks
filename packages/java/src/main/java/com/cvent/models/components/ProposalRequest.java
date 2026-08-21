@@ -90,7 +90,7 @@ public class ProposalRequest {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("currencyCode")
-    private CurrencyJson2 currencyCode;
+    private CurrencyJson1 currencyCode;
 
     /**
      * True indicates this is a commissionable bid.
@@ -190,7 +190,7 @@ public class ProposalRequest {
             @JsonProperty("statusSummary") @Nullable StatusSummaryJson statusSummary,
             @JsonProperty("introduction") @Nullable String introduction,
             @JsonProperty("billingContractualResponse") @Nullable String billingContractualResponse,
-            @JsonProperty("currencyCode") @Nullable CurrencyJson2 currencyCode,
+            @JsonProperty("currencyCode") @Nullable CurrencyJson1 currencyCode,
             @JsonProperty("commissionableBid") @Nullable Boolean commissionableBid,
             @JsonProperty("commissionRate") @Nullable Double commissionRate,
             @JsonProperty("name") @Nullable String name,
@@ -314,7 +314,7 @@ public class ProposalRequest {
     /**
      * The ISO 4217 standard format currency code used for RFPs.
      */
-    public Optional<CurrencyJson2> currencyCode() {
+    public Optional<CurrencyJson1> currencyCode() {
         return Optional.ofNullable(this.currencyCode);
     }
 
@@ -481,7 +481,7 @@ public class ProposalRequest {
     /**
      * The ISO 4217 standard format currency code used for RFPs.
      */
-    public ProposalRequest withCurrencyCode(@Nullable CurrencyJson2 currencyCode) {
+    public ProposalRequest withCurrencyCode(@Nullable CurrencyJson1 currencyCode) {
         this.currencyCode = currencyCode;
         return this;
     }
@@ -712,7 +712,7 @@ public class ProposalRequest {
         @Deprecated
         private String billingContractualResponse;
 
-        private CurrencyJson2 currencyCode;
+        private CurrencyJson1 currencyCode;
 
         private Boolean commissionableBid;
 
@@ -814,7 +814,7 @@ public class ProposalRequest {
         /**
          * The ISO 4217 standard format currency code used for RFPs.
          */
-        public Builder currencyCode(@Nullable CurrencyJson2 currencyCode) {
+        public Builder currencyCode(@Nullable CurrencyJson1 currencyCode) {
             this.currencyCode = currencyCode;
             return this;
         }

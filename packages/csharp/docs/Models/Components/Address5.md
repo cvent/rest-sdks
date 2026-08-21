@@ -1,16 +1,15 @@
 # Address5
 
-Address
+An object representing an address with various properties.
 
 
 ## Fields
 
-| Field                                                   | Type                                                    | Required                                                | Description                                             | Example                                                 |
-| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
-| `Type`                                                  | [AddressType1](../../Models/Components/AddressType1.md) | :heavy_check_mark:                                      | The type of the address.                                | work                                                    |
-| `StreetAddress`                                         | *string*                                                | :heavy_minus_sign:                                      | The street address of the user.                         | 100 Universal City Plaza                                |
-| `Locality`                                              | *string*                                                | :heavy_minus_sign:                                      | The locality/city of the user.                          | Hollywood                                               |
-| `Region`                                                | *string*                                                | :heavy_minus_sign:                                      | The region/state/province of the user.                  | CA                                                      |
-| `PostalCode`                                            | *string*                                                | :heavy_minus_sign:                                      | Postal code (also known as zipcode) of the user.        | 91608                                                   |
-| `Country`                                               | *string*                                                | :heavy_minus_sign:                                      | The country of the user.                                | USA                                                     |
-| `Primary`                                               | *bool*                                                  | :heavy_minus_sign:                                      | True indicates the address is primary.                  | true                                                    |
+| Field                                                 | Type                                                  | Required                                              | Description                                           | Example                                               |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `Address1`                                            | *string*                                              | :heavy_minus_sign:                                    | The first line of an address                          | Cvent Inc.                                            |
+| `Address2`                                            | *string*                                              | :heavy_minus_sign:                                    | The second line of an address                         | 4001 West Parmer Lane                                 |
+| `City`                                                | *string*                                              | :heavy_minus_sign:                                    | The name of the city.                                 | Austin                                                |
+| `Region`                                              | *string*                                              | :heavy_minus_sign:                                    | The name of the state/province/region of the address. | Texas                                                 |
+| `PostalCode`                                          | *string*                                              | :heavy_minus_sign:                                    | postal code (also known as zipcode) of the address    | 78727                                                 |
+| `Country`                                             | *string*                                              | :heavy_minus_sign:                                    | Name of the country for example, 'United States'      | United States of America                              |

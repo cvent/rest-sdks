@@ -25,19 +25,19 @@ public class SignaturesResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of signatures.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<AttendeeSignatureResponseJson> data;
+    private List<AttendeeSignatureResponse> data;
 
     @JsonCreator
     public SignaturesResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<AttendeeSignatureResponseJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging,
+            @JsonProperty("data") @Nullable List<AttendeeSignatureResponse> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +49,14 @@ public class SignaturesResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * Collection of signatures.
      */
-    public Optional<List<AttendeeSignatureResponseJson>> data() {
+    public Optional<List<AttendeeSignatureResponse>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +67,7 @@ public class SignaturesResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public SignaturesResponse withPaging(@Nullable PagingJson paging) {
+    public SignaturesResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +75,7 @@ public class SignaturesResponse {
     /**
      * Collection of signatures.
      */
-    public SignaturesResponse withData(@Nullable List<AttendeeSignatureResponseJson> data) {
+    public SignaturesResponse withData(@Nullable List<AttendeeSignatureResponse> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +105,9 @@ public class SignaturesResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<AttendeeSignatureResponseJson> data;
+        private List<AttendeeSignatureResponse> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class SignaturesResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +124,7 @@ public class SignaturesResponse {
         /**
          * Collection of signatures.
          */
-        public Builder data(@Nullable List<AttendeeSignatureResponseJson> data) {
+        public Builder data(@Nullable List<AttendeeSignatureResponse> data) {
             this.data = data;
             return this;
         }

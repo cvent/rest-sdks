@@ -6,6 +6,7 @@ List of hotels associated with a particular housing event.
 
 ```typescript
 import { HousingEventHotelsList } from "@cvent/sdk/models/components";
+import { RFCDate } from "@cvent/sdk/types";
 
 let value: HousingEventHotelsList = {
   paging: {
@@ -52,6 +53,8 @@ let value: HousingEventHotelsList = {
       amenities: [
         "Room Service",
       ],
+      reservationAccessDate: new RFCDate("2030-03-21"),
+      hotelCloseDate: new RFCDate("2030-01-14"),
       rating: "3 Star",
       address: {
         address1: "West St. 1",
@@ -63,6 +66,12 @@ let value: HousingEventHotelsList = {
         country: "United States of America",
         countryCode: "US",
       },
+      rewardPrograms: [
+        {
+          id: 10000,
+          name: "Hotel Rewards Program",
+        },
+      ],
     },
   ],
 };
@@ -72,5 +81,5 @@ let value: HousingEventHotelsList = {
 
 | Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `paging`                                                                       | [components.PagingJson](../../models/components/pagingjson.md)                 | :heavy_check_mark:                                                             | Represents pagination information for a collection of resources.               |
+| `paging`                                                                       | [components.Paging](../../models/components/paging.md)                         | :heavy_check_mark:                                                             | Represents pagination information for a collection of resources.               |
 | `data`                                                                         | [components.HousingEventHotel](../../models/components/housingeventhotel.md)[] | :heavy_check_mark:                                                             | List of hotels associated with a particular housing event.                     |

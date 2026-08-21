@@ -12,6 +12,7 @@ import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +32,7 @@ public class HousingEventHotel {
      * Contains unique ID of the housing event.
      */
     @JsonProperty("housingEvent")
-    private HousingEventIdJson housingEvent;
+    private HousingEventId housingEvent;
 
     /**
      * The hotel's name.
@@ -57,14 +58,14 @@ public class HousingEventHotel {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("images")
-    private List<ImageLinkJson> images;
+    private List<ImageLink> images;
 
     /**
      * Proximity of the event venue to the hotel.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("proximity")
-    private ProximityJson proximity;
+    private Proximity proximity;
 
     /**
      * List of available amenities at the hotel.
@@ -74,11 +75,25 @@ public class HousingEventHotel {
     private List<String> amenities;
 
     /**
+     * The hotel's reservation access date.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("reservationAccessDate")
+    private LocalDate reservationAccessDate;
+
+    /**
+     * The hotel's close date.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("hotelCloseDate")
+    private LocalDate hotelCloseDate;
+
+    /**
      * The hotel's rating, used to classify the hotel's quality.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rating")
-    private HotelRatingJson rating;
+    private HotelRating rating;
 
     /**
      * Address details. Required to create/update a guest's reservation if the hotel/event requires an
@@ -86,20 +101,30 @@ public class HousingEventHotel {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address")
-    private AddressJson address;
+    private Address3 address;
+
+    /**
+     * List of reward programs available at the hotel.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("rewardPrograms")
+    private List<RewardProgram> rewardPrograms;
 
     @JsonCreator
     public HousingEventHotel(
             @JsonProperty("id") long id,
-            @JsonProperty("housingEvent") @Nonnull HousingEventIdJson housingEvent,
+            @JsonProperty("housingEvent") @Nonnull HousingEventId housingEvent,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nonnull String description,
             @JsonProperty("childPolicy") @Nullable String childPolicy,
-            @JsonProperty("images") @Nullable List<ImageLinkJson> images,
-            @JsonProperty("proximity") @Nullable ProximityJson proximity,
+            @JsonProperty("images") @Nullable List<ImageLink> images,
+            @JsonProperty("proximity") @Nullable Proximity proximity,
             @JsonProperty("amenities") @Nullable List<String> amenities,
-            @JsonProperty("rating") @Nullable HotelRatingJson rating,
-            @JsonProperty("address") @Nullable AddressJson address) {
+            @JsonProperty("reservationAccessDate") @Nullable LocalDate reservationAccessDate,
+            @JsonProperty("hotelCloseDate") @Nullable LocalDate hotelCloseDate,
+            @JsonProperty("rating") @Nullable HotelRating rating,
+            @JsonProperty("address") @Nullable Address3 address,
+            @JsonProperty("rewardPrograms") @Nullable List<RewardProgram> rewardPrograms) {
         this.id = id;
         this.housingEvent = Optional.ofNullable(housingEvent)
                 .orElseThrow(() -> new IllegalArgumentException("housingEvent cannot be null"));
@@ -110,13 +135,16 @@ public class HousingEventHotel {
         this.images = images;
         this.proximity = proximity;
         this.amenities = amenities;
+        this.reservationAccessDate = reservationAccessDate;
+        this.hotelCloseDate = hotelCloseDate;
         this.rating = rating;
         this.address = address;
+        this.rewardPrograms = rewardPrograms;
     }
 
     public HousingEventHotel(
-            long id, @Nonnull HousingEventIdJson housingEvent, @Nonnull String name, @Nonnull String description) {
-        this(id, housingEvent, name, description, null, null, null, null, null, null);
+            long id, @Nonnull HousingEventId housingEvent, @Nonnull String name, @Nonnull String description) {
+        this(id, housingEvent, name, description, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -129,7 +157,7 @@ public class HousingEventHotel {
     /**
      * Contains unique ID of the housing event.
      */
-    public HousingEventIdJson housingEvent() {
+    public HousingEventId housingEvent() {
         return this.housingEvent;
     }
 
@@ -157,14 +185,14 @@ public class HousingEventHotel {
     /**
      * List of hotel images.
      */
-    public Optional<List<ImageLinkJson>> images() {
+    public Optional<List<ImageLink>> images() {
         return Optional.ofNullable(this.images);
     }
 
     /**
      * Proximity of the event venue to the hotel.
      */
-    public Optional<ProximityJson> proximity() {
+    public Optional<Proximity> proximity() {
         return Optional.ofNullable(this.proximity);
     }
 
@@ -176,9 +204,23 @@ public class HousingEventHotel {
     }
 
     /**
+     * The hotel's reservation access date.
+     */
+    public Optional<LocalDate> reservationAccessDate() {
+        return Optional.ofNullable(this.reservationAccessDate);
+    }
+
+    /**
+     * The hotel's close date.
+     */
+    public Optional<LocalDate> hotelCloseDate() {
+        return Optional.ofNullable(this.hotelCloseDate);
+    }
+
+    /**
      * The hotel's rating, used to classify the hotel's quality.
      */
-    public Optional<HotelRatingJson> rating() {
+    public Optional<HotelRating> rating() {
         return Optional.ofNullable(this.rating);
     }
 
@@ -186,8 +228,15 @@ public class HousingEventHotel {
      * Address details. Required to create/update a guest's reservation if the hotel/event requires an
      * address in reservations.
      */
-    public Optional<AddressJson> address() {
+    public Optional<Address3> address() {
         return Optional.ofNullable(this.address);
+    }
+
+    /**
+     * List of reward programs available at the hotel.
+     */
+    public Optional<List<RewardProgram>> rewardPrograms() {
+        return Optional.ofNullable(this.rewardPrograms);
     }
 
     public static Builder builder() {
@@ -205,7 +254,7 @@ public class HousingEventHotel {
     /**
      * Contains unique ID of the housing event.
      */
-    public HousingEventHotel withHousingEvent(@Nonnull HousingEventIdJson housingEvent) {
+    public HousingEventHotel withHousingEvent(@Nonnull HousingEventId housingEvent) {
         this.housingEvent = Utils.checkNotNull(housingEvent, "housingEvent");
         return this;
     }
@@ -237,7 +286,7 @@ public class HousingEventHotel {
     /**
      * List of hotel images.
      */
-    public HousingEventHotel withImages(@Nullable List<ImageLinkJson> images) {
+    public HousingEventHotel withImages(@Nullable List<ImageLink> images) {
         this.images = images;
         return this;
     }
@@ -245,7 +294,7 @@ public class HousingEventHotel {
     /**
      * Proximity of the event venue to the hotel.
      */
-    public HousingEventHotel withProximity(@Nullable ProximityJson proximity) {
+    public HousingEventHotel withProximity(@Nullable Proximity proximity) {
         this.proximity = proximity;
         return this;
     }
@@ -259,9 +308,25 @@ public class HousingEventHotel {
     }
 
     /**
+     * The hotel's reservation access date.
+     */
+    public HousingEventHotel withReservationAccessDate(@Nullable LocalDate reservationAccessDate) {
+        this.reservationAccessDate = reservationAccessDate;
+        return this;
+    }
+
+    /**
+     * The hotel's close date.
+     */
+    public HousingEventHotel withHotelCloseDate(@Nullable LocalDate hotelCloseDate) {
+        this.hotelCloseDate = hotelCloseDate;
+        return this;
+    }
+
+    /**
      * The hotel's rating, used to classify the hotel's quality.
      */
-    public HousingEventHotel withRating(@Nullable HotelRatingJson rating) {
+    public HousingEventHotel withRating(@Nullable HotelRating rating) {
         this.rating = rating;
         return this;
     }
@@ -270,8 +335,16 @@ public class HousingEventHotel {
      * Address details. Required to create/update a guest's reservation if the hotel/event requires an
      * address in reservations.
      */
-    public HousingEventHotel withAddress(@Nullable AddressJson address) {
+    public HousingEventHotel withAddress(@Nullable Address3 address) {
         this.address = address;
+        return this;
+    }
+
+    /**
+     * List of reward programs available at the hotel.
+     */
+    public HousingEventHotel withRewardPrograms(@Nullable List<RewardProgram> rewardPrograms) {
+        this.rewardPrograms = rewardPrograms;
         return this;
     }
 
@@ -292,14 +365,29 @@ public class HousingEventHotel {
                 && Utils.enhancedDeepEquals(this.images, other.images)
                 && Utils.enhancedDeepEquals(this.proximity, other.proximity)
                 && Utils.enhancedDeepEquals(this.amenities, other.amenities)
+                && Utils.enhancedDeepEquals(this.reservationAccessDate, other.reservationAccessDate)
+                && Utils.enhancedDeepEquals(this.hotelCloseDate, other.hotelCloseDate)
                 && Utils.enhancedDeepEquals(this.rating, other.rating)
-                && Utils.enhancedDeepEquals(this.address, other.address);
+                && Utils.enhancedDeepEquals(this.address, other.address)
+                && Utils.enhancedDeepEquals(this.rewardPrograms, other.rewardPrograms);
     }
 
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-                id, housingEvent, name, description, childPolicy, images, proximity, amenities, rating, address);
+                id,
+                housingEvent,
+                name,
+                description,
+                childPolicy,
+                images,
+                proximity,
+                amenities,
+                reservationAccessDate,
+                hotelCloseDate,
+                rating,
+                address,
+                rewardPrograms);
     }
 
     @Override
@@ -322,10 +410,16 @@ public class HousingEventHotel {
                 proximity,
                 "amenities",
                 amenities,
+                "reservationAccessDate",
+                reservationAccessDate,
+                "hotelCloseDate",
+                hotelCloseDate,
                 "rating",
                 rating,
                 "address",
-                address);
+                address,
+                "rewardPrograms",
+                rewardPrograms);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -333,7 +427,7 @@ public class HousingEventHotel {
 
         private long id;
 
-        private HousingEventIdJson housingEvent;
+        private HousingEventId housingEvent;
 
         private String name;
 
@@ -341,15 +435,21 @@ public class HousingEventHotel {
 
         private String childPolicy;
 
-        private List<ImageLinkJson> images;
+        private List<ImageLink> images;
 
-        private ProximityJson proximity;
+        private Proximity proximity;
 
         private List<String> amenities;
 
-        private HotelRatingJson rating;
+        private LocalDate reservationAccessDate;
 
-        private AddressJson address;
+        private LocalDate hotelCloseDate;
+
+        private HotelRating rating;
+
+        private Address3 address;
+
+        private List<RewardProgram> rewardPrograms;
 
         private Builder() {
             // force use of static builder() method
@@ -366,7 +466,7 @@ public class HousingEventHotel {
         /**
          * Contains unique ID of the housing event.
          */
-        public Builder housingEvent(@Nonnull HousingEventIdJson housingEvent) {
+        public Builder housingEvent(@Nonnull HousingEventId housingEvent) {
             this.housingEvent = Utils.checkNotNull(housingEvent, "housingEvent");
             return this;
         }
@@ -398,7 +498,7 @@ public class HousingEventHotel {
         /**
          * List of hotel images.
          */
-        public Builder images(@Nullable List<ImageLinkJson> images) {
+        public Builder images(@Nullable List<ImageLink> images) {
             this.images = images;
             return this;
         }
@@ -406,7 +506,7 @@ public class HousingEventHotel {
         /**
          * Proximity of the event venue to the hotel.
          */
-        public Builder proximity(@Nullable ProximityJson proximity) {
+        public Builder proximity(@Nullable Proximity proximity) {
             this.proximity = proximity;
             return this;
         }
@@ -420,9 +520,25 @@ public class HousingEventHotel {
         }
 
         /**
+         * The hotel's reservation access date.
+         */
+        public Builder reservationAccessDate(@Nullable LocalDate reservationAccessDate) {
+            this.reservationAccessDate = reservationAccessDate;
+            return this;
+        }
+
+        /**
+         * The hotel's close date.
+         */
+        public Builder hotelCloseDate(@Nullable LocalDate hotelCloseDate) {
+            this.hotelCloseDate = hotelCloseDate;
+            return this;
+        }
+
+        /**
          * The hotel's rating, used to classify the hotel's quality.
          */
-        public Builder rating(@Nullable HotelRatingJson rating) {
+        public Builder rating(@Nullable HotelRating rating) {
             this.rating = rating;
             return this;
         }
@@ -431,14 +547,34 @@ public class HousingEventHotel {
          * Address details. Required to create/update a guest's reservation if the hotel/event requires an
          * address in reservations.
          */
-        public Builder address(@Nullable AddressJson address) {
+        public Builder address(@Nullable Address3 address) {
             this.address = address;
+            return this;
+        }
+
+        /**
+         * List of reward programs available at the hotel.
+         */
+        public Builder rewardPrograms(@Nullable List<RewardProgram> rewardPrograms) {
+            this.rewardPrograms = rewardPrograms;
             return this;
         }
 
         public HousingEventHotel build() {
             return new HousingEventHotel(
-                    id, housingEvent, name, description, childPolicy, images, proximity, amenities, rating, address);
+                    id,
+                    housingEvent,
+                    name,
+                    description,
+                    childPolicy,
+                    images,
+                    proximity,
+                    amenities,
+                    reservationAccessDate,
+                    hotelCloseDate,
+                    rating,
+                    address,
+                    rewardPrograms);
         }
     }
 }

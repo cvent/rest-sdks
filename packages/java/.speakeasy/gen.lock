@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 795b0bc6-b124-44d6-a714-d4fdbc56212b
 management:
-  docChecksum: 610176a80d2939923c37f524d551ee03
+  docChecksum: 4539ad66566fa6b09a4e1018059f4b15
   docVersion: ea
   speakeasyVersion: 1.752.0
   generationVersion: 2.859.2
-  releaseVersion: 1.6.0
-  configChecksum: cd3e10e85e51d4f8d82e7ef7534020b0
+  releaseVersion: 1.6.1
+  configChecksum: 037bd04b5c987f6720e5c2b2e5809577
   published: true
 persistentEdits:
   generation_id: 6ad3309a-d2a1-4e74-a3ae-065e16d1999e
@@ -132,10 +132,8 @@ trackedFiles:
     last_write_checksum: sha1:7e7bf54abca40850b9a7fbab808b982d0f2d4fd9
   docs/models/components/AdLocation.md:
     last_write_checksum: sha1:3615439bc9dfd982be807411c4edf7b95aba19fa
-  docs/models/components/AddOnJson.md:
-    id: 996813cb1771
-    last_write_checksum: sha1:c809e6403587c579cf2d2826d0ef08207ade0d6a
-    pristine_git_object: 0987c39052d15871ee4ba2ba8c8d1003aa183886
+  docs/models/components/AddOn.md:
+    last_write_checksum: sha1:94c00fe236ff697709798f32cfd0c3b14643f9ff
   docs/models/components/AdditionalBadgekitFields.md:
     id: 07cacd034907
     last_write_checksum: sha1:fbbf20cabfafa6319088c317a8d3dad9fa834ab5
@@ -146,10 +144,8 @@ trackedFiles:
     last_write_checksum: sha1:a12acedde623849f25a163330b407bfc660f285a
   docs/models/components/AdditionalChoiceJson.md:
     last_write_checksum: sha1:3d73067227357b3ce5cc4ef8b012c1eda0241ed5
-  docs/models/components/AdditionalGuestFeesJson.md:
-    id: b06986916918
-    last_write_checksum: sha1:c6bec98de43766efe8c7bc46f6353f0cf0cd2b58
-    pristine_git_object: 2f336a0d211e22039d5db2b941a9b965b89b8bf4
+  docs/models/components/AdditionalGuestFees.md:
+    last_write_checksum: sha1:291ef9728b4b48ea907f047b70a3f0322656ff80
   docs/models/components/Address.md:
     last_write_checksum: sha1:6b4ca7d03ace65ef15f6186b03edf88bb3377e24
   docs/models/components/Address1.md:
@@ -157,25 +153,25 @@ trackedFiles:
   docs/models/components/Address11.md:
     last_write_checksum: sha1:1443e51453a2061d020b8228d6ac3943a805216a
   docs/models/components/Address3.md:
-    last_write_checksum: sha1:7314bfa59e397d5b0c90fe37d67a6e40eb231afb
+    last_write_checksum: sha1:60c6f194a29fd763ba849ccff80d71ec9698b9c6
   docs/models/components/Address4.md:
-    last_write_checksum: sha1:d08b9584dc4dad2db204b1856fb2faa9e496074d
+    last_write_checksum: sha1:878adb70fdcf5e980ad60b426953733d4164d524
   docs/models/components/Address5.md:
-    last_write_checksum: sha1:f0c4fb5558c70bd1d9671a1719f415a7786b2c08
+    last_write_checksum: sha1:942fe3e8bd0b609e6b7fd2cb77add83c1ace9877
   docs/models/components/Address6.md:
-    last_write_checksum: sha1:0a153f1120f7d4ddfc740637d29581e312084d2f
+    last_write_checksum: sha1:052bf5639f394375d05179536feaf6a535b16470
   docs/models/components/Address7.md:
-    last_write_checksum: sha1:69ab1bc27d8aa8b155ab1b9a92c330c2b3caa719
+    last_write_checksum: sha1:5cd7626e01dda33983e27bc65665b6181f19c885
+  docs/models/components/Address8.md:
+    last_write_checksum: sha1:dabe57e5e71b5d76b2ea7b1a584ec9fabfd845ec
   docs/models/components/AddressInfo.md:
     last_write_checksum: sha1:011eb019302b80b6f17e02f74e5ae243ae413259
   docs/models/components/AddressInput.md:
     last_write_checksum: sha1:452de3333bd7d54cb6c9cf241d8d715bf81a4a51
   docs/models/components/AddressJson.md:
     id: 852b3cfbf97e
-    last_write_checksum: sha1:b37f4931ba7bcf299974fa8efa97782cd9fb58c0
+    last_write_checksum: sha1:ff703381426a8f5b1d51ab8a9b03ba05df321476
     pristine_git_object: 39721498ca4a7658142cbc308a2072d0bbbf42be
-  docs/models/components/AddressJson1.md:
-    last_write_checksum: sha1:f227600fe62d4397e81350d69cce7a4373a12ec1
   docs/models/components/AddressType.md:
     last_write_checksum: sha1:8413e3daa4158cfdb2d185e755029582f715ac42
   docs/models/components/AddressType1.md:
@@ -221,7 +217,7 @@ trackedFiles:
   docs/models/components/AirActualDetail2.md:
     last_write_checksum: sha1:a703a3df6679e43e5af2d7c5883ed99b2e4b5eb2
   docs/models/components/AirRequest.md:
-    last_write_checksum: sha1:6d109525772c8add24c3252cde5e0f532ca3bb3c
+    last_write_checksum: sha1:d5add5be2bc568e2a81edcfae4d8f2b2bfb8206d
   docs/models/components/AirRequesterType.md:
     last_write_checksum: sha1:77b78c3cb12ac674b05dbdc47e9abc8bc5e0f109
   docs/models/components/AirReservationDetail1.md:
@@ -462,7 +458,7 @@ trackedFiles:
     pristine_git_object: 5e3fa8e3af2820fda4ea9131f05d912f8c7df43f
   docs/models/components/AttendeeAddBulkItemEventJsonErrorResponse.md:
     id: d64e4e6d9d88
-    last_write_checksum: sha1:65c441a112ce86580bd1cce3e6710c559b25527c
+    last_write_checksum: sha1:c6481aaf4b444dfea32c21093222c89a3ec250b8
     pristine_git_object: 5da83df055b2c0a6ef269a245f01a44e019f1fa0
   docs/models/components/AttendeeAddBulkItemJson.md:
     last_write_checksum: sha1:a33fd1ebc3ec1ec00d5b8fa3953a7d26e2eb8526
@@ -507,7 +503,7 @@ trackedFiles:
   docs/models/components/AttendeeAudienceSegmentAssociationsPaginatedResponse.md:
     last_write_checksum: sha1:b19996ade946fb03c0a4cc4e7f0ca2c0bbffb062
   docs/models/components/AttendeeContactInfo.md:
-    last_write_checksum: sha1:97f0129f0ca9508fc6e3ddb819483387edad8cb8
+    last_write_checksum: sha1:c7a389a9e46a0e5572b1072364bea64c3efcb98d
   docs/models/components/AttendeeContactMembership.md:
     last_write_checksum: sha1:64d162abbb51639fdb7733e9d599650d8f914e01
   docs/models/components/AttendeeContactType.md:
@@ -560,10 +556,6 @@ trackedFiles:
     id: 93cff64c7872
     last_write_checksum: sha1:7a442a7f5121efccc696c394d1c83f9d115b468f
     pristine_git_object: acb1b50521bd1c049cab996494a854c844e28065
-  docs/models/components/AttendeeInventoryJson.md:
-    id: b46ac8486caa
-    last_write_checksum: sha1:d209065a6b453e0a371ee9bdd04c6dcb27b8e0db
-    pristine_git_object: e56e4b56a94521f0c45b1c9c598b8d0c85898345
   docs/models/components/AttendeeInvitedBy.md:
     last_write_checksum: sha1:5780941c429d80823adcb6f003aa4a6b7df528c9
   docs/models/components/AttendeeInvitedBy1.md:
@@ -598,26 +590,16 @@ trackedFiles:
     last_write_checksum: sha1:52265666ab21cdb7b3e6f091c1f510f318dab805
   docs/models/components/AttendeeResponseMethod1.md:
     last_write_checksum: sha1:cc04fed73b7968cd1fb2cf3a6238fbaae46746b5
-  docs/models/components/AttendeeSignatureResponseJson.md:
-    id: d6b05edf262a
-    last_write_checksum: sha1:036211f04ba92562a34daf4383ae86a149e54e52
-    pristine_git_object: 8e636b07b4259887c8ccc5d19173ee1b5dcc49ae
-  docs/models/components/AttendeeSignatureResponseJsonAttendee.md:
-    id: a3789530770e
-    last_write_checksum: sha1:e4da6efe673c8f28b8913947d0c5d5066fa10325
-    pristine_git_object: 55602cfbfcbc1baf06891be42ae3b13e67735b4c
-  docs/models/components/AttendeeSignatureResponseJsonEvent.md:
-    id: b2a632a66b9a
-    last_write_checksum: sha1:b06ea8bd8d82c9a061ea696e0d19da8e5f942878
-    pristine_git_object: d07dcce50a9474be58b18eadba799364065fa7c5
-  docs/models/components/AttendeeSignatureResponseJsonSession.md:
-    id: de942b50da65
-    last_write_checksum: sha1:8f803adcb8311bcf8738cd8c9289d8284a85fa10
-    pristine_git_object: e25b158101426cbd02cebfb76cc688128d773adf
-  docs/models/components/AttendeeSignatureResponseJsonType.md:
-    id: 163157284a21
-    last_write_checksum: sha1:3d3ac4f54d4638bde5c60ca86fd16d237087f712
-    pristine_git_object: 9f9869ee2b1cc4af8c82d301d63e7aa3e8f4d03c
+  docs/models/components/AttendeeSignatureResponse.md:
+    last_write_checksum: sha1:a33c48c2d96684ee3abe2653b40fd22e0cab4911
+  docs/models/components/AttendeeSignatureResponseAttendee.md:
+    last_write_checksum: sha1:33410e89abb701f5b4249fd47da095a28821bd6c
+  docs/models/components/AttendeeSignatureResponseEvent.md:
+    last_write_checksum: sha1:d4370c08a0b0740d7083559c231d4726b5100cf5
+  docs/models/components/AttendeeSignatureResponseSession.md:
+    last_write_checksum: sha1:214387de9deb1e94e200be906ced445c813d277a
+  docs/models/components/AttendeeSignatureResponseType.md:
+    last_write_checksum: sha1:ee95c25d1943c9f5f45aab62e8d65144f54b1e9d
   docs/models/components/AttendeeStatus.md:
     last_write_checksum: sha1:abcaf91b3c5b8d4e61c92272e35e5e0620bed03b
   docs/models/components/AttendeeSubscriptionRequest.md:
@@ -626,17 +608,13 @@ trackedFiles:
     last_write_checksum: sha1:2ace65db1cbbc94263f2c6c16458d94a5818a2f2
   docs/models/components/AttendeeSubscriptionResponseAttendee.md:
     last_write_checksum: sha1:8028e6af985f01afcce50eb1cbdb607ff93d07b0
-  docs/models/components/AttendeeTypeIdJson.md:
-    id: "468216598706"
-    last_write_checksum: sha1:7f8161177bd20d9b2e3d306ad92182aeecad995b
-    pristine_git_object: d58efc116b33bc89eefd6cafbd72e44909cd508a
-  docs/models/components/AttendeeTypeJson.md:
-    id: 8470b77439eb
-    last_write_checksum: sha1:259d9c220a261800c171171f013edf1f8294490a
-    pristine_git_object: 0aeb270ba1e39b6da3bdb3b8c03ce3872646a6de
+  docs/models/components/AttendeeType.md:
+    last_write_checksum: sha1:815d332c6b794c6e29c7d2ff555cfc293bc1b102
+  docs/models/components/AttendeeTypeId.md:
+    last_write_checksum: sha1:03db47f71fc8fdb6dcb327641505299bdb006a2d
   docs/models/components/AttendeeUpdate.md:
     id: c068d0e3e7d9
-    last_write_checksum: sha1:b3a4409d7a53f345e60ca7834acd6399bf8ba48d
+    last_write_checksum: sha1:4cdf5e8ea6aa50609e99e7bf156650f1012d066d
     pristine_git_object: 49a77cb3abde0eba287e615c65ac0ec8c299b4ba
   docs/models/components/AttendeeUpdateAdministrator.md:
     id: a6879cbc9e1c
@@ -663,7 +641,7 @@ trackedFiles:
     last_write_checksum: sha1:a0bc4a7d0f234144a8c063d9de3b1b415ac57813
     pristine_git_object: bf996c5960627c19abad4b04c1f0360ae76bf250
   docs/models/components/AttendeeUpdateStatus.md:
-    last_write_checksum: sha1:1a02d2309877bded1e5b7492bb8a467dfc0213b5
+    last_write_checksum: sha1:b4ea5aedfc0dc1010ac3c216c3132f0e317d26b8
   docs/models/components/AttendeeVisibility.md:
     last_write_checksum: sha1:c40d82f40f9a01e65b5f2d17c6206bfa481db4bb
   docs/models/components/AttendeeWebLinks.md:
@@ -720,13 +698,11 @@ trackedFiles:
     id: ff480c7139e3
     last_write_checksum: sha1:1987fb16d0680bc1dce9b03aa95ac3775dad3884
     pristine_git_object: 2fc408afd80d45a1705f12f54e603834dab8e8c4
-  docs/models/components/AvailableNightJson.md:
-    id: 9a460ed07f28
-    last_write_checksum: sha1:446a6c2c12e590f79fad77dd9fb6cf9e35d31c8b
-    pristine_git_object: f76f1803d02406123a525a86d525f0a5857fc397
+  docs/models/components/AvailableNight.md:
+    last_write_checksum: sha1:da4e5070c389a70262de14dc9f4d5cd634077d5f
   docs/models/components/AvailableNights.md:
     id: 976ff416407a
-    last_write_checksum: sha1:b3f8ef9d28a59e824f81a97ca548da3bd1601fec
+    last_write_checksum: sha1:53757bb76f0e4e13322fe220f7a140f0372f3aae
     pristine_git_object: b1cb30881a2869fafdb612d5a630d419c063c502
   docs/models/components/AvailableTimeJson.md:
     id: 8ba38648d684
@@ -750,23 +726,19 @@ trackedFiles:
     pristine_git_object: 445d2c33c378fefac964d575e9561562f26020ab
   docs/models/components/BadgePrintJobCreated.md:
     id: b0ebd6808c49
-    last_write_checksum: sha1:8f121e8ed55ef8fa197ab8a2bf1dc5eea95500d3
+    last_write_checksum: sha1:57f3f0cd9ec9ce0f86cf0233a5ae63af55c39deb
     pristine_git_object: 2bb2e99a136adb1980d75ff3a5780ab66194f1b6
   docs/models/components/BadgePrintJobCreatedInput.md:
     id: c282534d46a0
-    last_write_checksum: sha1:8d7961d8111945d0143fd8bb5866ea570d5fc25c
+    last_write_checksum: sha1:d3738d06fae367baec7480544f3c64d0baf5dd81
     pristine_git_object: 8a97dbb092a3474deea1f6d7ef26df55dc42120e
-  docs/models/components/BadgePrintJobErrorCodeJson.md:
-    id: 0c4bebb95dea
-    last_write_checksum: sha1:7238b670d8be97236bd0d30c207680bbc7e88cb0
-    pristine_git_object: 93d3465b49cf7588edb450a884df2a78cd105dd4
-  docs/models/components/BadgePrintJobStatusJson.md:
-    id: f06d3435e29e
-    last_write_checksum: sha1:1eaf15292a6c1cfb9800a25372006499859d9785
-    pristine_git_object: 73e4c7f30d0a1bd7955150735a37502200dab929
+  docs/models/components/BadgePrintJobErrorCode.md:
+    last_write_checksum: sha1:47c2891f84e75564b9dbfa4112fb92caa15e0d56
+  docs/models/components/BadgePrintJobStatus.md:
+    last_write_checksum: sha1:accefc467113a3a18adbfff6c92e355f06da24f9
   docs/models/components/BadgePrintJobsPaginatedResponse.md:
     id: 2673e533ee60
-    last_write_checksum: sha1:aa23723b56369b76af14d9e141007e672c68e7c4
+    last_write_checksum: sha1:0f1a999b80a4f17c55ad08184ab0d29b75cf6f06
     pristine_git_object: 5ab508d8cb4b771b129426b6eabd880e535ad820
   docs/models/components/BadgePrinter.md:
     id: 3da0185e050b
@@ -774,15 +746,11 @@ trackedFiles:
     pristine_git_object: 465841107e4e7556f530d0485b44380bcb4d814f
   docs/models/components/BadgePrinterPoolRef.md:
     id: 089f45c627c8
-    last_write_checksum: sha1:9f7ee020caa5035ddf2b13b3a977fb05463e1ebe
+    last_write_checksum: sha1:39c9e8888a2d4010e3f6d839de37dc3753b58331
     pristine_git_object: 14b0c0733454f13699d80e8dbad015ce28da690c
-  docs/models/components/BadgePrinterPoolReferenceJson.md:
-    id: bef06f9950c0
-    last_write_checksum: sha1:6234cc3d4f88e94424f0759952ca4da89721ca7a
-    pristine_git_object: fc5b30a4a51ee749f62e98442fbfceecf536a0d6
   docs/models/components/BadgePrinterPoolsPaginatedResponse.md:
     id: 74e53282bacf
-    last_write_checksum: sha1:c0c4acc06f0d724b098cd570340b0f7353892ac9
+    last_write_checksum: sha1:4ed287293944258c7d592759c670cbc6a30a43b6
     pristine_git_object: 270a58ce24792f4429dbce0f474614d1aeddbe16
   docs/models/components/BadgeStatus.md:
     last_write_checksum: sha1:73c438278198475bd2f63ab37faab2ffe0db8875
@@ -828,10 +796,8 @@ trackedFiles:
     id: 5f08a2fcc1f8
     last_write_checksum: sha1:9d7b3e18ec6d1fb2edb9b3a66c28aea6df9b9f64
     pristine_git_object: ccdb04c5ff4d2152431244d7418dc21a372a5d39
-  docs/models/components/BookingWebsiteLinkJson.md:
-    id: 4f035bde02d4
-    last_write_checksum: sha1:4b47fad1d889b1eb8666dc832a69606f993ec18d
-    pristine_git_object: c1cea1ad60dc0a6bc3067cfadeb67678a1f59848
+  docs/models/components/BookingWebsiteLink.md:
+    last_write_checksum: sha1:fcb3ea80f8b76d98b240d09732c544c113ca6e28
   docs/models/components/BoothStaff.md:
     last_write_checksum: sha1:9729680fae825449f8b8ec9e587e9480b4ea5719
   docs/models/components/BoothStaffListResponse.md:
@@ -856,7 +822,7 @@ trackedFiles:
     pristine_git_object: c84359ab683166df5e9b695749da15bec0cfcf1e
   docs/models/components/Brand.md:
     id: f664169dc5c0
-    last_write_checksum: sha1:b0ce1bfae610dfa441cb1b50cc0b1183a166dd1a
+    last_write_checksum: sha1:bbb1f28c8ffdba0fbe46ac0d5b81f1402b9fc4b5
     pristine_git_object: 4e994c806599126cc0ad3d8e2b66ce1597705726
   docs/models/components/BrandPaginatedResponse.md:
     id: 58789b2f2ec0
@@ -1016,10 +982,8 @@ trackedFiles:
     last_write_checksum: sha1:bc70e2fb868d7ba7d8d33b181569f3fca270e1bd
   docs/models/components/CalendarContactType.md:
     last_write_checksum: sha1:daf06787e7b0aa59e8b2a7f73495fec082b43391
-  docs/models/components/CallCenterLinkJson.md:
-    id: 23016b9ec4a3
-    last_write_checksum: sha1:240b3583636f034db831a1f169525cf4b8156f87
-    pristine_git_object: c70db96e5963a6899b71f7442828b5872a34e744
+  docs/models/components/CallCenterLink.md:
+    last_write_checksum: sha1:b971726a7fc0636c398778fe5fa128bd2b8d4e53
   docs/models/components/CampaignDataJson.md:
     id: "174610998457"
     last_write_checksum: sha1:3b937593d2f46db02227859b06b9c9b23877b060
@@ -1112,7 +1076,7 @@ trackedFiles:
     pristine_git_object: 11276785799e075fa7379e633a0c44430b7351c8
   docs/models/components/Chain.md:
     id: 9367b86aedb6
-    last_write_checksum: sha1:c5a1bab5bc19b90e36422134f08f08fe7f4f5fcb
+    last_write_checksum: sha1:a8990c444689afa001b9061450ca466275594043
     pristine_git_object: 8ecbac0229ab6ca03b40dde65909454b423678e1
   docs/models/components/ChainBrand.md:
     id: 3e5bc3b260b4
@@ -1170,8 +1134,8 @@ trackedFiles:
     last_write_checksum: sha1:380faf5fe0d44061459001afc2422707f0048882
   docs/models/components/Choice2Input.md:
     last_write_checksum: sha1:740970a06c77bc9d118428c7e3a0347b806b8410
-  docs/models/components/ChoiceJson1.md:
-    last_write_checksum: sha1:364300c766ae66707f71d6bad71d284a0e380ea8
+  docs/models/components/ChoiceJson.md:
+    last_write_checksum: sha1:494f4a59a8be39076e61ccb7771009955ef3f2b9
   docs/models/components/ChoiceSortOrder.md:
     last_write_checksum: sha1:434bfa14c792a6ac352d427d0076118e7f7777c9
   docs/models/components/ChoiceTranslation.md:
@@ -1418,10 +1382,8 @@ trackedFiles:
     id: 128ecd1eed9f
     last_write_checksum: sha1:682e3852b676ba19f1c5132e337ff09ee6225cfb
     pristine_git_object: b2fc2639c78de9997a857cc3157ac720ffc174cf
-  docs/models/components/CreditCardTypesJson.md:
-    id: e8cfce73dd6d
-    last_write_checksum: sha1:191fcedf7afbe2c6f49d4f69eb31f91c7c8c6aba
-    pristine_git_object: 0263fca1842ecc4822b98f27b9d934fe3d235407
+  docs/models/components/CreditCardTypes.md:
+    last_write_checksum: sha1:eb67678f7282e5fa34e48946a205d6bc63326a36
   docs/models/components/Currency.md:
     last_write_checksum: sha1:2fb743357668cc2f4f5a7cc90ffcc5f6da3d7c96
   docs/models/components/CurrencyConversionRate.md:
@@ -1442,8 +1404,8 @@ trackedFiles:
     id: 165a484e592f
     last_write_checksum: sha1:4d5cf7cb62ab2db024a12555f820db8fe9d30afb
     pristine_git_object: 9df93eda1bb8ccbffa201291c36060bfb16fc84b
-  docs/models/components/CurrencyJson2.md:
-    last_write_checksum: sha1:a7de766122aa662dc2fed77941249d124040f404
+  docs/models/components/CurrencyJson1.md:
+    last_write_checksum: sha1:67889118dc0f4f8d07bba8816d235970ca183025
   docs/models/components/CustomAnswerFormat.md:
     last_write_checksum: sha1:0a53162b925e9cca3c8bf9ab84e03f523b7f1678
   docs/models/components/CustomDuration.md:
@@ -1496,10 +1458,8 @@ trackedFiles:
     last_write_checksum: sha1:46e8c60cf1d0171dfd89e089a930d25abb4cdd33
   docs/models/components/CustomFieldType2.md:
     last_write_checksum: sha1:18ed8997f7fa288826eb06ba15e8ba8d34b1e11a
-  docs/models/components/CustomFieldsJson.md:
-    id: 76a8388ba2de
-    last_write_checksum: sha1:8c63a159b81cc0f9a23c2287ece7443f063046fc
-    pristine_git_object: 4b672364c46ae81ff85975bee25ae37509652543
+  docs/models/components/CustomFields.md:
+    last_write_checksum: sha1:032fc4dc94f1a62625425a7ad2fabb5ddcebb7cd
   docs/models/components/CustomFieldsPaginatedResponse.md:
     id: dabd6dc65ca1
     last_write_checksum: sha1:d39d60eb06d745ad119bd2a27ee36e667d7394e5
@@ -1556,8 +1516,8 @@ trackedFiles:
     last_write_checksum: sha1:1b4181e866c261390ec9ddd7b61131cde65f0467
   docs/models/components/DisplayType1.md:
     last_write_checksum: sha1:1875ead7c24238334a806e3de94669f3e7435088
-  docs/models/components/DistanceJson.md:
-    last_write_checksum: sha1:a11cb07aa317dd86a53afda8ccb9a41427dd9b4a
+  docs/models/components/Distance.md:
+    last_write_checksum: sha1:103cd615eb24b7bdbb8d22e32ee1b40f8934dacf
   docs/models/components/DistanceMeasurementUnit.md:
     last_write_checksum: sha1:f8d91b8ac5b02b8b2ee6b1903032b2864aa3cad7
   docs/models/components/DistanceUnit.md:
@@ -1677,7 +1637,7 @@ trackedFiles:
   docs/models/components/EntityType1.md:
     last_write_checksum: sha1:482a9a7b73d9bc95b63e0dc15e06ab77d3e9f05e
   docs/models/components/ErrorResponse.md:
-    last_write_checksum: sha1:0e7cea7cdb8913d65f34d026656fca9e28366de5
+    last_write_checksum: sha1:d47b0172fe037b7df469453db9b4cd8899f02c01
   docs/models/components/ErrorResponse11.md:
     last_write_checksum: sha1:afdbe46e8e7e9789de94bcc8b96613fa8104a7f2
   docs/models/components/ErrorResponseBase.md:
@@ -1699,11 +1659,11 @@ trackedFiles:
   docs/models/components/Event1.md:
     last_write_checksum: sha1:69aaa8da1d0f81d46ee904c433a0e3d6e24fbd84
   docs/models/components/Event11.md:
-    last_write_checksum: sha1:e379b411c0378817d3f53d4622bd340e5b84a8c9
+    last_write_checksum: sha1:df17eb657d5e19913bd7f274a9d27a5b60c2ad48
   docs/models/components/Event12.md:
     last_write_checksum: sha1:0d4983a839310cb94bebdc9d91ff39be9e146fff
   docs/models/components/Event1Input.md:
-    last_write_checksum: sha1:eab321572f3fafc87e29a9669f640710efc99740
+    last_write_checksum: sha1:78f50a785d42587a38b1c8b87eacecd1fbe2799d
   docs/models/components/Event1Lookup.md:
     last_write_checksum: sha1:a846cd195160451ae7db1073aa91c5fc7683cb29
   docs/models/components/Event2.md:
@@ -1794,7 +1754,7 @@ trackedFiles:
     pristine_git_object: fe0170edd5c8555c881993f71097e70e3c705e7f
   docs/models/components/EventEmailsPaginatedResponse.md:
     id: ff6698cbd018
-    last_write_checksum: sha1:172ab1d5521a18055159548bcc76380c0984b0d0
+    last_write_checksum: sha1:173ca6268edf597c9693590803f2954b50d496ba
     pristine_git_object: f6f0a4a3428550f22385cc7728c3ed6de4535711
   docs/models/components/EventFeatureJson.md:
     id: acd6db0098f2
@@ -1839,7 +1799,7 @@ trackedFiles:
   docs/models/components/EventJson1.md:
     last_write_checksum: sha1:c1830612a7928bfd6f135352e6fa1336d7871e5d
   docs/models/components/EventJson2.md:
-    last_write_checksum: sha1:ca9da051edef9b913c70c76cd2841addb4d02125
+    last_write_checksum: sha1:cc93083af449b23140f4e314ca838244b32a5784
   docs/models/components/EventJson2Lookup.md:
     last_write_checksum: sha1:c7362723420903cb742b2bc05f67c7e2e717813b
   docs/models/components/EventJson3.md:
@@ -1946,7 +1906,7 @@ trackedFiles:
     pristine_git_object: f18fe8ddc33236d763b4c5db12b706f88398b60d
   docs/models/components/EventSurveyQuestionJson.md:
     id: 533cfc903571
-    last_write_checksum: sha1:1e5fa8bcd73aece4c09e7d46273be605e13a46c6
+    last_write_checksum: sha1:1e93a3804b915103d80a2b78f1e6d970cdbca190
     pristine_git_object: 2e3dd74c979006b84487aec1749652e180fee491
   docs/models/components/EventSurveyQuestionsPaginatedResponse.md:
     id: 6f4572c68e0b
@@ -2010,11 +1970,11 @@ trackedFiles:
     last_write_checksum: sha1:65ba76c09081719b4125560245d86d6706033727
   docs/models/components/EventUpdate.md:
     id: 67528f16165b
-    last_write_checksum: sha1:45783809c785d602ee9ad88ed4153fb480a394ce
+    last_write_checksum: sha1:636e778f1c87f7e35d3fdac0b2af01a03a1ee36e
     pristine_git_object: 7ae33e0cd6721a2e25170dc004195ea8cdc45395
   docs/models/components/EventUpdateInput.md:
     id: 5947df2c1cea
-    last_write_checksum: sha1:5978dc852c1d26ecef22f4872c9d294c2b4eff9e
+    last_write_checksum: sha1:30b28cc013892cff107e37d592190b56af1f1671
     pristine_git_object: ffc5014312b975c79e71c51e7442d2b81af92161
   docs/models/components/EventUpdateLookup.md:
     id: 083575f546bb
@@ -2132,11 +2092,11 @@ trackedFiles:
     pristine_git_object: 2d24a72c84f75944a5e14e1a4b57e73313f36ff6
   docs/models/components/ExhibitorRequest.md:
     id: b2968d7c4d8e
-    last_write_checksum: sha1:9746edd81cfb4f195f0ef1cb06a314120b90c924
+    last_write_checksum: sha1:815001818c87044062bc52d910a1493fe1b74951
     pristine_git_object: 9e029619cc509ddcf5c82dcb341496924e900186
   docs/models/components/ExhibitorResponse.md:
     id: 057c82490dce
-    last_write_checksum: sha1:180474f7e1e71e42b4702e04cc9260fb41a12691
+    last_write_checksum: sha1:51f88bf2bdc44c869eb18fdd64a206bc0f4a30ee
     pristine_git_object: 758dc1a665157513ccbe26d4dcfc6a71379ea76e
   docs/models/components/ExhibitorSocialLinkOpened.md:
     id: b18993967fd4
@@ -2186,8 +2146,10 @@ trackedFiles:
     pristine_git_object: 4a3368de159398742c41deb90e9726d788ad5d35
   docs/models/components/ExistingBadgePrintJob.md:
     id: e253d1dc1a00
-    last_write_checksum: sha1:33b3aaf5f59730d05ccd9438ee449560ce18ef23
+    last_write_checksum: sha1:c139ec56ac09a13a8ed4cb103085bd990f51382e
     pristine_git_object: db63568077fc1b48d56762d45b7083ee47a5af44
+  docs/models/components/ExistingBadgePrintJobBadgePrinterPoolRef.md:
+    last_write_checksum: sha1:050d59d49e084cc4960194cf19277054f8a8204b
   docs/models/components/ExistingBadgePrinterPool.md:
     id: 752d99853f9e
     last_write_checksum: sha1:55a079d4248e162a2483bf1ff484ca5e9d736237
@@ -2282,7 +2244,7 @@ trackedFiles:
     pristine_git_object: 210ca224151c20579a1388fd3823dbf4e6740e3e
   docs/models/components/ExistingReservation.md:
     id: adec275804bf
-    last_write_checksum: sha1:ad1cba27e01cfe42cc7bd4002953fd64dc7f83d4
+    last_write_checksum: sha1:f28e1a6461eb65a77acf5aa0f1e08ce491dbe320
     pristine_git_object: 4f8923353493e3d146bbaaf40e0ba8f395d382ff
   docs/models/components/ExistingReservationHousingEventId.md:
     id: 4732849445a7
@@ -2290,7 +2252,7 @@ trackedFiles:
     pristine_git_object: 33ef53c205163c13ee3250030449b2d52cd90c09
   docs/models/components/ExistingReservationRequest.md:
     id: 935849858b61
-    last_write_checksum: sha1:b6a5674fdb795e8c41d75f04bc37f37e46bac812
+    last_write_checksum: sha1:eb0c95c23e722612a5be70be95d462f636e2277a
     pristine_git_object: adb00e39d51c414bfca0827b87f2fdad2bf47107
   docs/models/components/ExistingReservationRequestBlock.md:
     id: ad4f882a3d6a
@@ -2298,7 +2260,7 @@ trackedFiles:
     pristine_git_object: 557a00e1f481b8abcd7d37515237555298a9b2ba
   docs/models/components/ExistingReservationRequestInput.md:
     id: 15ddb830f349
-    last_write_checksum: sha1:28040f9eeccdea6696219088ff6399b5fda2def7
+    last_write_checksum: sha1:0f58da9e910cee754606b6ee49c3646bd0ae49e3
     pristine_git_object: 67df8f33a03297bcfb1784ee80914860bc483e5a
   docs/models/components/ExistingReservationReservationRequest.md:
     id: 53e149fb5fd1
@@ -2503,7 +2465,7 @@ trackedFiles:
   docs/models/components/Field.md:
     last_write_checksum: sha1:fde6f7ae2597addab7fb21097c3b411daa26a1ec
   docs/models/components/FieldJson.md:
-    last_write_checksum: sha1:113a5cab852ca6957192271fa6e6d4057b229583
+    last_write_checksum: sha1:d7d106326e4c0b451bfc133d8c6e9da062be920b
   docs/models/components/FieldType.md:
     last_write_checksum: sha1:feca0024f46058d56cb5c85d7188fcaefb1b3855
   docs/models/components/FieldTypeJson.md:
@@ -2568,10 +2530,8 @@ trackedFiles:
     last_write_checksum: sha1:3f627b862d097c8dc60ad25e451cd639d986905e
   docs/models/components/Guest.md:
     last_write_checksum: sha1:49c63ff6ed51528e1458c4e7dc920e04694af590
-  docs/models/components/GuestJson.md:
-    id: e4c248e3ab53
-    last_write_checksum: sha1:8091de9865c0625ad16f93426f4bd1d21c32cfd0
-    pristine_git_object: ab4876fd65ac697a9249369243b6a26b9fc69a42
+  docs/models/components/Guest1.md:
+    last_write_checksum: sha1:ae0c379e30684f9bacebe32fbbb9a1a799d0988a
   docs/models/components/GuestRoomOccupancy.md:
     last_write_checksum: sha1:810b439ea2bf4c0fad3122f85a474f6c61228231
   docs/models/components/GuestRoomOccupancyPerRoomType.md:
@@ -2610,22 +2570,14 @@ trackedFiles:
     pristine_git_object: cae17d0c90fbccc45fe28bc6f054699a72a16cc4
   docs/models/components/HotelId.md:
     id: 1fde4832634e
-    last_write_checksum: sha1:6f26a374caff96ba27d474d127a41337cb66672e
+    last_write_checksum: sha1:1cb19725a2b489a15529064c93fdca0892c13ee6
     pristine_git_object: 42ec053821817320c1568da2877311d7402128f9
-  docs/models/components/HotelIdJson.md:
-    id: cf86a23458a5
-    last_write_checksum: sha1:a469eddbf6e7171ca7afb1bacc4bdad096b99fbf
-    pristine_git_object: 8eae698128c1d7083a495ae2ec07f0c91c483b99
-  docs/models/components/HotelInfoJson.md:
-    id: d331f5d8d72c
-    last_write_checksum: sha1:09575da47646458a6444dd68f99dc2749ed03e77
-    pristine_git_object: 98bb72d426226f389198ec36c3611d71b2c5f755
-  docs/models/components/HotelRatingJson.md:
-    id: 0124af11ed65
-    last_write_checksum: sha1:288f7cdebd2d83defad8d22641e3d9903ba146a6
-    pristine_git_object: aaa8481ff23d02679b59d3efdf07220215f8a836
+  docs/models/components/HotelInfo.md:
+    last_write_checksum: sha1:3fe0403d7eab401b6d990ed2b33d772fc7390161
+  docs/models/components/HotelRating.md:
+    last_write_checksum: sha1:1b5524cac36027ad088d846e293147f09463e3cd
   docs/models/components/HotelRequest.md:
-    last_write_checksum: sha1:9bc19f6c58c2cf2a24a030289bde2a066d1e4d86
+    last_write_checksum: sha1:f019c5f64388b284152fc6dd3343a837dfb7bbf5
   docs/models/components/HotelRequestRequesterType.md:
     last_write_checksum: sha1:d81850886b343418c443a32b8b9bd62cee71cb60
   docs/models/components/HotelReservationDetail1.md:
@@ -2644,31 +2596,29 @@ trackedFiles:
     pristine_git_object: 61448c65d77e9ab058b54a7088ce498cae2d0ee8
   docs/models/components/HousingEvent.md:
     id: 68f662b78d62
-    last_write_checksum: sha1:102982fc34d6591ee9687c765fc71f90861a9636
+    last_write_checksum: sha1:08750cf6e10483569485adda412ab8ef5688f186
     pristine_git_object: 82f2a3b99b8b8d58be9530d71dc7e4544c6b907d
   docs/models/components/HousingEventHotel.md:
     id: fab3f7012020
-    last_write_checksum: sha1:324b127f95e7e4f1f82f80736b31ca375831aa1c
+    last_write_checksum: sha1:5884af5f5c4ce153d355353c787e19e0f782ee91
     pristine_git_object: 4321043e068c9acf7496b03beda928a7dde8f75b
   docs/models/components/HousingEventHotelsList.md:
     id: cb725fefc57e
-    last_write_checksum: sha1:706e43eabc441a485ec6556ec06cba43ef9c6da6
+    last_write_checksum: sha1:5f3fa09aad5a9d3b3f6ba458ee2ecc7802abc059
     pristine_git_object: 87addec978f6dca21d8789d890c4a142d5ae880d
-  docs/models/components/HousingEventIdJson.md:
-    id: 5e9a6977155a
-    last_write_checksum: sha1:f972cccb832a66afa1186e2a46e0dffd8142dabf
-    pristine_git_object: 7df04d79bc8c18172b2a9c9d4005b7f4cfc85e82
+  docs/models/components/HousingEventId.md:
+    last_write_checksum: sha1:ca064e5b6e819dd73f1d2eedd047b7c9f366ded8
   docs/models/components/HousingEventRoomTypesList.md:
     id: c90ff9d649c6
-    last_write_checksum: sha1:7e0d74971885737e44909ef74be792b427a34b96
+    last_write_checksum: sha1:f73c456dd8b6c3b640136709a2bdf60cc52367a0
     pristine_git_object: 09e028267b7b57fc49cb89325680749bc245f8c0
-  docs/models/components/HousingEventStatusesJson.md:
-    id: 83775161f47e
-    last_write_checksum: sha1:310c95228542a4f47b329575222b0975bc99da14
-    pristine_git_object: 590bdbb42eba0a26ca35086825141701cb1b1759
+  docs/models/components/HousingEventStatus.md:
+    last_write_checksum: sha1:37fc413673735742a8321432d1d4dcc08e68b380
+  docs/models/components/HousingEventSummary.md:
+    last_write_checksum: sha1:efc1a77abe517afdcbf21e3131d8f284ca87b663
   docs/models/components/HousingEventSummaryList.md:
     id: b2729948bf79
-    last_write_checksum: sha1:9b3c574b09948bc50ee1fc85fdf2e9daa8a108a0
+    last_write_checksum: sha1:2765cf3b69b3c591a4a23dd328843d094e9c559f
     pristine_git_object: 06018842875089a62442e3bcc072f5c67cee9c67
   docs/models/components/HousingReservation.md:
     last_write_checksum: sha1:1f269a0706840f05c1ce14a185b25d788e854d02
@@ -2700,15 +2650,15 @@ trackedFiles:
     pristine_git_object: bac244c6b3db426b89a284eb308637d98f0bdb43
   docs/models/components/IdOnlyEntity.md:
     last_write_checksum: sha1:b841ecfb53e97826328fad8d6f692703392c6879
-  docs/models/components/ImageLinkJson.md:
-    id: e1d19f4d334c
-    last_write_checksum: sha1:e701ef363fe45d97b16d6aeaaccf7600086a3207
-    pristine_git_object: c68f7a6cbfdcde63d9b7b931f4ae60d28deb382a
+  docs/models/components/ImageLink.md:
+    last_write_checksum: sha1:01b199890229309d7a2ebbea0a25356de57b3a4c
   docs/models/components/Industry1.md:
     last_write_checksum: sha1:f51c1a6b12175944da9a250cf6e93ed4dcfba369
+  docs/models/components/InventoryAllocation.md:
+    last_write_checksum: sha1:d06e9acb1395f64e2bb0bcd8d409d59add3cdff5
   docs/models/components/InventoryDetailsList.md:
     id: d36f3113c34d
-    last_write_checksum: sha1:62b26436f4a063f74649d3c564ba08278b2e3a0f
+    last_write_checksum: sha1:bbd61fca9d9c12eb4dd946d445fc4ce37c0e9bcb
     pristine_git_object: 14b32db3ed93606886480db456dbe000db0c686d
   docs/models/components/InvitationListCommonJson.md:
     id: 459f6284ed9e
@@ -2724,7 +2674,7 @@ trackedFiles:
     pristine_git_object: b9a72c3497fe417176914681a27a6e344d5943a6
   docs/models/components/InvitationListPaginatedResponse.md:
     id: dae29e4204bc
-    last_write_checksum: sha1:577ef48016c618bb14246544a89b8442f3bf8585
+    last_write_checksum: sha1:0533ce18c290a6e5d81aba4c931b449bd07e8f22
     pristine_git_object: d17cbc0c48782aca5fc668b799bacdacb229eed8
   docs/models/components/InvoiceFile.md:
     id: 977dfb191f25
@@ -2936,6 +2886,18 @@ trackedFiles:
     last_write_checksum: sha1:e9c3790cd30721d2f7ce0ff3dcc67803651c3fdb
   docs/models/components/MeetingRoomExhibitCapacity.md:
     last_write_checksum: sha1:875758cf255b4255992c222439b07b807dbb0a2d
+  docs/models/components/MeetingRoomImage.md:
+    last_write_checksum: sha1:748c71cb9ab4c54c570d328633893ae6e67eb3da
+  docs/models/components/MeetingRoomImageAssociationRequest.md:
+    last_write_checksum: sha1:df1d6a7acc701f2c8359f3cf4f232c5354198dbd
+  docs/models/components/MeetingRoomImageAssociationRequestFile.md:
+    last_write_checksum: sha1:1195c8209dafc92a2624756614fc9e2e11da30c6
+  docs/models/components/MeetingRoomImageAssociationResponse.md:
+    last_write_checksum: sha1:6a199548da5036f38974627f2b37ed27bef2f7eb
+  docs/models/components/MeetingRoomImageAssociationResponseFile.md:
+    last_write_checksum: sha1:a3793f005c6d7aa4b0429fd79140d277e3837709
+  docs/models/components/MeetingRoomImagesResponse.md:
+    last_write_checksum: sha1:c81d82acf661ebe78aa8f5c29f84ed32cd3f1812
   docs/models/components/MeetingRoomJson.md:
     id: 09028bc187fd
     last_write_checksum: sha1:4ce729a21fbe4ab3fe901663bad233be7db67401
@@ -2984,8 +2946,10 @@ trackedFiles:
     last_write_checksum: sha1:ff6a92d441a3514ae320ac2ad74e427da0eae7ed
   docs/models/components/NewReservation.md:
     id: 7165e69c4486
-    last_write_checksum: sha1:4e577f04a194ef781a1df5c39557ff97aa5a03f6
+    last_write_checksum: sha1:2d802055b8eea22b6b1d38a3a3c7ad99ad435172
     pristine_git_object: 357493a56bb94d108c3e9d3f76b0cd6e1a9f7903
+  docs/models/components/NewReservationHotelId.md:
+    last_write_checksum: sha1:b85afa4e38d820ea781e7a112fde168acb7cab61
   docs/models/components/NewReservationHousingEventId.md:
     id: 40ef2e0df2ef
     last_write_checksum: sha1:faf38dc8975ca6acda5800a60a10894d51b61b63
@@ -2994,10 +2958,8 @@ trackedFiles:
     id: 039ca6498fa0
     last_write_checksum: sha1:eb102d785a37f45427732c5749488afc8bb235da
     pristine_git_object: d2fd0ae1ff2d026951fed3e0a8462fa81af5b9bb
-  docs/models/components/NightRateJson.md:
-    id: 534c513e27bf
-    last_write_checksum: sha1:aafe412040a7980d2c14faf7e3a0e122f8cc0273
-    pristine_git_object: 960a5c0dcff466c504070bff0fc5de17b3c68f5f
+  docs/models/components/NightRate.md:
+    last_write_checksum: sha1:f7e9540160b18b81ad3a4116715c58a652981d42
   docs/models/components/NumericAnswerFormat.md:
     last_write_checksum: sha1:81c94a9259f623dbb83ca4fc9e68fd2af527b7a3
   docs/models/components/OfferingCostType1.md:
@@ -3054,10 +3016,8 @@ trackedFiles:
     last_write_checksum: sha1:5c935a89bbf66c61fc5482c501ec36dd7eef6b88
   docs/models/components/OrganizationType1.md:
     last_write_checksum: sha1:6572bb5674919f21feab27b93e3de6495116f741
-  docs/models/components/OtherPaymentJson.md:
-    id: 116a4b55ef2c
-    last_write_checksum: sha1:106f734c20e6878fcbf723359b82aa53794c4ffa
-    pristine_git_object: 6ff9a49745f98d21d0d7121a479f35185e9f03c3
+  docs/models/components/OtherPay.md:
+    last_write_checksum: sha1:3f2d30a39fe9b66e908f7d9d53d591374784990e
   docs/models/components/PackagePricingPreference.md:
     last_write_checksum: sha1:d7baa76909bc75f64f74050acdef46134e08778b
   docs/models/components/PageVisibility.md:
@@ -3094,8 +3054,8 @@ trackedFiles:
     id: 4ad5f98d5e3c
     last_write_checksum: sha1:4213ec682006814dc4ced0229b1cfa7360818429
     pristine_git_object: 540b214437be5fe8f6d83dfaf4163559836b80ec
-  docs/models/components/PagingJson2.md:
-    last_write_checksum: sha1:d65799d1ce4d00098a053599b9c94e7f502ca89a
+  docs/models/components/PagingJson1.md:
+    last_write_checksum: sha1:e691a78f21d105ef77a55517de994115c7b7fc4c
   docs/models/components/PagingNoTotalCountJson.md:
     last_write_checksum: sha1:1f3a8ca65c4df3becc1ea237413e052968b015bb
   docs/models/components/ParticipantResponseJson.md:
@@ -3132,10 +3092,8 @@ trackedFiles:
     id: 011d3df9ada3
     last_write_checksum: sha1:1adc5942bdce5ade11ae2037d75258392945268c
     pristine_git_object: bf591ad8cc44f7858ab6584aa98cd14f24f31f02
-  docs/models/components/PaymentInfoJson.md:
-    id: af1e66b5ac9b
-    last_write_checksum: sha1:53c6e59f1e9a977bcae0470e8507cab8579360b5
-    pristine_git_object: 65bffcdf204cbe4010ed222377700eef0bd2cdce
+  docs/models/components/PaymentInfo.md:
+    last_write_checksum: sha1:88327cb05222d059fcf2a69e6adc984b3668d851
   docs/models/components/PaymentMethod.md:
     last_write_checksum: sha1:1ebb286cc068c37e90f7eeab3eb1389673d13134
   docs/models/components/PaymentMethodTypeJson.md:
@@ -3168,66 +3126,42 @@ trackedFiles:
     last_write_checksum: sha1:d05ae24df110f2c9834f66a499a563941fc5fc36
   docs/models/components/PaymentType12.md:
     last_write_checksum: sha1:63b229f538bf5f1e8ce19d2d48f6048ffefe394b
-  docs/models/components/PaymentTypesJson.md:
-    id: 9809989259b3
-    last_write_checksum: sha1:977b2dbbe085ccd9dce1a98ea8ed65bb7aad812a
-    pristine_git_object: 602650939b349d0f71bae7ef3cfa8038c9fc3ba9
+  docs/models/components/PaymentTypes.md:
+    last_write_checksum: sha1:9c396330f0c177a71fbe9b6fbd6eef76193bf446
   docs/models/components/PhoneNumber1.md:
     last_write_checksum: sha1:d232a05c497e322174562065877f464d7e6d4769
   docs/models/components/PhoneType.md:
     last_write_checksum: sha1:c56243940c40176c396d20558b513ea7068d653a
+  docs/models/components/Planner.md:
+    last_write_checksum: sha1:332d1b47ef26855f0269f4756377b8f08e78833f
   docs/models/components/PlannerJson.md:
     id: afdce3de039d
     last_write_checksum: sha1:dae50020e2d7e6407eae2dc757ea8b3d6a72ffda
     pristine_git_object: f0d13378910cb4b0608d68ddbdbb60a61278cebd
   docs/models/components/PlannerJson1.md:
     id: f750e5313117
-    last_write_checksum: sha1:8af67255ab9e5aeafa3e7a007311cac6702c1466
+    last_write_checksum: sha1:b7b32c048665c1ed659e208b8467e9692b4c2280
     pristine_git_object: a1a8359280c5514dcac6b6864741c6ffdcee1b0b
-  docs/models/components/PlannerJson2.md:
-    id: 34e65d369df1
-    last_write_checksum: sha1:2db9cdf14a6fe2103bbd92fe30f9e2abfaf0eb97
-    pristine_git_object: 2a115f6a1207c6fad21c3a69f098021f510c0eaa
-  docs/models/components/PlannerJson2AddressType.md:
-    id: a166efdbfb6e
-    last_write_checksum: sha1:4eb880b29c155c0f4e22e9c21658cdde2c9745e5
-    pristine_git_object: 38d4b4c322f6126a901840a770c051012112ef08
-  docs/models/components/PlannerJson2ContactLinks.md:
-    id: 5d656974bb48
-    last_write_checksum: sha1:6d66c976f06532f60071b0d2de382dda0efa2b16
-    pristine_git_object: ca0c53501e4b13785b445c2c7f327b8ee5a3a602
-  docs/models/components/PlannerJson2ContactMembership.md:
-    id: 32bf36c1806a
-    last_write_checksum: sha1:02ba203fd504a4509d2b7c8d3502c636fd77ba4e
-    pristine_git_object: 408004c5610428969465adcc38baa6f466009575
-  docs/models/components/PlannerJson2ContactOptOut.md:
-    id: ebf2e61c3e45
-    last_write_checksum: sha1:3d71dcaaa68f1d98402c7050950c1e8756e95b93
-    pristine_git_object: 418fffbacf255d6db01726b5f02812cacbc94792
-  docs/models/components/PlannerJson2Gender.md:
-    id: e98d413a7daf
-    last_write_checksum: sha1:3da187f40df7e2913eb279039cf14d55741ebb5d
-    pristine_git_object: 487cee0dd507ee8a3d96d3fa64b018bcb5ea23f7
-  docs/models/components/PlannerJson2HomeAddressAddress.md:
-    id: 83145eef9801
-    last_write_checksum: sha1:2cc16365e7cfe3231c50d815be45934d7a32ff63
-    pristine_git_object: 7af8c96448ca5aaccb93682a389ad47bee52e590
-  docs/models/components/PlannerJson2Input.md:
-    id: 1123d8464cb4
-    last_write_checksum: sha1:fc756e71c012e70433dfd47850602815ae7b4ea7
-    pristine_git_object: 338f3876ccebc0c40a9a6285b2c0ee8364222d14
-  docs/models/components/PlannerJson2Link.md:
-    id: d046162d1657
-    last_write_checksum: sha1:57aebf4218d8493d647a3a1cdec8ae77be72e148
-    pristine_git_object: 25c00371e7b323d1129bbbcd38a952251eeb8e1f
-  docs/models/components/PlannerJson2Type.md:
-    id: ab1641ded0f3
-    last_write_checksum: sha1:26affaf1e5c3f20d4eb0a0aad95026a868396184
-    pristine_git_object: 16c1c78b36adabb7b40f6734431dbefa3b731729
-  docs/models/components/PlannerJson2WorkAddressAddress.md:
-    id: bd26777ef744
-    last_write_checksum: sha1:2c52e90003ca64ff653f900e87b65a04f910de1e
-    pristine_git_object: e49e63e08484cfb653e9e89973c07c83fd1a6e2e
+  docs/models/components/PlannerJson1AddressType.md:
+    last_write_checksum: sha1:dd407af842ebf51b14937626e776f41a274d4b84
+  docs/models/components/PlannerJson1ContactLinks.md:
+    last_write_checksum: sha1:9ce51c152e243f56d19dc68ae29f3028665d5eef
+  docs/models/components/PlannerJson1ContactMembership.md:
+    last_write_checksum: sha1:196349886ecedab4a22d1b1dd0cc69bea0eb5155
+  docs/models/components/PlannerJson1ContactOptOut.md:
+    last_write_checksum: sha1:01aad1177b5fc4c0e0ffa613905ab7dcb3086a99
+  docs/models/components/PlannerJson1Gender.md:
+    last_write_checksum: sha1:bb89231917d3c72b351ecd50550b77de1ee79def
+  docs/models/components/PlannerJson1HomeAddressAddress.md:
+    last_write_checksum: sha1:2ad64df65fd9d664c43c4c76d00378711335a1db
+  docs/models/components/PlannerJson1Input.md:
+    last_write_checksum: sha1:e0040c2d4d9ffc8e7e0e6b7bda9d798e7dfc112d
+  docs/models/components/PlannerJson1Link.md:
+    last_write_checksum: sha1:f623afc251d877c064e6b2dff0c0f5f3bf91b2f2
+  docs/models/components/PlannerJson1Type.md:
+    last_write_checksum: sha1:756a2323eab080c2cc1b8578918f8d93a592ec97
+  docs/models/components/PlannerJson1WorkAddressAddress.md:
+    last_write_checksum: sha1:5b87853e2d30ad85b270cf398ff5d36dcd4abc1f
   docs/models/components/PlanningDocumentEventIdJson.md:
     last_write_checksum: sha1:f01cb6abeedb3357b2161f933e5901ef827ea02e
   docs/models/components/PlanningDocumentJson.md:
@@ -3253,7 +3187,7 @@ trackedFiles:
     last_write_checksum: sha1:fbea67452ad51e0f9ac50da57afc4adba71c55c6
     pristine_git_object: 26264cdb68964e1a8b54fef5e8a4299aba45752c
   docs/models/components/PolicyValueType.md:
-    last_write_checksum: sha1:72b9a134f936a325d6f8dfe59e9dfeba2e1e5abd
+    last_write_checksum: sha1:05b5242a2cfe9cc462c0e2bc32772ab8d3fe2166
   docs/models/components/PollResponse.md:
     last_write_checksum: sha1:cdb265f09b36cfd35ab5ef682fb5b892a996a27d
   docs/models/components/PricingConfigJson.md:
@@ -3328,7 +3262,7 @@ trackedFiles:
     last_write_checksum: sha1:f5187591b485d93c81bcdd1ab39898c9c9c1881a
   docs/models/components/Property.md:
     id: f4843070cdbc
-    last_write_checksum: sha1:7eb7a20f8571689ed5febcbf25f68fc703616327
+    last_write_checksum: sha1:746218a78ff50d14b1d1052747d33046f5ae1f6c
     pristine_git_object: 7a32a647092ef68846a7adbfd3eea71fbe74da2f
   docs/models/components/PropertyBrand.md:
     id: 7de25dd35cec
@@ -3368,11 +3302,11 @@ trackedFiles:
     pristine_git_object: 9c7be61c37fd309180897f2f7d06abfeaab6c0db
   docs/models/components/ProposalRequest.md:
     id: 5ba4504e8815
-    last_write_checksum: sha1:38dcb06f6d516bc3e4eea3370f5496fc3cf4fc4e
+    last_write_checksum: sha1:053178e138e0da37095b51310eef2c00c71cf620
     pristine_git_object: d9e45e418702aa33b4d14faf842f8b8a0acd323b
   docs/models/components/ProposalResponse.md:
     id: 63615c217b64
-    last_write_checksum: sha1:0975504326e4b3de52719120e593490a95b84583
+    last_write_checksum: sha1:688a4c4a29e49290e62a339ebcae898760927e72
     pristine_git_object: fef99ea081d9848f4ef222d47f38c285ed5324a2
   docs/models/components/ProposalStatusJson.md:
     id: e2ab671cce64
@@ -3384,10 +3318,8 @@ trackedFiles:
     id: 8df3247d2881
     last_write_checksum: sha1:adc8e75e0fbc577cf191df7a9b1fca284ef677b0
     pristine_git_object: c58fe77869404cef79c0be9d2d0030d63716573d
-  docs/models/components/ProximityJson.md:
-    id: 5464164ba85c
-    last_write_checksum: sha1:c028e41d72054c7c1c9594a510d3e3d78322482f
-    pristine_git_object: d88ebc75eaa83a564dc86f58b1fab0bbdd5ba61f
+  docs/models/components/Proximity.md:
+    last_write_checksum: sha1:161d11c37ac9699066331b835dc4f1ef76303ecf
   docs/models/components/PublicUsagePlan.md:
     id: fa0628898379
     last_write_checksum: sha1:e48438f4260e6a959aebcdcab688842e7f5df119
@@ -3430,7 +3362,7 @@ trackedFiles:
     last_write_checksum: sha1:91f38e33e3438f1cb4bc8de434535cc66d9ac9ad
   docs/models/components/QuestionJson1.md:
     id: 042d968d8d05
-    last_write_checksum: sha1:172e61d5198062a7d90082ff0c49c48c0eb2b044
+    last_write_checksum: sha1:1e1c04d44041b692d5b666c706d8ef0b03fe5546
     pristine_git_object: 39ff818b5894cc3c5e8ea55495eaf19ee162b5c1
   docs/models/components/QuestionPaginatedResponse.md:
     id: 1bf518a11044
@@ -3570,61 +3502,43 @@ trackedFiles:
     id: 51a2722afb3b
     last_write_checksum: sha1:32f205bebe413413543ca5464707fcb491e20640
     pristine_git_object: 78d2d3be3e075c5cfba73fd6f271334b7d4100ee
-  docs/models/components/ReservationContactJson.md:
-    id: fdb46724e13e
-    last_write_checksum: sha1:f990dd37615f8a4cffce36f9916cfaf1fe4125d1
-    pristine_git_object: 25933e9be30ab388c9021240157218b32421a2e3
-  docs/models/components/ReservationGuestJsonInput.md:
-    id: 9466869d76bc
-    last_write_checksum: sha1:e407a590b9dc72570b1093a47ec97b94e227dbfd
-    pristine_git_object: 7bd6d4e00aacf0c54d8e379e45aea5a31382abb1
-  docs/models/components/ReservationGuestJsonOutput.md:
-    id: b9f9807754b9
-    last_write_checksum: sha1:623521d2eda5c859f89826e10102025f4866205e
-    pristine_git_object: fbdfc9b5a914a56f66dfbcbc6408cc29b3115847
-  docs/models/components/ReservationNightJson.md:
-    id: 556dab066df0
-    last_write_checksum: sha1:817c8596c89cb3158609bc7eafa6bc2e411bb50f
-    pristine_git_object: 61c6fd7cb9c1a2dbfce374cf9342710e10ae67a0
-  docs/models/components/ReservationNightJsonStatus.md:
-    id: 9c88338b7950
-    last_write_checksum: sha1:8bc1937b52d14bab87a664d24b0aa80ab4e030e5
-    pristine_git_object: baa75d2e4cf2760352a1010f743ede36e29ba55d
-  docs/models/components/ReservationNightRateJson.md:
-    id: 9f96be1ae70e
-    last_write_checksum: sha1:1a498d0a79224b065a5fc001aa113cd66e19db4a
-    pristine_git_object: c69e38ae98684e1dafab25158740afac285c8de0
-  docs/models/components/ReservationPaymentInfoJsonInput.md:
-    id: 082d538c133c
-    last_write_checksum: sha1:c9d48003ff96398b795e0dc770b599108534f62e
-    pristine_git_object: 5f627f9f0d79fd7b3965e7bd8dbee0bdcb3f7095
-  docs/models/components/ReservationPaymentInfoJsonOutput.md:
-    id: 7b02f116ea0a
-    last_write_checksum: sha1:bf5b5ba1857da7604348009f0875410f3f690d25
-    pristine_git_object: 40a8f8dcda37ba426a123a295893a2d6badfa5e0
+  docs/models/components/ReservationContact.md:
+    last_write_checksum: sha1:398d77f605302668dd73b0268d9ebc550d3fdcfe
+  docs/models/components/ReservationGuestInput.md:
+    last_write_checksum: sha1:c345b4e883ba98db2b139cf86be0e43cc013d9a9
+  docs/models/components/ReservationGuestOutput.md:
+    last_write_checksum: sha1:38ff67493af74839d3106c020c936f2a71aa3261
+  docs/models/components/ReservationNight.md:
+    last_write_checksum: sha1:d748036a28876250a6d328cf56d8371ed4c6035f
+  docs/models/components/ReservationNightRate.md:
+    last_write_checksum: sha1:44e57adfea26e95c6910497b19aa1508dab3e84a
+  docs/models/components/ReservationNightStatus.md:
+    last_write_checksum: sha1:1febdf111c9812b5e9116fc07bd39abe71fa81eb
+  docs/models/components/ReservationPaymentInfoInput.md:
+    last_write_checksum: sha1:fde2d9c6d9b8a336574277b5a976d44d2a7354f1
+  docs/models/components/ReservationPaymentInfoOutput.md:
+    last_write_checksum: sha1:539bcff2fa54152d059dbf70dea21efc9cdb4965
   docs/models/components/ReservationRequestBlock.md:
     id: 4514aa7b39f7
     last_write_checksum: sha1:24224c0164a094d26c2724e51c0d7be458ea0f12
     pristine_git_object: ff1ccce53be0a799f53664c52dd3db7813bf99f2
   docs/models/components/ReservationRequestInput.md:
     id: 448ae7759c94
-    last_write_checksum: sha1:3ceec5cba1e29d5efb597f3f603d138a771763c1
+    last_write_checksum: sha1:c8b65cbff4a71eeb844514602636145b32b56b9f
     pristine_git_object: 3ac82d326b72328a1e56a2300f36ab663d4c4123
   docs/models/components/ReservationRequestPaginatedResponse.md:
     id: 969a0862baef
     last_write_checksum: sha1:cc9ee3c16a649a289a2b104aa2e49d00e97a04b2
     pristine_git_object: 05f83866dc7eadbfa25bc582db208642e7dc5928
-  docs/models/components/ReservationRequestStatusesJson.md:
-    id: b31f3a189040
-    last_write_checksum: sha1:f987fae6a1350c07f876d70fdf50bc71ebcf93f0
-    pristine_git_object: 4859366818041a4f0e4b9c5dc3b6eaff54d9976d
+  docs/models/components/ReservationRequestStatus.md:
+    last_write_checksum: sha1:6fe394f6575adf103d779c64710f1988881a0ea7
   docs/models/components/ReservationTotalCharges.md:
     id: dfd224190ac3
     last_write_checksum: sha1:f662b6bf8854573ccfe643e57b8e54bcd85c1222
     pristine_git_object: 7c9d5f13e172cee4cd5c7cf106f97919ad03f3af
   docs/models/components/ReservationsPaginatedResponse.md:
     id: da44d5ad8942
-    last_write_checksum: sha1:8c7c2096c941e072fefd8b78c48b6145df2833c7
+    last_write_checksum: sha1:00eb38c3ff3ea127c06d1f1653a18c7450803a29
     pristine_git_object: 8cc4ef8a1e0d40d5b7a1ce2038593d577e3bdf4d
   docs/models/components/ResourceType.md:
     id: 80cdc92132aa
@@ -3696,10 +3610,8 @@ trackedFiles:
     pristine_git_object: ee14f80b168aa0c7a9d00659b75b0958d950e80e
   docs/models/components/ReturnedType.md:
     last_write_checksum: sha1:b2d4daba9529795988e2a1a0b383a26b18d0c46a
-  docs/models/components/RewardProgramJson.md:
-    id: 45e5708ed8ed
-    last_write_checksum: sha1:ecabc2c7393854ddf6fb01069b0f8d4eb222cdb8
-    pristine_git_object: 79db88ae51d39c352b49dcd18baa06571a7e3199
+  docs/models/components/RewardProgram.md:
+    last_write_checksum: sha1:28cb30a5eee02fe3133c09e607375bbaa9036de9
   docs/models/components/Rfp.md:
     last_write_checksum: sha1:9c8b99e8cb381311727783e0e49717e528f85b3f
   docs/models/components/RfpAgendaItem.md:
@@ -3754,44 +3666,30 @@ trackedFiles:
     last_write_checksum: sha1:0fe1d3eee0400da589f8c6ce6074a98f498841ae
   docs/models/components/RfpType1.md:
     last_write_checksum: sha1:e3fa03d4a534b963d489dacdc4f4b4d0e291c3f1
-  docs/models/components/RoomAttendeeTypeJson.md:
-    id: 9a749a9202b3
-    last_write_checksum: sha1:c76fbb59dd989993ef4ce65e9e0be541b53e16f0
-    pristine_git_object: 6fc2254b8bff6ac1eb5511dad83254c91e2ffcbf
+  docs/models/components/RoomAttendeeType.md:
+    last_write_checksum: sha1:71916f0d6d257f0467cfb7ef11ac0c19448d1525
   docs/models/components/RoomBedTypeJson.md:
     last_write_checksum: sha1:609b1f76ddb81c19a4a7f2812549e1ab10ac591a
   docs/models/components/RoomBlock.md:
     last_write_checksum: sha1:b34ddced8821dbd596dcb6b814ad662a49f38ad5
   docs/models/components/RoomBlockDetails.md:
     last_write_checksum: sha1:df59f8f03fb3b734022e826fbdf5887ab470b7e2
-  docs/models/components/RoomIdJson.md:
-    id: 4d4b8d5a32f8
-    last_write_checksum: sha1:65a3752b983c205b14d0b3abc357f6c2c2aecec2
-    pristine_git_object: 727cac13bafb4e0c1f14998cfce4d9a3bc44e305
-  docs/models/components/RoomInfoJson.md:
-    id: fd645d3f188a
-    last_write_checksum: sha1:baa61b342c2e9e91bbdd72f9c92a9eae75faa4bb
-    pristine_git_object: 160d7fac04a4797610d714b039c8bb02c9d9b6a9
-  docs/models/components/RoomInfoJsonInput.md:
-    id: 7cf6b5893987
-    last_write_checksum: sha1:42670c570c6052fdbeecd0aff3b75da81113a971
-    pristine_git_object: fe414c366d533378e0ebebf4d00e9762a87f1cd9
-  docs/models/components/RoomInventoryJson.md:
-    id: ea56a6883ab0
-    last_write_checksum: sha1:6ee6a708507ceeb6f187ccfa29f661724eff3ba4
-    pristine_git_object: 2b691637e34eb7cc22f60e2b3e7d5c87362a0d9d
+  docs/models/components/RoomId.md:
+    last_write_checksum: sha1:c8ecb93d8a2dcb9ed10b42fd69936ec9c8086e77
+  docs/models/components/RoomInfo.md:
+    last_write_checksum: sha1:5645409e3b22dd70b8fe98ffb4728d8ac8ee19fa
+  docs/models/components/RoomInfoInput.md:
+    last_write_checksum: sha1:227943bc60fee4e47963de5bc6115d33c9cffd00
+  docs/models/components/RoomInventory.md:
+    last_write_checksum: sha1:14b3fc5a90fb8bddd9298036e077ca1542e7d172
   docs/models/components/RoomTypeDetails.md:
     id: f63de58cbe55
-    last_write_checksum: sha1:d13e517af1682a3a6d4f095c37f03f077d15c9e0
+    last_write_checksum: sha1:a17903475e258e2ed6fc9e1fc5ac3b18f6b98f04
     pristine_git_object: ae57759f436647b3cb1e939a8ace811d84b84787
-  docs/models/components/RoomTypeIdJson.md:
-    id: a1509c98cdb8
-    last_write_checksum: sha1:13969634883fdda8bdbb41cada37c9d2858012fc
-    pristine_git_object: b7f804d7867d6fceeba3737fba53ddc85efc8f6e
-  docs/models/components/RoomsSortTypeJson.md:
-    id: 0f304e91efd1
-    last_write_checksum: sha1:9cf413237de3ee6dc7c3129428461025a0305545
-    pristine_git_object: 147cb6c589603cba9f1701283a7c2ffa7fb1c472
+  docs/models/components/RoomTypeId.md:
+    last_write_checksum: sha1:9faeaac5cc00681190bad7f0afe5fe5b1ecb3149
+  docs/models/components/RoomsSortType.md:
+    last_write_checksum: sha1:1151e2e5f67ce490a359800e5af0c9a61a04bf8d
   docs/models/components/ScheduleActionJson.md:
     id: 47fb07f02c78
     last_write_checksum: sha1:2bfa66dd2c3a46ff7ad1509c32fb42c9b19e5d9c
@@ -4088,7 +3986,7 @@ trackedFiles:
     pristine_git_object: 7c2d33a0ab5712626131e004faade0a6c81299b5
   docs/models/components/SignaturesResponse.md:
     id: a538d6528dc9
-    last_write_checksum: sha1:5bcb4e6a855f9d5a1718c38a8cf26ac5e617cdf6
+    last_write_checksum: sha1:d40fdb2a36fd4443f0bca93a55c7d6a705a8a400
     pristine_git_object: 620a4c4cd295f6ab5af51a1c72ccb341b67478ef
   docs/models/components/SleepingRoomBlockJson.md:
     id: 6d7db245f48f
@@ -4254,7 +4152,7 @@ trackedFiles:
     pristine_git_object: fb868e5a5f4d61e4404da9af191987bfa0f4d3ec
   docs/models/components/StandardSurveyQuestionJson.md:
     id: 5bcbaa73a0bd
-    last_write_checksum: sha1:422e5d3b283296a388931ef0d6e1d165e87f1255
+    last_write_checksum: sha1:b2173331cf019eb720fe47ffbb40facb3061f3d5
     pristine_git_object: 5db341cc8882df2a90e560021f5585824cd1364f
   docs/models/components/StandardSurveyQuestionsPaginatedResponse.md:
     id: 6f098f7ce6c5
@@ -4396,16 +4294,12 @@ trackedFiles:
     last_write_checksum: sha1:210cbaa56d0c45712b5ab7f4b51b11b69165cec2
   docs/models/components/Tax.md:
     last_write_checksum: sha1:de22c29d12de89a4e66a71a78ac46788bd7c5c55
-  docs/models/components/TaxAndFeeJson.md:
-    id: f3957cf4a3b4
-    last_write_checksum: sha1:99f6060d7ae481a75f0423b334757c7adc65e1d1
-    pristine_git_object: 625e70ff656b4ea6857361db53c06e9ab059094d
+  docs/models/components/TaxAndFee.md:
+    last_write_checksum: sha1:46fec3d9430ca618b4d6c130a6d60e0a55ece666
   docs/models/components/TaxSchedule.md:
     last_write_checksum: sha1:43bfc22fbd604d9afad9848a690be43522017d5a
-  docs/models/components/TaxStructureJson.md:
-    id: 041cdd3e0a80
-    last_write_checksum: sha1:0ccaa2c4e52c99074c79e6c53a524719ab157276
-    pristine_git_object: 71da5d1e8f94757b019e661c4d3e31bdf45dbfb7
+  docs/models/components/TaxStructure.md:
+    last_write_checksum: sha1:90e7fea323342a4b34f9ffad7c1d33459596e749
   docs/models/components/TaxType1.md:
     last_write_checksum: sha1:e32a64e7e53e985e5cc78cbe0b22b2bbe252619a
   docs/models/components/TaxesPaginatedResponse.md:
@@ -4422,7 +4316,7 @@ trackedFiles:
     last_write_checksum: sha1:6fe21f3dbb5b6c2d985ab480ab5a44c391578b7a
   docs/models/components/TicketType.md:
     id: 7d0c2dd9cd79
-    last_write_checksum: sha1:7aa4e0c7e31612ffc265393d576b0edd53b2d714
+    last_write_checksum: sha1:20383c4c1058dfeecccf2c8cd52fcf915ac02e90
     pristine_git_object: 3c71d2ef71a8f0e6e4b0ee6bc79c3eacd1154692
   docs/models/components/TierJson.md:
     id: 7928efbfcc18
@@ -4432,14 +4326,10 @@ trackedFiles:
     id: c27d8209e461
     last_write_checksum: sha1:9ede7b76d0a27778ee6df93c2ced140fe0721167
     pristine_git_object: 8a029ceeea6a5561a8144d5fe941caf4a2df154e
-  docs/models/components/TokenizedCreditCardJsonInput.md:
-    id: c04dd46795a0
-    last_write_checksum: sha1:3eb6784dc418776f5c2183b9f7f3b9e71bc4a372
-    pristine_git_object: 0c0a216bd3a0edc0e2e0b9049ce30409d8332cc2
-  docs/models/components/TokenizedCreditCardJsonOutput.md:
-    id: 74f0e7e9594a
-    last_write_checksum: sha1:2943ac5a30174ff7b4c9a81cfe1b89b51eee23e1
-    pristine_git_object: c6a74dec0da80957d49db182d73850a6ba11830f
+  docs/models/components/TokenizedCreditCardInput.md:
+    last_write_checksum: sha1:d10b7c29c930c6137f44fbf307066b4409466c0c
+  docs/models/components/TokenizedCreditCardOutput.md:
+    last_write_checksum: sha1:a3666da72d0a5ee073fb7f2bcba19e413db5bf15
   docs/models/components/TotalHighLevelEstimate.md:
     id: b9e2714095c4
     last_write_checksum: sha1:4ef1dc1db7f7c3cd414f0113b06fd52686f4a162
@@ -4452,12 +4342,16 @@ trackedFiles:
     pristine_git_object: 78a58e6de1153a656ecb87843ba4fb1aaf03e43e
   docs/models/components/TransactionId.md:
     last_write_checksum: sha1:55f02dd7cbf77795d8eafe8cb0ba878e53f5cafc
+  docs/models/components/TransactionItemAccountResponse.md:
+    last_write_checksum: sha1:2c86570ee144c39908507f0e4554b66cf0c65e29
   docs/models/components/TransactionItemCreate.md:
     last_write_checksum: sha1:5dd94f1549b1b46e0bab8c27d9b8dae07c15fc71
   docs/models/components/TransactionItemCreateInput.md:
     last_write_checksum: sha1:785614bcb41d569017567a609fe14a6bc509b669
   docs/models/components/TransactionItemResponse.md:
     last_write_checksum: sha1:f894345ebf86cd070ee86e5ceda171c98e9fb2fa
+  docs/models/components/TransactionItemsAccountPaginatedResponse.md:
+    last_write_checksum: sha1:2e40ac1b3874a862b2736e76a3a49aad45272e45
   docs/models/components/TransactionItemsPaginatedResponse.md:
     id: 8357b589f52f
     last_write_checksum: sha1:d523e2f0e492f52b5b2da5a2695b0321c99b8475
@@ -4492,7 +4386,7 @@ trackedFiles:
     pristine_git_object: 77d07fa838701f6b2986587f7e2ae6f3f5c5f04f
   docs/models/components/TravelAccount.md:
     id: c3bcc88b61fa
-    last_write_checksum: sha1:81e8040c0252ae200bad3fdaff7d59ce33bc9cd2
+    last_write_checksum: sha1:d94a60bcb1bdacd401e1c8698d783fdc93389086
     pristine_git_object: 01f294aa2ca264b9ea29e6beee42d9c07b3c6ef2
   docs/models/components/TravelAccountPaginatedResponse.md:
     id: 797823dea873
@@ -4548,14 +4442,10 @@ trackedFiles:
     last_write_checksum: sha1:51ee6b9bdebfbc6b6cf1929cd4f639d2e190388d
   docs/models/components/TravelBidWeekendDays.md:
     last_write_checksum: sha1:20cd985a5f496a348994fab1a3fa11b4d84910b4
-  docs/models/components/TravelDepartureArrivalJson.md:
-    id: d55bdd73a229
-    last_write_checksum: sha1:b1d7c7ac3494e3eb1d6d7cb3ae2ad51a6041cbb6
-    pristine_git_object: b02c904a1a2b830c69259dd6ed984cb0a05dfc28
-  docs/models/components/TravelDetailsJson.md:
-    id: 3e2a82837886
-    last_write_checksum: sha1:956305460e96f5d30cb3d5deb7574054b87b3757
-    pristine_git_object: 5a31df21483e2a3eeab8c1810ceeb6b7a13f6f54
+  docs/models/components/TravelDepartureArrival.md:
+    last_write_checksum: sha1:aaac75984307231fba298087a7abcd954af0c555
+  docs/models/components/TravelDetails.md:
+    last_write_checksum: sha1:d5ebb64fb3f515541e8a7590ef3d2c40b0717d98
   docs/models/components/TravelEventCopyOverride.md:
     id: 176aa1b3236f
     last_write_checksum: sha1:b02a81d4ea541659488a6de76e188405df2ae60d
@@ -4662,7 +4552,7 @@ trackedFiles:
     pristine_git_object: cbe9b5f523cc4307f496063cee8c68db296a8b2d
   docs/models/components/User.md:
     id: 8f2722ab45f3
-    last_write_checksum: sha1:439ca6ae53aa12ea2b31ca4db643dee63ba9c864
+    last_write_checksum: sha1:db79fd05eb086a4d4e9c458b1930399761f14d82
     pristine_git_object: 2c91f67ec477c705b74da29a56645df2a9c74a41
   docs/models/components/UserEnterpriseExtension.md:
     last_write_checksum: sha1:8b366ab484f39455695905a5c4c4e87f25e0b267
@@ -4682,7 +4572,7 @@ trackedFiles:
     pristine_git_object: ed0f8191c460c33221d84d8fe128fec991d92b4a
   docs/models/components/UserInput.md:
     id: a5f250c42286
-    last_write_checksum: sha1:a5ac85bc55d55afa71cb8472eac5964abd07a193
+    last_write_checksum: sha1:c6224faa62ce1c00d9eb9403227bafa5823d0dba
     pristine_git_object: 06691f4c969cbc3c96a8f6b6c34cbb93f3ccaa6e
   docs/models/components/UserType.md:
     last_write_checksum: sha1:0d85a1943b43efc0a82ec4e0f0439926d52b900d
@@ -4708,14 +4598,14 @@ trackedFiles:
     id: 72eab73523bc
     last_write_checksum: sha1:e7a5f3a1dda65dc4739b211dc1ca2afb2654d5b9
     pristine_git_object: 7ae4aa051f389dc417e8e579599ad090b63cac02
+  docs/models/components/Venue.md:
+    last_write_checksum: sha1:1c333b556577adf0af995396e98e0199f3f94bdf
+  docs/models/components/VenueAddress.md:
+    last_write_checksum: sha1:a511c9fce333da57d88307b015e83bd3c2c2e22a
   docs/models/components/VenueAddressJson.md:
     id: cdd69e146983
     last_write_checksum: sha1:a94031d7c05f1c24c4b452fe9f08989e56a1e7a9
     pristine_git_object: e80f41f65752e28de11bca183acd4b9d1fa97e0b
-  docs/models/components/VenueAddressJson1.md:
-    id: ae9f10e6921b
-    last_write_checksum: sha1:eea551af3f0d8d3f191e603914d047067a25ceb3
-    pristine_git_object: be83deec46c642d6468578cc225cc70abcee15d6
   docs/models/components/VenueAddressJsonInput.md:
     id: e147dfdb013f
     last_write_checksum: sha1:9217daeb1aad4afc6cb8fd35934c501c4bb9d82c
@@ -4756,10 +4646,6 @@ trackedFiles:
     id: baf6af2a4cfd
     last_write_checksum: sha1:b86409b0b32a9efad2f92b1c8c52acf0db00883b
     pristine_git_object: c1f197ee66f243d3e99b24603544a6c9acb71acc
-  docs/models/components/VenueJson1.md:
-    id: 94d113de83ef
-    last_write_checksum: sha1:b4618a5cb249ff1cbf8a23e6e8b245524de7b098
-    pristine_git_object: 5899fbf7dd09b37f52bf0f1adcf4884efa94cd83
   docs/models/components/VenueJsonInput.md:
     id: 256f4240fcee
     last_write_checksum: sha1:3d11794083230be8471ebac1353fdab04bedad10
@@ -4906,16 +4792,8 @@ trackedFiles:
     pristine_git_object: dbf3e291c8c8ba213972d3ee585b5fa80b3483f8
   docs/models/components/ZeroAllOf3.md:
     id: 7a56e7085078
-    last_write_checksum: sha1:c9e024ac3537886d3935d64f69be310846f891f7
+    last_write_checksum: sha1:a004023b5686e50357b7370a927cff96fbcc7e90
     pristine_git_object: 98f2fd09459d3949abd2e19b4f6d87888d86efb1
-  docs/models/components/ZeroAllOf4.md:
-    id: 51759edd8e93
-    last_write_checksum: sha1:94d79c674cfe1274f9da0a87f2b0f80493d201e9
-    pristine_git_object: f409ed2d5beb565ba0b74ea00e22231ca3106bde
-  docs/models/components/ZeroAllOf5.md:
-    id: 45f7228629f1
-    last_write_checksum: sha1:86cd8cadec6d6ce34a4cf04a5771d85b49dd34cd
-    pristine_git_object: 006975b1364a319bf1655110d5acec26f95eabf0
   docs/models/components/ZeroAnyOf.md:
     id: d7b818928167
     last_write_checksum: sha1:7d0bcfb76af0e07cce6181a62d2a65c46c1c74e6
@@ -4935,7 +4813,7 @@ trackedFiles:
     last_write_checksum: sha1:9e278383a1b7946329c53705334e4bcf71a678f5
     pristine_git_object: 67a0d0cafabcbe6a4b75758f2a25dc3e069c827a
   docs/models/errors/ErrorResponse.md:
-    last_write_checksum: sha1:0e7cea7cdb8913d65f34d026656fca9e28366de5
+    last_write_checksum: sha1:d47b0172fe037b7df469453db9b4cd8899f02c01
   docs/models/errors/ErrorResponse11.md:
     last_write_checksum: sha1:afdbe46e8e7e9789de94bcc8b96613fa8104a7f2
   docs/models/errors/ErrorResponse12.md:
@@ -5068,6 +4946,10 @@ trackedFiles:
     id: ec46d532a318
     last_write_checksum: sha1:5a3590cab17a8d96346d812573386b6d921734ba
     pristine_git_object: 0fca893659804fdec0ecfa0e04dc36beb1e07bd2
+  docs/models/operations/AssociateMeetingRoomImageRequest.md:
+    last_write_checksum: sha1:b4e7ed7fa04b0c48456fabcf2a2779079d29611a
+  docs/models/operations/AssociateMeetingRoomImageResponse.md:
+    last_write_checksum: sha1:fd10e45f7f53781573b77b0f8d53366921f65005
   docs/models/operations/AttachInvoiceToPaymentRequest.md:
     id: 9b9c2aa08d12
     last_write_checksum: sha1:542fa3476d806781adf7d90509d27ec5592759fe
@@ -5700,6 +5582,10 @@ trackedFiles:
     id: a35f0db04dac
     last_write_checksum: sha1:bbd791d81fd52e942b6dc76436c5b4776b25ba24
     pristine_git_object: bd86a56175779d8c0c9f2fa1ca155e85a404a655
+  docs/models/operations/DisassociateMeetingRoomImageRequest.md:
+    last_write_checksum: sha1:a26def468d2b89d3a3546d611b4939bd1478c7bc
+  docs/models/operations/DisassociateMeetingRoomImageResponse.md:
+    last_write_checksum: sha1:c2fe6f281bffaa4bf74e111a2fee193c9d91b484
   docs/models/operations/EventCheckInRequest.md:
     id: 5fb542451e10
     last_write_checksum: sha1:00a6cfe9280a9a11e1528d5712b8e36ce4e068e6
@@ -5732,6 +5618,34 @@ trackedFiles:
     id: 0c38d2ac6ed3
     last_write_checksum: sha1:31259831548c5888704277931595d8b94a20734a
     pristine_git_object: 13e24a282c0711b2bbdb3d9afb0f9f0c3a6d17fe
+  docs/models/operations/GetAccountOrderByIdRequest.md:
+    last_write_checksum: sha1:37e55e8086a7de85fb491179fc28dc337c200518
+  docs/models/operations/GetAccountOrderByIdResponse.md:
+    last_write_checksum: sha1:28a731ffae07f0b5ac589b294cba87af728982df
+  docs/models/operations/GetAccountOrderItemRequest.md:
+    last_write_checksum: sha1:f33e94be3df1ed45fbb0655a3489d1a91ea8eea8
+  docs/models/operations/GetAccountOrderItemResponse.md:
+    last_write_checksum: sha1:62a1ca92bbee3787cc3f4ddd5901def9d5c61957
+  docs/models/operations/GetAccountOrderItemsByOrderIdRequest.md:
+    last_write_checksum: sha1:4e210bda3b33d61b0f7d3feb5bfb3721065580f6
+  docs/models/operations/GetAccountOrderItemsByOrderIdResponse.md:
+    last_write_checksum: sha1:2618bec3f6833841b43d01c6f2233c1be5cde427
+  docs/models/operations/GetAccountOrdersRequest.md:
+    last_write_checksum: sha1:96f89d05b49df18ec8e577fc84a562f44959987d
+  docs/models/operations/GetAccountOrdersResponse.md:
+    last_write_checksum: sha1:cfa9ab71ab02d4bfff2514e1aafe40d2d95290f6
+  docs/models/operations/GetAccountTransactionItemRequest.md:
+    last_write_checksum: sha1:ccce05be8e477f758635f2df0b42bdb864c7d32d
+  docs/models/operations/GetAccountTransactionItemResponse.md:
+    last_write_checksum: sha1:154a5be7d2c2d82a31667901b5c4011aa76e7317
+  docs/models/operations/GetAccountTransactionItemsRequest.md:
+    last_write_checksum: sha1:255a61563687ce1cef138d792d395db4bdd3d887
+  docs/models/operations/GetAccountTransactionItemsResponse.md:
+    last_write_checksum: sha1:d2cc59ba6157b507594ada1322ada5ad6718fd1c
+  docs/models/operations/GetAccountTransactionsRequest.md:
+    last_write_checksum: sha1:caead8c736209b7e4935d7bbad5339422faa446e
+  docs/models/operations/GetAccountTransactionsResponse.md:
+    last_write_checksum: sha1:e056fcde2411709ba0c1096661a8da7576d89d6f
   docs/models/operations/GetAccountUserGroupRequest.md:
     id: 745cab2be899
     last_write_checksum: sha1:2985197239e401381e1aa1dffabdeb3cf2486a3e
@@ -6800,6 +6714,10 @@ trackedFiles:
     id: 457c73da072e
     last_write_checksum: sha1:06cea39c6cabd11683c43e1708a38cf6cb881116
     pristine_git_object: 5bef20661b1170eb990c3fad902ef1c9a760f0b5
+  docs/models/operations/GetTransactionRequest.md:
+    last_write_checksum: sha1:5615e4f56c648bd5f7401bab76e81911c01afc90
+  docs/models/operations/GetTransactionResponse.md:
+    last_write_checksum: sha1:66349141f53d65067cd47683f984a455b740fe62
   docs/models/operations/GetTransactionsRequest.md:
     id: 0cbbd33ea548
     last_write_checksum: sha1:0d8733c61953b2827204c2da724325e0d67bbeab
@@ -7312,6 +7230,10 @@ trackedFiles:
     id: b2dda0732222
     last_write_checksum: sha1:7a39ec0af3b1fb05290f14965ca96d5e2bab71da
     pristine_git_object: d0d9150e71215c6694723fb4d94d839e2e42b9db
+  docs/models/operations/ListMeetingRoomImagesRequest.md:
+    last_write_checksum: sha1:5aef2e322ddf5e432272bceef8fff5ea192b8ede
+  docs/models/operations/ListMeetingRoomImagesResponse.md:
+    last_write_checksum: sha1:96aa96745adec9c0228f53d3733b42df76c39aa5
   docs/models/operations/ListMeetingRoomsOverviewsRequest.md:
     last_write_checksum: sha1:f7313936cad24a63cd1db47c3af42713204dd368
   docs/models/operations/ListMeetingRoomsOverviewsResponse.md:
@@ -8382,7 +8304,7 @@ trackedFiles:
     pristine_git_object: ec72ece2709b16b32cfe2a4164385953206ba9ff
   docs/sdks/badgeprintjob/README.md:
     id: ac0f95fe64cc
-    last_write_checksum: sha1:eaac60e938e7c086f34527b8df0ca62a172e399e
+    last_write_checksum: sha1:124968b4aa096a89e0d06a31bbc55ac484f056a3
     pristine_git_object: 382778ecf118f44a91b57ed97d14be3bce38eff1
   docs/sdks/budget/README.md:
     id: d80c75fe97ef
@@ -8402,7 +8324,7 @@ trackedFiles:
     pristine_git_object: 188bd86fe814ad329945bba50e87c7acdfb46082
   docs/sdks/compliance/README.md:
     id: b4d24a1a4b65
-    last_write_checksum: sha1:d013cd17217722f939c50acd2c3725ecb55c27f7
+    last_write_checksum: sha1:e12d050acab37638ce3ae17932e4f2fa73d37efa
     pristine_git_object: 8640068862d51e6fb5f81c9a64571ababf83b978
   docs/sdks/contacts/README.md:
     id: 4174fb287a81
@@ -8434,7 +8356,7 @@ trackedFiles:
     pristine_git_object: 9b702106766b9fcad1fd2dde1cb5b2b424719715
   docs/sdks/events/README.md:
     id: cf45a4390b9b
-    last_write_checksum: sha1:7ddc4559ef2626b764bc696a9515739371e3ec07
+    last_write_checksum: sha1:facfc31c8e88a6880fce2f2644bd021fceb47a08
     pristine_git_object: a155c9c995555e8cf43829631cc8a236fd354da4
   docs/sdks/eventsplushub/README.md:
     id: 5f184d5bdfcc
@@ -8446,7 +8368,7 @@ trackedFiles:
     pristine_git_object: eede402a85e1da20c1034fe85358d6075234a769
   docs/sdks/exhibitor/README.md:
     id: cb0578099210
-    last_write_checksum: sha1:4d6094d3e9395e94c11597c56c2ab72cbd8f8572
+    last_write_checksum: sha1:55bf8ba572a6c227adee1abb4add1e8c499eb99c
     pristine_git_object: 0602007e1d41c51681c190985c6cff8d835cc46e
   docs/sdks/exhibitorcontent/README.md:
     id: 7cecd37f6b66
@@ -8466,7 +8388,7 @@ trackedFiles:
     pristine_git_object: 64614977cacbd8d9340bd37af4b21d6e245bfc14
   docs/sdks/housing/README.md:
     id: 23d65d817ab8
-    last_write_checksum: sha1:a68a64874f53504a3a22b395922adac1b39cfb76
+    last_write_checksum: sha1:7f79cc07dec78a736f4e6dde82cb00b17e041439
     pristine_git_object: 4211bb0d355200b83a1e58a261371acf7a12452d
   docs/sdks/housinghotels/README.md:
     id: d04ff5412c59
@@ -8480,6 +8402,8 @@ trackedFiles:
     id: 4d8d5f5fd977
     last_write_checksum: sha1:752d2f431631ef2dbf602dd0d2fd5acb428b6c84
     pristine_git_object: 0179b4309efed6c06dc31e70ac235bf1de619337
+  docs/sdks/orders/README.md:
+    last_write_checksum: sha1:0fab7c6f50996f7f6e1a0dfc6697b31d9c152d96
   docs/sdks/processform/README.md:
     id: 0d23c161e66c
     last_write_checksum: sha1:aa0213ee24c013ce5ce39b38fc3d663b6ded03eb
@@ -8516,6 +8440,8 @@ trackedFiles:
     id: b7f48111aedf
     last_write_checksum: sha1:82b8765e003f1da72da2b1c7520a503f252c7e5c
     pristine_git_object: f2ec0d237695846e602252d7349f640c49854768
+  docs/sdks/transactions/README.md:
+    last_write_checksum: sha1:2084c6e443b44f9abc0f88f85c211085ee66eb60
   docs/sdks/travelaccounts/README.md:
     id: 361add025274
     last_write_checksum: sha1:aae1d4d2c0e34a3ee00521c25848ee19e5817e8b
@@ -8538,10 +8464,10 @@ trackedFiles:
     pristine_git_object: e340e49b38b5531e795df74195ccaed5136eb492
   docs/sdks/userscim/README.md:
     id: 50529a579425
-    last_write_checksum: sha1:4942d818d694ea2e385b9197e1619395d7434eeb
+    last_write_checksum: sha1:896ca063a908ca3f59c66062176d4859f4a4759d
     pristine_git_object: ce24bc35e6c90e161c09b86666c9b6463dafae29
   docs/sdks/venuemeetingrooms/README.md:
-    last_write_checksum: sha1:6399a946e647d75224cd351ab773098265fc63dc
+    last_write_checksum: sha1:49d5b7f702dace8693cb5e24b3588faa16df0777
   docs/sdks/venueprofiles/README.md:
     last_write_checksum: sha1:22a58e4002367441267ca03394da7f1a27e67ffe
   docs/sdks/video/README.md:
@@ -8558,7 +8484,7 @@ trackedFiles:
     pristine_git_object: cda742065b0bb30407900c4d39885b8db164b9b4
   gradle.properties:
     id: 2afbb999f001
-    last_write_checksum: sha1:a10276c74293cb52f996d3fa1da39980752c13df
+    last_write_checksum: sha1:46f7e35cc07b9d395dffcba30495a5e666fff9a3
     pristine_git_object: 6da141a8453a679109d12dba513b6d08b9e37fd5
   gradle/wrapper/gradle-wrapper.jar:
     id: ec27dae6e852
@@ -8642,7 +8568,7 @@ trackedFiles:
     pristine_git_object: bf652ca1993e5b73039cc72d8f5f849c99ae4b03
   src/main/java/com/cvent/AsyncCompliance.java:
     id: bf5663e1d9a8
-    last_write_checksum: sha1:1e77645a1fe193c938f70970c19513f5d4f5402a
+    last_write_checksum: sha1:67039c61b120542b4f00447552d8faea95517a6c
     pristine_git_object: 077850aa68375b492df3478027b837ad2f431a17
   src/main/java/com/cvent/AsyncContacts.java:
     id: b077548feda0
@@ -8654,7 +8580,7 @@ trackedFiles:
     pristine_git_object: d2750f4c1dd063e160ac8b42105e3350a77b9192
   src/main/java/com/cvent/AsyncCventSDK.java:
     id: 3d41ccbb3604
-    last_write_checksum: sha1:ce5191593ccecff798d10b50ddfda013b39c84c6
+    last_write_checksum: sha1:153c19adc63af4d5ff081456282837cc448f712d
     pristine_git_object: 91ab4b576419398d5dfa7189f6dbf60c8f32176b
   src/main/java/com/cvent/AsyncDiscounts.java:
     id: 0e60d514801e
@@ -8710,7 +8636,7 @@ trackedFiles:
     pristine_git_object: 1463c39f94bb7111b27f69bddd24a287e68fd95b
   src/main/java/com/cvent/AsyncHousing.java:
     id: 4fee93962efc
-    last_write_checksum: sha1:f3f4cf7586414ec28389f81b95abafe970d8839e
+    last_write_checksum: sha1:a63845f20989d2970e742802c48d0f0c0fff7117
     pristine_git_object: 3075e9758212e8459bb2a1ac2b50ff23841f2238
   src/main/java/com/cvent/AsyncHousingHotels.java:
     id: be2259657666
@@ -8724,6 +8650,8 @@ trackedFiles:
     id: c69c5b6c742d
     last_write_checksum: sha1:38e1c4bda3d44db44ce93a518d429990d2e613b9
     pristine_git_object: 2a363b46c900e245520578e3a2696ab46d5175e9
+  src/main/java/com/cvent/AsyncOrders.java:
+    last_write_checksum: sha1:4b743f63236c623fc71e25685f38ef5b6d26fdb2
   src/main/java/com/cvent/AsyncProcessForm.java:
     id: e0cb23c12345
     last_write_checksum: sha1:1cf032b69449c195a26e7052c0c335d7c8722277
@@ -8760,6 +8688,8 @@ trackedFiles:
     id: 49e0de06d799
     last_write_checksum: sha1:dfa0f04efb5d421c630e45cb925f56163bd976f4
     pristine_git_object: b32d2314045f274ed57bce3d17dcde552d6afa80
+  src/main/java/com/cvent/AsyncTransactions.java:
+    last_write_checksum: sha1:94e20fd9e0e5f7f66e0af4e0315dd84ee07f923b
   src/main/java/com/cvent/AsyncTravelAccounts.java:
     id: de4f45cf4a16
     last_write_checksum: sha1:2f1cfdf15a28c41515f6537973b3bebb2dafd05f
@@ -8785,7 +8715,7 @@ trackedFiles:
     last_write_checksum: sha1:f67eaf66fb81db4b618ef9851e0bf8621d6b5309
     pristine_git_object: abd63df68ae7b0a8072397adaea22c85664088b4
   src/main/java/com/cvent/AsyncVenueMeetingRooms.java:
-    last_write_checksum: sha1:722004e5a2cc05dde188395106aa00b5549ef4f6
+    last_write_checksum: sha1:82bb3fd5277344d432dc466df9d90e818dd7bc18
   src/main/java/com/cvent/AsyncVenueProfiles.java:
     last_write_checksum: sha1:9e4ae9e08c8f136daf95d71f4bff7260c9b9f437
   src/main/java/com/cvent/AsyncVideo.java:
@@ -8846,7 +8776,7 @@ trackedFiles:
     pristine_git_object: 8c07a9e176c3dc6f4506644c76ad807608b20955
   src/main/java/com/cvent/Compliance.java:
     id: e5f412bc9742
-    last_write_checksum: sha1:788fe66a52dbce554d5f2e922519cb61aa0086ad
+    last_write_checksum: sha1:59497bf33f6cb202f73dcce6daf6108f38203ccd
     pristine_git_object: 31c3ac7470c73368fccaff175fef0b428eeba138
   src/main/java/com/cvent/Contacts.java:
     id: e6db800d4233
@@ -8858,7 +8788,7 @@ trackedFiles:
     pristine_git_object: fba7bb77908632105cf2fcbe226b002da7001b0e
   src/main/java/com/cvent/CventSDK.java:
     id: 4a420697fa3d
-    last_write_checksum: sha1:a71f524a86f0d641cef9c619d03783324b31c0cc
+    last_write_checksum: sha1:cb0e314ce1f9bd5679def56a925db81ce94fa6f9
     pristine_git_object: 80c41313e2060978bc5d97ac0b629a1ec05252db
   src/main/java/com/cvent/Discounts.java:
     id: b320961e983a
@@ -8914,7 +8844,7 @@ trackedFiles:
     pristine_git_object: f72e8694025a9793746917b7073f5de375f41d4a
   src/main/java/com/cvent/Housing.java:
     id: c0c7f22683c7
-    last_write_checksum: sha1:2bf9a36f8b799d27c9ec623755c1282b46334063
+    last_write_checksum: sha1:556a3c0e9b9ce51375400cb5a8a0d13c1bc0b74f
     pristine_git_object: 5d5698d83c5f70e796f015731adcbffefff197a6
   src/main/java/com/cvent/HousingHotels.java:
     id: 2c2bb7ca65ec
@@ -8928,6 +8858,8 @@ trackedFiles:
     id: 98502903c529
     last_write_checksum: sha1:939cba13fd7ce6dc74079c711e611b2c022fdcc3
     pristine_git_object: 7fac550da9fb7ddfccd9f9457297ff746a1cbf40
+  src/main/java/com/cvent/Orders.java:
+    last_write_checksum: sha1:d213ca050dff819f0016e741f5a1745fe5fab42a
   src/main/java/com/cvent/ProcessForm.java:
     id: 37b1c5cc9454
     last_write_checksum: sha1:7e21dfafeb3562944644e867dd6a859edec7db16
@@ -8946,7 +8878,7 @@ trackedFiles:
     last_write_checksum: sha1:0396671d6b0de814aaa27700f35eed30523c66ed
   src/main/java/com/cvent/SDKConfiguration.java:
     id: cdb9837839f5
-    last_write_checksum: sha1:a0e4b9a31350733b8e5e1dd0dd6a75ce4b113e6b
+    last_write_checksum: sha1:52d51fcd24be150b5c5073a6377560fe62717732
     pristine_git_object: 4b98b23f51bc18bad5890089f44055b6187ed9f0
   src/main/java/com/cvent/Seating.java:
     id: 70583b24bb9b
@@ -8972,6 +8904,8 @@ trackedFiles:
     id: 11d9d64426a8
     last_write_checksum: sha1:888a3cd0dc3dd580f88241f48c0cb35846d7c9db
     pristine_git_object: 915b8a1565ca2469951ae31d0455d628f74b74a4
+  src/main/java/com/cvent/Transactions.java:
+    last_write_checksum: sha1:a6796f3269a845de00861dc1e2fa57f126be9261
   src/main/java/com/cvent/TravelAccounts.java:
     id: 5533601a56e1
     last_write_checksum: sha1:cea59da040e600ba949e4bfacc4d0ecfdc8e06f0
@@ -8997,7 +8931,7 @@ trackedFiles:
     last_write_checksum: sha1:7b4b2764cc99a72e5c05e002731ef19d8216648b
     pristine_git_object: ec5e517b038178f3843175814d6d968f294277ab
   src/main/java/com/cvent/VenueMeetingRooms.java:
-    last_write_checksum: sha1:18213364ddfea308fc71302dfb25bcf7500a5988
+    last_write_checksum: sha1:3547f875057b94a4a4ae3ddd30d4ce4e96d61a37
   src/main/java/com/cvent/VenueProfiles.java:
     last_write_checksum: sha1:3e7fcded4b7311816b4dc3f0828f9c8f9f28415a
   src/main/java/com/cvent/Video.java:
@@ -9014,7 +8948,7 @@ trackedFiles:
     pristine_git_object: babc77d8af94b46530cb1522e0d790ed3821cbbf
   src/main/java/com/cvent/hooks/OAuth2Scopes.java:
     id: 796ee1ea9f11
-    last_write_checksum: sha1:e448356da7f05987f57729760a92a682bd966e67
+    last_write_checksum: sha1:d846cae0b26e12e4bcfc0011e77a89459b80c0a1
     pristine_git_object: 5e0d00a270318551de3675f94ccb2e418a47126e
   src/main/java/com/cvent/models/callbacks/CreateContactHookContactTransactionCallbackResponse.java:
     id: 36b27dee8ec2
@@ -9106,10 +9040,8 @@ trackedFiles:
     last_write_checksum: sha1:ed84fb7b7300283990ab5bc8492215ef8176dc09
   src/main/java/com/cvent/models/components/AdLocation.java:
     last_write_checksum: sha1:f6d4150c823bd14c3464d9d0ee4a28a36f927584
-  src/main/java/com/cvent/models/components/AddOnJson.java:
-    id: c84fbf44b362
-    last_write_checksum: sha1:168cc4e2a34150fe1369a9ad5da2b146519585a3
-    pristine_git_object: 15516f17c6c2012015b437591cd9cddb0805b73f
+  src/main/java/com/cvent/models/components/AddOn.java:
+    last_write_checksum: sha1:cdd2e3876d9a84a742f919e3633b83da46c9b55e
   src/main/java/com/cvent/models/components/AdditionalBadgekitFields.java:
     id: 6f017b3b5faf
     last_write_checksum: sha1:202bd4369eb22c2d1d7bd97fc6cb47ed6634d0de
@@ -9120,10 +9052,8 @@ trackedFiles:
     last_write_checksum: sha1:b36d1d36b2809fa069b10a664e59cf3ecfcda09f
   src/main/java/com/cvent/models/components/AdditionalChoiceJson.java:
     last_write_checksum: sha1:53eaeb3d6013b82ebc69eced162a48ae97020b5d
-  src/main/java/com/cvent/models/components/AdditionalGuestFeesJson.java:
-    id: 544f0629bfec
-    last_write_checksum: sha1:a3dc5b30510ec20a393cfc7a7ef3fe78fe5152e6
-    pristine_git_object: 19baa3c22b0f9e22d489f09cc6afb6ce907cbe80
+  src/main/java/com/cvent/models/components/AdditionalGuestFees.java:
+    last_write_checksum: sha1:fdcc3fa538fe20ce2fe650f4212193089e7b96de
   src/main/java/com/cvent/models/components/Address.java:
     last_write_checksum: sha1:f7cf2f706df1336918347e8c3546dda127c3c82b
   src/main/java/com/cvent/models/components/Address1.java:
@@ -9131,25 +9061,25 @@ trackedFiles:
   src/main/java/com/cvent/models/components/Address11.java:
     last_write_checksum: sha1:abfcf86bb84f4f932e80eaa09f08545f55ac4573
   src/main/java/com/cvent/models/components/Address3.java:
-    last_write_checksum: sha1:deb9d509574d02e00d1f63b2e2b420ce07e870df
+    last_write_checksum: sha1:3390cf2a4d40607949296b7bef184284ca8b0720
   src/main/java/com/cvent/models/components/Address4.java:
-    last_write_checksum: sha1:78de38d639452bed88cc35a2ee31caa455a539ab
+    last_write_checksum: sha1:9cb58269c67bbeb3a766fe1c0c7a8e82768e1ba8
   src/main/java/com/cvent/models/components/Address5.java:
-    last_write_checksum: sha1:75219ae16340a5f5138ba2c3cfbb26b298a118a7
+    last_write_checksum: sha1:a21f038a60c6f981b965c8cd815f8444d84f8347
   src/main/java/com/cvent/models/components/Address6.java:
-    last_write_checksum: sha1:cf7f875c2fd6a86cfcbdebd382f48005454d78c4
+    last_write_checksum: sha1:a604170815a21248e7822b2730739eb68a081c5f
   src/main/java/com/cvent/models/components/Address7.java:
-    last_write_checksum: sha1:3bd3cd476cb5da40ae4accd016ab779b4245e931
+    last_write_checksum: sha1:a603864cd62025afcac68caa200773cc4b6356e4
+  src/main/java/com/cvent/models/components/Address8.java:
+    last_write_checksum: sha1:e5ac740467512f773e4b57daee4ea920f3c3dbc6
   src/main/java/com/cvent/models/components/AddressInfo.java:
     last_write_checksum: sha1:1fba98b4198da8415cc8551c8318df83d6368ea2
   src/main/java/com/cvent/models/components/AddressInput.java:
     last_write_checksum: sha1:bea2c7a59dfe5eb47a88524e72acf2dd834c2479
   src/main/java/com/cvent/models/components/AddressJson.java:
     id: 6308f5795b84
-    last_write_checksum: sha1:1bf443fc02e7d06c8570e59f7f534bb8029b16ee
+    last_write_checksum: sha1:9b869a7f9622dccee95f3d56f600106c638280e7
     pristine_git_object: 02d35db07a56c928d13de96bdecd2890c8e13343
-  src/main/java/com/cvent/models/components/AddressJson1.java:
-    last_write_checksum: sha1:5c5503b25d5a4d1120f00fd2dfe2d550290df217
   src/main/java/com/cvent/models/components/AddressType.java:
     last_write_checksum: sha1:9972ba6164e02173869cb423a87e5547ea6fa1dd
   src/main/java/com/cvent/models/components/AddressType1.java:
@@ -9195,7 +9125,7 @@ trackedFiles:
   src/main/java/com/cvent/models/components/AirActualDetail2.java:
     last_write_checksum: sha1:d8ac1a4ae6f0c9a16d158a6c5bd5ee062b896a62
   src/main/java/com/cvent/models/components/AirRequest.java:
-    last_write_checksum: sha1:0a93426465afe8c6e222c36086273bfc885b1d5f
+    last_write_checksum: sha1:bb1d01a52652a47cd28ab8bc4248223a88a2f869
   src/main/java/com/cvent/models/components/AirRequesterType.java:
     last_write_checksum: sha1:a2ffdc8d36b36c4638a3ef7edd3d56f9d5d387d2
   src/main/java/com/cvent/models/components/AirReservationDetail1.java:
@@ -9436,7 +9366,7 @@ trackedFiles:
     pristine_git_object: cf6bdabe8235bc544c25de11eba8d43854aba9b3
   src/main/java/com/cvent/models/components/AttendeeAddBulkItemEventJsonErrorResponse.java:
     id: 5f9637e39d00
-    last_write_checksum: sha1:6586a0d25db32f07ce7dc13023a1d96d31ad903b
+    last_write_checksum: sha1:34f3d7a7875a9ddd7ff2062be6250c4ce1e007fc
     pristine_git_object: 934316300bd2f81d4b76380e7a4c4ff5271174ad
   src/main/java/com/cvent/models/components/AttendeeAddBulkItemJson.java:
     last_write_checksum: sha1:cf2582db1159ccc6fa6d9bcfe5e4c5ace2d01108
@@ -9481,7 +9411,7 @@ trackedFiles:
   src/main/java/com/cvent/models/components/AttendeeAudienceSegmentAssociationsPaginatedResponse.java:
     last_write_checksum: sha1:54d107250f29da22ed7000e27c259a53841eb997
   src/main/java/com/cvent/models/components/AttendeeContactInfo.java:
-    last_write_checksum: sha1:73a3ffdd0b88ac2142fb240b8a7d51d40aedae6f
+    last_write_checksum: sha1:98bfb8ec645cb6f87f52d2e3e9d792a8dca2c5f7
   src/main/java/com/cvent/models/components/AttendeeContactMembership.java:
     last_write_checksum: sha1:f0dce922f5811531e8ca355cf754a7f2e053805d
   src/main/java/com/cvent/models/components/AttendeeContactType.java:
@@ -9534,10 +9464,6 @@ trackedFiles:
     id: c567f39626f4
     last_write_checksum: sha1:1f5cd21752876fcbd93fb6322fa7490bab9d3487
     pristine_git_object: afff356e4e5d63f470179c844e92c9c83c2e4eb1
-  src/main/java/com/cvent/models/components/AttendeeInventoryJson.java:
-    id: c4a255b47174
-    last_write_checksum: sha1:47858d227d0e0dfc22678573fc94280e19b23542
-    pristine_git_object: c6f2dccd9329cbec7066ec61c4c71f5cb3c14304
   src/main/java/com/cvent/models/components/AttendeeInvitedBy.java:
     last_write_checksum: sha1:4fae22b6f601e96efcb1433a6016f8dc042cff21
   src/main/java/com/cvent/models/components/AttendeeInvitedBy1.java:
@@ -9572,26 +9498,16 @@ trackedFiles:
     last_write_checksum: sha1:14d7ac253abf6f8b132c2eed9acdf01c66e20761
   src/main/java/com/cvent/models/components/AttendeeResponseMethod1.java:
     last_write_checksum: sha1:fdd089c0dd20155c0ed6fe06cf94cc4ac557edd3
-  src/main/java/com/cvent/models/components/AttendeeSignatureResponseJson.java:
-    id: 45677e71a930
-    last_write_checksum: sha1:e11dc4abad0feef9200d20cec9b7cba4e6b829a9
-    pristine_git_object: a72640fda011c8e4b37b895e4a0db854f5bce47d
-  src/main/java/com/cvent/models/components/AttendeeSignatureResponseJsonAttendee.java:
-    id: fa233b999e01
-    last_write_checksum: sha1:87814bb382ef417163e10f406b79b0a0c0ae55e6
-    pristine_git_object: 1225ebaf8d1618ee606694f5b8a3e5ebbc5ca929
-  src/main/java/com/cvent/models/components/AttendeeSignatureResponseJsonEvent.java:
-    id: 064d97ffc2b0
-    last_write_checksum: sha1:aa8d6b142041f731bcaa3bfc6dc3a1fd4234c176
-    pristine_git_object: 5ce4b1157f6a4e1435f37ed5486090f0c6a4e73d
-  src/main/java/com/cvent/models/components/AttendeeSignatureResponseJsonSession.java:
-    id: 3fdf2a210011
-    last_write_checksum: sha1:800bf4a9487b03295e17b1040149b8807860065a
-    pristine_git_object: ff2be9891cf98a54868e76c528eeb1bea8daea8e
-  src/main/java/com/cvent/models/components/AttendeeSignatureResponseJsonType.java:
-    id: d7461e7043fb
-    last_write_checksum: sha1:3ba2d79c58511baa84e8b881be1849dc63e93d76
-    pristine_git_object: aa1a144d441a29d8f0a261dd7bef5b8b0a32faad
+  src/main/java/com/cvent/models/components/AttendeeSignatureResponse.java:
+    last_write_checksum: sha1:b4b200777c9ec56272b42ec07916aeb9731c881a
+  src/main/java/com/cvent/models/components/AttendeeSignatureResponseAttendee.java:
+    last_write_checksum: sha1:dceaca4afced1319c61bc17e37f1c56c1b83e623
+  src/main/java/com/cvent/models/components/AttendeeSignatureResponseEvent.java:
+    last_write_checksum: sha1:076c44e9596fa81ee9c042996474377753ef63ac
+  src/main/java/com/cvent/models/components/AttendeeSignatureResponseSession.java:
+    last_write_checksum: sha1:4100232d6553d2cfcdbec2db1265efe8d18c8ab4
+  src/main/java/com/cvent/models/components/AttendeeSignatureResponseType.java:
+    last_write_checksum: sha1:6c63a7f39094272e329078678c869a5b16455e59
   src/main/java/com/cvent/models/components/AttendeeStatus.java:
     last_write_checksum: sha1:d464b23580a41a04420a167fd30993e02f4f2eca
   src/main/java/com/cvent/models/components/AttendeeSubscriptionRequest.java:
@@ -9600,17 +9516,13 @@ trackedFiles:
     last_write_checksum: sha1:68def307e59a72dbd2f0f7536513d1cf9d2b6c51
   src/main/java/com/cvent/models/components/AttendeeSubscriptionResponseAttendee.java:
     last_write_checksum: sha1:a7f699540c5c0f62b0e48465580d9342ee1fa4e3
-  src/main/java/com/cvent/models/components/AttendeeTypeIdJson.java:
-    id: ff8a6fa0627d
-    last_write_checksum: sha1:6aa62277cf5fe80d456c095bde11f0dda22fad98
-    pristine_git_object: 36e413dc66eb442b8ed613159f183770854800b8
-  src/main/java/com/cvent/models/components/AttendeeTypeJson.java:
-    id: 4d6c78b552e0
-    last_write_checksum: sha1:84832f6032ab68a840988eb4fd657d93698bc4c2
-    pristine_git_object: fceb5442c3ebb9f7ad452e521ea18078859a102a
+  src/main/java/com/cvent/models/components/AttendeeType.java:
+    last_write_checksum: sha1:c82fb8087b2f4c38a3b68bca5f3820d474a753cc
+  src/main/java/com/cvent/models/components/AttendeeTypeId.java:
+    last_write_checksum: sha1:6f51d45c9a221a385866423913cd8184fd6918f6
   src/main/java/com/cvent/models/components/AttendeeUpdate.java:
     id: 0e9106bb28fb
-    last_write_checksum: sha1:94bd512528028d10a01ff2ec75aff40777d1f274
+    last_write_checksum: sha1:107d7fd48f1109aa85e8da51b075073c0b4cded4
     pristine_git_object: 70ced5eb915d4078a81a5ee4b5fcb5f7d6c88a90
   src/main/java/com/cvent/models/components/AttendeeUpdateAdministrator.java:
     id: 99e7b68c8120
@@ -9637,7 +9549,7 @@ trackedFiles:
     last_write_checksum: sha1:9a13f595032bf0b55e2c73217b89023af62fc555
     pristine_git_object: ca668f4fa69daf8ee2ff708d29c3d23ac4c2e4a7
   src/main/java/com/cvent/models/components/AttendeeUpdateStatus.java:
-    last_write_checksum: sha1:7992b041daf3a6aa715da95fc3b43678e403b8c8
+    last_write_checksum: sha1:4a8e1efafcd676ec9839bda4d2ae7f8a0c096af6
   src/main/java/com/cvent/models/components/AttendeeVisibility.java:
     last_write_checksum: sha1:278e8215a16fc01e4f8d81356e3bfa857f58e66c
   src/main/java/com/cvent/models/components/AttendeeWebLinks.java:
@@ -9694,13 +9606,11 @@ trackedFiles:
     id: 4dd23affb4e8
     last_write_checksum: sha1:03f665c6ed4974677158ca7ea5b89c4ddab4e36d
     pristine_git_object: 0548f69b2495ee8af39d71c48f8b08f1ab33060c
-  src/main/java/com/cvent/models/components/AvailableNightJson.java:
-    id: d06e1f8b815a
-    last_write_checksum: sha1:da829ea1c8f57c0107254fb43329ef75dbd7bd5e
-    pristine_git_object: 7d809bc22d0058feab70d96f2119f67df3487e17
+  src/main/java/com/cvent/models/components/AvailableNight.java:
+    last_write_checksum: sha1:dcc95e4ede74617a08cccae403b913424c43c4a9
   src/main/java/com/cvent/models/components/AvailableNights.java:
     id: f8dd9dcdb944
-    last_write_checksum: sha1:9dd70a87b37eb8819757d9a04b33f739777892cf
+    last_write_checksum: sha1:c802a19176b8742f0d17493aed295b0d87399574
     pristine_git_object: 85113bca6597845f9a97a96bd1425fbbd58032c6
   src/main/java/com/cvent/models/components/AvailableTimeJson.java:
     id: f1a03870db39
@@ -9724,23 +9634,19 @@ trackedFiles:
     pristine_git_object: 3504df871fc80726c2c12e082198c8dc4b8e54a5
   src/main/java/com/cvent/models/components/BadgePrintJobCreated.java:
     id: d5e052b19f28
-    last_write_checksum: sha1:21d144630305bba5c1e7b766143d2811fd1c64f2
+    last_write_checksum: sha1:b80549ca0d6b56340a6251360e41cb8eaf2e241f
     pristine_git_object: 5151b5dc8f58fec75a9549afa996a8c74bca0df8
   src/main/java/com/cvent/models/components/BadgePrintJobCreatedInput.java:
     id: cece0f4b6927
-    last_write_checksum: sha1:d4fac14c27cf2656fda3d44ca5d3424a18a34a5c
+    last_write_checksum: sha1:c98e1866bf5ec3157c1e4bde900187f10167b510
     pristine_git_object: 3ec9ad2fe7d8e0973c93f9fe0807ea5b3d0e3e3b
-  src/main/java/com/cvent/models/components/BadgePrintJobErrorCodeJson.java:
-    id: 8f583f1a4491
-    last_write_checksum: sha1:e9c18b77af7ffa58c9b2f4e572b9d1c20b8a795a
-    pristine_git_object: 5ab847f90fd30b23867ec3f13574301a49284f47
-  src/main/java/com/cvent/models/components/BadgePrintJobStatusJson.java:
-    id: 71bd14a0148b
-    last_write_checksum: sha1:93a8850601c774efd79366573f4233683c7f1306
-    pristine_git_object: c6f04d64f3e165cec89b9d9d84cd2a569264fb9a
+  src/main/java/com/cvent/models/components/BadgePrintJobErrorCode.java:
+    last_write_checksum: sha1:33055acbb213f427add23de8340cb99e3218c782
+  src/main/java/com/cvent/models/components/BadgePrintJobStatus.java:
+    last_write_checksum: sha1:b82057950baab28a881b99cd13e4b633845cb63e
   src/main/java/com/cvent/models/components/BadgePrintJobsPaginatedResponse.java:
     id: c70f4e71e669
-    last_write_checksum: sha1:94a3ae313d9aa3b1d64e4560cba274fe570db1a0
+    last_write_checksum: sha1:c0538b39bb27f62b3d2e997af328c7ca69050490
     pristine_git_object: 7e35cf78ba62475e62a52e1e97d0387a2268bbde
   src/main/java/com/cvent/models/components/BadgePrinter.java:
     id: 86b05542e12a
@@ -9748,15 +9654,11 @@ trackedFiles:
     pristine_git_object: 6596ad8bb2a66def919d4089690652775b1cde48
   src/main/java/com/cvent/models/components/BadgePrinterPoolRef.java:
     id: 08528cbec863
-    last_write_checksum: sha1:64aca6c3fc7cb379b1acce221b6eb67e5b685830
+    last_write_checksum: sha1:686e199c7a0a057210af109d8fa8c25dbd51de7f
     pristine_git_object: a302c752113d9aca56b0c130e39101a35b6b9834
-  src/main/java/com/cvent/models/components/BadgePrinterPoolReferenceJson.java:
-    id: f1a7266a7beb
-    last_write_checksum: sha1:5a30662936bd115a935a8a47fe04dece6ee92ebd
-    pristine_git_object: 4391c4becbc1d2d265b1d74a032a4c94b010af9e
   src/main/java/com/cvent/models/components/BadgePrinterPoolsPaginatedResponse.java:
     id: 78a156881493
-    last_write_checksum: sha1:5a7572670148ba54cf3de0de90489a7c523b639b
+    last_write_checksum: sha1:b64a45fe93745189f37f4ba6414493e2490e7d51
     pristine_git_object: 366152785843fb51466e90eea05530ebde27102e
   src/main/java/com/cvent/models/components/BadgeStatus.java:
     last_write_checksum: sha1:f6c7c92902bde841a9d8b14dbf01e8fe3b1df098
@@ -9802,10 +9704,8 @@ trackedFiles:
     id: 93f016caf254
     last_write_checksum: sha1:0688a88855d158c1ebb69b847583781c3ef1094c
     pristine_git_object: d241db250738c7906b21939c42d2a1c7724807f9
-  src/main/java/com/cvent/models/components/BookingWebsiteLinkJson.java:
-    id: ad7ad89bc5f1
-    last_write_checksum: sha1:bc8d16daf753bdca26a85c3b7e8d191c20d96307
-    pristine_git_object: fc8db60a3b4f2e80436aaf325f50a2793d102b4c
+  src/main/java/com/cvent/models/components/BookingWebsiteLink.java:
+    last_write_checksum: sha1:75b49fb3a37ba557bf455cbc2ce9c1642fb9e644
   src/main/java/com/cvent/models/components/BoothStaff.java:
     last_write_checksum: sha1:8835c794a74de799fb0c3c3bd69e5905412fa9c3
   src/main/java/com/cvent/models/components/BoothStaffListResponse.java:
@@ -9830,7 +9730,7 @@ trackedFiles:
     pristine_git_object: 0b47fb77f9c6759b62b5ff7569982c1742d1c7c8
   src/main/java/com/cvent/models/components/Brand.java:
     id: 7c2dc950e89d
-    last_write_checksum: sha1:48603a262b695b43719418d51647175d44a549a0
+    last_write_checksum: sha1:4faf9d16c411fdde49c950931577f6900037cfad
     pristine_git_object: c16220eb18d787192abe44854629d91786ede338
   src/main/java/com/cvent/models/components/BrandPaginatedResponse.java:
     id: 72eb951c3d58
@@ -9990,10 +9890,8 @@ trackedFiles:
     last_write_checksum: sha1:d930d34cd9bc64c5f91e6c4d149b571f6a61b21e
   src/main/java/com/cvent/models/components/CalendarContactType.java:
     last_write_checksum: sha1:15da6c736d231d84dbb9f241324380be7dd5b3ba
-  src/main/java/com/cvent/models/components/CallCenterLinkJson.java:
-    id: 9674a7bbbc18
-    last_write_checksum: sha1:0638a9aff946f52af2d00b38f21fb61ff6ca4f72
-    pristine_git_object: 46ad124512e1c1ceb2dffd4e84148c7bd5b8bce0
+  src/main/java/com/cvent/models/components/CallCenterLink.java:
+    last_write_checksum: sha1:742adf8c647c1fda554c546fca2420825c928772
   src/main/java/com/cvent/models/components/CampaignDataJson.java:
     id: 22b0f31a17e4
     last_write_checksum: sha1:5161ad8bb35cf3e1752d7a515aa3d11fc0560425
@@ -10086,7 +9984,7 @@ trackedFiles:
     pristine_git_object: 98c1ecaeb0029395ccde3e3945bdda8773da1320
   src/main/java/com/cvent/models/components/Chain.java:
     id: c8e2eebd6713
-    last_write_checksum: sha1:25437f15310acbb2de7f1f5354d357abb6bd26d7
+    last_write_checksum: sha1:743d94e6ec8cda8aa2ebcae60ec49ebcb8bfb8bb
     pristine_git_object: 3e7cc32f327a1b58adf4a4f3e3faaf6f0056f572
   src/main/java/com/cvent/models/components/ChainBrand.java:
     id: e708bbcb1d15
@@ -10144,8 +10042,8 @@ trackedFiles:
     last_write_checksum: sha1:547e8eb2020f8adaa4ca13284f2d54fa06aa4272
   src/main/java/com/cvent/models/components/Choice2Input.java:
     last_write_checksum: sha1:3df6b4b2b326e6ef9350ae792005816e03f0f05d
-  src/main/java/com/cvent/models/components/ChoiceJson1.java:
-    last_write_checksum: sha1:8b259fb5d2a29d4d472127f925a9d03ebe8d1d27
+  src/main/java/com/cvent/models/components/ChoiceJson.java:
+    last_write_checksum: sha1:3cdaafb847b1f5a937efdd462b276527c7bb7fa4
   src/main/java/com/cvent/models/components/ChoiceSortOrder.java:
     last_write_checksum: sha1:786e5445a1b620c34bd846a8c0d5455b48f7ef49
   src/main/java/com/cvent/models/components/ChoiceTranslation.java:
@@ -10400,10 +10298,8 @@ trackedFiles:
     id: 7cb24da7321f
     last_write_checksum: sha1:ce5e3e0d6a61a856032e28b7553f5de317b11726
     pristine_git_object: 07c10b7e00755f3d726bb8d17c926c2fde58e6ed
-  src/main/java/com/cvent/models/components/CreditCardTypesJson.java:
-    id: 79d28b8e55e8
-    last_write_checksum: sha1:7425e6e9d1e63a4621d04221b3da05da708b6d28
-    pristine_git_object: 52da9000aa6a37e78ff1237611d1588771b75436
+  src/main/java/com/cvent/models/components/CreditCardTypes.java:
+    last_write_checksum: sha1:b923c86abac438c241d4154b66fc6ab2fef46ea2
   src/main/java/com/cvent/models/components/Currency.java:
     last_write_checksum: sha1:16caf84f9138d61bb779057eb04274455be09db1
   src/main/java/com/cvent/models/components/CurrencyConversionRate.java:
@@ -10424,8 +10320,8 @@ trackedFiles:
     id: 04982db5113a
     last_write_checksum: sha1:9c91f0b57207bed7a294bfa0f8d464709b536e86
     pristine_git_object: 043cfa3ddac785ae6a0ee8995ed8d077b3f72fb0
-  src/main/java/com/cvent/models/components/CurrencyJson2.java:
-    last_write_checksum: sha1:6b9c3cbdabbc010b763a70a2606e43eaa9ccf817
+  src/main/java/com/cvent/models/components/CurrencyJson1.java:
+    last_write_checksum: sha1:23e1207c3793a644b1e46f8ecb12a0a19c2ce3ef
   src/main/java/com/cvent/models/components/CustomAnswerFormat.java:
     last_write_checksum: sha1:3553430751e1324149c7ff6223622182a133413b
   src/main/java/com/cvent/models/components/CustomDuration.java:
@@ -10478,10 +10374,8 @@ trackedFiles:
     last_write_checksum: sha1:d0ad8e0fe94970e7ee108ad1e311f621950c99d2
   src/main/java/com/cvent/models/components/CustomFieldType2.java:
     last_write_checksum: sha1:3af07c7291b5da69abdddea6dfbc11fb7173517c
-  src/main/java/com/cvent/models/components/CustomFieldsJson.java:
-    id: f6e7eb24a732
-    last_write_checksum: sha1:8658d3ddd9f1fe80c9482d151458aa8218f98d19
-    pristine_git_object: 44d665af5b86bf8ac405fc0fef27567ba6787d64
+  src/main/java/com/cvent/models/components/CustomFields.java:
+    last_write_checksum: sha1:22202ac7422f8a450bb235b48bf188fc1068d9f8
   src/main/java/com/cvent/models/components/CustomFieldsPaginatedResponse.java:
     id: fc8e385eff52
     last_write_checksum: sha1:6bf3b1ddd0457ee429c12dd8bd5732a4a1694982
@@ -10538,8 +10432,8 @@ trackedFiles:
     last_write_checksum: sha1:ab3fc999abea9397639921f34058bc51511d9174
   src/main/java/com/cvent/models/components/DisplayType1.java:
     last_write_checksum: sha1:be324cb647ee82e36ee4475f2d94efe19b41f10d
-  src/main/java/com/cvent/models/components/DistanceJson.java:
-    last_write_checksum: sha1:b031a2c77d3654d16a4110220c23ede8682a10b1
+  src/main/java/com/cvent/models/components/Distance.java:
+    last_write_checksum: sha1:e4d477c9ba83d1da833408a0178f68e15e205a85
   src/main/java/com/cvent/models/components/DistanceMeasurementUnit.java:
     last_write_checksum: sha1:5d9b10f3c0285e3da4293bb4ba7605ccf519a737
   src/main/java/com/cvent/models/components/DistanceUnit.java:
@@ -10659,7 +10553,7 @@ trackedFiles:
   src/main/java/com/cvent/models/components/EntityType1.java:
     last_write_checksum: sha1:e18c350805b82ce7e6cef9797ccbc03af75de7f8
   src/main/java/com/cvent/models/components/ErrorResponse.java:
-    last_write_checksum: sha1:b545ca016ab8735d8244cfa4f0288318e2e4aedb
+    last_write_checksum: sha1:5385dba2d11674012113220882ceb105f0b91d2d
   src/main/java/com/cvent/models/components/ErrorResponse11.java:
     last_write_checksum: sha1:1f7ebfb64bf0a636820775109beaac73c111703b
   src/main/java/com/cvent/models/components/ErrorResponseBase.java:
@@ -10681,11 +10575,11 @@ trackedFiles:
   src/main/java/com/cvent/models/components/Event1.java:
     last_write_checksum: sha1:8f31d631d9e78a1624885e5de7cd3c546a3734ae
   src/main/java/com/cvent/models/components/Event11.java:
-    last_write_checksum: sha1:91ac856897e4f670a14db73b31407cb225767c69
+    last_write_checksum: sha1:da7bb9fb3d86bc09e790598d970951842caa8b4d
   src/main/java/com/cvent/models/components/Event12.java:
     last_write_checksum: sha1:04f1610837848b8bd9ad8f72a780181f5a79b277
   src/main/java/com/cvent/models/components/Event1Input.java:
-    last_write_checksum: sha1:6b3fd513a9cc3f7dfa4290d72b68358ff7c5290b
+    last_write_checksum: sha1:2f485051f0b086d31a6e1e5cc3f9d781e7cbc13f
   src/main/java/com/cvent/models/components/Event1Lookup.java:
     last_write_checksum: sha1:9936ea60d6e30f5ba344017b37de27c94256505d
   src/main/java/com/cvent/models/components/Event2.java:
@@ -10776,7 +10670,7 @@ trackedFiles:
     pristine_git_object: 1fadae3f2b97a0b8c5752636cde2f2e18dbcc65c
   src/main/java/com/cvent/models/components/EventEmailsPaginatedResponse.java:
     id: ba5256564cfe
-    last_write_checksum: sha1:67e5e4b9d56d4d89da0d5435ed4f0a5c64e9a0de
+    last_write_checksum: sha1:5d93a9fdc4510b67c843b5645b40054d76e7864f
     pristine_git_object: 0f21f94bcdb4e1a20da9c5717a7817daf4a52f95
   src/main/java/com/cvent/models/components/EventFeatureJson.java:
     id: 23ed9a202ca4
@@ -10821,7 +10715,7 @@ trackedFiles:
   src/main/java/com/cvent/models/components/EventJson1.java:
     last_write_checksum: sha1:3ba84f2808b893cac8198b97493e5a8051c5a393
   src/main/java/com/cvent/models/components/EventJson2.java:
-    last_write_checksum: sha1:9fe95513ca5d39029f7e1e7063d2d520944e337f
+    last_write_checksum: sha1:4c8d08a84bf2a157ced936f5d78a58aaf30e948c
   src/main/java/com/cvent/models/components/EventJson2Lookup.java:
     last_write_checksum: sha1:257ee7a0cb0a7e6cd6d478dabcfe4e38ec80e1a6
   src/main/java/com/cvent/models/components/EventJson3.java:
@@ -10928,7 +10822,7 @@ trackedFiles:
     pristine_git_object: 99d315c307df9ae51b164592a47f916f612d22a7
   src/main/java/com/cvent/models/components/EventSurveyQuestionJson.java:
     id: 8013e4822f6a
-    last_write_checksum: sha1:f77d6f2a8dc8f5c82a70b426a36d4eb6a20e1fac
+    last_write_checksum: sha1:37a373d68a15d9b2a2548393415381f890297e8d
     pristine_git_object: 93182f543745dbb8f05696635f7c66ea13459220
   src/main/java/com/cvent/models/components/EventSurveyQuestionsPaginatedResponse.java:
     id: eac089048043
@@ -10992,11 +10886,11 @@ trackedFiles:
     last_write_checksum: sha1:6db35394f52954a1b62e7d08d95253b694d2d43d
   src/main/java/com/cvent/models/components/EventUpdate.java:
     id: 41eb20f603b1
-    last_write_checksum: sha1:4bcf9a0647f010482548c711382c4f28c7b86f87
+    last_write_checksum: sha1:fd5e341d7850fc9352cbd9b30742756c8123f11c
     pristine_git_object: f211848985ed27a23e1203742df7dd8f268f3f4b
   src/main/java/com/cvent/models/components/EventUpdateInput.java:
     id: 7d83d218d312
-    last_write_checksum: sha1:002b39a9631a1371313ae73d597826653e802feb
+    last_write_checksum: sha1:58ccf936482d611dcd659e601c45a08a32641d51
     pristine_git_object: d022ed83a9988ea4677b3267ffd6f728890c8369
   src/main/java/com/cvent/models/components/EventUpdateLookup.java:
     id: 0100741de2e8
@@ -11114,11 +11008,11 @@ trackedFiles:
     pristine_git_object: 18ba3342f9b8fd609ee8c978a1dfd9953a987be8
   src/main/java/com/cvent/models/components/ExhibitorRequest.java:
     id: b35b33ec27cb
-    last_write_checksum: sha1:46169bcc6b1e3f56175d3fd9b43428b471c9a965
+    last_write_checksum: sha1:74b0b4f12ad602e9992d00ed13d7eceb9bfd70c3
     pristine_git_object: 2e296dfbe718594517a5156b7468530f72a7a17b
   src/main/java/com/cvent/models/components/ExhibitorResponse.java:
     id: d7937d1f8730
-    last_write_checksum: sha1:8e0ef495f87ca0c75561755ba4e1c9b037ae050b
+    last_write_checksum: sha1:6b713cc8e9ec389dd897b0adb69d9adbe7c65e9a
     pristine_git_object: 556699e2ff65fc913e44e892259d475b30126cf7
   src/main/java/com/cvent/models/components/ExhibitorSocialLinkOpened.java:
     id: 29d9942b1df5
@@ -11168,8 +11062,10 @@ trackedFiles:
     pristine_git_object: 103e1096361c6fa710f8f74081cac8185f7f20c6
   src/main/java/com/cvent/models/components/ExistingBadgePrintJob.java:
     id: f849f0f0ca04
-    last_write_checksum: sha1:862302ca3c48e07d13463607570d178d208546c1
+    last_write_checksum: sha1:f09dc962ae2fe0904f41bee29397d8293742e848
     pristine_git_object: 3d2657ecc093ca9ce652c546ea09d2d71fdb7471
+  src/main/java/com/cvent/models/components/ExistingBadgePrintJobBadgePrinterPoolRef.java:
+    last_write_checksum: sha1:649e9b35bec275bf140078a2af97171d3e627e82
   src/main/java/com/cvent/models/components/ExistingBadgePrinterPool.java:
     id: 820cd7101537
     last_write_checksum: sha1:b6d87e978a6217145d070087ba1f7c91935d1316
@@ -11268,7 +11164,7 @@ trackedFiles:
     pristine_git_object: 3be37cfc8e30466261f5d32d3a2c3ca79eb237d2
   src/main/java/com/cvent/models/components/ExistingReservation.java:
     id: 498aac28c9bd
-    last_write_checksum: sha1:32c87052c3fa98e5f2804c93f758abf617428eb6
+    last_write_checksum: sha1:95563dca0bf67ee8d58d4a123093379a886dfbe4
     pristine_git_object: 06d5c79c72395cb26c1a48f722043ed925a3a8a4
   src/main/java/com/cvent/models/components/ExistingReservationHousingEventId.java:
     id: 15afed687552
@@ -11276,7 +11172,7 @@ trackedFiles:
     pristine_git_object: 2d63016a36363adf92db011eb2b6a163c81bd654
   src/main/java/com/cvent/models/components/ExistingReservationRequest.java:
     id: 819af1b07b63
-    last_write_checksum: sha1:3a6f5c31c09735be1794583f808d98745f8c1dac
+    last_write_checksum: sha1:c92b66782cb8f943a16559264d868b510e0ab89c
     pristine_git_object: 18e35f02bccc5478f5646630e84dd104f4c98536
   src/main/java/com/cvent/models/components/ExistingReservationRequestBlock.java:
     id: 581b0b0247b7
@@ -11284,7 +11180,7 @@ trackedFiles:
     pristine_git_object: eaf5ca2e893a7f498e54bb0ad05c0e19502fdc37
   src/main/java/com/cvent/models/components/ExistingReservationRequestInput.java:
     id: 92595fb1eec0
-    last_write_checksum: sha1:7bb7668e331b133fd099c9fd40251f305ab55062
+    last_write_checksum: sha1:c0aee12b1e35770742b51332e88f061924da9c1e
     pristine_git_object: 2bf399f82272bcfe00c0c2daa8c4e5161e91bb18
   src/main/java/com/cvent/models/components/ExistingReservationReservationRequest.java:
     id: 6134bf427705
@@ -11489,7 +11385,7 @@ trackedFiles:
   src/main/java/com/cvent/models/components/Field.java:
     last_write_checksum: sha1:4ca2636d3b4050fc5c9449686785e3b3d5ada6f8
   src/main/java/com/cvent/models/components/FieldJson.java:
-    last_write_checksum: sha1:558a9b986e575432b3e3e87e41a3611b7baebad0
+    last_write_checksum: sha1:bfc81554e4dbeb05d2400a92d069e050c0af69bb
   src/main/java/com/cvent/models/components/FieldType.java:
     last_write_checksum: sha1:8d4804037a7631fe70e5bd291d8562b579e30513
   src/main/java/com/cvent/models/components/FieldTypeJson.java:
@@ -11554,10 +11450,8 @@ trackedFiles:
     last_write_checksum: sha1:c5501af69eb030977e7a298398c52ceb20a2b2f0
   src/main/java/com/cvent/models/components/Guest.java:
     last_write_checksum: sha1:44b869f9a727fcb76ff000abbba222f055320e8c
-  src/main/java/com/cvent/models/components/GuestJson.java:
-    id: 49a64b4b6395
-    last_write_checksum: sha1:660b3a9b7729579cbcb3407b69cbb0d83009222b
-    pristine_git_object: e8eb3cd8c2f3dc3a062ba593070686aa0b0f3687
+  src/main/java/com/cvent/models/components/Guest1.java:
+    last_write_checksum: sha1:0af6d846ed8dba787ef008404c6065d972d438ba
   src/main/java/com/cvent/models/components/GuestRoomOccupancy.java:
     last_write_checksum: sha1:e7b6f049d1f7178d4ce7f272cfb68f091efc97bc
   src/main/java/com/cvent/models/components/GuestRoomOccupancyPerRoomType.java:
@@ -11596,22 +11490,14 @@ trackedFiles:
     pristine_git_object: af10ab576506cb2de7d1365b835186f185f445ea
   src/main/java/com/cvent/models/components/HotelId.java:
     id: 1f6d03fa3e52
-    last_write_checksum: sha1:5711b73070912b320a8258c21a5a23d4605decea
+    last_write_checksum: sha1:8ca02f488b6b21473640a03b9353e109a6c717ea
     pristine_git_object: b3e545073b61070865667b45f714bf2f4b236f5b
-  src/main/java/com/cvent/models/components/HotelIdJson.java:
-    id: aa925d2bfa6d
-    last_write_checksum: sha1:8921815a20a22a4d2b84ad973d7ae571f1bd725b
-    pristine_git_object: 50aac114db037ccf100a1362faaa5ec10301b2f6
-  src/main/java/com/cvent/models/components/HotelInfoJson.java:
-    id: cb6922a67b7f
-    last_write_checksum: sha1:8fbb035e63156466bdcb7a23b79af287622ac420
-    pristine_git_object: 2d2f9daf33aa03d3da5bf709ae4ed87e23f55a71
-  src/main/java/com/cvent/models/components/HotelRatingJson.java:
-    id: d965fc9a645e
-    last_write_checksum: sha1:58c35570ae76cc5909c4dd97890a4e938d1f310a
-    pristine_git_object: 7c98795b1d12987cb683dc6ea4580214d328e843
+  src/main/java/com/cvent/models/components/HotelInfo.java:
+    last_write_checksum: sha1:03f5becc8c5836d83632b75d6fa34d21fa827a0f
+  src/main/java/com/cvent/models/components/HotelRating.java:
+    last_write_checksum: sha1:bea144d8b62aac72a6d4ed96fcd4fec47fa9e3d7
   src/main/java/com/cvent/models/components/HotelRequest.java:
-    last_write_checksum: sha1:953229bfc3e8d844abc6714bb7d3fb0829ea4f50
+    last_write_checksum: sha1:daf64a62995d5d1585699eca387502e4b4afbbcd
   src/main/java/com/cvent/models/components/HotelRequestRequesterType.java:
     last_write_checksum: sha1:d422475e2029af353aeb87f555c0adca694060a1
   src/main/java/com/cvent/models/components/HotelReservationDetail1.java:
@@ -11630,31 +11516,29 @@ trackedFiles:
     pristine_git_object: 4cca3a9477df98c4035fd492677574aed78df051
   src/main/java/com/cvent/models/components/HousingEvent.java:
     id: 3c79ceb0005f
-    last_write_checksum: sha1:212379410ac9ae601f19236f6db5fd6098d8fc69
+    last_write_checksum: sha1:192ed286fa32dd4230528ede69ce843ca4586eed
     pristine_git_object: 7c3e9273254d5c9af8c01921c4dde2ad3634a1f5
   src/main/java/com/cvent/models/components/HousingEventHotel.java:
     id: 85a0954465ec
-    last_write_checksum: sha1:71640c7d0c906fe702ac1f77f5940a5d009c125d
+    last_write_checksum: sha1:cbb656fedb1feafef6c0c62ae712ff7c652a1503
     pristine_git_object: cf2b7ebcb09d07b90662994eb92e8290b91a6fee
   src/main/java/com/cvent/models/components/HousingEventHotelsList.java:
     id: 32055b1d82d1
-    last_write_checksum: sha1:5a96bfd2fd0a567b9b9caca65aea56f0611f167b
+    last_write_checksum: sha1:bc2216c7e98207d9f8d1d506b2d0c03f3433c818
     pristine_git_object: d5fc0fbad10010dd696d4eeac414e644c469d632
-  src/main/java/com/cvent/models/components/HousingEventIdJson.java:
-    id: 084adf6eeb20
-    last_write_checksum: sha1:92769d51e40b59f5aa01e3a60fa46d74b7574d6c
-    pristine_git_object: 588f35cc4e4460b9568d692736613a51a73919d6
+  src/main/java/com/cvent/models/components/HousingEventId.java:
+    last_write_checksum: sha1:436e68c2639052e404fbac013bd179e0b6f0d769
   src/main/java/com/cvent/models/components/HousingEventRoomTypesList.java:
     id: 6598a21cbbbf
-    last_write_checksum: sha1:af9d83b52e795ec84ef50defb6637212ba09f4a1
+    last_write_checksum: sha1:62cad935642ca7eb36b46ddf329f47e8001cd513
     pristine_git_object: 2f651468c7cb4f62e11fdea457b84280ea4a2abc
-  src/main/java/com/cvent/models/components/HousingEventStatusesJson.java:
-    id: 6123777f9f7a
-    last_write_checksum: sha1:d3e3dd22d087408c6a432a03f38bc9e3643fb9ea
-    pristine_git_object: 7529a02c932d8a7d50ebdd35c8504a8c58146ccb
+  src/main/java/com/cvent/models/components/HousingEventStatus.java:
+    last_write_checksum: sha1:75b097056f6b7861cae818d17ca71717a3f9a01f
+  src/main/java/com/cvent/models/components/HousingEventSummary.java:
+    last_write_checksum: sha1:fbae86a797fbcebb9cb45ddf087d163a363e5db8
   src/main/java/com/cvent/models/components/HousingEventSummaryList.java:
     id: c63814e15f5c
-    last_write_checksum: sha1:f2fb0356cb797a316169faf4e5fa3b627f71c544
+    last_write_checksum: sha1:237ed4313f21e10bf5dabffb622ca94e6b9ef648
     pristine_git_object: 0ab5e75720a1814c56f7928eeda9a55e50e6b135
   src/main/java/com/cvent/models/components/HousingReservation.java:
     last_write_checksum: sha1:1fc23507dc3caa26c3c085d15908d429f79b8093
@@ -11686,15 +11570,15 @@ trackedFiles:
     pristine_git_object: f1f333968a3fca81663dcb738957e6d2bb10d271
   src/main/java/com/cvent/models/components/IdOnlyEntity.java:
     last_write_checksum: sha1:0708cb6488d8a212dbbb719a50618760c5da9596
-  src/main/java/com/cvent/models/components/ImageLinkJson.java:
-    id: e7fd21611075
-    last_write_checksum: sha1:118a072bd65b934ea4faa03b7d86381e69ae8140
-    pristine_git_object: 681631830bcaf3f845901d42b4576479706d7af3
+  src/main/java/com/cvent/models/components/ImageLink.java:
+    last_write_checksum: sha1:cad42534b182ab0b5c9976167a38bc3bc5e064a4
   src/main/java/com/cvent/models/components/Industry1.java:
     last_write_checksum: sha1:cd134f29e6ab84cafbd70203893c8827530eb94c
+  src/main/java/com/cvent/models/components/InventoryAllocation.java:
+    last_write_checksum: sha1:5faf690394c58e100901fc1a3c5ea33b2686b396
   src/main/java/com/cvent/models/components/InventoryDetailsList.java:
     id: a0797af650ae
-    last_write_checksum: sha1:44f867ea501e5311d828f2c2b8af3d6cec0a612e
+    last_write_checksum: sha1:27851ba035c08ba7bdf540a7e333a72dbe168760
     pristine_git_object: 539232489069d8a788b177d8ce9c0ad2bf8902e6
   src/main/java/com/cvent/models/components/InvitationListCommonJson.java:
     id: e85f72d007fe
@@ -11710,7 +11594,7 @@ trackedFiles:
     pristine_git_object: 66df3e25fab44d0483abefafa3c90649cb9faebf
   src/main/java/com/cvent/models/components/InvitationListPaginatedResponse.java:
     id: 6ce7f2a1dfa2
-    last_write_checksum: sha1:3c51d48ef59144fc50842902f497d558994133a3
+    last_write_checksum: sha1:8df0d3b9cde68dcb969407465ec191a058b08bd5
     pristine_git_object: 9d9219a0252a55b7c229f1a900f51ea09802f2fb
   src/main/java/com/cvent/models/components/InvoiceFile.java:
     id: 6b813d4011fa
@@ -11922,6 +11806,18 @@ trackedFiles:
     last_write_checksum: sha1:76d6c0e985416dd8aa13c6b0c290b5f5f98c68ed
   src/main/java/com/cvent/models/components/MeetingRoomExhibitCapacity.java:
     last_write_checksum: sha1:8ed992c6707cba6f4e711e518607fa1ef195e9dc
+  src/main/java/com/cvent/models/components/MeetingRoomImage.java:
+    last_write_checksum: sha1:6bf51afdefb8666e6127f21bc3d0b1e3bfc78a52
+  src/main/java/com/cvent/models/components/MeetingRoomImageAssociationRequest.java:
+    last_write_checksum: sha1:9579223c7721c521607228798a5b226bff985cde
+  src/main/java/com/cvent/models/components/MeetingRoomImageAssociationRequestFile.java:
+    last_write_checksum: sha1:18e7237ca8e4accac4f8095c4b9af86936d8d24a
+  src/main/java/com/cvent/models/components/MeetingRoomImageAssociationResponse.java:
+    last_write_checksum: sha1:2c2b4440085952cd70598d4cf8bf45b25e606343
+  src/main/java/com/cvent/models/components/MeetingRoomImageAssociationResponseFile.java:
+    last_write_checksum: sha1:841433e7bebea6ee696337e13dc1eb796810c89b
+  src/main/java/com/cvent/models/components/MeetingRoomImagesResponse.java:
+    last_write_checksum: sha1:7c4dc1323b58f59b48b3c6bc2a5cc53e4c930efd
   src/main/java/com/cvent/models/components/MeetingRoomJson.java:
     id: f2bc22af2578
     last_write_checksum: sha1:c195a5c36985f33270eb94df28ab068ba5ba6d63
@@ -11972,8 +11868,10 @@ trackedFiles:
     last_write_checksum: sha1:8ad2ae4f714a3a170edf5f3d3a195f89698d791d
   src/main/java/com/cvent/models/components/NewReservation.java:
     id: 737d936715ae
-    last_write_checksum: sha1:fd4ee26e731b6225fc586ded24fba8ba3e08ff00
+    last_write_checksum: sha1:a0d3f4b58dfea6e7aac04370fdd353cbba99eb78
     pristine_git_object: 849719e413a9053b9abae73806605bc06b1e2a7c
+  src/main/java/com/cvent/models/components/NewReservationHotelId.java:
+    last_write_checksum: sha1:501fb7c93ec26c81cd59c98ad68f652d73fc67ab
   src/main/java/com/cvent/models/components/NewReservationHousingEventId.java:
     id: c60c2fe9fecf
     last_write_checksum: sha1:8e315c4730d37f93b0ab5959f47d08bc3d3aff57
@@ -11982,10 +11880,8 @@ trackedFiles:
     id: c14a918d1ca1
     last_write_checksum: sha1:97ca4853e097a0c911eb2ee8ab2898c98c8644db
     pristine_git_object: 6f713c3e25d4d46509879a4634e221c4fe7130f7
-  src/main/java/com/cvent/models/components/NightRateJson.java:
-    id: e1fc558b8e36
-    last_write_checksum: sha1:e164b48e77bd3cff5718ab12b6a117f283fa0d86
-    pristine_git_object: b49dbda37d74fe5a44c7dc9415829114b619217b
+  src/main/java/com/cvent/models/components/NightRate.java:
+    last_write_checksum: sha1:778e6e5c9b0602b7b6988bcc3b6a6d98794324a1
   src/main/java/com/cvent/models/components/NumericAnswerFormat.java:
     last_write_checksum: sha1:28e3c5a73814fce05ee884b00f04f698a9ff9876
   src/main/java/com/cvent/models/components/OfferingCostType1.java:
@@ -12042,10 +11938,8 @@ trackedFiles:
     last_write_checksum: sha1:f3f4561db86231db8515f5667285904cdf428b18
   src/main/java/com/cvent/models/components/OrganizationType1.java:
     last_write_checksum: sha1:f303449231baa1ccffeae05bc87964952dd5b8bb
-  src/main/java/com/cvent/models/components/OtherPaymentJson.java:
-    id: 90075a6f1044
-    last_write_checksum: sha1:b95c742b4e9cb36e6fbd2d3daa8ae7fbbe888c14
-    pristine_git_object: 5fae1ea300e0f12f3dedf6aa71e28bfb7e1cc7b0
+  src/main/java/com/cvent/models/components/OtherPay.java:
+    last_write_checksum: sha1:45ed0539c0d8a8e06e67e89d72dae9ea8f13f06c
   src/main/java/com/cvent/models/components/PackagePricingPreference.java:
     last_write_checksum: sha1:3337a8cde758f0d64bfae11c9cf53fea3aacad86
   src/main/java/com/cvent/models/components/PageVisibility.java:
@@ -12082,8 +11976,8 @@ trackedFiles:
     id: d016efaa46c3
     last_write_checksum: sha1:9be181a46b23dffcaf334830d8d4578518791dc6
     pristine_git_object: a1b8f6ee45e2c4d9f4a8a3ff1c410f0799be6c14
-  src/main/java/com/cvent/models/components/PagingJson2.java:
-    last_write_checksum: sha1:f4a47ac390f6b2218be30aeda840e8e2551f006f
+  src/main/java/com/cvent/models/components/PagingJson1.java:
+    last_write_checksum: sha1:de0a205ef14ba7d6daa758686a9191e52b8776c2
   src/main/java/com/cvent/models/components/PagingNoTotalCountJson.java:
     last_write_checksum: sha1:b15dbbb17a23cb85844394ec3d88c28f9a3fdbb6
   src/main/java/com/cvent/models/components/ParticipantResponseJson.java:
@@ -12120,10 +12014,8 @@ trackedFiles:
     id: f75585f86a03
     last_write_checksum: sha1:cd989170037cc604ca110e9be003fb5fc376bbbc
     pristine_git_object: f5fdaa6be16610e949a7e27933c1bc0b1ecf6089
-  src/main/java/com/cvent/models/components/PaymentInfoJson.java:
-    id: b65a46867a9c
-    last_write_checksum: sha1:dacac6e6bd16ab88449273b422accb52f9d44b12
-    pristine_git_object: a0568a28ce2ee5731c3c6393af2c811453f8e54e
+  src/main/java/com/cvent/models/components/PaymentInfo.java:
+    last_write_checksum: sha1:1e37bf7e9c774f5ffad204d03c5d24ca6333d35f
   src/main/java/com/cvent/models/components/PaymentMethod.java:
     last_write_checksum: sha1:a7b8cf1223e51b5b846d9b514d0be8ba3097d14f
   src/main/java/com/cvent/models/components/PaymentMethodTypeJson.java:
@@ -12156,66 +12048,42 @@ trackedFiles:
     last_write_checksum: sha1:c0f8c1522179a85c29a82d58c1dea479e9f18f17
   src/main/java/com/cvent/models/components/PaymentType12.java:
     last_write_checksum: sha1:104913cbb87c8401ec210b2e42297cef1b83bd95
-  src/main/java/com/cvent/models/components/PaymentTypesJson.java:
-    id: cd2f32614629
-    last_write_checksum: sha1:79fe100efa2104b921338ff1b1915b52e57d8b8a
-    pristine_git_object: ebeb0abf8216744f4b30df0201ec9d3f0b1fbf77
+  src/main/java/com/cvent/models/components/PaymentTypes.java:
+    last_write_checksum: sha1:dc37970f3cd02ae7ddadf767d19ab826ebeb1697
   src/main/java/com/cvent/models/components/PhoneNumber1.java:
     last_write_checksum: sha1:639dd0e39b1411b9e8b8cc8ea13cc1264069fba1
   src/main/java/com/cvent/models/components/PhoneType.java:
     last_write_checksum: sha1:f940620e2c2cc6e75c463036ad0b675d8c5025e6
+  src/main/java/com/cvent/models/components/Planner.java:
+    last_write_checksum: sha1:e2fb8879007fc4375bec81ac5d72b40719896427
   src/main/java/com/cvent/models/components/PlannerJson.java:
     id: 658f069a7bdf
     last_write_checksum: sha1:429d7fc1196c0775798d5bac85c317f4a006976f
     pristine_git_object: 0c40337439259eb52bc67de191702d85b5f28648
   src/main/java/com/cvent/models/components/PlannerJson1.java:
     id: 8bc00a8d6bb9
-    last_write_checksum: sha1:b1ebfbc7c4118486f0bd4ba67cf5a6e0548a4f23
+    last_write_checksum: sha1:fa5b81fd77fb64cce707752b9e9f4dffe17a3ae6
     pristine_git_object: 4610e8ab27027bc8d24b80f6bfc90fae64fab40a
-  src/main/java/com/cvent/models/components/PlannerJson2.java:
-    id: b3fae8109524
-    last_write_checksum: sha1:040a72d20c19334d647de0cc1a3deaa66ce8f39a
-    pristine_git_object: 71b90ddba1daa21a88a344a619c29ee2fde46287
-  src/main/java/com/cvent/models/components/PlannerJson2AddressType.java:
-    id: 53687a242028
-    last_write_checksum: sha1:6ffe0eb180c4e8906fc3dc5fd478720c50b719b0
-    pristine_git_object: be35744e1e6e6a70a5be47b8c5a72c1d8295320d
-  src/main/java/com/cvent/models/components/PlannerJson2ContactLinks.java:
-    id: 1fd5694e934b
-    last_write_checksum: sha1:d15c70bc4945d3b1c6076b49a093ec320195ad17
-    pristine_git_object: 157941c1638032c82be5c8a816ff640a2f0040a2
-  src/main/java/com/cvent/models/components/PlannerJson2ContactMembership.java:
-    id: 31f01599cab7
-    last_write_checksum: sha1:81ca8518042f4f7556f570a96f7532dc6345905f
-    pristine_git_object: 7785066a94f4afcdcdfe1ab56deeaeb37007c2e1
-  src/main/java/com/cvent/models/components/PlannerJson2ContactOptOut.java:
-    id: e05bb16c1222
-    last_write_checksum: sha1:ac0bda4f95dae7693dbd4a8d54bf4db00530a65b
-    pristine_git_object: 30ab41ccad407fe747f784ea1d8e864b7f7ef485
-  src/main/java/com/cvent/models/components/PlannerJson2Gender.java:
-    id: 6acbd0c3d5cb
-    last_write_checksum: sha1:fb4d7eeac20eb72b46cc0534d9eb1adeb26a9882
-    pristine_git_object: c69380efdeb28fa82e4323649dbdb82ef317ed3f
-  src/main/java/com/cvent/models/components/PlannerJson2HomeAddressAddress.java:
-    id: 5c3a57973aba
-    last_write_checksum: sha1:5caad70b3c78ec8e1a349199721df251e3707255
-    pristine_git_object: b0a12e9dddcf77400a6493afcd7244810f383c5b
-  src/main/java/com/cvent/models/components/PlannerJson2Input.java:
-    id: 04fc2250a9f6
-    last_write_checksum: sha1:7ed9c85847d4d621ecf6e1975962ba2b210fa18f
-    pristine_git_object: df4bdcd2058f0a69a39dba05cfb24101173b0cc9
-  src/main/java/com/cvent/models/components/PlannerJson2Link.java:
-    id: af6a71b7f993
-    last_write_checksum: sha1:4595884e3ec71a2848965b9d902aff1c0bce8f35
-    pristine_git_object: 84adb31da216bbc78bcaa9e5482a7687ca19f4b2
-  src/main/java/com/cvent/models/components/PlannerJson2Type.java:
-    id: dc6a2f663630
-    last_write_checksum: sha1:d777671fceb8d70e41895c5e22bfe6c72d483991
-    pristine_git_object: d74fa71814ec6629c89bf036e25f0269ffeb64b4
-  src/main/java/com/cvent/models/components/PlannerJson2WorkAddressAddress.java:
-    id: b2586cc97d1a
-    last_write_checksum: sha1:4d8b00ea50ae447335b930a00720b7b683cfdb09
-    pristine_git_object: 0db8e995978670c537de799ea7dedb82d2f390ad
+  src/main/java/com/cvent/models/components/PlannerJson1AddressType.java:
+    last_write_checksum: sha1:cb74cda924354206cb83bfa09459687dd3d78c36
+  src/main/java/com/cvent/models/components/PlannerJson1ContactLinks.java:
+    last_write_checksum: sha1:0ac4ad64171117ad42bc7cb5fd2cee521fc64139
+  src/main/java/com/cvent/models/components/PlannerJson1ContactMembership.java:
+    last_write_checksum: sha1:dbce065cbdd86cc2a3e450c75a43f6875b04bca8
+  src/main/java/com/cvent/models/components/PlannerJson1ContactOptOut.java:
+    last_write_checksum: sha1:cbb8f896a19cbf16a71f7a3c7527238f3885f00e
+  src/main/java/com/cvent/models/components/PlannerJson1Gender.java:
+    last_write_checksum: sha1:86592f8047dff2ed538a695f3926d0acac03dad1
+  src/main/java/com/cvent/models/components/PlannerJson1HomeAddressAddress.java:
+    last_write_checksum: sha1:571ac8758b8de240ff49e552bb216ceb0147a503
+  src/main/java/com/cvent/models/components/PlannerJson1Input.java:
+    last_write_checksum: sha1:88faec6f7d09a1e223c6bad073d9d6a099ed55f0
+  src/main/java/com/cvent/models/components/PlannerJson1Link.java:
+    last_write_checksum: sha1:6cc4581935f82f8c168f7f4a8c545e02609a0cef
+  src/main/java/com/cvent/models/components/PlannerJson1Type.java:
+    last_write_checksum: sha1:b2799c42b405e1fc669316aaf81653b536055192
+  src/main/java/com/cvent/models/components/PlannerJson1WorkAddressAddress.java:
+    last_write_checksum: sha1:168e8cfc0c100a3cb2ee0bc2242888d842ac2847
   src/main/java/com/cvent/models/components/PlanningDocumentEventIdJson.java:
     last_write_checksum: sha1:f422b560949131ff37b6365382a5c8290b02e69e
   src/main/java/com/cvent/models/components/PlanningDocumentJson.java:
@@ -12241,7 +12109,7 @@ trackedFiles:
     last_write_checksum: sha1:d27e47d06ed9cd3b5cd95173ab0bfe3227198d5c
     pristine_git_object: e1f88c86d0ce78782309652694d6e00b2637a047
   src/main/java/com/cvent/models/components/PolicyValueType.java:
-    last_write_checksum: sha1:66a522e822d7d393a86f3d42485d71f8ee7658ce
+    last_write_checksum: sha1:3153114e55f9201d9c282144eab8219ed32d67b0
   src/main/java/com/cvent/models/components/PollResponse.java:
     last_write_checksum: sha1:22330135962c0917373a0f9146b240cbded0b693
   src/main/java/com/cvent/models/components/PricingConfigJson.java:
@@ -12316,7 +12184,7 @@ trackedFiles:
     last_write_checksum: sha1:118b0bc06fb6e58bd48e7e432a979a28c07d9681
   src/main/java/com/cvent/models/components/Property.java:
     id: 567bc7eb2757
-    last_write_checksum: sha1:e0caea2ed69e48bab54a17f337199143abda0c6e
+    last_write_checksum: sha1:06ff5cd0244e195c0fb26e8371ffd3335240d22c
     pristine_git_object: fd060a93114f7aa404e864ce57e9581191970a3f
   src/main/java/com/cvent/models/components/PropertyBrand.java:
     id: 28af53cde515
@@ -12356,11 +12224,11 @@ trackedFiles:
     pristine_git_object: 113351afbb0d3769c23ccec46c95757556678c3a
   src/main/java/com/cvent/models/components/ProposalRequest.java:
     id: 26a1607abee8
-    last_write_checksum: sha1:4d84bea8d8f9a43ba14020d77a957b7b004e4311
+    last_write_checksum: sha1:ffe6f521fbef1e6ef97be69f81872afacd83a0e4
     pristine_git_object: 230471452557d9ef4c0bd93caabf5270db01acbf
   src/main/java/com/cvent/models/components/ProposalResponse.java:
     id: 55759a09c520
-    last_write_checksum: sha1:06f8e80d7ef478ea62e9ef438096a2a86c092569
+    last_write_checksum: sha1:e7d0f2415013fcfef8a6174affd105858056cc83
     pristine_git_object: 4dfd6830f6e3e80bf0b74745634d914a57a8a6d8
   src/main/java/com/cvent/models/components/ProposalStatusJson.java:
     id: e8ed34d1e6cb
@@ -12372,10 +12240,8 @@ trackedFiles:
     id: 9712c22a1fbc
     last_write_checksum: sha1:73101c78961d358ab9e82e24bc0259fe95f9057c
     pristine_git_object: beb585d0344ad1be2df361516bdc4900a81e4f83
-  src/main/java/com/cvent/models/components/ProximityJson.java:
-    id: 005cbdf27001
-    last_write_checksum: sha1:9042b2bdf7ca308075c1a389eaff0dfbfa9e8b8f
-    pristine_git_object: c2aa94ab855a4a310a16a4a0fc3a56f13aea191c
+  src/main/java/com/cvent/models/components/Proximity.java:
+    last_write_checksum: sha1:1d2dd3564df3db59c77f84adeb25586911841f2b
   src/main/java/com/cvent/models/components/PublicUsagePlan.java:
     id: 226d53244494
     last_write_checksum: sha1:ce21af2018b9702d46300a795f3a21e3a57a754a
@@ -12418,7 +12284,7 @@ trackedFiles:
     last_write_checksum: sha1:ffd93676a3e614f08f2dbbe6ef786b48b80d0286
   src/main/java/com/cvent/models/components/QuestionJson1.java:
     id: 4fce986bb08d
-    last_write_checksum: sha1:445cbfd28fed3a07aa5b87b5eaeb7890ed008541
+    last_write_checksum: sha1:0c89684c5fec3e9909bcbbf93bb027dbc70b0b7e
     pristine_git_object: 3c1dbcfabe70167ced16f1d9e8442d2929660d40
   src/main/java/com/cvent/models/components/QuestionPaginatedResponse.java:
     id: 1b874f01a8f7
@@ -12558,61 +12424,43 @@ trackedFiles:
     id: 3698300ab58c
     last_write_checksum: sha1:215646e8eaa918fb2934585a8ae46a55b536bb06
     pristine_git_object: cf5522a958ed8a6db6fde85a1fbc0a63d0dcd5c2
-  src/main/java/com/cvent/models/components/ReservationContactJson.java:
-    id: d205d42b68d8
-    last_write_checksum: sha1:ae069dfb026f32d40259e0f74955a2c5fd868a85
-    pristine_git_object: 079862314f9befe3881d9db0259bac9e0366db8d
-  src/main/java/com/cvent/models/components/ReservationGuestJsonInput.java:
-    id: 5983bbe58c90
-    last_write_checksum: sha1:f3bbb5c5c1b463b3bb7ccfc3e4dfbdab406209f5
-    pristine_git_object: 48c127f6d0b2df4d54dff4f66b79b63f6f932fdb
-  src/main/java/com/cvent/models/components/ReservationGuestJsonOutput.java:
-    id: 19a7e175e01f
-    last_write_checksum: sha1:483de9180dc8b0cd65037829e9455eefcfad89f8
-    pristine_git_object: b015f0efde52549f4cc641247ecb9e512a1dbaaf
-  src/main/java/com/cvent/models/components/ReservationNightJson.java:
-    id: 8a76b834246a
-    last_write_checksum: sha1:599575450137ea18ac447c4ec82b041d125f279c
-    pristine_git_object: d51df6c9fd0e1771c76266fec4d5329e72f14f89
-  src/main/java/com/cvent/models/components/ReservationNightJsonStatus.java:
-    id: 839e6c4331aa
-    last_write_checksum: sha1:b3802bb6d91cbbd7606182d2fb6ee538ef9b4f8a
-    pristine_git_object: 87f69ed66bdc034e137bc4191cfe712c9ab56e8c
-  src/main/java/com/cvent/models/components/ReservationNightRateJson.java:
-    id: 2d05b6076cc8
-    last_write_checksum: sha1:66949d5e503f0dee46771a29882baca4e422488b
-    pristine_git_object: a2bad06bddbabe2b0a0ecc0f6e673e45952a5b27
-  src/main/java/com/cvent/models/components/ReservationPaymentInfoJsonInput.java:
-    id: 20c4c5a021f0
-    last_write_checksum: sha1:e6ba4b562e5f005c6d699ff30784bf3c5e08edde
-    pristine_git_object: aaef5fe9cea65d687eeeeda790bd39000f8b8ab2
-  src/main/java/com/cvent/models/components/ReservationPaymentInfoJsonOutput.java:
-    id: d2545ed6247f
-    last_write_checksum: sha1:3165684354e71aad54e86b0c229dcebaf09749d7
-    pristine_git_object: 4dbf5f9890c381d6068f9d4167d94eca5126a551
+  src/main/java/com/cvent/models/components/ReservationContact.java:
+    last_write_checksum: sha1:7656f4174cafafb9c5801c07caa832f4a8c7459a
+  src/main/java/com/cvent/models/components/ReservationGuestInput.java:
+    last_write_checksum: sha1:86b23bc3aa743c04930fa58cef41bab99f4b2cce
+  src/main/java/com/cvent/models/components/ReservationGuestOutput.java:
+    last_write_checksum: sha1:117783b243c072de2837dc3819cd04c69b66df4b
+  src/main/java/com/cvent/models/components/ReservationNight.java:
+    last_write_checksum: sha1:8878467c27a153d36b5c291391c28a94e692ebad
+  src/main/java/com/cvent/models/components/ReservationNightRate.java:
+    last_write_checksum: sha1:48df5a83d06c7d6cca66d46535b79b848e8e13f1
+  src/main/java/com/cvent/models/components/ReservationNightStatus.java:
+    last_write_checksum: sha1:1d98d7ee55d6a1a0bfe000fba85a021e0d997588
+  src/main/java/com/cvent/models/components/ReservationPaymentInfoInput.java:
+    last_write_checksum: sha1:b4258e2bb6c2e7408e82d3a492e9045d4ff38b58
+  src/main/java/com/cvent/models/components/ReservationPaymentInfoOutput.java:
+    last_write_checksum: sha1:8672341da72b2f8452352344bb3a660076ad8950
   src/main/java/com/cvent/models/components/ReservationRequestBlock.java:
     id: e71992d25dc2
     last_write_checksum: sha1:bfd98af4c9c08b65c83a07b805dd17ca13454a33
     pristine_git_object: b8ecf299a2dd74832669f3f7e115cf4ed02a3ce6
   src/main/java/com/cvent/models/components/ReservationRequestInput.java:
     id: 02078736a893
-    last_write_checksum: sha1:88ac76b0ab707c1ee3bc1a5a337b7195fff5ba54
+    last_write_checksum: sha1:bb0bb7e19ead4db8c61b8927a6ab2ba2d36cdb0b
     pristine_git_object: 590dcdfc2505c38a8ec448fc61a2a7f9b0dbcaf4
   src/main/java/com/cvent/models/components/ReservationRequestPaginatedResponse.java:
     id: 8be19d82b190
     last_write_checksum: sha1:bfd068d52b2a04b6a1b1041da1de99b57952abb3
     pristine_git_object: add531715ffe74064907f273a20aa6ca2b09576b
-  src/main/java/com/cvent/models/components/ReservationRequestStatusesJson.java:
-    id: fc5448c7f6f9
-    last_write_checksum: sha1:3c890c0bba290748a529471dee16e855f57f23d9
-    pristine_git_object: 510cc761e8630c0e34a9c277eb2b29c19ea1f97c
+  src/main/java/com/cvent/models/components/ReservationRequestStatus.java:
+    last_write_checksum: sha1:edf76aee7be411c845b3c99ec08d59891c4e711b
   src/main/java/com/cvent/models/components/ReservationTotalCharges.java:
     id: 65beb43b0300
     last_write_checksum: sha1:6128c8cb28bbf7ae4e0a35a6deacd0cfbc3807ff
     pristine_git_object: ad0b8714ede27cf8bc0ca9f102640c786fb6f19f
   src/main/java/com/cvent/models/components/ReservationsPaginatedResponse.java:
     id: 672631d35c00
-    last_write_checksum: sha1:d902aa7b29d81ad589fb7ab2f313f7af0b1ca140
+    last_write_checksum: sha1:6c889e20bf2ff482bc994cb4f9aa466315213792
     pristine_git_object: 80f1f7593efe79ffec2b9f3b6d31984a33c7d6e0
   src/main/java/com/cvent/models/components/ResourceType.java:
     id: 1ee123393c58
@@ -12684,10 +12532,8 @@ trackedFiles:
     pristine_git_object: ee1f57fb89db2cd93571f9628c90cb000e3b1121
   src/main/java/com/cvent/models/components/ReturnedType.java:
     last_write_checksum: sha1:cff99d1fe8f8e0baece6bfb9bd107feae3a0d860
-  src/main/java/com/cvent/models/components/RewardProgramJson.java:
-    id: 4e1715cb00c0
-    last_write_checksum: sha1:ae3347777e37a5f2be390bd312ff0708d566c90a
-    pristine_git_object: b7f624eaadb8f2dcf46a7c992688b2f4f947e157
+  src/main/java/com/cvent/models/components/RewardProgram.java:
+    last_write_checksum: sha1:9b846e3fb36466f17ec696f8c1960115e2d4bfb8
   src/main/java/com/cvent/models/components/Rfp.java:
     last_write_checksum: sha1:9eecf853cdec7fd73eca0bf98651f5d5b6a29c7b
   src/main/java/com/cvent/models/components/RfpAgendaItem.java:
@@ -12742,44 +12588,30 @@ trackedFiles:
     last_write_checksum: sha1:e15f8eb0ca88a5fd8112c725089a4bfa5a9fc61c
   src/main/java/com/cvent/models/components/RfpType1.java:
     last_write_checksum: sha1:86b871de5d05cba4f6aa735274f15daf0593912a
-  src/main/java/com/cvent/models/components/RoomAttendeeTypeJson.java:
-    id: 49e1aea5edfc
-    last_write_checksum: sha1:d5556bd341c070c01d09a043f2bc010f0035aa87
-    pristine_git_object: 18f4e79a21c1bc01092c950798df7375ac06c959
+  src/main/java/com/cvent/models/components/RoomAttendeeType.java:
+    last_write_checksum: sha1:973544106591c179789361d7a5df9155958718df
   src/main/java/com/cvent/models/components/RoomBedTypeJson.java:
     last_write_checksum: sha1:efdcb53373cf7e48bf0491a9185284a2e4bed446
   src/main/java/com/cvent/models/components/RoomBlock.java:
     last_write_checksum: sha1:edfff9bcc266883d57d2bed4c4bf8be0f0c2dcf5
   src/main/java/com/cvent/models/components/RoomBlockDetails.java:
     last_write_checksum: sha1:a029588a4c9c6e0e2c7e68290216900e804c9978
-  src/main/java/com/cvent/models/components/RoomIdJson.java:
-    id: 1edd4fa1e27b
-    last_write_checksum: sha1:f9c206faef0d989d49072ea4569c0f6c0f7ba0e5
-    pristine_git_object: 7d5695a3e28584571e76c034a9ba832ba6a716fc
-  src/main/java/com/cvent/models/components/RoomInfoJson.java:
-    id: 78a6c4ad9bfe
-    last_write_checksum: sha1:63b288f31a4d182d21d9ce91e1afb2bb9e511a00
-    pristine_git_object: 22662e7485faaea3db87575a92f283294fe687ec
-  src/main/java/com/cvent/models/components/RoomInfoJsonInput.java:
-    id: cc23f3db6f0d
-    last_write_checksum: sha1:2b45eb30e242301f99abbc1613fcb76a178243e9
-    pristine_git_object: 7086cd2d02f3d10c70b26099c1dde025329316c5
-  src/main/java/com/cvent/models/components/RoomInventoryJson.java:
-    id: 27eae4001088
-    last_write_checksum: sha1:3651e829c5649b4ce81f644ada2c27f75ce548b0
-    pristine_git_object: c2b9dba7716d620077e361cd402e8079aad615f0
+  src/main/java/com/cvent/models/components/RoomId.java:
+    last_write_checksum: sha1:8757809f1992d762f5b249e098a7e38101fac2b7
+  src/main/java/com/cvent/models/components/RoomInfo.java:
+    last_write_checksum: sha1:c4c734dd752f827453898ab695f712284469c916
+  src/main/java/com/cvent/models/components/RoomInfoInput.java:
+    last_write_checksum: sha1:a77df05402b90f7cf00139262f06e209f6fdac33
+  src/main/java/com/cvent/models/components/RoomInventory.java:
+    last_write_checksum: sha1:8b31aafd1da1cc01ec4946ebaf42a8f1324bc7bb
   src/main/java/com/cvent/models/components/RoomTypeDetails.java:
     id: 980da2267437
-    last_write_checksum: sha1:4fd1d13bda4451e377c40f61abdc6aeb98ccdb94
+    last_write_checksum: sha1:d2ebb06ec056e0b8499847ec4b15a80b3ef306bb
     pristine_git_object: 4ad88befd81073e65a134cd498ef4565f2fe0763
-  src/main/java/com/cvent/models/components/RoomTypeIdJson.java:
-    id: 3a90d0aa0ade
-    last_write_checksum: sha1:76a59b88756f653207fc566273333ed9b4123964
-    pristine_git_object: 6d4ed46bce4921a6d83592f94d957c18297dadfa
-  src/main/java/com/cvent/models/components/RoomsSortTypeJson.java:
-    id: 47c397de637e
-    last_write_checksum: sha1:c59b0a601510d6da1eb472d16b4e93cf47d5e74b
-    pristine_git_object: 9ffdfced72c751a009d30cf64396df4bb4a33a8e
+  src/main/java/com/cvent/models/components/RoomTypeId.java:
+    last_write_checksum: sha1:b9ec33a4835c041fa8316b952c7faffde5806140
+  src/main/java/com/cvent/models/components/RoomsSortType.java:
+    last_write_checksum: sha1:ad35ae8bea3ab527ec95ac8fb02cf35e96d51282
   src/main/java/com/cvent/models/components/ScheduleActionJson.java:
     id: 1fb63ae7ad1f
     last_write_checksum: sha1:0bd5d9845df299c442414bc0a32390930859a156
@@ -13076,7 +12908,7 @@ trackedFiles:
     pristine_git_object: ec65e64bcd1822fa91f5a326421f6534f6ef094c
   src/main/java/com/cvent/models/components/SignaturesResponse.java:
     id: 5a783a654973
-    last_write_checksum: sha1:4ae506955cf7c3760ca2378453e9950e424f5bdf
+    last_write_checksum: sha1:bfaa43a9c77b1020e565d7ca3b2ec97376afd2bc
     pristine_git_object: f918672d855b01335569f480d17f9cd444625324
   src/main/java/com/cvent/models/components/SleepingRoomBlockJson.java:
     id: b7769a4e1f33
@@ -13242,7 +13074,7 @@ trackedFiles:
     pristine_git_object: 4016b60b5332d080e28ec309dde987780df7eeee
   src/main/java/com/cvent/models/components/StandardSurveyQuestionJson.java:
     id: 2d5923437545
-    last_write_checksum: sha1:556f1cad92c5abfa0ef75b04b0e39e2c17b203fa
+    last_write_checksum: sha1:879fac2ef4a003633fc29cd369b39ae444bb6c70
     pristine_git_object: e9de3508cae2cd96cb06e4ba413063d32feb65a1
   src/main/java/com/cvent/models/components/StandardSurveyQuestionsPaginatedResponse.java:
     id: 6eb8acfff368
@@ -13388,16 +13220,12 @@ trackedFiles:
     last_write_checksum: sha1:2eb91a823ec592ae8eefd235381d60031afe6412
   src/main/java/com/cvent/models/components/Tax.java:
     last_write_checksum: sha1:12b90694a95b583b4eb11940d7d67fd9ff20cdbc
-  src/main/java/com/cvent/models/components/TaxAndFeeJson.java:
-    id: 767975e26c05
-    last_write_checksum: sha1:6f2e8eba9cef06c5bac01ebfd6e951fd8ac20cdd
-    pristine_git_object: bc0873b31df9692096b8fecd986d7ada8f3cd504
+  src/main/java/com/cvent/models/components/TaxAndFee.java:
+    last_write_checksum: sha1:8e0cb98d26c9a4fb942569da5fba51c05808398b
   src/main/java/com/cvent/models/components/TaxSchedule.java:
     last_write_checksum: sha1:c4d0192d7bfb8db2d84adf94c39da5fa766a7031
-  src/main/java/com/cvent/models/components/TaxStructureJson.java:
-    id: 278e48b4cbac
-    last_write_checksum: sha1:b9091376b26efb1ed8544d3501aad8aad004f038
-    pristine_git_object: 09b40d3566437c924649032af03c8931a92eca4c
+  src/main/java/com/cvent/models/components/TaxStructure.java:
+    last_write_checksum: sha1:637bc3cd795db610144b027d28b80e312a581234
   src/main/java/com/cvent/models/components/TaxType1.java:
     last_write_checksum: sha1:d04f08dbc3c35da66d04ac174e7f5fecc95bf1a8
   src/main/java/com/cvent/models/components/TaxesPaginatedResponse.java:
@@ -13414,7 +13242,7 @@ trackedFiles:
     last_write_checksum: sha1:f59558755a99e9f7d2aa86addbb6ef580e23c71e
   src/main/java/com/cvent/models/components/TicketType.java:
     id: 6d03a651e46c
-    last_write_checksum: sha1:f8d129ce88d63bd684d316d1ae974e30366c6359
+    last_write_checksum: sha1:57aaeb1fba7ebd9afb5698cfc8142e1d4639fb79
     pristine_git_object: 0bb299ebc32bd46ac0cb54bdd9d69c2763d302de
   src/main/java/com/cvent/models/components/TierJson.java:
     id: 1596ba2c0b1e
@@ -13424,14 +13252,10 @@ trackedFiles:
     id: 4470c1448d59
     last_write_checksum: sha1:1faf45e2c35f10303c846b2e9dc3177fd1b93629
     pristine_git_object: 77f4bb63a1c694f9e55a7765badb2bfd00aa66fe
-  src/main/java/com/cvent/models/components/TokenizedCreditCardJsonInput.java:
-    id: d8ab93e5a510
-    last_write_checksum: sha1:031582d60bff20d1b99fba7207213bdcf1515934
-    pristine_git_object: 573fb65f78468e0a0d9683265fc1658494a9f3a7
-  src/main/java/com/cvent/models/components/TokenizedCreditCardJsonOutput.java:
-    id: 240e5e1f4c47
-    last_write_checksum: sha1:573018848368e22261cd3dbdbd90aed411864959
-    pristine_git_object: 102a930dd207989cf62feb1f96e1a6a2ef10d22a
+  src/main/java/com/cvent/models/components/TokenizedCreditCardInput.java:
+    last_write_checksum: sha1:b62d3b131cb8cf7c088a42c7ae383e275355ea1d
+  src/main/java/com/cvent/models/components/TokenizedCreditCardOutput.java:
+    last_write_checksum: sha1:8e017111470ec2b7efb756e1003596900b170e19
   src/main/java/com/cvent/models/components/TotalHighLevelEstimate.java:
     id: 052110a7c90c
     last_write_checksum: sha1:d9e8642837c439a261c70c8e3f9a62bf32058d11
@@ -13444,12 +13268,16 @@ trackedFiles:
     pristine_git_object: e057c9e54267921cf109328d5bb2e3d4ee039a97
   src/main/java/com/cvent/models/components/TransactionId.java:
     last_write_checksum: sha1:ff6c526c3ef97b8e20fd9feaf43dd052f49f538c
+  src/main/java/com/cvent/models/components/TransactionItemAccountResponse.java:
+    last_write_checksum: sha1:6421f7bc739aadddecd181c636c1bce4bafb3c9d
   src/main/java/com/cvent/models/components/TransactionItemCreate.java:
     last_write_checksum: sha1:e1f3593b6750c7698796ae90b8f70b4d406ff9f9
   src/main/java/com/cvent/models/components/TransactionItemCreateInput.java:
     last_write_checksum: sha1:c15061a1f1e6bfa3806b6dd1abfe059f46a58f8a
   src/main/java/com/cvent/models/components/TransactionItemResponse.java:
     last_write_checksum: sha1:92f860b171e870628ae225cd16f7dcd1593275df
+  src/main/java/com/cvent/models/components/TransactionItemsAccountPaginatedResponse.java:
+    last_write_checksum: sha1:a885e713e264d150078d1b5beb6e3703bcbe6ba7
   src/main/java/com/cvent/models/components/TransactionItemsPaginatedResponse.java:
     id: 46d4ae3990b6
     last_write_checksum: sha1:9037a6b5942d7dfcde2ba8c7cb3c4edfd30f5f45
@@ -13484,7 +13312,7 @@ trackedFiles:
     pristine_git_object: 3b6b7e0717cf5d8c22d9ce001094246a41b6367e
   src/main/java/com/cvent/models/components/TravelAccount.java:
     id: 3cb3493bfb4b
-    last_write_checksum: sha1:41952b05c4e195fd6f43b1db3322171787e053dc
+    last_write_checksum: sha1:c2ea8f5b7ca0847785788a90b0f272427a64b540
     pristine_git_object: 7940ca85d8b696fceb8708a41ee648476215a855
   src/main/java/com/cvent/models/components/TravelAccountPaginatedResponse.java:
     id: b1a3ae3abd8d
@@ -13540,14 +13368,10 @@ trackedFiles:
     last_write_checksum: sha1:bf32dde589aeb057505fe032bdc99260261ca766
   src/main/java/com/cvent/models/components/TravelBidWeekendDays.java:
     last_write_checksum: sha1:5e4344811e5c1556b2e526728958fabbe903cb80
-  src/main/java/com/cvent/models/components/TravelDepartureArrivalJson.java:
-    id: d91ab69699a2
-    last_write_checksum: sha1:a4e50452508a5702f40d0fffbc9956e1a7977455
-    pristine_git_object: 23f59c86971dfba2c2c09ebe5d9fd1ce930fd5ce
-  src/main/java/com/cvent/models/components/TravelDetailsJson.java:
-    id: ef84a0f67acb
-    last_write_checksum: sha1:acf81b925ef71bff7374008ed39fb1acead0c777
-    pristine_git_object: cafaf0c954fd5c6abecb750cf92d17aada61620f
+  src/main/java/com/cvent/models/components/TravelDepartureArrival.java:
+    last_write_checksum: sha1:f489e3ce7d7531dd219b26bbbe702cd4665578a2
+  src/main/java/com/cvent/models/components/TravelDetails.java:
+    last_write_checksum: sha1:d4a7e81d0ed2a52382d06346dc79e59292caae6f
   src/main/java/com/cvent/models/components/TravelEventCopyOverride.java:
     id: ac665d444c28
     last_write_checksum: sha1:84a95d01b29276b36bef3ceec5db8b4c884bc9ec
@@ -13672,7 +13496,7 @@ trackedFiles:
     pristine_git_object: d410a6be0544e1682e55bdc37e88cb9b136fbba2
   src/main/java/com/cvent/models/components/User.java:
     id: 0ca4527bb07c
-    last_write_checksum: sha1:b4b52df2edbbe395f603410af8ef1c7ebe615677
+    last_write_checksum: sha1:033c505698660763687290f56e300c4090193955
     pristine_git_object: 1612e7950b52fd4d1b6f9e4a36aee1879906e582
   src/main/java/com/cvent/models/components/UserEnterpriseExtension.java:
     last_write_checksum: sha1:ccec84d9afa1b1564752667be23e321e437edbf6
@@ -13692,7 +13516,7 @@ trackedFiles:
     pristine_git_object: 0c054fe6f2379654e62de93ece16a4051fd1c8e0
   src/main/java/com/cvent/models/components/UserInput.java:
     id: ba02ae2b54d4
-    last_write_checksum: sha1:29b7afe305331fbf7dced47ad526138c9091e6a8
+    last_write_checksum: sha1:403124eb3d7c0af8989438188a5802c656bf554b
     pristine_git_object: 6ed520e605c9585787efcdb623a8e4b69130b660
   src/main/java/com/cvent/models/components/UserType.java:
     last_write_checksum: sha1:75ce425ad1b879757f47e6fa09bdfd9dc0141fd4
@@ -13718,14 +13542,14 @@ trackedFiles:
     id: 01f697c9027e
     last_write_checksum: sha1:c6a52787e1422c57d6430e4af95884198ce65ff4
     pristine_git_object: f7a956312b7ca95346a349719cf8f9e8df1a6b23
+  src/main/java/com/cvent/models/components/Venue.java:
+    last_write_checksum: sha1:618dac67e45acc6f1009b22b88068a4d68c79770
+  src/main/java/com/cvent/models/components/VenueAddress.java:
+    last_write_checksum: sha1:91e18e9ab90ff49bb1120498b5651cd6db4845a3
   src/main/java/com/cvent/models/components/VenueAddressJson.java:
     id: 10a18ba119bb
     last_write_checksum: sha1:191d2e7e14e2780effba039596a01d6363c5f43d
     pristine_git_object: 4727ccf107053c0937cfe08079056e65f02c9d9e
-  src/main/java/com/cvent/models/components/VenueAddressJson1.java:
-    id: 519fa8d3ad62
-    last_write_checksum: sha1:6db8b96d171258e4fe9c0ff50ed257d921534758
-    pristine_git_object: 59e64162dfda82902a2fb900d62f98729e7ee299
   src/main/java/com/cvent/models/components/VenueAddressJsonInput.java:
     id: 29287ce84846
     last_write_checksum: sha1:b83956c0f9ecc31928d71baf8205ca3bab6b6758
@@ -13766,10 +13590,6 @@ trackedFiles:
     id: cd3e9dbffc06
     last_write_checksum: sha1:07cfce4f0316c3e1a7b63cec12a047f1ca47a961
     pristine_git_object: 2f78db84ffa2179f1752e3a3d43fde0835dfb125
-  src/main/java/com/cvent/models/components/VenueJson1.java:
-    id: a0e25a3430c1
-    last_write_checksum: sha1:4b07c55e326a9db04aacc893a17749d4ae233be7
-    pristine_git_object: bfe89b2e05c19523e82ae79e97d9e6e21b47f05b
   src/main/java/com/cvent/models/components/VenueJsonInput.java:
     id: eacd3d7a5a60
     last_write_checksum: sha1:79a2de8e0358f3dd4804468e7af3e91ba37c46aa
@@ -13916,16 +13736,8 @@ trackedFiles:
     pristine_git_object: cb79a19588b9a362dc96c5add3246ab2ad69f40f
   src/main/java/com/cvent/models/components/ZeroAllOf3.java:
     id: 4391a5b1b059
-    last_write_checksum: sha1:c3e0f4d7e1e13fc7f7c5d999742ab6ba80484c95
+    last_write_checksum: sha1:127dc8f5684a559bbbc15327164c643c9412c5de
     pristine_git_object: 53f2456cc0bfe83bda226ace9deea552a76f0da4
-  src/main/java/com/cvent/models/components/ZeroAllOf4.java:
-    id: 38ebcf129a20
-    last_write_checksum: sha1:4dbe6534314c3974df737b10149263b4433d2e77
-    pristine_git_object: 8dee60411024cf458d04eeb6a2dd5304853e96ae
-  src/main/java/com/cvent/models/components/ZeroAllOf5.java:
-    id: 7ba45a3c2b75
-    last_write_checksum: sha1:4c2bd774a025226e4f78aadf60ebd0ccef97ef1c
-    pristine_git_object: ac021cd757b2c771c40d9c9913e30a773497d32c
   src/main/java/com/cvent/models/components/ZeroAnyOf.java:
     id: 38becdad9d2f
     last_write_checksum: sha1:fc448d6e0cd86dec16a65ce92f30f1ac907b30e5
@@ -13961,7 +13773,7 @@ trackedFiles:
     last_write_checksum: sha1:cde83d508aa95687043b4c7796f78b92b1a180bc
     pristine_git_object: 6e9f3070a79d46186efc77a1ac3f6bc7495dc183
   src/main/java/com/cvent/models/errors/ErrorResponse.java:
-    last_write_checksum: sha1:9800674013d9042dee832a3a50d579ba5c95d8b2
+    last_write_checksum: sha1:9cbfaa40b4e6ed6666b917605e62045d9b43525c
   src/main/java/com/cvent/models/errors/ErrorResponse11.java:
     last_write_checksum: sha1:375e735a7ff64117c44f4dc5d1d0519cb1c72499
   src/main/java/com/cvent/models/errors/ErrorResponse12.java:
@@ -14034,6 +13846,8 @@ trackedFiles:
     id: d9d140edbb12
     last_write_checksum: sha1:db437f19812fef5af1cdb0019655ca39c5bd2fd9
     pristine_git_object: 3b8776e37440b792641e43f19652a7a9ee4a9150
+  src/main/java/com/cvent/models/operations//async/AssociateMeetingRoomImageRequestBuilder.java:
+    last_write_checksum: sha1:33dc71b4afb301b110ad7f3874a69cfb6cfb2b8b
   src/main/java/com/cvent/models/operations//async/AttachInvoiceToPaymentRequestBuilder.java:
     id: b7fe3c448f59
     last_write_checksum: sha1:675328f3e37d320ec310a0a697580eb1b1277d58
@@ -14392,6 +14206,8 @@ trackedFiles:
     id: 1c919b33690f
     last_write_checksum: sha1:91736a11465e85905f563faab0a8f984d3d62829
     pristine_git_object: 1860230c849c7b749599407375640ef45056edc1
+  src/main/java/com/cvent/models/operations//async/DisassociateMeetingRoomImageRequestBuilder.java:
+    last_write_checksum: sha1:dc0ba51df8e941ac448fe8b2a3b94888fb1e3729
   src/main/java/com/cvent/models/operations//async/EventCheckInRequestBuilder.java:
     id: c9d1e3fc5dec
     last_write_checksum: sha1:bbe38849c1930120440b896276b8e32cfc3e422f
@@ -14408,6 +14224,20 @@ trackedFiles:
     id: e0265d1c5ac2
     last_write_checksum: sha1:74d764b5225a58e9518a4d761dc793125b510c82
     pristine_git_object: 8d0d2b34553f3f27f38d1de1921a971f5fb17d8c
+  src/main/java/com/cvent/models/operations//async/GetAccountOrderByIdRequestBuilder.java:
+    last_write_checksum: sha1:f24fbe06fbafc613a30faaf5566cdc818b497a7f
+  src/main/java/com/cvent/models/operations//async/GetAccountOrderItemRequestBuilder.java:
+    last_write_checksum: sha1:a19fea5c462c1c0daf0e40fd83e9cfeb4f62f5f4
+  src/main/java/com/cvent/models/operations//async/GetAccountOrderItemsByOrderIdRequestBuilder.java:
+    last_write_checksum: sha1:b9602c53df187b609a13b742a9a192eeafff8350
+  src/main/java/com/cvent/models/operations//async/GetAccountOrdersRequestBuilder.java:
+    last_write_checksum: sha1:257438ce06fde3c8722cf940bff61fff72f99afc
+  src/main/java/com/cvent/models/operations//async/GetAccountTransactionItemRequestBuilder.java:
+    last_write_checksum: sha1:9f9f85e93b926966d324a9f659148a5c8b86247b
+  src/main/java/com/cvent/models/operations//async/GetAccountTransactionItemsRequestBuilder.java:
+    last_write_checksum: sha1:7aeaf4e4672528242a8df876defa6658bfd04700
+  src/main/java/com/cvent/models/operations//async/GetAccountTransactionsRequestBuilder.java:
+    last_write_checksum: sha1:851b49cb13e9681933c35ea8a8b9b58a921815d2
   src/main/java/com/cvent/models/operations//async/GetAccountUserGroupRequestBuilder.java:
     id: ba3976d14aeb
     last_write_checksum: sha1:5f2d257877bd53af103022bde02701b9c26d4681
@@ -14950,6 +14780,8 @@ trackedFiles:
     id: ffdec59cadbf
     last_write_checksum: sha1:79127eb94b8fda789089e37252fffa7b7f8f0374
     pristine_git_object: ab4f52d3e27ed9926a51b60e4b2207ce98cc2df3
+  src/main/java/com/cvent/models/operations//async/GetTransactionRequestBuilder.java:
+    last_write_checksum: sha1:3d1fbcaec1e485c4d6b4476269f61eefc46fd7e7
   src/main/java/com/cvent/models/operations//async/GetTransactionsRequestBuilder.java:
     id: f0ea329bb046
     last_write_checksum: sha1:e09e69ad5b116f3a16b407ea5722ea4892f72c55
@@ -15206,6 +15038,8 @@ trackedFiles:
     id: 5e13ef7f168c
     last_write_checksum: sha1:2ade2042e5587e6fd22ffbc97d98481a15d6fd51
     pristine_git_object: b135f57ae2298bb63f9f16ac6f28dae364c6a646
+  src/main/java/com/cvent/models/operations//async/ListMeetingRoomImagesRequestBuilder.java:
+    last_write_checksum: sha1:c585ded9cdf14419c473d0e10e30f8e4270f546d
   src/main/java/com/cvent/models/operations//async/ListMeetingRoomsOverviewsRequestBuilder.java:
     last_write_checksum: sha1:335774658e117aa0dd0ddd0d3d3a4b853a09eb2c
   src/main/java/com/cvent/models/operations//async/ListMembershipItemsPostFilterRequestBuilder.java:
@@ -15920,6 +15754,12 @@ trackedFiles:
     id: 8eb114552cc4
     last_write_checksum: sha1:310ef98d4fa368c872e7f4d212680feb3fbe0bae
     pristine_git_object: 6c882cf4d55355cc2094a82aaa2feb6dbf057fc2
+  src/main/java/com/cvent/models/operations/AssociateMeetingRoomImageRequest.java:
+    last_write_checksum: sha1:bd23953fe349dac08a164ca6fe1fe90277ccb5bd
+  src/main/java/com/cvent/models/operations/AssociateMeetingRoomImageRequestBuilder.java:
+    last_write_checksum: sha1:6bf002e494de0591694bbe59519115aed2a28d52
+  src/main/java/com/cvent/models/operations/AssociateMeetingRoomImageResponse.java:
+    last_write_checksum: sha1:8319ccfd8a84a8a612e39d029025d695f99b5fe0
   src/main/java/com/cvent/models/operations/AttachInvoiceToPaymentRequest.java:
     id: 93e33882952d
     last_write_checksum: sha1:3bbfb643c578aaf078f1b2000d3ca53d0070d1c5
@@ -16910,6 +16750,12 @@ trackedFiles:
     id: fe6c5c9f3289
     last_write_checksum: sha1:1a6db9d6d29946b77dfdbd0728bfa940b5d6ee40
     pristine_git_object: b1076f6ef93f37abe0b605b876b20352df7349be
+  src/main/java/com/cvent/models/operations/DisassociateMeetingRoomImageRequest.java:
+    last_write_checksum: sha1:3006b473e2103d1ce438163dfaee560c4699c68d
+  src/main/java/com/cvent/models/operations/DisassociateMeetingRoomImageRequestBuilder.java:
+    last_write_checksum: sha1:5aa7811ab206978dadc16942ba1d5a94af46e2a5
+  src/main/java/com/cvent/models/operations/DisassociateMeetingRoomImageResponse.java:
+    last_write_checksum: sha1:2f78445496b9ddd1373c24ade767b362d6d98f4c
   src/main/java/com/cvent/models/operations/EventCheckInRequest.java:
     id: 6180c85faf23
     last_write_checksum: sha1:fcba97e3986b13014333c03e4108ae9c95abaea2
@@ -16958,6 +16804,48 @@ trackedFiles:
     id: 519e77bdb723
     last_write_checksum: sha1:395817bea909c9d1d93b30e88088e2f1775571b4
     pristine_git_object: 66a49987679ffd543fcf6cb4e1eb05f473b1502e
+  src/main/java/com/cvent/models/operations/GetAccountOrderByIdRequest.java:
+    last_write_checksum: sha1:57d24c3826d289c57da77854900cfe0b7921263d
+  src/main/java/com/cvent/models/operations/GetAccountOrderByIdRequestBuilder.java:
+    last_write_checksum: sha1:359932a61e27232ca58464128f82c55e5781b692
+  src/main/java/com/cvent/models/operations/GetAccountOrderByIdResponse.java:
+    last_write_checksum: sha1:bc6eba2e20ba34d559d81d24a395c6766985a69e
+  src/main/java/com/cvent/models/operations/GetAccountOrderItemRequest.java:
+    last_write_checksum: sha1:1384ff7f983e75b3e4b9c10522e4071d24003eb9
+  src/main/java/com/cvent/models/operations/GetAccountOrderItemRequestBuilder.java:
+    last_write_checksum: sha1:f3dbb139aed79a5a70ca855d7d0fae90d11128ba
+  src/main/java/com/cvent/models/operations/GetAccountOrderItemResponse.java:
+    last_write_checksum: sha1:b802b4b4fb71c1c084ae25bc8cc23643098bf38a
+  src/main/java/com/cvent/models/operations/GetAccountOrderItemsByOrderIdRequest.java:
+    last_write_checksum: sha1:42d9de382b57a24716b829952430fab4e17e97fe
+  src/main/java/com/cvent/models/operations/GetAccountOrderItemsByOrderIdRequestBuilder.java:
+    last_write_checksum: sha1:ddd826ec0c45d98e8207f81d2bc4fd8d65d1978b
+  src/main/java/com/cvent/models/operations/GetAccountOrderItemsByOrderIdResponse.java:
+    last_write_checksum: sha1:ab33ac76c779fdab9894e5f29a77641a2b2167f0
+  src/main/java/com/cvent/models/operations/GetAccountOrdersRequest.java:
+    last_write_checksum: sha1:2cc619c07cb666876c5a1b6a7077e4d3304acca7
+  src/main/java/com/cvent/models/operations/GetAccountOrdersRequestBuilder.java:
+    last_write_checksum: sha1:15d0c012d9c5f858d44c64ef4dcba4b9ee40182e
+  src/main/java/com/cvent/models/operations/GetAccountOrdersResponse.java:
+    last_write_checksum: sha1:bae42a90f5c6f87c760a18b19e1816549e0071ed
+  src/main/java/com/cvent/models/operations/GetAccountTransactionItemRequest.java:
+    last_write_checksum: sha1:cf8ae9de2cd36136354ea9f4c43e32a23c5cb0a8
+  src/main/java/com/cvent/models/operations/GetAccountTransactionItemRequestBuilder.java:
+    last_write_checksum: sha1:2bb42e3e6b1b47b3c2ee88940b9e934d2aee8f35
+  src/main/java/com/cvent/models/operations/GetAccountTransactionItemResponse.java:
+    last_write_checksum: sha1:ff32c2bee9243281bce9fd4cca5f17b23bd2875b
+  src/main/java/com/cvent/models/operations/GetAccountTransactionItemsRequest.java:
+    last_write_checksum: sha1:4597106cacb0fcc925c3412eaac9d475291670f6
+  src/main/java/com/cvent/models/operations/GetAccountTransactionItemsRequestBuilder.java:
+    last_write_checksum: sha1:1f1222869500be3c92844ca4f9841137c2bb6f3c
+  src/main/java/com/cvent/models/operations/GetAccountTransactionItemsResponse.java:
+    last_write_checksum: sha1:0fa1ac98836643a41156c5e85429a73a971b3eeb
+  src/main/java/com/cvent/models/operations/GetAccountTransactionsRequest.java:
+    last_write_checksum: sha1:15634a34057f8ae8bbf411f1771cdf3fc42dd230
+  src/main/java/com/cvent/models/operations/GetAccountTransactionsRequestBuilder.java:
+    last_write_checksum: sha1:d71be94e3bc6ab5671b9078f6fc574aedeaecba3
+  src/main/java/com/cvent/models/operations/GetAccountTransactionsResponse.java:
+    last_write_checksum: sha1:606070611672c9a0bf480b597e05cfec05b58232
   src/main/java/com/cvent/models/operations/GetAccountUserGroupRequest.java:
     id: f506ea20cb2d
     last_write_checksum: sha1:a8ffd50322bb89394fb1e224c5a2964695c9306c
@@ -18568,6 +18456,12 @@ trackedFiles:
     id: d73289001576
     last_write_checksum: sha1:b19d7c9a32826cac3c9c70990b50240154447ea2
     pristine_git_object: 0a0023dcaa3760a055d9c4685cdb075fae554195
+  src/main/java/com/cvent/models/operations/GetTransactionRequest.java:
+    last_write_checksum: sha1:d52825a141d1dc31aecbae9816b597afcfe5ab76
+  src/main/java/com/cvent/models/operations/GetTransactionRequestBuilder.java:
+    last_write_checksum: sha1:2d5adfdab379d0034a72a225854ea7e6b4d49c69
+  src/main/java/com/cvent/models/operations/GetTransactionResponse.java:
+    last_write_checksum: sha1:4bca0e33dcd6f9cb15a2bf607eb9d5caa9ecf08f
   src/main/java/com/cvent/models/operations/GetTransactionsRequest.java:
     id: 086434f32999
     last_write_checksum: sha1:69d9ef44f27fffa5a97e509e27adf04943e2baaf
@@ -19336,6 +19230,12 @@ trackedFiles:
     id: 0a2b3be71360
     last_write_checksum: sha1:f67bd7ffd504adda54e384650a507f0b83177ada
     pristine_git_object: e89972b69c33aaf96e46447e5439ab1972f90e39
+  src/main/java/com/cvent/models/operations/ListMeetingRoomImagesRequest.java:
+    last_write_checksum: sha1:8670efee3310e7bf2250d4350d45b302a95446aa
+  src/main/java/com/cvent/models/operations/ListMeetingRoomImagesRequestBuilder.java:
+    last_write_checksum: sha1:5d60f4779e15dd035cf91044fffb2d3d2cb01e37
+  src/main/java/com/cvent/models/operations/ListMeetingRoomImagesResponse.java:
+    last_write_checksum: sha1:497c2a1c8d74c49a1bd7655d91a90d5c2b5286aa
   src/main/java/com/cvent/models/operations/ListMeetingRoomsOverviewsRequest.java:
     last_write_checksum: sha1:cd16141c829718019d5d2efc32aa23cf4359b5ec
   src/main/java/com/cvent/models/operations/ListMeetingRoomsOverviewsRequestBuilder.java:
@@ -20962,6 +20862,8 @@ trackedFiles:
     id: f7a227511811
     last_write_checksum: sha1:07ffc9e68e0893fea14d2e0905b571f4fab58794
     pristine_git_object: 3aae8a92011f345de70aa51897f1a9d213254dfc
+  src/main/java/com/cvent/models/operations/async/AssociateMeetingRoomImageResponse.java:
+    last_write_checksum: sha1:7ec3e98249e0806382a53140cb98c6ad0405fbcc
   src/main/java/com/cvent/models/operations/async/AttachInvoiceToPaymentResponse.java:
     id: 493c7f8b81e3
     last_write_checksum: sha1:963c05636b4010664629a0303b7e5ff511cb3b52
@@ -21320,6 +21222,8 @@ trackedFiles:
     id: 83b16197716b
     last_write_checksum: sha1:5d7269fa3e8aed625fb57fb9c7f3acc415ba6d78
     pristine_git_object: ed44ac0ec170d5ecb48c54545380ab449cabdaa5
+  src/main/java/com/cvent/models/operations/async/DisassociateMeetingRoomImageResponse.java:
+    last_write_checksum: sha1:197cdd80ac3dd4134b9660b7af84f159b9433c57
   src/main/java/com/cvent/models/operations/async/EventCheckInResponse.java:
     id: 215fdaf79e14
     last_write_checksum: sha1:5cbab421d5e213b0ce255a302a9b6a7b5edd72db
@@ -21336,6 +21240,20 @@ trackedFiles:
     id: f98e17bd338c
     last_write_checksum: sha1:24590b5394a0f7ddefee634612930372097279be
     pristine_git_object: 54b13828fdcfb36de2efc1e0f18ef6f53e5c722f
+  src/main/java/com/cvent/models/operations/async/GetAccountOrderByIdResponse.java:
+    last_write_checksum: sha1:db30ea539a05e1c30b8b2d8f215cf30e8162d4b2
+  src/main/java/com/cvent/models/operations/async/GetAccountOrderItemResponse.java:
+    last_write_checksum: sha1:0684622fe4f286a78c0bd1bfce8df7045a4882c9
+  src/main/java/com/cvent/models/operations/async/GetAccountOrderItemsByOrderIdResponse.java:
+    last_write_checksum: sha1:134855e68ea437a27b69bb976a023dbb3d08d081
+  src/main/java/com/cvent/models/operations/async/GetAccountOrdersResponse.java:
+    last_write_checksum: sha1:a198b5aa92693899e9a9f601891eece3e9ef66bd
+  src/main/java/com/cvent/models/operations/async/GetAccountTransactionItemResponse.java:
+    last_write_checksum: sha1:9f89da71030191f2a7d73bdab346deed44dfd6ad
+  src/main/java/com/cvent/models/operations/async/GetAccountTransactionItemsResponse.java:
+    last_write_checksum: sha1:0761609fc247dc05e4442ccac834c1054b46bdbf
+  src/main/java/com/cvent/models/operations/async/GetAccountTransactionsResponse.java:
+    last_write_checksum: sha1:78ed9f1437995faf027761e1dbbefba5cfd8f282
   src/main/java/com/cvent/models/operations/async/GetAccountUserGroupResponse.java:
     id: 4ccba87c2fdc
     last_write_checksum: sha1:5929c59fc6e9509d28330aa30652d1703ba3a1f6
@@ -21878,6 +21796,8 @@ trackedFiles:
     id: ed0fd2836334
     last_write_checksum: sha1:40ec8a35db7a73d3b8e497492f3cbd8ed1549213
     pristine_git_object: f4b2d65c1933bea3c5c541f02bbb3267eecce84f
+  src/main/java/com/cvent/models/operations/async/GetTransactionResponse.java:
+    last_write_checksum: sha1:2bb3821c23fd4c20c92b410fff5060754541d308
   src/main/java/com/cvent/models/operations/async/GetTransactionsResponse.java:
     id: def509abd61e
     last_write_checksum: sha1:3cef8a54613e6aafa3af9081f9c0182366986d24
@@ -22134,6 +22054,8 @@ trackedFiles:
     id: 4a63ce05928c
     last_write_checksum: sha1:8448605122b2559bfe5222c65965e109b07380f4
     pristine_git_object: 943cb2b301e53de745e210b3e1a6e61a2d86d6da
+  src/main/java/com/cvent/models/operations/async/ListMeetingRoomImagesResponse.java:
+    last_write_checksum: sha1:73109a06e3e675ae7e831e74877059bbcb197f52
   src/main/java/com/cvent/models/operations/async/ListMeetingRoomsOverviewsResponse.java:
     last_write_checksum: sha1:c0736c29b2f9ec99eb933eeae4f55d67a6a98350
   src/main/java/com/cvent/models/operations/async/ListMembershipItemsPostFilterResponse.java:
@@ -22724,6 +22646,8 @@ trackedFiles:
     id: c0921c2e9bb9
     last_write_checksum: sha1:316f43dc46bc8b2780d51ce9c88b7658506c146d
     pristine_git_object: 0e741bf6d2e862f3236828a6cbc55d64f0e9f181
+  src/main/java/com/cvent/operations/AssociateMeetingRoomImage.java:
+    last_write_checksum: sha1:b8e3fdac70a6e5fb4bd6352d3aae085c4340475b
   src/main/java/com/cvent/operations/AttachInvoiceToPayment.java:
     id: fd34ed09f98c
     last_write_checksum: sha1:5ad7d6b8a699500fd6246de260fef9e30e48aa5e
@@ -23082,6 +23006,8 @@ trackedFiles:
     id: cad8faea257b
     last_write_checksum: sha1:cad8719e0bc5f941a3ebffe986b76c86adcb10b6
     pristine_git_object: 6cd65ce0fb2c6bcab1cdecf882223cfdd6bd8751
+  src/main/java/com/cvent/operations/DisassociateMeetingRoomImage.java:
+    last_write_checksum: sha1:2cdb0e1d4ed46d7df6a4d6ecb05129c3223a266a
   src/main/java/com/cvent/operations/EventCheckIn.java:
     id: d4b12b201eda
     last_write_checksum: sha1:ee10e3f054d7193d29e2f126d6c6563524928002
@@ -23098,6 +23024,20 @@ trackedFiles:
     id: dc1887bfeec4
     last_write_checksum: sha1:174f7e165ac1bdea6f84f18e45784e31825d1a01
     pristine_git_object: d35418df86daba1239be85db3203ecd53314d875
+  src/main/java/com/cvent/operations/GetAccountOrderById.java:
+    last_write_checksum: sha1:26f279e9822b32fed719276ae11c7d61e7389dbd
+  src/main/java/com/cvent/operations/GetAccountOrderItem.java:
+    last_write_checksum: sha1:1c95da4dbf050ee4427f15b75b63a49bec397cd7
+  src/main/java/com/cvent/operations/GetAccountOrderItemsByOrderId.java:
+    last_write_checksum: sha1:3c08fc5be6370f570b54fe603bd44349c7fa8759
+  src/main/java/com/cvent/operations/GetAccountOrders.java:
+    last_write_checksum: sha1:a7338b3d3e5a242961e03c4c0db30af858589cfe
+  src/main/java/com/cvent/operations/GetAccountTransactionItem.java:
+    last_write_checksum: sha1:7a0e90a485497e41f9df34f6818eb612efdf6cb4
+  src/main/java/com/cvent/operations/GetAccountTransactionItems.java:
+    last_write_checksum: sha1:a49932a85a3ab3ddfc9d4b737f705493fcdb094c
+  src/main/java/com/cvent/operations/GetAccountTransactions.java:
+    last_write_checksum: sha1:e8d94a3f233132ae84b9f6898c15b6e0f749dfba
   src/main/java/com/cvent/operations/GetAccountUserGroup.java:
     id: 7e7a8ecc2b54
     last_write_checksum: sha1:2e7cc5c64ca3faf8613b93c15819b09b58028550
@@ -23636,6 +23576,8 @@ trackedFiles:
     id: 11930781832a
     last_write_checksum: sha1:a472953060ab14bacb772939316f8e2475b8a9f5
     pristine_git_object: a7a2d29e2bd50a066af2e698b5d0738800419fa1
+  src/main/java/com/cvent/operations/GetTransaction.java:
+    last_write_checksum: sha1:840180ceb2ce27fe915b289209cfba332ec430b3
   src/main/java/com/cvent/operations/GetTransactionItems.java:
     id: 1f3ed6f9b116
     last_write_checksum: sha1:934bcae7359467d3e8eb68d8ff5a100c96867e3c
@@ -23896,6 +23838,8 @@ trackedFiles:
     id: 242c89c69fac
     last_write_checksum: sha1:33503b00af2e6d4746809eea8ba8b29a66946c57
     pristine_git_object: 1935656ed7cec823e9d39f80da75a899aa56d938
+  src/main/java/com/cvent/operations/ListMeetingRoomImages.java:
+    last_write_checksum: sha1:e992313ed54c744012c9b955556f0d3666ba7100
   src/main/java/com/cvent/operations/ListMeetingRoomsOverviews.java:
     last_write_checksum: sha1:6df6cd5b239977d59ed4e5a6efca941103356be4
   src/main/java/com/cvent/operations/ListMembershipItems.java:
@@ -26495,7 +26439,7 @@ examples:
           locale: "en-US"
       responses:
         "200":
-          application/json: {"id": 125664, "housingEvent": {"id": 69121314}, "name": "Hotel New York", "description": "Since first opening its doors in 1936, the Hotel New York has welcomed countless guests.", "childPolicy": "Children 17 years or younger will stay free of charge in adult’s room with existing bedding.", "images": [{"href": "https://example.com/content/example.jpg"}], "proximity": {"distance": {"distance": 18.3, "distanceUnit": "Kilometers"}, "mapMessage": "Your hotel is located here."}, "amenities": ["Room Service"], "rating": "3 Star", "address": {"address1": "West St. 1", "address2": "Apt. 16", "city": "Austin", "region": "Texas", "regionCode": "TX", "postalCode": "23452AB", "country": "United States of America", "countryCode": "US"}}
+          application/json: {"id": 125664, "housingEvent": {"id": 69121314}, "name": "Hotel New York", "description": "Since first opening its doors in 1936, the Hotel New York has welcomed countless guests.", "childPolicy": "Children 17 years or younger will stay free of charge in adult’s room with existing bedding.", "images": [{"href": "https://example.com/content/example.jpg"}], "proximity": {"distance": {"distance": 18.3, "distanceUnit": "Kilometers"}, "mapMessage": "Your hotel is located here."}, "amenities": ["Room Service"], "reservationAccessDate": "2030-03-21", "hotelCloseDate": "2030-01-14", "rating": "3 Star", "address": {"address1": "West St. 1", "address2": "Apt. 16", "city": "Austin", "region": "Texas", "regionCode": "TX", "postalCode": "23452AB", "country": "United States of America", "countryCode": "US"}, "rewardPrograms": [{"id": 10000, "name": "Hotel Rewards Program"}]}
         "400":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
   getHousingEventHotelAvailability:
@@ -30345,6 +30289,144 @@ examples:
           application/json: {"id": "b2c3d4e5-f6a7-8901-bcde-f12345678901", "name": "Grand Ballroom", "hiddenOnProfile": false, "displayOrder": 1}
         "401":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getAccountOrders:
+    speakeasy-default-get-account-orders:
+      parameters:
+        query:
+          after: "2017-01-02T02:00:00Z"
+          before: "2017-01-02T02:00:00Z"
+          limit: 100
+          token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
+          filter: "filter=event.id eq '7e8a9c45-2f1b-4d3e-9a67-8b5c4f2e1a90'"
+          deleted: false
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": []}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getAccountOrderById:
+    speakeasy-default-get-account-order-by-id:
+      parameters:
+        path:
+          orderId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+      responses:
+        "200":
+          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "event": {"id": "4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56"}, "attendee": {"id": "5b0e8d1f-8fd6-4ebe-977a-602b4a1f9c43"}, "number": "PZNK2PKZH4N", "cancelled": false, "type": "Online Refund", "invoiceNumber": "112021-0017", "amountOrdered": 35.35, "amountPaid": 10.15, "amountDue": 25.2, "discounts": [{"id": "e7fd2027-5b26-4965-9ddf-b5db78ebcfec", "name": "SRV Discount Code", "code": "HALF_OFF", "type": "Amount", "value": 50, "amount": 15}], "paymentMethod": "Mastercard", "referenceNumber": "112021-0017", "deleted": false}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getAccountOrderItemsByOrderId:
+    speakeasy-default-get-account-order-items-by-order-id:
+      parameters:
+        path:
+          orderId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+        query:
+          after: "2017-01-02T02:00:00Z"
+          before: "2017-01-02T02:00:00Z"
+          limit: 100
+          token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
+          filter: "id eq 'f82ea335-3844-47bf-92f6-4e00d60f7800' AND (created lt '2025-08-19T20:43:13.000Z' OR created gt '2023-08-19T20:43:13.000Z')"
+          deleted: false
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "order": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "type": "Online Refund"}, "event": {"id": "4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56"}, "attendee": {"id": "5b0e8d1f-8fd6-4ebe-977a-602b4a1f9c43"}, "guest": true, "guestDetail": {"id": "07c1cf32-a603-4736-8b77-749c3cee3107"}, "product": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "type": "Session"}, "active": true, "name": "Dinner Session", "price": 15.35, "fee": {"id": "28FEA0CD-A8B8-4A51-96C1-DDD5EAD642C6", "name": "Orientation Session Registration Fee"}, "quantity": 2, "amountOrdered": 35.35, "amountPaid": 10.15, "amountDue": 25.2, "productPriceTierAmount": 15.35, "tiered": true, "generalLedgerItems": [{"id": "a6b6c1bc-e410-48da-86c2-80478ecf60f9", "name": "Other Accounts Receivable", "code": "123445", "description": "Other Accounts Receivable; Leg. Accounts Receivable", "allocationPercentage": 50}], "discounts": [{"id": "e7fd2027-5b26-4965-9ddf-b5db78ebcfec", "name": "SRV Discount Code", "code": "HALF_OFF", "type": "Amount", "value": 50, "amount": 15}], "deleted": false}]}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getAccountOrderItem:
+    speakeasy-default-get-account-order-item:
+      parameters:
+        path:
+          orderId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+          orderItemId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+      responses:
+        "200":
+          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "order": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "type": "Online Refund"}, "event": {"id": "4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56"}, "attendee": {"id": "5b0e8d1f-8fd6-4ebe-977a-602b4a1f9c43"}, "guest": true, "guestDetail": {"id": "07c1cf32-a603-4736-8b77-749c3cee3107"}, "product": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "type": "Session"}, "active": true, "name": "Dinner Session", "price": 15.35, "fee": {"id": "28FEA0CD-A8B8-4A51-96C1-DDD5EAD642C6", "name": "Orientation Session Registration Fee"}, "quantity": 2, "amountOrdered": 35.35, "amountPaid": 10.15, "amountDue": 25.2, "productPriceTierAmount": 15.35, "tiered": true, "generalLedgerItems": [{"id": "a6b6c1bc-e410-48da-86c2-80478ecf60f9", "name": "Other Accounts Receivable", "code": "123445", "description": "Other Accounts Receivable; Leg. Accounts Receivable", "allocationPercentage": 50}], "discounts": [{"id": "e7fd2027-5b26-4965-9ddf-b5db78ebcfec", "name": "SRV Discount Code", "code": "HALF_OFF", "type": "Amount", "value": 50, "amount": 15}], "deleted": false}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getAccountTransactions:
+    speakeasy-default-get-account-transactions:
+      parameters:
+        query:
+          after: "2017-01-02T02:00:00Z"
+          before: "2017-01-02T02:00:00Z"
+          limit: 100
+          token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
+          filter: "event.id eq '7e8a9c45-2f1b-4d3e-9a67-8b5c4f2e1a90' AND (paymentType eq 'Online Charge' OR paymentType eq 'Online Refund')"
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "id": "18549806a69f4727a315f2199a08d8b6", "processorTransactionId": "ch_3Lrr4TBhiDV0mZz50nZpGx4a", "event": {"id": "4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56"}, "attendee": {"id": "5b0e8d1f-8fd6-4ebe-977a-602b4a1f9c43"}, "orders": [{"id": "7c4a5acd-9610-4c42-bd10-10e279e69ddc"}, {"id": "b479e85e-b5b0-49e7-9f11-65bad23350b1"}, {"id": "d1c24041-9ca4-4afd-a2f8-a0905d935aa9"}], "journalNumber": "PZNK2PKZH4N", "paymentType": "Online Refund", "paymentMethod": "Mastercard", "success": true, "date": "2018-01-13T02:00:00Z", "batchNumber": "112021-0017", "referenceNumber": "112021-0017", "amount": 15.25, "currency": "EUR", "paymentNote": "Payment notes", "nameOnCreditCard": "John Doe", "expirationDateOfCreditCard": "2024-01-01T12:00:00.000Z", "billingAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX"}}]}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getTransaction:
+    speakeasy-default-get-transaction:
+      parameters:
+        path:
+          transactionId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+      responses:
+        "200":
+          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "id": "18549806a69f4727a315f2199a08d8b6", "processorTransactionId": "ch_3Lrr4TBhiDV0mZz50nZpGx4a", "event": {"id": "4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56"}, "attendee": {"id": "5b0e8d1f-8fd6-4ebe-977a-602b4a1f9c43"}, "orders": [{"id": "7c4a5acd-9610-4c42-bd10-10e279e69ddc"}, {"id": "b479e85e-b5b0-49e7-9f11-65bad23350b1"}, {"id": "d1c24041-9ca4-4afd-a2f8-a0905d935aa9"}], "journalNumber": "PZNK2PKZH4N", "paymentType": "Online Refund", "paymentMethod": "Mastercard", "success": true, "date": "2018-01-13T02:00:00Z", "batchNumber": "112021-0017", "referenceNumber": "112021-0017", "amount": 15.25, "currency": "EUR", "paymentNote": "Payment notes", "nameOnCreditCard": "John Doe", "expirationDateOfCreditCard": "2024-01-01T12:00:00.000Z", "billingAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX"}}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getAccountTransactionItems:
+    speakeasy-default-get-account-transaction-items:
+      parameters:
+        path:
+          transactionId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+        query:
+          after: "2017-01-02T02:00:00Z"
+          before: "2017-01-02T02:00:00Z"
+          limit: 100
+          token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
+          filter: "lastModified gt '2022-04-21T17:15:48.000Z' AND (attendee.id eq '82da8c60-24f4-47d0-b6e2-429b18a4bb7c' OR attendee.id eq '034bb884-05de-4818-b9f9-5144495d5495')"
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "id": "9a8b7c6d-e5f4-3210-bacd-3456789012de::7f3e2a1b-c4d5-6789-efab-2345678901bc", "transaction": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "processorTransactionId": "ch_3Lrr4TBhiDV0mZz50nZpGx4a"}, "event": {"id": "4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56"}, "attendee": {"id": "5b0e8d1f-8fd6-4ebe-977a-602b4a1f9c43"}, "product": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "type": "Session"}, "orderItem": {"id": "cfb2f6d9-0ec9-467d-8a6e-da29e2b674af"}, "name": "Dinner Session", "amount": 15.25, "currency": "EUR"}]}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getAccountTransactionItem:
+    speakeasy-default-get-account-transaction-item:
+      parameters:
+        path:
+          transactionId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+          transactionItemId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3::7f3e2a1b-c4d5-6789-efab-2345678901bc"
+      responses:
+        "200":
+          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "id": "9a8b7c6d-e5f4-3210-bacd-3456789012de::7f3e2a1b-c4d5-6789-efab-2345678901bc", "transaction": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "processorTransactionId": "ch_3Lrr4TBhiDV0mZz50nZpGx4a"}, "event": {"id": "4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56"}, "attendee": {"id": "5b0e8d1f-8fd6-4ebe-977a-602b4a1f9c43"}, "product": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "type": "Session"}, "orderItem": {"id": "cfb2f6d9-0ec9-467d-8a6e-da29e2b674af"}, "name": "Dinner Session", "amount": 15.25, "currency": "EUR"}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  associateMeetingRoomImage:
+    speakeasy-default-associate-meeting-room-image:
+      parameters:
+        path:
+          venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00"
+          meetingRoomId: "00944672-3602-4b8e-aea3-cb1278b2d143"
+      requestBody:
+        application/json: {"file": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"}}
+      responses:
+        "200":
+          application/json: {"id": "286e2866-b443-4d09-ab0f-0fac45cc026f", "href": "https://images.cvent.com/production/csn/3c7be8c9-cddb-4eaf-93a8-27da3250ed4f/images/83142ebfecbb42d2ac3be0433a180829_extrasmall!_!5b5c517134afb758b6fbbefb0e94d819.jpg", "file": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"}}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  listMeetingRoomImages:
+    speakeasy-default-list-meeting-room-images:
+      parameters:
+        path:
+          venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00"
+          meetingRoomId: "880546b3-292e-4a70-95a5-3afae3e3f759"
+      responses:
+        "200":
+          application/json: {"data": [{"id": "286e2866-b443-4d09-ab0f-0fac45cc026f", "href": "https://images.cvent.com/production/csn/3c7be8c9-cddb-4eaf-93a8-27da3250ed4f/images/83142ebfecbb42d2ac3be0433a180829_extrasmall!_!5b5c517134afb758b6fbbefb0e94d819.jpg"}]}
+        "401":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  disassociateMeetingRoomImage:
+    speakeasy-default-disassociate-meeting-room-image:
+      parameters:
+        path:
+          venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00"
+          meetingRoomId: "13e75adc-1d1b-4598-b520-f17774484472"
+          imageId: "e5b29ab7-8c63-446c-9663-66202b0d037f"
+      responses:
+        "401":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
 examplesVersion: 1.0.2
 generatedTests:
   getAccountUserGroups: "2025-12-09T16:04:38-06:00"
@@ -30746,3 +30828,13 @@ generatedTests:
   updateMeetingRoom: "2026-07-28T09:08:40-06:00"
   patchMeetingRoom: "2026-07-28T09:08:40-06:00"
   getMeetingRoomOverview: "2026-07-28T09:08:40-06:00"
+  getAccountOrders: "2026-08-20T16:05:23-04:00"
+  getAccountOrderById: "2026-08-20T16:05:23-04:00"
+  getAccountOrderItemsByOrderId: "2026-08-20T16:05:23-04:00"
+  getAccountOrderItem: "2026-08-20T16:05:23-04:00"
+  getAccountTransactions: "2026-08-20T16:05:23-04:00"
+  getTransaction: "2026-08-20T16:05:23-04:00"
+  getAccountTransactionItems: "2026-08-20T16:05:23-04:00"
+  getAccountTransactionItem: "2026-08-20T16:05:23-04:00"
+  associateMeetingRoomImage: "2026-08-20T16:05:23-04:00"
+  listMeetingRoomImages: "2026-08-20T16:05:23-04:00"

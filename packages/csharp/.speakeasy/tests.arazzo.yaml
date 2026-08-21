@@ -3441,7 +3441,7 @@ workflows:
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"id":125664,"housingEvent":{"id":69121314},"name":"Hotel New York","description":"Since first opening its doors in 1936, the Hotel New York has welcomed countless guests.","childPolicy":"Children 17 years or younger will stay free of charge in adult’s room with existing bedding.","images":[{"href":"https://example.com/content/example.jpg"}],"proximity":{"distance":{"distance":18.3,"distanceUnit":"Kilometers"},"mapMessage":"Your hotel is located here."},"amenities":["Room Service"],"rating":"3 Star","address":{"address1":"West St. 1","address2":"Apt. 16","city":"Austin","region":"Texas","regionCode":"TX","postalCode":"23452AB","country":"United States of America","countryCode":"US"}}
+              {"id":125664,"housingEvent":{"id":69121314},"name":"Hotel New York","description":"Since first opening its doors in 1936, the Hotel New York has welcomed countless guests.","childPolicy":"Children 17 years or younger will stay free of charge in adult’s room with existing bedding.","images":[{"href":"https://example.com/content/example.jpg"}],"proximity":{"distance":{"distance":18.3,"distanceUnit":"Kilometers"},"mapMessage":"Your hotel is located here."},"amenities":["Room Service"],"reservationAccessDate":"2030-03-21","hotelCloseDate":"2030-01-14","rating":"3 Star","address":{"address1":"West St. 1","address2":"Apt. 16","city":"Austin","region":"Texas","regionCode":"TX","postalCode":"23452AB","country":"United States of America","countryCode":"US"},"rewardPrograms":[{"id":10000,"name":"Hotel Rewards Program"}]}
             type: simple
     x-speakeasy-test-group: Housing
     x-speakeasy-test-rebuild: true
@@ -11213,6 +11213,253 @@ workflows:
           - context: $response.body
             condition: |
               {"id":"b2c3d4e5-f6a7-8901-bcde-f12345678901","name":"Grand Ballroom","hiddenOnProfile":false,"displayOrder":1}
+            type: simple
+    x-speakeasy-test-group: Venue Meeting Rooms
+    x-speakeasy-test-rebuild: true
+  - workflowId: getAccountOrders
+    steps:
+      - stepId: test
+        operationId: getAccountOrders
+        parameters:
+          - name: after
+            in: query
+            value: "2017-01-02T02:00:00Z"
+          - name: before
+            in: query
+            value: "2017-01-02T02:00:00Z"
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+          - name: filter
+            in: query
+            value: filter=event.id eq '7e8a9c45-2f1b-4d3e-9a67-8b5c4f2e1a90'
+          - name: deleted
+            in: query
+            value: false
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[]}
+            type: simple
+    x-speakeasy-test-group: Orders
+    x-speakeasy-test-rebuild: true
+  - workflowId: getAccountOrderById
+    steps:
+      - stepId: test
+        operationId: getAccountOrderById
+        parameters:
+          - name: orderId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","event":{"id":"4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56"},"attendee":{"id":"5b0e8d1f-8fd6-4ebe-977a-602b4a1f9c43"},"number":"PZNK2PKZH4N","cancelled":false,"type":"Online Refund","invoiceNumber":"112021-0017","amountOrdered":35.35,"amountPaid":10.15,"amountDue":25.2,"discounts":[{"id":"e7fd2027-5b26-4965-9ddf-b5db78ebcfec","name":"SRV Discount Code","code":"HALF_OFF","type":"Amount","value":50,"amount":15}],"paymentMethod":"Mastercard","referenceNumber":"112021-0017","deleted":false}
+            type: simple
+    x-speakeasy-test-group: Orders
+    x-speakeasy-test-rebuild: true
+  - workflowId: getAccountOrderItemsByOrderId
+    steps:
+      - stepId: test
+        operationId: getAccountOrderItemsByOrderId
+        parameters:
+          - name: orderId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: after
+            in: query
+            value: "2017-01-02T02:00:00Z"
+          - name: before
+            in: query
+            value: "2017-01-02T02:00:00Z"
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+          - name: filter
+            in: query
+            value: id eq 'f82ea335-3844-47bf-92f6-4e00d60f7800' AND (created lt '2025-08-19T20:43:13.000Z' OR created gt '2023-08-19T20:43:13.000Z')
+          - name: deleted
+            in: query
+            value: false
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","order":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","type":"Online Refund"},"event":{"id":"4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56"},"attendee":{"id":"5b0e8d1f-8fd6-4ebe-977a-602b4a1f9c43"},"guest":true,"guestDetail":{"id":"07c1cf32-a603-4736-8b77-749c3cee3107"},"product":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","type":"Session"},"active":true,"name":"Dinner Session","price":15.35,"fee":{"id":"28FEA0CD-A8B8-4A51-96C1-DDD5EAD642C6","name":"Orientation Session Registration Fee"},"quantity":2,"amountOrdered":35.35,"amountPaid":10.15,"amountDue":25.2,"productPriceTierAmount":15.35,"tiered":true,"generalLedgerItems":[{"id":"a6b6c1bc-e410-48da-86c2-80478ecf60f9","name":"Other Accounts Receivable","code":"123445","description":"Other Accounts Receivable; Leg. Accounts Receivable","allocationPercentage":50}],"discounts":[{"id":"e7fd2027-5b26-4965-9ddf-b5db78ebcfec","name":"SRV Discount Code","code":"HALF_OFF","type":"Amount","value":50,"amount":15}],"deleted":false}]}
+            type: simple
+    x-speakeasy-test-group: Orders
+    x-speakeasy-test-rebuild: true
+  - workflowId: getAccountOrderItem
+    steps:
+      - stepId: test
+        operationId: getAccountOrderItem
+        parameters:
+          - name: orderId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: orderItemId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","order":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","type":"Online Refund"},"event":{"id":"4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56"},"attendee":{"id":"5b0e8d1f-8fd6-4ebe-977a-602b4a1f9c43"},"guest":true,"guestDetail":{"id":"07c1cf32-a603-4736-8b77-749c3cee3107"},"product":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","type":"Session"},"active":true,"name":"Dinner Session","price":15.35,"fee":{"id":"28FEA0CD-A8B8-4A51-96C1-DDD5EAD642C6","name":"Orientation Session Registration Fee"},"quantity":2,"amountOrdered":35.35,"amountPaid":10.15,"amountDue":25.2,"productPriceTierAmount":15.35,"tiered":true,"generalLedgerItems":[{"id":"a6b6c1bc-e410-48da-86c2-80478ecf60f9","name":"Other Accounts Receivable","code":"123445","description":"Other Accounts Receivable; Leg. Accounts Receivable","allocationPercentage":50}],"discounts":[{"id":"e7fd2027-5b26-4965-9ddf-b5db78ebcfec","name":"SRV Discount Code","code":"HALF_OFF","type":"Amount","value":50,"amount":15}],"deleted":false}
+            type: simple
+    x-speakeasy-test-group: Orders
+    x-speakeasy-test-rebuild: true
+  - workflowId: getAccountTransactions
+    steps:
+      - stepId: test
+        operationId: getAccountTransactions
+        parameters:
+          - name: after
+            in: query
+            value: "2017-01-02T02:00:00Z"
+          - name: before
+            in: query
+            value: "2017-01-02T02:00:00Z"
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+          - name: filter
+            in: query
+            value: event.id eq '7e8a9c45-2f1b-4d3e-9a67-8b5c4f2e1a90' AND (paymentType eq 'Online Charge' OR paymentType eq 'Online Refund')
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","id":"18549806a69f4727a315f2199a08d8b6","processorTransactionId":"ch_3Lrr4TBhiDV0mZz50nZpGx4a","event":{"id":"4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56"},"attendee":{"id":"5b0e8d1f-8fd6-4ebe-977a-602b4a1f9c43"},"orders":[{"id":"7c4a5acd-9610-4c42-bd10-10e279e69ddc"}, {"id":"b479e85e-b5b0-49e7-9f11-65bad23350b1"}, {"id":"d1c24041-9ca4-4afd-a2f8-a0905d935aa9"}],"journalNumber":"PZNK2PKZH4N","paymentType":"Online Refund","paymentMethod":"Mastercard","success":true,"date":"2018-01-13T02:00:00Z","batchNumber":"112021-0017","referenceNumber":"112021-0017","amount":15.25,"currency":"EUR","paymentNote":"Payment notes","nameOnCreditCard":"John Doe","expirationDateOfCreditCard":"2024-01-01T12:00:00.000Z","billingAddress":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","address3":"PO Box 123","city":"Austin","countryCode":"US","postalCode":"78727","region":"Texas","regionCode":"TX"}}]}
+            type: simple
+    x-speakeasy-test-group: Transactions
+    x-speakeasy-test-rebuild: true
+  - workflowId: getTransaction
+    steps:
+      - stepId: test
+        operationId: getTransaction
+        parameters:
+          - name: transactionId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","id":"18549806a69f4727a315f2199a08d8b6","processorTransactionId":"ch_3Lrr4TBhiDV0mZz50nZpGx4a","event":{"id":"4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56"},"attendee":{"id":"5b0e8d1f-8fd6-4ebe-977a-602b4a1f9c43"},"orders":[{"id":"7c4a5acd-9610-4c42-bd10-10e279e69ddc"}, {"id":"b479e85e-b5b0-49e7-9f11-65bad23350b1"}, {"id":"d1c24041-9ca4-4afd-a2f8-a0905d935aa9"}],"journalNumber":"PZNK2PKZH4N","paymentType":"Online Refund","paymentMethod":"Mastercard","success":true,"date":"2018-01-13T02:00:00Z","batchNumber":"112021-0017","referenceNumber":"112021-0017","amount":15.25,"currency":"EUR","paymentNote":"Payment notes","nameOnCreditCard":"John Doe","expirationDateOfCreditCard":"2024-01-01T12:00:00.000Z","billingAddress":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","address3":"PO Box 123","city":"Austin","countryCode":"US","postalCode":"78727","region":"Texas","regionCode":"TX"}}
+            type: simple
+    x-speakeasy-test-group: Transactions
+    x-speakeasy-test-rebuild: true
+  - workflowId: getAccountTransactionItems
+    steps:
+      - stepId: test
+        operationId: getAccountTransactionItems
+        parameters:
+          - name: transactionId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: after
+            in: query
+            value: "2017-01-02T02:00:00Z"
+          - name: before
+            in: query
+            value: "2017-01-02T02:00:00Z"
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+          - name: filter
+            in: query
+            value: lastModified gt '2022-04-21T17:15:48.000Z' AND (attendee.id eq '82da8c60-24f4-47d0-b6e2-429b18a4bb7c' OR attendee.id eq '034bb884-05de-4818-b9f9-5144495d5495')
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","id":"9a8b7c6d-e5f4-3210-bacd-3456789012de::7f3e2a1b-c4d5-6789-efab-2345678901bc","transaction":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","processorTransactionId":"ch_3Lrr4TBhiDV0mZz50nZpGx4a"},"event":{"id":"4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56"},"attendee":{"id":"5b0e8d1f-8fd6-4ebe-977a-602b4a1f9c43"},"product":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","type":"Session"},"orderItem":{"id":"cfb2f6d9-0ec9-467d-8a6e-da29e2b674af"},"name":"Dinner Session","amount":15.25,"currency":"EUR"}]}
+            type: simple
+    x-speakeasy-test-group: Transactions
+    x-speakeasy-test-rebuild: true
+  - workflowId: getAccountTransactionItem
+    steps:
+      - stepId: test
+        operationId: getAccountTransactionItem
+        parameters:
+          - name: transactionId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: transactionItemId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3::7f3e2a1b-c4d5-6789-efab-2345678901bc
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","id":"9a8b7c6d-e5f4-3210-bacd-3456789012de::7f3e2a1b-c4d5-6789-efab-2345678901bc","transaction":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","processorTransactionId":"ch_3Lrr4TBhiDV0mZz50nZpGx4a"},"event":{"id":"4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56"},"attendee":{"id":"5b0e8d1f-8fd6-4ebe-977a-602b4a1f9c43"},"product":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","type":"Session"},"orderItem":{"id":"cfb2f6d9-0ec9-467d-8a6e-da29e2b674af"},"name":"Dinner Session","amount":15.25,"currency":"EUR"}
+            type: simple
+    x-speakeasy-test-group: Transactions
+    x-speakeasy-test-rebuild: true
+  - workflowId: associateMeetingRoomImage
+    steps:
+      - stepId: test
+        operationId: associateMeetingRoomImage
+        parameters:
+          - name: venueId
+            in: path
+            value: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+          - name: meetingRoomId
+            in: path
+            value: 00944672-3602-4b8e-aea3-cb1278b2d143
+        requestBody:
+          contentType: application/json
+          payload:
+            file:
+              id: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"id":"286e2866-b443-4d09-ab0f-0fac45cc026f","href":"https://images.cvent.com/production/csn/3c7be8c9-cddb-4eaf-93a8-27da3250ed4f/images/83142ebfecbb42d2ac3be0433a180829_extrasmall!_!5b5c517134afb758b6fbbefb0e94d819.jpg","file":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"}}
+            type: simple
+    x-speakeasy-test-group: Venue Meeting Rooms
+    x-speakeasy-test-rebuild: true
+  - workflowId: listMeetingRoomImages
+    steps:
+      - stepId: test
+        operationId: listMeetingRoomImages
+        parameters:
+          - name: venueId
+            in: path
+            value: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+          - name: meetingRoomId
+            in: path
+            value: 880546b3-292e-4a70-95a5-3afae3e3f759
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"data":[{"id":"286e2866-b443-4d09-ab0f-0fac45cc026f","href":"https://images.cvent.com/production/csn/3c7be8c9-cddb-4eaf-93a8-27da3250ed4f/images/83142ebfecbb42d2ac3be0433a180829_extrasmall!_!5b5c517134afb758b6fbbefb0e94d819.jpg"}]}
             type: simple
     x-speakeasy-test-group: Venue Meeting Rooms
     x-speakeasy-test-rebuild: true

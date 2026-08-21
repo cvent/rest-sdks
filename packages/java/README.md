@@ -44,7 +44,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cvent:sdk:1.6.0'
+implementation 'com.cvent:sdk:1.6.1'
 ```
 
 Maven:
@@ -52,7 +52,7 @@ Maven:
 <dependency>
     <groupId>com.cvent</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.6.0</version>
+    <version>1.6.1</version>
 </dependency>
 ```
 
@@ -741,6 +741,13 @@ public class Application {
 * [getMeetingRequestById](docs/sdks/meetingrequest/README.md#getmeetingrequestbyid) - Get MR
 * [listMeetingRequestDocuments](docs/sdks/meetingrequest/README.md#listmeetingrequestdocuments) - List MR Documents
 
+### [Orders](docs/sdks/orders/README.md)
+
+* [getAccountOrders](docs/sdks/orders/README.md#getaccountorders) - List Account Orders
+* [getAccountOrderById](docs/sdks/orders/README.md#getaccountorderbyid) - Get Order
+* [getAccountOrderItemsByOrderId](docs/sdks/orders/README.md#getaccountorderitemsbyorderid) - List Account Order Items
+* [getAccountOrderItem](docs/sdks/orders/README.md#getaccountorderitem) - Get Order Item
+
 ### [ProcessForm](docs/sdks/processform/README.md)
 
 * [listProcessFormSubmission](docs/sdks/processform/README.md#listprocessformsubmission) - List Process Form Submissions
@@ -869,6 +876,13 @@ public class Application {
 * [updateStandardSurveyResponses](docs/sdks/surveys/README.md#updatestandardsurveyresponses) - Update Stdl. Survey Responses
 * [getSurvey](docs/sdks/surveys/README.md#getsurvey) - List Surveys
 
+### [Transactions](docs/sdks/transactions/README.md)
+
+* [getAccountTransactions](docs/sdks/transactions/README.md#getaccounttransactions) - List Account Transactions
+* [getTransaction](docs/sdks/transactions/README.md#gettransaction) - Get Transaction
+* [getAccountTransactionItems](docs/sdks/transactions/README.md#getaccounttransactionitems) - List Account Transaction Items
+* [getAccountTransactionItem](docs/sdks/transactions/README.md#getaccounttransactionitem) - List Transaction Item
+
 ### [TravelAccounts](docs/sdks/travelaccounts/README.md)
 
 * [listTravelAccounts](docs/sdks/travelaccounts/README.md#listtravelaccounts) - List Travel Accounts
@@ -934,6 +948,9 @@ public class Application {
 * [listMeetingRoomsOverviews](docs/sdks/venuemeetingrooms/README.md#listmeetingroomsoverviews) - List Meeting Rooms Overviews
 * [updateMeetingRoom](docs/sdks/venuemeetingrooms/README.md#updatemeetingroom) - Update Meeting Room
 * [patchMeetingRoom](docs/sdks/venuemeetingrooms/README.md#patchmeetingroom) - Patch Meeting Room
+* [associateMeetingRoomImage](docs/sdks/venuemeetingrooms/README.md#associatemeetingroomimage) - Associate Meeting Room Image
+* [listMeetingRoomImages](docs/sdks/venuemeetingrooms/README.md#listmeetingroomimages) - List Meeting Room Images
+* [disassociateMeetingRoomImage](docs/sdks/venuemeetingrooms/README.md#disassociatemeetingroomimage) - Remove Meeting Room Image
 * [getMeetingRoomOverview](docs/sdks/venuemeetingrooms/README.md#getmeetingroomoverview) - Get Meeting Room Overview
 
 ### [VenueProfiles](docs/sdks/venueprofiles/README.md)
@@ -1313,10 +1330,10 @@ public class Application {
 many more subclasses in the JDK platform).
 
 **Inherit from [`CventSDKError`](./src/main/java/models/errors/CventSDKError.java)**:
-* [`com.cvent.models.errors.ErrorResponse2`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse2.java): The error response. Applicable to 11 of 458 methods.*
-* [`com.cvent.models.errors.ErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse.java): Represents an error response with additional details of cascading error messages. Applicable to 9 of 458 methods.*
-* [`com.cvent.models.errors.ErrorResponse12`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse12.java): Segments error response details. Status code `400`. Applicable to 2 of 458 methods.*
-* [`com.cvent.models.errors.BadRequestException`](./src/main/java/models/errors/com.cvent.models.errors.BadRequestException.java): A bad token response. Status code `400`. Applicable to 1 of 458 methods.*
+* [`com.cvent.models.errors.ErrorResponse2`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse2.java): The error response. Applicable to 11 of 469 methods.*
+* [`com.cvent.models.errors.ErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse.java): Represents an error response with additional details of cascading error messages. Applicable to 9 of 469 methods.*
+* [`com.cvent.models.errors.ErrorResponse12`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse12.java): Segments error response details. Status code `400`. Applicable to 2 of 469 methods.*
+* [`com.cvent.models.errors.BadRequestException`](./src/main/java/models/errors/com.cvent.models.errors.BadRequestException.java): A bad token response. Status code `400`. Applicable to 1 of 469 methods.*
 
 
 </details>

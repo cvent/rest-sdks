@@ -6,41 +6,32 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AddOnJson, AddOnJson$inboundSchema } from "./addonjson.js";
+import { AddOn, AddOn$inboundSchema } from "./addon.js";
 import {
-  AttendeeTypeIdJson,
-  AttendeeTypeIdJson$inboundSchema,
-} from "./attendeetypeidjson.js";
+  AttendeeTypeId,
+  AttendeeTypeId$inboundSchema,
+} from "./attendeetypeid.js";
 import {
-  BookingWebsiteLinkJson,
-  BookingWebsiteLinkJson$inboundSchema,
-} from "./bookingwebsitelinkjson.js";
+  BookingWebsiteLink,
+  BookingWebsiteLink$inboundSchema,
+} from "./bookingwebsitelink.js";
 import {
-  CallCenterLinkJson,
-  CallCenterLinkJson$inboundSchema,
-} from "./callcenterlinkjson.js";
+  CallCenterLink,
+  CallCenterLink$inboundSchema,
+} from "./callcenterlink.js";
+import { CustomFields, CustomFields$inboundSchema } from "./customfields.js";
+import { HotelInfo, HotelInfo$inboundSchema } from "./hotelinfo.js";
 import {
-  CustomFieldsJson,
-  CustomFieldsJson$inboundSchema,
-} from "./customfieldsjson.js";
-import { HotelInfoJson, HotelInfoJson$inboundSchema } from "./hotelinfojson.js";
+  ReservationGuestOutput,
+  ReservationGuestOutput$inboundSchema,
+} from "./reservationguestoutput.js";
 import {
-  ReservationGuestJsonOutput,
-  ReservationGuestJsonOutput$inboundSchema,
-} from "./reservationguestjsonoutput.js";
-import {
-  ReservationNightJson,
-  ReservationNightJson$inboundSchema,
-} from "./reservationnightjson.js";
-import {
-  RewardProgramJson,
-  RewardProgramJson$inboundSchema,
-} from "./rewardprogramjson.js";
-import { RoomInfoJson, RoomInfoJson$inboundSchema } from "./roominfojson.js";
-import {
-  TravelDetailsJson,
-  TravelDetailsJson$inboundSchema,
-} from "./traveldetailsjson.js";
+  ReservationNight,
+  ReservationNight$inboundSchema,
+} from "./reservationnight.js";
+import { RewardProgram, RewardProgram$inboundSchema } from "./rewardprogram.js";
+import { RoomInfo, RoomInfo$inboundSchema } from "./roominfo.js";
+import { TravelDetails, TravelDetails$inboundSchema } from "./traveldetails.js";
 
 /**
  * Reservation request information.
@@ -153,11 +144,11 @@ export type ExistingReservation = {
   /**
    * Contains the unique ID of the attendee type.
    */
-  attendeeType: AttendeeTypeIdJson;
+  attendeeType: AttendeeTypeId;
   /**
    * Room information.
    */
-  roomType: RoomInfoJson;
+  roomType: RoomInfo;
   /**
    * True indicates an email acknowledgement after reservation creation will be sent.
    */
@@ -185,15 +176,15 @@ export type ExistingReservation = {
   /**
    * Array of nights for this reservation.
    */
-  nights?: Array<ReservationNightJson> | undefined;
+  nights?: Array<ReservationNight> | undefined;
   /**
    * Array of reservation guest details.
    */
-  guests: Array<ReservationGuestJsonOutput>;
+  guests: Array<ReservationGuestOutput>;
   /**
    * Custom fields.
    */
-  customFields?: CustomFieldsJson | undefined;
+  customFields?: CustomFields | undefined;
   /**
    * True indicates this reservation requires an accessible room.
    */
@@ -231,7 +222,7 @@ export type ExistingReservation = {
   /**
    * Represents reward program information.
    */
-  rewardProgram?: RewardProgramJson | undefined;
+  rewardProgram?: RewardProgram | undefined;
   /**
    * Reward program membership number.
    */
@@ -239,7 +230,7 @@ export type ExistingReservation = {
   /**
    * Common object that holds travel details information.
    */
-  travelDetails?: TravelDetailsJson | undefined;
+  travelDetails?: TravelDetails | undefined;
   /**
    * Information about Passkey event for this reservation.
    */
@@ -247,7 +238,7 @@ export type ExistingReservation = {
   /**
    * Hotel information.
    */
-  hotel: HotelInfoJson;
+  hotel: HotelInfo;
   /**
    * Calculated total charges for this reservation.
    */
@@ -255,11 +246,11 @@ export type ExistingReservation = {
   /**
    * Unique URL for a guest to access a reservation in Passkey's booking tool.
    */
-  bookingSite: BookingWebsiteLinkJson;
+  bookingSite: BookingWebsiteLink;
   /**
    * Unique URL for Passkey users (rather than guests) to access a reservation in Passkey's call center tool.
    */
-  callCenter?: CallCenterLinkJson | undefined;
+  callCenter?: CallCenterLink | undefined;
   /**
    * Booking contact information.
    */
@@ -267,7 +258,7 @@ export type ExistingReservation = {
   /**
    * List of room add-ons.
    */
-  addOns?: Array<AddOnJson> | undefined;
+  addOns?: Array<AddOn> | undefined;
   /**
    * Block Code. DEPRECATED - use attendee type and room type to identify block code instead.
    *
@@ -380,17 +371,17 @@ export const ExistingReservation$inboundSchema: z.ZodType<
     ExistingReservationReservationRequest$inboundSchema
   ).optional(),
   attendeeTypeCode: z.string().optional(),
-  attendeeType: AttendeeTypeIdJson$inboundSchema,
-  roomType: RoomInfoJson$inboundSchema,
+  attendeeType: AttendeeTypeId$inboundSchema,
+  roomType: RoomInfo$inboundSchema,
   sendAcknowledgement: z.boolean().default(true),
   splitFolio: z.boolean().optional(),
   startDate: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   endDate: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   numberOfAdults: z.number().int(),
   numberOfChildren: z.number().int(),
-  nights: z.array(ReservationNightJson$inboundSchema).optional(),
-  guests: z.array(ReservationGuestJsonOutput$inboundSchema),
-  customFields: CustomFieldsJson$inboundSchema.optional(),
+  nights: z.array(ReservationNight$inboundSchema).optional(),
+  guests: z.array(ReservationGuestOutput$inboundSchema),
+  customFields: CustomFields$inboundSchema.optional(),
   accessible: z.boolean().optional(),
   specialRequest: z.string().optional(),
   isCancelled: z.boolean().default(false),
@@ -400,16 +391,16 @@ export const ExistingReservation$inboundSchema: z.ZodType<
   isWaitListed: z.boolean().default(false),
   cancelled: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),
-  rewardProgram: RewardProgramJson$inboundSchema.optional(),
+  rewardProgram: RewardProgram$inboundSchema.optional(),
   membershipId: z.string().optional(),
-  travelDetails: TravelDetailsJson$inboundSchema.optional(),
+  travelDetails: TravelDetails$inboundSchema.optional(),
   housingEvent: z.lazy(() => ExistingReservationHousingEventId$inboundSchema),
-  hotel: HotelInfoJson$inboundSchema,
+  hotel: HotelInfo$inboundSchema,
   totalCharges: z.lazy(() => ReservationTotalCharges$inboundSchema).optional(),
-  bookingSite: BookingWebsiteLinkJson$inboundSchema,
-  callCenter: CallCenterLinkJson$inboundSchema.optional(),
+  bookingSite: BookingWebsiteLink$inboundSchema,
+  callCenter: CallCenterLink$inboundSchema.optional(),
   bookingContact: z.lazy(() => BookingContact$inboundSchema).optional(),
-  addOns: z.array(AddOnJson$inboundSchema).optional(),
+  addOns: z.array(AddOn$inboundSchema).optional(),
   blockCode: z.string().optional(),
 });
 

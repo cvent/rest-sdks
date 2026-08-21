@@ -4,9 +4,10 @@
 
 These API's provide compliance support for regulated industries.
 
-**Communication Compliance** lets you view communication activities across your account.
-Various written forms of communication are captured. For example, emails, SMS, chat messages, or push notifications
-can be downloaded for archival or analysis.
+**Communication Compliance** lets you view communication activities across your account for archival or analysis.
+
+Various written forms of communication are captured. This includes: emails, SMS, session chats, exhibitor chats,
+text discussions, 1:1 attendee messaging, group messaging, or push notifications.
 
 
 ### Available Operations
@@ -205,10 +206,9 @@ Gets a paginated list of communication log messages from your account. The filte
 is provided then the API will return communication log messages of all types between the specified dates.
 
 Supported types are:
-
-  * email
-  * chat
-  * session_qa
+  * `email`
+  * `chat` (session chats, exhibitor chats, text discussions, 1:1 messaging (attendees), group messaging (groups))
+  * `session_qa`
 
 
 More about OAuth2 authorization code support for administrators
@@ -314,10 +314,9 @@ Gets a paginated list of communication log messages from your account. The filte
 is provided then the API will return communication log messages of all types between the specified dates.
 
 Supported types are:
-
-  * email
-  * chat
-  * session_qa
+  * `email`
+  * `chat` (session chats, exhibitor chats, text discussions, 1:1 messaging (attendees), group messaging (groups))
+  * `session_qa`
 
 
 More about OAuth2 authorization code support for administrators

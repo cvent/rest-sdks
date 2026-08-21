@@ -6,47 +6,44 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  AddressType1,
+  AddressType1$inboundSchema,
+  AddressType1$outboundSchema,
+} from "./addresstype1.js";
 
 /**
- * Address of the hotel.
+ * Address
  */
 export type Address6 = {
   /**
-   * The first line of an address.
+   * The type of the address.
    */
-  address1?: string | undefined;
+  type: AddressType1;
   /**
-   * The second line of an address.
+   * The street address of the user.
    */
-  address2?: string | undefined;
+  streetAddress?: string | undefined;
   /**
-   * The third line of an address.
+   * The locality/city of the user.
    */
-  address3?: string | undefined;
+  locality?: string | undefined;
   /**
-   * The name of the city.
-   */
-  city?: string | undefined;
-  /**
-   * ISO 3166 two-letter (alpha-2) country code.
-   */
-  countryCode?: string | undefined;
-  /**
-   * Postal code (also known as zipcode) of the address.
-   */
-  postalCode?: string | undefined;
-  /**
-   * The name of the state/province/region of the address.
+   * The region/state/province of the user.
    */
   region?: string | undefined;
   /**
-   * The abbreviation of the state/province/region of the address.
+   * Postal code (also known as zipcode) of the user.
    */
-  regionCode?: string | undefined;
+  postalCode?: string | undefined;
   /**
-   * Name of the country.
+   * The country of the user.
    */
   country?: string | undefined;
+  /**
+   * True indicates the address is primary.
+   */
+  primary?: boolean | undefined;
 };
 
 /** @internal */
@@ -55,17 +52,43 @@ export const Address6$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  address1: z.string().optional(),
-  address2: z.string().optional(),
-  address3: z.string().optional(),
-  city: z.string().optional(),
-  countryCode: z.string().optional(),
-  postalCode: z.string().optional(),
+  type: AddressType1$inboundSchema,
+  streetAddress: z.string().optional(),
+  locality: z.string().optional(),
   region: z.string().optional(),
-  regionCode: z.string().optional(),
+  postalCode: z.string().optional(),
   country: z.string().optional(),
+  primary: z.boolean().default(false),
+});
+/** @internal */
+export type Address6$Outbound = {
+  type: string;
+  streetAddress?: string | undefined;
+  locality?: string | undefined;
+  region?: string | undefined;
+  postalCode?: string | undefined;
+  country?: string | undefined;
+  primary: boolean;
+};
+
+/** @internal */
+export const Address6$outboundSchema: z.ZodType<
+  Address6$Outbound,
+  z.ZodTypeDef,
+  Address6
+> = z.object({
+  type: AddressType1$outboundSchema,
+  streetAddress: z.string().optional(),
+  locality: z.string().optional(),
+  region: z.string().optional(),
+  postalCode: z.string().optional(),
+  country: z.string().optional(),
+  primary: z.boolean().default(false),
 });
 
+export function address6ToJSON(address6: Address6): string {
+  return JSON.stringify(Address6$outboundSchema.parse(address6));
+}
 export function address6FromJSON(
   jsonString: string,
 ): SafeParseResult<Address6, SDKValidationError> {

@@ -30,7 +30,10 @@ import { Result } from "../types/fp.js";
  * Get Housing Event Info
  *
  * @remarks
- * Retrieves housing event details based on the given housing event ID.
+ * Retrieves housing event details based on the given housing event ID. Use this endpoint to get event-level
+ * information such as event name, dates, attendee types, and related configuration. Get the housing event ID
+ * from the [Get Housing Events Summaries](#operation/getHousingEventsSummaries) endpoint, from the
+ * [Create Connection](#operation/createConnection) response, or directly from the Passkey event owner.
  */
 export function housingGetHousingEventInfo(
   client: CventSDKCore,

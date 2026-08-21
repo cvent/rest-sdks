@@ -84,7 +84,7 @@ namespace Cvent.SDK.Models.Components
         /// List of choices for the question.
         /// </summary>
         [JsonProperty("choices")]
-        public List<ChoiceJson1>? Choices { get; set; }
+        public List<ChoiceJson>? Choices { get; set; }
 
         /// <summary>
         /// List of categories for the question.

@@ -30,7 +30,11 @@ import { Result } from "../types/fp.js";
  * Get Housing Event Room Types
  *
  * @remarks
- * Get a filterable list of room types for a given hotel in a housing event.
+ * Get a filterable list of room types for a given hotel in a housing event. Room types represent categories of
+ * rooms (for example, Standard King or Double Queen) available at the hotel for this event. Use the returned
+ * room type IDs to query [room details](#operation/getRoomTypeDetails) and [inventory](#operation/getRoomTypeInventory).
+ *
+ * Filter by attendee type to retrieve only the room types available to a specific attendee segment.
  */
 export function housingGetHousingEventRoomTypes(
   client: CventSDKCore,

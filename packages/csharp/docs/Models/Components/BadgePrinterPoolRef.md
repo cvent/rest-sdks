@@ -1,6 +1,6 @@
 # BadgePrinterPoolRef
 
-A unique identifier of the badge printer pool.
+Reference to a Badge Print Pool.
 
 
 ## Fields

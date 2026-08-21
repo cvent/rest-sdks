@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AddressJson1, AddressJson1$inboundSchema } from "./addressjson1.js";
+import { AddressJson, AddressJson$inboundSchema } from "./addressjson.js";
 
 /**
  * The brand that the chain belongs to.
@@ -57,7 +57,7 @@ export type Chain = {
   /**
    * A physical address.
    */
-  address?: AddressJson1 | undefined;
+  address?: AddressJson | undefined;
   /**
    * True indicates the chain is deleted.
    */
@@ -97,7 +97,7 @@ export const Chain$inboundSchema: z.ZodType<Chain, z.ZodTypeDef, unknown> = z
     name: z.string().optional(),
     code: z.string().optional(),
     brand: z.lazy(() => ChainBrand$inboundSchema).optional(),
-    address: AddressJson1$inboundSchema.optional(),
+    address: AddressJson$inboundSchema.optional(),
     deleted: z.boolean().default(false),
   });
 

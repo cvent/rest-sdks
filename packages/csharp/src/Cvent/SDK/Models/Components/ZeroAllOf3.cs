@@ -13,10 +13,16 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Represents an error response with no additional details.
+    /// Represents an error response for the checkin APIs that includes a unique id.
     /// </summary>
     public class ZeroAllOf3
     {
+        /// <summary>
+        /// The unique identifier for the error response.
+        /// </summary>
+        [JsonProperty("id")]
+        public string? Id { get; set; }
+
         /// <summary>
         /// The HTTP status code representing the error.
         /// </summary>

@@ -1021,6 +1021,21 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("survey/surveys:read")] SurveySurveysRead,
 
         /// <summary>
+        /// Allows disassociating images from meeting rooms.
+        /// </summary>
+        [JsonProperty("venue/meeting-room-images:delete")] VenueMeetingRoomImagesDelete,
+
+        /// <summary>
+        /// Allows retrieving meeting room images.
+        /// </summary>
+        [JsonProperty("venue/meeting-room-images:read")] VenueMeetingRoomImagesRead,
+
+        /// <summary>
+        /// Allows associating images with meeting rooms.
+        /// </summary>
+        [JsonProperty("venue/meeting-room-images:write")] VenueMeetingRoomImagesWrite,
+
+        /// <summary>
         /// Allows read access for overview of meeting room.
         /// </summary>
         [JsonProperty("venue/meeting-room-overviews:read")] VenueMeetingRoomOverviewsRead,
@@ -2236,6 +2251,21 @@ namespace Cvent.SDK.Hooks
         /// Allows the reading of event surveys.
         /// </summary>
         [JsonProperty("survey/surveys:read")] SurveySurveysRead,
+
+        /// <summary>
+        /// Allows disassociating images from meeting rooms.
+        /// </summary>
+        [JsonProperty("venue/meeting-room-images:delete")] VenueMeetingRoomImagesDelete,
+
+        /// <summary>
+        /// Allows retrieving meeting room images.
+        /// </summary>
+        [JsonProperty("venue/meeting-room-images:read")] VenueMeetingRoomImagesRead,
+
+        /// <summary>
+        /// Allows associating images with meeting rooms.
+        /// </summary>
+        [JsonProperty("venue/meeting-room-images:write")] VenueMeetingRoomImagesWrite,
 
         /// <summary>
         /// Allows read access for overview of meeting room.

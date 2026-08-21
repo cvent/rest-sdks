@@ -30,7 +30,9 @@ import { Result } from "../types/fp.js";
  * Get Housing Event Hotel
  *
  * @remarks
- * Gets a single hotel's details in a housing event.
+ * Gets a single hotel's details in a housing event. Returns detailed information about a specific hotel,
+ * including address and localized content. Use this endpoint when you need full details for
+ * a single hotel rather than the [summary list](#operation/getHousingEventHotels).
  */
 export function housingGetHousingEventHotel(
   client: CventSDKCore,

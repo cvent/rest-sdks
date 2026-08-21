@@ -12,10 +12,10 @@ import {
   EventTypeJson$outboundSchema,
 } from "./eventtypejson.js";
 import {
-  PlannerJson2Input,
-  PlannerJson2Input$Outbound,
-  PlannerJson2Input$outboundSchema,
-} from "./plannerjson2input.js";
+  PlannerJson1Input,
+  PlannerJson1Input$Outbound,
+  PlannerJson1Input$outboundSchema,
+} from "./plannerjson1input.js";
 import {
   VenueJsonInput,
   VenueJsonInput$Outbound,
@@ -85,7 +85,7 @@ export type EventUpdateInput = {
   /**
    * A collection of contacts representing the event planners.
    */
-  planners: Array<PlannerJson2Input>;
+  planners: Array<PlannerJson1Input>;
   /**
    * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent Essentials.
    */
@@ -108,7 +108,7 @@ export type EventUpdateInput$Outbound = {
   note?: string | undefined;
   languages: Array<string>;
   capacity?: number | undefined;
-  planners: Array<PlannerJson2Input$Outbound>;
+  planners: Array<PlannerJson1Input$Outbound>;
   type: string;
 };
 
@@ -132,7 +132,7 @@ export const EventUpdateInput$outboundSchema: z.ZodType<
   note: z.string().optional(),
   languages: z.array(z.string()),
   capacity: z.number().int().optional(),
-  planners: z.array(PlannerJson2Input$outboundSchema),
+  planners: z.array(PlannerJson1Input$outboundSchema),
   type: EventTypeJson$outboundSchema,
 });
 

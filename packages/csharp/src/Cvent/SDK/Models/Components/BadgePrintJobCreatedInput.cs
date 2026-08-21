@@ -22,13 +22,13 @@ namespace Cvent.SDK.Models.Components
         /// This is used to indicate the status of the badge print job.
         /// </summary>
         [JsonProperty("status")]
-        public BadgePrintJobStatusJson? Status { get; set; }
+        public BadgePrintJobStatus? Status { get; set; }
 
         /// <summary>
         /// Reference to a Badge Print Pool.
         /// </summary>
         [JsonProperty("pool")]
-        public BadgePrinterPoolReferenceJson Pool { get; set; } = default!;
+        public BadgePrinterPoolRef Pool { get; set; } = default!;
 
         /// <summary>
         /// A unique id of the attendee for badge printing, which could be confirmation number or secured badge id depending on whether secured badge id is enabled.

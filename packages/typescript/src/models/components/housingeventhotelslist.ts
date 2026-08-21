@@ -10,7 +10,7 @@ import {
   HousingEventHotel,
   HousingEventHotel$inboundSchema,
 } from "./housingeventhotel.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * List of hotels associated with a particular housing event.
@@ -19,7 +19,7 @@ export type HousingEventHotelsList = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * List of hotels associated with a particular housing event.
    */
@@ -32,7 +32,7 @@ export const HousingEventHotelsList$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
+  paging: Paging$inboundSchema,
   data: z.array(HousingEventHotel$inboundSchema),
 });
 

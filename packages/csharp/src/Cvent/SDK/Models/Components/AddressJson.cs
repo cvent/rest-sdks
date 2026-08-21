@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
+    /// A physical address.
     /// </summary>
     public class AddressJson
     {

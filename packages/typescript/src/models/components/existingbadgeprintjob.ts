@@ -7,18 +7,18 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BadgePrintJobErrorCodeJson,
-  BadgePrintJobErrorCodeJson$inboundSchema,
-} from "./badgeprintjoberrorcodejson.js";
+  BadgePrintJobErrorCode,
+  BadgePrintJobErrorCode$inboundSchema,
+} from "./badgeprintjoberrorcode.js";
 import {
-  BadgePrintJobStatusJson,
-  BadgePrintJobStatusJson$inboundSchema,
-} from "./badgeprintjobstatusjson.js";
+  BadgePrintJobStatus,
+  BadgePrintJobStatus$inboundSchema,
+} from "./badgeprintjobstatus.js";
 
 /**
  * A unique identifier of the badge printer pool.
  */
-export type BadgePrinterPoolRef = {
+export type ExistingBadgePrintJobBadgePrinterPoolRef = {
   /**
    * A string that has to be a format matching the industry standard uuid
    */
@@ -50,11 +50,11 @@ export type ExistingBadgePrintJob = {
   /**
    * This is used to indicate the status of the badge print job.
    */
-  status: BadgePrintJobStatusJson;
+  status: BadgePrintJobStatus;
   /**
    * A unique identifier of the badge printer pool.
    */
-  pool?: BadgePrinterPoolRef | undefined;
+  pool?: ExistingBadgePrintJobBadgePrinterPoolRef | undefined;
   /**
    * A unique id of the attendee for badge printing, which could be confirmation number or secured badge id depending on whether secured badge id is enabled
    */
@@ -66,7 +66,7 @@ export type ExistingBadgePrintJob = {
   /**
    * This is used to indicate the error code returned from a badge printer.
    */
-  code?: BadgePrintJobErrorCodeJson | undefined;
+  code?: BadgePrintJobErrorCode | undefined;
   /**
    * A human readable message that summarizes the context, cause, and general solution for the error at hand.
    */
@@ -82,21 +82,27 @@ export type ExistingBadgePrintJob = {
 };
 
 /** @internal */
-export const BadgePrinterPoolRef$inboundSchema: z.ZodType<
-  BadgePrinterPoolRef,
+export const ExistingBadgePrintJobBadgePrinterPoolRef$inboundSchema: z.ZodType<
+  ExistingBadgePrintJobBadgePrinterPoolRef,
   z.ZodTypeDef,
   unknown
 > = z.object({
   id: z.string(),
 });
 
-export function badgePrinterPoolRefFromJSON(
+export function existingBadgePrintJobBadgePrinterPoolRefFromJSON(
   jsonString: string,
-): SafeParseResult<BadgePrinterPoolRef, SDKValidationError> {
+): SafeParseResult<
+  ExistingBadgePrintJobBadgePrinterPoolRef,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
-    (x) => BadgePrinterPoolRef$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BadgePrinterPoolRef' from JSON`,
+    (x) =>
+      ExistingBadgePrintJobBadgePrinterPoolRef$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'ExistingBadgePrintJobBadgePrinterPoolRef' from JSON`,
   );
 }
 
@@ -127,11 +133,12 @@ export const ExistingBadgePrintJob$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  status: BadgePrintJobStatusJson$inboundSchema,
-  pool: z.lazy(() => BadgePrinterPoolRef$inboundSchema).optional(),
+  status: BadgePrintJobStatus$inboundSchema,
+  pool: z.lazy(() => ExistingBadgePrintJobBadgePrinterPoolRef$inboundSchema)
+    .optional(),
   badgeId: z.string().optional(),
   printer: z.lazy(() => BadgePrinter$inboundSchema).optional(),
-  code: BadgePrintJobErrorCodeJson$inboundSchema.optional(),
+  code: BadgePrintJobErrorCode$inboundSchema.optional(),
   message: z.string().optional(),
   created: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),

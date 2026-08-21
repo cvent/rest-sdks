@@ -78,13 +78,13 @@ namespace Cvent.SDK.Models.Components
         /// Contains the unique ID of the attendee type.
         /// </summary>
         [JsonProperty("attendeeType")]
-        public AttendeeTypeIdJson AttendeeType { get; set; } = default!;
+        public AttendeeTypeId AttendeeType { get; set; } = default!;
 
         /// <summary>
         /// Room information.
         /// </summary>
         [JsonProperty("roomType")]
-        public RoomInfoJson RoomType { get; set; } = default!;
+        public RoomInfo RoomType { get; set; } = default!;
 
         /// <summary>
         /// True indicates an email acknowledgement after reservation creation will be sent.
@@ -126,19 +126,19 @@ namespace Cvent.SDK.Models.Components
         /// Array of nights for this reservation.
         /// </summary>
         [JsonProperty("nights")]
-        public List<ReservationNightJson>? Nights { get; set; }
+        public List<ReservationNight>? Nights { get; set; }
 
         /// <summary>
         /// Array of reservation guest details.
         /// </summary>
         [JsonProperty("guests")]
-        public List<ReservationGuestJsonOutput> Guests { get; set; } = default!;
+        public List<ReservationGuestOutput> Guests { get; set; } = default!;
 
         /// <summary>
         /// Custom fields.
         /// </summary>
         [JsonProperty("customFields")]
-        public CustomFieldsJson? CustomFields { get; set; }
+        public Models.Components.CustomFields? CustomFields { get; set; }
 
         /// <summary>
         /// True indicates this reservation requires an accessible room.
@@ -193,7 +193,7 @@ namespace Cvent.SDK.Models.Components
         /// Represents reward program information.
         /// </summary>
         [JsonProperty("rewardProgram")]
-        public RewardProgramJson? RewardProgram { get; set; }
+        public RewardProgram? RewardProgram { get; set; }
 
         /// <summary>
         /// Reward program membership number.
@@ -205,7 +205,7 @@ namespace Cvent.SDK.Models.Components
         /// Common object that holds travel details information.
         /// </summary>
         [JsonProperty("travelDetails")]
-        public TravelDetailsJson? TravelDetails { get; set; }
+        public TravelDetails? TravelDetails { get; set; }
 
         /// <summary>
         /// Information about Passkey event for this reservation.
@@ -217,7 +217,7 @@ namespace Cvent.SDK.Models.Components
         /// Hotel information.
         /// </summary>
         [JsonProperty("hotel")]
-        public HotelInfoJson Hotel { get; set; } = default!;
+        public HotelInfo Hotel { get; set; } = default!;
 
         /// <summary>
         /// Calculated total charges for this reservation.
@@ -229,13 +229,13 @@ namespace Cvent.SDK.Models.Components
         /// Unique URL for a guest to access a reservation in Passkey's booking tool.
         /// </summary>
         [JsonProperty("bookingSite")]
-        public BookingWebsiteLinkJson BookingSite { get; set; } = default!;
+        public BookingWebsiteLink BookingSite { get; set; } = default!;
 
         /// <summary>
         /// Unique URL for Passkey users (rather than guests) to access a reservation in Passkey's call center tool.
         /// </summary>
         [JsonProperty("callCenter")]
-        public CallCenterLinkJson? CallCenter { get; set; }
+        public CallCenterLink? CallCenter { get; set; }
 
         /// <summary>
         /// Booking contact information.
@@ -247,7 +247,7 @@ namespace Cvent.SDK.Models.Components
         /// List of room add-ons.
         /// </summary>
         [JsonProperty("addOns")]
-        public List<AddOnJson>? AddOns { get; set; }
+        public List<AddOn>? AddOns { get; set; }
 
         /// <summary>
         /// Block Code. DEPRECATED - use attendee type and room type to identify block code instead.

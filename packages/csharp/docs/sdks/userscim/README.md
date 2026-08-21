@@ -323,8 +323,8 @@ UserInput req = new UserInput() {
             Value = "+911234567890",
         },
     },
-    Addresses = new List<Address5>() {
-        new Address5() {
+    Addresses = new List<Address6>() {
+        new Address6() {
             Type = AddressType1.Work,
             StreetAddress = "100 Universal City Plaza",
             Locality = "Hollywood",
@@ -511,8 +511,8 @@ UpdateUserRequest req = new UpdateUserRequest() {
                 Value = "+911234567890",
             },
         },
-        Addresses = new List<Address5>() {
-            new Address5() {
+        Addresses = new List<Address6>() {
+            new Address6() {
                 Type = AddressType1.Work,
                 StreetAddress = "100 Universal City Plaza",
                 Locality = "Hollywood",

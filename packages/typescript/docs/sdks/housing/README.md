@@ -44,7 +44,10 @@ If you need authentication credentials or have any questions regarding the RegLi
 
 ## createConnection
 
-Create a connection between an integration partner and an event using an access code provided by the Passkey event owner. This connection (manually or using this API) is required to authorize ANY other API calls for the event.
+Create a connection between an integration partner and an event using an access code provided by the Passkey
+event owner. This connection is required to authorize all other API calls for the event. Only one active
+connection is supported per access code at a time.
+
 
 ### Example Usage
 
@@ -132,7 +135,9 @@ run();
 
 ## getHousingEventsSummaries
 
-Gets a paginated list of summary information for your individual housing events.
+Gets a paginated list of summary information for your individual housing events. Use this endpoint to discover
+which events your integration has access to and to retrieve housing event IDs for use in other endpoints.
+
 
 ### Example Usage
 
@@ -224,7 +229,11 @@ run();
 
 ## getHousingEventInfo
 
-Retrieves housing event details based on the given housing event ID.
+Retrieves housing event details based on the given housing event ID. Use this endpoint to get event-level
+information such as event name, dates, attendee types, and related configuration. Get the housing event ID
+from the [Get Housing Events Summaries](#operation/getHousingEventsSummaries) endpoint, from the
+[Create Connection](#operation/createConnection) response, or directly from the Passkey event owner.
+
 
 ### Example Usage
 
@@ -312,7 +321,10 @@ run();
 
 ## getHousingEventHotels
 
-Get list of hotels for the given housing event.
+Get a list of hotels for the given housing event. Returns a paginated list of all hotels in the housing event's
+room block, including hotel names, addresses, and IDs. Use the hotel IDs from this response to query
+[room types](#operation/getHousingEventRoomTypes), [availability](#operation/getHousingEventHotelAvailability), and [inventory](#operation/getRoomTypeInventory).
+
 
 ### Example Usage
 
@@ -406,7 +418,10 @@ run();
 
 ## getHousingEventHotel
 
-Gets a single hotel's details in a housing event.
+Gets a single hotel's details in a housing event. Returns detailed information about a specific hotel,
+including address and localized content. Use this endpoint when you need full details for
+a single hotel rather than the [summary list](#operation/getHousingEventHotels).
+
 
 ### Example Usage
 
@@ -498,7 +513,11 @@ run();
 
 ## getHousingEventHotelAvailability
 
-Get a filterable list of available room nights for a particular hotel and housing event.
+Get a filterable list of available room nights for a particular hotel and housing event. Returns availability
+by date, showing which nights have rooms remaining.
+
+Filter by attendee type and date range to narrow results.
+
 
 ### Example Usage
 
@@ -592,7 +611,12 @@ run();
 
 ## getHousingEventRoomTypes
 
-Get a filterable list of room types for a given hotel in a housing event.
+Get a filterable list of room types for a given hotel in a housing event. Room types represent categories of
+rooms (for example, Standard King or Double Queen) available at the hotel for this event. Use the returned
+room type IDs to query [room details](#operation/getRoomTypeDetails) and [inventory](#operation/getRoomTypeInventory).
+
+Filter by attendee type to retrieve only the room types available to a specific attendee segment.
+
 
 ### Example Usage
 
@@ -690,7 +714,9 @@ run();
 
 ## getRoomTypeDetails
 
-Get a room type's details for the given housing event, hotel and room type.
+Get a room type's details for the given housing event, hotel, and room type. Returns detailed information about
+a specific room type, including room description and available images.
+
 
 ### Example Usage
 
@@ -784,7 +810,11 @@ run();
 
 ## getRoomTypeInventory
 
-Gets a list of room type inventory details (by date) for the given housing event, hotel and room type.
+Gets a list of room type inventory details (by date) for the given housing event, hotel, and room type. Returns
+date-by-date inventory counts (total rooms, rooms picked up, and rooms remaining) for a specific room type.
+
+Filter by date range to retrieve inventory for specific nights.
+
 
 ### Example Usage
 
@@ -882,7 +912,12 @@ run();
 
 ## getHousingEventInventory
 
-Gets a list (sorted by date) of housing event inventory details for the given housing event.
+Gets a list (sorted by date) of housing event inventory details for the given housing event. Returns aggregated
+inventory across all hotels and room types in the event. This provides a high-level view of total event capacity
+and pickup.
+
+For per-hotel or per-room-type breakdowns, use [Get Room Type Inventory](#operation/getRoomTypeInventory) instead.
+
 
 ### Example Usage
 
@@ -976,7 +1011,12 @@ run();
 
 ## getHousingEventReservations
 
-Get list of reservation details for the given housing event.
+Get a list of reservation details for the given housing event. Returns a paginated list of all reservations in
+the event, including guest details, stay dates, hotel, room type, and reservation status. Use the `before`
+and `after` parameters to filter by when a reservation was added or last updated, which is useful for incremental syncing.
+
+Returns an empty list when no reservations match the criteria.
+
 
 ### Example Usage
 
@@ -1074,7 +1114,12 @@ run();
 
 ## createReservationRequest
 
-Creates a reservation request from guest details. A reservation request represents a registration and stores guest details. Reservations booked with the guest-specific “bookingSite” URL in the response will pre-populate guest data and link the new reservation to the reservation request for tracking.
+Creates a reservation request from guest details.
+
+A reservation request represents a registration and stores guest details such as name, email, and preferences.
+The response includes a guest-specific `bookingSite` URL. When the guest books through that URL, Passkey
+pre-populates their details and links the new reservation to the reservation request for tracking.
+
 
 ### Example Usage
 
@@ -1254,7 +1299,9 @@ run();
 
 ## getReservationRequest
 
-Returns reservation request details for a given reservation ID.
+Returns reservation request details for a given reservation request ID. The response includes guest details,
+the `bookingSite` URL, and a linked Reservation ID/ack number if present.
+
 
 ### Example Usage
 
@@ -1342,7 +1389,14 @@ run();
 
 ## updateReservationRequest
 
-Update a reservation request using the given reservation ID. If the reservation has been booked, changes to the reservation request do not affect the linked reservation.
+Update a reservation request using the given reservation request ID. Use this endpoint to update guest details
+(name, email, preferences) on the reservation request. The request body overwrites the current version entirely.
+
+If a reservation has already been booked through this request, changes to the reservation request do not affect
+the linked reservation. To update the hotel booking itself, use [Update Reservation](#operation/updateReservationSync) instead.
+
+You cannot update a cancelled reservation request.
+
 
 ### Example Usage
 
@@ -1627,7 +1681,13 @@ run();
 
 ## cancelReservationRequest
 
-Update the status of a reservation request to cancelled. If the reservation has already been booked, any changes made to the reservation request will not affect the linked reservation.
+Update the status of a reservation request to cancelled. If a reservation has already been booked through this
+request, cancelling the request does not cancel the linked reservation. To cancel the hotel booking itself,
+use [Cancel Reservation](#operation/cancelReservation).
+
+You cannot cancel a reservation request that already has a linked reservation. [Unlink the reservation](#operation/unlinkReservation) first,
+then cancel the request.
+
 
 ### Example Usage
 
@@ -1716,7 +1776,11 @@ run();
 
 ## linkReservation
 
-Link an existing reservation to a reservation request. Commonly used when associating a reservation created outside the normal booking flow (such as a guest calling the hotel).
+Link an existing reservation to a reservation request. Commonly used when a reservation was created outside the
+normal booking flow, such as when a guest calls the hotel directly or when staff books through the Passkey
+Call Center. Linking associates the reservation with the registration represented by the reservation request,
+enabling tracking and callback reporting.
+
 
 ### Example Usage
 
@@ -1806,7 +1870,13 @@ run();
 
 ## unlinkReservation
 
-Unlink reservation from reservation request. Commonly used for removing a cancelled reservation from a reservation request so that a new reservation can be linked in its place.
+Unlink a reservation from a reservation request. Commonly used when a linked reservation has been cancelled and
+you need to free up the reservation request so a new reservation can be linked in its place.
+Unlinking does not cancel or change the reservation itself.
+
+After unlinking, you can [link a new reservation](#operation/linkReservation) or allow the guest to book again using the reservation
+request's `bookingSite` URL.
+
 
 ### Example Usage
 
@@ -1896,7 +1966,12 @@ run();
 
 ## createReservation
 
-Create a hotel reservation in a housing event based on the details provided in the request body.
+Create a hotel reservation in a housing event based on the details provided in the request body. This endpoint
+directly creates a hotel booking on behalf of a guest. Requires a valid hotel ID, room type ID, and guest
+details (including arrival and departure dates).
+
+To generate a booking URL that guests complete themselves, use [Create Reservation Request](#operation/createReservationRequest) instead.
+
 
 ### Example Usage
 
@@ -2076,7 +2151,10 @@ run();
 
 ## getReservation
 
-Get reservation details for the given reservation ID. Commonly used in response to [passkey callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks). 
+Get reservation details for the given reservation ID. Commonly used in response to
+[Passkey callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks), where a callback payload includes the reservation ID.
+Call this endpoint to retrieve the full reservation details after receiving a callback notification.
+
 
 ### Example Usage
 
@@ -2164,7 +2242,10 @@ run();
 
 ## cancelReservation
 
-Cancel reservation for given reservation ID.
+Cancel a reservation for the given reservation ID. Cancelling a reservation does not cancel the linked
+reservation request. If you need to also [cancel the reservation request](#operation/cancelReservationRequest), do so separately. After cancellation,
+[unlink the reservation](#operation/unlinkReservation) from its reservation request so you can link a new one.
+
 
 ### Example Usage
 
@@ -2252,7 +2333,12 @@ run();
 
 ## updateReservationSync
 
-Updates an existing reservation for given reservation ID.
+Updates an existing reservation for the given reservation ID. This is a synchronous operation that returns
+the updated reservation in the response. The request body must include the full reservation object.
+Use [Get Reservation](#operation/getReservation) to retrieve the current reservation before making changes.
+
+To update stay dates, room type, or guest details, include all required fields in the request body.
+
 
 ### Example Usage
 

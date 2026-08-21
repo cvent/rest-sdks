@@ -59,7 +59,7 @@ namespace Cvent.SDK.Models.Components
         /// The address of the user. The user can have only one address. &lt;br&gt; If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence.
         /// </summary>
         [JsonProperty("addresses")]
-        public List<Address5>? Addresses { get; set; }
+        public List<Address6>? Addresses { get; set; }
 
         /// <summary>
         /// The type of the user.

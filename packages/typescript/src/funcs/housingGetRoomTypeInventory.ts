@@ -30,7 +30,10 @@ import { Result } from "../types/fp.js";
  * Get Room Type Inventory
  *
  * @remarks
- * Gets a list of room type inventory details (by date) for the given housing event, hotel and room type.
+ * Gets a list of room type inventory details (by date) for the given housing event, hotel, and room type. Returns
+ * date-by-date inventory counts (total rooms, rooms picked up, and rooms remaining) for a specific room type.
+ *
+ * Filter by date range to retrieve inventory for specific nights.
  */
 export function housingGetRoomTypeInventory(
   client: CventSDKCore,

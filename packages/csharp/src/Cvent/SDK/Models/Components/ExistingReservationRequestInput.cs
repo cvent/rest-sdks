@@ -42,7 +42,7 @@ namespace Cvent.SDK.Models.Components
         /// Contains unique ID of the housing event.
         /// </summary>
         [JsonProperty("housingEvent")]
-        public HousingEventIdJson HousingEvent { get; set; } = default!;
+        public HousingEventId HousingEvent { get; set; } = default!;
 
         /// <summary>
         /// Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
@@ -55,19 +55,19 @@ namespace Cvent.SDK.Models.Components
         /// Contains the unique ID of the attendee type.
         /// </summary>
         [JsonProperty("attendeeType")]
-        public AttendeeTypeIdJson? AttendeeType { get; set; }
+        public AttendeeTypeId? AttendeeType { get; set; }
 
         /// <summary>
         /// Contains unique ID of the room type.
         /// </summary>
         [JsonProperty("roomType")]
-        public RoomTypeIdJson? RoomType { get; set; }
+        public RoomTypeId? RoomType { get; set; }
 
         /// <summary>
         /// Contains unique ID of the hotel.
         /// </summary>
         [JsonProperty("hotel")]
-        public HotelIdJson? Hotel { get; set; }
+        public HotelId? Hotel { get; set; }
 
         /// <summary>
         /// True indicates the system will send email acknowledgement after reservation creation.
@@ -91,13 +91,13 @@ namespace Cvent.SDK.Models.Components
         /// Guests information.
         /// </summary>
         [JsonProperty("guests")]
-        public List<GuestJson> Guests { get; set; } = default!;
+        public List<Guest1> Guests { get; set; } = default!;
 
         /// <summary>
         /// Custom fields.
         /// </summary>
         [JsonProperty("customFields")]
-        public CustomFieldsJson? CustomFields { get; set; }
+        public Models.Components.CustomFields? CustomFields { get; set; }
 
         /// <summary>
         /// True indicates this reservation request is for an accessible room.
@@ -115,7 +115,7 @@ namespace Cvent.SDK.Models.Components
         /// Represents reward program information.
         /// </summary>
         [JsonProperty("rewardProgram")]
-        public RewardProgramJson? RewardProgram { get; set; }
+        public RewardProgram? RewardProgram { get; set; }
 
         /// <summary>
         /// Reward program membership number.
@@ -127,7 +127,7 @@ namespace Cvent.SDK.Models.Components
         /// Common object that holds travel details information.
         /// </summary>
         [JsonProperty("travelDetails")]
-        public TravelDetailsJson? TravelDetails { get; set; }
+        public TravelDetails? TravelDetails { get; set; }
 
         /// <summary>
         /// Reservation request ID.

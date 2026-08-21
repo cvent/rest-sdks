@@ -60,13 +60,13 @@ namespace Cvent.SDK.Models.Components
         /// Event venue details.
         /// </summary>
         [JsonProperty("venue")]
-        public VenueJson1 Venue { get; set; } = default!;
+        public Venue Venue { get; set; } = default!;
 
         /// <summary>
         /// Housing event status.
         /// </summary>
         [JsonProperty("status")]
-        public HousingEventStatusesJson Status { get; set; } = default!;
+        public HousingEventStatus Status { get; set; } = default!;
 
         /// <summary>
         /// The ISO 8601 formatted date and time when event will launch.
@@ -114,19 +114,19 @@ namespace Cvent.SDK.Models.Components
         /// Reservation contact details for this event.
         /// </summary>
         [JsonProperty("reservationContact")]
-        public ReservationContactJson ReservationContact { get; set; } = default!;
+        public ReservationContact ReservationContact { get; set; } = default!;
 
         /// <summary>
         /// List of attendee types for this event.
         /// </summary>
         [JsonProperty("attendeeTypes")]
-        public List<AttendeeTypeJson> AttendeeTypes { get; set; } = default!;
+        public List<AttendeeType> AttendeeTypes { get; set; } = default!;
 
         /// <summary>
         /// A collection of event planners for this housing event.
         /// </summary>
         [JsonProperty("planners")]
-        public List<PlannerJson1> Planners { get; set; } = default!;
+        public List<Planner> Planners { get; set; } = default!;
 
         /// <summary>
         /// ISO 4217 currency code.
@@ -138,6 +138,6 @@ namespace Cvent.SDK.Models.Components
         /// Rooms sort type. CustomOrder: A user-defined sort order. PriceAscending: Data sorted with lowest price first. PriceDescending: Data sorted by highest price first.
         /// </summary>
         [JsonProperty("roomsSortType")]
-        public RoomsSortTypeJson? RoomsSortType { get; set; }
+        public RoomsSortType? RoomsSortType { get; set; }
     }
 }

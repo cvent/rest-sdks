@@ -29,7 +29,11 @@ import { Result } from "../types/fp.js";
  * Create Reservation Request
  *
  * @remarks
- * Creates a reservation request from guest details. A reservation request represents a registration and stores guest details. Reservations booked with the guest-specific “bookingSite” URL in the response will pre-populate guest data and link the new reservation to the reservation request for tracking.
+ * Creates a reservation request from guest details.
+ *
+ * A reservation request represents a registration and stores guest details such as name, email, and preferences.
+ * The response includes a guest-specific `bookingSite` URL. When the guest books through that URL, Passkey
+ * pre-populates their details and links the new reservation to the reservation request for tracking.
  */
 export function housingCreateReservationRequest(
   client: CventSDKCore,

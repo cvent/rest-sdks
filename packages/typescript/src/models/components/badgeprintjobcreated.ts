@@ -7,13 +7,13 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BadgePrinterPoolReferenceJson,
-  BadgePrinterPoolReferenceJson$inboundSchema,
-} from "./badgeprinterpoolreferencejson.js";
+  BadgePrinterPoolRef,
+  BadgePrinterPoolRef$inboundSchema,
+} from "./badgeprinterpoolref.js";
 import {
-  BadgePrintJobStatusJson,
-  BadgePrintJobStatusJson$inboundSchema,
-} from "./badgeprintjobstatusjson.js";
+  BadgePrintJobStatus,
+  BadgePrintJobStatus$inboundSchema,
+} from "./badgeprintjobstatus.js";
 
 /**
  * The Badge Print Job that was created.
@@ -26,11 +26,11 @@ export type BadgePrintJobCreated = {
   /**
    * This is used to indicate the status of the badge print job.
    */
-  status?: BadgePrintJobStatusJson | undefined;
+  status?: BadgePrintJobStatus | undefined;
   /**
    * Reference to a Badge Print Pool.
    */
-  pool: BadgePrinterPoolReferenceJson;
+  pool: BadgePrinterPoolRef;
   /**
    * A unique id of the attendee for badge printing, which could be confirmation number or secured badge id depending on whether secured badge id is enabled
    */
@@ -48,8 +48,8 @@ export const BadgePrintJobCreated$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string().optional(),
-  status: BadgePrintJobStatusJson$inboundSchema.optional(),
-  pool: BadgePrinterPoolReferenceJson$inboundSchema,
+  status: BadgePrintJobStatus$inboundSchema.optional(),
+  pool: BadgePrinterPoolRef$inboundSchema,
   badgeId: z.string(),
   created: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),

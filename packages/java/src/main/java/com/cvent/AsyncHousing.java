@@ -146,8 +146,10 @@ public class AsyncHousing {
      * Create Connection
      *
      * <p>Create a connection between an integration partner and an event using an access code provided by the
-     * Passkey event owner. This connection (manually or using this API) is required to authorize ANY other
-     * API calls for the event.
+     * Passkey
+     * event owner. This connection is required to authorize all other API calls for the event. Only one
+     * active
+     * connection is supported per access code at a time.
      *
      * @return The async call builder
      */
@@ -159,8 +161,10 @@ public class AsyncHousing {
      * Create Connection
      *
      * <p>Create a connection between an integration partner and an event using an access code provided by the
-     * Passkey event owner. This connection (manually or using this API) is required to authorize ANY other
-     * API calls for the event.
+     * Passkey
+     * event owner. This connection is required to authorize all other API calls for the event. Only one
+     * active
+     * connection is supported per access code at a time.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateConnectionResponse>} - The async response
@@ -173,8 +177,10 @@ public class AsyncHousing {
      * Create Connection
      *
      * <p>Create a connection between an integration partner and an event using an access code provided by the
-     * Passkey event owner. This connection (manually or using this API) is required to authorize ANY other
-     * API calls for the event.
+     * Passkey
+     * event owner. This connection is required to authorize all other API calls for the event. Only one
+     * active
+     * connection is supported per access code at a time.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -190,7 +196,10 @@ public class AsyncHousing {
     /**
      * Get Housing Events Summaries
      *
-     * <p>Gets a paginated list of summary information for your individual housing events.
+     * <p>Gets a paginated list of summary information for your individual housing events. Use this endpoint
+     * to discover
+     * which events your integration has access to and to retrieve housing event IDs for use in other
+     * endpoints.
      *
      * @return The async call builder
      */
@@ -201,7 +210,10 @@ public class AsyncHousing {
     /**
      * Get Housing Events Summaries
      *
-     * <p>Gets a paginated list of summary information for your individual housing events.
+     * <p>Gets a paginated list of summary information for your individual housing events. Use this endpoint
+     * to discover
+     * which events your integration has access to and to retrieve housing event IDs for use in other
+     * endpoints.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetHousingEventsSummariesResponse>} - The async response
@@ -214,7 +226,10 @@ public class AsyncHousing {
     /**
      * Get Housing Events Summaries
      *
-     * <p>Gets a paginated list of summary information for your individual housing events.
+     * <p>Gets a paginated list of summary information for your individual housing events. Use this endpoint
+     * to discover
+     * which events your integration has access to and to retrieve housing event IDs for use in other
+     * endpoints.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -230,7 +245,12 @@ public class AsyncHousing {
     /**
      * Get Housing Event Info
      *
-     * <p>Retrieves housing event details based on the given housing event ID.
+     * <p>Retrieves housing event details based on the given housing event ID. Use this endpoint to get
+     * event-level
+     * information such as event name, dates, attendee types, and related configuration. Get the housing
+     * event ID
+     * from the [Get Housing Events Summaries](#operation/getHousingEventsSummaries) endpoint, from the
+     * [Create Connection](#operation/createConnection) response, or directly from the Passkey event owner.
      *
      * @return The async call builder
      */
@@ -241,7 +261,12 @@ public class AsyncHousing {
     /**
      * Get Housing Event Info
      *
-     * <p>Retrieves housing event details based on the given housing event ID.
+     * <p>Retrieves housing event details based on the given housing event ID. Use this endpoint to get
+     * event-level
+     * information such as event name, dates, attendee types, and related configuration. Get the housing
+     * event ID
+     * from the [Get Housing Events Summaries](#operation/getHousingEventsSummaries) endpoint, from the
+     * [Create Connection](#operation/createConnection) response, or directly from the Passkey event owner.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetHousingEventInfoResponse>} - The async response
@@ -254,7 +279,12 @@ public class AsyncHousing {
     /**
      * Get Housing Event Info
      *
-     * <p>Retrieves housing event details based on the given housing event ID.
+     * <p>Retrieves housing event details based on the given housing event ID. Use this endpoint to get
+     * event-level
+     * information such as event name, dates, attendee types, and related configuration. Get the housing
+     * event ID
+     * from the [Get Housing Events Summaries](#operation/getHousingEventsSummaries) endpoint, from the
+     * [Create Connection](#operation/createConnection) response, or directly from the Passkey event owner.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -270,7 +300,12 @@ public class AsyncHousing {
     /**
      * Get Housing Event Hotels
      *
-     * <p>Get list of hotels for the given housing event.
+     * <p>Get a list of hotels for the given housing event. Returns a paginated list of all hotels in the
+     * housing event's
+     * room block, including hotel names, addresses, and IDs. Use the hotel IDs from this response to query
+     * [room types](#operation/getHousingEventRoomTypes),
+     * [availability](#operation/getHousingEventHotelAvailability), and
+     * [inventory](#operation/getRoomTypeInventory).
      *
      * @return The async call builder
      */
@@ -281,7 +316,12 @@ public class AsyncHousing {
     /**
      * Get Housing Event Hotels
      *
-     * <p>Get list of hotels for the given housing event.
+     * <p>Get a list of hotels for the given housing event. Returns a paginated list of all hotels in the
+     * housing event's
+     * room block, including hotel names, addresses, and IDs. Use the hotel IDs from this response to query
+     * [room types](#operation/getHousingEventRoomTypes),
+     * [availability](#operation/getHousingEventHotelAvailability), and
+     * [inventory](#operation/getRoomTypeInventory).
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetHousingEventHotelsResponse>} - The async response
@@ -294,7 +334,12 @@ public class AsyncHousing {
     /**
      * Get Housing Event Hotels
      *
-     * <p>Get list of hotels for the given housing event.
+     * <p>Get a list of hotels for the given housing event. Returns a paginated list of all hotels in the
+     * housing event's
+     * room block, including hotel names, addresses, and IDs. Use the hotel IDs from this response to query
+     * [room types](#operation/getHousingEventRoomTypes),
+     * [availability](#operation/getHousingEventHotelAvailability), and
+     * [inventory](#operation/getRoomTypeInventory).
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -310,7 +355,10 @@ public class AsyncHousing {
     /**
      * Get Housing Event Hotel
      *
-     * <p>Gets a single hotel's details in a housing event.
+     * <p>Gets a single hotel's details in a housing event. Returns detailed information about a specific
+     * hotel,
+     * including address and localized content. Use this endpoint when you need full details for
+     * a single hotel rather than the [summary list](#operation/getHousingEventHotels).
      *
      * @return The async call builder
      */
@@ -321,7 +369,10 @@ public class AsyncHousing {
     /**
      * Get Housing Event Hotel
      *
-     * <p>Gets a single hotel's details in a housing event.
+     * <p>Gets a single hotel's details in a housing event. Returns detailed information about a specific
+     * hotel,
+     * including address and localized content. Use this endpoint when you need full details for
+     * a single hotel rather than the [summary list](#operation/getHousingEventHotels).
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetHousingEventHotelResponse>} - The async response
@@ -334,7 +385,10 @@ public class AsyncHousing {
     /**
      * Get Housing Event Hotel
      *
-     * <p>Gets a single hotel's details in a housing event.
+     * <p>Gets a single hotel's details in a housing event. Returns detailed information about a specific
+     * hotel,
+     * including address and localized content. Use this endpoint when you need full details for
+     * a single hotel rather than the [summary list](#operation/getHousingEventHotels).
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -350,7 +404,11 @@ public class AsyncHousing {
     /**
      * Get Event Hotel Availability
      *
-     * <p>Get a filterable list of available room nights for a particular hotel and housing event.
+     * <p>Get a filterable list of available room nights for a particular hotel and housing event. Returns
+     * availability
+     * by date, showing which nights have rooms remaining.
+     *
+     * <p>Filter by attendee type and date range to narrow results.
      *
      * @return The async call builder
      */
@@ -361,7 +419,11 @@ public class AsyncHousing {
     /**
      * Get Event Hotel Availability
      *
-     * <p>Get a filterable list of available room nights for a particular hotel and housing event.
+     * <p>Get a filterable list of available room nights for a particular hotel and housing event. Returns
+     * availability
+     * by date, showing which nights have rooms remaining.
+     *
+     * <p>Filter by attendee type and date range to narrow results.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetHousingEventHotelAvailabilityResponse>} - The async response
@@ -374,7 +436,11 @@ public class AsyncHousing {
     /**
      * Get Event Hotel Availability
      *
-     * <p>Get a filterable list of available room nights for a particular hotel and housing event.
+     * <p>Get a filterable list of available room nights for a particular hotel and housing event. Returns
+     * availability
+     * by date, showing which nights have rooms remaining.
+     *
+     * <p>Filter by attendee type and date range to narrow results.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -391,7 +457,14 @@ public class AsyncHousing {
     /**
      * Get Housing Event Room Types
      *
-     * <p>Get a filterable list of room types for a given hotel in a housing event.
+     * <p>Get a filterable list of room types for a given hotel in a housing event. Room types represent
+     * categories of
+     * rooms (for example, Standard King or Double Queen) available at the hotel for this event. Use the
+     * returned
+     * room type IDs to query [room details](#operation/getRoomTypeDetails) and
+     * [inventory](#operation/getRoomTypeInventory).
+     *
+     * <p>Filter by attendee type to retrieve only the room types available to a specific attendee segment.
      *
      * @return The async call builder
      */
@@ -402,7 +475,14 @@ public class AsyncHousing {
     /**
      * Get Housing Event Room Types
      *
-     * <p>Get a filterable list of room types for a given hotel in a housing event.
+     * <p>Get a filterable list of room types for a given hotel in a housing event. Room types represent
+     * categories of
+     * rooms (for example, Standard King or Double Queen) available at the hotel for this event. Use the
+     * returned
+     * room type IDs to query [room details](#operation/getRoomTypeDetails) and
+     * [inventory](#operation/getRoomTypeInventory).
+     *
+     * <p>Filter by attendee type to retrieve only the room types available to a specific attendee segment.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetHousingEventRoomTypesResponse>} - The async response
@@ -415,7 +495,14 @@ public class AsyncHousing {
     /**
      * Get Housing Event Room Types
      *
-     * <p>Get a filterable list of room types for a given hotel in a housing event.
+     * <p>Get a filterable list of room types for a given hotel in a housing event. Room types represent
+     * categories of
+     * rooms (for example, Standard King or Double Queen) available at the hotel for this event. Use the
+     * returned
+     * room type IDs to query [room details](#operation/getRoomTypeDetails) and
+     * [inventory](#operation/getRoomTypeInventory).
+     *
+     * <p>Filter by attendee type to retrieve only the room types available to a specific attendee segment.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -431,7 +518,9 @@ public class AsyncHousing {
     /**
      * Get Room Type Details
      *
-     * <p>Get a room type's details for the given housing event, hotel and room type.
+     * <p>Get a room type's details for the given housing event, hotel, and room type. Returns detailed
+     * information about
+     * a specific room type, including room description and available images.
      *
      * @return The async call builder
      */
@@ -442,7 +531,9 @@ public class AsyncHousing {
     /**
      * Get Room Type Details
      *
-     * <p>Get a room type's details for the given housing event, hotel and room type.
+     * <p>Get a room type's details for the given housing event, hotel, and room type. Returns detailed
+     * information about
+     * a specific room type, including room description and available images.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetRoomTypeDetailsResponse>} - The async response
@@ -455,7 +546,9 @@ public class AsyncHousing {
     /**
      * Get Room Type Details
      *
-     * <p>Get a room type's details for the given housing event, hotel and room type.
+     * <p>Get a room type's details for the given housing event, hotel, and room type. Returns detailed
+     * information about
+     * a specific room type, including room description and available images.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -471,8 +564,12 @@ public class AsyncHousing {
     /**
      * Get Room Type Inventory
      *
-     * <p>Gets a list of room type inventory details (by date) for the given housing event, hotel and room
-     * type.
+     * <p>Gets a list of room type inventory details (by date) for the given housing event, hotel, and room
+     * type. Returns
+     * date-by-date inventory counts (total rooms, rooms picked up, and rooms remaining) for a specific
+     * room type.
+     *
+     * <p>Filter by date range to retrieve inventory for specific nights.
      *
      * @return The async call builder
      */
@@ -483,8 +580,12 @@ public class AsyncHousing {
     /**
      * Get Room Type Inventory
      *
-     * <p>Gets a list of room type inventory details (by date) for the given housing event, hotel and room
-     * type.
+     * <p>Gets a list of room type inventory details (by date) for the given housing event, hotel, and room
+     * type. Returns
+     * date-by-date inventory counts (total rooms, rooms picked up, and rooms remaining) for a specific
+     * room type.
+     *
+     * <p>Filter by date range to retrieve inventory for specific nights.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetRoomTypeInventoryResponse>} - The async response
@@ -497,8 +598,12 @@ public class AsyncHousing {
     /**
      * Get Room Type Inventory
      *
-     * <p>Gets a list of room type inventory details (by date) for the given housing event, hotel and room
-     * type.
+     * <p>Gets a list of room type inventory details (by date) for the given housing event, hotel, and room
+     * type. Returns
+     * date-by-date inventory counts (total rooms, rooms picked up, and rooms remaining) for a specific
+     * room type.
+     *
+     * <p>Filter by date range to retrieve inventory for specific nights.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -514,7 +619,14 @@ public class AsyncHousing {
     /**
      * Get Housing Event Inventory
      *
-     * <p>Gets a list (sorted by date) of housing event inventory details for the given housing event.
+     * <p>Gets a list (sorted by date) of housing event inventory details for the given housing event. Returns
+     * aggregated
+     * inventory across all hotels and room types in the event. This provides a high-level view of total
+     * event capacity
+     * and pickup.
+     *
+     * <p>For per-hotel or per-room-type breakdowns, use [Get Room Type
+     * Inventory](#operation/getRoomTypeInventory) instead.
      *
      * @return The async call builder
      */
@@ -525,7 +637,14 @@ public class AsyncHousing {
     /**
      * Get Housing Event Inventory
      *
-     * <p>Gets a list (sorted by date) of housing event inventory details for the given housing event.
+     * <p>Gets a list (sorted by date) of housing event inventory details for the given housing event. Returns
+     * aggregated
+     * inventory across all hotels and room types in the event. This provides a high-level view of total
+     * event capacity
+     * and pickup.
+     *
+     * <p>For per-hotel or per-room-type breakdowns, use [Get Room Type
+     * Inventory](#operation/getRoomTypeInventory) instead.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetHousingEventInventoryResponse>} - The async response
@@ -538,7 +657,14 @@ public class AsyncHousing {
     /**
      * Get Housing Event Inventory
      *
-     * <p>Gets a list (sorted by date) of housing event inventory details for the given housing event.
+     * <p>Gets a list (sorted by date) of housing event inventory details for the given housing event. Returns
+     * aggregated
+     * inventory across all hotels and room types in the event. This provides a high-level view of total
+     * event capacity
+     * and pickup.
+     *
+     * <p>For per-hotel or per-room-type breakdowns, use [Get Room Type
+     * Inventory](#operation/getRoomTypeInventory) instead.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -554,7 +680,14 @@ public class AsyncHousing {
     /**
      * Get Housing Event Reservations
      *
-     * <p>Get list of reservation details for the given housing event.
+     * <p>Get a list of reservation details for the given housing event. Returns a paginated list of all
+     * reservations in
+     * the event, including guest details, stay dates, hotel, room type, and reservation status. Use the
+     * `before`
+     * and `after` parameters to filter by when a reservation was added or last updated, which is useful
+     * for incremental syncing.
+     *
+     * <p>Returns an empty list when no reservations match the criteria.
      *
      * @return The async call builder
      */
@@ -565,7 +698,14 @@ public class AsyncHousing {
     /**
      * Get Housing Event Reservations
      *
-     * <p>Get list of reservation details for the given housing event.
+     * <p>Get a list of reservation details for the given housing event. Returns a paginated list of all
+     * reservations in
+     * the event, including guest details, stay dates, hotel, room type, and reservation status. Use the
+     * `before`
+     * and `after` parameters to filter by when a reservation was added or last updated, which is useful
+     * for incremental syncing.
+     *
+     * <p>Returns an empty list when no reservations match the criteria.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetHousingEventReservationsResponse>} - The async response
@@ -578,7 +718,14 @@ public class AsyncHousing {
     /**
      * Get Housing Event Reservations
      *
-     * <p>Get list of reservation details for the given housing event.
+     * <p>Get a list of reservation details for the given housing event. Returns a paginated list of all
+     * reservations in
+     * the event, including guest details, stay dates, hotel, room type, and reservation status. Use the
+     * `before`
+     * and `after` parameters to filter by when a reservation was added or last updated, which is useful
+     * for incremental syncing.
+     *
+     * <p>Returns an empty list when no reservations match the criteria.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -594,10 +741,13 @@ public class AsyncHousing {
     /**
      * Create Reservation Request
      *
-     * <p>Creates a reservation request from guest details. A reservation request represents a registration
-     * and stores guest details. Reservations booked with the guest-specific “bookingSite” URL in the
-     * response will pre-populate guest data and link the new reservation to the reservation request for
-     * tracking.
+     * <p>Creates a reservation request from guest details.
+     *
+     * <p>A reservation request represents a registration and stores guest details such as name, email, and
+     * preferences.
+     * The response includes a guest-specific `bookingSite` URL. When the guest books through that URL,
+     * Passkey
+     * pre-populates their details and links the new reservation to the reservation request for tracking.
      *
      * @return The async call builder
      */
@@ -608,10 +758,13 @@ public class AsyncHousing {
     /**
      * Create Reservation Request
      *
-     * <p>Creates a reservation request from guest details. A reservation request represents a registration
-     * and stores guest details. Reservations booked with the guest-specific “bookingSite” URL in the
-     * response will pre-populate guest data and link the new reservation to the reservation request for
-     * tracking.
+     * <p>Creates a reservation request from guest details.
+     *
+     * <p>A reservation request represents a registration and stores guest details such as name, email, and
+     * preferences.
+     * The response includes a guest-specific `bookingSite` URL. When the guest books through that URL,
+     * Passkey
+     * pre-populates their details and links the new reservation to the reservation request for tracking.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateReservationRequestResponse>} - The async response
@@ -624,10 +777,13 @@ public class AsyncHousing {
     /**
      * Create Reservation Request
      *
-     * <p>Creates a reservation request from guest details. A reservation request represents a registration
-     * and stores guest details. Reservations booked with the guest-specific “bookingSite” URL in the
-     * response will pre-populate guest data and link the new reservation to the reservation request for
-     * tracking.
+     * <p>Creates a reservation request from guest details.
+     *
+     * <p>A reservation request represents a registration and stores guest details such as name, email, and
+     * preferences.
+     * The response includes a guest-specific `bookingSite` URL. When the guest books through that URL,
+     * Passkey
+     * pre-populates their details and links the new reservation to the reservation request for tracking.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -643,7 +799,9 @@ public class AsyncHousing {
     /**
      * Get Reservation Request
      *
-     * <p>Returns reservation request details for a given reservation ID.
+     * <p>Returns reservation request details for a given reservation request ID. The response includes guest
+     * details,
+     * the `bookingSite` URL, and a linked Reservation ID/ack number if present.
      *
      * @return The async call builder
      */
@@ -654,7 +812,9 @@ public class AsyncHousing {
     /**
      * Get Reservation Request
      *
-     * <p>Returns reservation request details for a given reservation ID.
+     * <p>Returns reservation request details for a given reservation request ID. The response includes guest
+     * details,
+     * the `bookingSite` URL, and a linked Reservation ID/ack number if present.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetReservationRequestResponse>} - The async response
@@ -667,7 +827,9 @@ public class AsyncHousing {
     /**
      * Get Reservation Request
      *
-     * <p>Returns reservation request details for a given reservation ID.
+     * <p>Returns reservation request details for a given reservation request ID. The response includes guest
+     * details,
+     * the `bookingSite` URL, and a linked Reservation ID/ack number if present.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -683,8 +845,17 @@ public class AsyncHousing {
     /**
      * Update Reservation Request
      *
-     * <p>Update a reservation request using the given reservation ID. If the reservation has been booked,
-     * changes to the reservation request do not affect the linked reservation.
+     * <p>Update a reservation request using the given reservation request ID. Use this endpoint to update
+     * guest details
+     * (name, email, preferences) on the reservation request. The request body overwrites the current
+     * version entirely.
+     *
+     * <p>If a reservation has already been booked through this request, changes to the reservation request do
+     * not affect
+     * the linked reservation. To update the hotel booking itself, use [Update
+     * Reservation](#operation/updateReservationSync) instead.
+     *
+     * <p>You cannot update a cancelled reservation request.
      *
      * @return The async call builder
      */
@@ -695,8 +866,17 @@ public class AsyncHousing {
     /**
      * Update Reservation Request
      *
-     * <p>Update a reservation request using the given reservation ID. If the reservation has been booked,
-     * changes to the reservation request do not affect the linked reservation.
+     * <p>Update a reservation request using the given reservation request ID. Use this endpoint to update
+     * guest details
+     * (name, email, preferences) on the reservation request. The request body overwrites the current
+     * version entirely.
+     *
+     * <p>If a reservation has already been booked through this request, changes to the reservation request do
+     * not affect
+     * the linked reservation. To update the hotel booking itself, use [Update
+     * Reservation](#operation/updateReservationSync) instead.
+     *
+     * <p>You cannot update a cancelled reservation request.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateReservationRequestResponse>} - The async response
@@ -709,8 +889,17 @@ public class AsyncHousing {
     /**
      * Update Reservation Request
      *
-     * <p>Update a reservation request using the given reservation ID. If the reservation has been booked,
-     * changes to the reservation request do not affect the linked reservation.
+     * <p>Update a reservation request using the given reservation request ID. Use this endpoint to update
+     * guest details
+     * (name, email, preferences) on the reservation request. The request body overwrites the current
+     * version entirely.
+     *
+     * <p>If a reservation has already been booked through this request, changes to the reservation request do
+     * not affect
+     * the linked reservation. To update the hotel booking itself, use [Update
+     * Reservation](#operation/updateReservationSync) instead.
+     *
+     * <p>You cannot update a cancelled reservation request.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -726,8 +915,15 @@ public class AsyncHousing {
     /**
      * Cancel Reservation Request
      *
-     * <p>Update the status of a reservation request to cancelled. If the reservation has already been booked,
-     * any changes made to the reservation request will not affect the linked reservation.
+     * <p>Update the status of a reservation request to cancelled. If a reservation has already been booked
+     * through this
+     * request, cancelling the request does not cancel the linked reservation. To cancel the hotel booking
+     * itself,
+     * use [Cancel Reservation](#operation/cancelReservation).
+     *
+     * <p>You cannot cancel a reservation request that already has a linked reservation. [Unlink the
+     * reservation](#operation/unlinkReservation) first,
+     * then cancel the request.
      *
      * @return The async call builder
      */
@@ -738,8 +934,15 @@ public class AsyncHousing {
     /**
      * Cancel Reservation Request
      *
-     * <p>Update the status of a reservation request to cancelled. If the reservation has already been booked,
-     * any changes made to the reservation request will not affect the linked reservation.
+     * <p>Update the status of a reservation request to cancelled. If a reservation has already been booked
+     * through this
+     * request, cancelling the request does not cancel the linked reservation. To cancel the hotel booking
+     * itself,
+     * use [Cancel Reservation](#operation/cancelReservation).
+     *
+     * <p>You cannot cancel a reservation request that already has a linked reservation. [Unlink the
+     * reservation](#operation/unlinkReservation) first,
+     * then cancel the request.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CancelReservationRequestResponse>} - The async response
@@ -752,8 +955,15 @@ public class AsyncHousing {
     /**
      * Cancel Reservation Request
      *
-     * <p>Update the status of a reservation request to cancelled. If the reservation has already been booked,
-     * any changes made to the reservation request will not affect the linked reservation.
+     * <p>Update the status of a reservation request to cancelled. If a reservation has already been booked
+     * through this
+     * request, cancelling the request does not cancel the linked reservation. To cancel the hotel booking
+     * itself,
+     * use [Cancel Reservation](#operation/cancelReservation).
+     *
+     * <p>You cannot cancel a reservation request that already has a linked reservation. [Unlink the
+     * reservation](#operation/unlinkReservation) first,
+     * then cancel the request.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -769,8 +979,13 @@ public class AsyncHousing {
     /**
      * Link Reservation
      *
-     * <p>Link an existing reservation to a reservation request. Commonly used when associating a reservation
-     * created outside the normal booking flow (such as a guest calling the hotel).
+     * <p>Link an existing reservation to a reservation request. Commonly used when a reservation was created
+     * outside the
+     * normal booking flow, such as when a guest calls the hotel directly or when staff books through the
+     * Passkey
+     * Call Center. Linking associates the reservation with the registration represented by the reservation
+     * request,
+     * enabling tracking and callback reporting.
      *
      * @return The async call builder
      */
@@ -781,8 +996,13 @@ public class AsyncHousing {
     /**
      * Link Reservation
      *
-     * <p>Link an existing reservation to a reservation request. Commonly used when associating a reservation
-     * created outside the normal booking flow (such as a guest calling the hotel).
+     * <p>Link an existing reservation to a reservation request. Commonly used when a reservation was created
+     * outside the
+     * normal booking flow, such as when a guest calls the hotel directly or when staff books through the
+     * Passkey
+     * Call Center. Linking associates the reservation with the registration represented by the reservation
+     * request,
+     * enabling tracking and callback reporting.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<LinkReservationResponse>} - The async response
@@ -794,8 +1014,13 @@ public class AsyncHousing {
     /**
      * Link Reservation
      *
-     * <p>Link an existing reservation to a reservation request. Commonly used when associating a reservation
-     * created outside the normal booking flow (such as a guest calling the hotel).
+     * <p>Link an existing reservation to a reservation request. Commonly used when a reservation was created
+     * outside the
+     * normal booking flow, such as when a guest calls the hotel directly or when staff books through the
+     * Passkey
+     * Call Center. Linking associates the reservation with the registration represented by the reservation
+     * request,
+     * enabling tracking and callback reporting.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -811,8 +1036,14 @@ public class AsyncHousing {
     /**
      * Unlink Reservation
      *
-     * <p>Unlink reservation from reservation request. Commonly used for removing a cancelled reservation from
-     * a reservation request so that a new reservation can be linked in its place.
+     * <p>Unlink a reservation from a reservation request. Commonly used when a linked reservation has been
+     * cancelled and
+     * you need to free up the reservation request so a new reservation can be linked in its place.
+     * Unlinking does not cancel or change the reservation itself.
+     *
+     * <p>After unlinking, you can [link a new reservation](#operation/linkReservation) or allow the guest to
+     * book again using the reservation
+     * request's `bookingSite` URL.
      *
      * @return The async call builder
      */
@@ -823,8 +1054,14 @@ public class AsyncHousing {
     /**
      * Unlink Reservation
      *
-     * <p>Unlink reservation from reservation request. Commonly used for removing a cancelled reservation from
-     * a reservation request so that a new reservation can be linked in its place.
+     * <p>Unlink a reservation from a reservation request. Commonly used when a linked reservation has been
+     * cancelled and
+     * you need to free up the reservation request so a new reservation can be linked in its place.
+     * Unlinking does not cancel or change the reservation itself.
+     *
+     * <p>After unlinking, you can [link a new reservation](#operation/linkReservation) or allow the guest to
+     * book again using the reservation
+     * request's `bookingSite` URL.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UnlinkReservationResponse>} - The async response
@@ -836,8 +1073,14 @@ public class AsyncHousing {
     /**
      * Unlink Reservation
      *
-     * <p>Unlink reservation from reservation request. Commonly used for removing a cancelled reservation from
-     * a reservation request so that a new reservation can be linked in its place.
+     * <p>Unlink a reservation from a reservation request. Commonly used when a linked reservation has been
+     * cancelled and
+     * you need to free up the reservation request so a new reservation can be linked in its place.
+     * Unlinking does not cancel or change the reservation itself.
+     *
+     * <p>After unlinking, you can [link a new reservation](#operation/linkReservation) or allow the guest to
+     * book again using the reservation
+     * request's `bookingSite` URL.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -854,6 +1097,13 @@ public class AsyncHousing {
      * Create Reservation
      *
      * <p>Create a hotel reservation in a housing event based on the details provided in the request body.
+     * This endpoint
+     * directly creates a hotel booking on behalf of a guest. Requires a valid hotel ID, room type ID, and
+     * guest
+     * details (including arrival and departure dates).
+     *
+     * <p>To generate a booking URL that guests complete themselves, use [Create Reservation
+     * Request](#operation/createReservationRequest) instead.
      *
      * @return The async call builder
      */
@@ -865,6 +1115,13 @@ public class AsyncHousing {
      * Create Reservation
      *
      * <p>Create a hotel reservation in a housing event based on the details provided in the request body.
+     * This endpoint
+     * directly creates a hotel booking on behalf of a guest. Requires a valid hotel ID, room type ID, and
+     * guest
+     * details (including arrival and departure dates).
+     *
+     * <p>To generate a booking URL that guests complete themselves, use [Create Reservation
+     * Request](#operation/createReservationRequest) instead.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateReservationResponse>} - The async response
@@ -877,6 +1134,13 @@ public class AsyncHousing {
      * Create Reservation
      *
      * <p>Create a hotel reservation in a housing event based on the details provided in the request body.
+     * This endpoint
+     * directly creates a hotel booking on behalf of a guest. Requires a valid hotel ID, room type ID, and
+     * guest
+     * details (including arrival and departure dates).
+     *
+     * <p>To generate a booking URL that guests complete themselves, use [Create Reservation
+     * Request](#operation/createReservationRequest) instead.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -892,8 +1156,10 @@ public class AsyncHousing {
     /**
      * Get Reservation
      *
-     * <p>Get reservation details for the given reservation ID. Commonly used in response to [passkey
-     * callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks).
+     * <p>Get reservation details for the given reservation ID. Commonly used in response to
+     * [Passkey callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks), where a callback
+     * payload includes the reservation ID.
+     * Call this endpoint to retrieve the full reservation details after receiving a callback notification.
      *
      * @return The async call builder
      */
@@ -904,8 +1170,10 @@ public class AsyncHousing {
     /**
      * Get Reservation
      *
-     * <p>Get reservation details for the given reservation ID. Commonly used in response to [passkey
-     * callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks).
+     * <p>Get reservation details for the given reservation ID. Commonly used in response to
+     * [Passkey callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks), where a callback
+     * payload includes the reservation ID.
+     * Call this endpoint to retrieve the full reservation details after receiving a callback notification.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetReservationResponse>} - The async response
@@ -918,8 +1186,10 @@ public class AsyncHousing {
     /**
      * Get Reservation
      *
-     * <p>Get reservation details for the given reservation ID. Commonly used in response to [passkey
-     * callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks).
+     * <p>Get reservation details for the given reservation ID. Commonly used in response to
+     * [Passkey callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks), where a callback
+     * payload includes the reservation ID.
+     * Call this endpoint to retrieve the full reservation details after receiving a callback notification.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -935,7 +1205,12 @@ public class AsyncHousing {
     /**
      * Cancel Reservation
      *
-     * <p>Cancel reservation for given reservation ID.
+     * <p>Cancel a reservation for the given reservation ID. Cancelling a reservation does not cancel the
+     * linked
+     * reservation request. If you need to also [cancel the reservation
+     * request](#operation/cancelReservationRequest), do so separately. After cancellation,
+     * [unlink the reservation](#operation/unlinkReservation) from its reservation request so you can link
+     * a new one.
      *
      * @return The async call builder
      */
@@ -946,7 +1221,12 @@ public class AsyncHousing {
     /**
      * Cancel Reservation
      *
-     * <p>Cancel reservation for given reservation ID.
+     * <p>Cancel a reservation for the given reservation ID. Cancelling a reservation does not cancel the
+     * linked
+     * reservation request. If you need to also [cancel the reservation
+     * request](#operation/cancelReservationRequest), do so separately. After cancellation,
+     * [unlink the reservation](#operation/unlinkReservation) from its reservation request so you can link
+     * a new one.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CancelReservationResponse>} - The async response
@@ -959,7 +1239,12 @@ public class AsyncHousing {
     /**
      * Cancel Reservation
      *
-     * <p>Cancel reservation for given reservation ID.
+     * <p>Cancel a reservation for the given reservation ID. Cancelling a reservation does not cancel the
+     * linked
+     * reservation request. If you need to also [cancel the reservation
+     * request](#operation/cancelReservationRequest), do so separately. After cancellation,
+     * [unlink the reservation](#operation/unlinkReservation) from its reservation request so you can link
+     * a new one.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -975,7 +1260,13 @@ public class AsyncHousing {
     /**
      * Update Reservation
      *
-     * <p>Updates an existing reservation for given reservation ID.
+     * <p>Updates an existing reservation for the given reservation ID. This is a synchronous operation that
+     * returns
+     * the updated reservation in the response. The request body must include the full reservation object.
+     * Use [Get Reservation](#operation/getReservation) to retrieve the current reservation before making
+     * changes.
+     *
+     * <p>To update stay dates, room type, or guest details, include all required fields in the request body.
      *
      * @return The async call builder
      */
@@ -986,7 +1277,13 @@ public class AsyncHousing {
     /**
      * Update Reservation
      *
-     * <p>Updates an existing reservation for given reservation ID.
+     * <p>Updates an existing reservation for the given reservation ID. This is a synchronous operation that
+     * returns
+     * the updated reservation in the response. The request body must include the full reservation object.
+     * Use [Get Reservation](#operation/getReservation) to retrieve the current reservation before making
+     * changes.
+     *
+     * <p>To update stay dates, room type, or guest details, include all required fields in the request body.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateReservationSyncResponse>} - The async response
@@ -999,7 +1296,13 @@ public class AsyncHousing {
     /**
      * Update Reservation
      *
-     * <p>Updates an existing reservation for given reservation ID.
+     * <p>Updates an existing reservation for the given reservation ID. This is a synchronous operation that
+     * returns
+     * the updated reservation in the response. The request body must include the full reservation object.
+     * Use [Get Reservation](#operation/getReservation) to retrieve the current reservation before making
+     * changes.
+     *
+     * <p>To update stay dates, room type, or guest details, include all required fields in the request body.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options

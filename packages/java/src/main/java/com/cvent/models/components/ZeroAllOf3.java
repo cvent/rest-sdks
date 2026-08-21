@@ -17,9 +17,16 @@ import java.util.Optional;
 /**
  * ZeroAllOf3
  *
- * <p>Represents an error response with no additional details.
+ * <p>Represents an error response for the checkin APIs that includes a unique id.
  */
 public class ZeroAllOf3 {
+    /**
+     * The unique identifier for the error response.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("id")
+    private String id;
+
     /**
      * The HTTP status code representing the error.
      */
@@ -41,9 +48,11 @@ public class ZeroAllOf3 {
 
     @JsonCreator
     public ZeroAllOf3(
+            @JsonProperty("id") @Nullable String id,
             @JsonProperty("code") long code,
             @JsonProperty("message") @Nonnull String message,
             @JsonProperty("target") @Nullable String target) {
+        this.id = id;
         this.code = code;
         this.message =
                 Optional.ofNullable(message).orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
@@ -51,7 +60,14 @@ public class ZeroAllOf3 {
     }
 
     public ZeroAllOf3(long code, @Nonnull String message) {
-        this(code, message, null);
+        this(null, code, message, null);
+    }
+
+    /**
+     * The unique identifier for the error response.
+     */
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     /**
@@ -77,6 +93,14 @@ public class ZeroAllOf3 {
 
     public static Builder builder() {
         return new Builder();
+    }
+
+    /**
+     * The unique identifier for the error response.
+     */
+    public ZeroAllOf3 withId(@Nullable String id) {
+        this.id = id;
+        return this;
     }
 
     /**
@@ -112,23 +136,26 @@ public class ZeroAllOf3 {
             return false;
         }
         ZeroAllOf3 other = (ZeroAllOf3) o;
-        return Utils.enhancedDeepEquals(this.code, other.code)
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.code, other.code)
                 && Utils.enhancedDeepEquals(this.message, other.message)
                 && Utils.enhancedDeepEquals(this.target, other.target);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(code, message, target);
+        return Utils.enhancedHash(id, code, message, target);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(ZeroAllOf3.class, "code", code, "message", message, "target", target);
+        return Utils.toString(ZeroAllOf3.class, "id", id, "code", code, "message", message, "target", target);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
+
+        private String id;
 
         private long code;
 
@@ -138,6 +165,14 @@ public class ZeroAllOf3 {
 
         private Builder() {
             // force use of static builder() method
+        }
+
+        /**
+         * The unique identifier for the error response.
+         */
+        public Builder id(@Nullable String id) {
+            this.id = id;
+            return this;
         }
 
         /**
@@ -165,7 +200,7 @@ public class ZeroAllOf3 {
         }
 
         public ZeroAllOf3 build() {
-            return new ZeroAllOf3(code, message, target);
+            return new ZeroAllOf3(id, code, message, target);
         }
     }
 }

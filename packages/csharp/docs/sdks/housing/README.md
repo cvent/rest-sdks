@@ -44,7 +44,10 @@ If you need authentication credentials or have any questions regarding the RegLi
 
 ## CreateConnection
 
-Create a connection between an integration partner and an event using an access code provided by the Passkey event owner. This connection (manually or using this API) is required to authorize ANY other API calls for the event.
+Create a connection between an integration partner and an event using an access code provided by the Passkey
+event owner. This connection is required to authorize all other API calls for the event. Only one active
+connection is supported per access code at a time.
+
 
 ### Example Usage
 
@@ -91,7 +94,9 @@ var res = await sdk.Housing.CreateConnectionAsync(req);
 
 ## GetHousingEventsSummaries
 
-Gets a paginated list of summary information for your individual housing events.
+Gets a paginated list of summary information for your individual housing events. Use this endpoint to discover
+which events your integration has access to and to retrieve housing event IDs for use in other endpoints.
+
 
 ### Example Usage
 
@@ -140,7 +145,11 @@ var res = await sdk.Housing.GetHousingEventsSummariesAsync(req);
 
 ## GetHousingEventInfo
 
-Retrieves housing event details based on the given housing event ID.
+Retrieves housing event details based on the given housing event ID. Use this endpoint to get event-level
+information such as event name, dates, attendee types, and related configuration. Get the housing event ID
+from the [Get Housing Events Summaries](#operation/getHousingEventsSummaries) endpoint, from the
+[Create Connection](#operation/createConnection) response, or directly from the Passkey event owner.
+
 
 ### Example Usage
 
@@ -187,7 +196,10 @@ var res = await sdk.Housing.GetHousingEventInfoAsync(req);
 
 ## GetHousingEventHotels
 
-Get list of hotels for the given housing event.
+Get a list of hotels for the given housing event. Returns a paginated list of all hotels in the housing event's
+room block, including hotel names, addresses, and IDs. Use the hotel IDs from this response to query
+[room types](#operation/getHousingEventRoomTypes), [availability](#operation/getHousingEventHotelAvailability), and [inventory](#operation/getRoomTypeInventory).
+
 
 ### Example Usage
 
@@ -237,7 +249,10 @@ var res = await sdk.Housing.GetHousingEventHotelsAsync(req);
 
 ## GetHousingEventHotel
 
-Gets a single hotel's details in a housing event.
+Gets a single hotel's details in a housing event. Returns detailed information about a specific hotel,
+including address and localized content. Use this endpoint when you need full details for
+a single hotel rather than the [summary list](#operation/getHousingEventHotels).
+
 
 ### Example Usage
 
@@ -286,7 +301,11 @@ var res = await sdk.Housing.GetHousingEventHotelAsync(req);
 
 ## GetHousingEventHotelAvailability
 
-Get a filterable list of available room nights for a particular hotel and housing event.
+Get a filterable list of available room nights for a particular hotel and housing event. Returns availability
+by date, showing which nights have rooms remaining.
+
+Filter by attendee type and date range to narrow results.
+
 
 ### Example Usage
 
@@ -336,7 +355,12 @@ var res = await sdk.Housing.GetHousingEventHotelAvailabilityAsync(req);
 
 ## GetHousingEventRoomTypes
 
-Get a filterable list of room types for a given hotel in a housing event.
+Get a filterable list of room types for a given hotel in a housing event. Room types represent categories of
+rooms (for example, Standard King or Double Queen) available at the hotel for this event. Use the returned
+room type IDs to query [room details](#operation/getRoomTypeDetails) and [inventory](#operation/getRoomTypeInventory).
+
+Filter by attendee type to retrieve only the room types available to a specific attendee segment.
+
 
 ### Example Usage
 
@@ -388,7 +412,9 @@ var res = await sdk.Housing.GetHousingEventRoomTypesAsync(req);
 
 ## GetRoomTypeDetails
 
-Get a room type's details for the given housing event, hotel and room type.
+Get a room type's details for the given housing event, hotel, and room type. Returns detailed information about
+a specific room type, including room description and available images.
+
 
 ### Example Usage
 
@@ -438,7 +464,11 @@ var res = await sdk.Housing.GetRoomTypeDetailsAsync(req);
 
 ## GetRoomTypeInventory
 
-Gets a list of room type inventory details (by date) for the given housing event, hotel and room type.
+Gets a list of room type inventory details (by date) for the given housing event, hotel, and room type. Returns
+date-by-date inventory counts (total rooms, rooms picked up, and rooms remaining) for a specific room type.
+
+Filter by date range to retrieve inventory for specific nights.
+
 
 ### Example Usage
 
@@ -490,7 +520,12 @@ var res = await sdk.Housing.GetRoomTypeInventoryAsync(req);
 
 ## GetHousingEventInventory
 
-Gets a list (sorted by date) of housing event inventory details for the given housing event.
+Gets a list (sorted by date) of housing event inventory details for the given housing event. Returns aggregated
+inventory across all hotels and room types in the event. This provides a high-level view of total event capacity
+and pickup.
+
+For per-hotel or per-room-type breakdowns, use [Get Room Type Inventory](#operation/getRoomTypeInventory) instead.
+
 
 ### Example Usage
 
@@ -540,7 +575,12 @@ var res = await sdk.Housing.GetHousingEventInventoryAsync(req);
 
 ## GetHousingEventReservations
 
-Get list of reservation details for the given housing event.
+Get a list of reservation details for the given housing event. Returns a paginated list of all reservations in
+the event, including guest details, stay dates, hotel, room type, and reservation status. Use the `before`
+and `after` parameters to filter by when a reservation was added or last updated, which is useful for incremental syncing.
+
+Returns an empty list when no reservations match the criteria.
+
 
 ### Example Usage
 
@@ -593,7 +633,12 @@ var res = await sdk.Housing.GetHousingEventReservationsAsync(req);
 
 ## CreateReservationRequest
 
-Creates a reservation request from guest details. A reservation request represents a registration and stores guest details. Reservations booked with the guest-specific “bookingSite” URL in the response will pre-populate guest data and link the new reservation to the reservation request for tracking.
+Creates a reservation request from guest details.
+
+A reservation request represents a registration and stores guest details such as name, email, and preferences.
+The response includes a guest-specific `bookingSite` URL. When the guest books through that URL, Passkey
+pre-populates their details and links the new reservation to the reservation request for tracking.
+
 
 ### Example Usage
 
@@ -617,23 +662,23 @@ ReservationRequestInput req = new ReservationRequestInput() {
     SourceId = "Ext ack number",
     AttendeeTypeCode = "MVFBES0320484",
     Locale = "es-DO",
-    HousingEvent = new HousingEventIdJson() {
+    HousingEvent = new HousingEventId() {
         Id = 69121314,
     },
-    AttendeeType = new AttendeeTypeIdJson() {
+    AttendeeType = new AttendeeTypeId() {
         Id = 34549966,
     },
-    RoomType = new RoomTypeIdJson() {
+    RoomType = new RoomTypeId() {
         Id = 11549984,
     },
-    Hotel = new HotelIdJson() {
+    Hotel = new HotelId() {
         Id = 49543342,
     },
     SendAcknowledgement = true,
     SplitFolio = false,
     RedirectURL = "https://cvent.com",
-    Guests = new List<GuestJson>() {},
-    CustomFields = new CustomFieldsJson() {
+    Guests = new List<Guest1>() {},
+    CustomFields = new Cvent.SDK.Models.Components.CustomFields() {
         CustomField1 = "CustomField1",
         CustomField2 = "CustomField2",
         CustomField3 = "CustomField3",
@@ -643,18 +688,18 @@ ReservationRequestInput req = new ReservationRequestInput() {
     },
     Accessible = false,
     SpecialRequest = "Double bed",
-    RewardProgram = new RewardProgramJson() {
+    RewardProgram = new RewardProgram() {
         Id = 10000,
         Name = "Test name",
     },
     MembershipId = "1154example",
-    TravelDetails = new TravelDetailsJson() {
-        Arrival = new TravelDepartureArrivalJson() {
+    TravelDetails = new TravelDetails() {
+        Arrival = new TravelDepartureArrival() {
             Time = System.DateTime.Parse("2024-12-01T00:00:00Z").ToUniversalTime(),
             Carrier = "JBU",
             CarrierNumber = "12345",
         },
-        Departure = new TravelDepartureArrivalJson() {
+        Departure = new TravelDepartureArrival() {
             Time = System.DateTime.Parse("2024-12-01T00:00:00Z").ToUniversalTime(),
             Carrier = "JBU",
             CarrierNumber = "12345",
@@ -687,7 +732,9 @@ var res = await sdk.Housing.CreateReservationRequestAsync(req);
 
 ## GetReservationRequest
 
-Returns reservation request details for a given reservation ID.
+Returns reservation request details for a given reservation request ID. The response includes guest details,
+the `bookingSite` URL, and a linked Reservation ID/ack number if present.
+
 
 ### Example Usage
 
@@ -734,7 +781,14 @@ var res = await sdk.Housing.GetReservationRequestAsync(req);
 
 ## UpdateReservationRequest
 
-Update a reservation request using the given reservation ID. If the reservation has been booked, changes to the reservation request do not affect the linked reservation.
+Update a reservation request using the given reservation request ID. Use this endpoint to update guest details
+(name, email, preferences) on the reservation request. The request body overwrites the current version entirely.
+
+If a reservation has already been booked through this request, changes to the reservation request do not affect
+the linked reservation. To update the hotel booking itself, use [Update Reservation](#operation/updateReservationSync) instead.
+
+You cannot update a cancelled reservation request.
+
 
 ### Example Usage
 
@@ -761,23 +815,23 @@ UpdateReservationRequestRequest req = new UpdateReservationRequestRequest() {
         SourceId = "Ext ack number",
         AttendeeTypeCode = "MVFBES0320484",
         Locale = "es-DO",
-        HousingEvent = new HousingEventIdJson() {
+        HousingEvent = new HousingEventId() {
             Id = 69121314,
         },
-        AttendeeType = new AttendeeTypeIdJson() {
+        AttendeeType = new AttendeeTypeId() {
             Id = 34549966,
         },
-        RoomType = new RoomTypeIdJson() {
+        RoomType = new RoomTypeId() {
             Id = 11549984,
         },
-        Hotel = new HotelIdJson() {
+        Hotel = new HotelId() {
             Id = 49543342,
         },
         SendAcknowledgement = true,
         SplitFolio = false,
         RedirectURL = "https://cvent.com",
-        Guests = new List<GuestJson>() {
-            new GuestJson() {
+        Guests = new List<Guest1>() {
+            new Guest1() {
                 Arrival = DateOnly.Parse("2020-03-05"),
                 Departure = DateOnly.Parse("2020-03-07"),
                 FirstName = "Gustav",
@@ -790,7 +844,7 @@ UpdateReservationRequestRequest req = new UpdateReservationRequestRequest() {
                 Email = "guest@cvent.com",
                 HomePhone = "(231)-213-1222",
                 WorkPhone = "(231)-213-1222",
-                HomeAddress = new AddressJson() {
+                HomeAddress = new Address3() {
                     Address1 = "West St. 1",
                     Address2 = "Apt. 16",
                     City = "Austin",
@@ -800,9 +854,9 @@ UpdateReservationRequestRequest req = new UpdateReservationRequestRequest() {
                     Country = "United States of America",
                     CountryCode = "US",
                 },
-                PaymentInfo = new PaymentInfoJson() {
+                PaymentInfo = new PaymentInfo() {
                     FullName = "Gustav Schultz",
-                    Address = new AddressJson() {
+                    Address = new Address3() {
                         Address1 = "West St. 1",
                         Address2 = "Apt. 16",
                         City = "Austin",
@@ -813,7 +867,7 @@ UpdateReservationRequestRequest req = new UpdateReservationRequestRequest() {
                         CountryCode = "US",
                     },
                     Phone = "(231)213-1222",
-                    Other = new OtherPaymentJson() {
+                    Other = new OtherPay() {
                         Amount = 0,
                         PaymentDate = DateOnly.Parse("2021-12-31"),
                         ReferenceItem = "Reference Item",
@@ -824,7 +878,7 @@ UpdateReservationRequestRequest req = new UpdateReservationRequestRequest() {
                 },
             },
         },
-        CustomFields = new CustomFieldsJson() {
+        CustomFields = new Cvent.SDK.Models.Components.CustomFields() {
             CustomField1 = "CustomField1",
             CustomField2 = "CustomField2",
             CustomField3 = "CustomField3",
@@ -834,18 +888,18 @@ UpdateReservationRequestRequest req = new UpdateReservationRequestRequest() {
         },
         Accessible = false,
         SpecialRequest = "Double bed",
-        RewardProgram = new RewardProgramJson() {
+        RewardProgram = new RewardProgram() {
             Id = 10000,
             Name = "Test name",
         },
         MembershipId = "1154example",
-        TravelDetails = new TravelDetailsJson() {
-            Arrival = new TravelDepartureArrivalJson() {
+        TravelDetails = new TravelDetails() {
+            Arrival = new TravelDepartureArrival() {
                 Time = System.DateTime.Parse("2024-12-01T00:00:00Z").ToUniversalTime(),
                 Carrier = "JBU",
                 CarrierNumber = "12345",
             },
-            Departure = new TravelDepartureArrivalJson() {
+            Departure = new TravelDepartureArrival() {
                 Time = System.DateTime.Parse("2024-12-01T00:00:00Z").ToUniversalTime(),
                 Carrier = "JBU",
                 CarrierNumber = "12345",
@@ -881,7 +935,13 @@ var res = await sdk.Housing.UpdateReservationRequestAsync(req);
 
 ## CancelReservationRequest
 
-Update the status of a reservation request to cancelled. If the reservation has already been booked, any changes made to the reservation request will not affect the linked reservation.
+Update the status of a reservation request to cancelled. If a reservation has already been booked through this
+request, cancelling the request does not cancel the linked reservation. To cancel the hotel booking itself,
+use [Cancel Reservation](#operation/cancelReservation).
+
+You cannot cancel a reservation request that already has a linked reservation. [Unlink the reservation](#operation/unlinkReservation) first,
+then cancel the request.
+
 
 ### Example Usage
 
@@ -929,7 +989,11 @@ var res = await sdk.Housing.CancelReservationRequestAsync(req);
 
 ## LinkReservation
 
-Link an existing reservation to a reservation request. Commonly used when associating a reservation created outside the normal booking flow (such as a guest calling the hotel).
+Link an existing reservation to a reservation request. Commonly used when a reservation was created outside the
+normal booking flow, such as when a guest calls the hotel directly or when staff books through the Passkey
+Call Center. Linking associates the reservation with the registration represented by the reservation request,
+enabling tracking and callback reporting.
+
 
 ### Example Usage
 
@@ -977,7 +1041,13 @@ var res = await sdk.Housing.LinkReservationAsync(req);
 
 ## UnlinkReservation
 
-Unlink reservation from reservation request. Commonly used for removing a cancelled reservation from a reservation request so that a new reservation can be linked in its place.
+Unlink a reservation from a reservation request. Commonly used when a linked reservation has been cancelled and
+you need to free up the reservation request so a new reservation can be linked in its place.
+Unlinking does not cancel or change the reservation itself.
+
+After unlinking, you can [link a new reservation](#operation/linkReservation) or allow the guest to book again using the reservation
+request's `bookingSite` URL.
+
 
 ### Example Usage
 
@@ -1025,7 +1095,12 @@ var res = await sdk.Housing.UnlinkReservationAsync(req);
 
 ## CreateReservation
 
-Create a hotel reservation in a housing event based on the details provided in the request body.
+Create a hotel reservation in a housing event based on the details provided in the request body. This endpoint
+directly creates a hotel booking on behalf of a guest. Requires a valid hotel ID, room type ID, and guest
+details (including arrival and departure dates).
+
+To generate a booking URL that guests complete themselves, use [Create Reservation Request](#operation/createReservationRequest) instead.
+
 
 ### Example Usage
 
@@ -1046,17 +1121,17 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 NewReservation req = new NewReservation() {
-    AttendeeType = new AttendeeTypeIdJson() {
+    AttendeeType = new AttendeeTypeId() {
         Id = 34549966,
     },
-    RoomType = new RoomInfoJsonInput() {
+    RoomType = new RoomInfoInput() {
         Id = 11549984,
     },
     SplitFolio = false,
     NumberOfAdults = 2,
     NumberOfChildren = 1,
-    Guests = new List<ReservationGuestJsonInput>() {},
-    CustomFields = new CustomFieldsJson() {
+    Guests = new List<ReservationGuestInput>() {},
+    CustomFields = new Cvent.SDK.Models.Components.CustomFields() {
         CustomField1 = "CustomField1",
         CustomField2 = "CustomField2",
         CustomField3 = "CustomField3",
@@ -1066,18 +1141,18 @@ NewReservation req = new NewReservation() {
     },
     Accessible = false,
     SpecialRequest = "Double bed",
-    RewardProgram = new RewardProgramJson() {
+    RewardProgram = new RewardProgram() {
         Id = 10000,
         Name = "Test name",
     },
     MembershipId = "1154example",
-    TravelDetails = new TravelDetailsJson() {
-        Arrival = new TravelDepartureArrivalJson() {
+    TravelDetails = new TravelDetails() {
+        Arrival = new TravelDepartureArrival() {
             Time = System.DateTime.Parse("2024-12-01T00:00:00Z").ToUniversalTime(),
             Carrier = "JBU",
             CarrierNumber = "12345",
         },
-        Departure = new TravelDepartureArrivalJson() {
+        Departure = new TravelDepartureArrival() {
             Time = System.DateTime.Parse("2024-12-01T00:00:00Z").ToUniversalTime(),
             Carrier = "JBU",
             CarrierNumber = "12345",
@@ -1087,7 +1162,7 @@ NewReservation req = new NewReservation() {
     HousingEvent = new NewReservationHousingEventId() {
         Id = 69121314,
     },
-    Hotel = new HotelId() {
+    Hotel = new NewReservationHotelId() {
         Id = 49543342,
     },
     Modifiers = new Modifiers() {
@@ -1119,7 +1194,10 @@ var res = await sdk.Housing.CreateReservationAsync(req);
 
 ## GetReservation
 
-Get reservation details for the given reservation ID. Commonly used in response to [passkey callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks). 
+Get reservation details for the given reservation ID. Commonly used in response to
+[Passkey callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks), where a callback payload includes the reservation ID.
+Call this endpoint to retrieve the full reservation details after receiving a callback notification.
+
 
 ### Example Usage
 
@@ -1166,7 +1244,10 @@ var res = await sdk.Housing.GetReservationAsync(req);
 
 ## CancelReservation
 
-Cancel reservation for given reservation ID.
+Cancel a reservation for the given reservation ID. Cancelling a reservation does not cancel the linked
+reservation request. If you need to also [cancel the reservation request](#operation/cancelReservationRequest), do so separately. After cancellation,
+[unlink the reservation](#operation/unlinkReservation) from its reservation request so you can link a new one.
+
 
 ### Example Usage
 
@@ -1213,7 +1294,12 @@ var res = await sdk.Housing.CancelReservationAsync(req);
 
 ## UpdateReservationSync
 
-Updates an existing reservation for given reservation ID.
+Updates an existing reservation for the given reservation ID. This is a synchronous operation that returns
+the updated reservation in the response. The request body must include the full reservation object.
+Use [Get Reservation](#operation/getReservation) to retrieve the current reservation before making changes.
+
+To update stay dates, room type, or guest details, include all required fields in the request body.
+
 
 ### Example Usage
 
@@ -1237,17 +1323,17 @@ var sdk = new CventSDK(security: new Security() {
 UpdateReservationSyncRequest req = new UpdateReservationSyncRequest() {
     ReservationId = "327S856H",
     NewReservation = new NewReservation() {
-        AttendeeType = new AttendeeTypeIdJson() {
+        AttendeeType = new AttendeeTypeId() {
             Id = 34549966,
         },
-        RoomType = new RoomInfoJsonInput() {
+        RoomType = new RoomInfoInput() {
             Id = 11549984,
         },
         SplitFolio = false,
         NumberOfAdults = 2,
         NumberOfChildren = 1,
-        Guests = new List<ReservationGuestJsonInput>() {},
-        CustomFields = new CustomFieldsJson() {
+        Guests = new List<ReservationGuestInput>() {},
+        CustomFields = new Cvent.SDK.Models.Components.CustomFields() {
             CustomField1 = "CustomField1",
             CustomField2 = "CustomField2",
             CustomField3 = "CustomField3",
@@ -1257,18 +1343,18 @@ UpdateReservationSyncRequest req = new UpdateReservationSyncRequest() {
         },
         Accessible = false,
         SpecialRequest = "Double bed",
-        RewardProgram = new RewardProgramJson() {
+        RewardProgram = new RewardProgram() {
             Id = 10000,
             Name = "Test name",
         },
         MembershipId = "1154example",
-        TravelDetails = new TravelDetailsJson() {
-            Arrival = new TravelDepartureArrivalJson() {
+        TravelDetails = new TravelDetails() {
+            Arrival = new TravelDepartureArrival() {
                 Time = System.DateTime.Parse("2024-12-01T00:00:00Z").ToUniversalTime(),
                 Carrier = "JBU",
                 CarrierNumber = "12345",
             },
-            Departure = new TravelDepartureArrivalJson() {
+            Departure = new TravelDepartureArrival() {
                 Time = System.DateTime.Parse("2024-12-01T00:00:00Z").ToUniversalTime(),
                 Carrier = "JBU",
                 CarrierNumber = "12345",
@@ -1278,7 +1364,7 @@ UpdateReservationSyncRequest req = new UpdateReservationSyncRequest() {
         HousingEvent = new NewReservationHousingEventId() {
             Id = 69121314,
         },
-        Hotel = new HotelId() {
+        Hotel = new NewReservationHotelId() {
             Id = 49543342,
         },
         Modifiers = new Modifiers() {

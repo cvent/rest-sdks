@@ -97,7 +97,7 @@ namespace Cvent.SDK.Models.Components
         /// The ISO 4217 standard format currency code used for RFPs.
         /// </summary>
         [JsonProperty("currencyCode")]
-        public CurrencyJson2? CurrencyCode { get; set; }
+        public CurrencyJson1? CurrencyCode { get; set; }
 
         /// <summary>
         /// True indicates this is a commissionable bid.

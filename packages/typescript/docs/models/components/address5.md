@@ -1,6 +1,6 @@
 # Address5
 
-Address
+An object representing an address with various properties.
 
 ## Example Usage
 
@@ -8,24 +8,22 @@ Address
 import { Address5 } from "@cvent/sdk/models/components";
 
 let value: Address5 = {
-  type: "work",
-  streetAddress: "100 Universal City Plaza",
-  locality: "Hollywood",
-  region: "CA",
-  postalCode: "91608",
-  country: "USA",
-  primary: true,
+  address1: "Cvent Inc.",
+  address2: "4001 West Parmer Lane",
+  city: "Austin",
+  region: "Texas",
+  postalCode: "78727",
+  country: "United States of America",
 };
 ```
 
 ## Fields
 
-| Field                                                              | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `type`                                                             | [components.AddressType1](../../models/components/addresstype1.md) | :heavy_check_mark:                                                 | The type of the address.                                           | work                                                               |
-| `streetAddress`                                                    | *string*                                                           | :heavy_minus_sign:                                                 | The street address of the user.                                    | 100 Universal City Plaza                                           |
-| `locality`                                                         | *string*                                                           | :heavy_minus_sign:                                                 | The locality/city of the user.                                     | Hollywood                                                          |
-| `region`                                                           | *string*                                                           | :heavy_minus_sign:                                                 | The region/state/province of the user.                             | CA                                                                 |
-| `postalCode`                                                       | *string*                                                           | :heavy_minus_sign:                                                 | Postal code (also known as zipcode) of the user.                   | 91608                                                              |
-| `country`                                                          | *string*                                                           | :heavy_minus_sign:                                                 | The country of the user.                                           | USA                                                                |
-| `primary`                                                          | *boolean*                                                          | :heavy_minus_sign:                                                 | True indicates the address is primary.                             | true                                                               |
+| Field                                                 | Type                                                  | Required                                              | Description                                           | Example                                               |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `address1`                                            | *string*                                              | :heavy_minus_sign:                                    | The first line of an address                          | Cvent Inc.                                            |
+| `address2`                                            | *string*                                              | :heavy_minus_sign:                                    | The second line of an address                         | 4001 West Parmer Lane                                 |
+| `city`                                                | *string*                                              | :heavy_minus_sign:                                    | The name of the city.                                 | Austin                                                |
+| `region`                                              | *string*                                              | :heavy_minus_sign:                                    | The name of the state/province/region of the address. | Texas                                                 |
+| `postalCode`                                          | *string*                                              | :heavy_minus_sign:                                    | postal code (also known as zipcode) of the address    | 78727                                                 |
+| `country`                                             | *string*                                              | :heavy_minus_sign:                                    | Name of the country for example, 'United States'      | United States of America                              |

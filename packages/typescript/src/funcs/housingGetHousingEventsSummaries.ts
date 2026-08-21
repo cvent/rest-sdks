@@ -30,7 +30,8 @@ import { Result } from "../types/fp.js";
  * Get Housing Events Summaries
  *
  * @remarks
- * Gets a paginated list of summary information for your individual housing events.
+ * Gets a paginated list of summary information for your individual housing events. Use this endpoint to discover
+ * which events your integration has access to and to retrieve housing event IDs for use in other endpoints.
  */
 export function housingGetHousingEventsSummaries(
   client: CventSDKCore,

@@ -28,7 +28,7 @@ import {
   EventStatusJson$inboundSchema,
 } from "./eventstatusjson.js";
 import { EventTypeJson, EventTypeJson$inboundSchema } from "./eventtypejson.js";
-import { PlannerJson2, PlannerJson2$inboundSchema } from "./plannerjson2.js";
+import { PlannerJson1, PlannerJson1$inboundSchema } from "./plannerjson1.js";
 import {
   RegistrationStatusJson,
   RegistrationStatusJson$inboundSchema,
@@ -172,7 +172,7 @@ export type EventUpdate = {
   /**
    * A collection of contacts representing the event planners.
    */
-  planners: Array<PlannerJson2>;
+  planners: Array<PlannerJson1>;
   /**
    * A collection of contacts representing event stakeholders.
    */
@@ -276,7 +276,7 @@ export const EventUpdate$inboundSchema: z.ZodType<
   planningStatus: z.string().optional(),
   testMode: z.boolean().optional(),
   capacity: z.number().int().optional(),
-  planners: z.array(PlannerJson2$inboundSchema),
+  planners: z.array(PlannerJson1$inboundSchema),
   stakeholders: z.array(StakeholderJson$inboundSchema).optional(),
   customFields: z.array(CustomFieldJson2$inboundSchema).optional(),
   category: z.lazy(() => EventUpdateLookup$inboundSchema).optional(),

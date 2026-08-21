@@ -36,6 +36,7 @@ import { Housing } from "./housing.js";
 import { HousingHotels } from "./housinghotels.js";
 import { Leads } from "./leads.js";
 import { MeetingRequest } from "./meetingrequest.js";
+import { Orders } from "./orders.js";
 import { ProcessForm } from "./processform.js";
 import { ProposalDraft } from "./proposaldraft.js";
 import { RFPAdditionalDetails } from "./rfpadditionaldetails.js";
@@ -47,6 +48,7 @@ import { Sessions } from "./sessions.js";
 import { Signatures } from "./signatures.js";
 import { Speakers } from "./speakers.js";
 import { Surveys } from "./surveys.js";
+import { Transactions } from "./transactions.js";
 import { TravelAccounts } from "./travelaccounts.js";
 import { TravelRFPs } from "./travelrfps.js";
 import { TravelSuppliers } from "./travelsuppliers.js";
@@ -244,6 +246,11 @@ export class CventSDK extends ClientSDK {
     return (this._authentication ??= new Authentication(this._options));
   }
 
+  private _orders?: Orders;
+  get orders(): Orders {
+    return (this._orders ??= new Orders(this._options));
+  }
+
   private _processForm?: ProcessForm;
   get processForm(): ProcessForm {
     return (this._processForm ??= new ProcessForm(this._options));
@@ -289,6 +296,11 @@ export class CventSDK extends ClientSDK {
   private _signatures?: Signatures;
   get signatures(): Signatures {
     return (this._signatures ??= new Signatures(this._options));
+  }
+
+  private _transactions?: Transactions;
+  get transactions(): Transactions {
+    return (this._transactions ??= new Transactions(this._options));
   }
 
   private _travelAccounts?: TravelAccounts;

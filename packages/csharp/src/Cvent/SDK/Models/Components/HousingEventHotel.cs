@@ -12,6 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
+    using System;
     using System.Collections.Generic;
 
     /// <summary>
@@ -29,7 +30,7 @@ namespace Cvent.SDK.Models.Components
         /// Contains unique ID of the housing event.
         /// </summary>
         [JsonProperty("housingEvent")]
-        public HousingEventIdJson HousingEvent { get; set; } = default!;
+        public HousingEventId HousingEvent { get; set; } = default!;
 
         /// <summary>
         /// The hotel's name.
@@ -53,13 +54,13 @@ namespace Cvent.SDK.Models.Components
         /// List of hotel images.
         /// </summary>
         [JsonProperty("images")]
-        public List<ImageLinkJson>? Images { get; set; }
+        public List<ImageLink>? Images { get; set; }
 
         /// <summary>
         /// Proximity of the event venue to the hotel.
         /// </summary>
         [JsonProperty("proximity")]
-        public ProximityJson? Proximity { get; set; }
+        public Proximity? Proximity { get; set; }
 
         /// <summary>
         /// List of available amenities at the hotel.
@@ -68,15 +69,33 @@ namespace Cvent.SDK.Models.Components
         public List<string>? Amenities { get; set; }
 
         /// <summary>
+        /// The hotel's reservation access date.
+        /// </summary>
+        [JsonProperty("reservationAccessDate")]
+        public DateOnly? ReservationAccessDate { get; set; }
+
+        /// <summary>
+        /// The hotel's close date.
+        /// </summary>
+        [JsonProperty("hotelCloseDate")]
+        public DateOnly? HotelCloseDate { get; set; }
+
+        /// <summary>
         /// The hotel's rating, used to classify the hotel's quality.
         /// </summary>
         [JsonProperty("rating")]
-        public HotelRatingJson? Rating { get; set; }
+        public HotelRating? Rating { get; set; }
 
         /// <summary>
         /// Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
         /// </summary>
         [JsonProperty("address")]
-        public AddressJson? Address { get; set; }
+        public Address3? Address { get; set; }
+
+        /// <summary>
+        /// List of reward programs available at the hotel.
+        /// </summary>
+        [JsonProperty("rewardPrograms")]
+        public List<RewardProgram>? RewardPrograms { get; set; }
     }
 }

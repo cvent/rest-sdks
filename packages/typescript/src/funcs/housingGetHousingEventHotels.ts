@@ -30,7 +30,9 @@ import { Result } from "../types/fp.js";
  * Get Housing Event Hotels
  *
  * @remarks
- * Get list of hotels for the given housing event.
+ * Get a list of hotels for the given housing event. Returns a paginated list of all hotels in the housing event's
+ * room block, including hotel names, addresses, and IDs. Use the hotel IDs from this response to query
+ * [room types](#operation/getHousingEventRoomTypes), [availability](#operation/getHousingEventHotelAvailability), and [inventory](#operation/getRoomTypeInventory).
  */
 export function housingGetHousingEventHotels(
   client: CventSDKCore,

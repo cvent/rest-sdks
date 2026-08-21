@@ -5,18 +5,17 @@
 import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AddressJson, AddressJson$inboundSchema } from "./addressjson.js";
+import { Address3, Address3$inboundSchema } from "./address3.js";
+import { HotelRating, HotelRating$inboundSchema } from "./hotelrating.js";
 import {
-  HotelRatingJson,
-  HotelRatingJson$inboundSchema,
-} from "./hotelratingjson.js";
-import {
-  HousingEventIdJson,
-  HousingEventIdJson$inboundSchema,
-} from "./housingeventidjson.js";
-import { ImageLinkJson, ImageLinkJson$inboundSchema } from "./imagelinkjson.js";
-import { ProximityJson, ProximityJson$inboundSchema } from "./proximityjson.js";
+  HousingEventId,
+  HousingEventId$inboundSchema,
+} from "./housingeventid.js";
+import { ImageLink, ImageLink$inboundSchema } from "./imagelink.js";
+import { Proximity, Proximity$inboundSchema } from "./proximity.js";
+import { RewardProgram, RewardProgram$inboundSchema } from "./rewardprogram.js";
 
 /**
  * Hotel details including name, description, policies and IDs.
@@ -29,7 +28,7 @@ export type HousingEventHotel = {
   /**
    * Contains unique ID of the housing event.
    */
-  housingEvent: HousingEventIdJson;
+  housingEvent: HousingEventId;
   /**
    * The hotel's name.
    */
@@ -45,23 +44,35 @@ export type HousingEventHotel = {
   /**
    * List of hotel images.
    */
-  images?: Array<ImageLinkJson> | undefined;
+  images?: Array<ImageLink> | undefined;
   /**
    * Proximity of the event venue to the hotel.
    */
-  proximity?: ProximityJson | undefined;
+  proximity?: Proximity | undefined;
   /**
    * List of available amenities at the hotel.
    */
   amenities?: Array<string> | undefined;
   /**
+   * The hotel's reservation access date.
+   */
+  reservationAccessDate?: RFCDate | undefined;
+  /**
+   * The hotel's close date.
+   */
+  hotelCloseDate?: RFCDate | undefined;
+  /**
    * The hotel's rating, used to classify the hotel's quality.
    */
-  rating?: HotelRatingJson | undefined;
+  rating?: HotelRating | undefined;
   /**
    * Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
    */
-  address?: AddressJson | undefined;
+  address?: Address3 | undefined;
+  /**
+   * List of reward programs available at the hotel.
+   */
+  rewardPrograms?: Array<RewardProgram> | undefined;
 };
 
 /** @internal */
@@ -71,15 +82,18 @@ export const HousingEventHotel$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.number().int(),
-  housingEvent: HousingEventIdJson$inboundSchema,
+  housingEvent: HousingEventId$inboundSchema,
   name: z.string(),
   description: z.string(),
   childPolicy: z.string().optional(),
-  images: z.array(ImageLinkJson$inboundSchema).optional(),
-  proximity: ProximityJson$inboundSchema.optional(),
+  images: z.array(ImageLink$inboundSchema).optional(),
+  proximity: Proximity$inboundSchema.optional(),
   amenities: z.array(z.string()).optional(),
-  rating: HotelRatingJson$inboundSchema.optional(),
-  address: AddressJson$inboundSchema.optional(),
+  reservationAccessDate: z.string().transform(v => new RFCDate(v)).optional(),
+  hotelCloseDate: z.string().transform(v => new RFCDate(v)).optional(),
+  rating: HotelRating$inboundSchema.optional(),
+  address: Address3$inboundSchema.optional(),
+  rewardPrograms: z.array(RewardProgram$inboundSchema).optional(),
 });
 
 export function housingEventHotelFromJSON(

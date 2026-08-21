@@ -1,0 +1,9 @@
+# GetAccountTransactionItemResponse
+
+
+## Fields
+
+| Field                                                                                                               | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                                          | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                                             | :heavy_check_mark:                                                                                                  | N/A                                                                                                                 |
+| `TransactionItemAccountResponse`                                                                                    | [TransactionItemAccountResponse](../../Models/Components/TransactionItemAccountResponse.md)                         | :heavy_minus_sign:                                                                                                  | Successfully retrieved the transaction item for a given transactionItemId for a given transactionId in the account. |

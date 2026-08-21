@@ -14,7 +14,7 @@ import java.util.Optional;
 /**
  * BadgePrinterPoolRef
  *
- * <p>A unique identifier of the badge printer pool.
+ * <p>Reference to a Badge Print Pool.
  */
 public class BadgePrinterPoolRef {
     /**

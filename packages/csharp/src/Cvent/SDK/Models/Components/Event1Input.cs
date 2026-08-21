@@ -90,7 +90,7 @@ namespace Cvent.SDK.Models.Components
         /// A collection of contacts representing the event planners.
         /// </summary>
         [JsonProperty("planners")]
-        public List<PlannerJson2Input> Planners { get; set; } = default!;
+        public List<PlannerJson1Input> Planners { get; set; } = default!;
 
         /// <summary>
         /// Type of event being created. The following event types are not supported: Cvent Webinar, Cvent Essentials.

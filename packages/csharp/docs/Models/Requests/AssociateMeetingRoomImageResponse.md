@@ -1,0 +1,9 @@
+# AssociateMeetingRoomImageResponse
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                            | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                               | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `MeetingRoomImageAssociationResponse`                                                                 | [MeetingRoomImageAssociationResponse](../../Models/Components/MeetingRoomImageAssociationResponse.md) | :heavy_minus_sign:                                                                                    | Successfully associated the image with the meeting room.                                              |
