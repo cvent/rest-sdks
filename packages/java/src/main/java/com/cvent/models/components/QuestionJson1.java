@@ -108,7 +108,7 @@ public class QuestionJson1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("categories")
-    private List<CategoryJson1> categories;
+    private List<CategoryJson> categories;
 
     /**
      * List of sub categories for matrix side-by-side questions
@@ -193,7 +193,7 @@ public class QuestionJson1 {
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("type") @Nullable QuestionTypeJson type,
             @JsonProperty("choices") @Nullable List<ChoiceJson> choices,
-            @JsonProperty("categories") @Nullable List<CategoryJson1> categories,
+            @JsonProperty("categories") @Nullable List<CategoryJson> categories,
             @JsonProperty("subCategories") @Nullable List<TextFieldJson> subCategories,
             @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoiceJson notApplicableAnswer,
             @JsonProperty("otherAnswer") @Nullable AdditionalChoiceJson otherAnswer,
@@ -334,7 +334,7 @@ public class QuestionJson1 {
     /**
      * List of categories for the question.
      */
-    public Optional<List<CategoryJson1>> categories() {
+    public Optional<List<CategoryJson>> categories() {
         return Optional.ofNullable(this.categories);
     }
 
@@ -503,7 +503,7 @@ public class QuestionJson1 {
     /**
      * List of categories for the question.
      */
-    public QuestionJson1 withCategories(@Nullable List<CategoryJson1> categories) {
+    public QuestionJson1 withCategories(@Nullable List<CategoryJson> categories) {
         this.categories = categories;
         return this;
     }
@@ -723,7 +723,7 @@ public class QuestionJson1 {
 
         private List<ChoiceJson> choices;
 
-        private List<CategoryJson1> categories;
+        private List<CategoryJson> categories;
 
         private List<TextFieldJson> subCategories;
 
@@ -840,7 +840,7 @@ public class QuestionJson1 {
         /**
          * List of categories for the question.
          */
-        public Builder categories(@Nullable List<CategoryJson1> categories) {
+        public Builder categories(@Nullable List<CategoryJson> categories) {
             this.categories = categories;
             return this;
         }

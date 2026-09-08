@@ -17,7 +17,7 @@ let value: RfpPastEvent = {
   guestRoomsBlocked: 500,
   foodBeverageSpend: "3,000 dollars",
   notes: "This was the 25th event hosted by Alpha Planners.",
-  id: "f56a51a4-84b0-46c9-a612-716dc95a1c96",
+  id: "db6a6dd9-3284-4936-bd7d-5242494acb03",
 };
 ```
 
@@ -34,4 +34,4 @@ let value: RfpPastEvent = {
 | `guestRoomsBlocked`                                                           | *number*                                                                      | :heavy_minus_sign:                                                            | Count of rooms blocked by planner for the event.                              | 500                                                                           |
 | `foodBeverageSpend`                                                           | *string*                                                                      | :heavy_minus_sign:                                                            | Expenditure on food and beverage.                                             | 3,000 dollars                                                                 |
 | `notes`                                                                       | *string*                                                                      | :heavy_minus_sign:                                                            | Any other information about the event.                                        | This was the 25th event hosted by Alpha Planners.                             |
-| `id`                                                                          | *string*                                                                      | :heavy_check_mark:                                                            | Unique ID for the event detail.                                               | f56a51a4-84b0-46c9-a612-716dc95a1c96                                          |
+| `id`                                                                          | *string*                                                                      | :heavy_check_mark:                                                            | Unique ID for the event detail.                                               | db6a6dd9-3284-4936-bd7d-5242494acb03                                          |

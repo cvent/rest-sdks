@@ -1,0 +1,16 @@
+# LiveStream
+
+A webcast Live Stream.
+
+
+## Fields
+
+| Field                                                                 | Type                                                                  | Required                                                              | Description                                                           | Example                                                               |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `Id`                                                                  | *string*                                                              | :heavy_minus_sign:                                                    | Unique ID of the stream.                                              | stream1256wet                                                         |
+| `Url`                                                                 | *string*                                                              | :heavy_minus_sign:                                                    | A RTMP url of the stream.                                             | https://cvent.zoom.us/j/7566652259                                    |
+| `Key`                                                                 | *string*                                                              | :heavy_minus_sign:                                                    | Access key of the stream.                                             | 145asa16ZS78                                                          |
+| `Status`                                                              | [LiveStreamStatus](../../Models/Components/LiveStreamStatus.md)       | :heavy_minus_sign:                                                    | This is used to denote the status of the stream                       | Standby                                                               |
+| `Session`                                                             | [LiveStreamSession](../../Models/Components/LiveStreamSession.md)     | :heavy_minus_sign:                                                    | Provides information about the livestream's current streaming session |                                                                       |
+| `Page`                                                                | *string*                                                              | :heavy_minus_sign:                                                    | A url of the page where live stream to be streamed.                   | https://cvent.zoom.aspx/j/7566652259                                  |
+| `Recording`                                                           | [LiveStreamRecording](../../Models/Components/LiveStreamRecording.md) | :heavy_minus_sign:                                                    | Provides information about the livestream's recording                 |                                                                       |

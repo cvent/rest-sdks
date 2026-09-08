@@ -45,6 +45,12 @@ namespace Cvent.SDK.Models.Components
         public string Description { get; set; } = default!;
 
         /// <summary>
+        /// True means hotel is integrated.
+        /// </summary>
+        [JsonProperty("integrated")]
+        public bool? Integrated { get; set; }
+
+        /// <summary>
         /// The hotel's child policy.
         /// </summary>
         [JsonProperty("childPolicy")]

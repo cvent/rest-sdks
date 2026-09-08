@@ -24,7 +24,7 @@ public class EventCopy {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private EventCopyTargetJson event;
+    private EventCopyTarget event;
 
     /**
      * Determines if registration feature data should be copied over from the source event.
@@ -77,7 +77,7 @@ public class EventCopy {
 
     @JsonCreator
     public EventCopy(
-            @JsonProperty("event") @Nullable EventCopyTargetJson event,
+            @JsonProperty("event") @Nullable EventCopyTarget event,
             @JsonProperty("registration") @Nullable RegistrationEventCopyOverride registration,
             @JsonProperty("planning") @Nullable PlanningEventCopyOverride planning,
             @JsonProperty("agenda") @Nullable AgendaEventCopyOverride agenda,
@@ -102,7 +102,7 @@ public class EventCopy {
     /**
      * Represents the target event information for an event copy operation.
      */
-    public Optional<EventCopyTargetJson> event() {
+    public Optional<EventCopyTarget> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -162,7 +162,7 @@ public class EventCopy {
     /**
      * Represents the target event information for an event copy operation.
      */
-    public EventCopy withEvent(@Nullable EventCopyTargetJson event) {
+    public EventCopy withEvent(@Nullable EventCopyTarget event) {
         this.event = event;
         return this;
     }
@@ -272,7 +272,7 @@ public class EventCopy {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EventCopyTargetJson event;
+        private EventCopyTarget event;
 
         private RegistrationEventCopyOverride registration;
 
@@ -295,7 +295,7 @@ public class EventCopy {
         /**
          * Represents the target event information for an event copy operation.
          */
-        public Builder event(@Nullable EventCopyTargetJson event) {
+        public Builder event(@Nullable EventCopyTarget event) {
             this.event = event;
             return this;
         }

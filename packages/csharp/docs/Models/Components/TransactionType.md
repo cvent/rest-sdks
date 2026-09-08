@@ -1,22 +1,34 @@
 # TransactionType
 
-This is used to denote the transaction type for a transaction.
+The proposal transaction type
 
 ## Example Usage
 
 ```csharp
 using Cvent.SDK.Models.Components;
 
-var value = TransactionType.Payments;
+var value = TransactionType.Award;
 ```
 
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `Payments`   | Payments     |
-| `Refunds`    | Refunds      |
-| `Authorized` | Authorized   |
-| `Approved`   | Approved     |
-| `Declined`   | Declined     |
+| Name             | Value            |
+| ---------------- | ---------------- |
+| `Award`          | AWARD            |
+| `Cancel`         | CANCEL           |
+| `Copy`           | COPY             |
+| `Create`         | CREATE           |
+| `Decline`        | DECLINE          |
+| `Delete`         | DELETE           |
+| `Expire`         | EXPIRE           |
+| `Modify`         | MODIFY           |
+| `Obfuscate`      | OBFUSCATE        |
+| `Publish`        | PUBLISH          |
+| `PublishCancel`  | PUBLISH_CANCEL   |
+| `PublishRequest` | PUBLISH_REQUEST  |
+| `Reopen`         | REOPEN           |
+| `ResendEmail`    | RESEND_EMAIL     |
+| `Submit`         | SUBMIT           |
+| `Validate`       | VALIDATE         |
+| `Withdraw`       | WITHDRAW         |

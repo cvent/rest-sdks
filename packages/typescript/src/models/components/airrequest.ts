@@ -127,7 +127,7 @@ export type AirRequest = {
    */
   incomingLeg?: LegDetail | undefined;
   /**
-   * Preferred or assigned seat type for an air booking.
+   * Preferred or assigned seat type for a travel booking.
    */
   seatType?: SeatType | undefined;
   /**

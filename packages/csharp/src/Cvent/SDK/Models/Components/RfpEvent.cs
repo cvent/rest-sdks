@@ -52,7 +52,7 @@ namespace Cvent.SDK.Models.Components
         /// Event type.
         /// </summary>
         [JsonProperty("type")]
-        public EventType1? Type { get; set; }
+        public EventType12? Type { get; set; }
 
         /// <summary>
         /// Space area divisons.
@@ -79,7 +79,7 @@ namespace Cvent.SDK.Models.Components
         public bool? FlexibleDates { get; set; }
 
         /// <summary>
-        /// True indicates event is a repeat occurrence.
+        /// True indicates similar event(s) have been held in the past.
         /// </summary>
         [JsonProperty("repeat")]
         public bool? Repeat { get; set; }

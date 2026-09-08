@@ -27,6 +27,10 @@ let value: ExistingReservation = {
   roomType: {
     id: 11549984,
     name: "King",
+    roomCategory: {
+      id: 12345,
+      name: "Deluxe King",
+    },
   },
   splitFolio: false,
   startDate: new Date("2024-12-01T00:00:00Z"),

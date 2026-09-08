@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  EventCopyTargetJson,
-  EventCopyTargetJson$Outbound,
-  EventCopyTargetJson$outboundSchema,
-} from "./eventcopytargetjson.js";
+  EventCopyTarget,
+  EventCopyTarget$Outbound,
+  EventCopyTarget$outboundSchema,
+} from "./eventcopytarget.js";
 
 /**
  * Determines if registration feature data should be copied over from the source event.
@@ -86,7 +86,7 @@ export type EventCopy = {
   /**
    * Represents the target event information for an event copy operation.
    */
-  event?: EventCopyTargetJson | undefined;
+  event?: EventCopyTarget | undefined;
   /**
    * Determines if registration feature data should be copied over from the source event.
    */
@@ -277,7 +277,7 @@ export function exhibitorsEventCopyOverrideToJSON(
 
 /** @internal */
 export type EventCopy$Outbound = {
-  event?: EventCopyTargetJson$Outbound | undefined;
+  event?: EventCopyTarget$Outbound | undefined;
   registration?: RegistrationEventCopyOverride$Outbound | undefined;
   planning?: PlanningEventCopyOverride$Outbound | undefined;
   agenda?: AgendaEventCopyOverride$Outbound | undefined;
@@ -293,7 +293,7 @@ export const EventCopy$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EventCopy
 > = z.object({
-  event: EventCopyTargetJson$outboundSchema.optional(),
+  event: EventCopyTarget$outboundSchema.optional(),
   registration: z.lazy(() => RegistrationEventCopyOverride$outboundSchema)
     .optional(),
   planning: z.lazy(() => PlanningEventCopyOverride$outboundSchema).optional(),

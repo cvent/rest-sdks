@@ -10,7 +10,6 @@
 namespace Cvent.SDK.Models.Errors
 {
     using Cvent.SDK.Models.Components;
-    using Cvent.SDK.Models.Errors;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
     using System;
@@ -41,17 +40,11 @@ namespace Cvent.SDK.Models.Errors
         /// Additional details of cascading error messages.
         /// </summary>
         [JsonProperty("details")]
-        public List<ErrorResponseBase>? Details { get; set; }
-
-        /// <summary>
-        /// Business validation code for bad requests.
-        /// </summary>
-        [JsonProperty("validationCode")]
-        public ValidationCode? ValidationCode { get; set; }
+        public List<ErrorResponseBase11>? Details { get; set; }
     }
 
     /// <summary>
-    /// Segments error response details.
+    /// Represents an error response with additional details of cascading error messages.
     /// </summary>
     public class ErrorResponse12 : CventSDKException
     {
@@ -70,10 +63,7 @@ namespace Cvent.SDK.Models.Errors
         public string? Target { get; set; }
 
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorResponse12.Payload.Details instead.")]
-        public List<ErrorResponseBase>? Details { get; set; }
-
-        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorResponse12.Payload.ValidationCode instead.")]
-        public ValidationCode? ValidationCode { get; set; }
+        public List<ErrorResponseBase11>? Details { get; set; }
 
         private static string ErrorMessage(ErrorResponse12Payload payload, string body)
         {
@@ -100,7 +90,6 @@ namespace Cvent.SDK.Models.Errors
             _message = payload.Message;
             Target = payload.Target;
             Details = payload.Details;
-            ValidationCode = payload.ValidationCode;
 #pragma warning restore CS0618
         }
     }

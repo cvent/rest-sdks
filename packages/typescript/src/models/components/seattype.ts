@@ -6,14 +6,14 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Preferred or assigned seat type for an air booking.
+ * Preferred or assigned seat type for a travel booking.
  */
 export const SeatType = {
   Aisle: "Aisle",
   Window: "Window",
 } as const;
 /**
- * Preferred or assigned seat type for an air booking.
+ * Preferred or assigned seat type for a travel booking.
  */
 export type SeatType = ClosedEnum<typeof SeatType>;
 

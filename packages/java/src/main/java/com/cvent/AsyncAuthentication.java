@@ -6,8 +6,8 @@ package com.cvent;
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 import static com.cvent.operations.Operations.AsyncRequestlessOperation;
 
+import com.cvent.models.components.Oauth2TokenApplicationXWwwFormUrlencodedPostRequest;
 import com.cvent.models.operations.Oauth2AuthorizeRequest;
-import com.cvent.models.operations.Oauth2TokenRequest;
 import com.cvent.models.operations.Oauth2TokenSecurity;
 import com.cvent.models.operations.async.Oauth2AuthorizeRequestBuilder;
 import com.cvent.models.operations.async.Oauth2AuthorizeResponse;
@@ -149,8 +149,10 @@ public class AsyncAuthentication {
      * @return {@code CompletableFuture<Oauth2TokenResponse>} - The async response
      */
     public CompletableFuture<Oauth2TokenResponse> oauth2Token(
-            @Nullable Oauth2TokenRequest request, @Nonnull Oauth2TokenSecurity security, @Nullable Options options) {
-        AsyncRequestOperation<Oauth2TokenRequest, Oauth2TokenResponse> operation =
+            @Nullable Oauth2TokenApplicationXWwwFormUrlencodedPostRequest request,
+            @Nonnull Oauth2TokenSecurity security,
+            @Nullable Options options) {
+        AsyncRequestOperation<Oauth2TokenApplicationXWwwFormUrlencodedPostRequest, Oauth2TokenResponse> operation =
                 new Oauth2Token.Async(sdkConfiguration, security, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }

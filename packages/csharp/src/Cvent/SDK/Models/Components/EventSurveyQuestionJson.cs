@@ -90,7 +90,7 @@ namespace Cvent.SDK.Models.Components
         /// List of categories for the question.
         /// </summary>
         [JsonProperty("categories")]
-        public List<CategoryJson1>? Categories { get; set; }
+        public List<CategoryJson>? Categories { get; set; }
 
         /// <summary>
         /// List of sub categories for matrix side-by-side questions.

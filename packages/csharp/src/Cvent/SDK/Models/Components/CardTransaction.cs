@@ -48,7 +48,7 @@ namespace Cvent.SDK.Models.Components
         /// This is used to denote the transaction type for a transaction.
         /// </summary>
         [JsonProperty("type")]
-        public TransactionType? Type { get; set; }
+        public TransactionType1? Type { get; set; }
 
         /// <summary>
         /// Transaction amount.

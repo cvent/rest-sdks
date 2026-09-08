@@ -9,11 +9,12 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
+    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
 
     /// <summary>
-    /// This is used to denote the choice of question.
+    /// This is used to denote the choice of questions in an event.
     /// </summary>
     public class Choice2
     {
@@ -28,5 +29,11 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [JsonProperty("text")]
         public string Text { get; set; } = default!;
+
+        /// <summary>
+        /// The type for the event question choice.
+        /// </summary>
+        [JsonProperty("type")]
+        public ChoiceType? Type { get; set; } = Cvent.SDK.Models.Components.ChoiceType.StandardChoice;
     }
 }

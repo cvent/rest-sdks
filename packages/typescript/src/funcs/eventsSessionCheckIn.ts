@@ -41,8 +41,8 @@ export function eventsSessionCheckIn(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    Array<components.AttendeeAddBulkItemJson>,
-    | errors.ErrorResponse11
+    Array<components.AttendeeInvitesBulkResponseItem12>,
+    | errors.ErrorResponse12
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -67,8 +67,8 @@ async function $do(
 ): Promise<
   [
     Result<
-      Array<components.AttendeeAddBulkItemJson>,
-      | errors.ErrorResponse11
+      Array<components.AttendeeInvitesBulkResponseItem12>,
+      | errors.ErrorResponse12
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -165,8 +165,8 @@ async function $do(
   };
 
   const [result] = await M.match<
-    Array<components.AttendeeAddBulkItemJson>,
-    | errors.ErrorResponse11
+    Array<components.AttendeeInvitesBulkResponseItem12>,
+    | errors.ErrorResponse12
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -176,8 +176,11 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(207, z.array(components.AttendeeAddBulkItemJson$inboundSchema)),
-    M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse11$inboundSchema),
+    M.json(
+      207,
+      z.array(components.AttendeeInvitesBulkResponseItem12$inboundSchema),
+    ),
+    M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse12$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

@@ -55,7 +55,7 @@ public class CardTransaction {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private TransactionType type;
+    private TransactionType1 type;
 
     /**
      * Transaction amount.
@@ -102,7 +102,7 @@ public class CardTransaction {
             @JsonProperty("card") @Nullable Card card,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("transactionDate") @Nullable OffsetDateTime transactionDate,
-            @JsonProperty("type") @Nullable TransactionType type,
+            @JsonProperty("type") @Nullable TransactionType1 type,
             @JsonProperty("amount") @Nullable Double amount,
             @JsonProperty("currency") @Nullable String currency,
             @JsonProperty("merchant") @Nullable String merchant,
@@ -157,7 +157,7 @@ public class CardTransaction {
     /**
      * This is used to denote the transaction type for a transaction.
      */
-    public Optional<TransactionType> type() {
+    public Optional<TransactionType1> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -239,7 +239,7 @@ public class CardTransaction {
     /**
      * This is used to denote the transaction type for a transaction.
      */
-    public CardTransaction withType(@Nullable TransactionType type) {
+    public CardTransaction withType(@Nullable TransactionType1 type) {
         this.type = type;
         return this;
     }
@@ -366,7 +366,7 @@ public class CardTransaction {
 
         private OffsetDateTime transactionDate;
 
-        private TransactionType type;
+        private TransactionType1 type;
 
         private Double amount;
 
@@ -419,7 +419,7 @@ public class CardTransaction {
         /**
          * This is used to denote the transaction type for a transaction.
          */
-        public Builder type(@Nullable TransactionType type) {
+        public Builder type(@Nullable TransactionType1 type) {
             this.type = type;
             return this;
         }

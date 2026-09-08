@@ -22,18 +22,17 @@ public class UserGroupsPaginatedResponse {
      * List of user groups
      */
     @JsonProperty("data")
-    private List<UserGroupJson> data;
+    private List<UserGroup> data;
 
     /**
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     @JsonCreator
     public UserGroupsPaginatedResponse(
-            @JsonProperty("data") @Nonnull List<UserGroupJson> data,
-            @JsonProperty("paging") @Nonnull PagingJson paging) {
+            @JsonProperty("data") @Nonnull List<UserGroup> data, @JsonProperty("paging") @Nonnull Paging paging) {
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
@@ -42,14 +41,14 @@ public class UserGroupsPaginatedResponse {
     /**
      * List of user groups
      */
-    public List<UserGroupJson> data() {
+    public List<UserGroup> data() {
         return this.data;
     }
 
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
@@ -60,7 +59,7 @@ public class UserGroupsPaginatedResponse {
     /**
      * List of user groups
      */
-    public UserGroupsPaginatedResponse withData(@Nonnull List<UserGroupJson> data) {
+    public UserGroupsPaginatedResponse withData(@Nonnull List<UserGroup> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -68,7 +67,7 @@ public class UserGroupsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public UserGroupsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public UserGroupsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -98,9 +97,9 @@ public class UserGroupsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private List<UserGroupJson> data;
+        private List<UserGroup> data;
 
-        private PagingJson paging;
+        private Paging paging;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +108,7 @@ public class UserGroupsPaginatedResponse {
         /**
          * List of user groups
          */
-        public Builder data(@Nonnull List<UserGroupJson> data) {
+        public Builder data(@Nonnull List<UserGroup> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }
@@ -117,7 +116,7 @@ public class UserGroupsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }

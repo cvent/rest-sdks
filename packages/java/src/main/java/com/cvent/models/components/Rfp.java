@@ -13,6 +13,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
+import java.lang.Deprecated;
 import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
@@ -290,12 +291,23 @@ public class Rfp {
     private Boolean feeTransparencyEnabled;
 
     /**
-     * Venue integrations the planner prefers when sourcing venues. An empty array or absent field
-     * indicates no preference has been recorded.
+     * DEPRECATED: Use [venueIntegrationPreference](#schema/VenueIntegrationPreference) instead. Venue
+     * integrations the planner prefers when sourcing venues. An empty array or absent field indicates no
+     * preference has been recorded.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("preferredVenueIntegrations")
+    @Deprecated
     private List<VenueIntegrationType> preferredVenueIntegrations;
+
+    /**
+     * Venue integration preference for an RFP.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("venueIntegrationPreference")
+    private VenueIntegrationPreference venueIntegrationPreference;
 
     /**
      * Unique identifier for RFP.
@@ -451,6 +463,7 @@ public class Rfp {
             @JsonProperty("packagePricingPreference") @Nullable PackagePricingPreference packagePricingPreference,
             @JsonProperty("feeTransparencyEnabled") @Nullable Boolean feeTransparencyEnabled,
             @JsonProperty("preferredVenueIntegrations") @Nullable List<VenueIntegrationType> preferredVenueIntegrations,
+            @JsonProperty("venueIntegrationPreference") @Nullable VenueIntegrationPreference venueIntegrationPreference,
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("status") @Nullable RfpStatus1 status,
@@ -506,6 +519,7 @@ public class Rfp {
         this.feeTransparencyEnabled = Optional.ofNullable(feeTransparencyEnabled)
                 .orElse(Builder._SINGLETON_VALUE_FeeTransparencyEnabled.value());
         this.preferredVenueIntegrations = preferredVenueIntegrations;
+        this.venueIntegrationPreference = venueIntegrationPreference;
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.code = code;
         this.status = status;
@@ -534,6 +548,7 @@ public class Rfp {
                 null,
                 needsMeetingSpace,
                 needsGuestRooms,
+                null,
                 null,
                 null,
                 null,
@@ -848,11 +863,22 @@ public class Rfp {
     }
 
     /**
-     * Venue integrations the planner prefers when sourcing venues. An empty array or absent field
-     * indicates no preference has been recorded.
+     * DEPRECATED: Use [venueIntegrationPreference](#schema/VenueIntegrationPreference) instead. Venue
+     * integrations the planner prefers when sourcing venues. An empty array or absent field indicates no
+     * preference has been recorded.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
+    @Deprecated
     public Optional<List<VenueIntegrationType>> preferredVenueIntegrations() {
         return Optional.ofNullable(this.preferredVenueIntegrations);
+    }
+
+    /**
+     * Venue integration preference for an RFP.
+     */
+    public Optional<VenueIntegrationPreference> venueIntegrationPreference() {
+        return Optional.ofNullable(this.venueIntegrationPreference);
     }
 
     /**
@@ -1275,11 +1301,23 @@ public class Rfp {
     }
 
     /**
-     * Venue integrations the planner prefers when sourcing venues. An empty array or absent field
-     * indicates no preference has been recorded.
+     * DEPRECATED: Use [venueIntegrationPreference](#schema/VenueIntegrationPreference) instead. Venue
+     * integrations the planner prefers when sourcing venues. An empty array or absent field indicates no
+     * preference has been recorded.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
+    @Deprecated
     public Rfp withPreferredVenueIntegrations(@Nullable List<VenueIntegrationType> preferredVenueIntegrations) {
         this.preferredVenueIntegrations = preferredVenueIntegrations;
+        return this;
+    }
+
+    /**
+     * Venue integration preference for an RFP.
+     */
+    public Rfp withVenueIntegrationPreference(@Nullable VenueIntegrationPreference venueIntegrationPreference) {
+        this.venueIntegrationPreference = venueIntegrationPreference;
         return this;
     }
 
@@ -1460,6 +1498,7 @@ public class Rfp {
                 && Utils.enhancedDeepEquals(this.packagePricingPreference, other.packagePricingPreference)
                 && Utils.enhancedDeepEquals(this.feeTransparencyEnabled, other.feeTransparencyEnabled)
                 && Utils.enhancedDeepEquals(this.preferredVenueIntegrations, other.preferredVenueIntegrations)
+                && Utils.enhancedDeepEquals(this.venueIntegrationPreference, other.venueIntegrationPreference)
                 && Utils.enhancedDeepEquals(this.id, other.id)
                 && Utils.enhancedDeepEquals(this.code, other.code)
                 && Utils.enhancedDeepEquals(this.status, other.status)
@@ -1518,6 +1557,7 @@ public class Rfp {
                 packagePricingPreference,
                 feeTransparencyEnabled,
                 preferredVenueIntegrations,
+                venueIntegrationPreference,
                 id,
                 code,
                 status,
@@ -1614,6 +1654,8 @@ public class Rfp {
                 feeTransparencyEnabled,
                 "preferredVenueIntegrations",
                 preferredVenueIntegrations,
+                "venueIntegrationPreference",
+                venueIntegrationPreference,
                 "id",
                 id,
                 "code",
@@ -1723,7 +1765,10 @@ public class Rfp {
 
         private Boolean feeTransparencyEnabled;
 
+        @Deprecated
         private List<VenueIntegrationType> preferredVenueIntegrations;
+
+        private VenueIntegrationPreference venueIntegrationPreference;
 
         private String id;
 
@@ -2062,11 +2107,23 @@ public class Rfp {
         }
 
         /**
-         * Venue integrations the planner prefers when sourcing venues. An empty array or absent field
-         * indicates no preference has been recorded.
+         * DEPRECATED: Use [venueIntegrationPreference](#schema/VenueIntegrationPreference) instead. Venue
+         * integrations the planner prefers when sourcing venues. An empty array or absent field indicates no
+         * preference has been recorded.
+         *
+         * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
+        @Deprecated
         public Builder preferredVenueIntegrations(@Nullable List<VenueIntegrationType> preferredVenueIntegrations) {
             this.preferredVenueIntegrations = preferredVenueIntegrations;
+            return this;
+        }
+
+        /**
+         * Venue integration preference for an RFP.
+         */
+        public Builder venueIntegrationPreference(@Nullable VenueIntegrationPreference venueIntegrationPreference) {
+            this.venueIntegrationPreference = venueIntegrationPreference;
             return this;
         }
 
@@ -2240,6 +2297,7 @@ public class Rfp {
                     packagePricingPreference,
                     feeTransparencyEnabled,
                     preferredVenueIntegrations,
+                    venueIntegrationPreference,
                     id,
                     code,
                     status,

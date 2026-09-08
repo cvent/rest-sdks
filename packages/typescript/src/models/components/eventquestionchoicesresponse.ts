@@ -6,11 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  EventQuestionChoiceJson,
-  EventQuestionChoiceJson$inboundSchema,
-} from "./eventquestionchoicejson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Choice2, Choice2$inboundSchema } from "./choice2.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * Response to the request to get a list of event question choices.
@@ -19,11 +16,11 @@ export type EventQuestionChoicesResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * Collection of choices for a choice question.
    */
-  data: Array<EventQuestionChoiceJson>;
+  data: Array<Choice2>;
 };
 
 /** @internal */
@@ -32,8 +29,8 @@ export const EventQuestionChoicesResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(EventQuestionChoiceJson$inboundSchema),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(Choice2$inboundSchema),
 });
 
 export function eventQuestionChoicesResponseFromJSON(

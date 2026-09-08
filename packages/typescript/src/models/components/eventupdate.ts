@@ -7,37 +7,22 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { CustomField, CustomField$inboundSchema } from "./customfield.js";
+import { EventFormat, EventFormat$inboundSchema } from "./eventformat.js";
+import { EventLinks, EventLinks$inboundSchema } from "./eventlinks.js";
 import {
-  CustomFieldJson2,
-  CustomFieldJson2$inboundSchema,
-} from "./customfieldjson2.js";
+  EventSecurityLevel,
+  EventSecurityLevel$inboundSchema,
+} from "./eventsecuritylevel.js";
+import { EventStatus, EventStatus$inboundSchema } from "./eventstatus.js";
+import { EventType11, EventType11$inboundSchema } from "./eventtype11.js";
+import { Planner1, Planner1$inboundSchema } from "./planner1.js";
 import {
-  EventFormatJson,
-  EventFormatJson$inboundSchema,
-} from "./eventformatjson.js";
-import {
-  EventLinksJson,
-  EventLinksJson$inboundSchema,
-} from "./eventlinksjson.js";
-import {
-  EventSecurityLevelJson,
-  EventSecurityLevelJson$inboundSchema,
-} from "./eventsecurityleveljson.js";
-import {
-  EventStatusJson,
-  EventStatusJson$inboundSchema,
-} from "./eventstatusjson.js";
-import { EventTypeJson, EventTypeJson$inboundSchema } from "./eventtypejson.js";
-import { PlannerJson1, PlannerJson1$inboundSchema } from "./plannerjson1.js";
-import {
-  RegistrationStatusJson,
-  RegistrationStatusJson$inboundSchema,
-} from "./registrationstatusjson.js";
-import {
-  StakeholderJson,
-  StakeholderJson$inboundSchema,
-} from "./stakeholderjson.js";
-import { VenueJson, VenueJson$inboundSchema } from "./venuejson.js";
+  RegistrationStatus,
+  RegistrationStatus$inboundSchema,
+} from "./registrationstatus.js";
+import { Stakeholder, Stakeholder$inboundSchema } from "./stakeholder.js";
+import { Venue1, Venue1$inboundSchema } from "./venue1.js";
 
 /**
  * The category to which this event belongs (no longer supported).
@@ -84,7 +69,7 @@ export type EventUpdate = {
   /**
    * Denotes the format of an event.
    */
-  format: EventFormatJson;
+  format: EventFormat;
   /**
    * Detailed description of the event.
    */
@@ -116,7 +101,7 @@ export type EventUpdate = {
   /**
    * Collection of venues.
    */
-  venues?: Array<VenueJson> | undefined;
+  venues?: Array<Venue1> | undefined;
   /**
    * True indicates the venue location is visible to guests for essential events. If used with other event types, the request returns a 400 error.
    */
@@ -148,15 +133,15 @@ export type EventUpdate = {
   /**
    * Represents the security level used for event registrations.
    */
-  registrationSecurityLevel?: EventSecurityLevelJson | undefined;
+  registrationSecurityLevel?: EventSecurityLevel | undefined;
   /**
    * This is used to denote the registration status for an event.
    */
-  status?: RegistrationStatusJson | undefined;
+  status?: RegistrationStatus | undefined;
   /**
    * Event status denotes if the event is in the past, present or future. Also can denote if the event was cancelled or deleted.
    */
-  eventStatus?: EventStatusJson | undefined;
+  eventStatus?: EventStatus | undefined;
   /**
    * The planner-created planning status for this event. Used for internal tracking purposes.
    */
@@ -172,15 +157,15 @@ export type EventUpdate = {
   /**
    * A collection of contacts representing the event planners.
    */
-  planners: Array<PlannerJson1>;
+  planners: Array<Planner1>;
   /**
    * A collection of contacts representing event stakeholders.
    */
-  stakeholders?: Array<StakeholderJson> | undefined;
+  stakeholders?: Array<Stakeholder> | undefined;
   /**
    * Collection of custom fields.
    */
-  customFields?: Array<CustomFieldJson2> | undefined;
+  customFields?: Array<CustomField> | undefined;
   /**
    * The category to which this event belongs (no longer supported).
    *
@@ -190,11 +175,11 @@ export type EventUpdate = {
   /**
    * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent Essentials.
    */
-  type: EventTypeJson;
+  type: EventType11;
   /**
    * Represents the links associated with an event.
    */
-  links?: EventLinksJson | undefined;
+  links?: EventLinks | undefined;
   /**
    * The ISO 8601 zoned date time when this record was created.
    */
@@ -248,7 +233,7 @@ export const EventUpdate$inboundSchema: z.ZodType<
   title: z.string(),
   code: z.string().optional(),
   virtual: z.boolean().optional(),
-  format: EventFormatJson$inboundSchema,
+  format: EventFormat$inboundSchema,
   description: z.string().optional(),
   start: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),
@@ -262,7 +247,7 @@ export const EventUpdate$inboundSchema: z.ZodType<
   launchAfter: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),
   timezone: z.string(),
-  venues: z.array(VenueJson$inboundSchema).optional(),
+  venues: z.array(Venue1$inboundSchema).optional(),
   showVenueLocation: z.boolean().optional(),
   showPointOfContact: z.boolean().optional(),
   phone: z.string().optional(),
@@ -270,18 +255,18 @@ export const EventUpdate$inboundSchema: z.ZodType<
   defaultLocale: z.string().optional(),
   languages: z.array(z.string()),
   currency: z.string().optional(),
-  registrationSecurityLevel: EventSecurityLevelJson$inboundSchema.optional(),
-  status: RegistrationStatusJson$inboundSchema.optional(),
-  eventStatus: EventStatusJson$inboundSchema.optional(),
+  registrationSecurityLevel: EventSecurityLevel$inboundSchema.optional(),
+  status: RegistrationStatus$inboundSchema.optional(),
+  eventStatus: EventStatus$inboundSchema.optional(),
   planningStatus: z.string().optional(),
   testMode: z.boolean().optional(),
   capacity: z.number().int().optional(),
-  planners: z.array(PlannerJson1$inboundSchema),
-  stakeholders: z.array(StakeholderJson$inboundSchema).optional(),
-  customFields: z.array(CustomFieldJson2$inboundSchema).optional(),
+  planners: z.array(Planner1$inboundSchema),
+  stakeholders: z.array(Stakeholder$inboundSchema).optional(),
+  customFields: z.array(CustomField$inboundSchema).optional(),
   category: z.lazy(() => EventUpdateLookup$inboundSchema).optional(),
-  type: EventTypeJson$inboundSchema,
-  _links: EventLinksJson$inboundSchema.optional(),
+  type: EventType11$inboundSchema,
+  _links: EventLinks$inboundSchema.optional(),
   created: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),
   lastModified: z.string().datetime({ offset: true }).transform(v =>

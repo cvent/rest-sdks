@@ -6,10 +6,10 @@ package com.cvent;
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.operations.Operations.RequestlessOperation;
 
+import com.cvent.models.components.Oauth2TokenApplicationXWwwFormUrlencodedPostRequest;
 import com.cvent.models.operations.Oauth2AuthorizeRequest;
 import com.cvent.models.operations.Oauth2AuthorizeRequestBuilder;
 import com.cvent.models.operations.Oauth2AuthorizeResponse;
-import com.cvent.models.operations.Oauth2TokenRequest;
 import com.cvent.models.operations.Oauth2TokenRequestBuilder;
 import com.cvent.models.operations.Oauth2TokenResponse;
 import com.cvent.models.operations.Oauth2TokenSecurity;
@@ -151,8 +151,10 @@ public class Authentication {
      * @throws RuntimeException subclass if the API call fails
      */
     public Oauth2TokenResponse oauth2Token(
-            @Nullable Oauth2TokenRequest request, @Nonnull Oauth2TokenSecurity security, @Nullable Options options) {
-        RequestOperation<Oauth2TokenRequest, Oauth2TokenResponse> operation =
+            @Nullable Oauth2TokenApplicationXWwwFormUrlencodedPostRequest request,
+            @Nonnull Oauth2TokenSecurity security,
+            @Nullable Options options) {
+        RequestOperation<Oauth2TokenApplicationXWwwFormUrlencodedPostRequest, Oauth2TokenResponse> operation =
                 new Oauth2Token.Sync(sdkConfiguration, security, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }

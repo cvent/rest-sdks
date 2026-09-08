@@ -22,18 +22,18 @@ public class RegistrationTypePaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of registration types.
      */
     @JsonProperty("data")
-    private List<ExistingRegistrationTypeWithAssociatedRegPathJson> data;
+    private List<ExistingRegistrationTypeWithAssociatedRegPath> data;
 
     @JsonCreator
     public RegistrationTypePaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<ExistingRegistrationTypeWithAssociatedRegPathJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<ExistingRegistrationTypeWithAssociatedRegPath> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +42,14 @@ public class RegistrationTypePaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of registration types.
      */
-    public List<ExistingRegistrationTypeWithAssociatedRegPathJson> data() {
+    public List<ExistingRegistrationTypeWithAssociatedRegPath> data() {
         return this.data;
     }
 
@@ -60,7 +60,7 @@ public class RegistrationTypePaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public RegistrationTypePaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public RegistrationTypePaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -69,7 +69,7 @@ public class RegistrationTypePaginatedResponse {
      * Collection of registration types.
      */
     public RegistrationTypePaginatedResponse withData(
-            @Nonnull List<ExistingRegistrationTypeWithAssociatedRegPathJson> data) {
+            @Nonnull List<ExistingRegistrationTypeWithAssociatedRegPath> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -99,9 +99,9 @@ public class RegistrationTypePaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<ExistingRegistrationTypeWithAssociatedRegPathJson> data;
+        private List<ExistingRegistrationTypeWithAssociatedRegPath> data;
 
         private Builder() {
             // force use of static builder() method
@@ -110,7 +110,7 @@ public class RegistrationTypePaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -118,7 +118,7 @@ public class RegistrationTypePaginatedResponse {
         /**
          * Collection of registration types.
          */
-        public Builder data(@Nonnull List<ExistingRegistrationTypeWithAssociatedRegPathJson> data) {
+        public Builder data(@Nonnull List<ExistingRegistrationTypeWithAssociatedRegPath> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

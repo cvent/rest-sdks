@@ -7,32 +7,17 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { FormatJson, FormatJson$inboundSchema } from "./formatjson.js";
+import { Format, Format$inboundSchema } from "./format.js";
+import { PlayerType, PlayerType$inboundSchema } from "./playertype.js";
+import { SolutionType, SolutionType$inboundSchema } from "./solutiontype.js";
+import { Uuid, Uuid$inboundSchema } from "./uuid.js";
+import { WebcastLinks, WebcastLinks$inboundSchema } from "./webcastlinks.js";
 import {
-  PlayerTypeJson,
-  PlayerTypeJson$inboundSchema,
-} from "./playertypejson.js";
-import {
-  SolutionTypeJson,
-  SolutionTypeJson$inboundSchema,
-} from "./solutiontypejson.js";
-import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
-import {
-  WebcastLinksJson,
-  WebcastLinksJson$inboundSchema,
-} from "./webcastlinksjson.js";
-import {
-  WebcastProviderJson,
-  WebcastProviderJson$inboundSchema,
-} from "./webcastproviderjson.js";
-import {
-  WebcastStatusJson,
-  WebcastStatusJson$inboundSchema,
-} from "./webcaststatusjson.js";
-import {
-  WebcastTypeJson,
-  WebcastTypeJson$inboundSchema,
-} from "./webcasttypejson.js";
+  WebcastProvider,
+  WebcastProvider$inboundSchema,
+} from "./webcastprovider.js";
+import { WebcastStatus, WebcastStatus$inboundSchema } from "./webcaststatus.js";
+import { WebcastType, WebcastType$inboundSchema } from "./webcasttype.js";
 
 /**
  * Video for the webcast.
@@ -67,43 +52,43 @@ export type ExistingWebcast = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  event?: UuidJson | undefined;
+  event?: Uuid | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  session?: UuidJson | undefined;
+  session?: Uuid | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  appointment?: UuidJson | undefined;
+  appointment?: Uuid | undefined;
   /**
    * This is used to denote the solution type to be used for webcast. The 'Cvent Video Conferencing' refers to the video experience which links out the Attendee hub whereas 'Embedded Cvent Video Conferencing' refers to the video experience within the Attendee hub.
    */
-  solutionType?: SolutionTypeJson | undefined;
+  solutionType?: SolutionType | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  exhibitor?: UuidJson | undefined;
+  exhibitor?: Uuid | undefined;
   /**
    * This is used to denote the format of a webcast
    */
-  format: FormatJson;
+  format: Format;
   /**
    * This is used to denote the type of a webcast
    */
-  type?: WebcastTypeJson | undefined;
+  type?: WebcastType | undefined;
   /**
    * Name of the webcast provider.
    */
-  provider?: WebcastProviderJson | undefined;
+  provider?: WebcastProvider | undefined;
   /**
    * This is used to denote the status of a webcast
    */
-  status?: WebcastStatusJson | undefined;
+  status?: WebcastStatus | undefined;
   /**
    * This is used to denote the type of a video player
    */
-  playerType?: PlayerTypeJson | undefined;
+  playerType?: PlayerType | undefined;
   /**
    * Indicates if the webcast is simulated live or not
    */
@@ -135,7 +120,7 @@ export type ExistingWebcast = {
   /**
    * webcast link references
    */
-  links?: WebcastLinksJson | undefined;
+  links?: WebcastLinks | undefined;
   /**
    * Additional information related to the webcast
    */
@@ -179,16 +164,16 @@ export const ExistingWebcast$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: UuidJson$inboundSchema.optional(),
-  session: UuidJson$inboundSchema.optional(),
-  appointment: UuidJson$inboundSchema.optional(),
-  solutionType: SolutionTypeJson$inboundSchema.optional(),
-  exhibitor: UuidJson$inboundSchema.optional(),
-  format: FormatJson$inboundSchema.default("Live"),
-  type: WebcastTypeJson$inboundSchema.optional(),
-  provider: WebcastProviderJson$inboundSchema.optional(),
-  status: WebcastStatusJson$inboundSchema.optional(),
-  playerType: PlayerTypeJson$inboundSchema.optional(),
+  event: Uuid$inboundSchema.optional(),
+  session: Uuid$inboundSchema.optional(),
+  appointment: Uuid$inboundSchema.optional(),
+  solutionType: SolutionType$inboundSchema.optional(),
+  exhibitor: Uuid$inboundSchema.optional(),
+  format: Format$inboundSchema.default("Live"),
+  type: WebcastType$inboundSchema.optional(),
+  provider: WebcastProvider$inboundSchema.optional(),
+  status: WebcastStatus$inboundSchema.optional(),
+  playerType: PlayerType$inboundSchema.optional(),
   simulatedLive: z.boolean().optional(),
   recordLiveStream: z.boolean().optional(),
   autoAddToLibrary: z.boolean().default(false),
@@ -196,7 +181,7 @@ export const ExistingWebcast$inboundSchema: z.ZodType<
   sourceId: z.string().optional(),
   title: z.string().optional(),
   meetingId: z.string().optional(),
-  _links: WebcastLinksJson$inboundSchema.optional(),
+  _links: WebcastLinks$inboundSchema.optional(),
   details: z.string().optional(),
   video: z.lazy(() => Video$inboundSchema).optional(),
   id: z.string().optional(),

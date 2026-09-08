@@ -73,11 +73,12 @@ Obtains an access token and, optionally, a refresh token. Read the [Developer Qu
 <!-- UsageSnippet language="csharp" operationID="oauth2Token" method="post" path="/oauth2/token" -->
 ```csharp
 using Cvent.SDK;
+using Cvent.SDK.Models.Components;
 using Cvent.SDK.Models.Requests;
 
 var sdk = new CventSDK();
 
-Oauth2TokenRequest req = new Oauth2TokenRequest() {
+Oauth2TokenApplicationXWwwFormUrlencodedPostRequest req = new Oauth2TokenApplicationXWwwFormUrlencodedPostRequest() {
     GrantType = GrantType.ClientCredentials,
     ClientId = "djc98u3jiedmi283eu928",
     Scope = "event/events:read event/attendees:read",
@@ -99,10 +100,10 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [Oauth2TokenRequest](../../Models/Requests/Oauth2TokenRequest.md)   | :heavy_check_mark:                                                  | The request object to use for the request.                          |
-| `security`                                                          | [Oauth2TokenSecurity](../../Models/Requests/Oauth2TokenSecurity.md) | :heavy_check_mark:                                                  | The security requirements to use for the request.                   |
+| Parameter                                                                                                                             | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                             | [Oauth2TokenApplicationXWwwFormUrlencodedPostRequest](../../Models/Components/Oauth2TokenApplicationXWwwFormUrlencodedPostRequest.md) | :heavy_check_mark:                                                                                                                    | The request object to use for the request.                                                                                            |
+| `security`                                                                                                                            | [Oauth2TokenSecurity](../../Models/Requests/Oauth2TokenSecurity.md)                                                                   | :heavy_check_mark:                                                                                                                    | The security requirements to use for the request.                                                                                     |
 
 ### Response
 
@@ -110,10 +111,10 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 
 ### Errors
 
-| Error Type                                  | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Cvent.SDK.Models.Errors.BadRequestException | 400                                         | application/json                            |
-| Cvent.SDK.Models.Errors.APIException        | 4XX, 5XX                                    | \*/\*                                       |
+| Error Type                                                | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| Cvent.SDK.Models.Errors.Oauth2TokenPostResponse0Exception | 400                                                       | application/json                                          |
+| Cvent.SDK.Models.Errors.APIException                      | 4XX, 5XX                                                  | \*/\*                                                     |
 
 ## ValidateToken
 
@@ -151,5 +152,5 @@ var res = await sdk.Authentication.ValidateTokenAsync();
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 429                      | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |

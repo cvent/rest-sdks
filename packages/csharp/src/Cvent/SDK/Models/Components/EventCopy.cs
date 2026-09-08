@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// Represents the target event information for an event copy operation.
         /// </summary>
         [JsonProperty("event")]
-        public EventCopyTargetJson? Event { get; set; }
+        public EventCopyTarget? Event { get; set; }
 
         /// <summary>
         /// Determines if registration feature data should be copied over from the source event.

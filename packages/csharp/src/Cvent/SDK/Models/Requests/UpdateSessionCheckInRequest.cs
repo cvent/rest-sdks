@@ -25,6 +25,6 @@ namespace Cvent.SDK.Models.Requests
         /// Attendee check-in to be updated. Up to **100 attendees** can be updated per call.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public List<SessionCheckinBaseJson> RequestBody { get; set; } = default!;
+        public List<SessionCheckinBase> RequestBody { get; set; } = default!;
     }
 }

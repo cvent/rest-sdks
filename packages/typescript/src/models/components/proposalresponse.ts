@@ -7,60 +7,35 @@ import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { AgendaItems, AgendaItems$inboundSchema } from "./agendaitems.js";
 import {
-  AggregatedCostJson,
-  AggregatedCostJson$inboundSchema,
-} from "./aggregatedcostjson.js";
+  AggregatedCost,
+  AggregatedCost$inboundSchema,
+} from "./aggregatedcost.js";
 import {
-  CategoryItemsCostJson,
-  CategoryItemsCostJson$inboundSchema,
-} from "./categoryitemscostjson.js";
-import { ContactJson, ContactJson$inboundSchema } from "./contactjson.js";
-import { CurrencyJson1, CurrencyJson1$inboundSchema } from "./currencyjson1.js";
+  CategoryItemsCost,
+  CategoryItemsCost$inboundSchema,
+} from "./categoryitemscost.js";
+import { Contact2, Contact2$inboundSchema } from "./contact2.js";
+import { Currency, Currency$inboundSchema } from "./currency.js";
+import { EstimatedCost, EstimatedCost$inboundSchema } from "./estimatedcost.js";
+import { EventSummary, EventSummary$inboundSchema } from "./eventsummary.js";
+import { MeetingRoom, MeetingRoom$inboundSchema } from "./meetingroom.js";
+import { Package, Package$inboundSchema } from "./package.js";
+import { ProposalDate, ProposalDate$inboundSchema } from "./proposaldate.js";
 import {
-  EstimatedCostJson,
-  EstimatedCostJson$inboundSchema,
-} from "./estimatedcostjson.js";
+  ProposalStatus,
+  ProposalStatus$inboundSchema,
+} from "./proposalstatus.js";
+import { ProposalType, ProposalType$inboundSchema } from "./proposaltype.js";
+import { RfpSummary, RfpSummary$inboundSchema } from "./rfpsummary.js";
+import { SleepingRoom1, SleepingRoom1$inboundSchema } from "./sleepingroom1.js";
+import { StatusSummary, StatusSummary$inboundSchema } from "./statussummary.js";
 import {
-  EventSummaryJson,
-  EventSummaryJson$inboundSchema,
-} from "./eventsummaryjson.js";
-import {
-  MeetingRoomJson,
-  MeetingRoomJson$inboundSchema,
-} from "./meetingroomjson.js";
-import {
-  ProposalDateJson,
-  ProposalDateJson$inboundSchema,
-} from "./proposaldatejson.js";
-import {
-  ProposalStatusJson,
-  ProposalStatusJson$inboundSchema,
-} from "./proposalstatusjson.js";
-import {
-  ProposalTypeJson,
-  ProposalTypeJson$inboundSchema,
-} from "./proposaltypejson.js";
-import {
-  RfpSummaryJson,
-  RfpSummaryJson$inboundSchema,
-} from "./rfpsummaryjson.js";
-import {
-  SleepingRoomJson,
-  SleepingRoomJson$inboundSchema,
-} from "./sleepingroomjson.js";
-import {
-  StatusSummaryJson,
-  StatusSummaryJson$inboundSchema,
-} from "./statussummaryjson.js";
-import {
-  SupplierSummaryJson,
-  SupplierSummaryJson$inboundSchema,
-} from "./suppliersummaryjson.js";
-import {
-  TransactionJson,
-  TransactionJson$inboundSchema,
-} from "./transactionjson.js";
+  SupplierSummary,
+  SupplierSummary$inboundSchema,
+} from "./suppliersummary.js";
+import { Transaction, Transaction$inboundSchema } from "./transaction.js";
 
 /**
  * CancelledReason
@@ -142,23 +117,23 @@ export type ProposalResponse = {
   /**
    * The type of the proposal.
    */
-  type: ProposalTypeJson;
+  type: ProposalType;
   /**
    * Represents a summary of supplier information associated with current proposal.
    */
-  supplierSummary?: SupplierSummaryJson | undefined;
+  supplierSummary?: SupplierSummary | undefined;
   /**
    * Schema for Rfp details associated with this proposal.
    */
-  rfpSummary?: RfpSummaryJson | undefined;
+  rfpSummary?: RfpSummary | undefined;
   /**
    * Schema for event summary associated with this proposal.
    */
-  eventSummary?: EventSummaryJson | undefined;
+  eventSummary?: EventSummary | undefined;
   /**
    * Represents a summary of status associated with this proposal.
    */
-  statusSummary?: StatusSummaryJson | undefined;
+  statusSummary?: StatusSummary | undefined;
   /**
    * Introduction text for the proposal.
    */
@@ -172,7 +147,7 @@ export type ProposalResponse = {
   /**
    * The ISO 4217 standard format currency code used for RFPs.
    */
-  currencyCode?: CurrencyJson1 | undefined;
+  currencyCode?: Currency | undefined;
   /**
    * True indicates this is a commissionable bid.
    */
@@ -192,41 +167,49 @@ export type ProposalResponse = {
   /**
    * List of dates the venue is available.
    */
-  proposalDates?: Array<ProposalDateJson> | undefined;
+  proposalDates?: Array<ProposalDate> | undefined;
   /**
    * List of all sleeping rooms offered in the proposal.
    */
-  sleepingRooms?: Array<SleepingRoomJson> | undefined;
+  sleepingRooms?: Array<SleepingRoom1> | undefined;
   /**
    * Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by vendors, and the vendor marketplace is sunset.
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
-  categoryItemsCost?: CategoryItemsCostJson | undefined;
+  categoryItemsCost?: CategoryItemsCost | undefined;
   /**
    * The aggregated cost
    */
-  aggregatedCost?: AggregatedCostJson | undefined;
+  aggregatedCost?: AggregatedCost | undefined;
   /**
    * The estimated cost
    */
-  estimatedCost?: EstimatedCostJson | undefined;
+  estimatedCost?: EstimatedCost | undefined;
   /**
    * List of all contacts.
    */
-  contacts?: Array<ContactJson> | undefined;
+  contacts?: Array<Contact2> | undefined;
   /**
    * List of all planner contacts.
    */
-  plannerContacts?: Array<ContactJson> | undefined;
+  plannerContacts?: Array<Contact2> | undefined;
   /**
    * The meeting room.
    */
-  meetingRoom?: MeetingRoomJson | undefined;
+  meetingRoom?: MeetingRoom | undefined;
+  /**
+   * The agenda items with all agenda items and additional details
+   */
+  agendaItems?: AgendaItems | undefined;
+  /**
+   * List of Package Details
+   */
+  packages?: Array<Package> | undefined;
   /**
    * The latest transaction that took place on a given proposal
    */
-  transaction?: TransactionJson | undefined;
+  transaction?: Transaction | undefined;
   /**
    * The unique ID of the proposal.
    */
@@ -238,7 +221,7 @@ export type ProposalResponse = {
   /**
    * The status of the proposal. See [definitions of proposal statuses](https://support.cvent.com/s/communityarticle/Understanding-RFP-and-Proposal-Statuses)
    */
-  status: ProposalStatusJson;
+  status: ProposalStatus;
   /**
    * The version number associated with the proposal.
    */
@@ -298,30 +281,32 @@ export const ProposalResponse$inboundSchema: z.ZodType<
   ).optional(),
   lastModifiedBy: z.string().optional(),
   scpTemplateId: z.string().optional(),
-  type: ProposalTypeJson$inboundSchema.default("VENUE"),
-  supplierSummary: SupplierSummaryJson$inboundSchema.optional(),
-  rfpSummary: RfpSummaryJson$inboundSchema.optional(),
-  eventSummary: EventSummaryJson$inboundSchema.optional(),
-  statusSummary: StatusSummaryJson$inboundSchema.optional(),
+  type: ProposalType$inboundSchema.default("VENUE"),
+  supplierSummary: SupplierSummary$inboundSchema.optional(),
+  rfpSummary: RfpSummary$inboundSchema.optional(),
+  eventSummary: EventSummary$inboundSchema.optional(),
+  statusSummary: StatusSummary$inboundSchema.optional(),
   introduction: z.string().optional(),
   billingContractualResponse: z.string().optional(),
-  currencyCode: CurrencyJson1$inboundSchema.optional(),
+  currencyCode: Currency$inboundSchema.optional(),
   commissionableBid: z.boolean().optional(),
   commissionRate: z.number().optional(),
   name: z.string().optional(),
   blockCode: z.string().optional(),
-  proposalDates: z.array(ProposalDateJson$inboundSchema).optional(),
-  sleepingRooms: z.array(SleepingRoomJson$inboundSchema).optional(),
-  categoryItemsCost: CategoryItemsCostJson$inboundSchema.optional(),
-  aggregatedCost: AggregatedCostJson$inboundSchema.optional(),
-  estimatedCost: EstimatedCostJson$inboundSchema.optional(),
-  contacts: z.array(ContactJson$inboundSchema).optional(),
-  plannerContacts: z.array(ContactJson$inboundSchema).optional(),
-  meetingRoom: MeetingRoomJson$inboundSchema.optional(),
-  transaction: TransactionJson$inboundSchema.optional(),
+  proposalDates: z.array(ProposalDate$inboundSchema).optional(),
+  sleepingRooms: z.array(SleepingRoom1$inboundSchema).optional(),
+  categoryItemsCost: CategoryItemsCost$inboundSchema.optional(),
+  aggregatedCost: AggregatedCost$inboundSchema.optional(),
+  estimatedCost: EstimatedCost$inboundSchema.optional(),
+  contacts: z.array(Contact2$inboundSchema).optional(),
+  plannerContacts: z.array(Contact2$inboundSchema).optional(),
+  meetingRoom: MeetingRoom$inboundSchema.optional(),
+  agendaItems: AgendaItems$inboundSchema.optional(),
+  packages: z.array(Package$inboundSchema).optional(),
+  transaction: Transaction$inboundSchema.optional(),
   id: z.string(),
   proposalCode: z.string(),
-  status: ProposalStatusJson$inboundSchema.default("NOT_SENT"),
+  status: ProposalStatus$inboundSchema.default("NOT_SENT"),
   version: z.number().int(),
   lastSubmittedTime: z.string().datetime({ offset: true }).transform(v =>
     new Date(v)

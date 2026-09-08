@@ -1,22 +1,34 @@
 # TransactionType
 
-This is used to denote the transaction type for a transaction.
+The proposal transaction type
 
 ## Example Usage
 
 ```java
 import com.cvent.models.components.TransactionType;
 
-TransactionType value = TransactionType.PAYMENTS;
+TransactionType value = TransactionType.AWARD;
 ```
 
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `PAYMENTS`   | Payments     |
-| `REFUNDS`    | Refunds      |
-| `AUTHORIZED` | Authorized   |
-| `APPROVED`   | Approved     |
-| `DECLINED`   | Declined     |
+| Name              | Value             |
+| ----------------- | ----------------- |
+| `AWARD`           | AWARD             |
+| `CANCEL`          | CANCEL            |
+| `COPY`            | COPY              |
+| `CREATE`          | CREATE            |
+| `DECLINE`         | DECLINE           |
+| `DELETE`          | DELETE            |
+| `EXPIRE`          | EXPIRE            |
+| `MODIFY`          | MODIFY            |
+| `OBFUSCATE`       | OBFUSCATE         |
+| `PUBLISH`         | PUBLISH           |
+| `PUBLISH_CANCEL`  | PUBLISH_CANCEL    |
+| `PUBLISH_REQUEST` | PUBLISH_REQUEST   |
+| `REOPEN`          | REOPEN            |
+| `RESEND_EMAIL`    | RESEND_EMAIL      |
+| `SUBMIT`          | SUBMIT            |
+| `VALIDATE`        | VALIDATE          |
+| `WITHDRAW`        | WITHDRAW          |

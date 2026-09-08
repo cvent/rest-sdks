@@ -14,13 +14,13 @@ export type UpdateSessionCheckInRequest = {
   /**
    * Attendee check-in to be updated. Up to **100 attendees** can be updated per call.
    */
-  requestBody: Array<components.SessionCheckinBaseJson>;
+  requestBody: Array<components.SessionCheckinBase>;
 };
 
 /** @internal */
 export type UpdateSessionCheckInRequest$Outbound = {
   id: string;
-  RequestBody: Array<components.SessionCheckinBaseJson$Outbound>;
+  RequestBody: Array<components.SessionCheckinBase$Outbound>;
 };
 
 /** @internal */
@@ -30,7 +30,7 @@ export const UpdateSessionCheckInRequest$outboundSchema: z.ZodType<
   UpdateSessionCheckInRequest
 > = z.object({
   id: z.string(),
-  requestBody: z.array(components.SessionCheckinBaseJson$outboundSchema),
+  requestBody: z.array(components.SessionCheckinBase$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     requestBody: "RequestBody",

@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ExistingRegistrationPathJson,
-  ExistingRegistrationPathJson$inboundSchema,
-} from "./existingregistrationpathjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  ExistingRegistrationPath,
+  ExistingRegistrationPath$inboundSchema,
+} from "./existingregistrationpath.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * Represents a paginated collection of registration paths.
@@ -19,11 +19,11 @@ export type RegistrationPathPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of registration paths.
    */
-  data: Array<ExistingRegistrationPathJson>;
+  data: Array<ExistingRegistrationPath>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const RegistrationPathPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(ExistingRegistrationPathJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(ExistingRegistrationPath$inboundSchema),
 });
 
 export function registrationPathPaginatedResponseFromJSON(

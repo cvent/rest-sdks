@@ -1,0 +1,17 @@
+# AvailablePackage
+
+The available package.
+
+
+## Fields
+
+| Field                                                             | Type                                                              | Required                                                          | Description                                                       | Example                                                           |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `Day`                                                             | [Day](../../Models/Components/Day.md)                             | :heavy_minus_sign:                                                | Day contains a date and a counter                                 |                                                                   |
+| `PackageType`                                                     | [PackageType](../../Models/Components/PackageType.md)             | :heavy_minus_sign:                                                | Package type for the proposal.                                    |                                                                   |
+| `RoomOccupancy`                                                   | [RoomOccupancy](../../Models/Components/RoomOccupancy.md)         | :heavy_minus_sign:                                                | RoomOccupancy                                                     |                                                                   |
+| `RoomType`                                                        | [SleepingRoomType1](../../Models/Components/SleepingRoomType1.md) | :heavy_minus_sign:                                                | Sleeping room type                                                |                                                                   |
+| `Rate`                                                            | *double*                                                          | :heavy_minus_sign:                                                | Package cost.                                                     | 100                                                               |
+| `Quantity`                                                        | *long*                                                            | :heavy_minus_sign:                                                | Quantity of the package.                                          | 100                                                               |
+| `IncludedCostItems`                                               | List<[CostItemType](../../Models/Components/CostItemType.md)>     | :heavy_minus_sign:                                                | List of items for which cost is included in the package.          |                                                                   |
+| `Notes`                                                           | *string*                                                          | :heavy_minus_sign:                                                | Extra notes on the package.                                       | We will give complimentary access of jacuzzi.                     |

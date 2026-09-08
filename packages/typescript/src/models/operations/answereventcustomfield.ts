@@ -18,14 +18,14 @@ export type AnswerEventCustomFieldRequest = {
   /**
    * Custom field answer you're updating.
    */
-  customField1: components.CustomField1Input;
+  customField: components.CustomFieldInput;
 };
 
 /** @internal */
 export type AnswerEventCustomFieldRequest$Outbound = {
   id: string;
   customFieldId: string;
-  "custom-field1": components.CustomField1Input$Outbound;
+  "custom-field": components.CustomFieldInput$Outbound;
 };
 
 /** @internal */
@@ -36,10 +36,10 @@ export const AnswerEventCustomFieldRequest$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   customFieldId: z.string(),
-  customField1: components.CustomField1Input$outboundSchema,
+  customField: components.CustomFieldInput$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
-    customField1: "custom-field1",
+    customField: "custom-field",
   });
 });
 

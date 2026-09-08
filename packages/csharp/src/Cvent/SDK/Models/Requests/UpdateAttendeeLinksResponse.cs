@@ -22,6 +22,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// Attendee links successfully updated.
         /// </summary>
-        public List<AttendeeLinkBulkResponseItemJson>? AttendeeLinkBulkResponse { get; set; }
+        public List<AttendeeLinkBulkResponseItem>? AttendeeLinkBulkResponse { get; set; }
     }
 }

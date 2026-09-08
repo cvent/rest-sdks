@@ -3,6 +3,7 @@
  */
 package com.cvent.models.operations;
 
+import com.cvent.models.components.Oauth2TokenPostResponse;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -33,20 +34,20 @@ public class Oauth2TokenResponse implements Response {
     /**
      * A successful response returning an access token and a possible refresh token.
      */
-    private Oauth2TokenResponseBody object;
+    private Oauth2TokenPostResponse oauth2TokenPostResponse;
 
     @JsonCreator
     public Oauth2TokenResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable Oauth2TokenResponseBody object) {
+            @Nullable Oauth2TokenPostResponse oauth2TokenPostResponse) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
                 .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
-        this.object = object;
+        this.oauth2TokenPostResponse = oauth2TokenPostResponse;
     }
 
     public Oauth2TokenResponse(
@@ -78,8 +79,8 @@ public class Oauth2TokenResponse implements Response {
     /**
      * A successful response returning an access token and a possible refresh token.
      */
-    public Optional<Oauth2TokenResponseBody> object() {
-        return Optional.ofNullable(this.object);
+    public Optional<Oauth2TokenPostResponse> oauth2TokenPostResponse() {
+        return Optional.ofNullable(this.oauth2TokenPostResponse);
     }
 
     public static Builder builder() {
@@ -113,8 +114,8 @@ public class Oauth2TokenResponse implements Response {
     /**
      * A successful response returning an access token and a possible refresh token.
      */
-    public Oauth2TokenResponse withObject(@Nullable Oauth2TokenResponseBody object) {
-        this.object = object;
+    public Oauth2TokenResponse withOauth2TokenPostResponse(@Nullable Oauth2TokenPostResponse oauth2TokenPostResponse) {
+        this.oauth2TokenPostResponse = oauth2TokenPostResponse;
         return this;
     }
 
@@ -130,12 +131,12 @@ public class Oauth2TokenResponse implements Response {
         return Utils.enhancedDeepEquals(this.contentType, other.contentType)
                 && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
                 && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
-                && Utils.enhancedDeepEquals(this.object, other.object);
+                && Utils.enhancedDeepEquals(this.oauth2TokenPostResponse, other.oauth2TokenPostResponse);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(contentType, statusCode, rawResponse, object);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, oauth2TokenPostResponse);
     }
 
     @Override
@@ -148,8 +149,8 @@ public class Oauth2TokenResponse implements Response {
                 statusCode,
                 "rawResponse",
                 rawResponse,
-                "object",
-                object);
+                "oauth2TokenPostResponse",
+                oauth2TokenPostResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -161,7 +162,7 @@ public class Oauth2TokenResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private Oauth2TokenResponseBody object;
+        private Oauth2TokenPostResponse oauth2TokenPostResponse;
 
         private Builder() {
             // force use of static builder() method
@@ -194,13 +195,13 @@ public class Oauth2TokenResponse implements Response {
         /**
          * A successful response returning an access token and a possible refresh token.
          */
-        public Builder object(@Nullable Oauth2TokenResponseBody object) {
-            this.object = object;
+        public Builder oauth2TokenPostResponse(@Nullable Oauth2TokenPostResponse oauth2TokenPostResponse) {
+            this.oauth2TokenPostResponse = oauth2TokenPostResponse;
             return this;
         }
 
         public Oauth2TokenResponse build() {
-            return new Oauth2TokenResponse(contentType, statusCode, rawResponse, object);
+            return new Oauth2TokenResponse(contentType, statusCode, rawResponse, oauth2TokenPostResponse);
         }
     }
 }

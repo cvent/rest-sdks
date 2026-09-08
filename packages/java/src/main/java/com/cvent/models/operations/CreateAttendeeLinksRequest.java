@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.ZeroInput;
+import com.cvent.models.components.AttendeeLink;
 import com.cvent.utils.SpeakeasyMetadata;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,10 +24,10 @@ public class CreateAttendeeLinksRequest {
      * Up to **100 attendee links** can be created per call.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    private List<ZeroInput> requestBody;
+    private List<AttendeeLink> requestBody;
 
     @JsonCreator
-    public CreateAttendeeLinksRequest(@Nonnull String id, @Nonnull List<ZeroInput> requestBody) {
+    public CreateAttendeeLinksRequest(@Nonnull String id, @Nonnull List<AttendeeLink> requestBody) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.requestBody = Optional.ofNullable(requestBody)
                 .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
@@ -43,7 +43,7 @@ public class CreateAttendeeLinksRequest {
     /**
      * Up to **100 attendee links** can be created per call.
      */
-    public List<ZeroInput> requestBody() {
+    public List<AttendeeLink> requestBody() {
         return this.requestBody;
     }
 
@@ -62,7 +62,7 @@ public class CreateAttendeeLinksRequest {
     /**
      * Up to **100 attendee links** can be created per call.
      */
-    public CreateAttendeeLinksRequest withRequestBody(@Nonnull List<ZeroInput> requestBody) {
+    public CreateAttendeeLinksRequest withRequestBody(@Nonnull List<AttendeeLink> requestBody) {
         this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
         return this;
     }
@@ -94,7 +94,7 @@ public class CreateAttendeeLinksRequest {
 
         private String id;
 
-        private List<ZeroInput> requestBody;
+        private List<AttendeeLink> requestBody;
 
         private Builder() {
             // force use of static builder() method
@@ -111,7 +111,7 @@ public class CreateAttendeeLinksRequest {
         /**
          * Up to **100 attendee links** can be created per call.
          */
-        public Builder requestBody(@Nonnull List<ZeroInput> requestBody) {
+        public Builder requestBody(@Nonnull List<AttendeeLink> requestBody) {
             this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
             return this;
         }

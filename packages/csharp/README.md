@@ -129,11 +129,12 @@ while (res != null)
 Some operations in this SDK require the security scheme to be specified at the request level. For example:
 ```csharp
 using Cvent.SDK;
+using Cvent.SDK.Models.Components;
 using Cvent.SDK.Models.Requests;
 
 var sdk = new CventSDK();
 
-Oauth2TokenRequest req = new Oauth2TokenRequest() {
+Oauth2TokenApplicationXWwwFormUrlencodedPostRequest req = new Oauth2TokenApplicationXWwwFormUrlencodedPostRequest() {
     GrantType = GrantType.ClientCredentials,
     ClientId = "djc98u3jiedmi283eu928",
     Scope = "event/events:read event/attendees:read",
@@ -989,10 +990,10 @@ catch (CventSDKException ex) // all SDK exceptions inherit from CventSDKExceptio
     var statusCode = (int)response.StatusCode;
     var responseBody = ex.Body;
 
-    if (ex is Models.Errors.ErrorResponse11) // different exceptions may be thrown depending on the method
+    if (ex is Models.Errors.ErrorResponse12) // different exceptions may be thrown depending on the method
     {
         // Check error data fields
-        Models.Errors.ErrorResponse11Payload payload = ex.Payload;
+        Models.Errors.ErrorResponse12Payload payload = ex.Payload;
         long Code = payload.Code;
         string Message = payload.Message;
         // ...
@@ -1014,17 +1015,17 @@ catch (System.Net.Http.HttpRequestException ex)
 
 **Primary exceptions:**
 * [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs): The base class for HTTP error responses.
-  * [`ErrorResponse11`](./src/Cvent/SDK/Models/Errors/ErrorResponse11.cs): Represents an error response with additional details of cascading error messages. *
+  * [`ErrorResponse12`](./src/Cvent/SDK/Models/Errors/ErrorResponse12.cs): Represents an error response with additional details of cascading error messages. *
 
 <details><summary>Less common exceptions (6)</summary>
 
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs):
-  * [`ErrorResponse2`](./src/Cvent/SDK/Models/Errors/ErrorResponse2.cs): The error response. Applicable to 11 of 469 methods.*
-  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 9 of 469 methods.*
-  * [`ErrorResponse12`](./src/Cvent/SDK/Models/Errors/ErrorResponse12.cs): Segments error response details. Status code `400`. Applicable to 2 of 469 methods.*
-  * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 469 methods.*
+  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 18 of 469 methods.*
+  * [`ErrorResponse14`](./src/Cvent/SDK/Models/Errors/ErrorResponse14.cs): The error response. Applicable to 11 of 469 methods.*
+  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 469 methods.*
+  * [`Oauth2TokenPostResponse0Exception`](./src/Cvent/SDK/Models/Errors/Oauth2TokenPostResponse0Exception.cs): A bad token response. Status code `400`. Applicable to 1 of 469 methods.*
   * [`ResponseValidationError`](./src/Cvent/SDK/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
 </details>
 

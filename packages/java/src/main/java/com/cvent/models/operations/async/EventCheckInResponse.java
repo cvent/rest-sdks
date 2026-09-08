@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations.async;
 
-import com.cvent.models.components.AttendeeAddBulkItemEventJson;
+import com.cvent.models.components.AttendeeInvitesBulkResponseItem11;
 import com.cvent.utils.AsyncResponse;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
@@ -36,14 +36,14 @@ public class EventCheckInResponse implements AsyncResponse {
     /**
      * Attendee(s) successfully checked-in.
      */
-    private List<AttendeeAddBulkItemEventJson> attendeeAddBulkResponseEvent;
+    private List<AttendeeInvitesBulkResponseItem11> attendeeAddBulkResponseEvent;
 
     @JsonCreator
     public EventCheckInResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<Blob> rawResponse,
-            @Nullable List<AttendeeAddBulkItemEventJson> attendeeAddBulkResponseEvent) {
+            @Nullable List<AttendeeInvitesBulkResponseItem11> attendeeAddBulkResponseEvent) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -80,7 +80,7 @@ public class EventCheckInResponse implements AsyncResponse {
     /**
      * Attendee(s) successfully checked-in.
      */
-    public Optional<List<AttendeeAddBulkItemEventJson>> attendeeAddBulkResponseEvent() {
+    public Optional<List<AttendeeInvitesBulkResponseItem11>> attendeeAddBulkResponseEvent() {
         return Optional.ofNullable(this.attendeeAddBulkResponseEvent);
     }
 
@@ -116,7 +116,7 @@ public class EventCheckInResponse implements AsyncResponse {
      * Attendee(s) successfully checked-in.
      */
     public EventCheckInResponse withAttendeeAddBulkResponseEvent(
-            @Nullable List<AttendeeAddBulkItemEventJson> attendeeAddBulkResponseEvent) {
+            @Nullable List<AttendeeInvitesBulkResponseItem11> attendeeAddBulkResponseEvent) {
         this.attendeeAddBulkResponseEvent = attendeeAddBulkResponseEvent;
         return this;
     }
@@ -164,7 +164,7 @@ public class EventCheckInResponse implements AsyncResponse {
 
         private HttpResponse<Blob> rawResponse;
 
-        private List<AttendeeAddBulkItemEventJson> attendeeAddBulkResponseEvent;
+        private List<AttendeeInvitesBulkResponseItem11> attendeeAddBulkResponseEvent;
 
         private Builder() {
             // force use of static builder() method
@@ -198,7 +198,7 @@ public class EventCheckInResponse implements AsyncResponse {
          * Attendee(s) successfully checked-in.
          */
         public Builder attendeeAddBulkResponseEvent(
-                @Nullable List<AttendeeAddBulkItemEventJson> attendeeAddBulkResponseEvent) {
+                @Nullable List<AttendeeInvitesBulkResponseItem11> attendeeAddBulkResponseEvent) {
             this.attendeeAddBulkResponseEvent = attendeeAddBulkResponseEvent;
             return this;
         }

@@ -49,7 +49,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the format of an event.
         /// </summary>
         [JsonProperty("format")]
-        public EventFormatJson Format { get; set; } = default!;
+        public EventFormat Format { get; set; } = default!;
 
         /// <summary>
         /// Detailed description of the event.
@@ -97,7 +97,7 @@ namespace Cvent.SDK.Models.Components
         /// Collection of venues.
         /// </summary>
         [JsonProperty("venues")]
-        public List<VenueJson>? Venues { get; set; }
+        public List<Venue1>? Venues { get; set; }
 
         /// <summary>
         /// True indicates the venue location is visible to guests for essential events. If used with other event types, the request returns a 400 error.
@@ -145,19 +145,19 @@ namespace Cvent.SDK.Models.Components
         /// Represents the security level used for event registrations.
         /// </summary>
         [JsonProperty("registrationSecurityLevel")]
-        public EventSecurityLevelJson? RegistrationSecurityLevel { get; set; }
+        public EventSecurityLevel? RegistrationSecurityLevel { get; set; }
 
         /// <summary>
         /// This is used to denote the registration status for an event.
         /// </summary>
         [JsonProperty("status")]
-        public RegistrationStatusJson? Status { get; set; }
+        public RegistrationStatus? Status { get; set; }
 
         /// <summary>
         /// Event status denotes if the event is in the past, present or future. Also can denote if the event was cancelled or deleted.
         /// </summary>
         [JsonProperty("eventStatus")]
-        public EventStatusJson? EventStatus { get; set; }
+        public EventStatus? EventStatus { get; set; }
 
         /// <summary>
         /// The planner-created planning status for this event. Used for internal tracking purposes.
@@ -181,19 +181,19 @@ namespace Cvent.SDK.Models.Components
         /// A collection of contacts representing the event planners.
         /// </summary>
         [JsonProperty("planners")]
-        public List<PlannerJson1> Planners { get; set; } = default!;
+        public List<Planner1> Planners { get; set; } = default!;
 
         /// <summary>
         /// A collection of contacts representing event stakeholders.
         /// </summary>
         [JsonProperty("stakeholders")]
-        public List<StakeholderJson>? Stakeholders { get; set; }
+        public List<Stakeholder>? Stakeholders { get; set; }
 
         /// <summary>
         /// Collection of custom fields.
         /// </summary>
         [JsonProperty("customFields")]
-        public List<CustomFieldJson2>? CustomFields { get; set; }
+        public List<CustomField>? CustomFields { get; set; }
 
         /// <summary>
         /// The category to which this event belongs (no longer supported).
@@ -206,13 +206,13 @@ namespace Cvent.SDK.Models.Components
         /// Type of event being created. The following event types are not supported: Cvent Webinar, Cvent Essentials.
         /// </summary>
         [JsonProperty("type")]
-        public EventTypeJson Type { get; set; } = default!;
+        public EventType11 Type { get; set; } = default!;
 
         /// <summary>
         /// Represents the links associated with an event.
         /// </summary>
         [JsonProperty("_links")]
-        public EventLinksJson? Links { get; set; }
+        public EventLinks? Links { get; set; }
 
         /// <summary>
         /// The ISO 8601 zoned date time when this record was created.

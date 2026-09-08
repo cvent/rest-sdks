@@ -6,11 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
-import {
-  WebcastLinkJson,
-  WebcastLinkJson$inboundSchema,
-} from "./webcastlinkjson.js";
+import { Uuid, Uuid$inboundSchema } from "./uuid.js";
+import { WebcastLink, WebcastLink$inboundSchema } from "./webcastlink.js";
 
 /**
  * An existing attendee link.
@@ -35,19 +32,19 @@ export type ExistingAttendeeLink = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  webcast: UuidJson;
+  webcast: Uuid;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  event?: UuidJson | undefined;
+  event?: Uuid | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  session?: UuidJson | undefined;
+  session?: Uuid | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  attendee: UuidJson;
+  attendee: Uuid;
   /**
    * Source Id of the webcast provider
    */
@@ -55,7 +52,7 @@ export type ExistingAttendeeLink = {
   /**
    * Link details for a webcast.
    */
-  join?: WebcastLinkJson | undefined;
+  join?: WebcastLink | undefined;
   /**
    * Attendee-link ID
    */
@@ -75,12 +72,12 @@ export const ExistingAttendeeLink$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  webcast: UuidJson$inboundSchema,
-  event: UuidJson$inboundSchema.optional(),
-  session: UuidJson$inboundSchema.optional(),
-  attendee: UuidJson$inboundSchema,
+  webcast: Uuid$inboundSchema,
+  event: Uuid$inboundSchema.optional(),
+  session: Uuid$inboundSchema.optional(),
+  attendee: Uuid$inboundSchema,
   sourceId: z.string().optional(),
-  join: WebcastLinkJson$inboundSchema.optional(),
+  join: WebcastLink$inboundSchema.optional(),
   id: z.string(),
 });
 

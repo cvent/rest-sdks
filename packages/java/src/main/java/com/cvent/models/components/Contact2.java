@@ -3,11 +3,13 @@
  */
 package com.cvent.models.components;
 
+import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
@@ -16,30 +18,338 @@ import java.util.Optional;
 /**
  * Contact2
  *
- * <p>The contact details who watched a video
+ * <p>The contact details.
  */
 public class Contact2 {
     /**
-     * The unique ID of the contact who watched a video.
+     * The contact types used for the proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("id")
-    private String id;
+    @JsonProperty("contactType")
+    private ContactType1 contactType;
+
+    /**
+     * The first name of the contact.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("firstName")
+    private String firstName;
+
+    /**
+     * The last name of the contact.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("lastName")
+    private String lastName;
+
+    /**
+     * The URL of the organization's website.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("organizationWebsite")
+    private String organizationWebsite;
+
+    /**
+     * The name of the organization.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("organization")
+    private String organization;
+
+    /**
+     * Designation of the contact.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("title")
+    private String title;
+
+    /**
+     * The email address of the contact.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("email")
+    private String email;
+
+    /**
+     * The country code for the contact's phone number.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("countryCode")
+    private String countryCode;
+
+    /**
+     * The phone number of the organization.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("phone")
+    private String phone;
+
+    /**
+     * The organization's fax number.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("fax")
+    private String fax;
+
+    /**
+     * The mobile number of the contact.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("mobile")
+    private String mobile;
+
+    /**
+     * Address line 1 of contact's street address.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("streetAddress1")
+    private String streetAddress1;
+
+    /**
+     * Address line 2 of contact's street address.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("streetAddress2")
+    private String streetAddress2;
+
+    /**
+     * Address line 3 of contact's street address.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("streetAddress3")
+    private String streetAddress3;
+
+    /**
+     * The city of the contact.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("city")
+    private String city;
+
+    /**
+     * The state province code used for contact information.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("stateProvince")
+    private StateProvince stateProvince;
+
+    /**
+     * The postal code of the contact.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("postalCode")
+    private String postalCode;
+
+    /**
+     * ISO 3166 two-letter (alpha-2) country codes with some additional non-standard cvent specific codes.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("country")
+    private Country country;
+
+    /**
+     * Additional notes of the contact.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("notes")
+    private String notes;
 
     @JsonCreator
-    public Contact2(@JsonProperty("id") @Nullable String id) {
-        this.id = id;
+    public Contact2(
+            @JsonProperty("contactType") @Nullable ContactType1 contactType,
+            @JsonProperty("firstName") @Nullable String firstName,
+            @JsonProperty("lastName") @Nullable String lastName,
+            @JsonProperty("organizationWebsite") @Nullable String organizationWebsite,
+            @JsonProperty("organization") @Nullable String organization,
+            @JsonProperty("title") @Nullable String title,
+            @JsonProperty("email") @Nullable String email,
+            @JsonProperty("countryCode") @Nullable String countryCode,
+            @JsonProperty("phone") @Nullable String phone,
+            @JsonProperty("fax") @Nullable String fax,
+            @JsonProperty("mobile") @Nullable String mobile,
+            @JsonProperty("streetAddress1") @Nullable String streetAddress1,
+            @JsonProperty("streetAddress2") @Nullable String streetAddress2,
+            @JsonProperty("streetAddress3") @Nullable String streetAddress3,
+            @JsonProperty("city") @Nullable String city,
+            @JsonProperty("stateProvince") @Nullable StateProvince stateProvince,
+            @JsonProperty("postalCode") @Nullable String postalCode,
+            @JsonProperty("country") @Nullable Country country,
+            @JsonProperty("notes") @Nullable String notes) {
+        this.contactType = Optional.ofNullable(contactType).orElse(Builder._SINGLETON_VALUE_ContactType.value());
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.organizationWebsite = organizationWebsite;
+        this.organization = organization;
+        this.title = title;
+        this.email = email;
+        this.countryCode = countryCode;
+        this.phone = phone;
+        this.fax = fax;
+        this.mobile = mobile;
+        this.streetAddress1 = streetAddress1;
+        this.streetAddress2 = streetAddress2;
+        this.streetAddress3 = streetAddress3;
+        this.city = city;
+        this.stateProvince = stateProvince;
+        this.postalCode = postalCode;
+        this.country = country;
+        this.notes = notes;
     }
 
     public Contact2() {
-        this(null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
-     * The unique ID of the contact who watched a video.
+     * The contact types used for the proposal.
      */
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
+    public Optional<ContactType1> contactType() {
+        return Optional.ofNullable(this.contactType);
+    }
+
+    /**
+     * The first name of the contact.
+     */
+    public Optional<String> firstName() {
+        return Optional.ofNullable(this.firstName);
+    }
+
+    /**
+     * The last name of the contact.
+     */
+    public Optional<String> lastName() {
+        return Optional.ofNullable(this.lastName);
+    }
+
+    /**
+     * The URL of the organization's website.
+     */
+    public Optional<String> organizationWebsite() {
+        return Optional.ofNullable(this.organizationWebsite);
+    }
+
+    /**
+     * The name of the organization.
+     */
+    public Optional<String> organization() {
+        return Optional.ofNullable(this.organization);
+    }
+
+    /**
+     * Designation of the contact.
+     */
+    public Optional<String> title() {
+        return Optional.ofNullable(this.title);
+    }
+
+    /**
+     * The email address of the contact.
+     */
+    public Optional<String> email() {
+        return Optional.ofNullable(this.email);
+    }
+
+    /**
+     * The country code for the contact's phone number.
+     */
+    public Optional<String> countryCode() {
+        return Optional.ofNullable(this.countryCode);
+    }
+
+    /**
+     * The phone number of the organization.
+     */
+    public Optional<String> phone() {
+        return Optional.ofNullable(this.phone);
+    }
+
+    /**
+     * The organization's fax number.
+     */
+    public Optional<String> fax() {
+        return Optional.ofNullable(this.fax);
+    }
+
+    /**
+     * The mobile number of the contact.
+     */
+    public Optional<String> mobile() {
+        return Optional.ofNullable(this.mobile);
+    }
+
+    /**
+     * Address line 1 of contact's street address.
+     */
+    public Optional<String> streetAddress1() {
+        return Optional.ofNullable(this.streetAddress1);
+    }
+
+    /**
+     * Address line 2 of contact's street address.
+     */
+    public Optional<String> streetAddress2() {
+        return Optional.ofNullable(this.streetAddress2);
+    }
+
+    /**
+     * Address line 3 of contact's street address.
+     */
+    public Optional<String> streetAddress3() {
+        return Optional.ofNullable(this.streetAddress3);
+    }
+
+    /**
+     * The city of the contact.
+     */
+    public Optional<String> city() {
+        return Optional.ofNullable(this.city);
+    }
+
+    /**
+     * The state province code used for contact information.
+     */
+    public Optional<StateProvince> stateProvince() {
+        return Optional.ofNullable(this.stateProvince);
+    }
+
+    /**
+     * The postal code of the contact.
+     */
+    public Optional<String> postalCode() {
+        return Optional.ofNullable(this.postalCode);
+    }
+
+    /**
+     * ISO 3166 two-letter (alpha-2) country codes with some additional non-standard cvent specific codes.
+     */
+    public Optional<Country> country() {
+        return Optional.ofNullable(this.country);
+    }
+
+    /**
+     * Additional notes of the contact.
+     */
+    public Optional<String> notes() {
+        return Optional.ofNullable(this.notes);
     }
 
     public static Builder builder() {
@@ -47,10 +357,154 @@ public class Contact2 {
     }
 
     /**
-     * The unique ID of the contact who watched a video.
+     * The contact types used for the proposal.
      */
-    public Contact2 withId(@Nullable String id) {
-        this.id = id;
+    public Contact2 withContactType(@Nullable ContactType1 contactType) {
+        this.contactType = contactType;
+        return this;
+    }
+
+    /**
+     * The first name of the contact.
+     */
+    public Contact2 withFirstName(@Nullable String firstName) {
+        this.firstName = firstName;
+        return this;
+    }
+
+    /**
+     * The last name of the contact.
+     */
+    public Contact2 withLastName(@Nullable String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    /**
+     * The URL of the organization's website.
+     */
+    public Contact2 withOrganizationWebsite(@Nullable String organizationWebsite) {
+        this.organizationWebsite = organizationWebsite;
+        return this;
+    }
+
+    /**
+     * The name of the organization.
+     */
+    public Contact2 withOrganization(@Nullable String organization) {
+        this.organization = organization;
+        return this;
+    }
+
+    /**
+     * Designation of the contact.
+     */
+    public Contact2 withTitle(@Nullable String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * The email address of the contact.
+     */
+    public Contact2 withEmail(@Nullable String email) {
+        this.email = email;
+        return this;
+    }
+
+    /**
+     * The country code for the contact's phone number.
+     */
+    public Contact2 withCountryCode(@Nullable String countryCode) {
+        this.countryCode = countryCode;
+        return this;
+    }
+
+    /**
+     * The phone number of the organization.
+     */
+    public Contact2 withPhone(@Nullable String phone) {
+        this.phone = phone;
+        return this;
+    }
+
+    /**
+     * The organization's fax number.
+     */
+    public Contact2 withFax(@Nullable String fax) {
+        this.fax = fax;
+        return this;
+    }
+
+    /**
+     * The mobile number of the contact.
+     */
+    public Contact2 withMobile(@Nullable String mobile) {
+        this.mobile = mobile;
+        return this;
+    }
+
+    /**
+     * Address line 1 of contact's street address.
+     */
+    public Contact2 withStreetAddress1(@Nullable String streetAddress1) {
+        this.streetAddress1 = streetAddress1;
+        return this;
+    }
+
+    /**
+     * Address line 2 of contact's street address.
+     */
+    public Contact2 withStreetAddress2(@Nullable String streetAddress2) {
+        this.streetAddress2 = streetAddress2;
+        return this;
+    }
+
+    /**
+     * Address line 3 of contact's street address.
+     */
+    public Contact2 withStreetAddress3(@Nullable String streetAddress3) {
+        this.streetAddress3 = streetAddress3;
+        return this;
+    }
+
+    /**
+     * The city of the contact.
+     */
+    public Contact2 withCity(@Nullable String city) {
+        this.city = city;
+        return this;
+    }
+
+    /**
+     * The state province code used for contact information.
+     */
+    public Contact2 withStateProvince(@Nullable StateProvince stateProvince) {
+        this.stateProvince = stateProvince;
+        return this;
+    }
+
+    /**
+     * The postal code of the contact.
+     */
+    public Contact2 withPostalCode(@Nullable String postalCode) {
+        this.postalCode = postalCode;
+        return this;
+    }
+
+    /**
+     * ISO 3166 two-letter (alpha-2) country codes with some additional non-standard cvent specific codes.
+     */
+    public Contact2 withCountry(@Nullable Country country) {
+        this.country = country;
+        return this;
+    }
+
+    /**
+     * Additional notes of the contact.
+     */
+    public Contact2 withNotes(@Nullable String notes) {
+        this.notes = notes;
         return this;
     }
 
@@ -63,38 +517,316 @@ public class Contact2 {
             return false;
         }
         Contact2 other = (Contact2) o;
-        return Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.contactType, other.contactType)
+                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.organizationWebsite, other.organizationWebsite)
+                && Utils.enhancedDeepEquals(this.organization, other.organization)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.countryCode, other.countryCode)
+                && Utils.enhancedDeepEquals(this.phone, other.phone)
+                && Utils.enhancedDeepEquals(this.fax, other.fax)
+                && Utils.enhancedDeepEquals(this.mobile, other.mobile)
+                && Utils.enhancedDeepEquals(this.streetAddress1, other.streetAddress1)
+                && Utils.enhancedDeepEquals(this.streetAddress2, other.streetAddress2)
+                && Utils.enhancedDeepEquals(this.streetAddress3, other.streetAddress3)
+                && Utils.enhancedDeepEquals(this.city, other.city)
+                && Utils.enhancedDeepEquals(this.stateProvince, other.stateProvince)
+                && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
+                && Utils.enhancedDeepEquals(this.country, other.country)
+                && Utils.enhancedDeepEquals(this.notes, other.notes);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id);
+        return Utils.enhancedHash(
+                contactType,
+                firstName,
+                lastName,
+                organizationWebsite,
+                organization,
+                title,
+                email,
+                countryCode,
+                phone,
+                fax,
+                mobile,
+                streetAddress1,
+                streetAddress2,
+                streetAddress3,
+                city,
+                stateProvince,
+                postalCode,
+                country,
+                notes);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(Contact2.class, "id", id);
+        return Utils.toString(
+                Contact2.class,
+                "contactType",
+                contactType,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "organizationWebsite",
+                organizationWebsite,
+                "organization",
+                organization,
+                "title",
+                title,
+                "email",
+                email,
+                "countryCode",
+                countryCode,
+                "phone",
+                phone,
+                "fax",
+                fax,
+                "mobile",
+                mobile,
+                "streetAddress1",
+                streetAddress1,
+                "streetAddress2",
+                streetAddress2,
+                "streetAddress3",
+                streetAddress3,
+                "city",
+                city,
+                "stateProvince",
+                stateProvince,
+                "postalCode",
+                postalCode,
+                "country",
+                country,
+                "notes",
+                notes);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private String id;
+        private ContactType1 contactType;
+
+        private String firstName;
+
+        private String lastName;
+
+        private String organizationWebsite;
+
+        private String organization;
+
+        private String title;
+
+        private String email;
+
+        private String countryCode;
+
+        private String phone;
+
+        private String fax;
+
+        private String mobile;
+
+        private String streetAddress1;
+
+        private String streetAddress2;
+
+        private String streetAddress3;
+
+        private String city;
+
+        private StateProvince stateProvince;
+
+        private String postalCode;
+
+        private Country country;
+
+        private String notes;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The unique ID of the contact who watched a video.
+         * The contact types used for the proposal.
          */
-        public Builder id(@Nullable String id) {
-            this.id = id;
+        public Builder contactType(@Nullable ContactType1 contactType) {
+            this.contactType = contactType;
+            return this;
+        }
+
+        /**
+         * The first name of the contact.
+         */
+        public Builder firstName(@Nullable String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        /**
+         * The last name of the contact.
+         */
+        public Builder lastName(@Nullable String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        /**
+         * The URL of the organization's website.
+         */
+        public Builder organizationWebsite(@Nullable String organizationWebsite) {
+            this.organizationWebsite = organizationWebsite;
+            return this;
+        }
+
+        /**
+         * The name of the organization.
+         */
+        public Builder organization(@Nullable String organization) {
+            this.organization = organization;
+            return this;
+        }
+
+        /**
+         * Designation of the contact.
+         */
+        public Builder title(@Nullable String title) {
+            this.title = title;
+            return this;
+        }
+
+        /**
+         * The email address of the contact.
+         */
+        public Builder email(@Nullable String email) {
+            this.email = email;
+            return this;
+        }
+
+        /**
+         * The country code for the contact's phone number.
+         */
+        public Builder countryCode(@Nullable String countryCode) {
+            this.countryCode = countryCode;
+            return this;
+        }
+
+        /**
+         * The phone number of the organization.
+         */
+        public Builder phone(@Nullable String phone) {
+            this.phone = phone;
+            return this;
+        }
+
+        /**
+         * The organization's fax number.
+         */
+        public Builder fax(@Nullable String fax) {
+            this.fax = fax;
+            return this;
+        }
+
+        /**
+         * The mobile number of the contact.
+         */
+        public Builder mobile(@Nullable String mobile) {
+            this.mobile = mobile;
+            return this;
+        }
+
+        /**
+         * Address line 1 of contact's street address.
+         */
+        public Builder streetAddress1(@Nullable String streetAddress1) {
+            this.streetAddress1 = streetAddress1;
+            return this;
+        }
+
+        /**
+         * Address line 2 of contact's street address.
+         */
+        public Builder streetAddress2(@Nullable String streetAddress2) {
+            this.streetAddress2 = streetAddress2;
+            return this;
+        }
+
+        /**
+         * Address line 3 of contact's street address.
+         */
+        public Builder streetAddress3(@Nullable String streetAddress3) {
+            this.streetAddress3 = streetAddress3;
+            return this;
+        }
+
+        /**
+         * The city of the contact.
+         */
+        public Builder city(@Nullable String city) {
+            this.city = city;
+            return this;
+        }
+
+        /**
+         * The state province code used for contact information.
+         */
+        public Builder stateProvince(@Nullable StateProvince stateProvince) {
+            this.stateProvince = stateProvince;
+            return this;
+        }
+
+        /**
+         * The postal code of the contact.
+         */
+        public Builder postalCode(@Nullable String postalCode) {
+            this.postalCode = postalCode;
+            return this;
+        }
+
+        /**
+         * ISO 3166 two-letter (alpha-2) country codes with some additional non-standard cvent specific codes.
+         */
+        public Builder country(@Nullable Country country) {
+            this.country = country;
+            return this;
+        }
+
+        /**
+         * Additional notes of the contact.
+         */
+        public Builder notes(@Nullable String notes) {
+            this.notes = notes;
             return this;
         }
 
         public Contact2 build() {
-            return new Contact2(id);
+            return new Contact2(
+                    contactType,
+                    firstName,
+                    lastName,
+                    organizationWebsite,
+                    organization,
+                    title,
+                    email,
+                    countryCode,
+                    phone,
+                    fax,
+                    mobile,
+                    streetAddress1,
+                    streetAddress2,
+                    streetAddress3,
+                    city,
+                    stateProvince,
+                    postalCode,
+                    country,
+                    notes);
         }
+
+        private static final LazySingletonValue<ContactType1> _SINGLETON_VALUE_ContactType =
+                new LazySingletonValue<>("contactType", "\"PRIMARY\"", new TypeReference<ContactType1>() {});
     }
 }

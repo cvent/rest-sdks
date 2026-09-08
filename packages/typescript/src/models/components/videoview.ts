@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Contact2, Contact2$inboundSchema } from "./contact2.js";
+import { Contact3, Contact3$inboundSchema } from "./contact3.js";
 import { Device1, Device1$inboundSchema } from "./device1.js";
 import { Solution, Solution$inboundSchema } from "./solution.js";
 import { Video1, Video1$inboundSchema } from "./video1.js";
@@ -19,7 +19,7 @@ export type VideoView = {
   /**
    * The contact details who watched a video
    */
-  contact?: Contact2 | undefined;
+  contact?: Contact3 | undefined;
   /**
    * The solution where the video exists. Attendee Hub and Events+ represent two different solutions where the video can be found.
    */
@@ -58,7 +58,7 @@ export const VideoView$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  contact: Contact2$inboundSchema.optional(),
+  contact: Contact3$inboundSchema.optional(),
   solution: Solution$inboundSchema.optional(),
   device: Device1$inboundSchema.optional(),
   video: Video1$inboundSchema.optional(),

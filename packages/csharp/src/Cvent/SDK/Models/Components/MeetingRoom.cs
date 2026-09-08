@@ -9,68 +9,24 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
-    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
 
     /// <summary>
-    /// A venue meeting room.
+    /// The meeting room.
     /// </summary>
     public class MeetingRoom
     {
         /// <summary>
-        /// The name of the meeting room.
+        /// Meeting room name.
         /// </summary>
         [JsonProperty("name")]
-        public string Name { get; set; } = default!;
+        public string? Name { get; set; }
 
         /// <summary>
-        /// The detailed description of the meeting room.
+        /// Planner note about the meeting room.
         /// </summary>
-        [JsonProperty("description")]
-        public string? Description { get; set; }
-
-        /// <summary>
-        /// Physical dimensions for the meeting room.
-        /// </summary>
-        [JsonProperty("dimensions")]
-        public MeetingRoomDimensions Dimensions { get; set; } = default!;
-
-        /// <summary>
-        /// The position of this meeting room in the venue's room listing.
-        /// </summary>
-        [JsonProperty("displayOrder")]
-        public long? DisplayOrder { get; set; }
-
-        /// <summary>
-        /// The provider's own identifier for this meeting room.
-        /// </summary>
-        [JsonProperty("externalSourceId")]
-        public string? ExternalSourceId { get; set; }
-
-        /// <summary>
-        /// Rate information for move in/out and events.
-        /// </summary>
-        [JsonProperty("rates")]
-        public MeetingRoomRates? Rates { get; set; }
-
-        /// <summary>
-        /// Capacity information for a meeting room, grouped by category.
-        /// </summary>
-        [JsonProperty("capacities")]
-        public MeetingRoomCapacities? Capacities { get; set; }
-
-        /// <summary>
-        /// List of amenities available in the meeting room.
-        /// </summary>
-        [JsonProperty("amenities")]
-        public List<MeetingRoomAmenity>? Amenities { get; set; }
-
-        /// <summary>
-        /// True indicates the meeting room is hidden on the venue profile.
-        /// </summary>
-        [JsonProperty("hiddenOnProfile")]
-        public bool? HiddenOnProfile { get; set; } = false;
+        [JsonProperty("notes")]
+        public string? Notes { get; set; }
     }
 }

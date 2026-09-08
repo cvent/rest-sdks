@@ -6,11 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 import {
-  SessionsEnrollmentJson,
-  SessionsEnrollmentJson$inboundSchema,
-} from "./sessionsenrollmentjson.js";
+  SessionsEnrollment,
+  SessionsEnrollment$inboundSchema,
+} from "./sessionsenrollment.js";
 
 /**
  * Represents a paginated collection of session registration objects.
@@ -19,11 +19,11 @@ export type SessionsEnrollmentPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * A collection of session registration objects.
    */
-  data: Array<SessionsEnrollmentJson>;
+  data: Array<SessionsEnrollment>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const SessionsEnrollmentPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(SessionsEnrollmentJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(SessionsEnrollment$inboundSchema),
 });
 
 export function sessionsEnrollmentPaginatedResponseFromJSON(

@@ -22,6 +22,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// Attendee(s) successfully checked-in.
         /// </summary>
-        public List<AttendeeAddBulkItemEventJson>? AttendeeAddBulkResponseEvent { get; set; }
+        public List<AttendeeInvitesBulkResponseItem11>? AttendeeAddBulkResponseEvent { get; set; }
     }
 }

@@ -15,9 +15,9 @@ import {
   TransactionReconciliation$inboundSchema,
 } from "./transactionreconciliation.js";
 import {
-  TransactionType,
-  TransactionType$inboundSchema,
-} from "./transactiontype.js";
+  TransactionType1,
+  TransactionType1$inboundSchema,
+} from "./transactiontype1.js";
 
 /**
  * The identifier of the Event.
@@ -100,7 +100,7 @@ export type CardTransaction = {
   /**
    * This is used to denote the transaction type for a transaction.
    */
-  type?: TransactionType | undefined;
+  type?: TransactionType1 | undefined;
   /**
    * Transaction amount.
    */
@@ -221,7 +221,7 @@ export const CardTransaction$inboundSchema: z.ZodType<
   transactionDate: z.string().datetime({ offset: true }).transform(v =>
     new Date(v)
   ).optional(),
-  type: TransactionType$inboundSchema.optional(),
+  type: TransactionType1$inboundSchema.optional(),
   amount: z.number().optional(),
   currency: z.string().optional(),
   merchant: z.string().optional(),

@@ -9,9 +9,9 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.AttendeeLinkBulkResponseItemJson;
+import com.cvent.models.components.AttendeeLinkBulkResponseItem;
 import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.UpdateAttendeeLinksRequest;
 import com.cvent.models.operations.UpdateAttendeeLinksResponse;
 import com.cvent.utils.AsyncRetries;
@@ -193,14 +193,14 @@ public class UpdateAttendeeLinks {
             if (Utils.statusCodeMatches(response.statusCode(), "207")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return res.withAttendeeLinkBulkResponse(
-                            Utils.unmarshal(response, new TypeReference<List<AttendeeLinkBulkResponseItemJson>>() {}));
+                            Utils.unmarshal(response, new TypeReference<List<AttendeeLinkBulkResponseItem>>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw ErrorResponse11.from(response);
+                    throw ErrorResponse12.from(response);
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -282,7 +282,7 @@ public class UpdateAttendeeLinks {
 
             if (Utils.statusCodeMatches(response.statusCode(), "207")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<List<AttendeeLinkBulkResponseItemJson>>() {})
+                    return Utils.unmarshalAsync(response, new TypeReference<List<AttendeeLinkBulkResponseItem>>() {})
                             .thenApply(res::withAttendeeLinkBulkResponse);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
@@ -290,7 +290,7 @@ public class UpdateAttendeeLinks {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse11.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse12.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

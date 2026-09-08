@@ -10,6 +10,7 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { resolveSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
+import * as components from "../models/components/index.js";
 import { CventSDKError } from "../models/errors/cventsdkerror.js";
 import {
   ConnectionError,
@@ -36,12 +37,14 @@ import { Result } from "../types/fp.js";
 export function authenticationOauth2Token(
   client: CventSDKCore,
   security: operations.Oauth2TokenSecurity,
-  request?: operations.Oauth2TokenRequest | undefined,
+  request?:
+    | components.Oauth2TokenApplicationXWwwFormUrlencodedPostRequest
+    | undefined,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.Oauth2TokenResponse,
-    | errors.BadRequestError
+    components.Oauth2TokenPostResponse,
+    | errors.Oauth2TokenPostResponse0Error
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -63,13 +66,15 @@ export function authenticationOauth2Token(
 async function $do(
   client: CventSDKCore,
   security: operations.Oauth2TokenSecurity,
-  request?: operations.Oauth2TokenRequest | undefined,
+  request?:
+    | components.Oauth2TokenApplicationXWwwFormUrlencodedPostRequest
+    | undefined,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.Oauth2TokenResponse,
-      | errors.BadRequestError
+      components.Oauth2TokenPostResponse,
+      | errors.Oauth2TokenPostResponse0Error
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -85,7 +90,9 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      operations.Oauth2TokenRequest$outboundSchema.optional().parse(value),
+      components
+        .Oauth2TokenApplicationXWwwFormUrlencodedPostRequest$outboundSchema
+        .optional().parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -169,8 +176,8 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.Oauth2TokenResponse,
-    | errors.BadRequestError
+    components.Oauth2TokenPostResponse,
+    | errors.Oauth2TokenPostResponse0Error
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -180,8 +187,8 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.Oauth2TokenResponse$inboundSchema),
-    M.jsonErr(400, errors.BadRequestError$inboundSchema),
+    M.json(200, components.Oauth2TokenPostResponse$inboundSchema),
+    M.jsonErr(400, errors.Oauth2TokenPostResponse0Error$inboundSchema),
     M.fail([401, "4XX"]),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

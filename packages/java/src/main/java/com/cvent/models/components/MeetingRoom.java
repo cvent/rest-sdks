@@ -3,178 +3,58 @@
  */
 package com.cvent.models.components;
 
-import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.type.TypeReference;
-import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
-import java.lang.Boolean;
-import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
-import java.util.List;
 import java.util.Optional;
 
 /**
  * MeetingRoom
  *
- * <p>A venue meeting room.
+ * <p>The meeting room.
  */
 public class MeetingRoom {
     /**
-     * The name of the meeting room.
+     * Meeting room name.
      */
+    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("name")
     private String name;
 
     /**
-     * The detailed description of the meeting room.
+     * Planner note about the meeting room.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("description")
-    private String description;
-
-    /**
-     * Physical dimensions for the meeting room.
-     */
-    @JsonProperty("dimensions")
-    private MeetingRoomDimensions dimensions;
-
-    /**
-     * The position of this meeting room in the venue's room listing.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("displayOrder")
-    private Long displayOrder;
-
-    /**
-     * The provider's own identifier for this meeting room.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("externalSourceId")
-    private String externalSourceId;
-
-    /**
-     * Rate information for move in/out and events.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("rates")
-    private MeetingRoomRates rates;
-
-    /**
-     * Capacity information for a meeting room, grouped by category.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("capacities")
-    private MeetingRoomCapacities capacities;
-
-    /**
-     * List of amenities available in the meeting room.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("amenities")
-    private List<MeetingRoomAmenity> amenities;
-
-    /**
-     * True indicates the meeting room is hidden on the venue profile.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("hiddenOnProfile")
-    private Boolean hiddenOnProfile;
+    @JsonProperty("notes")
+    private String notes;
 
     @JsonCreator
-    public MeetingRoom(
-            @JsonProperty("name") @Nonnull String name,
-            @JsonProperty("description") @Nullable String description,
-            @JsonProperty("dimensions") @Nonnull MeetingRoomDimensions dimensions,
-            @JsonProperty("displayOrder") @Nullable Long displayOrder,
-            @JsonProperty("externalSourceId") @Nullable String externalSourceId,
-            @JsonProperty("rates") @Nullable MeetingRoomRates rates,
-            @JsonProperty("capacities") @Nullable MeetingRoomCapacities capacities,
-            @JsonProperty("amenities") @Nullable List<MeetingRoomAmenity> amenities,
-            @JsonProperty("hiddenOnProfile") @Nullable Boolean hiddenOnProfile) {
-        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.description = description;
-        this.dimensions = Optional.ofNullable(dimensions)
-                .orElseThrow(() -> new IllegalArgumentException("dimensions cannot be null"));
-        this.displayOrder = displayOrder;
-        this.externalSourceId = externalSourceId;
-        this.rates = rates;
-        this.capacities = capacities;
-        this.amenities = amenities;
-        this.hiddenOnProfile =
-                Optional.ofNullable(hiddenOnProfile).orElse(Builder._SINGLETON_VALUE_HiddenOnProfile.value());
+    public MeetingRoom(@JsonProperty("name") @Nullable String name, @JsonProperty("notes") @Nullable String notes) {
+        this.name = name;
+        this.notes = notes;
     }
 
-    public MeetingRoom(@Nonnull String name, @Nonnull MeetingRoomDimensions dimensions) {
-        this(name, null, dimensions, null, null, null, null, null, null);
+    public MeetingRoom() {
+        this(null, null);
     }
 
     /**
-     * The name of the meeting room.
+     * Meeting room name.
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
-     * The detailed description of the meeting room.
+     * Planner note about the meeting room.
      */
-    public Optional<String> description() {
-        return Optional.ofNullable(this.description);
-    }
-
-    /**
-     * Physical dimensions for the meeting room.
-     */
-    public MeetingRoomDimensions dimensions() {
-        return this.dimensions;
-    }
-
-    /**
-     * The position of this meeting room in the venue's room listing.
-     */
-    public Optional<Long> displayOrder() {
-        return Optional.ofNullable(this.displayOrder);
-    }
-
-    /**
-     * The provider's own identifier for this meeting room.
-     */
-    public Optional<String> externalSourceId() {
-        return Optional.ofNullable(this.externalSourceId);
-    }
-
-    /**
-     * Rate information for move in/out and events.
-     */
-    public Optional<MeetingRoomRates> rates() {
-        return Optional.ofNullable(this.rates);
-    }
-
-    /**
-     * Capacity information for a meeting room, grouped by category.
-     */
-    public Optional<MeetingRoomCapacities> capacities() {
-        return Optional.ofNullable(this.capacities);
-    }
-
-    /**
-     * List of amenities available in the meeting room.
-     */
-    public Optional<List<MeetingRoomAmenity>> amenities() {
-        return Optional.ofNullable(this.amenities);
-    }
-
-    /**
-     * True indicates the meeting room is hidden on the venue profile.
-     */
-    public Optional<Boolean> hiddenOnProfile() {
-        return Optional.ofNullable(this.hiddenOnProfile);
+    public Optional<String> notes() {
+        return Optional.ofNullable(this.notes);
     }
 
     public static Builder builder() {
@@ -182,74 +62,18 @@ public class MeetingRoom {
     }
 
     /**
-     * The name of the meeting room.
+     * Meeting room name.
      */
-    public MeetingRoom withName(@Nonnull String name) {
-        this.name = Utils.checkNotNull(name, "name");
+    public MeetingRoom withName(@Nullable String name) {
+        this.name = name;
         return this;
     }
 
     /**
-     * The detailed description of the meeting room.
+     * Planner note about the meeting room.
      */
-    public MeetingRoom withDescription(@Nullable String description) {
-        this.description = description;
-        return this;
-    }
-
-    /**
-     * Physical dimensions for the meeting room.
-     */
-    public MeetingRoom withDimensions(@Nonnull MeetingRoomDimensions dimensions) {
-        this.dimensions = Utils.checkNotNull(dimensions, "dimensions");
-        return this;
-    }
-
-    /**
-     * The position of this meeting room in the venue's room listing.
-     */
-    public MeetingRoom withDisplayOrder(@Nullable Long displayOrder) {
-        this.displayOrder = displayOrder;
-        return this;
-    }
-
-    /**
-     * The provider's own identifier for this meeting room.
-     */
-    public MeetingRoom withExternalSourceId(@Nullable String externalSourceId) {
-        this.externalSourceId = externalSourceId;
-        return this;
-    }
-
-    /**
-     * Rate information for move in/out and events.
-     */
-    public MeetingRoom withRates(@Nullable MeetingRoomRates rates) {
-        this.rates = rates;
-        return this;
-    }
-
-    /**
-     * Capacity information for a meeting room, grouped by category.
-     */
-    public MeetingRoom withCapacities(@Nullable MeetingRoomCapacities capacities) {
-        this.capacities = capacities;
-        return this;
-    }
-
-    /**
-     * List of amenities available in the meeting room.
-     */
-    public MeetingRoom withAmenities(@Nullable List<MeetingRoomAmenity> amenities) {
-        this.amenities = amenities;
-        return this;
-    }
-
-    /**
-     * True indicates the meeting room is hidden on the venue profile.
-     */
-    public MeetingRoom withHiddenOnProfile(@Nullable Boolean hiddenOnProfile) {
-        this.hiddenOnProfile = hiddenOnProfile;
+    public MeetingRoom withNotes(@Nullable String notes) {
+        this.notes = notes;
         return this;
     }
 
@@ -262,53 +86,17 @@ public class MeetingRoom {
             return false;
         }
         MeetingRoom other = (MeetingRoom) o;
-        return Utils.enhancedDeepEquals(this.name, other.name)
-                && Utils.enhancedDeepEquals(this.description, other.description)
-                && Utils.enhancedDeepEquals(this.dimensions, other.dimensions)
-                && Utils.enhancedDeepEquals(this.displayOrder, other.displayOrder)
-                && Utils.enhancedDeepEquals(this.externalSourceId, other.externalSourceId)
-                && Utils.enhancedDeepEquals(this.rates, other.rates)
-                && Utils.enhancedDeepEquals(this.capacities, other.capacities)
-                && Utils.enhancedDeepEquals(this.amenities, other.amenities)
-                && Utils.enhancedDeepEquals(this.hiddenOnProfile, other.hiddenOnProfile);
+        return Utils.enhancedDeepEquals(this.name, other.name) && Utils.enhancedDeepEquals(this.notes, other.notes);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-                name,
-                description,
-                dimensions,
-                displayOrder,
-                externalSourceId,
-                rates,
-                capacities,
-                amenities,
-                hiddenOnProfile);
+        return Utils.enhancedHash(name, notes);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(
-                MeetingRoom.class,
-                "name",
-                name,
-                "description",
-                description,
-                "dimensions",
-                dimensions,
-                "displayOrder",
-                displayOrder,
-                "externalSourceId",
-                externalSourceId,
-                "rates",
-                rates,
-                "capacities",
-                capacities,
-                "amenities",
-                amenities,
-                "hiddenOnProfile",
-                hiddenOnProfile);
+        return Utils.toString(MeetingRoom.class, "name", name, "notes", notes);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -316,112 +104,30 @@ public class MeetingRoom {
 
         private String name;
 
-        private String description;
-
-        private MeetingRoomDimensions dimensions;
-
-        private Long displayOrder;
-
-        private String externalSourceId;
-
-        private MeetingRoomRates rates;
-
-        private MeetingRoomCapacities capacities;
-
-        private List<MeetingRoomAmenity> amenities;
-
-        private Boolean hiddenOnProfile;
+        private String notes;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The name of the meeting room.
+         * Meeting room name.
          */
-        public Builder name(@Nonnull String name) {
-            this.name = Utils.checkNotNull(name, "name");
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
 
         /**
-         * The detailed description of the meeting room.
+         * Planner note about the meeting room.
          */
-        public Builder description(@Nullable String description) {
-            this.description = description;
-            return this;
-        }
-
-        /**
-         * Physical dimensions for the meeting room.
-         */
-        public Builder dimensions(@Nonnull MeetingRoomDimensions dimensions) {
-            this.dimensions = Utils.checkNotNull(dimensions, "dimensions");
-            return this;
-        }
-
-        /**
-         * The position of this meeting room in the venue's room listing.
-         */
-        public Builder displayOrder(@Nullable Long displayOrder) {
-            this.displayOrder = displayOrder;
-            return this;
-        }
-
-        /**
-         * The provider's own identifier for this meeting room.
-         */
-        public Builder externalSourceId(@Nullable String externalSourceId) {
-            this.externalSourceId = externalSourceId;
-            return this;
-        }
-
-        /**
-         * Rate information for move in/out and events.
-         */
-        public Builder rates(@Nullable MeetingRoomRates rates) {
-            this.rates = rates;
-            return this;
-        }
-
-        /**
-         * Capacity information for a meeting room, grouped by category.
-         */
-        public Builder capacities(@Nullable MeetingRoomCapacities capacities) {
-            this.capacities = capacities;
-            return this;
-        }
-
-        /**
-         * List of amenities available in the meeting room.
-         */
-        public Builder amenities(@Nullable List<MeetingRoomAmenity> amenities) {
-            this.amenities = amenities;
-            return this;
-        }
-
-        /**
-         * True indicates the meeting room is hidden on the venue profile.
-         */
-        public Builder hiddenOnProfile(@Nullable Boolean hiddenOnProfile) {
-            this.hiddenOnProfile = hiddenOnProfile;
+        public Builder notes(@Nullable String notes) {
+            this.notes = notes;
             return this;
         }
 
         public MeetingRoom build() {
-            return new MeetingRoom(
-                    name,
-                    description,
-                    dimensions,
-                    displayOrder,
-                    externalSourceId,
-                    rates,
-                    capacities,
-                    amenities,
-                    hiddenOnProfile);
+            return new MeetingRoom(name, notes);
         }
-
-        private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_HiddenOnProfile =
-                new LazySingletonValue<>("hiddenOnProfile", "false", new TypeReference<Boolean>() {});
     }
 }

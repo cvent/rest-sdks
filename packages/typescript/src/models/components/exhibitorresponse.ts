@@ -4,6 +4,7 @@
 
 import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Address5, Address5$inboundSchema } from "./address5.js";
@@ -13,6 +14,19 @@ import {
   SponsorshipLevel,
   SponsorshipLevel$inboundSchema,
 } from "./sponsorshiplevel.js";
+
+/**
+ * The approval status of an exhibitor. When absent, the exhibitor is considered approved.
+ */
+export const ApprovalStatus = {
+  Pending: "PENDING",
+  Approved: "APPROVED",
+  Rejected: "REJECTED",
+} as const;
+/**
+ * The approval status of an exhibitor. When absent, the exhibitor is considered approved.
+ */
+export type ApprovalStatus = ClosedEnum<typeof ApprovalStatus>;
 
 /**
  * JSON schema for the exhibitor object
@@ -126,7 +140,16 @@ export type ExhibitorResponse = {
    * URL for exhibitor banner.
    */
   bannerUrl?: string | undefined;
+  /**
+   * The approval status of an exhibitor. When absent, the exhibitor is considered approved.
+   */
+  approvalStatus?: ApprovalStatus | undefined;
 };
+
+/** @internal */
+export const ApprovalStatus$inboundSchema: z.ZodNativeEnum<
+  typeof ApprovalStatus
+> = z.nativeEnum(ApprovalStatus);
 
 /** @internal */
 export const ExhibitorResponse$inboundSchema: z.ZodType<
@@ -164,6 +187,7 @@ export const ExhibitorResponse$inboundSchema: z.ZodType<
   profileLogoUrl: z.string().optional(),
   bannerId: z.string().optional(),
   bannerUrl: z.string().optional(),
+  approvalStatus: ApprovalStatus$inboundSchema.optional(),
 });
 
 export function exhibitorResponseFromJSON(

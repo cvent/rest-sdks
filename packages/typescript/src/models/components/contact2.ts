@@ -6,15 +6,102 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  ContactType1,
+  ContactType1$inboundSchema,
+  ContactType1$outboundSchema,
+} from "./contacttype1.js";
+import {
+  Country,
+  Country$inboundSchema,
+  Country$outboundSchema,
+} from "./country.js";
+import {
+  StateProvince,
+  StateProvince$inboundSchema,
+  StateProvince$outboundSchema,
+} from "./stateprovince.js";
 
 /**
- * The contact details who watched a video
+ * The contact details.
  */
 export type Contact2 = {
   /**
-   * The unique ID of the contact who watched a video.
+   * The contact types used for the proposal.
    */
-  id?: string | undefined;
+  contactType?: ContactType1 | undefined;
+  /**
+   * The first name of the contact.
+   */
+  firstName?: string | undefined;
+  /**
+   * The last name of the contact.
+   */
+  lastName?: string | undefined;
+  /**
+   * The URL of the organization's website.
+   */
+  organizationWebsite?: string | undefined;
+  /**
+   * The name of the organization.
+   */
+  organization?: string | undefined;
+  /**
+   * Designation of the contact.
+   */
+  title?: string | undefined;
+  /**
+   * The email address of the contact.
+   */
+  email?: string | undefined;
+  /**
+   * The country code for the contact's phone number.
+   */
+  countryCode?: string | undefined;
+  /**
+   * The phone number of the organization.
+   */
+  phone?: string | undefined;
+  /**
+   * The organization's fax number.
+   */
+  fax?: string | undefined;
+  /**
+   * The mobile number of the contact.
+   */
+  mobile?: string | undefined;
+  /**
+   * Address line 1 of contact's street address.
+   */
+  streetAddress1?: string | undefined;
+  /**
+   * Address line 2 of contact's street address.
+   */
+  streetAddress2?: string | undefined;
+  /**
+   * Address line 3 of contact's street address.
+   */
+  streetAddress3?: string | undefined;
+  /**
+   * The city of the contact.
+   */
+  city?: string | undefined;
+  /**
+   * The state province code used for contact information.
+   */
+  stateProvince?: StateProvince | undefined;
+  /**
+   * The postal code of the contact.
+   */
+  postalCode?: string | undefined;
+  /**
+   * ISO 3166 two-letter (alpha-2) country codes with some additional non-standard cvent specific codes.
+   */
+  country?: Country | undefined;
+  /**
+   * Additional notes of the contact.
+   */
+  notes?: string | undefined;
 };
 
 /** @internal */
@@ -23,9 +110,79 @@ export const Contact2$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
+  contactType: ContactType1$inboundSchema.default("PRIMARY"),
+  firstName: z.string().optional(),
+  lastName: z.string().optional(),
+  organizationWebsite: z.string().optional(),
+  organization: z.string().optional(),
+  title: z.string().optional(),
+  email: z.string().optional(),
+  countryCode: z.string().optional(),
+  phone: z.string().optional(),
+  fax: z.string().optional(),
+  mobile: z.string().optional(),
+  streetAddress1: z.string().optional(),
+  streetAddress2: z.string().optional(),
+  streetAddress3: z.string().optional(),
+  city: z.string().optional(),
+  stateProvince: StateProvince$inboundSchema.optional(),
+  postalCode: z.string().optional(),
+  country: Country$inboundSchema.optional(),
+  notes: z.string().optional(),
+});
+/** @internal */
+export type Contact2$Outbound = {
+  contactType: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  organizationWebsite?: string | undefined;
+  organization?: string | undefined;
+  title?: string | undefined;
+  email?: string | undefined;
+  countryCode?: string | undefined;
+  phone?: string | undefined;
+  fax?: string | undefined;
+  mobile?: string | undefined;
+  streetAddress1?: string | undefined;
+  streetAddress2?: string | undefined;
+  streetAddress3?: string | undefined;
+  city?: string | undefined;
+  stateProvince?: string | undefined;
+  postalCode?: string | undefined;
+  country?: string | undefined;
+  notes?: string | undefined;
+};
+
+/** @internal */
+export const Contact2$outboundSchema: z.ZodType<
+  Contact2$Outbound,
+  z.ZodTypeDef,
+  Contact2
+> = z.object({
+  contactType: ContactType1$outboundSchema.default("PRIMARY"),
+  firstName: z.string().optional(),
+  lastName: z.string().optional(),
+  organizationWebsite: z.string().optional(),
+  organization: z.string().optional(),
+  title: z.string().optional(),
+  email: z.string().optional(),
+  countryCode: z.string().optional(),
+  phone: z.string().optional(),
+  fax: z.string().optional(),
+  mobile: z.string().optional(),
+  streetAddress1: z.string().optional(),
+  streetAddress2: z.string().optional(),
+  streetAddress3: z.string().optional(),
+  city: z.string().optional(),
+  stateProvince: StateProvince$outboundSchema.optional(),
+  postalCode: z.string().optional(),
+  country: Country$outboundSchema.optional(),
+  notes: z.string().optional(),
 });
 
+export function contact2ToJSON(contact2: Contact2): string {
+  return JSON.stringify(Contact2$outboundSchema.parse(contact2));
+}
 export function contact2FromJSON(
   jsonString: string,
 ): SafeParseResult<Contact2, SDKValidationError> {

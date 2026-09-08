@@ -21,6 +21,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// Successfully retrieved the event.
         /// </summary>
-        public Event11? Event1 { get; set; }
+        public Event1? Event { get; set; }
     }
 }

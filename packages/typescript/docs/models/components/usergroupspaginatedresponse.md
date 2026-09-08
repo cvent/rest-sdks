@@ -37,7 +37,7 @@ let value: UserGroupsPaginatedResponse = {
 
 ## Fields
 
-| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `data`                                                                 | [components.UserGroupJson](../../models/components/usergroupjson.md)[] | :heavy_check_mark:                                                     | List of user groups                                                    |
-| `paging`                                                               | [components.PagingJson](../../models/components/pagingjson.md)         | :heavy_check_mark:                                                     | Represents pagination information for a collection of resources.       |
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `data`                                                           | [components.UserGroup](../../models/components/usergroup.md)[]   | :heavy_check_mark:                                               | List of user groups                                              |
+| `paging`                                                         | [components.Paging](../../models/components/paging.md)           | :heavy_check_mark:                                               | Represents pagination information for a collection of resources. |

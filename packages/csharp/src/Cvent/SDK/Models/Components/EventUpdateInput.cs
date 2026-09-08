@@ -30,7 +30,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the format of an event.
         /// </summary>
         [JsonProperty("format")]
-        public EventFormatJson Format { get; set; } = default!;
+        public EventFormat Format { get; set; } = default!;
 
         /// <summary>
         /// Detailed description of the event.
@@ -72,7 +72,7 @@ namespace Cvent.SDK.Models.Components
         /// Collection of venues.
         /// </summary>
         [JsonProperty("venues")]
-        public List<VenueJsonInput>? Venues { get; set; }
+        public List<Venue1Input>? Venues { get; set; }
 
         /// <summary>
         /// True indicates the venue location is visible to guests for essential events. If used with other event types, the request returns a 400 error.
@@ -108,12 +108,12 @@ namespace Cvent.SDK.Models.Components
         /// A collection of contacts representing the event planners.
         /// </summary>
         [JsonProperty("planners")]
-        public List<PlannerJson1Input> Planners { get; set; } = default!;
+        public List<Planner1Input> Planners { get; set; } = default!;
 
         /// <summary>
         /// Type of event being created. The following event types are not supported: Cvent Webinar, Cvent Essentials.
         /// </summary>
         [JsonProperty("type")]
-        public EventTypeJson Type { get; set; } = default!;
+        public EventType11 Type { get; set; } = default!;
     }
 }

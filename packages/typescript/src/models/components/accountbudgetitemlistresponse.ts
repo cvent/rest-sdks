@@ -14,7 +14,10 @@ import {
   BudgetSubCategory,
   BudgetSubCategory$inboundSchema,
 } from "./budgetsubcategory.js";
-import { Event1, Event1$inboundSchema } from "./event1.js";
+import {
+  BudgetVersionId,
+  BudgetVersionId$inboundSchema,
+} from "./budgetversionid.js";
 
 /**
  * The response from a request to retrieve list of budget items across all events linked to the account.
@@ -37,17 +40,17 @@ export type AccountBudgetItemListResponse = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * Event ID Information.
+   * Budget Version ID Information.
    */
-  event?: Event1 | undefined;
+  event?: BudgetVersionId | undefined;
   /**
-   * Event ID Information.
+   * Budget Version ID Information.
    */
-  rfp?: Event1 | undefined;
+  rfp?: BudgetVersionId | undefined;
   /**
-   * Event ID Information.
+   * Budget Version ID Information.
    */
-  budgetVersion?: Event1 | undefined;
+  budgetVersion?: BudgetVersionId | undefined;
   /**
    * The identifier of the budget item.
    */
@@ -87,9 +90,9 @@ export const AccountBudgetItemListResponse$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: Event1$inboundSchema.optional(),
-  rfp: Event1$inboundSchema.optional(),
-  budgetVersion: Event1$inboundSchema.optional(),
+  event: BudgetVersionId$inboundSchema.optional(),
+  rfp: BudgetVersionId$inboundSchema.optional(),
+  budgetVersion: BudgetVersionId$inboundSchema.optional(),
   id: z.string().optional(),
   name: z.string().optional(),
   code: z.string().optional(),

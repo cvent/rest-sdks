@@ -24,27 +24,27 @@ public class ExistingAttendeeLinkInput {
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonProperty("webcast")
-    private UuidJson webcast;
+    private Uuid webcast;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private UuidJson event;
+    private Uuid event;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("session")
-    private UuidJson session;
+    private Uuid session;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonProperty("attendee")
-    private UuidJson attendee;
+    private Uuid attendee;
 
     /**
      * Source Id of the webcast provider
@@ -58,16 +58,16 @@ public class ExistingAttendeeLinkInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("join")
-    private WebcastLinkJson join;
+    private WebcastLink join;
 
     @JsonCreator
     public ExistingAttendeeLinkInput(
-            @JsonProperty("webcast") @Nonnull UuidJson webcast,
-            @JsonProperty("event") @Nullable UuidJson event,
-            @JsonProperty("session") @Nullable UuidJson session,
-            @JsonProperty("attendee") @Nonnull UuidJson attendee,
+            @JsonProperty("webcast") @Nonnull Uuid webcast,
+            @JsonProperty("event") @Nullable Uuid event,
+            @JsonProperty("session") @Nullable Uuid session,
+            @JsonProperty("attendee") @Nonnull Uuid attendee,
             @JsonProperty("sourceId") @Nullable String sourceId,
-            @JsonProperty("join") @Nullable WebcastLinkJson join) {
+            @JsonProperty("join") @Nullable WebcastLink join) {
         this.webcast =
                 Optional.ofNullable(webcast).orElseThrow(() -> new IllegalArgumentException("webcast cannot be null"));
         this.event = event;
@@ -78,35 +78,35 @@ public class ExistingAttendeeLinkInput {
         this.join = join;
     }
 
-    public ExistingAttendeeLinkInput(@Nonnull UuidJson webcast, @Nonnull UuidJson attendee) {
+    public ExistingAttendeeLinkInput(@Nonnull Uuid webcast, @Nonnull Uuid attendee) {
         this(webcast, null, null, attendee, null, null);
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public UuidJson webcast() {
+    public Uuid webcast() {
         return this.webcast;
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> event() {
+    public Optional<Uuid> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> session() {
+    public Optional<Uuid> session() {
         return Optional.ofNullable(this.session);
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public UuidJson attendee() {
+    public Uuid attendee() {
         return this.attendee;
     }
 
@@ -120,7 +120,7 @@ public class ExistingAttendeeLinkInput {
     /**
      * Link details for a webcast.
      */
-    public Optional<WebcastLinkJson> join() {
+    public Optional<WebcastLink> join() {
         return Optional.ofNullable(this.join);
     }
 
@@ -131,7 +131,7 @@ public class ExistingAttendeeLinkInput {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExistingAttendeeLinkInput withWebcast(@Nonnull UuidJson webcast) {
+    public ExistingAttendeeLinkInput withWebcast(@Nonnull Uuid webcast) {
         this.webcast = Utils.checkNotNull(webcast, "webcast");
         return this;
     }
@@ -139,7 +139,7 @@ public class ExistingAttendeeLinkInput {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExistingAttendeeLinkInput withEvent(@Nullable UuidJson event) {
+    public ExistingAttendeeLinkInput withEvent(@Nullable Uuid event) {
         this.event = event;
         return this;
     }
@@ -147,7 +147,7 @@ public class ExistingAttendeeLinkInput {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExistingAttendeeLinkInput withSession(@Nullable UuidJson session) {
+    public ExistingAttendeeLinkInput withSession(@Nullable Uuid session) {
         this.session = session;
         return this;
     }
@@ -155,7 +155,7 @@ public class ExistingAttendeeLinkInput {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExistingAttendeeLinkInput withAttendee(@Nonnull UuidJson attendee) {
+    public ExistingAttendeeLinkInput withAttendee(@Nonnull Uuid attendee) {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
@@ -171,7 +171,7 @@ public class ExistingAttendeeLinkInput {
     /**
      * Link details for a webcast.
      */
-    public ExistingAttendeeLinkInput withJoin(@Nullable WebcastLinkJson join) {
+    public ExistingAttendeeLinkInput withJoin(@Nullable WebcastLink join) {
         this.join = join;
         return this;
     }
@@ -219,17 +219,17 @@ public class ExistingAttendeeLinkInput {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private UuidJson webcast;
+        private Uuid webcast;
 
-        private UuidJson event;
+        private Uuid event;
 
-        private UuidJson session;
+        private Uuid session;
 
-        private UuidJson attendee;
+        private Uuid attendee;
 
         private String sourceId;
 
-        private WebcastLinkJson join;
+        private WebcastLink join;
 
         private Builder() {
             // force use of static builder() method
@@ -238,7 +238,7 @@ public class ExistingAttendeeLinkInput {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder webcast(@Nonnull UuidJson webcast) {
+        public Builder webcast(@Nonnull Uuid webcast) {
             this.webcast = Utils.checkNotNull(webcast, "webcast");
             return this;
         }
@@ -246,7 +246,7 @@ public class ExistingAttendeeLinkInput {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder event(@Nullable UuidJson event) {
+        public Builder event(@Nullable Uuid event) {
             this.event = event;
             return this;
         }
@@ -254,7 +254,7 @@ public class ExistingAttendeeLinkInput {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder session(@Nullable UuidJson session) {
+        public Builder session(@Nullable Uuid session) {
             this.session = session;
             return this;
         }
@@ -262,7 +262,7 @@ public class ExistingAttendeeLinkInput {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder attendee(@Nonnull UuidJson attendee) {
+        public Builder attendee(@Nonnull Uuid attendee) {
             this.attendee = Utils.checkNotNull(attendee, "attendee");
             return this;
         }
@@ -278,7 +278,7 @@ public class ExistingAttendeeLinkInput {
         /**
          * Link details for a webcast.
          */
-        public Builder join(@Nullable WebcastLinkJson join) {
+        public Builder join(@Nullable WebcastLink join) {
             this.join = join;
             return this;
         }

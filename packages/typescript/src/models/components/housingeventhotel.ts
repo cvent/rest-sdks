@@ -38,6 +38,10 @@ export type HousingEventHotel = {
    */
   description: string;
   /**
+   * True means hotel is integrated.
+   */
+  integrated?: boolean | undefined;
+  /**
    * The hotel's child policy.
    */
   childPolicy?: string | undefined;
@@ -85,6 +89,7 @@ export const HousingEventHotel$inboundSchema: z.ZodType<
   housingEvent: HousingEventId$inboundSchema,
   name: z.string(),
   description: z.string(),
+  integrated: z.boolean().optional(),
   childPolicy: z.string().optional(),
   images: z.array(ImageLink$inboundSchema).optional(),
   proximity: Proximity$inboundSchema.optional(),

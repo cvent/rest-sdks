@@ -11,4 +11,4 @@ See the `expand` parameter documentation and refer to the [Get Custom Field](#ta
 
 | Field                                | Type                                 | Required                             | Description                          | Example                              |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `Id`                                 | *string*                             | :heavy_minus_sign:                   | Unique identifier for custom field.  | 50dc08af-24a9-4d01-84be-3d43133dc945 |
+| `Id`                                 | *string*                             | :heavy_check_mark:                   | Unique identifier for custom field.  | 50dc08af-24a9-4d01-84be-3d43133dc945 |

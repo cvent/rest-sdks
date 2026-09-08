@@ -10,7 +10,6 @@
 namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
-    using Cvent.SDK.Models.Requests;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
 
@@ -22,6 +21,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// A successful response returning an access token and a possible refresh token.
         /// </summary>
-        public Oauth2TokenResponseBody? Object { get; set; }
+        public Oauth2TokenPostResponse? Oauth2TokenPostResponse { get; set; }
     }
 }

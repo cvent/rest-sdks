@@ -1,0 +1,17 @@
+# WebcastStatus
+
+This is used to denote the status of a webcast
+
+## Example Usage
+
+```typescript
+import { WebcastStatus } from "@cvent/sdk/models/components";
+
+let value: WebcastStatus = "Started";
+```
+
+## Values
+
+```typescript
+"Not Started" | "Started" | "Finished" | "Cancelled"
+```

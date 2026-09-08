@@ -22,55 +22,55 @@ namespace Cvent.SDK.Models.Components
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("event")]
-        public UuidJson? Event { get; set; }
+        public Uuid? Event { get; set; }
 
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("session")]
-        public UuidJson? Session { get; set; }
+        public Uuid? Session { get; set; }
 
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("appointment")]
-        public UuidJson? Appointment { get; set; }
+        public Uuid? Appointment { get; set; }
 
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("exhibitor")]
-        public UuidJson? Exhibitor { get; set; }
+        public Uuid? Exhibitor { get; set; }
 
         /// <summary>
         /// This is used to denote the format of a webcast.
         /// </summary>
         [JsonProperty("format")]
-        public FormatJson? Format { get; set; } = Cvent.SDK.Models.Components.FormatJson.Live;
+        public Format? Format { get; set; } = Cvent.SDK.Models.Components.Format.Live;
 
         /// <summary>
         /// This is used to denote the type of a webcast.
         /// </summary>
         [JsonProperty("type")]
-        public WebcastTypeJson? Type { get; set; }
+        public WebcastType? Type { get; set; }
 
         /// <summary>
         /// Name of the webcast provider.
         /// </summary>
         [JsonProperty("provider")]
-        public WebcastProviderJson? Provider { get; set; }
+        public WebcastProvider? Provider { get; set; }
 
         /// <summary>
         /// This is used to denote the status of a webcast.
         /// </summary>
         [JsonProperty("status")]
-        public WebcastStatusJson? Status { get; set; }
+        public WebcastStatus? Status { get; set; }
 
         /// <summary>
         /// This is used to denote the type of a video player.
         /// </summary>
         [JsonProperty("playerType")]
-        public PlayerTypeJson? PlayerType { get; set; }
+        public PlayerType? PlayerType { get; set; }
 
         /// <summary>
         /// Indicates if the webcast is simulated live or not.
@@ -118,7 +118,7 @@ namespace Cvent.SDK.Models.Components
         /// webcast link references.
         /// </summary>
         [JsonProperty("_links")]
-        public WebcastLinksJson? Links { get; set; }
+        public WebcastLinks? Links { get; set; }
 
         /// <summary>
         /// Additional information related to the webcast.

@@ -6,17 +6,29 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * This is used to denote the transaction type for a transaction.
+ * The proposal transaction type
  */
 export const TransactionType = {
-  Payments: "Payments",
-  Refunds: "Refunds",
-  Authorized: "Authorized",
-  Approved: "Approved",
-  Declined: "Declined",
+  Award: "AWARD",
+  Cancel: "CANCEL",
+  Copy: "COPY",
+  Create: "CREATE",
+  Decline: "DECLINE",
+  Delete: "DELETE",
+  Expire: "EXPIRE",
+  Modify: "MODIFY",
+  Obfuscate: "OBFUSCATE",
+  Publish: "PUBLISH",
+  PublishCancel: "PUBLISH_CANCEL",
+  PublishRequest: "PUBLISH_REQUEST",
+  Reopen: "REOPEN",
+  ResendEmail: "RESEND_EMAIL",
+  Submit: "SUBMIT",
+  Validate: "VALIDATE",
+  Withdraw: "WITHDRAW",
 } as const;
 /**
- * This is used to denote the transaction type for a transaction.
+ * The proposal transaction type
  */
 export type TransactionType = ClosedEnum<typeof TransactionType>;
 

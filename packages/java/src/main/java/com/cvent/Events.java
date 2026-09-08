@@ -5,7 +5,7 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.RequestOperation;
 
-import com.cvent.models.components.Event1Input;
+import com.cvent.models.components.EventInput;
 import com.cvent.models.components.SendEmailEventRequest;
 import com.cvent.models.operations.AnswerEventCustomFieldRequest;
 import com.cvent.models.operations.AnswerEventCustomFieldRequestBuilder;
@@ -511,7 +511,7 @@ public class Events {
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateEventAsyncResponse createEventAsync(@Nonnull Event1Input request) {
+    public CreateEventAsyncResponse createEventAsync(@Nonnull EventInput request) {
         return createEventAsync(request, null);
     }
 
@@ -529,8 +529,8 @@ public class Events {
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateEventAsyncResponse createEventAsync(@Nonnull Event1Input request, @Nullable Options options) {
-        RequestOperation<Event1Input, CreateEventAsyncResponse> operation =
+    public CreateEventAsyncResponse createEventAsync(@Nonnull EventInput request, @Nullable Options options) {
+        RequestOperation<EventInput, CreateEventAsyncResponse> operation =
                 new CreateEventAsync.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }

@@ -38,7 +38,7 @@ export function usersCreateAccountUserGroup(
 ): APIPromise<
   Result<
     components.AccountUserGroup,
-    | errors.ErrorResponse11
+    | errors.ErrorResponse12
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -64,7 +64,7 @@ async function $do(
   [
     Result<
       components.AccountUserGroup,
-      | errors.ErrorResponse11
+      | errors.ErrorResponse12
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -158,7 +158,7 @@ async function $do(
 
   const [result] = await M.match<
     components.AccountUserGroup,
-    | errors.ErrorResponse11
+    | errors.ErrorResponse12
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -169,7 +169,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, components.AccountUserGroup$inboundSchema),
-    M.jsonErr([400, 401, 403, 429], errors.ErrorResponse11$inboundSchema),
+    M.jsonErr([400, 401, 403, 429], errors.ErrorResponse12$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

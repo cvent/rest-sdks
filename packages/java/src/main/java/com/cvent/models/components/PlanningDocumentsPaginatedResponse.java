@@ -22,18 +22,18 @@ public class PlanningDocumentsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of event planning documents.
      */
     @JsonProperty("data")
-    private List<PlanningDocumentJson> data;
+    private List<PlanningDocument> data;
 
     @JsonCreator
     public PlanningDocumentsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<PlanningDocumentJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<PlanningDocument> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +42,14 @@ public class PlanningDocumentsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of event planning documents.
      */
-    public List<PlanningDocumentJson> data() {
+    public List<PlanningDocument> data() {
         return this.data;
     }
 
@@ -60,7 +60,7 @@ public class PlanningDocumentsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PlanningDocumentsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public PlanningDocumentsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +68,7 @@ public class PlanningDocumentsPaginatedResponse {
     /**
      * Collection of event planning documents.
      */
-    public PlanningDocumentsPaginatedResponse withData(@Nonnull List<PlanningDocumentJson> data) {
+    public PlanningDocumentsPaginatedResponse withData(@Nonnull List<PlanningDocument> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +98,9 @@ public class PlanningDocumentsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<PlanningDocumentJson> data;
+        private List<PlanningDocument> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +109,7 @@ public class PlanningDocumentsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +117,7 @@ public class PlanningDocumentsPaginatedResponse {
         /**
          * Collection of event planning documents.
          */
-        public Builder data(@Nonnull List<PlanningDocumentJson> data) {
+        public Builder data(@Nonnull List<PlanningDocument> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

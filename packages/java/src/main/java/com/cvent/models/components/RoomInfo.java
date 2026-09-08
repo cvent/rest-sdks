@@ -32,14 +32,25 @@ public class RoomInfo {
     @JsonProperty("name")
     private String name;
 
+    /**
+     * The category that classifies a room type.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("roomCategory")
+    private RoomCategory roomCategory;
+
     @JsonCreator
-    public RoomInfo(@JsonProperty("id") long id, @JsonProperty("name") @Nullable String name) {
+    public RoomInfo(
+            @JsonProperty("id") long id,
+            @JsonProperty("name") @Nullable String name,
+            @JsonProperty("roomCategory") @Nullable RoomCategory roomCategory) {
         this.id = id;
         this.name = name;
+        this.roomCategory = roomCategory;
     }
 
     public RoomInfo(long id) {
-        this(id, null);
+        this(id, null, null);
     }
 
     /**
@@ -54,6 +65,13 @@ public class RoomInfo {
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * The category that classifies a room type.
+     */
+    public Optional<RoomCategory> roomCategory() {
+        return Optional.ofNullable(this.roomCategory);
     }
 
     public static Builder builder() {
@@ -76,6 +94,14 @@ public class RoomInfo {
         return this;
     }
 
+    /**
+     * The category that classifies a room type.
+     */
+    public RoomInfo withRoomCategory(@Nullable RoomCategory roomCategory) {
+        this.roomCategory = roomCategory;
+        return this;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -85,17 +111,19 @@ public class RoomInfo {
             return false;
         }
         RoomInfo other = (RoomInfo) o;
-        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.roomCategory, other.roomCategory);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, name);
+        return Utils.enhancedHash(id, name, roomCategory);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(RoomInfo.class, "id", id, "name", name);
+        return Utils.toString(RoomInfo.class, "id", id, "name", name, "roomCategory", roomCategory);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -104,6 +132,8 @@ public class RoomInfo {
         private long id;
 
         private String name;
+
+        private RoomCategory roomCategory;
 
         private Builder() {
             // force use of static builder() method
@@ -125,8 +155,16 @@ public class RoomInfo {
             return this;
         }
 
+        /**
+         * The category that classifies a room type.
+         */
+        public Builder roomCategory(@Nullable RoomCategory roomCategory) {
+            this.roomCategory = roomCategory;
+            return this;
+        }
+
         public RoomInfo build() {
-            return new RoomInfo(id, name);
+            return new RoomInfo(id, name, roomCategory);
         }
     }
 }

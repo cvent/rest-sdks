@@ -60,7 +60,7 @@ public class EventUpdate {
      * Denotes the format of an event.
      */
     @JsonProperty("format")
-    private EventFormatJson format;
+    private EventFormat format;
 
     /**
      * Detailed description of the event.
@@ -117,7 +117,7 @@ public class EventUpdate {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("venues")
-    private List<VenueJson> venues;
+    private List<Venue1> venues;
 
     /**
      * True indicates the venue location is visible to guests for essential events. If used with other
@@ -175,14 +175,14 @@ public class EventUpdate {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("registrationSecurityLevel")
-    private EventSecurityLevelJson registrationSecurityLevel;
+    private EventSecurityLevel registrationSecurityLevel;
 
     /**
      * This is used to denote the registration status for an event.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private RegistrationStatusJson status;
+    private RegistrationStatus status;
 
     /**
      * Event status denotes if the event is in the past, present or future. Also can denote if the event
@@ -190,7 +190,7 @@ public class EventUpdate {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("eventStatus")
-    private EventStatusJson eventStatus;
+    private EventStatus eventStatus;
 
     /**
      * The planner-created planning status for this event. Used for internal tracking purposes.
@@ -218,21 +218,21 @@ public class EventUpdate {
      * A collection of contacts representing the event planners.
      */
     @JsonProperty("planners")
-    private List<PlannerJson1> planners;
+    private List<Planner1> planners;
 
     /**
      * A collection of contacts representing event stakeholders.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("stakeholders")
-    private List<StakeholderJson> stakeholders;
+    private List<Stakeholder> stakeholders;
 
     /**
      * Collection of custom fields.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customFields")
-    private List<CustomFieldJson2> customFields;
+    private List<CustomField> customFields;
 
     /**
      * The category to which this event belongs (no longer supported).
@@ -249,14 +249,14 @@ public class EventUpdate {
      * Essentials.
      */
     @JsonProperty("type")
-    private EventTypeJson type;
+    private EventType11 type;
 
     /**
      * Represents the links associated with an event.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("_links")
-    private EventLinksJson links;
+    private EventLinks links;
 
     /**
      * The ISO 8601 zoned date time when this record was created.
@@ -299,7 +299,7 @@ public class EventUpdate {
             @JsonProperty("title") @Nonnull String title,
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("virtual") @Nullable Boolean virtual,
-            @JsonProperty("format") @Nonnull EventFormatJson format,
+            @JsonProperty("format") @Nonnull EventFormat format,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("start") @Nullable OffsetDateTime start,
             @JsonProperty("end") @Nullable OffsetDateTime end,
@@ -307,7 +307,7 @@ public class EventUpdate {
             @JsonProperty("archiveAfter") @Nullable OffsetDateTime archiveAfter,
             @JsonProperty("launchAfter") @Nullable OffsetDateTime launchAfter,
             @JsonProperty("timezone") @Nonnull String timezone,
-            @JsonProperty("venues") @Nullable List<VenueJson> venues,
+            @JsonProperty("venues") @Nullable List<Venue1> venues,
             @JsonProperty("showVenueLocation") @Nullable Boolean showVenueLocation,
             @JsonProperty("showPointOfContact") @Nullable Boolean showPointOfContact,
             @JsonProperty("phone") @Nullable String phone,
@@ -315,18 +315,18 @@ public class EventUpdate {
             @JsonProperty("defaultLocale") @Nullable String defaultLocale,
             @JsonProperty("languages") @Nonnull List<String> languages,
             @JsonProperty("currency") @Nullable String currency,
-            @JsonProperty("registrationSecurityLevel") @Nullable EventSecurityLevelJson registrationSecurityLevel,
-            @JsonProperty("status") @Nullable RegistrationStatusJson status,
-            @JsonProperty("eventStatus") @Nullable EventStatusJson eventStatus,
+            @JsonProperty("registrationSecurityLevel") @Nullable EventSecurityLevel registrationSecurityLevel,
+            @JsonProperty("status") @Nullable RegistrationStatus status,
+            @JsonProperty("eventStatus") @Nullable EventStatus eventStatus,
             @JsonProperty("planningStatus") @Nullable String planningStatus,
             @JsonProperty("testMode") @Nullable Boolean testMode,
             @JsonProperty("capacity") @Nullable Long capacity,
-            @JsonProperty("planners") @Nonnull List<PlannerJson1> planners,
-            @JsonProperty("stakeholders") @Nullable List<StakeholderJson> stakeholders,
-            @JsonProperty("customFields") @Nullable List<CustomFieldJson2> customFields,
+            @JsonProperty("planners") @Nonnull List<Planner1> planners,
+            @JsonProperty("stakeholders") @Nullable List<Stakeholder> stakeholders,
+            @JsonProperty("customFields") @Nullable List<CustomField> customFields,
             @JsonProperty("category") @Nullable EventUpdateLookup category,
-            @JsonProperty("type") @Nonnull EventTypeJson type,
-            @JsonProperty("_links") @Nullable EventLinksJson links,
+            @JsonProperty("type") @Nonnull EventType11 type,
+            @JsonProperty("_links") @Nullable EventLinks links,
             @JsonProperty("created") @Nullable OffsetDateTime created,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("meetingRequestId") @Nullable String meetingRequestId,
@@ -377,11 +377,11 @@ public class EventUpdate {
 
     public EventUpdate(
             @Nonnull String title,
-            @Nonnull EventFormatJson format,
+            @Nonnull EventFormat format,
             @Nonnull String timezone,
             @Nonnull List<String> languages,
-            @Nonnull List<PlannerJson1> planners,
-            @Nonnull EventTypeJson type) {
+            @Nonnull List<Planner1> planners,
+            @Nonnull EventType11 type) {
         this(
                 null,
                 title,
@@ -457,7 +457,7 @@ public class EventUpdate {
     /**
      * Denotes the format of an event.
      */
-    public EventFormatJson format() {
+    public EventFormat format() {
         return this.format;
     }
 
@@ -515,7 +515,7 @@ public class EventUpdate {
     /**
      * Collection of venues.
      */
-    public Optional<List<VenueJson>> venues() {
+    public Optional<List<Venue1>> venues() {
         return Optional.ofNullable(this.venues);
     }
 
@@ -574,14 +574,14 @@ public class EventUpdate {
     /**
      * Represents the security level used for event registrations.
      */
-    public Optional<EventSecurityLevelJson> registrationSecurityLevel() {
+    public Optional<EventSecurityLevel> registrationSecurityLevel() {
         return Optional.ofNullable(this.registrationSecurityLevel);
     }
 
     /**
      * This is used to denote the registration status for an event.
      */
-    public Optional<RegistrationStatusJson> status() {
+    public Optional<RegistrationStatus> status() {
         return Optional.ofNullable(this.status);
     }
 
@@ -589,7 +589,7 @@ public class EventUpdate {
      * Event status denotes if the event is in the past, present or future. Also can denote if the event
      * was cancelled or deleted.
      */
-    public Optional<EventStatusJson> eventStatus() {
+    public Optional<EventStatus> eventStatus() {
         return Optional.ofNullable(this.eventStatus);
     }
 
@@ -618,21 +618,21 @@ public class EventUpdate {
     /**
      * A collection of contacts representing the event planners.
      */
-    public List<PlannerJson1> planners() {
+    public List<Planner1> planners() {
         return this.planners;
     }
 
     /**
      * A collection of contacts representing event stakeholders.
      */
-    public Optional<List<StakeholderJson>> stakeholders() {
+    public Optional<List<Stakeholder>> stakeholders() {
         return Optional.ofNullable(this.stakeholders);
     }
 
     /**
      * Collection of custom fields.
      */
-    public Optional<List<CustomFieldJson2>> customFields() {
+    public Optional<List<CustomField>> customFields() {
         return Optional.ofNullable(this.customFields);
     }
 
@@ -650,14 +650,14 @@ public class EventUpdate {
      * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
      * Essentials.
      */
-    public EventTypeJson type() {
+    public EventType11 type() {
         return this.type;
     }
 
     /**
      * Represents the links associated with an event.
      */
-    public Optional<EventLinksJson> links() {
+    public Optional<EventLinks> links() {
         return Optional.ofNullable(this.links);
     }
 
@@ -739,7 +739,7 @@ public class EventUpdate {
     /**
      * Denotes the format of an event.
      */
-    public EventUpdate withFormat(@Nonnull EventFormatJson format) {
+    public EventUpdate withFormat(@Nonnull EventFormat format) {
         this.format = Utils.checkNotNull(format, "format");
         return this;
     }
@@ -805,7 +805,7 @@ public class EventUpdate {
     /**
      * Collection of venues.
      */
-    public EventUpdate withVenues(@Nullable List<VenueJson> venues) {
+    public EventUpdate withVenues(@Nullable List<Venue1> venues) {
         this.venues = venues;
         return this;
     }
@@ -872,7 +872,7 @@ public class EventUpdate {
     /**
      * Represents the security level used for event registrations.
      */
-    public EventUpdate withRegistrationSecurityLevel(@Nullable EventSecurityLevelJson registrationSecurityLevel) {
+    public EventUpdate withRegistrationSecurityLevel(@Nullable EventSecurityLevel registrationSecurityLevel) {
         this.registrationSecurityLevel = registrationSecurityLevel;
         return this;
     }
@@ -880,7 +880,7 @@ public class EventUpdate {
     /**
      * This is used to denote the registration status for an event.
      */
-    public EventUpdate withStatus(@Nullable RegistrationStatusJson status) {
+    public EventUpdate withStatus(@Nullable RegistrationStatus status) {
         this.status = status;
         return this;
     }
@@ -889,7 +889,7 @@ public class EventUpdate {
      * Event status denotes if the event is in the past, present or future. Also can denote if the event
      * was cancelled or deleted.
      */
-    public EventUpdate withEventStatus(@Nullable EventStatusJson eventStatus) {
+    public EventUpdate withEventStatus(@Nullable EventStatus eventStatus) {
         this.eventStatus = eventStatus;
         return this;
     }
@@ -922,7 +922,7 @@ public class EventUpdate {
     /**
      * A collection of contacts representing the event planners.
      */
-    public EventUpdate withPlanners(@Nonnull List<PlannerJson1> planners) {
+    public EventUpdate withPlanners(@Nonnull List<Planner1> planners) {
         this.planners = Utils.checkNotNull(planners, "planners");
         return this;
     }
@@ -930,7 +930,7 @@ public class EventUpdate {
     /**
      * A collection of contacts representing event stakeholders.
      */
-    public EventUpdate withStakeholders(@Nullable List<StakeholderJson> stakeholders) {
+    public EventUpdate withStakeholders(@Nullable List<Stakeholder> stakeholders) {
         this.stakeholders = stakeholders;
         return this;
     }
@@ -938,7 +938,7 @@ public class EventUpdate {
     /**
      * Collection of custom fields.
      */
-    public EventUpdate withCustomFields(@Nullable List<CustomFieldJson2> customFields) {
+    public EventUpdate withCustomFields(@Nullable List<CustomField> customFields) {
         this.customFields = customFields;
         return this;
     }
@@ -958,7 +958,7 @@ public class EventUpdate {
      * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
      * Essentials.
      */
-    public EventUpdate withType(@Nonnull EventTypeJson type) {
+    public EventUpdate withType(@Nonnull EventType11 type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
@@ -966,7 +966,7 @@ public class EventUpdate {
     /**
      * Represents the links associated with an event.
      */
-    public EventUpdate withLinks(@Nullable EventLinksJson links) {
+    public EventUpdate withLinks(@Nullable EventLinks links) {
         this.links = links;
         return this;
     }
@@ -1193,7 +1193,7 @@ public class EventUpdate {
         @Deprecated
         private Boolean virtual;
 
-        private EventFormatJson format;
+        private EventFormat format;
 
         private String description;
 
@@ -1209,7 +1209,7 @@ public class EventUpdate {
 
         private String timezone;
 
-        private List<VenueJson> venues;
+        private List<Venue1> venues;
 
         private Boolean showVenueLocation;
 
@@ -1225,11 +1225,11 @@ public class EventUpdate {
 
         private String currency;
 
-        private EventSecurityLevelJson registrationSecurityLevel;
+        private EventSecurityLevel registrationSecurityLevel;
 
-        private RegistrationStatusJson status;
+        private RegistrationStatus status;
 
-        private EventStatusJson eventStatus;
+        private EventStatus eventStatus;
 
         private String planningStatus;
 
@@ -1237,18 +1237,18 @@ public class EventUpdate {
 
         private Long capacity;
 
-        private List<PlannerJson1> planners;
+        private List<Planner1> planners;
 
-        private List<StakeholderJson> stakeholders;
+        private List<Stakeholder> stakeholders;
 
-        private List<CustomFieldJson2> customFields;
+        private List<CustomField> customFields;
 
         @Deprecated
         private EventUpdateLookup category;
 
-        private EventTypeJson type;
+        private EventType11 type;
 
-        private EventLinksJson links;
+        private EventLinks links;
 
         private OffsetDateTime created;
 
@@ -1303,7 +1303,7 @@ public class EventUpdate {
         /**
          * Denotes the format of an event.
          */
-        public Builder format(@Nonnull EventFormatJson format) {
+        public Builder format(@Nonnull EventFormat format) {
             this.format = Utils.checkNotNull(format, "format");
             return this;
         }
@@ -1369,7 +1369,7 @@ public class EventUpdate {
         /**
          * Collection of venues.
          */
-        public Builder venues(@Nullable List<VenueJson> venues) {
+        public Builder venues(@Nullable List<Venue1> venues) {
             this.venues = venues;
             return this;
         }
@@ -1436,7 +1436,7 @@ public class EventUpdate {
         /**
          * Represents the security level used for event registrations.
          */
-        public Builder registrationSecurityLevel(@Nullable EventSecurityLevelJson registrationSecurityLevel) {
+        public Builder registrationSecurityLevel(@Nullable EventSecurityLevel registrationSecurityLevel) {
             this.registrationSecurityLevel = registrationSecurityLevel;
             return this;
         }
@@ -1444,7 +1444,7 @@ public class EventUpdate {
         /**
          * This is used to denote the registration status for an event.
          */
-        public Builder status(@Nullable RegistrationStatusJson status) {
+        public Builder status(@Nullable RegistrationStatus status) {
             this.status = status;
             return this;
         }
@@ -1453,7 +1453,7 @@ public class EventUpdate {
          * Event status denotes if the event is in the past, present or future. Also can denote if the event
          * was cancelled or deleted.
          */
-        public Builder eventStatus(@Nullable EventStatusJson eventStatus) {
+        public Builder eventStatus(@Nullable EventStatus eventStatus) {
             this.eventStatus = eventStatus;
             return this;
         }
@@ -1486,7 +1486,7 @@ public class EventUpdate {
         /**
          * A collection of contacts representing the event planners.
          */
-        public Builder planners(@Nonnull List<PlannerJson1> planners) {
+        public Builder planners(@Nonnull List<Planner1> planners) {
             this.planners = Utils.checkNotNull(planners, "planners");
             return this;
         }
@@ -1494,7 +1494,7 @@ public class EventUpdate {
         /**
          * A collection of contacts representing event stakeholders.
          */
-        public Builder stakeholders(@Nullable List<StakeholderJson> stakeholders) {
+        public Builder stakeholders(@Nullable List<Stakeholder> stakeholders) {
             this.stakeholders = stakeholders;
             return this;
         }
@@ -1502,7 +1502,7 @@ public class EventUpdate {
         /**
          * Collection of custom fields.
          */
-        public Builder customFields(@Nullable List<CustomFieldJson2> customFields) {
+        public Builder customFields(@Nullable List<CustomField> customFields) {
             this.customFields = customFields;
             return this;
         }
@@ -1522,7 +1522,7 @@ public class EventUpdate {
          * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
          * Essentials.
          */
-        public Builder type(@Nonnull EventTypeJson type) {
+        public Builder type(@Nonnull EventType11 type) {
             this.type = Utils.checkNotNull(type, "type");
             return this;
         }
@@ -1530,7 +1530,7 @@ public class EventUpdate {
         /**
          * Represents the links associated with an event.
          */
-        public Builder links(@Nullable EventLinksJson links) {
+        public Builder links(@Nullable EventLinks links) {
             this.links = links;
             return this;
         }

@@ -27,7 +27,7 @@ public class VideoView {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contact")
-    private Contact2 contact;
+    private Contact3 contact;
 
     /**
      * The solution where the video exists. Attendee Hub and Events+ represent two different solutions
@@ -84,7 +84,7 @@ public class VideoView {
 
     @JsonCreator
     public VideoView(
-            @JsonProperty("contact") @Nullable Contact2 contact,
+            @JsonProperty("contact") @Nullable Contact3 contact,
             @JsonProperty("solution") @Nullable Solution solution,
             @JsonProperty("device") @Nullable Device1 device,
             @JsonProperty("video") @Nullable Video1 video,
@@ -109,7 +109,7 @@ public class VideoView {
     /**
      * The contact details who watched a video
      */
-    public Optional<Contact2> contact() {
+    public Optional<Contact3> contact() {
         return Optional.ofNullable(this.contact);
     }
 
@@ -173,7 +173,7 @@ public class VideoView {
     /**
      * The contact details who watched a video
      */
-    public VideoView withContact(@Nullable Contact2 contact) {
+    public VideoView withContact(@Nullable Contact3 contact) {
         this.contact = contact;
         return this;
     }
@@ -288,7 +288,7 @@ public class VideoView {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private Contact2 contact;
+        private Contact3 contact;
 
         private Solution solution;
 
@@ -312,7 +312,7 @@ public class VideoView {
         /**
          * The contact details who watched a video
          */
-        public Builder contact(@Nullable Contact2 contact) {
+        public Builder contact(@Nullable Contact3 contact) {
             this.contact = contact;
             return this;
         }

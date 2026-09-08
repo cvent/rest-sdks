@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AgendaItem1, AgendaItem1$inboundSchema } from "./agendaitem1.js";
+import { AgendaItem2, AgendaItem2$inboundSchema } from "./agendaitem2.js";
 import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
@@ -20,7 +20,7 @@ export type DiscountAgendaItemsPaginatedResponse = {
   /**
    * Collection of associated agenda items for a discount.
    */
-  data: Array<AgendaItem1>;
+  data: Array<AgendaItem2>;
 };
 
 /** @internal */
@@ -30,7 +30,7 @@ export const DiscountAgendaItemsPaginatedResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   paging: Paging$inboundSchema,
-  data: z.array(AgendaItem1$inboundSchema),
+  data: z.array(AgendaItem2$inboundSchema),
 });
 
 export function discountAgendaItemsPaginatedResponseFromJSON(

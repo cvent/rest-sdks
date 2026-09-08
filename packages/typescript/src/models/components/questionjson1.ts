@@ -10,7 +10,7 @@ import {
   AdditionalChoiceJson,
   AdditionalChoiceJson$inboundSchema,
 } from "./additionalchoicejson.js";
-import { CategoryJson1, CategoryJson1$inboundSchema } from "./categoryjson1.js";
+import { CategoryJson, CategoryJson$inboundSchema } from "./categoryjson.js";
 import { ChoiceJson, ChoiceJson$inboundSchema } from "./choicejson.js";
 import { FieldJson, FieldJson$inboundSchema } from "./fieldjson.js";
 import {
@@ -71,7 +71,7 @@ export type QuestionJson1 = {
   /**
    * List of categories for the question.
    */
-  categories?: Array<CategoryJson1> | undefined;
+  categories?: Array<CategoryJson> | undefined;
   /**
    * List of sub categories for matrix side-by-side questions
    */
@@ -134,7 +134,7 @@ export const QuestionJson1$inboundSchema: z.ZodType<
   code: z.string().optional(),
   type: QuestionTypeJson$inboundSchema.optional(),
   choices: z.array(ChoiceJson$inboundSchema).optional(),
-  categories: z.array(CategoryJson1$inboundSchema).optional(),
+  categories: z.array(CategoryJson$inboundSchema).optional(),
   subCategories: z.array(TextFieldJson$inboundSchema).optional(),
   notApplicableAnswer: AdditionalChoiceJson$inboundSchema.optional(),
   otherAnswer: AdditionalChoiceJson$inboundSchema.optional(),

@@ -3,24 +3,281 @@
  */
 
 import * as z from "zod/v3";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { CustomField, CustomField$inboundSchema } from "./customfield.js";
+import { EventFormat, EventFormat$inboundSchema } from "./eventformat.js";
+import { EventLinks, EventLinks$inboundSchema } from "./eventlinks.js";
+import {
+  EventSecurityLevel,
+  EventSecurityLevel$inboundSchema,
+} from "./eventsecuritylevel.js";
+import { EventStatus, EventStatus$inboundSchema } from "./eventstatus.js";
+import { EventType11, EventType11$inboundSchema } from "./eventtype11.js";
+import { Planner1, Planner1$inboundSchema } from "./planner1.js";
+import {
+  RegistrationStatus,
+  RegistrationStatus$inboundSchema,
+} from "./registrationstatus.js";
+import { Stakeholder, Stakeholder$inboundSchema } from "./stakeholder.js";
+import { Venue1, Venue1$inboundSchema } from "./venue1.js";
 
 /**
- * Event ID Information.
+ * The category to which this event belongs (no longer supported).
+ *
+ * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
+export type EventLookup = {
+  /**
+   * A string that has to be a format matching the industry standard uuid
+   */
+  id?: string | undefined;
+  /**
+   * Code / Abbreviation of the lookup item.
+   */
+  code?: string | undefined;
+  /**
+   * Name of the lookup item.
+   */
+  name?: string | undefined;
+};
+
+/**
+ * Represents an event.
  */
 export type Event1 = {
   /**
-   * Identifier of a particular Event.
+   * The identifier of the event.
    */
   id?: string | undefined;
+  /**
+   * Title of the event being organized.
+   */
+  title: string;
+  /**
+   * A system-generated code for this event.
+   */
+  code?: string | undefined;
+  /**
+   * True indicates the event is virtual. DEPRECATED - Refer to the 'format' field for the 'virtual' indicator.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  virtual?: boolean | undefined;
+  /**
+   * Denotes the format of an event.
+   */
+  format: EventFormat;
+  /**
+   * Detailed description of the event.
+   */
+  description?: string | undefined;
+  /**
+   * The ISO 8601 formatted date and time when the event starts.
+   */
+  start?: Date | undefined;
+  /**
+   * The ISO 8601 formatted date and time when the event ends.
+   */
+  end?: Date | undefined;
+  /**
+   * The event will be closed for registration after this ISO 8601 formatted date and time.
+   */
+  closeAfter?: Date | undefined;
+  /**
+   * The event will be archived after this ISO 8601 formatted date and time.
+   */
+  archiveAfter?: Date | undefined;
+  /**
+   * The event will launch after this ISO 8601 formatted date and time. If the event has not yet launched, this field shows a date of 1/1/1900.
+   */
+  launchAfter?: Date | undefined;
+  /**
+   * List of supported [timezones](https://developers.cvent.com/docs/rest-api/reference/api-standards#time-zones).
+   */
+  timezone: string;
+  /**
+   * Collection of venues.
+   */
+  venues?: Array<Venue1> | undefined;
+  /**
+   * True indicates the venue location is visible to guests for essential events. If used with other event types, the request returns a 400 error.
+   */
+  showVenueLocation?: boolean | undefined;
+  /**
+   * True indicates the venue location is visible to guests for essential events. If used with other event types, the request returns a 400 error.
+   */
+  showPointOfContact?: boolean | undefined;
+  /**
+   * The phone number for the event.
+   */
+  phone?: string | undefined;
+  /**
+   * Event note created by planners for internal use.
+   */
+  note?: string | undefined;
+  /**
+   * The event default locale using the IETF language tag format.
+   */
+  defaultLocale?: string | undefined;
+  /**
+   * List of IETF language tags enabled for the event. This field supports reading multiple language tags but supports writing only one language to an event.
+   */
+  languages: Array<string>;
+  /**
+   * The ISO 4217 standard format currency code used of this event.
+   */
+  currency?: string | undefined;
+  /**
+   * Represents the security level used for event registrations.
+   */
+  registrationSecurityLevel?: EventSecurityLevel | undefined;
+  /**
+   * This is used to denote the registration status for an event.
+   */
+  status?: RegistrationStatus | undefined;
+  /**
+   * Event status denotes if the event is in the past, present or future. Also can denote if the event was cancelled or deleted.
+   */
+  eventStatus?: EventStatus | undefined;
+  /**
+   * The planner-created planning status for this event. Used for internal tracking purposes.
+   */
+  planningStatus?: string | undefined;
+  /**
+   * True indicates the event is in test mode.
+   */
+  testMode?: boolean | undefined;
+  /**
+   * The maximum amount of attendees that can attend the event. Only used for events with the registration feature.
+   */
+  capacity?: number | undefined;
+  /**
+   * A collection of contacts representing the event planners.
+   */
+  planners: Array<Planner1>;
+  /**
+   * A collection of contacts representing event stakeholders.
+   */
+  stakeholders?: Array<Stakeholder> | undefined;
+  /**
+   * Collection of custom fields.
+   */
+  customFields?: Array<CustomField> | undefined;
+  /**
+   * The category to which this event belongs (no longer supported).
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  category?: EventLookup | undefined;
+  /**
+   * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent Essentials.
+   */
+  type: EventType11;
+  /**
+   * Represents the links associated with an event.
+   */
+  links?: EventLinks | undefined;
+  /**
+   * The ISO 8601 zoned date time when this record was created.
+   */
+  created?: Date | undefined;
+  /**
+   * The ISO 8601 zoned date time when this record was updated.
+   */
+  lastModified?: Date | undefined;
+  /**
+   * The identifier of the meeting request related to the event, if any.
+   */
+  meetingRequestId?: string | undefined;
+  /**
+   * The name of the user who created the event.
+   */
+  createdBy?: string | undefined;
+  /**
+   * The name of the user who last modified the event.
+   */
+  lastModifiedBy?: string | undefined;
 };
+
+/** @internal */
+export const EventLookup$inboundSchema: z.ZodType<
+  EventLookup,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string().optional(),
+  code: z.string().optional(),
+  name: z.string().optional(),
+});
+
+export function eventLookupFromJSON(
+  jsonString: string,
+): SafeParseResult<EventLookup, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EventLookup$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EventLookup' from JSON`,
+  );
+}
 
 /** @internal */
 export const Event1$inboundSchema: z.ZodType<Event1, z.ZodTypeDef, unknown> = z
   .object({
     id: z.string().optional(),
+    title: z.string(),
+    code: z.string().optional(),
+    virtual: z.boolean().optional(),
+    format: EventFormat$inboundSchema,
+    description: z.string().optional(),
+    start: z.string().datetime({ offset: true }).transform(v => new Date(v))
+      .optional(),
+    end: z.string().datetime({ offset: true }).transform(v => new Date(v))
+      .optional(),
+    closeAfter: z.string().datetime({ offset: true }).transform(v =>
+      new Date(v)
+    ).optional(),
+    archiveAfter: z.string().datetime({ offset: true }).transform(v =>
+      new Date(v)
+    ).optional(),
+    launchAfter: z.string().datetime({ offset: true }).transform(v =>
+      new Date(v)
+    ).optional(),
+    timezone: z.string(),
+    venues: z.array(Venue1$inboundSchema).optional(),
+    showVenueLocation: z.boolean().optional(),
+    showPointOfContact: z.boolean().optional(),
+    phone: z.string().optional(),
+    note: z.string().optional(),
+    defaultLocale: z.string().optional(),
+    languages: z.array(z.string()),
+    currency: z.string().optional(),
+    registrationSecurityLevel: EventSecurityLevel$inboundSchema.optional(),
+    status: RegistrationStatus$inboundSchema.optional(),
+    eventStatus: EventStatus$inboundSchema.optional(),
+    planningStatus: z.string().optional(),
+    testMode: z.boolean().optional(),
+    capacity: z.number().int().optional(),
+    planners: z.array(Planner1$inboundSchema),
+    stakeholders: z.array(Stakeholder$inboundSchema).optional(),
+    customFields: z.array(CustomField$inboundSchema).optional(),
+    category: z.lazy(() => EventLookup$inboundSchema).optional(),
+    type: EventType11$inboundSchema,
+    _links: EventLinks$inboundSchema.optional(),
+    created: z.string().datetime({ offset: true }).transform(v => new Date(v))
+      .optional(),
+    lastModified: z.string().datetime({ offset: true }).transform(v =>
+      new Date(v)
+    ).optional(),
+    meetingRequestId: z.string().optional(),
+    createdBy: z.string().optional(),
+    lastModifiedBy: z.string().optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      "_links": "links",
+    });
   });
 
 export function event1FromJSON(

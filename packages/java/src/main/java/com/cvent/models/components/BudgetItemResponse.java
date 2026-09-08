@@ -196,6 +196,13 @@ public class BudgetItemResponse {
     private String associatedSession;
 
     /**
+     * Budget Version ID Information.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("budgetVersion")
+    private BudgetVersionId budgetVersion;
+
+    /**
      * List of budget item custom fields.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -229,6 +236,7 @@ public class BudgetItemResponse {
             @JsonProperty("savings") @Nullable List<BudgetSavings> savings,
             @JsonProperty("associatedRegistrants") @Nullable List<BudgetAssociatedRegistrant> associatedRegistrants,
             @JsonProperty("associatedSession") @Nullable String associatedSession,
+            @JsonProperty("budgetVersion") @Nullable BudgetVersionId budgetVersion,
             @JsonProperty("customFields") @Nullable List<BudgetItemCustomField> customFields) {
         this.event = event;
         this.id = id;
@@ -260,6 +268,7 @@ public class BudgetItemResponse {
         this.savings = savings;
         this.associatedRegistrants = associatedRegistrants;
         this.associatedSession = associatedSession;
+        this.budgetVersion = budgetVersion;
         this.customFields = customFields;
     }
 
@@ -296,6 +305,7 @@ public class BudgetItemResponse {
                 currency,
                 null,
                 conversionRate,
+                null,
                 null,
                 null,
                 null,
@@ -483,6 +493,13 @@ public class BudgetItemResponse {
      */
     public Optional<String> associatedSession() {
         return Optional.ofNullable(this.associatedSession);
+    }
+
+    /**
+     * Budget Version ID Information.
+     */
+    public Optional<BudgetVersionId> budgetVersion() {
+        return Optional.ofNullable(this.budgetVersion);
     }
 
     /**
@@ -705,6 +722,14 @@ public class BudgetItemResponse {
     }
 
     /**
+     * Budget Version ID Information.
+     */
+    public BudgetItemResponse withBudgetVersion(@Nullable BudgetVersionId budgetVersion) {
+        this.budgetVersion = budgetVersion;
+        return this;
+    }
+
+    /**
      * List of budget item custom fields.
      */
     public BudgetItemResponse withCustomFields(@Nullable List<BudgetItemCustomField> customFields) {
@@ -746,6 +771,7 @@ public class BudgetItemResponse {
                 && Utils.enhancedDeepEquals(this.savings, other.savings)
                 && Utils.enhancedDeepEquals(this.associatedRegistrants, other.associatedRegistrants)
                 && Utils.enhancedDeepEquals(this.associatedSession, other.associatedSession)
+                && Utils.enhancedDeepEquals(this.budgetVersion, other.budgetVersion)
                 && Utils.enhancedDeepEquals(this.customFields, other.customFields);
     }
 
@@ -777,6 +803,7 @@ public class BudgetItemResponse {
                 savings,
                 associatedRegistrants,
                 associatedSession,
+                budgetVersion,
                 customFields);
     }
 
@@ -834,6 +861,8 @@ public class BudgetItemResponse {
                 associatedRegistrants,
                 "associatedSession",
                 associatedSession,
+                "budgetVersion",
+                budgetVersion,
                 "customFields",
                 customFields);
     }
@@ -890,6 +919,8 @@ public class BudgetItemResponse {
         private List<BudgetAssociatedRegistrant> associatedRegistrants;
 
         private String associatedSession;
+
+        private BudgetVersionId budgetVersion;
 
         private List<BudgetItemCustomField> customFields;
 
@@ -1105,6 +1136,14 @@ public class BudgetItemResponse {
         }
 
         /**
+         * Budget Version ID Information.
+         */
+        public Builder budgetVersion(@Nullable BudgetVersionId budgetVersion) {
+            this.budgetVersion = budgetVersion;
+            return this;
+        }
+
+        /**
          * List of budget item custom fields.
          */
         public Builder customFields(@Nullable List<BudgetItemCustomField> customFields) {
@@ -1139,6 +1178,7 @@ public class BudgetItemResponse {
                     savings,
                     associatedRegistrants,
                     associatedSession,
+                    budgetVersion,
                     customFields);
         }
     }

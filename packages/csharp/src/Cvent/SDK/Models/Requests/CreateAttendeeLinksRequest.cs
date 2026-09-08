@@ -25,6 +25,6 @@ namespace Cvent.SDK.Models.Requests
         /// Up to **100 attendee links** can be created per call.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public List<ZeroInput> RequestBody { get; set; } = default!;
+        public List<AttendeeLink> RequestBody { get; set; } = default!;
     }
 }

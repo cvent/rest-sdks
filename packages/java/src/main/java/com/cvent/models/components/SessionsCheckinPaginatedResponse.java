@@ -22,18 +22,18 @@ public class SessionsCheckinPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of session attendance objects.
      */
     @JsonProperty("data")
-    private List<SessionsAttendanceResponseJson> data;
+    private List<SessionsAttendance> data;
 
     @JsonCreator
     public SessionsCheckinPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<SessionsAttendanceResponseJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<SessionsAttendance> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +42,14 @@ public class SessionsCheckinPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of session attendance objects.
      */
-    public List<SessionsAttendanceResponseJson> data() {
+    public List<SessionsAttendance> data() {
         return this.data;
     }
 
@@ -60,7 +60,7 @@ public class SessionsCheckinPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public SessionsCheckinPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public SessionsCheckinPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +68,7 @@ public class SessionsCheckinPaginatedResponse {
     /**
      * Collection of session attendance objects.
      */
-    public SessionsCheckinPaginatedResponse withData(@Nonnull List<SessionsAttendanceResponseJson> data) {
+    public SessionsCheckinPaginatedResponse withData(@Nonnull List<SessionsAttendance> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +98,9 @@ public class SessionsCheckinPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<SessionsAttendanceResponseJson> data;
+        private List<SessionsAttendance> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +109,7 @@ public class SessionsCheckinPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +117,7 @@ public class SessionsCheckinPaginatedResponse {
         /**
          * Collection of session attendance objects.
          */
-        public Builder data(@Nonnull List<SessionsAttendanceResponseJson> data) {
+        public Builder data(@Nonnull List<SessionsAttendance> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

@@ -44,7 +44,7 @@ export function housingUnlinkReservation(
 ): APIPromise<
   Result<
     void,
-    | errors.ErrorResponse11
+    | errors.ErrorResponse12
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -70,7 +70,7 @@ async function $do(
   [
     Result<
       void,
-      | errors.ErrorResponse11
+      | errors.ErrorResponse12
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -174,7 +174,7 @@ async function $do(
 
   const [result] = await M.match<
     void,
-    | errors.ErrorResponse11
+    | errors.ErrorResponse12
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -185,7 +185,7 @@ async function $do(
     | SDKValidationError
   >(
     M.nil(204, z.void()),
-    M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse11$inboundSchema),
+    M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse12$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

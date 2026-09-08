@@ -6,11 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  EventQuestionJson,
-  EventQuestionJson$inboundSchema,
-} from "./eventquestionjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { EventQuestion, EventQuestion$inboundSchema } from "./eventquestion.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * Represents the response from a request to get the list of event questions. This includes the paging object as well as the collection of event questions.
@@ -19,11 +16,11 @@ export type EventQuestionsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of event questions.
    */
-  data: Array<EventQuestionJson>;
+  data: Array<EventQuestion>;
 };
 
 /** @internal */
@@ -32,8 +29,8 @@ export const EventQuestionsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(EventQuestionJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(EventQuestion$inboundSchema),
 });
 
 export function eventQuestionsPaginatedResponseFromJSON(

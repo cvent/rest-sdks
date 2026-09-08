@@ -3,140 +3,191 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  Choices1Input,
+  Choices1Input$Outbound,
+  Choices1Input$outboundSchema,
+} from "./choices1input.js";
+import {
+  CustomFieldCategory,
+  CustomFieldCategory$outboundSchema,
+} from "./customfieldcategory.js";
+import {
+  CustomFieldType2,
+  CustomFieldType2$outboundSchema,
+} from "./customfieldtype2.js";
+import {
+  DisplayInDataTag,
+  DisplayInDataTag$outboundSchema,
+} from "./displayindatatag.js";
+import {
+  OpenEndedCommentBox,
+  OpenEndedCommentBox$Outbound,
+  OpenEndedCommentBox$outboundSchema,
+} from "./openendedcommentbox.js";
+import {
+  OpenEndedDateTime1,
+  OpenEndedDateTime1$Outbound,
+  OpenEndedDateTime1$outboundSchema,
+} from "./openendeddatetime1.js";
+import {
+  OpenEndedOneLine,
+  OpenEndedOneLine$Outbound,
+  OpenEndedOneLine$outboundSchema,
+} from "./openendedoneline.js";
+import {
+  PageVisibility,
+  PageVisibility$Outbound,
+  PageVisibility$outboundSchema,
+} from "./pagevisibility.js";
 
 /**
- * The type of data collected by a custom field.
+ * Type-specific details of the custom-field.
  */
-export const CustomField1CustomFieldType = {
-  AutoIncrement: "AutoIncrement",
-  ConsentQuestion: "ConsentQuestion",
-  Currency: "Currency",
-  Decimal: "Decimal",
-  Date: "Date",
-  DateTime: "DateTime",
-  Email: "Email",
-  FileUpload: "FileUpload",
-  FreeText: "FreeText",
-  General: "General",
-  MultiChoice: "MultiChoice",
-  MultiSelect: "MultiSelect",
-  Number: "Number",
-  OpenEndedDateTime: "OpenEndedDateTime",
-  OpenEndedText: "OpenEndedText",
-  SingleChoice: "SingleChoice",
-  SingleSelect: "SingleSelect",
-  USPhoneNumber: "USPhoneNumber",
-  Unknown: "Unknown",
-} as const;
-/**
- * The type of data collected by a custom field.
- */
-export type CustomField1CustomFieldType = ClosedEnum<
-  typeof CustomField1CustomFieldType
->;
+export type CustomField1Details =
+  | OpenEndedOneLine
+  | OpenEndedDateTime1
+  | OpenEndedCommentBox
+  | Choices1Input;
 
 /**
- * A Custom Field
+ * This is used to denote the custom field data.
  */
 export type CustomField1 = {
   /**
-   * The unique ID representing this custom field.
+   * This is used to denote the category of a custom field.
    */
-  id: string;
+  category: CustomFieldCategory;
   /**
    * The actual text of the custom field.
    */
-  name?: string | undefined;
+  name: string;
   /**
-   * The set of answers or possible answers to a question.
+   * Code to uniquely identify custom field.
    */
-  value: Array<string>;
+  code: string;
   /**
-   * The order of this question in the bigger list of questions.
+   * Whether answer to custom field is mandatory or not.
    */
-  order?: number | undefined;
+  required?: boolean | undefined;
   /**
-   * The type of data collected by a custom field.
+   * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
    */
-  type?: CustomField1CustomFieldType | undefined;
+  type: CustomFieldType2;
+  /**
+   * Type-specific details of the custom-field.
+   */
+  details?:
+    | OpenEndedOneLine
+    | OpenEndedDateTime1
+    | OpenEndedCommentBox
+    | Choices1Input
+    | undefined;
+  /**
+   * The help text of the custom field.
+   */
+  helpText?: string | undefined;
+  /**
+   * This option allows you to choose whether to display the custom field in emails. The field name and the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to display always or only when answered. Only applicable to session custom fields.
+   */
+  displayInDataTag?: DisplayInDataTag | undefined;
+  /**
+   * Default text in emails when a contact does not have a value answered for this custom field. Only applicable to contact custom fields.
+   */
+  defaultTagText?: string | undefined;
+  /**
+   * True means that this is a consent field. Only applicable to contact custom fields.
+   */
+  consentField?: boolean | undefined;
+  /**
+   * True means that this custom field is active. Determines visibility for event custom fields.
+   */
+  active?: boolean | undefined;
+  /**
+   * True means that the field will be displayed in the event creation wizard. Only applicable to event custom fields.
+   */
+  displayInEventCreationWizard?: boolean | undefined;
+  /**
+   * Visibility of the custom field on various pages/forms.
+   */
+  pageVisibility?: PageVisibility | undefined;
 };
 
-/**
- * A Custom Field
- */
-export type CustomField1Input = {
-  /**
-   * The unique ID representing this custom field.
-   */
-  id: string;
-  /**
-   * The set of answers or possible answers to a question.
-   */
-  value: Array<string>;
-  /**
-   * The type of data collected by a custom field.
-   */
-  type?: CustomField1CustomFieldType | undefined;
-};
+/** @internal */
+export type CustomField1Details$Outbound =
+  | OpenEndedOneLine$Outbound
+  | OpenEndedDateTime1$Outbound
+  | OpenEndedCommentBox$Outbound
+  | Choices1Input$Outbound;
 
 /** @internal */
-export const CustomField1CustomFieldType$inboundSchema: z.ZodNativeEnum<
-  typeof CustomField1CustomFieldType
-> = z.nativeEnum(CustomField1CustomFieldType);
-/** @internal */
-export const CustomField1CustomFieldType$outboundSchema: z.ZodNativeEnum<
-  typeof CustomField1CustomFieldType
-> = CustomField1CustomFieldType$inboundSchema;
-
-/** @internal */
-export const CustomField1$inboundSchema: z.ZodType<
-  CustomField1,
+export const CustomField1Details$outboundSchema: z.ZodType<
+  CustomField1Details$Outbound,
   z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  name: z.string().optional(),
-  value: z.array(z.string()),
-  order: z.number().int().optional(),
-  type: CustomField1CustomFieldType$inboundSchema.optional(),
-});
+  CustomField1Details
+> = z.union([
+  OpenEndedOneLine$outboundSchema,
+  OpenEndedDateTime1$outboundSchema,
+  OpenEndedCommentBox$outboundSchema,
+  Choices1Input$outboundSchema,
+]);
 
-export function customField1FromJSON(
-  jsonString: string,
-): SafeParseResult<CustomField1, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomField1$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomField1' from JSON`,
+export function customField1DetailsToJSON(
+  customField1Details: CustomField1Details,
+): string {
+  return JSON.stringify(
+    CustomField1Details$outboundSchema.parse(customField1Details),
   );
 }
 
 /** @internal */
-export type CustomField1Input$Outbound = {
-  id: string;
-  value: Array<string>;
-  type?: string | undefined;
+export type CustomField1$Outbound = {
+  category: string;
+  name: string;
+  code: string;
+  required: boolean;
+  type: string;
+  details?:
+    | OpenEndedOneLine$Outbound
+    | OpenEndedDateTime1$Outbound
+    | OpenEndedCommentBox$Outbound
+    | Choices1Input$Outbound
+    | undefined;
+  helpText?: string | undefined;
+  displayInDataTag: string;
+  defaultTagText?: string | undefined;
+  consentField: boolean;
+  active: boolean;
+  displayInEventCreationWizard: boolean;
+  pageVisibility?: PageVisibility$Outbound | undefined;
 };
 
 /** @internal */
-export const CustomField1Input$outboundSchema: z.ZodType<
-  CustomField1Input$Outbound,
+export const CustomField1$outboundSchema: z.ZodType<
+  CustomField1$Outbound,
   z.ZodTypeDef,
-  CustomField1Input
+  CustomField1
 > = z.object({
-  id: z.string(),
-  value: z.array(z.string()),
-  type: CustomField1CustomFieldType$outboundSchema.optional(),
+  category: CustomFieldCategory$outboundSchema,
+  name: z.string(),
+  code: z.string(),
+  required: z.boolean().default(true),
+  type: CustomFieldType2$outboundSchema,
+  details: z.union([
+    OpenEndedOneLine$outboundSchema,
+    OpenEndedDateTime1$outboundSchema,
+    OpenEndedCommentBox$outboundSchema,
+    Choices1Input$outboundSchema,
+  ]).optional(),
+  helpText: z.string().optional(),
+  displayInDataTag: DisplayInDataTag$outboundSchema.default("No"),
+  defaultTagText: z.string().optional(),
+  consentField: z.boolean().default(false),
+  active: z.boolean().default(true),
+  displayInEventCreationWizard: z.boolean().default(false),
+  pageVisibility: PageVisibility$outboundSchema.optional(),
 });
 
-export function customField1InputToJSON(
-  customField1Input: CustomField1Input,
-): string {
-  return JSON.stringify(
-    CustomField1Input$outboundSchema.parse(customField1Input),
-  );
+export function customField1ToJSON(customField1: CustomField1): string {
+  return JSON.stringify(CustomField1$outboundSchema.parse(customField1));
 }

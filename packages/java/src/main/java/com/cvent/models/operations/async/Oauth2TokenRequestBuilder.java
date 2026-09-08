@@ -6,7 +6,7 @@ package com.cvent.models.operations.async;
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
-import com.cvent.models.operations.Oauth2TokenRequest;
+import com.cvent.models.components.Oauth2TokenApplicationXWwwFormUrlencodedPostRequest;
 import com.cvent.models.operations.Oauth2TokenSecurity;
 import com.cvent.operations.Oauth2Token;
 import com.cvent.utils.Headers;
@@ -20,7 +20,7 @@ import java.util.concurrent.CompletableFuture;
 public class Oauth2TokenRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
-    private Oauth2TokenRequest request;
+    private Oauth2TokenApplicationXWwwFormUrlencodedPostRequest request;
     private Oauth2TokenSecurity security;
     private final Options.Builder optionsBuilder;
 
@@ -34,7 +34,7 @@ public class Oauth2TokenRequestBuilder {
         return this;
     }
 
-    public Oauth2TokenRequestBuilder request(@Nullable Oauth2TokenRequest request) {
+    public Oauth2TokenRequestBuilder request(@Nullable Oauth2TokenApplicationXWwwFormUrlencodedPostRequest request) {
         this.request = request;
         return this;
     }
@@ -44,7 +44,7 @@ public class Oauth2TokenRequestBuilder {
         return this;
     }
 
-    private Oauth2TokenRequest _buildRequest() {
+    private Oauth2TokenApplicationXWwwFormUrlencodedPostRequest _buildRequest() {
         return this.request;
     }
 
@@ -62,7 +62,7 @@ public class Oauth2TokenRequestBuilder {
      */
     public CompletableFuture<Oauth2TokenResponse> call() {
         Options options = optionsBuilder.build();
-        AsyncRequestOperation<Oauth2TokenRequest, Oauth2TokenResponse> operation =
+        AsyncRequestOperation<Oauth2TokenApplicationXWwwFormUrlencodedPostRequest, Oauth2TokenResponse> operation =
                 new Oauth2Token.Async(sdkConfiguration, security, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }

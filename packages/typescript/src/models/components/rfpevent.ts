@@ -11,7 +11,7 @@ import {
   EventFormatType,
   EventFormatType$inboundSchema,
 } from "./eventformattype.js";
-import { EventType1, EventType1$inboundSchema } from "./eventtype1.js";
+import { EventType12, EventType12$inboundSchema } from "./eventtype12.js";
 import { SpaceArea, SpaceArea$inboundSchema } from "./spacearea.js";
 
 /**
@@ -41,7 +41,7 @@ export type RfpEvent = {
   /**
    * Event type.
    */
-  type?: EventType1 | undefined;
+  type?: EventType12 | undefined;
   /**
    * Space area divisons.
    */
@@ -59,7 +59,7 @@ export type RfpEvent = {
    */
   flexibleDates?: boolean | undefined;
   /**
-   * True indicates event is a repeat occurrence.
+   * True indicates similar event(s) have been held in the past.
    */
   repeat?: boolean | undefined;
   /**
@@ -111,7 +111,7 @@ export const RfpEvent$inboundSchema: z.ZodType<
   contractSignatureLocation: z.string().optional(),
   destinationsUnderConsideration: z.string().optional(),
   externalMeetingRequest: z.boolean().optional(),
-  type: EventType1$inboundSchema.optional(),
+  type: EventType12$inboundSchema.optional(),
   totalMeetingSpaceRequired: SpaceArea$inboundSchema.optional(),
   audioVisualNeeds: z.string().optional(),
   peakMeetingRooms: z.number().int().optional(),

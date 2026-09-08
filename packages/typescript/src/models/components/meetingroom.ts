@@ -3,178 +3,37 @@
  */
 
 import * as z from "zod/v3";
-import {
-  AreaMeasurement,
-  AreaMeasurement$Outbound,
-  AreaMeasurement$outboundSchema,
-} from "./areameasurement.js";
-import {
-  Dimension,
-  Dimension$Outbound,
-  Dimension$outboundSchema,
-} from "./dimension.js";
-import {
-  MeetingRoomAmenity,
-  MeetingRoomAmenity$outboundSchema,
-} from "./meetingroomamenity.js";
-import {
-  MeetingRoomCapacities,
-  MeetingRoomCapacities$Outbound,
-  MeetingRoomCapacities$outboundSchema,
-} from "./meetingroomcapacities.js";
-import {
-  MeetingRoomRate,
-  MeetingRoomRate$Outbound,
-  MeetingRoomRate$outboundSchema,
-} from "./meetingroomrate.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Physical dimensions for the meeting room.
- */
-export type MeetingRoomDimensions = {
-  /**
-   * Measurement of area in square feet or square meters.
-   */
-  totalSpace: AreaMeasurement;
-  /**
-   * A dimension measurement in feet or meters.
-   */
-  ceilingHeight?: Dimension | undefined;
-  /**
-   * A dimension measurement in feet or meters.
-   */
-  length?: Dimension | undefined;
-  /**
-   * A dimension measurement in feet or meters.
-   */
-  width?: Dimension | undefined;
-};
-
-/**
- * Rate information for move in/out and events.
- */
-export type MeetingRoomRates = {
-  /**
-   * Meeting room rate with a value and application type.
-   */
-  moveIn?: MeetingRoomRate | undefined;
-  /**
-   * Meeting room rate with a value and application type.
-   */
-  moveOut?: MeetingRoomRate | undefined;
-  /**
-   * Meeting room rate with a value and application type.
-   */
-  event?: MeetingRoomRate | undefined;
-};
-
-/**
- * A venue meeting room.
+ * The meeting room.
  */
 export type MeetingRoom = {
   /**
-   * The name of the meeting room.
+   * Meeting room name.
    */
-  name: string;
+  name?: string | undefined;
   /**
-   * The detailed description of the meeting room.
+   * Planner note about the meeting room.
    */
-  description?: string | undefined;
-  /**
-   * Physical dimensions for the meeting room.
-   */
-  dimensions: MeetingRoomDimensions;
-  /**
-   * The position of this meeting room in the venue's room listing.
-   */
-  displayOrder?: number | undefined;
-  /**
-   * The provider's own identifier for this meeting room.
-   */
-  externalSourceId?: string | undefined;
-  /**
-   * Rate information for move in/out and events.
-   */
-  rates?: MeetingRoomRates | undefined;
-  /**
-   * Capacity information for a meeting room, grouped by category.
-   */
-  capacities?: MeetingRoomCapacities | undefined;
-  /**
-   * List of amenities available in the meeting room.
-   */
-  amenities?: Array<MeetingRoomAmenity> | undefined;
-  /**
-   * True indicates the meeting room is hidden on the venue profile.
-   */
-  hiddenOnProfile?: boolean | undefined;
+  notes?: string | undefined;
 };
 
 /** @internal */
-export type MeetingRoomDimensions$Outbound = {
-  totalSpace: AreaMeasurement$Outbound;
-  ceilingHeight?: Dimension$Outbound | undefined;
-  length?: Dimension$Outbound | undefined;
-  width?: Dimension$Outbound | undefined;
-};
-
-/** @internal */
-export const MeetingRoomDimensions$outboundSchema: z.ZodType<
-  MeetingRoomDimensions$Outbound,
+export const MeetingRoom$inboundSchema: z.ZodType<
+  MeetingRoom,
   z.ZodTypeDef,
-  MeetingRoomDimensions
+  unknown
 > = z.object({
-  totalSpace: AreaMeasurement$outboundSchema,
-  ceilingHeight: Dimension$outboundSchema.optional(),
-  length: Dimension$outboundSchema.optional(),
-  width: Dimension$outboundSchema.optional(),
+  name: z.string().optional(),
+  notes: z.string().optional(),
 });
-
-export function meetingRoomDimensionsToJSON(
-  meetingRoomDimensions: MeetingRoomDimensions,
-): string {
-  return JSON.stringify(
-    MeetingRoomDimensions$outboundSchema.parse(meetingRoomDimensions),
-  );
-}
-
-/** @internal */
-export type MeetingRoomRates$Outbound = {
-  moveIn?: MeetingRoomRate$Outbound | undefined;
-  moveOut?: MeetingRoomRate$Outbound | undefined;
-  event?: MeetingRoomRate$Outbound | undefined;
-};
-
-/** @internal */
-export const MeetingRoomRates$outboundSchema: z.ZodType<
-  MeetingRoomRates$Outbound,
-  z.ZodTypeDef,
-  MeetingRoomRates
-> = z.object({
-  moveIn: MeetingRoomRate$outboundSchema.optional(),
-  moveOut: MeetingRoomRate$outboundSchema.optional(),
-  event: MeetingRoomRate$outboundSchema.optional(),
-});
-
-export function meetingRoomRatesToJSON(
-  meetingRoomRates: MeetingRoomRates,
-): string {
-  return JSON.stringify(
-    MeetingRoomRates$outboundSchema.parse(meetingRoomRates),
-  );
-}
-
 /** @internal */
 export type MeetingRoom$Outbound = {
-  name: string;
-  description?: string | undefined;
-  dimensions: MeetingRoomDimensions$Outbound;
-  displayOrder?: number | undefined;
-  externalSourceId?: string | undefined;
-  rates?: MeetingRoomRates$Outbound | undefined;
-  capacities?: MeetingRoomCapacities$Outbound | undefined;
-  amenities?: Array<string> | undefined;
-  hiddenOnProfile: boolean;
+  name?: string | undefined;
+  notes?: string | undefined;
 };
 
 /** @internal */
@@ -183,17 +42,19 @@ export const MeetingRoom$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   MeetingRoom
 > = z.object({
-  name: z.string(),
-  description: z.string().optional(),
-  dimensions: z.lazy(() => MeetingRoomDimensions$outboundSchema),
-  displayOrder: z.number().int().optional(),
-  externalSourceId: z.string().optional(),
-  rates: z.lazy(() => MeetingRoomRates$outboundSchema).optional(),
-  capacities: MeetingRoomCapacities$outboundSchema.optional(),
-  amenities: z.array(MeetingRoomAmenity$outboundSchema).optional(),
-  hiddenOnProfile: z.boolean().default(false),
+  name: z.string().optional(),
+  notes: z.string().optional(),
 });
 
 export function meetingRoomToJSON(meetingRoom: MeetingRoom): string {
   return JSON.stringify(MeetingRoom$outboundSchema.parse(meetingRoom));
+}
+export function meetingRoomFromJSON(
+  jsonString: string,
+): SafeParseResult<MeetingRoom, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MeetingRoom$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MeetingRoom' from JSON`,
+  );
 }

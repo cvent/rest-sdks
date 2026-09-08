@@ -3,28 +3,11 @@
  */
 
 import * as z from "zod/v3";
-import { ClosedEnum } from "../../types/enums.js";
 import * as components from "../components/index.js";
 import { CventSDKError } from "./cventsdkerror.js";
 
 /**
- * Business validation code for bad requests.
- */
-export const ValidationCode = {
-  AttendeesPerSegmentLimitReached: "ATTENDEES_PER_SEGMENT_LIMIT_REACHED",
-  DuplicateSegmentName: "DUPLICATE_SEGMENT_NAME",
-  ErrorCheckingConnectionToLinkedin: "ERROR_CHECKING_CONNECTION_TO_LINKEDIN",
-  SegmentConnectedToLinkedin: "SEGMENT_CONNECTED_TO_LINKEDIN",
-  SegmentsPerAttendeeLimitReached: "SEGMENTS_PER_ATTENDEE_LIMIT_REACHED",
-  SegmentsPerEventLimitReached: "SEGMENTS_PER_EVENT_LIMIT_REACHED",
-} as const;
-/**
- * Business validation code for bad requests.
- */
-export type ValidationCode = ClosedEnum<typeof ValidationCode>;
-
-/**
- * Segments error response details.
+ * Represents an error response with additional details of cascading error messages.
  */
 export type ErrorResponse12Data = {
   /**
@@ -42,15 +25,11 @@ export type ErrorResponse12Data = {
   /**
    * Additional details of cascading error messages.
    */
-  details?: Array<components.ErrorResponseBase> | undefined;
-  /**
-   * Business validation code for bad requests.
-   */
-  validationCode?: ValidationCode | undefined;
+  details?: Array<components.ErrorResponseBase11> | undefined;
 };
 
 /**
- * Segments error response details.
+ * Represents an error response with additional details of cascading error messages.
  */
 export class ErrorResponse12 extends CventSDKError {
   /**
@@ -64,11 +43,7 @@ export class ErrorResponse12 extends CventSDKError {
   /**
    * Additional details of cascading error messages.
    */
-  details?: Array<components.ErrorResponseBase> | undefined;
-  /**
-   * Business validation code for bad requests.
-   */
-  validationCode?: ValidationCode | undefined;
+  details?: Array<components.ErrorResponseBase11> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: ErrorResponse12Data;
@@ -83,16 +58,10 @@ export class ErrorResponse12 extends CventSDKError {
     this.code = err.code;
     if (err.target != null) this.target = err.target;
     if (err.details != null) this.details = err.details;
-    if (err.validationCode != null) this.validationCode = err.validationCode;
 
     this.name = "ErrorResponse12";
   }
 }
-
-/** @internal */
-export const ValidationCode$inboundSchema: z.ZodNativeEnum<
-  typeof ValidationCode
-> = z.nativeEnum(ValidationCode);
 
 /** @internal */
 export const ErrorResponse12$inboundSchema: z.ZodType<
@@ -103,8 +72,7 @@ export const ErrorResponse12$inboundSchema: z.ZodType<
   code: z.number().int(),
   message: z.string(),
   target: z.string().optional(),
-  details: z.array(components.ErrorResponseBase$inboundSchema).optional(),
-  validationCode: ValidationCode$inboundSchema.optional(),
+  details: z.array(components.ErrorResponseBase11$inboundSchema).optional(),
   request$: z.instanceof(Request),
   response$: z.instanceof(Response),
   body$: z.string(),

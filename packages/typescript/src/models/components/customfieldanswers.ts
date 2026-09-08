@@ -20,7 +20,7 @@ export type ExpandableCustomObject = {
   /**
    * Unique identifier for custom field.
    */
-  id?: string | undefined;
+  id: string;
 };
 
 /**
@@ -49,7 +49,7 @@ export const ExpandableCustomObject$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
+  id: z.string(),
 });
 
 export function expandableCustomObjectFromJSON(

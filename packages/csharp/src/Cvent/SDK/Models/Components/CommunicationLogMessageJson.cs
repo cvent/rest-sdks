@@ -54,6 +54,6 @@ namespace Cvent.SDK.Models.Components
         /// A collection of attachments that are associated with this message.
         /// </summary>
         [JsonProperty("attachments")]
-        public List<AttachmentJson1>? Attachments { get; set; }
+        public List<AttachmentJson>? Attachments { get; set; }
     }
 }

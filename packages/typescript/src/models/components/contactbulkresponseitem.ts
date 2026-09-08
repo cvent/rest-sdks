@@ -8,17 +8,17 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Contact, Contact$inboundSchema } from "./contact.js";
 import {
-  ErrorResponse11,
-  ErrorResponse11$inboundSchema,
-} from "./errorresponse11.js";
+  ErrorResponse12,
+  ErrorResponse12$inboundSchema,
+} from "./errorresponse12.js";
 
-export type ContactBulkResponseItemData = ErrorResponse11 | Contact;
+export type ContactBulkResponseItemData = ErrorResponse12 | Contact;
 
 /**
  * This entity is used to represent a single item that is returned as part of a Bulk request call.
  */
 export type ContactBulkResponseItem = {
-  data: ErrorResponse11 | Contact;
+  data: ErrorResponse12 | Contact;
   /**
    * http status code representing processing status of a single item
    */
@@ -38,7 +38,7 @@ export const ContactBulkResponseItemData$inboundSchema: z.ZodType<
   ContactBulkResponseItemData,
   z.ZodTypeDef,
   unknown
-> = z.union([ErrorResponse11$inboundSchema, Contact$inboundSchema]);
+> = z.union([ErrorResponse12$inboundSchema, Contact$inboundSchema]);
 
 export function contactBulkResponseItemDataFromJSON(
   jsonString: string,
@@ -56,7 +56,7 @@ export const ContactBulkResponseItem$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.union([ErrorResponse11$inboundSchema, Contact$inboundSchema]),
+  data: z.union([ErrorResponse12$inboundSchema, Contact$inboundSchema]),
   status: z.number().int(),
   message: z.string().optional(),
   request: z.record(z.any()).optional(),

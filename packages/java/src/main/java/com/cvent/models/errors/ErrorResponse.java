@@ -3,7 +3,7 @@
  */
 package com.cvent.models.errors;
 
-import com.cvent.models.components.ErrorResponseBase;
+import com.cvent.models.components.ErrorResponseBase11;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -96,7 +96,7 @@ public class ErrorResponse extends CventSDKError {
      * Additional details of cascading error messages.
      */
     @Deprecated
-    public Optional<List<ErrorResponseBase>> details() {
+    public Optional<List<ErrorResponseBase11>> details() {
         return data().flatMap(Data::details);
     }
 
@@ -140,14 +140,14 @@ public class ErrorResponse extends CventSDKError {
          */
         @JsonInclude(Include.NON_ABSENT)
         @JsonProperty("details")
-        private List<ErrorResponseBase> details;
+        private List<ErrorResponseBase11> details;
 
         @JsonCreator
         public Data(
                 @JsonProperty("code") long code,
                 @JsonProperty("message") @Nonnull String message,
                 @JsonProperty("target") @Nullable String target,
-                @JsonProperty("details") @Nullable List<ErrorResponseBase> details) {
+                @JsonProperty("details") @Nullable List<ErrorResponseBase11> details) {
             this.code = code;
             this.message = Optional.ofNullable(message)
                     .orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
@@ -183,7 +183,7 @@ public class ErrorResponse extends CventSDKError {
         /**
          * Additional details of cascading error messages.
          */
-        public Optional<List<ErrorResponseBase>> details() {
+        public Optional<List<ErrorResponseBase11>> details() {
             return Optional.ofNullable(this.details);
         }
 
@@ -218,7 +218,7 @@ public class ErrorResponse extends CventSDKError {
         /**
          * Additional details of cascading error messages.
          */
-        public Data withDetails(@Nullable List<ErrorResponseBase> details) {
+        public Data withDetails(@Nullable List<ErrorResponseBase11> details) {
             this.details = details;
             return this;
         }
@@ -257,7 +257,7 @@ public class ErrorResponse extends CventSDKError {
 
             private String target;
 
-            private List<ErrorResponseBase> details;
+            private List<ErrorResponseBase11> details;
 
             private Builder() {
                 // force use of static builder() method
@@ -290,7 +290,7 @@ public class ErrorResponse extends CventSDKError {
             /**
              * Additional details of cascading error messages.
              */
-            public Builder details(@Nullable List<ErrorResponseBase> details) {
+            public Builder details(@Nullable List<ErrorResponseBase11> details) {
                 this.details = details;
                 return this;
             }

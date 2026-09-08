@@ -140,7 +140,7 @@ public class AirRequest {
     private LegDetail incomingLeg;
 
     /**
-     * Preferred or assigned seat type for an air booking.
+     * Preferred or assigned seat type for a travel booking.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("seatType")
@@ -424,7 +424,7 @@ public class AirRequest {
     }
 
     /**
-     * Preferred or assigned seat type for an air booking.
+     * Preferred or assigned seat type for a travel booking.
      */
     public Optional<SeatType> seatType() {
         return Optional.ofNullable(this.seatType);
@@ -639,7 +639,7 @@ public class AirRequest {
     }
 
     /**
-     * Preferred or assigned seat type for an air booking.
+     * Preferred or assigned seat type for a travel booking.
      */
     public AirRequest withSeatType(@Nullable SeatType seatType) {
         this.seatType = seatType;
@@ -1052,7 +1052,7 @@ public class AirRequest {
         }
 
         /**
-         * Preferred or assigned seat type for an air booking.
+         * Preferred or assigned seat type for a travel booking.
          */
         public Builder seatType(@Nullable SeatType seatType) {
             this.seatType = seatType;

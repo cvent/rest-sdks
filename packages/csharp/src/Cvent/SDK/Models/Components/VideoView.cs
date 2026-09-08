@@ -23,7 +23,7 @@ namespace Cvent.SDK.Models.Components
         /// The contact details who watched a video.
         /// </summary>
         [JsonProperty("contact")]
-        public Contact2? Contact { get; set; }
+        public Contact3? Contact { get; set; }
 
         /// <summary>
         /// The solution where the video exists. Attendee Hub and Events+ represent two different solutions where the video can be found.

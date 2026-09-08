@@ -36,6 +36,7 @@ let value: HousingEventHotelsList = {
       name: "Hotel New York",
       description:
         "Since first opening its doors in 1936, the Hotel New York has welcomed countless guests.",
+      integrated: true,
       childPolicy:
         "Children 17 years or younger will stay free of charge in adult’s room with existing bedding.",
       images: [

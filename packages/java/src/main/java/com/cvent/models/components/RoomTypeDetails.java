@@ -67,6 +67,13 @@ public class RoomTypeDetails {
     private List<ImageLink> images;
 
     /**
+     * The category that classifies a room type.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("roomCategory")
+    private RoomCategory roomCategory;
+
+    /**
      * Specifies a custom sort order defined by the user. This property is applicable only when the default
      * price-based sorting is not active.
      */
@@ -83,6 +90,7 @@ public class RoomTypeDetails {
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nonnull String description,
             @JsonProperty("images") @Nullable List<ImageLink> images,
+            @JsonProperty("roomCategory") @Nullable RoomCategory roomCategory,
             @JsonProperty("customOrder") @Nullable Long customOrder) {
         this.id = id;
         this.housingEvent = Optional.ofNullable(housingEvent)
@@ -93,6 +101,7 @@ public class RoomTypeDetails {
         this.description = Optional.ofNullable(description)
                 .orElseThrow(() -> new IllegalArgumentException("description cannot be null"));
         this.images = images;
+        this.roomCategory = roomCategory;
         this.customOrder = customOrder;
     }
 
@@ -102,7 +111,7 @@ public class RoomTypeDetails {
             @Nonnull HotelId hotel,
             @Nonnull String name,
             @Nonnull String description) {
-        this(id, housingEvent, hotel, null, name, description, null, null);
+        this(id, housingEvent, hotel, null, name, description, null, null, null);
     }
 
     /**
@@ -152,6 +161,13 @@ public class RoomTypeDetails {
      */
     public Optional<List<ImageLink>> images() {
         return Optional.ofNullable(this.images);
+    }
+
+    /**
+     * The category that classifies a room type.
+     */
+    public Optional<RoomCategory> roomCategory() {
+        return Optional.ofNullable(this.roomCategory);
     }
 
     /**
@@ -223,6 +239,14 @@ public class RoomTypeDetails {
     }
 
     /**
+     * The category that classifies a room type.
+     */
+    public RoomTypeDetails withRoomCategory(@Nullable RoomCategory roomCategory) {
+        this.roomCategory = roomCategory;
+        return this;
+    }
+
+    /**
      * Specifies a custom sort order defined by the user. This property is applicable only when the default
      * price-based sorting is not active.
      */
@@ -247,12 +271,14 @@ public class RoomTypeDetails {
                 && Utils.enhancedDeepEquals(this.name, other.name)
                 && Utils.enhancedDeepEquals(this.description, other.description)
                 && Utils.enhancedDeepEquals(this.images, other.images)
+                && Utils.enhancedDeepEquals(this.roomCategory, other.roomCategory)
                 && Utils.enhancedDeepEquals(this.customOrder, other.customOrder);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, housingEvent, hotel, attendeeTypes, name, description, images, customOrder);
+        return Utils.enhancedHash(
+                id, housingEvent, hotel, attendeeTypes, name, description, images, roomCategory, customOrder);
     }
 
     @Override
@@ -273,6 +299,8 @@ public class RoomTypeDetails {
                 description,
                 "images",
                 images,
+                "roomCategory",
+                roomCategory,
                 "customOrder",
                 customOrder);
     }
@@ -293,6 +321,8 @@ public class RoomTypeDetails {
         private String description;
 
         private List<ImageLink> images;
+
+        private RoomCategory roomCategory;
 
         private Long customOrder;
 
@@ -357,6 +387,14 @@ public class RoomTypeDetails {
         }
 
         /**
+         * The category that classifies a room type.
+         */
+        public Builder roomCategory(@Nullable RoomCategory roomCategory) {
+            this.roomCategory = roomCategory;
+            return this;
+        }
+
+        /**
          * Specifies a custom sort order defined by the user. This property is applicable only when the default
          * price-based sorting is not active.
          */
@@ -366,7 +404,8 @@ public class RoomTypeDetails {
         }
 
         public RoomTypeDetails build() {
-            return new RoomTypeDetails(id, housingEvent, hotel, attendeeTypes, name, description, images, customOrder);
+            return new RoomTypeDetails(
+                    id, housingEvent, hotel, attendeeTypes, name, description, images, roomCategory, customOrder);
         }
     }
 }

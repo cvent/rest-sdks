@@ -212,6 +212,13 @@ public class ExhibitorResponse {
     @JsonProperty("bannerUrl")
     private String bannerUrl;
 
+    /**
+     * The approval status of an exhibitor. When absent, the exhibitor is considered approved.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("approvalStatus")
+    private ApprovalStatus approvalStatus;
+
     @JsonCreator
     public ExhibitorResponse(
             @JsonProperty("created") @Nullable OffsetDateTime created,
@@ -240,7 +247,8 @@ public class ExhibitorResponse {
             @JsonProperty("profileLogoId") @Nullable String profileLogoId,
             @JsonProperty("profileLogoUrl") @Nullable String profileLogoUrl,
             @JsonProperty("bannerId") @Nullable String bannerId,
-            @JsonProperty("bannerUrl") @Nullable String bannerUrl) {
+            @JsonProperty("bannerUrl") @Nullable String bannerUrl,
+            @JsonProperty("approvalStatus") @Nullable ApprovalStatus approvalStatus) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -268,6 +276,7 @@ public class ExhibitorResponse {
         this.profileLogoUrl = profileLogoUrl;
         this.bannerId = bannerId;
         this.bannerUrl = bannerUrl;
+        this.approvalStatus = approvalStatus;
     }
 
     public ExhibitorResponse(@Nonnull Event4 event, @Nonnull String name) {
@@ -278,6 +287,7 @@ public class ExhibitorResponse {
                 null,
                 event,
                 name,
+                null,
                 null,
                 null,
                 null,
@@ -489,6 +499,13 @@ public class ExhibitorResponse {
      */
     public Optional<String> bannerUrl() {
         return Optional.ofNullable(this.bannerUrl);
+    }
+
+    /**
+     * The approval status of an exhibitor. When absent, the exhibitor is considered approved.
+     */
+    public Optional<ApprovalStatus> approvalStatus() {
+        return Optional.ofNullable(this.approvalStatus);
     }
 
     public static Builder builder() {
@@ -712,6 +729,14 @@ public class ExhibitorResponse {
         return this;
     }
 
+    /**
+     * The approval status of an exhibitor. When absent, the exhibitor is considered approved.
+     */
+    public ExhibitorResponse withApprovalStatus(@Nullable ApprovalStatus approvalStatus) {
+        this.approvalStatus = approvalStatus;
+        return this;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -747,7 +772,8 @@ public class ExhibitorResponse {
                 && Utils.enhancedDeepEquals(this.profileLogoId, other.profileLogoId)
                 && Utils.enhancedDeepEquals(this.profileLogoUrl, other.profileLogoUrl)
                 && Utils.enhancedDeepEquals(this.bannerId, other.bannerId)
-                && Utils.enhancedDeepEquals(this.bannerUrl, other.bannerUrl);
+                && Utils.enhancedDeepEquals(this.bannerUrl, other.bannerUrl)
+                && Utils.enhancedDeepEquals(this.approvalStatus, other.approvalStatus);
     }
 
     @Override
@@ -779,7 +805,8 @@ public class ExhibitorResponse {
                 profileLogoId,
                 profileLogoUrl,
                 bannerId,
-                bannerUrl);
+                bannerUrl,
+                approvalStatus);
     }
 
     @Override
@@ -839,7 +866,9 @@ public class ExhibitorResponse {
                 "bannerId",
                 bannerId,
                 "bannerUrl",
-                bannerUrl);
+                bannerUrl,
+                "approvalStatus",
+                approvalStatus);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -898,6 +927,8 @@ public class ExhibitorResponse {
         private String bannerId;
 
         private String bannerUrl;
+
+        private ApprovalStatus approvalStatus;
 
         private Builder() {
             // force use of static builder() method
@@ -1120,6 +1151,14 @@ public class ExhibitorResponse {
             return this;
         }
 
+        /**
+         * The approval status of an exhibitor. When absent, the exhibitor is considered approved.
+         */
+        public Builder approvalStatus(@Nullable ApprovalStatus approvalStatus) {
+            this.approvalStatus = approvalStatus;
+            return this;
+        }
+
         public ExhibitorResponse build() {
             return new ExhibitorResponse(
                     created,
@@ -1148,7 +1187,8 @@ public class ExhibitorResponse {
                     profileLogoId,
                     profileLogoUrl,
                     bannerId,
-                    bannerUrl);
+                    bannerUrl,
+                    approvalStatus);
         }
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Deleted =

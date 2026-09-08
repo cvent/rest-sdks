@@ -87,7 +87,7 @@ namespace Cvent.SDK.Models.Components
         {
             SupplierUnionType typ = SupplierUnionType.Venue;
             string typStr = SupplierUnionType.Venue.ToString();
-            venue.Type = SupplierTypeJsonExtension.ToEnum(SupplierUnionType.Venue.ToString());
+            venue.Type = SupplierType1Extension.ToEnum(SupplierUnionType.Venue.ToString());
             Supplier res = new Supplier(typ);
             res.VenueSummary = venue;
             return res;

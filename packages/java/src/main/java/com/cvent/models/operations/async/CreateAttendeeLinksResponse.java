@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations.async;
 
-import com.cvent.models.components.AttendeeLinkBulkResponseItemJson;
+import com.cvent.models.components.AttendeeLinkBulkResponseItem;
 import com.cvent.utils.AsyncResponse;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
@@ -36,14 +36,14 @@ public class CreateAttendeeLinksResponse implements AsyncResponse {
     /**
      * Attendee links successfully created.
      */
-    private List<AttendeeLinkBulkResponseItemJson> attendeeLinkBulkResponse;
+    private List<AttendeeLinkBulkResponseItem> attendeeLinkBulkResponse;
 
     @JsonCreator
     public CreateAttendeeLinksResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<Blob> rawResponse,
-            @Nullable List<AttendeeLinkBulkResponseItemJson> attendeeLinkBulkResponse) {
+            @Nullable List<AttendeeLinkBulkResponseItem> attendeeLinkBulkResponse) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -81,7 +81,7 @@ public class CreateAttendeeLinksResponse implements AsyncResponse {
     /**
      * Attendee links successfully created.
      */
-    public Optional<List<AttendeeLinkBulkResponseItemJson>> attendeeLinkBulkResponse() {
+    public Optional<List<AttendeeLinkBulkResponseItem>> attendeeLinkBulkResponse() {
         return Optional.ofNullable(this.attendeeLinkBulkResponse);
     }
 
@@ -117,7 +117,7 @@ public class CreateAttendeeLinksResponse implements AsyncResponse {
      * Attendee links successfully created.
      */
     public CreateAttendeeLinksResponse withAttendeeLinkBulkResponse(
-            @Nullable List<AttendeeLinkBulkResponseItemJson> attendeeLinkBulkResponse) {
+            @Nullable List<AttendeeLinkBulkResponseItem> attendeeLinkBulkResponse) {
         this.attendeeLinkBulkResponse = attendeeLinkBulkResponse;
         return this;
     }
@@ -165,7 +165,7 @@ public class CreateAttendeeLinksResponse implements AsyncResponse {
 
         private HttpResponse<Blob> rawResponse;
 
-        private List<AttendeeLinkBulkResponseItemJson> attendeeLinkBulkResponse;
+        private List<AttendeeLinkBulkResponseItem> attendeeLinkBulkResponse;
 
         private Builder() {
             // force use of static builder() method
@@ -198,8 +198,7 @@ public class CreateAttendeeLinksResponse implements AsyncResponse {
         /**
          * Attendee links successfully created.
          */
-        public Builder attendeeLinkBulkResponse(
-                @Nullable List<AttendeeLinkBulkResponseItemJson> attendeeLinkBulkResponse) {
+        public Builder attendeeLinkBulkResponse(@Nullable List<AttendeeLinkBulkResponseItem> attendeeLinkBulkResponse) {
             this.attendeeLinkBulkResponse = attendeeLinkBulkResponse;
             return this;
         }

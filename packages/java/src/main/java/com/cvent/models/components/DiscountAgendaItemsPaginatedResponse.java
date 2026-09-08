@@ -28,11 +28,11 @@ public class DiscountAgendaItemsPaginatedResponse {
      * Collection of associated agenda items for a discount.
      */
     @JsonProperty("data")
-    private List<AgendaItem1> data;
+    private List<AgendaItem2> data;
 
     @JsonCreator
     public DiscountAgendaItemsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<AgendaItem1> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<AgendaItem2> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -48,7 +48,7 @@ public class DiscountAgendaItemsPaginatedResponse {
     /**
      * Collection of associated agenda items for a discount.
      */
-    public List<AgendaItem1> data() {
+    public List<AgendaItem2> data() {
         return this.data;
     }
 
@@ -67,7 +67,7 @@ public class DiscountAgendaItemsPaginatedResponse {
     /**
      * Collection of associated agenda items for a discount.
      */
-    public DiscountAgendaItemsPaginatedResponse withData(@Nonnull List<AgendaItem1> data) {
+    public DiscountAgendaItemsPaginatedResponse withData(@Nonnull List<AgendaItem2> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -99,7 +99,7 @@ public class DiscountAgendaItemsPaginatedResponse {
 
         private Paging paging;
 
-        private List<AgendaItem1> data;
+        private List<AgendaItem2> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class DiscountAgendaItemsPaginatedResponse {
         /**
          * Collection of associated agenda items for a discount.
          */
-        public Builder data(@Nonnull List<AgendaItem1> data) {
+        public Builder data(@Nonnull List<AgendaItem2> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

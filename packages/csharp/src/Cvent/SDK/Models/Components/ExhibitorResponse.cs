@@ -180,5 +180,11 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [JsonProperty("bannerUrl")]
         public string? BannerUrl { get; set; }
+
+        /// <summary>
+        /// The approval status of an exhibitor. When absent, the exhibitor is considered approved.
+        /// </summary>
+        [JsonProperty("approvalStatus")]
+        public ApprovalStatus? ApprovalStatus { get; set; }
     }
 }

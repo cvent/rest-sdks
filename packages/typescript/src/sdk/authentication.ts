@@ -38,9 +38,11 @@ export class Authentication extends ClientSDK {
    */
   async oauth2Token(
     security: operations.Oauth2TokenSecurity,
-    request?: operations.Oauth2TokenRequest | undefined,
+    request?:
+      | components.Oauth2TokenApplicationXWwwFormUrlencodedPostRequest
+      | undefined,
     options?: RequestOptions,
-  ): Promise<operations.Oauth2TokenResponse> {
+  ): Promise<components.Oauth2TokenPostResponse> {
     return unwrapAsync(authenticationOauth2Token(
       this,
       security,

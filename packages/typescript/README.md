@@ -1540,11 +1540,11 @@ async function run() {
       console.log(error.headers);
 
       // Depending on the method different errors may be thrown
-      if (error instanceof errors.ErrorResponse11) {
+      if (error instanceof errors.ErrorResponse12) {
         console.log(error.data$.code); // number
         console.log(error.data$.message); // string
         console.log(error.data$.target); // string
-        console.log(error.data$.details); // ErrorResponseBase[]
+        console.log(error.data$.details); // ErrorResponseBase11[]
       }
     }
   }
@@ -1557,7 +1557,7 @@ run();
 ### Error Classes
 **Primary errors:**
 * [`CventSDKError`](./src/models/errors/cventsdkerror.ts): The base class for HTTP error responses.
-  * [`ErrorResponse11`](./src/models/errors/errorresponse11.ts): Represents an error response with additional details of cascading error messages. *
+  * [`ErrorResponse12`](./src/models/errors/errorresponse12.ts): Represents an error response with additional details of cascading error messages. *
 
 <details><summary>Less common errors (10)</summary>
 
@@ -1572,10 +1572,10 @@ run();
 
 
 **Inherit from [`CventSDKError`](./src/models/errors/cventsdkerror.ts)**:
-* [`ErrorResponse2`](./src/models/errors/errorresponse2.ts): The error response. Applicable to 11 of 469 methods.*
-* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 9 of 469 methods.*
-* [`ErrorResponse12`](./src/models/errors/errorresponse12.ts): Segments error response details. Status code `400`. Applicable to 2 of 469 methods.*
-* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 469 methods.*
+* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 469 methods.*
+* [`ErrorResponse14`](./src/models/errors/errorresponse14.ts): The error response. Applicable to 11 of 469 methods.*
+* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 469 methods.*
+* [`Oauth2TokenPostResponse0Error`](./src/models/errors/oauth2tokenpostresponse0error.ts): A bad token response. Status code `400`. Applicable to 1 of 469 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

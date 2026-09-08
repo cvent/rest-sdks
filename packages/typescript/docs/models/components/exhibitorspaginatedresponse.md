@@ -75,6 +75,7 @@ let value: ExhibitorsPaginatedResponse = {
       profileLogoUrl: "https://images.cvent.com/pt/fileLocation/url_123",
       bannerId: "12ca3ae2-0dc3-487b-953e-86d6acadf7d5",
       bannerUrl: "https://images.cvent.com/pt/fileLocation/url_456",
+      approvalStatus: "PENDING",
     },
   ],
 };
