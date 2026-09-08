@@ -25,6 +25,6 @@ namespace Cvent.SDK.Models.Components
         /// Unique identifier for custom field.
         /// </summary>
         [JsonProperty("id")]
-        public string? Id { get; set; }
+        public string Id { get; set; } = default!;
     }
 }

@@ -133,7 +133,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listContactGroups
@@ -234,7 +234,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getContactGroupById
@@ -325,7 +325,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## updateContactGroup
@@ -432,7 +432,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## deleteContactGroup
@@ -523,7 +523,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getContactIdsByContactGroup
@@ -620,7 +620,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## addContactToContactGroup
@@ -713,7 +713,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## removeContactFromContactGroup
@@ -806,7 +806,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listContactTypes
@@ -903,7 +903,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listContacts
@@ -1008,7 +1008,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## updateContacts
@@ -1097,7 +1097,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## patchContacts
@@ -1275,7 +1275,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## createContacts
@@ -1506,7 +1506,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listContactsPostFilters
@@ -1613,7 +1613,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getContactObfuscationStatusById
@@ -1704,7 +1704,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getChangeHistoryForASpecificContact
@@ -1805,7 +1805,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getContactById
@@ -1904,7 +1904,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateContactById
@@ -2137,7 +2137,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## patchContactById
@@ -2316,7 +2316,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## deleteContactById
@@ -2404,7 +2404,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 401, 403, 404, 409, 429 | application/json        |
+| errors.ErrorResponse12  | 401, 403, 404, 409, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateContactCustomFieldAnswers
@@ -2513,7 +2513,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## mergeContacts
@@ -2630,7 +2630,7 @@ run();
 
 | Error Type                   | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorResponse11       | 400, 401, 403, 404, 409, 429 | application/json             |
+| errors.ErrorResponse12       | 400, 401, 403, 404, 409, 429 | application/json             |
 | errors.APIError              | 4XX, 5XX                     | \*/\*                        |
 
 ## obfuscateContactById
@@ -2726,7 +2726,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 401, 403, 404, 409, 429 | application/json        |
+| errors.ErrorResponse12  | 401, 403, 404, 409, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## deleteContactProfileImage
@@ -2817,7 +2817,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## assignContactProfileImage
@@ -2914,7 +2914,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getContactRelationshipsById
@@ -3011,7 +3011,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## createContactRelationship
@@ -3104,7 +3104,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## deleteContactRelationship
@@ -3197,5 +3197,5 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |

@@ -55,6 +55,7 @@ let value: ExhibitorResponse = {
   profileLogoUrl: "https://images.cvent.com/pt/fileLocation/url_123",
   bannerId: "12ca3ae2-0dc3-487b-953e-86d6acadf7d5",
   bannerUrl: "https://images.cvent.com/pt/fileLocation/url_456",
+  approvalStatus: "PENDING",
 };
 ```
 
@@ -89,3 +90,4 @@ let value: ExhibitorResponse = {
 | `profileLogoUrl`                                                                                        | *string*                                                                                                | :heavy_minus_sign:                                                                                      | URL for exhibitor profile logo.                                                                         | https://images.cvent.com/pt/fileLocation/url_123                                                        |
 | `bannerId`                                                                                              | *string*                                                                                                | :heavy_minus_sign:                                                                                      | File ID for exhibitor banner.                                                                           | 12ca3ae2-0dc3-487b-953e-86d6acadf7d5                                                                    |
 | `bannerUrl`                                                                                             | *string*                                                                                                | :heavy_minus_sign:                                                                                      | URL for exhibitor banner.                                                                               | https://images.cvent.com/pt/fileLocation/url_456                                                        |
+| `approvalStatus`                                                                                        | [components.ApprovalStatus](../../models/components/approvalstatus.md)                                  | :heavy_minus_sign:                                                                                      | The approval status of an exhibitor. When absent, the exhibitor is considered approved.                 | PENDING                                                                                                 |

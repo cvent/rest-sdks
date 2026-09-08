@@ -4,33 +4,23 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { FormatJson, FormatJson$outboundSchema } from "./formatjson.js";
+import { Format, Format$outboundSchema } from "./format.js";
+import { PlayerType, PlayerType$outboundSchema } from "./playertype.js";
+import { Uuid, Uuid$Outbound, Uuid$outboundSchema } from "./uuid.js";
 import {
-  PlayerTypeJson,
-  PlayerTypeJson$outboundSchema,
-} from "./playertypejson.js";
+  WebcastLinks,
+  WebcastLinks$Outbound,
+  WebcastLinks$outboundSchema,
+} from "./webcastlinks.js";
 import {
-  UuidJson,
-  UuidJson$Outbound,
-  UuidJson$outboundSchema,
-} from "./uuidjson.js";
+  WebcastProvider,
+  WebcastProvider$outboundSchema,
+} from "./webcastprovider.js";
 import {
-  WebcastLinksJson,
-  WebcastLinksJson$Outbound,
-  WebcastLinksJson$outboundSchema,
-} from "./webcastlinksjson.js";
-import {
-  WebcastProviderJson,
-  WebcastProviderJson$outboundSchema,
-} from "./webcastproviderjson.js";
-import {
-  WebcastStatusJson,
-  WebcastStatusJson$outboundSchema,
-} from "./webcaststatusjson.js";
-import {
-  WebcastTypeJson,
-  WebcastTypeJson$outboundSchema,
-} from "./webcasttypejson.js";
+  WebcastStatus,
+  WebcastStatus$outboundSchema,
+} from "./webcaststatus.js";
+import { WebcastType, WebcastType$outboundSchema } from "./webcasttype.js";
 
 /**
  * An existing webcast.
@@ -39,39 +29,39 @@ export type ExistingWebcastInput = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  event?: UuidJson | undefined;
+  event?: Uuid | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  session?: UuidJson | undefined;
+  session?: Uuid | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  appointment?: UuidJson | undefined;
+  appointment?: Uuid | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  exhibitor?: UuidJson | undefined;
+  exhibitor?: Uuid | undefined;
   /**
    * This is used to denote the format of a webcast
    */
-  format?: FormatJson | undefined;
+  format?: Format | undefined;
   /**
    * This is used to denote the type of a webcast
    */
-  type?: WebcastTypeJson | undefined;
+  type?: WebcastType | undefined;
   /**
    * Name of the webcast provider.
    */
-  provider?: WebcastProviderJson | undefined;
+  provider?: WebcastProvider | undefined;
   /**
    * This is used to denote the status of a webcast
    */
-  status?: WebcastStatusJson | undefined;
+  status?: WebcastStatus | undefined;
   /**
    * This is used to denote the type of a video player
    */
-  playerType?: PlayerTypeJson | undefined;
+  playerType?: PlayerType | undefined;
   /**
    * Indicates if the webcast is simulated live or not
    */
@@ -103,7 +93,7 @@ export type ExistingWebcastInput = {
   /**
    * webcast link references
    */
-  links?: WebcastLinksJson | undefined;
+  links?: WebcastLinks | undefined;
   /**
    * Additional information related to the webcast
    */
@@ -112,10 +102,10 @@ export type ExistingWebcastInput = {
 
 /** @internal */
 export type ExistingWebcastInput$Outbound = {
-  event?: UuidJson$Outbound | undefined;
-  session?: UuidJson$Outbound | undefined;
-  appointment?: UuidJson$Outbound | undefined;
-  exhibitor?: UuidJson$Outbound | undefined;
+  event?: Uuid$Outbound | undefined;
+  session?: Uuid$Outbound | undefined;
+  appointment?: Uuid$Outbound | undefined;
+  exhibitor?: Uuid$Outbound | undefined;
   format: string;
   type?: string | undefined;
   provider?: string | undefined;
@@ -128,7 +118,7 @@ export type ExistingWebcastInput$Outbound = {
   sourceId?: string | undefined;
   title?: string | undefined;
   meetingId?: string | undefined;
-  _links?: WebcastLinksJson$Outbound | undefined;
+  _links?: WebcastLinks$Outbound | undefined;
   details?: string | undefined;
 };
 
@@ -138,15 +128,15 @@ export const ExistingWebcastInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ExistingWebcastInput
 > = z.object({
-  event: UuidJson$outboundSchema.optional(),
-  session: UuidJson$outboundSchema.optional(),
-  appointment: UuidJson$outboundSchema.optional(),
-  exhibitor: UuidJson$outboundSchema.optional(),
-  format: FormatJson$outboundSchema.default("Live"),
-  type: WebcastTypeJson$outboundSchema.optional(),
-  provider: WebcastProviderJson$outboundSchema.optional(),
-  status: WebcastStatusJson$outboundSchema.optional(),
-  playerType: PlayerTypeJson$outboundSchema.optional(),
+  event: Uuid$outboundSchema.optional(),
+  session: Uuid$outboundSchema.optional(),
+  appointment: Uuid$outboundSchema.optional(),
+  exhibitor: Uuid$outboundSchema.optional(),
+  format: Format$outboundSchema.default("Live"),
+  type: WebcastType$outboundSchema.optional(),
+  provider: WebcastProvider$outboundSchema.optional(),
+  status: WebcastStatus$outboundSchema.optional(),
+  playerType: PlayerType$outboundSchema.optional(),
   simulatedLive: z.boolean().optional(),
   recordLiveStream: z.boolean().optional(),
   autoAddToLibrary: z.boolean().default(false),
@@ -154,7 +144,7 @@ export const ExistingWebcastInput$outboundSchema: z.ZodType<
   sourceId: z.string().optional(),
   title: z.string().optional(),
   meetingId: z.string().optional(),
-  links: WebcastLinksJson$outboundSchema.optional(),
+  links: WebcastLinks$outboundSchema.optional(),
   details: z.string().optional(),
 }).transform((v) => {
   return remap$(v, {

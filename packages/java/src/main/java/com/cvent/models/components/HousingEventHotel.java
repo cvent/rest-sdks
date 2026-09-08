@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
+import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDate;
@@ -45,6 +46,13 @@ public class HousingEventHotel {
      */
     @JsonProperty("description")
     private String description;
+
+    /**
+     * True means hotel is integrated.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("integrated")
+    private Boolean integrated;
 
     /**
      * The hotel's child policy.
@@ -116,6 +124,7 @@ public class HousingEventHotel {
             @JsonProperty("housingEvent") @Nonnull HousingEventId housingEvent,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nonnull String description,
+            @JsonProperty("integrated") @Nullable Boolean integrated,
             @JsonProperty("childPolicy") @Nullable String childPolicy,
             @JsonProperty("images") @Nullable List<ImageLink> images,
             @JsonProperty("proximity") @Nullable Proximity proximity,
@@ -131,6 +140,7 @@ public class HousingEventHotel {
         this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = Optional.ofNullable(description)
                 .orElseThrow(() -> new IllegalArgumentException("description cannot be null"));
+        this.integrated = integrated;
         this.childPolicy = childPolicy;
         this.images = images;
         this.proximity = proximity;
@@ -144,7 +154,7 @@ public class HousingEventHotel {
 
     public HousingEventHotel(
             long id, @Nonnull HousingEventId housingEvent, @Nonnull String name, @Nonnull String description) {
-        this(id, housingEvent, name, description, null, null, null, null, null, null, null, null, null);
+        this(id, housingEvent, name, description, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -173,6 +183,13 @@ public class HousingEventHotel {
      */
     public String description() {
         return this.description;
+    }
+
+    /**
+     * True means hotel is integrated.
+     */
+    public Optional<Boolean> integrated() {
+        return Optional.ofNullable(this.integrated);
     }
 
     /**
@@ -276,6 +293,14 @@ public class HousingEventHotel {
     }
 
     /**
+     * True means hotel is integrated.
+     */
+    public HousingEventHotel withIntegrated(@Nullable Boolean integrated) {
+        this.integrated = integrated;
+        return this;
+    }
+
+    /**
      * The hotel's child policy.
      */
     public HousingEventHotel withChildPolicy(@Nullable String childPolicy) {
@@ -361,6 +386,7 @@ public class HousingEventHotel {
                 && Utils.enhancedDeepEquals(this.housingEvent, other.housingEvent)
                 && Utils.enhancedDeepEquals(this.name, other.name)
                 && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.integrated, other.integrated)
                 && Utils.enhancedDeepEquals(this.childPolicy, other.childPolicy)
                 && Utils.enhancedDeepEquals(this.images, other.images)
                 && Utils.enhancedDeepEquals(this.proximity, other.proximity)
@@ -379,6 +405,7 @@ public class HousingEventHotel {
                 housingEvent,
                 name,
                 description,
+                integrated,
                 childPolicy,
                 images,
                 proximity,
@@ -402,6 +429,8 @@ public class HousingEventHotel {
                 name,
                 "description",
                 description,
+                "integrated",
+                integrated,
                 "childPolicy",
                 childPolicy,
                 "images",
@@ -432,6 +461,8 @@ public class HousingEventHotel {
         private String name;
 
         private String description;
+
+        private Boolean integrated;
 
         private String childPolicy;
 
@@ -484,6 +515,14 @@ public class HousingEventHotel {
          */
         public Builder description(@Nonnull String description) {
             this.description = Utils.checkNotNull(description, "description");
+            return this;
+        }
+
+        /**
+         * True means hotel is integrated.
+         */
+        public Builder integrated(@Nullable Boolean integrated) {
+            this.integrated = integrated;
             return this;
         }
 
@@ -566,6 +605,7 @@ public class HousingEventHotel {
                     housingEvent,
                     name,
                     description,
+                    integrated,
                     childPolicy,
                     images,
                     proximity,

@@ -168,7 +168,7 @@ export class Webcasts extends ClientSDK {
   async createAttendeeLinks(
     request: operations.CreateAttendeeLinksRequest,
     options?: RequestOptions,
-  ): Promise<Array<components.AttendeeLinkBulkResponseItemJson>> {
+  ): Promise<Array<components.AttendeeLinkBulkResponseItem>> {
     return unwrapAsync(webcastsCreateAttendeeLinks(
       this,
       request,
@@ -187,7 +187,7 @@ export class Webcasts extends ClientSDK {
   async updateAttendeeLinks(
     request: operations.UpdateAttendeeLinksRequest,
     options?: RequestOptions,
-  ): Promise<Array<components.AttendeeLinkBulkResponseItemJson>> {
+  ): Promise<Array<components.AttendeeLinkBulkResponseItem>> {
     return unwrapAsync(webcastsUpdateAttendeeLinks(
       this,
       request,

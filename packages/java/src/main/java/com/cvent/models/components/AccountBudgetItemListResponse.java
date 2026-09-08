@@ -51,25 +51,25 @@ public class AccountBudgetItemListResponse {
     private String lastModifiedBy;
 
     /**
-     * Event ID Information.
+     * Budget Version ID Information.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private Event1 event;
+    private BudgetVersionId event;
 
     /**
-     * Event ID Information.
+     * Budget Version ID Information.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rfp")
-    private Event1 rfp;
+    private BudgetVersionId rfp;
 
     /**
-     * Event ID Information.
+     * Budget Version ID Information.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("budgetVersion")
-    private Event1 budgetVersion;
+    private BudgetVersionId budgetVersion;
 
     /**
      * The identifier of the budget item.
@@ -119,9 +119,9 @@ public class AccountBudgetItemListResponse {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nullable Event1 event,
-            @JsonProperty("rfp") @Nullable Event1 rfp,
-            @JsonProperty("budgetVersion") @Nullable Event1 budgetVersion,
+            @JsonProperty("event") @Nullable BudgetVersionId event,
+            @JsonProperty("rfp") @Nullable BudgetVersionId rfp,
+            @JsonProperty("budgetVersion") @Nullable BudgetVersionId budgetVersion,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("code") @Nullable String code,
@@ -176,23 +176,23 @@ public class AccountBudgetItemListResponse {
     }
 
     /**
-     * Event ID Information.
+     * Budget Version ID Information.
      */
-    public Optional<Event1> event() {
+    public Optional<BudgetVersionId> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
-     * Event ID Information.
+     * Budget Version ID Information.
      */
-    public Optional<Event1> rfp() {
+    public Optional<BudgetVersionId> rfp() {
         return Optional.ofNullable(this.rfp);
     }
 
     /**
-     * Event ID Information.
+     * Budget Version ID Information.
      */
-    public Optional<Event1> budgetVersion() {
+    public Optional<BudgetVersionId> budgetVersion() {
         return Optional.ofNullable(this.budgetVersion);
     }
 
@@ -275,25 +275,25 @@ public class AccountBudgetItemListResponse {
     }
 
     /**
-     * Event ID Information.
+     * Budget Version ID Information.
      */
-    public AccountBudgetItemListResponse withEvent(@Nullable Event1 event) {
+    public AccountBudgetItemListResponse withEvent(@Nullable BudgetVersionId event) {
         this.event = event;
         return this;
     }
 
     /**
-     * Event ID Information.
+     * Budget Version ID Information.
      */
-    public AccountBudgetItemListResponse withRfp(@Nullable Event1 rfp) {
+    public AccountBudgetItemListResponse withRfp(@Nullable BudgetVersionId rfp) {
         this.rfp = rfp;
         return this;
     }
 
     /**
-     * Event ID Information.
+     * Budget Version ID Information.
      */
-    public AccountBudgetItemListResponse withBudgetVersion(@Nullable Event1 budgetVersion) {
+    public AccountBudgetItemListResponse withBudgetVersion(@Nullable BudgetVersionId budgetVersion) {
         this.budgetVersion = budgetVersion;
         return this;
     }
@@ -431,11 +431,11 @@ public class AccountBudgetItemListResponse {
 
         private String lastModifiedBy;
 
-        private Event1 event;
+        private BudgetVersionId event;
 
-        private Event1 rfp;
+        private BudgetVersionId rfp;
 
-        private Event1 budgetVersion;
+        private BudgetVersionId budgetVersion;
 
         private String id;
 
@@ -486,25 +486,25 @@ public class AccountBudgetItemListResponse {
         }
 
         /**
-         * Event ID Information.
+         * Budget Version ID Information.
          */
-        public Builder event(@Nullable Event1 event) {
+        public Builder event(@Nullable BudgetVersionId event) {
             this.event = event;
             return this;
         }
 
         /**
-         * Event ID Information.
+         * Budget Version ID Information.
          */
-        public Builder rfp(@Nullable Event1 rfp) {
+        public Builder rfp(@Nullable BudgetVersionId rfp) {
             this.rfp = rfp;
             return this;
         }
 
         /**
-         * Event ID Information.
+         * Budget Version ID Information.
          */
-        public Builder budgetVersion(@Nullable Event1 budgetVersion) {
+        public Builder budgetVersion(@Nullable BudgetVersionId budgetVersion) {
             this.budgetVersion = budgetVersion;
             return this;
         }

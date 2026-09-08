@@ -42,44 +42,44 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 Webcast req = new Webcast() {
-    Event = new UuidJson() {
+    Event = new Uuid() {
         Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     },
-    Session = new UuidJson() {
+    Session = new Uuid() {
         Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     },
-    Appointment = new UuidJson() {
+    Appointment = new Uuid() {
         Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     },
-    Exhibitor = new UuidJson() {
+    Exhibitor = new Uuid() {
         Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     },
-    Format = FormatJson.PreRecorded,
-    Type = WebcastTypeJson.Meeting,
-    Provider = WebcastProviderJson.Zoom,
-    Status = WebcastStatusJson.Started,
-    PlayerType = PlayerTypeJson.CventVideoPlayer,
+    Format = Format.PreRecorded,
+    Type = WebcastType.Meeting,
+    Provider = WebcastProvider.Zoom,
+    Status = WebcastStatus.Started,
+    PlayerType = PlayerType.CventVideoPlayer,
     SimulatedLive = false,
     RecordLiveStream = false,
     OnDemandVideo = false,
     SourceId = "kBBBAAcccdddd8U==",
     Title = "Webinar Connect Event",
     MeetingId = "123ERt",
-    Links = new WebcastLinksJson() {
-        Join = new WebcastLinkJson() {
+    Links = new WebcastLinks() {
+        Join = new WebcastLink() {
             Href = "https://cvent.zoom.us/j/7566652259",
             Code = "1456ZS78",
         },
-        Speaker = new WebcastLinkJson() {
+        Speaker = new WebcastLink() {
             Href = "https://cvent.zoom.us/j/7566652259",
             Code = "1456ZS78",
         },
-        Host = new WebcastHostLinkJson() {
+        Host = new WebcastHostLink() {
             Href = "https://cvent.zoom.us/j/7566652259",
             Code = "1456ZS78",
             Key = "abcd1234",
         },
-        Recording = new WebcastLinkJson() {
+        Recording = new WebcastLink() {
             Href = "https://cvent.zoom.us/j/7566652259",
             Code = "1456ZS78",
         },
@@ -106,7 +106,7 @@ var res = await sdk.Webcasts.CreateWebcastAsync(req);
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 409, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 409, 429                 | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListWebcasts
@@ -165,7 +165,7 @@ while(res != null)
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 429                      | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListAttendeeLinks
@@ -224,7 +224,7 @@ while(res != null)
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 429                      | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListPlayers
@@ -283,7 +283,7 @@ while(res != null)
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 429                      | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetWebcastById
@@ -333,7 +333,7 @@ var res = await sdk.Webcasts.GetWebcastByIdAsync(req);
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## DeleteWebcast
@@ -383,7 +383,7 @@ var res = await sdk.Webcasts.DeleteWebcastAsync(req);
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 401, 403, 404, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 401, 403, 404, 429                      | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## UpdateWebcast
@@ -413,44 +413,44 @@ var sdk = new CventSDK(security: new Security() {
 UpdateWebcastRequest req = new UpdateWebcastRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     ExistingWebcast = new ExistingWebcastInput() {
-        Event = new UuidJson() {
+        Event = new Uuid() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Session = new UuidJson() {
+        Session = new Uuid() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Appointment = new UuidJson() {
+        Appointment = new Uuid() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Exhibitor = new UuidJson() {
+        Exhibitor = new Uuid() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Format = FormatJson.PreRecorded,
-        Type = WebcastTypeJson.Meeting,
-        Provider = WebcastProviderJson.Zoom,
-        Status = WebcastStatusJson.Started,
-        PlayerType = PlayerTypeJson.CventVideoPlayer,
+        Format = Format.PreRecorded,
+        Type = WebcastType.Meeting,
+        Provider = WebcastProvider.Zoom,
+        Status = WebcastStatus.Started,
+        PlayerType = PlayerType.CventVideoPlayer,
         SimulatedLive = false,
         RecordLiveStream = false,
         OnDemandVideo = false,
         SourceId = "kBBBAAcccdddd8U==",
         Title = "Webinar Connect Event",
         MeetingId = "123ERt",
-        Links = new WebcastLinksJson() {
-            Join = new WebcastLinkJson() {
+        Links = new WebcastLinks() {
+            Join = new WebcastLink() {
                 Href = "https://cvent.zoom.us/j/7566652259",
                 Code = "1456ZS78",
             },
-            Speaker = new WebcastLinkJson() {
+            Speaker = new WebcastLink() {
                 Href = "https://cvent.zoom.us/j/7566652259",
                 Code = "1456ZS78",
             },
-            Host = new WebcastHostLinkJson() {
+            Host = new WebcastHostLink() {
                 Href = "https://cvent.zoom.us/j/7566652259",
                 Code = "1456ZS78",
                 Key = "abcd1234",
             },
-            Recording = new WebcastLinkJson() {
+            Recording = new WebcastLink() {
                 Href = "https://cvent.zoom.us/j/7566652259",
                 Code = "1456ZS78",
             },
@@ -478,7 +478,7 @@ var res = await sdk.Webcasts.UpdateWebcastAsync(req);
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 409, 429            | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 409, 429            | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## CreateAttendeeLinks
@@ -508,7 +508,7 @@ var sdk = new CventSDK(security: new Security() {
 
 CreateAttendeeLinksRequest req = new CreateAttendeeLinksRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    RequestBody = new List<ZeroInput>() {},
+    RequestBody = new List<AttendeeLink>() {},
 };
 
 var res = await sdk.Webcasts.CreateAttendeeLinksAsync(req);
@@ -530,7 +530,7 @@ var res = await sdk.Webcasts.CreateAttendeeLinksAsync(req);
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## UpdateAttendeeLinks
@@ -582,7 +582,7 @@ var res = await sdk.Webcasts.UpdateAttendeeLinksAsync(req);
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~ListWebcastAttendeeLinks~~
@@ -644,7 +644,7 @@ while(res != null)
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## DeleteAttendeeLink
@@ -695,5 +695,5 @@ var res = await sdk.Webcasts.DeleteAttendeeLinkAsync(req);
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 401, 403, 404, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 401, 403, 404, 429                      | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |

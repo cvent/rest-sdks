@@ -196,6 +196,13 @@ public class BudgetItemListResponse {
     private String associatedSession;
 
     /**
+     * Budget Version ID Information.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("budgetVersion")
+    private BudgetVersionId budgetVersion;
+
+    /**
      * List of budget item custom fields.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -236,6 +243,7 @@ public class BudgetItemListResponse {
             @JsonProperty("savings") @Nullable List<BudgetSavings> savings,
             @JsonProperty("associatedRegistrants") @Nullable List<BudgetAssociatedRegistrant> associatedRegistrants,
             @JsonProperty("associatedSession") @Nullable String associatedSession,
+            @JsonProperty("budgetVersion") @Nullable BudgetVersionId budgetVersion,
             @JsonProperty("customFields") @Nullable List<BudgetItemCustomField> customFields,
             @JsonProperty("deleted") @Nullable Boolean deleted) {
         this.event = event;
@@ -268,6 +276,7 @@ public class BudgetItemListResponse {
         this.savings = savings;
         this.associatedRegistrants = associatedRegistrants;
         this.associatedSession = associatedSession;
+        this.budgetVersion = budgetVersion;
         this.customFields = customFields;
         this.deleted = deleted;
     }
@@ -305,6 +314,7 @@ public class BudgetItemListResponse {
                 currency,
                 null,
                 conversionRate,
+                null,
                 null,
                 null,
                 null,
@@ -493,6 +503,13 @@ public class BudgetItemListResponse {
      */
     public Optional<String> associatedSession() {
         return Optional.ofNullable(this.associatedSession);
+    }
+
+    /**
+     * Budget Version ID Information.
+     */
+    public Optional<BudgetVersionId> budgetVersion() {
+        return Optional.ofNullable(this.budgetVersion);
     }
 
     /**
@@ -722,6 +739,14 @@ public class BudgetItemListResponse {
     }
 
     /**
+     * Budget Version ID Information.
+     */
+    public BudgetItemListResponse withBudgetVersion(@Nullable BudgetVersionId budgetVersion) {
+        this.budgetVersion = budgetVersion;
+        return this;
+    }
+
+    /**
      * List of budget item custom fields.
      */
     public BudgetItemListResponse withCustomFields(@Nullable List<BudgetItemCustomField> customFields) {
@@ -771,6 +796,7 @@ public class BudgetItemListResponse {
                 && Utils.enhancedDeepEquals(this.savings, other.savings)
                 && Utils.enhancedDeepEquals(this.associatedRegistrants, other.associatedRegistrants)
                 && Utils.enhancedDeepEquals(this.associatedSession, other.associatedSession)
+                && Utils.enhancedDeepEquals(this.budgetVersion, other.budgetVersion)
                 && Utils.enhancedDeepEquals(this.customFields, other.customFields)
                 && Utils.enhancedDeepEquals(this.deleted, other.deleted);
     }
@@ -803,6 +829,7 @@ public class BudgetItemListResponse {
                 savings,
                 associatedRegistrants,
                 associatedSession,
+                budgetVersion,
                 customFields,
                 deleted);
     }
@@ -861,6 +888,8 @@ public class BudgetItemListResponse {
                 associatedRegistrants,
                 "associatedSession",
                 associatedSession,
+                "budgetVersion",
+                budgetVersion,
                 "customFields",
                 customFields,
                 "deleted",
@@ -919,6 +948,8 @@ public class BudgetItemListResponse {
         private List<BudgetAssociatedRegistrant> associatedRegistrants;
 
         private String associatedSession;
+
+        private BudgetVersionId budgetVersion;
 
         private List<BudgetItemCustomField> customFields;
 
@@ -1136,6 +1167,14 @@ public class BudgetItemListResponse {
         }
 
         /**
+         * Budget Version ID Information.
+         */
+        public Builder budgetVersion(@Nullable BudgetVersionId budgetVersion) {
+            this.budgetVersion = budgetVersion;
+            return this;
+        }
+
+        /**
          * List of budget item custom fields.
          */
         public Builder customFields(@Nullable List<BudgetItemCustomField> customFields) {
@@ -1178,6 +1217,7 @@ public class BudgetItemListResponse {
                     savings,
                     associatedRegistrants,
                     associatedSession,
+                    budgetVersion,
                     customFields,
                     deleted);
         }

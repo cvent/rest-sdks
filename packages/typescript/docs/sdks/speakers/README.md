@@ -117,7 +117,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listSessionProgramSpeakersPostFilters
@@ -221,7 +221,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## createSessionProgramSpeaker
@@ -312,7 +312,7 @@ run();
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | errors.ErrorResponse   | 409                    | application/json       |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getSessionProgramSpeaker
@@ -402,7 +402,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## deleteSessionProgramSpeaker
@@ -492,7 +492,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listSpeakersCategories
@@ -591,7 +591,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## addSpeakerCategory
@@ -682,7 +682,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listSpeakers
@@ -783,7 +783,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## createSpeaker
@@ -928,7 +928,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listSpeakersPostFilter
@@ -1034,7 +1034,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## updateSpeaker
@@ -1185,7 +1185,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## deleteSpeaker
@@ -1276,7 +1276,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listSpeakerDocs
@@ -1375,7 +1375,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getSpeakerDoc
@@ -1468,7 +1468,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## addSpeakerDoc
@@ -1561,7 +1561,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## deleteSpeakerDocument
@@ -1654,7 +1654,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## deleteSpeakerProfileImage
@@ -1745,7 +1745,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## assignSpeakerProfileImage
@@ -1846,7 +1846,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listSpeakerSessions
@@ -1943,5 +1943,5 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |

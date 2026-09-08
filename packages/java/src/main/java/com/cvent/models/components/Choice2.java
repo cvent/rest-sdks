@@ -3,11 +3,13 @@
  */
 package com.cvent.models.components;
 
+import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -17,7 +19,7 @@ import java.util.Optional;
 /**
  * Choice2
  *
- * <p>This is used to denote the choice of question.
+ * <p>This is used to denote the choice of questions in an event.
  */
 public class Choice2 {
     /**
@@ -35,14 +37,25 @@ public class Choice2 {
     @JsonProperty("text")
     private String text;
 
+    /**
+     * The type for the event question choice.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("type")
+    private ChoiceType type;
+
     @JsonCreator
-    public Choice2(@JsonProperty("id") @Nullable String id, @JsonProperty("text") @Nonnull String text) {
+    public Choice2(
+            @JsonProperty("id") @Nullable String id,
+            @JsonProperty("text") @Nonnull String text,
+            @JsonProperty("type") @Nullable ChoiceType type) {
         this.id = id;
         this.text = Optional.ofNullable(text).orElseThrow(() -> new IllegalArgumentException("text cannot be null"));
+        this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
     }
 
     public Choice2(@Nonnull String text) {
-        this(null, text);
+        this(null, text, null);
     }
 
     /**
@@ -59,6 +72,13 @@ public class Choice2 {
      */
     public String text() {
         return this.text;
+    }
+
+    /**
+     * The type for the event question choice.
+     */
+    public Optional<ChoiceType> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -83,6 +103,14 @@ public class Choice2 {
         return this;
     }
 
+    /**
+     * The type for the event question choice.
+     */
+    public Choice2 withType(@Nullable ChoiceType type) {
+        this.type = type;
+        return this;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -92,17 +120,19 @@ public class Choice2 {
             return false;
         }
         Choice2 other = (Choice2) o;
-        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.text, other.text);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.type, other.type);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, text);
+        return Utils.enhancedHash(id, text, type);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(Choice2.class, "id", id, "text", text);
+        return Utils.toString(Choice2.class, "id", id, "text", text, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -111,6 +141,8 @@ public class Choice2 {
         private String id;
 
         private String text;
+
+        private ChoiceType type;
 
         private Builder() {
             // force use of static builder() method
@@ -134,8 +166,19 @@ public class Choice2 {
             return this;
         }
 
-        public Choice2 build() {
-            return new Choice2(id, text);
+        /**
+         * The type for the event question choice.
+         */
+        public Builder type(@Nullable ChoiceType type) {
+            this.type = type;
+            return this;
         }
+
+        public Choice2 build() {
+            return new Choice2(id, text, type);
+        }
+
+        private static final LazySingletonValue<ChoiceType> _SINGLETON_VALUE_Type =
+                new LazySingletonValue<>("type", "\"StandardChoice\"", new TypeReference<ChoiceType>() {});
     }
 }

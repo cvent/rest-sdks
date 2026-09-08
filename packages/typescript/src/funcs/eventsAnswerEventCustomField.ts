@@ -41,8 +41,8 @@ export function eventsAnswerEventCustomField(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    components.CustomField1,
-    | errors.ErrorResponse11
+    components.CustomField,
+    | errors.ErrorResponse12
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -67,8 +67,8 @@ async function $do(
 ): Promise<
   [
     Result<
-      components.CustomField1,
-      | errors.ErrorResponse11
+      components.CustomField,
+      | errors.ErrorResponse12
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -91,7 +91,7 @@ async function $do(
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload["custom-field1"], { explode: true });
+  const body = encodeJSON("body", payload["custom-field"], { explode: true });
 
   const pathParams = {
     customFieldId: encodeSimple("customFieldId", payload.customFieldId, {
@@ -172,8 +172,8 @@ async function $do(
   };
 
   const [result] = await M.match<
-    components.CustomField1,
-    | errors.ErrorResponse11
+    components.CustomField,
+    | errors.ErrorResponse12
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -183,8 +183,8 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, components.CustomField1$inboundSchema),
-    M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse11$inboundSchema),
+    M.json(200, components.CustomField$inboundSchema),
+    M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse12$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

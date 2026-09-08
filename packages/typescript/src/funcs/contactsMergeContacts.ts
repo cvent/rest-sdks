@@ -41,7 +41,7 @@ export function contactsMergeContacts(
 ): APIPromise<
   Result<
     components.Contact,
-    | errors.ErrorResponse11
+    | errors.ErrorResponse12
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -67,7 +67,7 @@ async function $do(
   [
     Result<
       components.Contact,
-      | errors.ErrorResponse11
+      | errors.ErrorResponse12
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -165,7 +165,7 @@ async function $do(
 
   const [result] = await M.match<
     components.Contact,
-    | errors.ErrorResponse11
+    | errors.ErrorResponse12
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -178,7 +178,7 @@ async function $do(
     M.json(200, components.Contact$inboundSchema),
     M.jsonErr(
       [400, 401, 403, 404, 409, 429],
-      errors.ErrorResponse11$inboundSchema,
+      errors.ErrorResponse12$inboundSchema,
     ),
     M.fail("4XX"),
     M.fail("5XX"),

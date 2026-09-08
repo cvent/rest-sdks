@@ -60,7 +60,7 @@ public class ExistingAdmissionItem {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private UuidJson event;
+    private Uuid event;
 
     @JsonCreator
     public ExistingAdmissionItem(
@@ -69,7 +69,7 @@ public class ExistingAdmissionItem {
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("allowOptionalSessions") @Nullable Boolean allowOptionalSessions,
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("event") @Nullable UuidJson event) {
+            @JsonProperty("event") @Nullable Uuid event) {
         this.name = name;
         this.code = code;
         this.description = description;
@@ -120,7 +120,7 @@ public class ExistingAdmissionItem {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> event() {
+    public Optional<Uuid> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -171,7 +171,7 @@ public class ExistingAdmissionItem {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExistingAdmissionItem withEvent(@Nullable UuidJson event) {
+    public ExistingAdmissionItem withEvent(@Nullable Uuid event) {
         this.event = event;
         return this;
     }
@@ -229,7 +229,7 @@ public class ExistingAdmissionItem {
 
         private String id;
 
-        private UuidJson event;
+        private Uuid event;
 
         private Builder() {
             // force use of static builder() method
@@ -278,7 +278,7 @@ public class ExistingAdmissionItem {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder event(@Nullable UuidJson event) {
+        public Builder event(@Nullable Uuid event) {
             this.event = event;
             return this;
         }

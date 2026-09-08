@@ -37,35 +37,35 @@ public class ProposalRequest {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private ProposalTypeJson type;
+    private ProposalType type;
 
     /**
      * Represents a summary of supplier information associated with current proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("supplierSummary")
-    private SupplierSummaryJson supplierSummary;
+    private SupplierSummary supplierSummary;
 
     /**
      * Schema for Rfp details associated with this proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rfpSummary")
-    private RfpSummaryJson rfpSummary;
+    private RfpSummary rfpSummary;
 
     /**
      * Schema for event summary associated with this proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("eventSummary")
-    private EventSummaryJson eventSummary;
+    private EventSummary eventSummary;
 
     /**
      * Represents a summary of status associated with this proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("statusSummary")
-    private StatusSummaryJson statusSummary;
+    private StatusSummary statusSummary;
 
     /**
      * Introduction text for the proposal.
@@ -90,7 +90,7 @@ public class ProposalRequest {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("currencyCode")
-    private CurrencyJson1 currencyCode;
+    private Currency currencyCode;
 
     /**
      * True indicates this is a commissionable bid.
@@ -125,14 +125,14 @@ public class ProposalRequest {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("proposalDates")
-    private List<ProposalDateJson> proposalDates;
+    private List<ProposalDate> proposalDates;
 
     /**
      * List of all sleeping rooms offered in the proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("sleepingRooms")
-    private List<SleepingRoomJson> sleepingRooms;
+    private List<SleepingRoom1> sleepingRooms;
 
     /**
      * Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by
@@ -143,66 +143,82 @@ public class ProposalRequest {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("categoryItemsCost")
     @Deprecated
-    private CategoryItemsCostJson categoryItemsCost;
+    private CategoryItemsCost categoryItemsCost;
 
     /**
      * The aggregated cost
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("aggregatedCost")
-    private AggregatedCostJson aggregatedCost;
+    private AggregatedCost aggregatedCost;
 
     /**
      * The estimated cost
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("estimatedCost")
-    private EstimatedCostJson estimatedCost;
+    private EstimatedCost estimatedCost;
 
     /**
      * List of all contacts.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contacts")
-    private List<ContactJson> contacts;
+    private List<Contact2> contacts;
 
     /**
      * List of all planner contacts.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("plannerContacts")
-    private List<ContactJson> plannerContacts;
+    private List<Contact2> plannerContacts;
 
     /**
      * The meeting room.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("meetingRoom")
-    private MeetingRoomJson meetingRoom;
+    private MeetingRoom meetingRoom;
+
+    /**
+     * The agenda items with all agenda items and additional details
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("agendaItems")
+    private AgendaItems agendaItems;
+
+    /**
+     * List of Package Details
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("packages")
+    private List<Package> packages;
 
     @JsonCreator
     public ProposalRequest(
             @JsonProperty("scpTemplateId") @Nullable String scpTemplateId,
-            @JsonProperty("type") @Nullable ProposalTypeJson type,
-            @JsonProperty("supplierSummary") @Nullable SupplierSummaryJson supplierSummary,
-            @JsonProperty("rfpSummary") @Nullable RfpSummaryJson rfpSummary,
-            @JsonProperty("eventSummary") @Nullable EventSummaryJson eventSummary,
-            @JsonProperty("statusSummary") @Nullable StatusSummaryJson statusSummary,
+            @JsonProperty("type") @Nullable ProposalType type,
+            @JsonProperty("supplierSummary") @Nullable SupplierSummary supplierSummary,
+            @JsonProperty("rfpSummary") @Nullable RfpSummary rfpSummary,
+            @JsonProperty("eventSummary") @Nullable EventSummary eventSummary,
+            @JsonProperty("statusSummary") @Nullable StatusSummary statusSummary,
             @JsonProperty("introduction") @Nullable String introduction,
             @JsonProperty("billingContractualResponse") @Nullable String billingContractualResponse,
-            @JsonProperty("currencyCode") @Nullable CurrencyJson1 currencyCode,
+            @JsonProperty("currencyCode") @Nullable Currency currencyCode,
             @JsonProperty("commissionableBid") @Nullable Boolean commissionableBid,
             @JsonProperty("commissionRate") @Nullable Double commissionRate,
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("blockCode") @Nullable String blockCode,
-            @JsonProperty("proposalDates") @Nullable List<ProposalDateJson> proposalDates,
-            @JsonProperty("sleepingRooms") @Nullable List<SleepingRoomJson> sleepingRooms,
-            @JsonProperty("categoryItemsCost") @Nullable CategoryItemsCostJson categoryItemsCost,
-            @JsonProperty("aggregatedCost") @Nullable AggregatedCostJson aggregatedCost,
-            @JsonProperty("estimatedCost") @Nullable EstimatedCostJson estimatedCost,
-            @JsonProperty("contacts") @Nullable List<ContactJson> contacts,
-            @JsonProperty("plannerContacts") @Nullable List<ContactJson> plannerContacts,
-            @JsonProperty("meetingRoom") @Nullable MeetingRoomJson meetingRoom) {
+            @JsonProperty("proposalDates") @Nullable List<ProposalDate> proposalDates,
+            @JsonProperty("sleepingRooms") @Nullable List<SleepingRoom1> sleepingRooms,
+            @JsonProperty("categoryItemsCost") @Nullable CategoryItemsCost categoryItemsCost,
+            @JsonProperty("aggregatedCost") @Nullable AggregatedCost aggregatedCost,
+            @JsonProperty("estimatedCost") @Nullable EstimatedCost estimatedCost,
+            @JsonProperty("contacts") @Nullable List<Contact2> contacts,
+            @JsonProperty("plannerContacts") @Nullable List<Contact2> plannerContacts,
+            @JsonProperty("meetingRoom") @Nullable MeetingRoom meetingRoom,
+            @JsonProperty("agendaItems") @Nullable AgendaItems agendaItems,
+            @JsonProperty("packages") @Nullable List<Package> packages) {
         this.scpTemplateId = scpTemplateId;
         this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
         this.supplierSummary = supplierSummary;
@@ -224,10 +240,14 @@ public class ProposalRequest {
         this.contacts = contacts;
         this.plannerContacts = plannerContacts;
         this.meetingRoom = meetingRoom;
+        this.agendaItems = agendaItems;
+        this.packages = packages;
     }
 
     public ProposalRequest() {
         this(
+                null,
+                null,
                 null,
                 null,
                 null,
@@ -261,35 +281,35 @@ public class ProposalRequest {
     /**
      * The type of the proposal.
      */
-    public Optional<ProposalTypeJson> type() {
+    public Optional<ProposalType> type() {
         return Optional.ofNullable(this.type);
     }
 
     /**
      * Represents a summary of supplier information associated with current proposal.
      */
-    public Optional<SupplierSummaryJson> supplierSummary() {
+    public Optional<SupplierSummary> supplierSummary() {
         return Optional.ofNullable(this.supplierSummary);
     }
 
     /**
      * Schema for Rfp details associated with this proposal.
      */
-    public Optional<RfpSummaryJson> rfpSummary() {
+    public Optional<RfpSummary> rfpSummary() {
         return Optional.ofNullable(this.rfpSummary);
     }
 
     /**
      * Schema for event summary associated with this proposal.
      */
-    public Optional<EventSummaryJson> eventSummary() {
+    public Optional<EventSummary> eventSummary() {
         return Optional.ofNullable(this.eventSummary);
     }
 
     /**
      * Represents a summary of status associated with this proposal.
      */
-    public Optional<StatusSummaryJson> statusSummary() {
+    public Optional<StatusSummary> statusSummary() {
         return Optional.ofNullable(this.statusSummary);
     }
 
@@ -314,7 +334,7 @@ public class ProposalRequest {
     /**
      * The ISO 4217 standard format currency code used for RFPs.
      */
-    public Optional<CurrencyJson1> currencyCode() {
+    public Optional<Currency> currencyCode() {
         return Optional.ofNullable(this.currencyCode);
     }
 
@@ -349,14 +369,14 @@ public class ProposalRequest {
     /**
      * List of dates the venue is available.
      */
-    public Optional<List<ProposalDateJson>> proposalDates() {
+    public Optional<List<ProposalDate>> proposalDates() {
         return Optional.ofNullable(this.proposalDates);
     }
 
     /**
      * List of all sleeping rooms offered in the proposal.
      */
-    public Optional<List<SleepingRoomJson>> sleepingRooms() {
+    public Optional<List<SleepingRoom1>> sleepingRooms() {
         return Optional.ofNullable(this.sleepingRooms);
     }
 
@@ -367,43 +387,57 @@ public class ProposalRequest {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public Optional<CategoryItemsCostJson> categoryItemsCost() {
+    public Optional<CategoryItemsCost> categoryItemsCost() {
         return Optional.ofNullable(this.categoryItemsCost);
     }
 
     /**
      * The aggregated cost
      */
-    public Optional<AggregatedCostJson> aggregatedCost() {
+    public Optional<AggregatedCost> aggregatedCost() {
         return Optional.ofNullable(this.aggregatedCost);
     }
 
     /**
      * The estimated cost
      */
-    public Optional<EstimatedCostJson> estimatedCost() {
+    public Optional<EstimatedCost> estimatedCost() {
         return Optional.ofNullable(this.estimatedCost);
     }
 
     /**
      * List of all contacts.
      */
-    public Optional<List<ContactJson>> contacts() {
+    public Optional<List<Contact2>> contacts() {
         return Optional.ofNullable(this.contacts);
     }
 
     /**
      * List of all planner contacts.
      */
-    public Optional<List<ContactJson>> plannerContacts() {
+    public Optional<List<Contact2>> plannerContacts() {
         return Optional.ofNullable(this.plannerContacts);
     }
 
     /**
      * The meeting room.
      */
-    public Optional<MeetingRoomJson> meetingRoom() {
+    public Optional<MeetingRoom> meetingRoom() {
         return Optional.ofNullable(this.meetingRoom);
+    }
+
+    /**
+     * The agenda items with all agenda items and additional details
+     */
+    public Optional<AgendaItems> agendaItems() {
+        return Optional.ofNullable(this.agendaItems);
+    }
+
+    /**
+     * List of Package Details
+     */
+    public Optional<List<Package>> packages() {
+        return Optional.ofNullable(this.packages);
     }
 
     public static Builder builder() {
@@ -421,7 +455,7 @@ public class ProposalRequest {
     /**
      * The type of the proposal.
      */
-    public ProposalRequest withType(@Nullable ProposalTypeJson type) {
+    public ProposalRequest withType(@Nullable ProposalType type) {
         this.type = type;
         return this;
     }
@@ -429,7 +463,7 @@ public class ProposalRequest {
     /**
      * Represents a summary of supplier information associated with current proposal.
      */
-    public ProposalRequest withSupplierSummary(@Nullable SupplierSummaryJson supplierSummary) {
+    public ProposalRequest withSupplierSummary(@Nullable SupplierSummary supplierSummary) {
         this.supplierSummary = supplierSummary;
         return this;
     }
@@ -437,7 +471,7 @@ public class ProposalRequest {
     /**
      * Schema for Rfp details associated with this proposal.
      */
-    public ProposalRequest withRfpSummary(@Nullable RfpSummaryJson rfpSummary) {
+    public ProposalRequest withRfpSummary(@Nullable RfpSummary rfpSummary) {
         this.rfpSummary = rfpSummary;
         return this;
     }
@@ -445,7 +479,7 @@ public class ProposalRequest {
     /**
      * Schema for event summary associated with this proposal.
      */
-    public ProposalRequest withEventSummary(@Nullable EventSummaryJson eventSummary) {
+    public ProposalRequest withEventSummary(@Nullable EventSummary eventSummary) {
         this.eventSummary = eventSummary;
         return this;
     }
@@ -453,7 +487,7 @@ public class ProposalRequest {
     /**
      * Represents a summary of status associated with this proposal.
      */
-    public ProposalRequest withStatusSummary(@Nullable StatusSummaryJson statusSummary) {
+    public ProposalRequest withStatusSummary(@Nullable StatusSummary statusSummary) {
         this.statusSummary = statusSummary;
         return this;
     }
@@ -481,7 +515,7 @@ public class ProposalRequest {
     /**
      * The ISO 4217 standard format currency code used for RFPs.
      */
-    public ProposalRequest withCurrencyCode(@Nullable CurrencyJson1 currencyCode) {
+    public ProposalRequest withCurrencyCode(@Nullable Currency currencyCode) {
         this.currencyCode = currencyCode;
         return this;
     }
@@ -521,7 +555,7 @@ public class ProposalRequest {
     /**
      * List of dates the venue is available.
      */
-    public ProposalRequest withProposalDates(@Nullable List<ProposalDateJson> proposalDates) {
+    public ProposalRequest withProposalDates(@Nullable List<ProposalDate> proposalDates) {
         this.proposalDates = proposalDates;
         return this;
     }
@@ -529,7 +563,7 @@ public class ProposalRequest {
     /**
      * List of all sleeping rooms offered in the proposal.
      */
-    public ProposalRequest withSleepingRooms(@Nullable List<SleepingRoomJson> sleepingRooms) {
+    public ProposalRequest withSleepingRooms(@Nullable List<SleepingRoom1> sleepingRooms) {
         this.sleepingRooms = sleepingRooms;
         return this;
     }
@@ -541,7 +575,7 @@ public class ProposalRequest {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public ProposalRequest withCategoryItemsCost(@Nullable CategoryItemsCostJson categoryItemsCost) {
+    public ProposalRequest withCategoryItemsCost(@Nullable CategoryItemsCost categoryItemsCost) {
         this.categoryItemsCost = categoryItemsCost;
         return this;
     }
@@ -549,7 +583,7 @@ public class ProposalRequest {
     /**
      * The aggregated cost
      */
-    public ProposalRequest withAggregatedCost(@Nullable AggregatedCostJson aggregatedCost) {
+    public ProposalRequest withAggregatedCost(@Nullable AggregatedCost aggregatedCost) {
         this.aggregatedCost = aggregatedCost;
         return this;
     }
@@ -557,7 +591,7 @@ public class ProposalRequest {
     /**
      * The estimated cost
      */
-    public ProposalRequest withEstimatedCost(@Nullable EstimatedCostJson estimatedCost) {
+    public ProposalRequest withEstimatedCost(@Nullable EstimatedCost estimatedCost) {
         this.estimatedCost = estimatedCost;
         return this;
     }
@@ -565,7 +599,7 @@ public class ProposalRequest {
     /**
      * List of all contacts.
      */
-    public ProposalRequest withContacts(@Nullable List<ContactJson> contacts) {
+    public ProposalRequest withContacts(@Nullable List<Contact2> contacts) {
         this.contacts = contacts;
         return this;
     }
@@ -573,7 +607,7 @@ public class ProposalRequest {
     /**
      * List of all planner contacts.
      */
-    public ProposalRequest withPlannerContacts(@Nullable List<ContactJson> plannerContacts) {
+    public ProposalRequest withPlannerContacts(@Nullable List<Contact2> plannerContacts) {
         this.plannerContacts = plannerContacts;
         return this;
     }
@@ -581,8 +615,24 @@ public class ProposalRequest {
     /**
      * The meeting room.
      */
-    public ProposalRequest withMeetingRoom(@Nullable MeetingRoomJson meetingRoom) {
+    public ProposalRequest withMeetingRoom(@Nullable MeetingRoom meetingRoom) {
         this.meetingRoom = meetingRoom;
+        return this;
+    }
+
+    /**
+     * The agenda items with all agenda items and additional details
+     */
+    public ProposalRequest withAgendaItems(@Nullable AgendaItems agendaItems) {
+        this.agendaItems = agendaItems;
+        return this;
+    }
+
+    /**
+     * List of Package Details
+     */
+    public ProposalRequest withPackages(@Nullable List<Package> packages) {
+        this.packages = packages;
         return this;
     }
 
@@ -615,7 +665,9 @@ public class ProposalRequest {
                 && Utils.enhancedDeepEquals(this.estimatedCost, other.estimatedCost)
                 && Utils.enhancedDeepEquals(this.contacts, other.contacts)
                 && Utils.enhancedDeepEquals(this.plannerContacts, other.plannerContacts)
-                && Utils.enhancedDeepEquals(this.meetingRoom, other.meetingRoom);
+                && Utils.enhancedDeepEquals(this.meetingRoom, other.meetingRoom)
+                && Utils.enhancedDeepEquals(this.agendaItems, other.agendaItems)
+                && Utils.enhancedDeepEquals(this.packages, other.packages);
     }
 
     @Override
@@ -641,7 +693,9 @@ public class ProposalRequest {
                 estimatedCost,
                 contacts,
                 plannerContacts,
-                meetingRoom);
+                meetingRoom,
+                agendaItems,
+                packages);
     }
 
     @Override
@@ -689,7 +743,11 @@ public class ProposalRequest {
                 "plannerContacts",
                 plannerContacts,
                 "meetingRoom",
-                meetingRoom);
+                meetingRoom,
+                "agendaItems",
+                agendaItems,
+                "packages",
+                packages);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -697,22 +755,22 @@ public class ProposalRequest {
 
         private String scpTemplateId;
 
-        private ProposalTypeJson type;
+        private ProposalType type;
 
-        private SupplierSummaryJson supplierSummary;
+        private SupplierSummary supplierSummary;
 
-        private RfpSummaryJson rfpSummary;
+        private RfpSummary rfpSummary;
 
-        private EventSummaryJson eventSummary;
+        private EventSummary eventSummary;
 
-        private StatusSummaryJson statusSummary;
+        private StatusSummary statusSummary;
 
         private String introduction;
 
         @Deprecated
         private String billingContractualResponse;
 
-        private CurrencyJson1 currencyCode;
+        private Currency currencyCode;
 
         private Boolean commissionableBid;
 
@@ -722,22 +780,26 @@ public class ProposalRequest {
 
         private String blockCode;
 
-        private List<ProposalDateJson> proposalDates;
+        private List<ProposalDate> proposalDates;
 
-        private List<SleepingRoomJson> sleepingRooms;
+        private List<SleepingRoom1> sleepingRooms;
 
         @Deprecated
-        private CategoryItemsCostJson categoryItemsCost;
+        private CategoryItemsCost categoryItemsCost;
 
-        private AggregatedCostJson aggregatedCost;
+        private AggregatedCost aggregatedCost;
 
-        private EstimatedCostJson estimatedCost;
+        private EstimatedCost estimatedCost;
 
-        private List<ContactJson> contacts;
+        private List<Contact2> contacts;
 
-        private List<ContactJson> plannerContacts;
+        private List<Contact2> plannerContacts;
 
-        private MeetingRoomJson meetingRoom;
+        private MeetingRoom meetingRoom;
+
+        private AgendaItems agendaItems;
+
+        private List<Package> packages;
 
         private Builder() {
             // force use of static builder() method
@@ -754,7 +816,7 @@ public class ProposalRequest {
         /**
          * The type of the proposal.
          */
-        public Builder type(@Nullable ProposalTypeJson type) {
+        public Builder type(@Nullable ProposalType type) {
             this.type = type;
             return this;
         }
@@ -762,7 +824,7 @@ public class ProposalRequest {
         /**
          * Represents a summary of supplier information associated with current proposal.
          */
-        public Builder supplierSummary(@Nullable SupplierSummaryJson supplierSummary) {
+        public Builder supplierSummary(@Nullable SupplierSummary supplierSummary) {
             this.supplierSummary = supplierSummary;
             return this;
         }
@@ -770,7 +832,7 @@ public class ProposalRequest {
         /**
          * Schema for Rfp details associated with this proposal.
          */
-        public Builder rfpSummary(@Nullable RfpSummaryJson rfpSummary) {
+        public Builder rfpSummary(@Nullable RfpSummary rfpSummary) {
             this.rfpSummary = rfpSummary;
             return this;
         }
@@ -778,7 +840,7 @@ public class ProposalRequest {
         /**
          * Schema for event summary associated with this proposal.
          */
-        public Builder eventSummary(@Nullable EventSummaryJson eventSummary) {
+        public Builder eventSummary(@Nullable EventSummary eventSummary) {
             this.eventSummary = eventSummary;
             return this;
         }
@@ -786,7 +848,7 @@ public class ProposalRequest {
         /**
          * Represents a summary of status associated with this proposal.
          */
-        public Builder statusSummary(@Nullable StatusSummaryJson statusSummary) {
+        public Builder statusSummary(@Nullable StatusSummary statusSummary) {
             this.statusSummary = statusSummary;
             return this;
         }
@@ -814,7 +876,7 @@ public class ProposalRequest {
         /**
          * The ISO 4217 standard format currency code used for RFPs.
          */
-        public Builder currencyCode(@Nullable CurrencyJson1 currencyCode) {
+        public Builder currencyCode(@Nullable Currency currencyCode) {
             this.currencyCode = currencyCode;
             return this;
         }
@@ -854,7 +916,7 @@ public class ProposalRequest {
         /**
          * List of dates the venue is available.
          */
-        public Builder proposalDates(@Nullable List<ProposalDateJson> proposalDates) {
+        public Builder proposalDates(@Nullable List<ProposalDate> proposalDates) {
             this.proposalDates = proposalDates;
             return this;
         }
@@ -862,7 +924,7 @@ public class ProposalRequest {
         /**
          * List of all sleeping rooms offered in the proposal.
          */
-        public Builder sleepingRooms(@Nullable List<SleepingRoomJson> sleepingRooms) {
+        public Builder sleepingRooms(@Nullable List<SleepingRoom1> sleepingRooms) {
             this.sleepingRooms = sleepingRooms;
             return this;
         }
@@ -874,7 +936,7 @@ public class ProposalRequest {
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
-        public Builder categoryItemsCost(@Nullable CategoryItemsCostJson categoryItemsCost) {
+        public Builder categoryItemsCost(@Nullable CategoryItemsCost categoryItemsCost) {
             this.categoryItemsCost = categoryItemsCost;
             return this;
         }
@@ -882,7 +944,7 @@ public class ProposalRequest {
         /**
          * The aggregated cost
          */
-        public Builder aggregatedCost(@Nullable AggregatedCostJson aggregatedCost) {
+        public Builder aggregatedCost(@Nullable AggregatedCost aggregatedCost) {
             this.aggregatedCost = aggregatedCost;
             return this;
         }
@@ -890,7 +952,7 @@ public class ProposalRequest {
         /**
          * The estimated cost
          */
-        public Builder estimatedCost(@Nullable EstimatedCostJson estimatedCost) {
+        public Builder estimatedCost(@Nullable EstimatedCost estimatedCost) {
             this.estimatedCost = estimatedCost;
             return this;
         }
@@ -898,7 +960,7 @@ public class ProposalRequest {
         /**
          * List of all contacts.
          */
-        public Builder contacts(@Nullable List<ContactJson> contacts) {
+        public Builder contacts(@Nullable List<Contact2> contacts) {
             this.contacts = contacts;
             return this;
         }
@@ -906,7 +968,7 @@ public class ProposalRequest {
         /**
          * List of all planner contacts.
          */
-        public Builder plannerContacts(@Nullable List<ContactJson> plannerContacts) {
+        public Builder plannerContacts(@Nullable List<Contact2> plannerContacts) {
             this.plannerContacts = plannerContacts;
             return this;
         }
@@ -914,8 +976,24 @@ public class ProposalRequest {
         /**
          * The meeting room.
          */
-        public Builder meetingRoom(@Nullable MeetingRoomJson meetingRoom) {
+        public Builder meetingRoom(@Nullable MeetingRoom meetingRoom) {
             this.meetingRoom = meetingRoom;
+            return this;
+        }
+
+        /**
+         * The agenda items with all agenda items and additional details
+         */
+        public Builder agendaItems(@Nullable AgendaItems agendaItems) {
+            this.agendaItems = agendaItems;
+            return this;
+        }
+
+        /**
+         * List of Package Details
+         */
+        public Builder packages(@Nullable List<Package> packages) {
+            this.packages = packages;
             return this;
         }
 
@@ -941,10 +1019,12 @@ public class ProposalRequest {
                     estimatedCost,
                     contacts,
                     plannerContacts,
-                    meetingRoom);
+                    meetingRoom,
+                    agendaItems,
+                    packages);
         }
 
-        private static final LazySingletonValue<ProposalTypeJson> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>("type", "\"VENUE\"", new TypeReference<ProposalTypeJson>() {});
+        private static final LazySingletonValue<ProposalType> _SINGLETON_VALUE_Type =
+                new LazySingletonValue<>("type", "\"VENUE\"", new TypeReference<ProposalType>() {});
     }
 }

@@ -115,7 +115,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getEventTableAssignments
@@ -222,7 +222,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getSeating
@@ -315,7 +315,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getTableAssignment
@@ -424,7 +424,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listTables
@@ -531,7 +531,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getTable
@@ -632,7 +632,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listSeats
@@ -735,7 +735,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getSeat
@@ -832,5 +832,5 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |

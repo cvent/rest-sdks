@@ -29,6 +29,6 @@ namespace Cvent.SDK.Models.Components
         /// Collection of associated agenda items for a discount.
         /// </summary>
         [JsonProperty("data")]
-        public List<AgendaItem1> Data { get; set; } = default!;
+        public List<AgendaItem2> Data { get; set; } = default!;
     }
 }

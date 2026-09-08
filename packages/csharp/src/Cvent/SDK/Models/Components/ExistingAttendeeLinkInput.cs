@@ -22,25 +22,25 @@ namespace Cvent.SDK.Models.Components
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("webcast")]
-        public UuidJson Webcast { get; set; } = default!;
+        public Uuid Webcast { get; set; } = default!;
 
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("event")]
-        public UuidJson? Event { get; set; }
+        public Uuid? Event { get; set; }
 
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("session")]
-        public UuidJson? Session { get; set; }
+        public Uuid? Session { get; set; }
 
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("attendee")]
-        public UuidJson Attendee { get; set; } = default!;
+        public Uuid Attendee { get; set; } = default!;
 
         /// <summary>
         /// Source Id of the webcast provider.
@@ -52,6 +52,6 @@ namespace Cvent.SDK.Models.Components
         /// Link details for a webcast.
         /// </summary>
         [JsonProperty("join")]
-        public WebcastLinkJson? Join { get; set; }
+        public WebcastLink? Join { get; set; }
     }
 }

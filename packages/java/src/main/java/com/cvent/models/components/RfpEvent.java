@@ -62,7 +62,7 @@ public class RfpEvent {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private EventType1 type;
+    private EventType12 type;
 
     /**
      * Space area divisons.
@@ -93,7 +93,7 @@ public class RfpEvent {
     private Boolean flexibleDates;
 
     /**
-     * True indicates event is a repeat occurrence.
+     * True indicates similar event(s) have been held in the past.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("repeat")
@@ -169,7 +169,7 @@ public class RfpEvent {
             @JsonProperty("contractSignatureLocation") @Nullable String contractSignatureLocation,
             @JsonProperty("destinationsUnderConsideration") @Nullable String destinationsUnderConsideration,
             @JsonProperty("externalMeetingRequest") @Nullable Boolean externalMeetingRequest,
-            @JsonProperty("type") @Nullable EventType1 type,
+            @JsonProperty("type") @Nullable EventType12 type,
             @JsonProperty("totalMeetingSpaceRequired") @Nullable SpaceArea totalMeetingSpaceRequired,
             @JsonProperty("audioVisualNeeds") @Nullable String audioVisualNeeds,
             @JsonProperty("peakMeetingRooms") @Nullable Long peakMeetingRooms,
@@ -268,7 +268,7 @@ public class RfpEvent {
     /**
      * Event type.
      */
-    public Optional<EventType1> type() {
+    public Optional<EventType12> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -301,7 +301,7 @@ public class RfpEvent {
     }
 
     /**
-     * True indicates event is a repeat occurrence.
+     * True indicates similar event(s) have been held in the past.
      */
     public Optional<Boolean> repeat() {
         return Optional.ofNullable(this.repeat);
@@ -417,7 +417,7 @@ public class RfpEvent {
     /**
      * Event type.
      */
-    public RfpEvent withType(@Nullable EventType1 type) {
+    public RfpEvent withType(@Nullable EventType12 type) {
         this.type = type;
         return this;
     }
@@ -455,7 +455,7 @@ public class RfpEvent {
     }
 
     /**
-     * True indicates event is a repeat occurrence.
+     * True indicates similar event(s) have been held in the past.
      */
     public RfpEvent withRepeat(@Nullable Boolean repeat) {
         this.repeat = repeat;
@@ -649,7 +649,7 @@ public class RfpEvent {
 
         private Boolean externalMeetingRequest;
 
-        private EventType1 type;
+        private EventType12 type;
 
         private SpaceArea totalMeetingSpaceRequired;
 
@@ -726,7 +726,7 @@ public class RfpEvent {
         /**
          * Event type.
          */
-        public Builder type(@Nullable EventType1 type) {
+        public Builder type(@Nullable EventType12 type) {
             this.type = type;
             return this;
         }
@@ -764,7 +764,7 @@ public class RfpEvent {
         }
 
         /**
-         * True indicates event is a repeat occurrence.
+         * True indicates similar event(s) have been held in the past.
          */
         public Builder repeat(@Nullable Boolean repeat) {
             this.repeat = repeat;

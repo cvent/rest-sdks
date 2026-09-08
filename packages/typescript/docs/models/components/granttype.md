@@ -1,0 +1,17 @@
+# GrantType
+
+Controls the OAuth2 grant flow used to obtain tokens.
+
+## Example Usage
+
+```typescript
+import { GrantType } from "@cvent/sdk/models/components";
+
+let value: GrantType = "client_credentials";
+```
+
+## Values
+
+```typescript
+"client_credentials" | "authorization_code" | "refresh_token"
+```

@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
+import { Uuid, Uuid$inboundSchema } from "./uuid.js";
 
 /**
  * Represents an existing event admission item.
@@ -35,7 +35,7 @@ export type ExistingAdmissionItem = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  event?: UuidJson | undefined;
+  event?: Uuid | undefined;
 };
 
 /** @internal */
@@ -49,7 +49,7 @@ export const ExistingAdmissionItem$inboundSchema: z.ZodType<
   description: z.string().optional(),
   allowOptionalSessions: z.boolean().optional(),
   id: z.string().optional(),
-  event: UuidJson$inboundSchema.optional(),
+  event: Uuid$inboundSchema.optional(),
 });
 
 export function existingAdmissionItemFromJSON(

@@ -34,10 +34,10 @@ namespace Cvent.SDK.Models.Components
             }
         }
 
-        public static AttendeesType ErrorResponse11
+        public static AttendeesType ErrorResponse12
         {
             get {
-                return new AttendeesType("ErrorResponse1_1");
+                return new AttendeesType("ErrorResponse-12");
             }
         }
 
@@ -55,8 +55,8 @@ namespace Cvent.SDK.Models.Components
             {
                 case "AttendeeAddResponse":
                     return AttendeeAddResponse;
-                case "ErrorResponse1_1":
-                    return ErrorResponse11;
+                case "ErrorResponse-12":
+                    return ErrorResponse12;
                 default:
                     throw new ArgumentException("Invalid value for AttendeesType");
             }
@@ -88,7 +88,7 @@ namespace Cvent.SDK.Models.Components
         public AttendeeAddResponse? AttendeeAddResponse { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public Models.Components.ErrorResponse11? ErrorResponse11 { get; set; }
+        public Models.Components.ErrorResponse12? ErrorResponse12 { get; set; }
 
         public AttendeesType Type { get; set; }
         public static Attendees CreateAttendeeAddResponse(AttendeeAddResponse attendeeAddResponse)
@@ -99,12 +99,12 @@ namespace Cvent.SDK.Models.Components
             res.AttendeeAddResponse = attendeeAddResponse;
             return res;
         }
-        public static Attendees CreateErrorResponse11(Models.Components.ErrorResponse11 errorResponse11)
+        public static Attendees CreateErrorResponse12(Models.Components.ErrorResponse12 errorResponse12)
         {
-            AttendeesType typ = AttendeesType.ErrorResponse11;
+            AttendeesType typ = AttendeesType.ErrorResponse12;
 
             Attendees res = new Attendees(typ);
-            res.ErrorResponse11 = errorResponse11;
+            res.ErrorResponse12 = errorResponse12;
             return res;
         }
 
@@ -145,13 +145,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new Attendees(AttendeesType.ErrorResponse11) {
-                        ErrorResponse11 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Models.Components.ErrorResponse11>(json)
+                    return new Attendees(AttendeesType.ErrorResponse12) {
+                        ErrorResponse12 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Models.Components.ErrorResponse12>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(Models.Components.ErrorResponse11), new Attendees(AttendeesType.ErrorResponse11), "ErrorResponse11"));
+                    fallbackCandidates.Add((typeof(Models.Components.ErrorResponse12), new Attendees(AttendeesType.ErrorResponse12), "ErrorResponse12"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -200,9 +200,9 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
 
-                if (res.ErrorResponse11 != null)
+                if (res.ErrorResponse12 != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.ErrorResponse11));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.ErrorResponse12));
                     return;
                 }
             }

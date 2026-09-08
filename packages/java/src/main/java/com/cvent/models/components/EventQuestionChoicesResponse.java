@@ -26,37 +26,36 @@ public class EventQuestionChoicesResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of choices for a choice question.
      */
     @JsonProperty("data")
-    private List<EventQuestionChoiceJson> data;
+    private List<Choice2> data;
 
     @JsonCreator
     public EventQuestionChoicesResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nonnull List<EventQuestionChoiceJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging, @JsonProperty("data") @Nonnull List<Choice2> data) {
         this.paging = paging;
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
-    public EventQuestionChoicesResponse(@Nonnull List<EventQuestionChoiceJson> data) {
+    public EventQuestionChoicesResponse(@Nonnull List<Choice2> data) {
         this(null, data);
     }
 
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * Collection of choices for a choice question.
      */
-    public List<EventQuestionChoiceJson> data() {
+    public List<Choice2> data() {
         return this.data;
     }
 
@@ -67,7 +66,7 @@ public class EventQuestionChoicesResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public EventQuestionChoicesResponse withPaging(@Nullable PagingJson paging) {
+    public EventQuestionChoicesResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +74,7 @@ public class EventQuestionChoicesResponse {
     /**
      * Collection of choices for a choice question.
      */
-    public EventQuestionChoicesResponse withData(@Nonnull List<EventQuestionChoiceJson> data) {
+    public EventQuestionChoicesResponse withData(@Nonnull List<Choice2> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -105,9 +104,9 @@ public class EventQuestionChoicesResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<EventQuestionChoiceJson> data;
+        private List<Choice2> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +115,7 @@ public class EventQuestionChoicesResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +123,7 @@ public class EventQuestionChoicesResponse {
         /**
          * Collection of choices for a choice question.
          */
-        public Builder data(@Nonnull List<EventQuestionChoiceJson> data) {
+        public Builder data(@Nonnull List<Choice2> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

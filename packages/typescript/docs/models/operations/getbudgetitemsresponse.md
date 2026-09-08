@@ -108,6 +108,9 @@ let value: GetBudgetItemsResponse = {
           },
         ],
         associatedSession: "9463c74e-18c6-401a-a710-ae0f485bf959",
+        budgetVersion: {
+          id: "3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329",
+        },
         customFields: [
           {
             id: "c0201561-fc30-47bc-a86e-5b9978bee850",

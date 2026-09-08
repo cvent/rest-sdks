@@ -11,10 +11,10 @@ const value: components.AttendeeAddResponse = {
 };
 ```
 
-### `components.ErrorResponse11`
+### `components.ErrorResponse12`
 
 ```typescript
-const value: components.ErrorResponse11 = {
+const value: components.ErrorResponse12 = {
   code: 400,
   message: "Bad Request",
   target: "example target",

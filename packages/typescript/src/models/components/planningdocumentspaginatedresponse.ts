@@ -6,11 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 import {
-  PlanningDocumentJson,
-  PlanningDocumentJson$inboundSchema,
-} from "./planningdocumentjson.js";
+  PlanningDocument,
+  PlanningDocument$inboundSchema,
+} from "./planningdocument.js";
 
 /**
  * Represents a paginated collection of event planning documents.
@@ -19,11 +19,11 @@ export type PlanningDocumentsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of event planning documents.
    */
-  data: Array<PlanningDocumentJson>;
+  data: Array<PlanningDocument>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const PlanningDocumentsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(PlanningDocumentJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(PlanningDocument$inboundSchema),
 });
 
 export function planningDocumentsPaginatedResponseFromJSON(

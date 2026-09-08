@@ -3,7 +3,7 @@
  */
 package com.cvent.models.errors;
 
-import com.cvent.models.components.ErrorResponseBase;
+import com.cvent.models.components.ErrorResponseBase11;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -96,16 +96,8 @@ public class ErrorResponse12 extends CventSDKError {
      * Additional details of cascading error messages.
      */
     @Deprecated
-    public Optional<List<ErrorResponseBase>> details() {
+    public Optional<List<ErrorResponseBase11>> details() {
         return data().flatMap(Data::details);
-    }
-
-    /**
-     * Business validation code for bad requests.
-     */
-    @Deprecated
-    public Optional<ValidationCode> validationCode() {
-        return data().flatMap(Data::validationCode);
     }
 
     public Optional<Data> data() {
@@ -121,7 +113,7 @@ public class ErrorResponse12 extends CventSDKError {
     /**
      * Data
      *
-     * <p>Segments error response details.
+     * <p>Represents an error response with additional details of cascading error messages.
      */
     public static class Data {
         /**
@@ -148,32 +140,23 @@ public class ErrorResponse12 extends CventSDKError {
          */
         @JsonInclude(Include.NON_ABSENT)
         @JsonProperty("details")
-        private List<ErrorResponseBase> details;
-
-        /**
-         * Business validation code for bad requests.
-         */
-        @JsonInclude(Include.NON_ABSENT)
-        @JsonProperty("validationCode")
-        private ValidationCode validationCode;
+        private List<ErrorResponseBase11> details;
 
         @JsonCreator
         public Data(
                 @JsonProperty("code") long code,
                 @JsonProperty("message") @Nonnull String message,
                 @JsonProperty("target") @Nullable String target,
-                @JsonProperty("details") @Nullable List<ErrorResponseBase> details,
-                @JsonProperty("validationCode") @Nullable ValidationCode validationCode) {
+                @JsonProperty("details") @Nullable List<ErrorResponseBase11> details) {
             this.code = code;
             this.message = Optional.ofNullable(message)
                     .orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
             this.target = target;
             this.details = details;
-            this.validationCode = validationCode;
         }
 
         public Data(long code, @Nonnull String message) {
-            this(code, message, null, null, null);
+            this(code, message, null, null);
         }
 
         /**
@@ -200,15 +183,8 @@ public class ErrorResponse12 extends CventSDKError {
         /**
          * Additional details of cascading error messages.
          */
-        public Optional<List<ErrorResponseBase>> details() {
+        public Optional<List<ErrorResponseBase11>> details() {
             return Optional.ofNullable(this.details);
-        }
-
-        /**
-         * Business validation code for bad requests.
-         */
-        public Optional<ValidationCode> validationCode() {
-            return Optional.ofNullable(this.validationCode);
         }
 
         public static Builder builder() {
@@ -242,16 +218,8 @@ public class ErrorResponse12 extends CventSDKError {
         /**
          * Additional details of cascading error messages.
          */
-        public Data withDetails(@Nullable List<ErrorResponseBase> details) {
+        public Data withDetails(@Nullable List<ErrorResponseBase11> details) {
             this.details = details;
-            return this;
-        }
-
-        /**
-         * Business validation code for bad requests.
-         */
-        public Data withValidationCode(@Nullable ValidationCode validationCode) {
-            this.validationCode = validationCode;
             return this;
         }
 
@@ -267,29 +235,17 @@ public class ErrorResponse12 extends CventSDKError {
             return Utils.enhancedDeepEquals(this.code, other.code)
                     && Utils.enhancedDeepEquals(this.message, other.message)
                     && Utils.enhancedDeepEquals(this.target, other.target)
-                    && Utils.enhancedDeepEquals(this.details, other.details)
-                    && Utils.enhancedDeepEquals(this.validationCode, other.validationCode);
+                    && Utils.enhancedDeepEquals(this.details, other.details);
         }
 
         @Override
         public int hashCode() {
-            return Utils.enhancedHash(code, message, target, details, validationCode);
+            return Utils.enhancedHash(code, message, target, details);
         }
 
         @Override
         public String toString() {
-            return Utils.toString(
-                    Data.class,
-                    "code",
-                    code,
-                    "message",
-                    message,
-                    "target",
-                    target,
-                    "details",
-                    details,
-                    "validationCode",
-                    validationCode);
+            return Utils.toString(Data.class, "code", code, "message", message, "target", target, "details", details);
         }
 
         @SuppressWarnings("UnusedReturnValue")
@@ -301,9 +257,7 @@ public class ErrorResponse12 extends CventSDKError {
 
             private String target;
 
-            private List<ErrorResponseBase> details;
-
-            private ValidationCode validationCode;
+            private List<ErrorResponseBase11> details;
 
             private Builder() {
                 // force use of static builder() method
@@ -336,21 +290,13 @@ public class ErrorResponse12 extends CventSDKError {
             /**
              * Additional details of cascading error messages.
              */
-            public Builder details(@Nullable List<ErrorResponseBase> details) {
+            public Builder details(@Nullable List<ErrorResponseBase11> details) {
                 this.details = details;
                 return this;
             }
 
-            /**
-             * Business validation code for bad requests.
-             */
-            public Builder validationCode(@Nullable ValidationCode validationCode) {
-                this.validationCode = validationCode;
-                return this;
-            }
-
             public Data build() {
-                return new Data(code, message, target, details, validationCode);
+                return new Data(code, message, target, details);
             }
         }
     }

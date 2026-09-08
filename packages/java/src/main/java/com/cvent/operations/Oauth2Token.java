@@ -9,11 +9,11 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
+import com.cvent.models.components.Oauth2TokenApplicationXWwwFormUrlencodedPostRequest;
+import com.cvent.models.components.Oauth2TokenPostResponse;
 import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.BadRequestException;
-import com.cvent.models.operations.Oauth2TokenRequest;
+import com.cvent.models.errors.Oauth2TokenPostResponse0Exception;
 import com.cvent.models.operations.Oauth2TokenResponse;
-import com.cvent.models.operations.Oauth2TokenResponseBody;
 import com.cvent.models.operations.Oauth2TokenSecurity;
 import com.cvent.utils.AsyncRetries;
 import com.cvent.utils.BackoffStrategy;
@@ -121,7 +121,8 @@ public class Oauth2Token {
         }
     }
 
-    public static class Sync extends Base implements RequestOperation<Oauth2TokenRequest, Oauth2TokenResponse> {
+    public static class Sync extends Base
+            implements RequestOperation<Oauth2TokenApplicationXWwwFormUrlencodedPostRequest, Oauth2TokenResponse> {
         public Sync(
                 @Nonnull SDKConfiguration sdkConfiguration,
                 @Nonnull Oauth2TokenSecurity security,
@@ -130,8 +131,10 @@ public class Oauth2Token {
             super(sdkConfiguration, security, options, _headers);
         }
 
-        private HttpRequest onBuildRequest(Oauth2TokenRequest request) throws Exception {
-            HttpRequest req = buildRequest(request, new TypeReference<Oauth2TokenRequest>() {});
+        private HttpRequest onBuildRequest(Oauth2TokenApplicationXWwwFormUrlencodedPostRequest request)
+                throws Exception {
+            HttpRequest req =
+                    buildRequest(request, new TypeReference<Oauth2TokenApplicationXWwwFormUrlencodedPostRequest>() {});
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -147,7 +150,7 @@ public class Oauth2Token {
         }
 
         @Override
-        public HttpResponse<InputStream> doRequest(Oauth2TokenRequest request) {
+        public HttpResponse<InputStream> doRequest(Oauth2TokenApplicationXWwwFormUrlencodedPostRequest request) {
             Retries retries = Retries.builder()
                     .action(() -> {
                         HttpRequest r;
@@ -184,14 +187,15 @@ public class Oauth2Token {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withObject(Utils.unmarshal(response, new TypeReference<Oauth2TokenResponseBody>() {}));
+                    return res.withOauth2TokenPostResponse(
+                            Utils.unmarshal(response, new TypeReference<Oauth2TokenPostResponse>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw BadRequestException.from(response);
+                    throw Oauth2TokenPostResponse0Exception.from(response);
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -210,7 +214,8 @@ public class Oauth2Token {
 
     public static class Async extends Base
             implements AsyncRequestOperation<
-                    Oauth2TokenRequest, com.cvent.models.operations.async.Oauth2TokenResponse> {
+                    Oauth2TokenApplicationXWwwFormUrlencodedPostRequest,
+                    com.cvent.models.operations.async.Oauth2TokenResponse> {
         private final ScheduledExecutorService retryScheduler;
 
         public Async(
@@ -223,8 +228,10 @@ public class Oauth2Token {
             this.retryScheduler = retryScheduler;
         }
 
-        private CompletableFuture<HttpRequest> onBuildRequest(Oauth2TokenRequest request) throws Exception {
-            HttpRequest req = buildRequest(request, new TypeReference<Oauth2TokenRequest>() {});
+        private CompletableFuture<HttpRequest> onBuildRequest(
+                Oauth2TokenApplicationXWwwFormUrlencodedPostRequest request) throws Exception {
+            HttpRequest req =
+                    buildRequest(request, new TypeReference<Oauth2TokenApplicationXWwwFormUrlencodedPostRequest>() {});
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -237,7 +244,8 @@ public class Oauth2Token {
         }
 
         @Override
-        public CompletableFuture<HttpResponse<Blob>> doRequest(Oauth2TokenRequest request) {
+        public CompletableFuture<HttpResponse<Blob>> doRequest(
+                Oauth2TokenApplicationXWwwFormUrlencodedPostRequest request) {
             AsyncRetries retries = AsyncRetries.builder()
                     .retryConfig(retryConfig)
                     .statusCodes(retryStatusCodes)
@@ -273,15 +281,16 @@ public class Oauth2Token {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<Oauth2TokenResponseBody>() {})
-                            .thenApply(res::withObject);
+                    return Utils.unmarshalAsync(response, new TypeReference<Oauth2TokenPostResponse>() {})
+                            .thenApply(res::withOauth2TokenPostResponse);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return BadRequestException.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                    return Oauth2TokenPostResponse0Exception.fromAsync(response)
+                            .thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

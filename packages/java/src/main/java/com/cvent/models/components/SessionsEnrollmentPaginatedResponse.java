@@ -22,18 +22,18 @@ public class SessionsEnrollmentPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * A collection of session registration objects.
      */
     @JsonProperty("data")
-    private List<SessionsEnrollmentJson> data;
+    private List<SessionsEnrollment> data;
 
     @JsonCreator
     public SessionsEnrollmentPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<SessionsEnrollmentJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<SessionsEnrollment> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +42,14 @@ public class SessionsEnrollmentPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * A collection of session registration objects.
      */
-    public List<SessionsEnrollmentJson> data() {
+    public List<SessionsEnrollment> data() {
         return this.data;
     }
 
@@ -60,7 +60,7 @@ public class SessionsEnrollmentPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public SessionsEnrollmentPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public SessionsEnrollmentPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +68,7 @@ public class SessionsEnrollmentPaginatedResponse {
     /**
      * A collection of session registration objects.
      */
-    public SessionsEnrollmentPaginatedResponse withData(@Nonnull List<SessionsEnrollmentJson> data) {
+    public SessionsEnrollmentPaginatedResponse withData(@Nonnull List<SessionsEnrollment> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +98,9 @@ public class SessionsEnrollmentPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<SessionsEnrollmentJson> data;
+        private List<SessionsEnrollment> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +109,7 @@ public class SessionsEnrollmentPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +117,7 @@ public class SessionsEnrollmentPaginatedResponse {
         /**
          * A collection of session registration objects.
          */
-        public Builder data(@Nonnull List<SessionsEnrollmentJson> data) {
+        public Builder data(@Nonnull List<SessionsEnrollment> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

@@ -135,7 +135,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getAppointmentAttendeeById
@@ -226,7 +226,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listAvailability
@@ -327,7 +327,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getAvailabilityById
@@ -418,7 +418,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404          | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404          | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listAppointmentEvents
@@ -519,7 +519,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getAppointmentEventById
@@ -610,7 +610,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listAvailableTimes
@@ -709,7 +709,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listAppointmentTypes
@@ -806,7 +806,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## createAppointment
@@ -937,10 +937,11 @@ run();
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorResponse11       | 400, 401, 403, 404, 422, 429 | application/json             |
-| errors.APIError              | 4XX, 5XX                     | \*/\*                        |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse    | 422                     | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateAppointment
 
@@ -1068,10 +1069,11 @@ run();
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorResponse11       | 400, 401, 403, 404, 422, 429 | application/json             |
-| errors.APIError              | 4XX, 5XX                     | \*/\*                        |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse    | 422                     | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## cancelAppointment
 
@@ -1163,7 +1165,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listLocations
@@ -1260,7 +1262,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listMeetingInterests
@@ -1361,7 +1363,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403          | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403          | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getMeetingInterestById
@@ -1452,7 +1454,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404          | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404          | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listAppointments
@@ -1553,7 +1555,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403          | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403          | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getAppointmentById
@@ -1644,5 +1646,5 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404          | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404          | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |

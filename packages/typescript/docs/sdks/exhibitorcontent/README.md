@@ -107,7 +107,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getExhibitorFile
@@ -202,7 +202,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateExhibitorFile
@@ -316,10 +316,11 @@ run();
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorResponse11       | 400, 401, 403, 404, 422, 429 | application/json             |
-| errors.APIError              | 4XX, 5XX                     | \*/\*                        |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse    | 422                     | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## disassociateExhibitorFile
 
@@ -413,7 +414,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listExhibitorWeblinks
@@ -506,7 +507,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## createExhibitorWeblink
@@ -619,10 +620,11 @@ run();
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorResponse11       | 400, 401, 403, 404, 422, 429 | application/json             |
-| errors.APIError              | 4XX, 5XX                     | \*/\*                        |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse    | 422                     | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getExhibitorWeblink
 
@@ -716,7 +718,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateExhibitorWeblink
@@ -831,10 +833,11 @@ run();
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorResponse11       | 400, 401, 403, 404, 422, 429 | application/json             |
-| errors.APIError              | 4XX, 5XX                     | \*/\*                        |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse    | 422                     | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## deleteExhibitorWeblink
 
@@ -928,5 +931,5 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |

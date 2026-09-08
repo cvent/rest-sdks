@@ -62,6 +62,12 @@ namespace Cvent.SDK.Models.Components
         public List<ImageLink>? Images { get; set; }
 
         /// <summary>
+        /// The category that classifies a room type.
+        /// </summary>
+        [JsonProperty("roomCategory")]
+        public RoomCategory? RoomCategory { get; set; }
+
+        /// <summary>
         /// Specifies a custom sort order defined by the user. This property is applicable only when the default price-based sorting is not active.
         /// </summary>
         [JsonProperty("customOrder")]

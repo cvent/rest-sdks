@@ -9,18 +9,127 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
+    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The contact details who watched a video.
+    /// The contact details.
     /// </summary>
     public class Contact2
     {
         /// <summary>
-        /// The unique ID of the contact who watched a video.
+        /// The contact types used for the proposal.
         /// </summary>
-        [JsonProperty("id")]
-        public string? Id { get; set; }
+        [JsonProperty("contactType")]
+        public ContactType1? ContactType { get; set; } = Cvent.SDK.Models.Components.ContactType1.Primary;
+
+        /// <summary>
+        /// The first name of the contact.
+        /// </summary>
+        [JsonProperty("firstName")]
+        public string? FirstName { get; set; }
+
+        /// <summary>
+        /// The last name of the contact.
+        /// </summary>
+        [JsonProperty("lastName")]
+        public string? LastName { get; set; }
+
+        /// <summary>
+        /// The URL of the organization's website.
+        /// </summary>
+        [JsonProperty("organizationWebsite")]
+        public string? OrganizationWebsite { get; set; }
+
+        /// <summary>
+        /// The name of the organization.
+        /// </summary>
+        [JsonProperty("organization")]
+        public string? Organization { get; set; }
+
+        /// <summary>
+        /// Designation of the contact.
+        /// </summary>
+        [JsonProperty("title")]
+        public string? Title { get; set; }
+
+        /// <summary>
+        /// The email address of the contact.
+        /// </summary>
+        [JsonProperty("email")]
+        public string? Email { get; set; }
+
+        /// <summary>
+        /// The country code for the contact's phone number.
+        /// </summary>
+        [JsonProperty("countryCode")]
+        public string? CountryCode { get; set; }
+
+        /// <summary>
+        /// The phone number of the organization.
+        /// </summary>
+        [JsonProperty("phone")]
+        public string? Phone { get; set; }
+
+        /// <summary>
+        /// The organization's fax number.
+        /// </summary>
+        [JsonProperty("fax")]
+        public string? Fax { get; set; }
+
+        /// <summary>
+        /// The mobile number of the contact.
+        /// </summary>
+        [JsonProperty("mobile")]
+        public string? Mobile { get; set; }
+
+        /// <summary>
+        /// Address line 1 of contact's street address.
+        /// </summary>
+        [JsonProperty("streetAddress1")]
+        public string? StreetAddress1 { get; set; }
+
+        /// <summary>
+        /// Address line 2 of contact's street address.
+        /// </summary>
+        [JsonProperty("streetAddress2")]
+        public string? StreetAddress2 { get; set; }
+
+        /// <summary>
+        /// Address line 3 of contact's street address.
+        /// </summary>
+        [JsonProperty("streetAddress3")]
+        public string? StreetAddress3 { get; set; }
+
+        /// <summary>
+        /// The city of the contact.
+        /// </summary>
+        [JsonProperty("city")]
+        public string? City { get; set; }
+
+        /// <summary>
+        /// The state province code used for contact information.
+        /// </summary>
+        [JsonProperty("stateProvince")]
+        public StateProvince? StateProvince { get; set; }
+
+        /// <summary>
+        /// The postal code of the contact.
+        /// </summary>
+        [JsonProperty("postalCode")]
+        public string? PostalCode { get; set; }
+
+        /// <summary>
+        /// ISO 3166 two-letter (alpha-2) country codes with some additional non-standard cvent specific codes.
+        /// </summary>
+        [JsonProperty("country")]
+        public Country? Country { get; set; }
+
+        /// <summary>
+        /// Additional notes of the contact.
+        /// </summary>
+        [JsonProperty("notes")]
+        public string? Notes { get; set; }
     }
 }

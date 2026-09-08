@@ -241,10 +241,17 @@ namespace Cvent.SDK.Models.Components
         public bool? FeeTransparencyEnabled { get; set; } = false;
 
         /// <summary>
-        /// Venue integrations the planner prefers when sourcing venues. An empty array or absent field indicates no preference has been recorded.
+        /// DEPRECATED: Use <a href="#schema/VenueIntegrationPreference">venueIntegrationPreference</a> instead. Venue integrations the planner prefers when sourcing venues. An empty array or absent field indicates no preference has been recorded.
         /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("preferredVenueIntegrations")]
         public List<VenueIntegrationType>? PreferredVenueIntegrations { get; set; }
+
+        /// <summary>
+        /// Venue integration preference for an RFP.
+        /// </summary>
+        [JsonProperty("venueIntegrationPreference")]
+        public VenueIntegrationPreference? VenueIntegrationPreference { get; set; }
 
         /// <summary>
         /// Unique identifier for RFP.

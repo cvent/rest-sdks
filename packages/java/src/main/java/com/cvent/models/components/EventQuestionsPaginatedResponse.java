@@ -23,18 +23,17 @@ public class EventQuestionsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of event questions.
      */
     @JsonProperty("data")
-    private List<EventQuestionJson> data;
+    private List<EventQuestion> data;
 
     @JsonCreator
     public EventQuestionsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<EventQuestionJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<EventQuestion> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -43,14 +42,14 @@ public class EventQuestionsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of event questions.
      */
-    public List<EventQuestionJson> data() {
+    public List<EventQuestion> data() {
         return this.data;
     }
 
@@ -61,7 +60,7 @@ public class EventQuestionsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public EventQuestionsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public EventQuestionsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -69,7 +68,7 @@ public class EventQuestionsPaginatedResponse {
     /**
      * Collection of event questions.
      */
-    public EventQuestionsPaginatedResponse withData(@Nonnull List<EventQuestionJson> data) {
+    public EventQuestionsPaginatedResponse withData(@Nonnull List<EventQuestion> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -99,9 +98,9 @@ public class EventQuestionsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<EventQuestionJson> data;
+        private List<EventQuestion> data;
 
         private Builder() {
             // force use of static builder() method
@@ -110,7 +109,7 @@ public class EventQuestionsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -118,7 +117,7 @@ public class EventQuestionsPaginatedResponse {
         /**
          * Collection of event questions.
          */
-        public Builder data(@Nonnull List<EventQuestionJson> data) {
+        public Builder data(@Nonnull List<EventQuestion> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

@@ -6,9 +6,10 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { ChoiceType, ChoiceType$inboundSchema } from "./choicetype.js";
 
 /**
- * This is used to denote the choice of question.
+ * This is used to denote the choice of questions in an event.
  */
 export type Choice2 = {
   /**
@@ -19,6 +20,10 @@ export type Choice2 = {
    * The text for the question choice.
    */
   text: string;
+  /**
+   * The type for the event question choice.
+   */
+  type: ChoiceType;
 };
 
 /** @internal */
@@ -26,6 +31,7 @@ export const Choice2$inboundSchema: z.ZodType<Choice2, z.ZodTypeDef, unknown> =
   z.object({
     id: z.string().optional(),
     text: z.string(),
+    type: ChoiceType$inboundSchema.default("StandardChoice"),
   });
 
 export function choice2FromJSON(

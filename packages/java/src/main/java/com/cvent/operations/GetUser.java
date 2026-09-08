@@ -11,7 +11,7 @@ import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
 import com.cvent.models.components.User;
 import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.ErrorResponse2;
+import com.cvent.models.errors.ErrorResponse14;
 import com.cvent.models.operations.GetUserRequest;
 import com.cvent.models.operations.GetUserResponse;
 import com.cvent.utils.AsyncRetries;
@@ -186,7 +186,7 @@ public class GetUser {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw ErrorResponse2.from(response);
+                    throw ErrorResponse14.from(response);
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -274,7 +274,7 @@ public class GetUser {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse2.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse14.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

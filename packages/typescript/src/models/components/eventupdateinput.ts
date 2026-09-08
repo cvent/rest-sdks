@@ -3,24 +3,18 @@
  */
 
 import * as z from "zod/v3";
+import { EventFormat, EventFormat$outboundSchema } from "./eventformat.js";
+import { EventType11, EventType11$outboundSchema } from "./eventtype11.js";
 import {
-  EventFormatJson,
-  EventFormatJson$outboundSchema,
-} from "./eventformatjson.js";
+  Planner1Input,
+  Planner1Input$Outbound,
+  Planner1Input$outboundSchema,
+} from "./planner1input.js";
 import {
-  EventTypeJson,
-  EventTypeJson$outboundSchema,
-} from "./eventtypejson.js";
-import {
-  PlannerJson1Input,
-  PlannerJson1Input$Outbound,
-  PlannerJson1Input$outboundSchema,
-} from "./plannerjson1input.js";
-import {
-  VenueJsonInput,
-  VenueJsonInput$Outbound,
-  VenueJsonInput$outboundSchema,
-} from "./venuejsoninput.js";
+  Venue1Input,
+  Venue1Input$Outbound,
+  Venue1Input$outboundSchema,
+} from "./venue1input.js";
 
 /**
  * Represents updates to an event.
@@ -33,7 +27,7 @@ export type EventUpdateInput = {
   /**
    * Denotes the format of an event.
    */
-  format: EventFormatJson;
+  format: EventFormat;
   /**
    * Detailed description of the event.
    */
@@ -61,7 +55,7 @@ export type EventUpdateInput = {
   /**
    * Collection of venues.
    */
-  venues?: Array<VenueJsonInput> | undefined;
+  venues?: Array<Venue1Input> | undefined;
   /**
    * True indicates the venue location is visible to guests for essential events. If used with other event types, the request returns a 400 error.
    */
@@ -85,11 +79,11 @@ export type EventUpdateInput = {
   /**
    * A collection of contacts representing the event planners.
    */
-  planners: Array<PlannerJson1Input>;
+  planners: Array<Planner1Input>;
   /**
    * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent Essentials.
    */
-  type: EventTypeJson;
+  type: EventType11;
 };
 
 /** @internal */
@@ -102,13 +96,13 @@ export type EventUpdateInput$Outbound = {
   closeAfter?: string | undefined;
   archiveAfter?: string | undefined;
   timezone: string;
-  venues?: Array<VenueJsonInput$Outbound> | undefined;
+  venues?: Array<Venue1Input$Outbound> | undefined;
   showVenueLocation?: boolean | undefined;
   showPointOfContact?: boolean | undefined;
   note?: string | undefined;
   languages: Array<string>;
   capacity?: number | undefined;
-  planners: Array<PlannerJson1Input$Outbound>;
+  planners: Array<Planner1Input$Outbound>;
   type: string;
 };
 
@@ -119,21 +113,21 @@ export const EventUpdateInput$outboundSchema: z.ZodType<
   EventUpdateInput
 > = z.object({
   title: z.string(),
-  format: EventFormatJson$outboundSchema,
+  format: EventFormat$outboundSchema,
   description: z.string().optional(),
   start: z.date().transform(v => v.toISOString()).optional(),
   end: z.date().transform(v => v.toISOString()).optional(),
   closeAfter: z.date().transform(v => v.toISOString()).optional(),
   archiveAfter: z.date().transform(v => v.toISOString()).optional(),
   timezone: z.string(),
-  venues: z.array(VenueJsonInput$outboundSchema).optional(),
+  venues: z.array(Venue1Input$outboundSchema).optional(),
   showVenueLocation: z.boolean().optional(),
   showPointOfContact: z.boolean().optional(),
   note: z.string().optional(),
   languages: z.array(z.string()),
   capacity: z.number().int().optional(),
-  planners: z.array(PlannerJson1Input$outboundSchema),
-  type: EventTypeJson$outboundSchema,
+  planners: z.array(Planner1Input$outboundSchema),
+  type: EventType11$outboundSchema,
 });
 
 export function eventUpdateInputToJSON(

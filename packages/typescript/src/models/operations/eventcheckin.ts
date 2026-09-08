@@ -14,13 +14,13 @@ export type EventCheckInRequest = {
   /**
    * Attendees to be checked-in. Up to **100 attendees** can be checked-in per call.
    */
-  requestBody: Array<components.CheckinJson>;
+  requestBody: Array<components.Checkin>;
 };
 
 /** @internal */
 export type EventCheckInRequest$Outbound = {
   id: string;
-  RequestBody: Array<components.CheckinJson$Outbound>;
+  RequestBody: Array<components.Checkin$Outbound>;
 };
 
 /** @internal */
@@ -30,7 +30,7 @@ export const EventCheckInRequest$outboundSchema: z.ZodType<
   EventCheckInRequest
 > = z.object({
   id: z.string(),
-  requestBody: z.array(components.CheckinJson$outboundSchema),
+  requestBody: z.array(components.Checkin$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     requestBody: "RequestBody",

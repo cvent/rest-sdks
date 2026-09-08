@@ -90,18 +90,21 @@ Obtains an access token and, optionally, a refresh token. Read the [Developer Qu
 package hello.world;
 
 import com.cvent.CventSDK;
-import com.cvent.models.errors.BadRequestException;
-import com.cvent.models.operations.*;
+import com.cvent.models.components.GrantType;
+import com.cvent.models.components.Oauth2TokenApplicationXWwwFormUrlencodedPostRequest;
+import com.cvent.models.errors.Oauth2TokenPostResponse0Exception;
+import com.cvent.models.operations.Oauth2TokenResponse;
+import com.cvent.models.operations.Oauth2TokenSecurity;
 import java.lang.Exception;
 
 public class Application {
 
-    public static void main(String[] args) throws BadRequestException, Exception {
+    public static void main(String[] args) throws Oauth2TokenPostResponse0Exception, Exception {
 
         CventSDK sdk = CventSDK.builder()
             .build();
 
-        Oauth2TokenRequest req = Oauth2TokenRequest.builder()
+        Oauth2TokenApplicationXWwwFormUrlencodedPostRequest req = Oauth2TokenApplicationXWwwFormUrlencodedPostRequest.builder()
                 .grantType(GrantType.CLIENT_CREDENTIALS)
                 .clientId("djc98u3jiedmi283eu928")
                 .scope("event/events:read event/attendees:read")
@@ -118,8 +121,8 @@ public class Application {
                     .build())
                 .call();
 
-        if (res.object().isPresent()) {
-            System.out.println(res.object().get());
+        if (res.oauth2TokenPostResponse().isPresent()) {
+            System.out.println(res.oauth2TokenPostResponse().get());
         }
     }
 }
@@ -127,10 +130,10 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `request`                                                                                         | [Oauth2TokenRequest](../../models/operations/Oauth2TokenRequest.md)                               | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
-| `security`                                                                                        | [com.cvent.models.operations.Oauth2TokenSecurity](../../models/operations/Oauth2TokenSecurity.md) | :heavy_check_mark:                                                                                | The security requirements to use for the request.                                                 |
+| Parameter                                                                                                                         | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                         | [Oauth2TokenApplicationXWwwFormUrlencodedPostRequest](../../models/shared/Oauth2TokenApplicationXWwwFormUrlencodedPostRequest.md) | :heavy_check_mark:                                                                                                                | The request object to use for the request.                                                                                        |
+| `security`                                                                                                                        | [com.cvent.models.operations.Oauth2TokenSecurity](../../models/operations/Oauth2TokenSecurity.md)                                 | :heavy_check_mark:                                                                                                                | The security requirements to use for the request.                                                                                 |
 
 ### Response
 
@@ -138,10 +141,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| models/errors/BadRequestException | 400                               | application/json                  |
-| models/errors/APIException        | 4XX, 5XX                          | \*/\*                             |
+| Error Type                                      | Status Code                                     | Content Type                                    |
+| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| models/errors/Oauth2TokenPostResponse0Exception | 400                                             | application/json                                |
+| models/errors/APIException                      | 4XX, 5XX                                        | \*/\*                                           |
 
 ## validateToken
 
@@ -159,14 +162,14 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.ValidateTokenResponse;
 import java.lang.Exception;
 import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -197,5 +200,5 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 429            | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 429            | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |

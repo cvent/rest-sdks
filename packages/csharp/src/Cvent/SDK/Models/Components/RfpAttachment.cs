@@ -15,12 +15,12 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// This object contains Rfp specific attachments attributes.
+    /// Attachment attributes and their supplier-level association.
     /// </summary>
     public class RfpAttachment
     {
         /// <summary>
-        /// Unique identifier for this attachment record.
+        /// ID for an attachment record.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
@@ -44,7 +44,7 @@ namespace Cvent.SDK.Models.Components
         public DocumentType1? Type { get; set; }
 
         /// <summary>
-        /// True indicates the attachment is uploaded behind a secured URL.
+        /// True indicates the attachment is uploaded behind a secure URL and won't be returned in the `url` field.
         /// </summary>
         [JsonProperty("secure")]
         public bool? Secure { get; set; }
@@ -62,16 +62,10 @@ namespace Cvent.SDK.Models.Components
         public string? UniqueName { get; set; }
 
         /// <summary>
-        /// The content type of the attachment.
+        /// The <a href="https://www.iana.org/assignments/media-types">MIME</a> media type of the attachment.
         /// </summary>
         [JsonProperty("mimeType")]
         public string? MimeType { get; set; }
-
-        /// <summary>
-        /// The source from where the attachment was uploaded.
-        /// </summary>
-        [JsonProperty("source")]
-        public AttachmentSource? Source { get; set; }
 
         /// <summary>
         /// The file path pointing to where the attachment is stored in Cvent. This path is relative to the base URL of the storage system and omits the root address.
@@ -80,34 +74,40 @@ namespace Cvent.SDK.Models.Components
         public string? RelativePath { get; set; }
 
         /// <summary>
-        /// True indicates the attachment should be sent in emails that notify suppliers about RFPs.
-        /// </summary>
-        [JsonProperty("sendInEmail")]
-        public bool? SendInEmail { get; set; }
-
-        /// <summary>
         /// True indicates this attachment can be deleted.
         /// </summary>
         [JsonProperty("deletionAllowed")]
         public bool? DeletionAllowed { get; set; }
 
         /// <summary>
-        /// URL of the attachment if `secure` is false. This field is null if `secure` is true.
+        /// URL of the attachment. This field is null if `secure` is true.
         /// </summary>
         [JsonProperty("url")]
         public string? Url { get; set; }
-
-        /// <summary>
-        /// Supplier associated with the attachment.
-        /// </summary>
-        [JsonProperty("supplier")]
-        public RfpAttachmentSupplier? Supplier { get; set; }
 
         /// <summary>
         /// True indicates the attachment is only shown in the UI to the supplier whose ID is present in supplier.id field.
         /// </summary>
         [JsonProperty("supplierSpecific")]
         public bool? SupplierSpecific { get; set; }
+
+        /// <summary>
+        /// The source from where the attachment was uploaded.
+        /// </summary>
+        [JsonProperty("source")]
+        public AttachmentSource? Source { get; set; }
+
+        /// <summary>
+        /// True indicates the attachment should be sent in emails that notify suppliers about RFPs.
+        /// </summary>
+        [JsonProperty("sendInEmail")]
+        public bool? SendInEmail { get; set; }
+
+        /// <summary>
+        /// Supplier associated with the attachment.
+        /// </summary>
+        [JsonProperty("supplier")]
+        public RfpAttachmentSupplier? Supplier { get; set; }
 
         /// <summary>
         /// True indicates the attachment is selected for the supplier whose ID is present in supplier.id field.

@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.SessionCheckinCreateJson;
+import com.cvent.models.components.SessionCheckin;
 import com.cvent.utils.SpeakeasyMetadata;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,10 +24,10 @@ public class SessionCheckInRequest {
      * Attendees to be checked-in. Up to **100 attendees** can be checked-in per call.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    private List<SessionCheckinCreateJson> requestBody;
+    private List<SessionCheckin> requestBody;
 
     @JsonCreator
-    public SessionCheckInRequest(@Nonnull String id, @Nonnull List<SessionCheckinCreateJson> requestBody) {
+    public SessionCheckInRequest(@Nonnull String id, @Nonnull List<SessionCheckin> requestBody) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.requestBody = Optional.ofNullable(requestBody)
                 .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
@@ -43,7 +43,7 @@ public class SessionCheckInRequest {
     /**
      * Attendees to be checked-in. Up to **100 attendees** can be checked-in per call.
      */
-    public List<SessionCheckinCreateJson> requestBody() {
+    public List<SessionCheckin> requestBody() {
         return this.requestBody;
     }
 
@@ -62,7 +62,7 @@ public class SessionCheckInRequest {
     /**
      * Attendees to be checked-in. Up to **100 attendees** can be checked-in per call.
      */
-    public SessionCheckInRequest withRequestBody(@Nonnull List<SessionCheckinCreateJson> requestBody) {
+    public SessionCheckInRequest withRequestBody(@Nonnull List<SessionCheckin> requestBody) {
         this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
         return this;
     }
@@ -94,7 +94,7 @@ public class SessionCheckInRequest {
 
         private String id;
 
-        private List<SessionCheckinCreateJson> requestBody;
+        private List<SessionCheckin> requestBody;
 
         private Builder() {
             // force use of static builder() method
@@ -111,7 +111,7 @@ public class SessionCheckInRequest {
         /**
          * Attendees to be checked-in. Up to **100 attendees** can be checked-in per call.
          */
-        public Builder requestBody(@Nonnull List<SessionCheckinCreateJson> requestBody) {
+        public Builder requestBody(@Nonnull List<SessionCheckin> requestBody) {
             this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
             return this;
         }

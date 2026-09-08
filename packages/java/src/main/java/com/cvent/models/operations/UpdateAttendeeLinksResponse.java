@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.AttendeeLinkBulkResponseItemJson;
+import com.cvent.models.components.AttendeeLinkBulkResponseItem;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,14 +35,14 @@ public class UpdateAttendeeLinksResponse implements Response {
     /**
      * Attendee links successfully updated.
      */
-    private List<AttendeeLinkBulkResponseItemJson> attendeeLinkBulkResponse;
+    private List<AttendeeLinkBulkResponseItem> attendeeLinkBulkResponse;
 
     @JsonCreator
     public UpdateAttendeeLinksResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable List<AttendeeLinkBulkResponseItemJson> attendeeLinkBulkResponse) {
+            @Nullable List<AttendeeLinkBulkResponseItem> attendeeLinkBulkResponse) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -80,7 +80,7 @@ public class UpdateAttendeeLinksResponse implements Response {
     /**
      * Attendee links successfully updated.
      */
-    public Optional<List<AttendeeLinkBulkResponseItemJson>> attendeeLinkBulkResponse() {
+    public Optional<List<AttendeeLinkBulkResponseItem>> attendeeLinkBulkResponse() {
         return Optional.ofNullable(this.attendeeLinkBulkResponse);
     }
 
@@ -116,7 +116,7 @@ public class UpdateAttendeeLinksResponse implements Response {
      * Attendee links successfully updated.
      */
     public UpdateAttendeeLinksResponse withAttendeeLinkBulkResponse(
-            @Nullable List<AttendeeLinkBulkResponseItemJson> attendeeLinkBulkResponse) {
+            @Nullable List<AttendeeLinkBulkResponseItem> attendeeLinkBulkResponse) {
         this.attendeeLinkBulkResponse = attendeeLinkBulkResponse;
         return this;
     }
@@ -164,7 +164,7 @@ public class UpdateAttendeeLinksResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private List<AttendeeLinkBulkResponseItemJson> attendeeLinkBulkResponse;
+        private List<AttendeeLinkBulkResponseItem> attendeeLinkBulkResponse;
 
         private Builder() {
             // force use of static builder() method
@@ -197,8 +197,7 @@ public class UpdateAttendeeLinksResponse implements Response {
         /**
          * Attendee links successfully updated.
          */
-        public Builder attendeeLinkBulkResponse(
-                @Nullable List<AttendeeLinkBulkResponseItemJson> attendeeLinkBulkResponse) {
+        public Builder attendeeLinkBulkResponse(@Nullable List<AttendeeLinkBulkResponseItem> attendeeLinkBulkResponse) {
             this.attendeeLinkBulkResponse = attendeeLinkBulkResponse;
             return this;
         }

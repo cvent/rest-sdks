@@ -33,14 +33,14 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.CreateWebcastResponse;
 import java.lang.Exception;
 import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -54,44 +54,44 @@ public class Application {
             .build();
 
         Webcast req = Webcast.builder()
-                .event(UuidJson.builder()
+                .event(Uuid.builder()
                     .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                     .build())
-                .session(UuidJson.builder()
+                .session(Uuid.builder()
                     .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                     .build())
-                .appointment(UuidJson.builder()
+                .appointment(Uuid.builder()
                     .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                     .build())
-                .exhibitor(UuidJson.builder()
+                .exhibitor(Uuid.builder()
                     .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                     .build())
-                .format(FormatJson.PRE_RECORDED)
-                .type(WebcastTypeJson.MEETING)
-                .provider(WebcastProviderJson.ZOOM)
-                .status(WebcastStatusJson.STARTED)
-                .playerType(PlayerTypeJson.CVENT_VIDEO_PLAYER)
+                .format(Format.PRE_RECORDED)
+                .type(WebcastType.MEETING)
+                .provider(WebcastProvider.ZOOM)
+                .status(WebcastStatus.STARTED)
+                .playerType(PlayerType.CVENT_VIDEO_PLAYER)
                 .simulatedLive(false)
                 .recordLiveStream(false)
                 .onDemandVideo(false)
                 .sourceId("kBBBAAcccdddd8U==")
                 .title("Webinar Connect Event")
                 .meetingId("123ERt")
-                .links(WebcastLinksJson.builder()
-                    .join(WebcastLinkJson.builder()
+                .links(WebcastLinks.builder()
+                    .join(WebcastLink.builder()
                         .href("https://cvent.zoom.us/j/7566652259")
                         .code("1456ZS78")
                         .build())
-                    .speaker(WebcastLinkJson.builder()
+                    .speaker(WebcastLink.builder()
                         .href("https://cvent.zoom.us/j/7566652259")
                         .code("1456ZS78")
                         .build())
-                    .host(WebcastHostLinkJson.builder()
+                    .host(WebcastHostLink.builder()
                         .href("https://cvent.zoom.us/j/7566652259")
                         .code("1456ZS78")
                         .key("abcd1234")
                         .build())
-                    .recording(WebcastLinkJson.builder()
+                    .recording(WebcastLink.builder()
                         .href("https://cvent.zoom.us/j/7566652259")
                         .code("1456ZS78")
                         .build())
@@ -124,7 +124,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 409, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 409, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## listWebcasts
@@ -143,7 +143,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.ListWebcastsRequest;
 import com.cvent.models.operations.ListWebcastsResponse;
 import java.lang.Exception;
@@ -152,7 +152,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -197,7 +197,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 429            | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 429            | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## listAttendeeLinks
@@ -216,7 +216,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.ListAttendeeLinksRequest;
 import com.cvent.models.operations.ListAttendeeLinksResponse;
 import java.lang.Exception;
@@ -225,7 +225,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -270,7 +270,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 429            | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 429            | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## listPlayers
@@ -289,7 +289,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.ListPlayersRequest;
 import com.cvent.models.operations.ListPlayersResponse;
 import java.lang.Exception;
@@ -298,7 +298,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -343,7 +343,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 429            | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 429            | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## getWebcastById
@@ -362,7 +362,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.GetWebcastByIdRequest;
 import com.cvent.models.operations.GetWebcastByIdResponse;
 import java.lang.Exception;
@@ -370,7 +370,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -412,7 +412,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## deleteWebcast
@@ -431,7 +431,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.DeleteWebcastRequest;
 import com.cvent.models.operations.DeleteWebcastResponse;
 import java.lang.Exception;
@@ -439,7 +439,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -479,7 +479,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 401, 403, 404, 429            | application/json              |
+| models/errors/ErrorResponse12 | 401, 403, 404, 429            | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## updateWebcast
@@ -497,7 +497,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.UpdateWebcastRequest;
 import com.cvent.models.operations.UpdateWebcastResponse;
 import java.lang.Exception;
@@ -505,7 +505,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -521,44 +521,44 @@ public class Application {
         UpdateWebcastRequest req = UpdateWebcastRequest.builder()
                 .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                 .existingWebcast(ExistingWebcastInput.builder()
-                    .event(UuidJson.builder()
+                    .event(Uuid.builder()
                         .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                         .build())
-                    .session(UuidJson.builder()
+                    .session(Uuid.builder()
                         .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                         .build())
-                    .appointment(UuidJson.builder()
+                    .appointment(Uuid.builder()
                         .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                         .build())
-                    .exhibitor(UuidJson.builder()
+                    .exhibitor(Uuid.builder()
                         .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                         .build())
-                    .format(FormatJson.PRE_RECORDED)
-                    .type(WebcastTypeJson.MEETING)
-                    .provider(WebcastProviderJson.ZOOM)
-                    .status(WebcastStatusJson.STARTED)
-                    .playerType(PlayerTypeJson.CVENT_VIDEO_PLAYER)
+                    .format(Format.PRE_RECORDED)
+                    .type(WebcastType.MEETING)
+                    .provider(WebcastProvider.ZOOM)
+                    .status(WebcastStatus.STARTED)
+                    .playerType(PlayerType.CVENT_VIDEO_PLAYER)
                     .simulatedLive(false)
                     .recordLiveStream(false)
                     .onDemandVideo(false)
                     .sourceId("kBBBAAcccdddd8U==")
                     .title("Webinar Connect Event")
                     .meetingId("123ERt")
-                    .links(WebcastLinksJson.builder()
-                        .join(WebcastLinkJson.builder()
+                    .links(WebcastLinks.builder()
+                        .join(WebcastLink.builder()
                             .href("https://cvent.zoom.us/j/7566652259")
                             .code("1456ZS78")
                             .build())
-                        .speaker(WebcastLinkJson.builder()
+                        .speaker(WebcastLink.builder()
                             .href("https://cvent.zoom.us/j/7566652259")
                             .code("1456ZS78")
                             .build())
-                        .host(WebcastHostLinkJson.builder()
+                        .host(WebcastHostLink.builder()
                             .href("https://cvent.zoom.us/j/7566652259")
                             .code("1456ZS78")
                             .key("abcd1234")
                             .build())
-                        .recording(WebcastLinkJson.builder()
+                        .recording(WebcastLink.builder()
                             .href("https://cvent.zoom.us/j/7566652259")
                             .code("1456ZS78")
                             .build())
@@ -592,7 +592,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 409, 429  | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 409, 429  | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## createAttendeeLinks
@@ -611,7 +611,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.CreateAttendeeLinksRequest;
 import com.cvent.models.operations.CreateAttendeeLinksResponse;
 import java.lang.Exception;
@@ -619,7 +619,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -662,7 +662,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## updateAttendeeLinks
@@ -681,7 +681,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.UpdateAttendeeLinksRequest;
 import com.cvent.models.operations.UpdateAttendeeLinksResponse;
 import java.lang.Exception;
@@ -689,7 +689,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -732,7 +732,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## ~~listWebcastAttendeeLinks~~
@@ -753,7 +753,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.ListWebcastAttendeeLinksRequest;
 import com.cvent.models.operations.ListWebcastAttendeeLinksResponse;
 import java.lang.Exception;
@@ -762,7 +762,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -808,7 +808,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## deleteAttendeeLink
@@ -827,7 +827,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.DeleteAttendeeLinkRequest;
 import com.cvent.models.operations.DeleteAttendeeLinkResponse;
 import java.lang.Exception;
@@ -835,7 +835,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -876,5 +876,5 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 401, 403, 404, 429            | application/json              |
+| models/errors/ErrorResponse12 | 401, 403, 404, 429            | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |

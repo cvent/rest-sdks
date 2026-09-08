@@ -3,62 +3,63 @@
  */
 package com.cvent.models.components;
 
+import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
-import java.lang.Double;
+import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
-import java.util.List;
 import java.util.Optional;
 
 /**
  * CategoryJson
  *
- * <p>A category of items.
+ * <p>A survey category.
  */
 public class CategoryJson {
     /**
-     * The category type.
+     * Text field ID.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("type")
-    private String type;
+    @JsonProperty("id")
+    private String id;
 
     /**
-     * The name of the category.
+     * text Value of the Field
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("text")
+    private String text;
 
     /**
-     * Total cost for all items within this category.
+     * Reporting value of the Category, Its like a custom abbreviation
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("totalCost")
-    private Double totalCost;
+    @JsonProperty("shortText")
+    private String shortText;
 
     /**
-     * List of items in this category.
+     * is the category mandatory for answer
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("items")
-    private List<ItemJson> items;
+    @JsonProperty("required")
+    private Boolean required;
 
     @JsonCreator
     public CategoryJson(
-            @JsonProperty("type") @Nullable String type,
-            @JsonProperty("name") @Nullable String name,
-            @JsonProperty("totalCost") @Nullable Double totalCost,
-            @JsonProperty("items") @Nullable List<ItemJson> items) {
-        this.type = type;
-        this.name = name;
-        this.totalCost = totalCost;
-        this.items = items;
+            @JsonProperty("id") @Nullable String id,
+            @JsonProperty("text") @Nullable String text,
+            @JsonProperty("shortText") @Nullable String shortText,
+            @JsonProperty("required") @Nullable Boolean required) {
+        this.id = id;
+        this.text = text;
+        this.shortText = shortText;
+        this.required = Optional.ofNullable(required).orElse(Builder._SINGLETON_VALUE_Required.value());
     }
 
     public CategoryJson() {
@@ -66,31 +67,31 @@ public class CategoryJson {
     }
 
     /**
-     * The category type.
+     * Text field ID.
      */
-    public Optional<String> type() {
-        return Optional.ofNullable(this.type);
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     /**
-     * The name of the category.
+     * text Value of the Field
      */
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
+    public Optional<String> text() {
+        return Optional.ofNullable(this.text);
     }
 
     /**
-     * Total cost for all items within this category.
+     * Reporting value of the Category, Its like a custom abbreviation
      */
-    public Optional<Double> totalCost() {
-        return Optional.ofNullable(this.totalCost);
+    public Optional<String> shortText() {
+        return Optional.ofNullable(this.shortText);
     }
 
     /**
-     * List of items in this category.
+     * is the category mandatory for answer
      */
-    public Optional<List<ItemJson>> items() {
-        return Optional.ofNullable(this.items);
+    public Optional<Boolean> required() {
+        return Optional.ofNullable(this.required);
     }
 
     public static Builder builder() {
@@ -98,34 +99,34 @@ public class CategoryJson {
     }
 
     /**
-     * The category type.
+     * Text field ID.
      */
-    public CategoryJson withType(@Nullable String type) {
-        this.type = type;
+    public CategoryJson withId(@Nullable String id) {
+        this.id = id;
         return this;
     }
 
     /**
-     * The name of the category.
+     * text Value of the Field
      */
-    public CategoryJson withName(@Nullable String name) {
-        this.name = name;
+    public CategoryJson withText(@Nullable String text) {
+        this.text = text;
         return this;
     }
 
     /**
-     * Total cost for all items within this category.
+     * Reporting value of the Category, Its like a custom abbreviation
      */
-    public CategoryJson withTotalCost(@Nullable Double totalCost) {
-        this.totalCost = totalCost;
+    public CategoryJson withShortText(@Nullable String shortText) {
+        this.shortText = shortText;
         return this;
     }
 
     /**
-     * List of items in this category.
+     * is the category mandatory for answer
      */
-    public CategoryJson withItems(@Nullable List<ItemJson> items) {
-        this.items = items;
+    public CategoryJson withRequired(@Nullable Boolean required) {
+        this.required = required;
         return this;
     }
 
@@ -138,71 +139,74 @@ public class CategoryJson {
             return false;
         }
         CategoryJson other = (CategoryJson) o;
-        return Utils.enhancedDeepEquals(this.type, other.type)
-                && Utils.enhancedDeepEquals(this.name, other.name)
-                && Utils.enhancedDeepEquals(this.totalCost, other.totalCost)
-                && Utils.enhancedDeepEquals(this.items, other.items);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.shortText, other.shortText)
+                && Utils.enhancedDeepEquals(this.required, other.required);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(type, name, totalCost, items);
+        return Utils.enhancedHash(id, text, shortText, required);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(CategoryJson.class, "type", type, "name", name, "totalCost", totalCost, "items", items);
+        return Utils.toString(CategoryJson.class, "id", id, "text", text, "shortText", shortText, "required", required);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private String type;
+        private String id;
 
-        private String name;
+        private String text;
 
-        private Double totalCost;
+        private String shortText;
 
-        private List<ItemJson> items;
+        private Boolean required;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The category type.
+         * Text field ID.
          */
-        public Builder type(@Nullable String type) {
-            this.type = type;
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
 
         /**
-         * The name of the category.
+         * text Value of the Field
          */
-        public Builder name(@Nullable String name) {
-            this.name = name;
+        public Builder text(@Nullable String text) {
+            this.text = text;
             return this;
         }
 
         /**
-         * Total cost for all items within this category.
+         * Reporting value of the Category, Its like a custom abbreviation
          */
-        public Builder totalCost(@Nullable Double totalCost) {
-            this.totalCost = totalCost;
+        public Builder shortText(@Nullable String shortText) {
+            this.shortText = shortText;
             return this;
         }
 
         /**
-         * List of items in this category.
+         * is the category mandatory for answer
          */
-        public Builder items(@Nullable List<ItemJson> items) {
-            this.items = items;
+        public Builder required(@Nullable Boolean required) {
+            this.required = required;
             return this;
         }
 
         public CategoryJson build() {
-            return new CategoryJson(type, name, totalCost, items);
+            return new CategoryJson(id, text, shortText, required);
         }
+
+        private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Required =
+                new LazySingletonValue<>("required", "false", new TypeReference<Boolean>() {});
     }
 }

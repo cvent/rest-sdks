@@ -47,7 +47,7 @@ namespace Cvent.SDK.Models.Components
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("webcast")]
-        public UuidJson? Webcast { get; set; }
+        public Uuid? Webcast { get; set; }
 
         /// <summary>
         /// ID of the video to be played.
@@ -71,13 +71,13 @@ namespace Cvent.SDK.Models.Components
         /// A webcast Live Stream.
         /// </summary>
         [JsonProperty("stream")]
-        public LiveStreamJson? Stream { get; set; }
+        public LiveStream? Stream { get; set; }
 
         /// <summary>
-        /// Region where the live stream originates (These regions are only for Brightcove player).
+        /// Region where the live stream originates. Although, the value is consumed for IVS livestreams the requested origin is actually ignored due to IVS' global data plane.
         /// </summary>
         [JsonProperty("region")]
-        public RegionJson? Region { get; set; }
+        public Region1? Region { get; set; }
 
         /// <summary>
         /// Video duration (milliseconds).
@@ -89,13 +89,13 @@ namespace Cvent.SDK.Models.Components
         /// A scheduled action.
         /// </summary>
         [JsonProperty("schedule")]
-        public ScheduleJson? Schedule { get; set; }
+        public Schedule? Schedule { get; set; }
 
         /// <summary>
         /// This is used to denote the type of a video player used for the Cvent Video Player.
         /// </summary>
         [JsonProperty("playerTypeProvider")]
-        public PlayerTypeProviderJson? PlayerTypeProvider { get; set; }
+        public PlayerTypeProvider? PlayerTypeProvider { get; set; }
 
         /// <summary>
         /// Offset (seconds) to determine start date for simulated live video.

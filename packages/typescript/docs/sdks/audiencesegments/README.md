@@ -120,7 +120,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## disassociateAttendeeFromAudienceSegments
@@ -211,7 +211,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404          | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404          | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listAssociatedAudienceSegments
@@ -315,7 +315,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## createAudienceSegment
@@ -412,11 +412,12 @@ run();
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse12 | 400                    | application/json       |
-| errors.ErrorResponse11 | 401, 403, 422, 429     | application/json       |
-| errors.APIError        | 4XX, 5XX               | \*/\*                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.SegmentsErrorResponse | 400                          | application/json             |
+| errors.ErrorResponse         | 422                          | application/json             |
+| errors.ErrorResponse12       | 401, 403, 429                | application/json             |
+| errors.APIError              | 4XX, 5XX                     | \*/\*                        |
 
 ## listAudienceSegments
 
@@ -521,7 +522,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listAudienceSegmentsPostFilter
@@ -634,7 +635,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getAudienceSegmentById
@@ -725,7 +726,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateAudienceSegment
@@ -828,10 +829,11 @@ run();
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorResponse11       | 400, 401, 403, 404, 422, 429 | application/json             |
-| errors.APIError              | 4XX, 5XX                     | \*/\*                        |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse    | 422                     | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## deleteAudienceSegment
 
@@ -921,7 +923,7 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## listSegmentAssociatedAttendees
@@ -1027,7 +1029,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse11  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## associateAttendeeToSegment
@@ -1118,11 +1120,12 @@ run();
 
 ### Errors
 
-| Error Type              | Status Code             | Content Type            |
-| ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse12  | 400                     | application/json        |
-| errors.ErrorResponse11  | 401, 403, 404, 422, 429 | application/json        |
-| errors.APIError         | 4XX, 5XX                | \*/\*                   |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.SegmentsErrorResponse | 400                          | application/json             |
+| errors.ErrorResponse         | 422                          | application/json             |
+| errors.ErrorResponse12       | 401, 403, 404, 429           | application/json             |
+| errors.APIError              | 4XX, 5XX                     | \*/\*                        |
 
 ## disassociateAttendeeFromAudienceSegment
 
@@ -1214,5 +1217,5 @@ run();
 
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse11 | 401, 403, 404, 429     | application/json       |
+| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |

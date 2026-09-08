@@ -34,7 +34,7 @@ public class EventUpdateInput {
      * Denotes the format of an event.
      */
     @JsonProperty("format")
-    private EventFormatJson format;
+    private EventFormat format;
 
     /**
      * Detailed description of the event.
@@ -83,7 +83,7 @@ public class EventUpdateInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("venues")
-    private List<VenueJsonInput> venues;
+    private List<Venue1Input> venues;
 
     /**
      * True indicates the venue location is visible to guests for essential events. If used with other
@@ -127,33 +127,33 @@ public class EventUpdateInput {
      * A collection of contacts representing the event planners.
      */
     @JsonProperty("planners")
-    private List<PlannerJson1Input> planners;
+    private List<Planner1Input> planners;
 
     /**
      * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
      * Essentials.
      */
     @JsonProperty("type")
-    private EventTypeJson type;
+    private EventType11 type;
 
     @JsonCreator
     public EventUpdateInput(
             @JsonProperty("title") @Nonnull String title,
-            @JsonProperty("format") @Nonnull EventFormatJson format,
+            @JsonProperty("format") @Nonnull EventFormat format,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("start") @Nullable OffsetDateTime start,
             @JsonProperty("end") @Nullable OffsetDateTime end,
             @JsonProperty("closeAfter") @Nullable OffsetDateTime closeAfter,
             @JsonProperty("archiveAfter") @Nullable OffsetDateTime archiveAfter,
             @JsonProperty("timezone") @Nonnull String timezone,
-            @JsonProperty("venues") @Nullable List<VenueJsonInput> venues,
+            @JsonProperty("venues") @Nullable List<Venue1Input> venues,
             @JsonProperty("showVenueLocation") @Nullable Boolean showVenueLocation,
             @JsonProperty("showPointOfContact") @Nullable Boolean showPointOfContact,
             @JsonProperty("note") @Nullable String note,
             @JsonProperty("languages") @Nonnull List<String> languages,
             @JsonProperty("capacity") @Nullable Long capacity,
-            @JsonProperty("planners") @Nonnull List<PlannerJson1Input> planners,
-            @JsonProperty("type") @Nonnull EventTypeJson type) {
+            @JsonProperty("planners") @Nonnull List<Planner1Input> planners,
+            @JsonProperty("type") @Nonnull EventType11 type) {
         this.title = Optional.ofNullable(title).orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
         this.format =
                 Optional.ofNullable(format).orElseThrow(() -> new IllegalArgumentException("format cannot be null"));
@@ -178,11 +178,11 @@ public class EventUpdateInput {
 
     public EventUpdateInput(
             @Nonnull String title,
-            @Nonnull EventFormatJson format,
+            @Nonnull EventFormat format,
             @Nonnull String timezone,
             @Nonnull List<String> languages,
-            @Nonnull List<PlannerJson1Input> planners,
-            @Nonnull EventTypeJson type) {
+            @Nonnull List<Planner1Input> planners,
+            @Nonnull EventType11 type) {
         this(
                 title,
                 format,
@@ -212,7 +212,7 @@ public class EventUpdateInput {
     /**
      * Denotes the format of an event.
      */
-    public EventFormatJson format() {
+    public EventFormat format() {
         return this.format;
     }
 
@@ -262,7 +262,7 @@ public class EventUpdateInput {
     /**
      * Collection of venues.
      */
-    public Optional<List<VenueJsonInput>> venues() {
+    public Optional<List<Venue1Input>> venues() {
         return Optional.ofNullable(this.venues);
     }
 
@@ -308,7 +308,7 @@ public class EventUpdateInput {
     /**
      * A collection of contacts representing the event planners.
      */
-    public List<PlannerJson1Input> planners() {
+    public List<Planner1Input> planners() {
         return this.planners;
     }
 
@@ -316,7 +316,7 @@ public class EventUpdateInput {
      * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
      * Essentials.
      */
-    public EventTypeJson type() {
+    public EventType11 type() {
         return this.type;
     }
 
@@ -335,7 +335,7 @@ public class EventUpdateInput {
     /**
      * Denotes the format of an event.
      */
-    public EventUpdateInput withFormat(@Nonnull EventFormatJson format) {
+    public EventUpdateInput withFormat(@Nonnull EventFormat format) {
         this.format = Utils.checkNotNull(format, "format");
         return this;
     }
@@ -392,7 +392,7 @@ public class EventUpdateInput {
     /**
      * Collection of venues.
      */
-    public EventUpdateInput withVenues(@Nullable List<VenueJsonInput> venues) {
+    public EventUpdateInput withVenues(@Nullable List<Venue1Input> venues) {
         this.venues = venues;
         return this;
     }
@@ -444,7 +444,7 @@ public class EventUpdateInput {
     /**
      * A collection of contacts representing the event planners.
      */
-    public EventUpdateInput withPlanners(@Nonnull List<PlannerJson1Input> planners) {
+    public EventUpdateInput withPlanners(@Nonnull List<Planner1Input> planners) {
         this.planners = Utils.checkNotNull(planners, "planners");
         return this;
     }
@@ -453,7 +453,7 @@ public class EventUpdateInput {
      * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
      * Essentials.
      */
-    public EventUpdateInput withType(@Nonnull EventTypeJson type) {
+    public EventUpdateInput withType(@Nonnull EventType11 type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
@@ -549,7 +549,7 @@ public class EventUpdateInput {
 
         private String title;
 
-        private EventFormatJson format;
+        private EventFormat format;
 
         private String description;
 
@@ -563,7 +563,7 @@ public class EventUpdateInput {
 
         private String timezone;
 
-        private List<VenueJsonInput> venues;
+        private List<Venue1Input> venues;
 
         private Boolean showVenueLocation;
 
@@ -575,9 +575,9 @@ public class EventUpdateInput {
 
         private Long capacity;
 
-        private List<PlannerJson1Input> planners;
+        private List<Planner1Input> planners;
 
-        private EventTypeJson type;
+        private EventType11 type;
 
         private Builder() {
             // force use of static builder() method
@@ -594,7 +594,7 @@ public class EventUpdateInput {
         /**
          * Denotes the format of an event.
          */
-        public Builder format(@Nonnull EventFormatJson format) {
+        public Builder format(@Nonnull EventFormat format) {
             this.format = Utils.checkNotNull(format, "format");
             return this;
         }
@@ -651,7 +651,7 @@ public class EventUpdateInput {
         /**
          * Collection of venues.
          */
-        public Builder venues(@Nullable List<VenueJsonInput> venues) {
+        public Builder venues(@Nullable List<Venue1Input> venues) {
             this.venues = venues;
             return this;
         }
@@ -703,7 +703,7 @@ public class EventUpdateInput {
         /**
          * A collection of contacts representing the event planners.
          */
-        public Builder planners(@Nonnull List<PlannerJson1Input> planners) {
+        public Builder planners(@Nonnull List<Planner1Input> planners) {
             this.planners = Utils.checkNotNull(planners, "planners");
             return this;
         }
@@ -712,7 +712,7 @@ public class EventUpdateInput {
          * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
          * Essentials.
          */
-        public Builder type(@Nonnull EventTypeJson type) {
+        public Builder type(@Nonnull EventType11 type) {
             this.type = Utils.checkNotNull(type, "type");
             return this;
         }

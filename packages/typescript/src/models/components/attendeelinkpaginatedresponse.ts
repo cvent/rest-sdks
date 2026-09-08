@@ -10,7 +10,7 @@ import {
   ExistingAttendeeLink,
   ExistingAttendeeLink$inboundSchema,
 } from "./existingattendeelink.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to get the list of attendee links. This includes the paging object as well as the collection of attendee links.
@@ -19,7 +19,7 @@ export type AttendeeLinkPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of webcast attendee links.
    */
@@ -32,7 +32,7 @@ export const AttendeeLinkPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
+  paging: Paging$inboundSchema,
   data: z.array(ExistingAttendeeLink$inboundSchema),
 });
 

@@ -47,7 +47,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.GetAccountBudgetItemsRequest;
 import com.cvent.models.operations.GetAccountBudgetItemsResponse;
 import java.lang.Exception;
@@ -56,7 +56,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -101,7 +101,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## getAccountVendors
@@ -120,7 +120,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.GetAccountVendorsRequest;
 import com.cvent.models.operations.GetAccountVendorsResponse;
 import java.lang.Exception;
@@ -129,7 +129,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -174,7 +174,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## getCards
@@ -193,7 +193,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.GetCardsRequest;
 import com.cvent.models.operations.GetCardsResponse;
 import java.lang.Exception;
@@ -201,7 +201,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -244,7 +244,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 429            | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 429            | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## getCardTransactions
@@ -263,7 +263,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.GetCardTransactionsRequest;
 import com.cvent.models.operations.GetCardTransactionsResponse;
 import java.lang.Exception;
@@ -272,7 +272,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -317,7 +317,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 429            | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 429            | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## createCardTransaction
@@ -335,7 +335,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.CreateCardTransactionResponse;
 import java.lang.Exception;
 import java.time.OffsetDateTime;
@@ -343,7 +343,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -391,7 +391,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 429            | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 429            | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## deleteCardTransaction
@@ -410,7 +410,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.DeleteCardTransactionRequest;
 import com.cvent.models.operations.DeleteCardTransactionResponse;
 import java.lang.Exception;
@@ -418,7 +418,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -458,7 +458,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 401, 403, 404, 409, 429       | application/json              |
+| models/errors/ErrorResponse12 | 401, 403, 404, 409, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## updateCardTransaction
@@ -476,7 +476,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.UpdateCardTransactionRequest;
 import com.cvent.models.operations.UpdateCardTransactionResponse;
 import java.lang.Exception;
@@ -485,7 +485,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -536,7 +536,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## getCurrencyConversionRate
@@ -555,7 +555,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.GetCurrencyConversionRateRequest;
 import com.cvent.models.operations.GetCurrencyConversionRateResponse;
 import java.lang.Exception;
@@ -564,7 +564,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -610,7 +610,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## createCurrencyConversionRate
@@ -628,7 +628,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.CreateCurrencyConversionRateRequest;
 import com.cvent.models.operations.CreateCurrencyConversionRateResponse;
 import java.lang.Exception;
@@ -637,7 +637,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -684,7 +684,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## updateCurrencyConversionRate
@@ -702,7 +702,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.UpdateCurrencyConversionRateRequest;
 import com.cvent.models.operations.UpdateCurrencyConversionRateResponse;
 import java.lang.Exception;
@@ -711,7 +711,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -760,7 +760,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## deleteCurrencyConversionRate
@@ -779,7 +779,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.DeleteCurrencyConversionRateRequest;
 import com.cvent.models.operations.DeleteCurrencyConversionRateResponse;
 import java.lang.Exception;
@@ -787,7 +787,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -828,7 +828,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 401, 403, 404, 429            | application/json              |
+| models/errors/ErrorResponse12 | 401, 403, 404, 429            | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## getBudgetItems
@@ -847,7 +847,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.GetBudgetItemsRequest;
 import com.cvent.models.operations.GetBudgetItemsResponse;
 import java.lang.Exception;
@@ -856,7 +856,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -902,7 +902,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## createBudgetItem
@@ -920,7 +920,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.CreateBudgetItemRequest;
 import com.cvent.models.operations.CreateBudgetItemResponse;
 import java.lang.Exception;
@@ -929,7 +929,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1022,7 +1022,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## getBudgetAllocations
@@ -1038,7 +1038,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.GetBudgetAllocationsRequest;
 import com.cvent.models.operations.GetBudgetAllocationsResponse;
 import java.lang.Exception;
@@ -1047,7 +1047,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1093,7 +1093,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## updateBudgetItem
@@ -1111,7 +1111,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.UpdateBudgetItemRequest;
 import com.cvent.models.operations.UpdateBudgetItemResponse;
 import java.lang.Exception;
@@ -1120,7 +1120,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1214,7 +1214,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## updateBudgetAllocations
@@ -1229,7 +1229,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.UpdateBudgetAllocationsRequest;
 import com.cvent.models.operations.UpdateBudgetAllocationsResponse;
 import java.lang.Exception;
@@ -1237,7 +1237,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1284,7 +1284,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## deleteBudgetAllocations
@@ -1300,7 +1300,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.DeleteBudgetAllocationsRequest;
 import com.cvent.models.operations.DeleteBudgetAllocationsResponse;
 import java.lang.Exception;
@@ -1308,7 +1308,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1349,7 +1349,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 401, 403, 404, 409, 429       | application/json              |
+| models/errors/ErrorResponse12 | 401, 403, 404, 409, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## createPayment
@@ -1367,7 +1367,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.CreatePaymentRequest;
 import com.cvent.models.operations.CreatePaymentResponse;
 import java.lang.Exception;
@@ -1376,7 +1376,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1428,7 +1428,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## updatePayment
@@ -1446,7 +1446,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.UpdatePaymentRequest;
 import com.cvent.models.operations.UpdatePaymentResponse;
 import java.lang.Exception;
@@ -1455,7 +1455,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1509,7 +1509,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## deletePayment
@@ -1528,7 +1528,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.DeletePaymentRequest;
 import com.cvent.models.operations.DeletePaymentResponse;
 import java.lang.Exception;
@@ -1536,7 +1536,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1578,7 +1578,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 401, 403, 404, 409, 429       | application/json              |
+| models/errors/ErrorResponse12 | 401, 403, 404, 409, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## answerBudgetCustomField
@@ -1615,7 +1615,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.AnswerBudgetCustomFieldRequest;
 import com.cvent.models.operations.AnswerBudgetCustomFieldResponse;
 import java.lang.Exception;
@@ -1623,7 +1623,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1674,7 +1674,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## getPayments
@@ -1693,7 +1693,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.GetPaymentsRequest;
 import com.cvent.models.operations.GetPaymentsResponse;
 import java.lang.Exception;
@@ -1702,7 +1702,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1748,7 +1748,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## attachInvoiceToPayment
@@ -1767,7 +1767,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.AttachInvoiceToPaymentRequest;
 import com.cvent.models.operations.AttachInvoiceToPaymentResponse;
 import java.lang.Exception;
@@ -1775,7 +1775,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1819,7 +1819,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 401, 403, 404, 429            | application/json              |
+| models/errors/ErrorResponse12 | 401, 403, 404, 429            | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## getEventBudgetTotals
@@ -1838,7 +1838,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.GetEventBudgetTotalsRequest;
 import com.cvent.models.operations.GetEventBudgetTotalsResponse;
 import java.lang.Exception;
@@ -1847,7 +1847,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1893,5 +1893,5 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |

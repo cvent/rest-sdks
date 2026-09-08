@@ -25,6 +25,6 @@ namespace Cvent.SDK.Models.Requests
         /// Attendees to be checked-in. Up to **100 attendees** can be checked-in per call.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public List<CheckinJson> RequestBody { get; set; } = default!;
+        public List<Checkin> RequestBody { get; set; } = default!;
     }
 }

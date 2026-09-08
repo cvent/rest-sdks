@@ -54,7 +54,7 @@ public class ExistingPlayer {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("webcast")
-    private UuidJson webcast;
+    private Uuid webcast;
 
     /**
      * ID of the video to be played.
@@ -82,14 +82,15 @@ public class ExistingPlayer {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("stream")
-    private LiveStreamJson stream;
+    private LiveStream stream;
 
     /**
-     * Region where the live stream originates (These regions are only for Brightcove player)
+     * Region where the live stream originates. Although, the value is consumed for IVS livestreams the
+     * requested origin is actually ignored due to IVS' global data plane.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("region")
-    private RegionJson region;
+    private Region1 region;
 
     /**
      * Video duration (milliseconds)
@@ -103,14 +104,14 @@ public class ExistingPlayer {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("schedule")
-    private ScheduleJson schedule;
+    private Schedule schedule;
 
     /**
      * This is used to denote the type of a video player used for the Cvent Video Player
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("playerTypeProvider")
-    private PlayerTypeProviderJson playerTypeProvider;
+    private PlayerTypeProvider playerTypeProvider;
 
     /**
      * Offset (seconds) to determine start date for simulated live video.
@@ -132,15 +133,15 @@ public class ExistingPlayer {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("webcast") @Nullable UuidJson webcast,
+            @JsonProperty("webcast") @Nullable Uuid webcast,
             @JsonProperty("videoId") @Nullable String videoId,
             @JsonProperty("videoUrl") @Nullable String videoUrl,
             @JsonProperty("password") @Nullable String password,
-            @JsonProperty("stream") @Nullable LiveStreamJson stream,
-            @JsonProperty("region") @Nullable RegionJson region,
+            @JsonProperty("stream") @Nullable LiveStream stream,
+            @JsonProperty("region") @Nullable Region1 region,
             @JsonProperty("duration") @Nullable Long duration,
-            @JsonProperty("schedule") @Nullable ScheduleJson schedule,
-            @JsonProperty("playerTypeProvider") @Nullable PlayerTypeProviderJson playerTypeProvider,
+            @JsonProperty("schedule") @Nullable Schedule schedule,
+            @JsonProperty("playerTypeProvider") @Nullable PlayerTypeProvider playerTypeProvider,
             @JsonProperty("simuliveOffset") @Nullable Long simuliveOffset,
             @JsonProperty("id") @Nullable String id) {
         this.created = created;
@@ -195,7 +196,7 @@ public class ExistingPlayer {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> webcast() {
+    public Optional<Uuid> webcast() {
         return Optional.ofNullable(this.webcast);
     }
 
@@ -223,14 +224,15 @@ public class ExistingPlayer {
     /**
      * A webcast Live Stream.
      */
-    public Optional<LiveStreamJson> stream() {
+    public Optional<LiveStream> stream() {
         return Optional.ofNullable(this.stream);
     }
 
     /**
-     * Region where the live stream originates (These regions are only for Brightcove player)
+     * Region where the live stream originates. Although, the value is consumed for IVS livestreams the
+     * requested origin is actually ignored due to IVS' global data plane.
      */
-    public Optional<RegionJson> region() {
+    public Optional<Region1> region() {
         return Optional.ofNullable(this.region);
     }
 
@@ -244,14 +246,14 @@ public class ExistingPlayer {
     /**
      * A scheduled action.
      */
-    public Optional<ScheduleJson> schedule() {
+    public Optional<Schedule> schedule() {
         return Optional.ofNullable(this.schedule);
     }
 
     /**
      * This is used to denote the type of a video player used for the Cvent Video Player
      */
-    public Optional<PlayerTypeProviderJson> playerTypeProvider() {
+    public Optional<PlayerTypeProvider> playerTypeProvider() {
         return Optional.ofNullable(this.playerTypeProvider);
     }
 
@@ -308,7 +310,7 @@ public class ExistingPlayer {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExistingPlayer withWebcast(@Nullable UuidJson webcast) {
+    public ExistingPlayer withWebcast(@Nullable Uuid webcast) {
         this.webcast = webcast;
         return this;
     }
@@ -340,15 +342,16 @@ public class ExistingPlayer {
     /**
      * A webcast Live Stream.
      */
-    public ExistingPlayer withStream(@Nullable LiveStreamJson stream) {
+    public ExistingPlayer withStream(@Nullable LiveStream stream) {
         this.stream = stream;
         return this;
     }
 
     /**
-     * Region where the live stream originates (These regions are only for Brightcove player)
+     * Region where the live stream originates. Although, the value is consumed for IVS livestreams the
+     * requested origin is actually ignored due to IVS' global data plane.
      */
-    public ExistingPlayer withRegion(@Nullable RegionJson region) {
+    public ExistingPlayer withRegion(@Nullable Region1 region) {
         this.region = region;
         return this;
     }
@@ -364,7 +367,7 @@ public class ExistingPlayer {
     /**
      * A scheduled action.
      */
-    public ExistingPlayer withSchedule(@Nullable ScheduleJson schedule) {
+    public ExistingPlayer withSchedule(@Nullable Schedule schedule) {
         this.schedule = schedule;
         return this;
     }
@@ -372,7 +375,7 @@ public class ExistingPlayer {
     /**
      * This is used to denote the type of a video player used for the Cvent Video Player
      */
-    public ExistingPlayer withPlayerTypeProvider(@Nullable PlayerTypeProviderJson playerTypeProvider) {
+    public ExistingPlayer withPlayerTypeProvider(@Nullable PlayerTypeProvider playerTypeProvider) {
         this.playerTypeProvider = playerTypeProvider;
         return this;
     }
@@ -486,7 +489,7 @@ public class ExistingPlayer {
 
         private String lastModifiedBy;
 
-        private UuidJson webcast;
+        private Uuid webcast;
 
         private String videoId;
 
@@ -494,15 +497,15 @@ public class ExistingPlayer {
 
         private String password;
 
-        private LiveStreamJson stream;
+        private LiveStream stream;
 
-        private RegionJson region;
+        private Region1 region;
 
         private Long duration;
 
-        private ScheduleJson schedule;
+        private Schedule schedule;
 
-        private PlayerTypeProviderJson playerTypeProvider;
+        private PlayerTypeProvider playerTypeProvider;
 
         private Long simuliveOffset;
 
@@ -547,7 +550,7 @@ public class ExistingPlayer {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder webcast(@Nullable UuidJson webcast) {
+        public Builder webcast(@Nullable Uuid webcast) {
             this.webcast = webcast;
             return this;
         }
@@ -579,15 +582,16 @@ public class ExistingPlayer {
         /**
          * A webcast Live Stream.
          */
-        public Builder stream(@Nullable LiveStreamJson stream) {
+        public Builder stream(@Nullable LiveStream stream) {
             this.stream = stream;
             return this;
         }
 
         /**
-         * Region where the live stream originates (These regions are only for Brightcove player)
+         * Region where the live stream originates. Although, the value is consumed for IVS livestreams the
+         * requested origin is actually ignored due to IVS' global data plane.
          */
-        public Builder region(@Nullable RegionJson region) {
+        public Builder region(@Nullable Region1 region) {
             this.region = region;
             return this;
         }
@@ -603,7 +607,7 @@ public class ExistingPlayer {
         /**
          * A scheduled action.
          */
-        public Builder schedule(@Nullable ScheduleJson schedule) {
+        public Builder schedule(@Nullable Schedule schedule) {
             this.schedule = schedule;
             return this;
         }
@@ -611,7 +615,7 @@ public class ExistingPlayer {
         /**
          * This is used to denote the type of a video player used for the Cvent Video Player
          */
-        public Builder playerTypeProvider(@Nullable PlayerTypeProviderJson playerTypeProvider) {
+        public Builder playerTypeProvider(@Nullable PlayerTypeProvider playerTypeProvider) {
             this.playerTypeProvider = playerTypeProvider;
             return this;
         }

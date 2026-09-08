@@ -122,8 +122,60 @@ let value: CreateProposalDraftResponse = {
       },
     ],
     meetingRoom: {
+      name: "Conference Room A",
       notes: "This meeting room has the best audio quality.",
     },
+    agendaItems: {
+      items: [
+        {
+          name: "Cvent Connect Intro",
+          number: 1,
+          startTime: new Date("2021-01-13T14:06:20.080Z"),
+          endTime: new Date("2021-01-13T14:06:20.080Z"),
+          requiredRoomSize: 100,
+          expectedNumberOfPeople: 500,
+          roomInfoRequired: true,
+          roomHoldRequired: true,
+          twentyFourHourHoldRequired: true,
+          locatedAtPrimeEventVenue: true,
+          days: [
+            {
+              dayNumber: 1,
+              date: new RFCDate("2021-07-03"),
+            },
+          ],
+          roomOptedOut: true,
+          audioVideoNeeds: "Audio",
+          notes: "Video is good to have for this event.",
+          meetingRoom: [
+            {
+              name: "Conference Room A",
+              notes: "This meeting room has the best audio quality.",
+            },
+          ],
+        },
+      ],
+      roomRequirementsMet: true,
+      responseNotes: "We cannot accommodate agenda items starting before 8am.",
+    },
+    packages: [
+      {
+        checkInDate: new RFCDate("2016-10-13"),
+        availablePackages: [
+          {
+            day: {
+              dayNumber: 1,
+              date: new RFCDate("2021-07-03"),
+            },
+            rate: 100,
+            quantity: 100,
+            notes: "We will give complimentary access of jacuzzi.",
+          },
+        ],
+        additionalInfo: "The offered packages are best-in-class.",
+        totalPackageCost: 100,
+      },
+    ],
     transaction: {
       id: "cf5fd2cc-3d09-11ee-be56-0242ac120002",
       time: new Date("2023-02-12T03:00:00Z"),

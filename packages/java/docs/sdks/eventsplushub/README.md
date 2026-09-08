@@ -22,7 +22,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.ListHubsRequest;
 import com.cvent.models.operations.ListHubsResponse;
 import java.lang.Exception;
@@ -30,7 +30,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -73,7 +73,7 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 429            | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 429            | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## getHubMembers
@@ -89,7 +89,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.GetHubMembersRequest;
 import com.cvent.models.operations.GetHubMembersResponse;
 import java.lang.Exception;
@@ -97,7 +97,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -142,5 +142,5 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |

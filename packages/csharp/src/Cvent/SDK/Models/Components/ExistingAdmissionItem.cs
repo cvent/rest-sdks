@@ -52,6 +52,6 @@ namespace Cvent.SDK.Models.Components
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("event")]
-        public UuidJson? Event { get; set; }
+        public Uuid? Event { get; set; }
     }
 }

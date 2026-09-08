@@ -6,6 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { RoomCategory, RoomCategory$inboundSchema } from "./roomcategory.js";
 
 /**
  * Room information.
@@ -19,6 +20,10 @@ export type RoomInfo = {
    * Room name.
    */
   name?: string | undefined;
+  /**
+   * The category that classifies a room type.
+   */
+  roomCategory?: RoomCategory | undefined;
 };
 
 /** @internal */
@@ -29,6 +34,7 @@ export const RoomInfo$inboundSchema: z.ZodType<
 > = z.object({
   id: z.number().int(),
   name: z.string().optional(),
+  roomCategory: RoomCategory$inboundSchema.optional(),
 });
 
 export function roomInfoFromJSON(

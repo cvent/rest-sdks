@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Preferred or assigned seat type for an air booking.
+    /// Preferred or assigned seat type for a travel booking.
     /// </summary>
     public enum SeatType
     {

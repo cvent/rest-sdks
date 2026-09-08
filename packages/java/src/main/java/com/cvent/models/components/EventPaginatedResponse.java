@@ -22,17 +22,17 @@ public class EventPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * A collection of event objects.
      */
     @JsonProperty("data")
-    private List<EventJson2> data;
+    private List<Event1> data;
 
     @JsonCreator
     public EventPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<EventJson2> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<Event1> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -41,14 +41,14 @@ public class EventPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * A collection of event objects.
      */
-    public List<EventJson2> data() {
+    public List<Event1> data() {
         return this.data;
     }
 
@@ -59,7 +59,7 @@ public class EventPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public EventPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public EventPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -67,7 +67,7 @@ public class EventPaginatedResponse {
     /**
      * A collection of event objects.
      */
-    public EventPaginatedResponse withData(@Nonnull List<EventJson2> data) {
+    public EventPaginatedResponse withData(@Nonnull List<Event1> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -97,9 +97,9 @@ public class EventPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<EventJson2> data;
+        private List<Event1> data;
 
         private Builder() {
             // force use of static builder() method
@@ -108,7 +108,7 @@ public class EventPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -116,7 +116,7 @@ public class EventPaginatedResponse {
         /**
          * A collection of event objects.
          */
-        public Builder data(@Nonnull List<EventJson2> data) {
+        public Builder data(@Nonnull List<Event1> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

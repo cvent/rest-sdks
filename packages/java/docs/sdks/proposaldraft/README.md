@@ -20,15 +20,17 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse11;
+import com.cvent.models.components.Package;
+import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.CreateProposalDraftResponse;
 import java.lang.Exception;
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse11, Exception {
+    public static void main(String[] args) throws ErrorResponse12, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -43,17 +45,17 @@ public class Application {
 
         ProposalRequest req = ProposalRequest.builder()
                 .scpTemplateId("a633b01c-e461-4cc2-8c66-8ae036115658")
-                .supplierSummary(SupplierSummaryJson.builder()
+                .supplierSummary(SupplierSummary.builder()
                     .supplier(VenueSummary.builder()
                         .build())
                     .build())
-                .rfpSummary(RfpSummaryJson.builder()
+                .rfpSummary(RfpSummary.builder()
                     .id("385b9a4c-3f00-4b67-99ca-8dddc82a95b5")
                     .build())
-                .eventSummary(EventSummaryJson.builder()
+                .eventSummary(EventSummary.builder()
                     .id("bedc1f8e-f68b-40cf-b901-487e407f637a")
                     .build())
-                .statusSummary(StatusSummaryJson.builder()
+                .statusSummary(StatusSummary.builder()
                     .reason("Other")
                     .comment("Not as per requirement")
                     .build())
@@ -63,12 +65,12 @@ public class Application {
                 .name("Proposal for Royal Bank of Spain.")
                 .blockCode("ABDCFD-234535-3535")
                 .proposalDates(List.of(
-                    ProposalDateJson.builder()
+                    ProposalDate.builder()
                         .startDate(LocalDate.parse("2021-01-13"))
                         .endDate(LocalDate.parse("2021-01-13"))
                         .build()))
                 .sleepingRooms(List.of(
-                    SleepingRoomJson.builder()
+                    SleepingRoom1.builder()
                         .checkInDate(LocalDate.parse("2021-01-13"))
                         .checkOutDate(LocalDate.parse("2021-01-13"))
                         .peakRoomNights(2L)
@@ -83,17 +85,17 @@ public class Application {
                         .highestAvailableRoomCount(10L)
                         .notes("Premier Suite not available for the selected dates.")
                         .sleepingRoomBlocks(List.of(
-                            SleepingRoomBlockJson.builder()
+                            SleepingRoomBlock.builder()
                                 .date(LocalDate.parse("2021-01-13"))
                                 .quantity(20L)
                                 .rate(150d)
                                 .build()))
                         .build()))
-                .aggregatedCost(AggregatedCostJson.builder()
+                .aggregatedCost(AggregatedCost.builder()
                     .totalFoodAndBeverageCost(396.56)
                     .totalMiscCost(644.96)
                     .build())
-                .estimatedCost(EstimatedCostJson.builder()
+                .estimatedCost(EstimatedCost.builder()
                     .guestRoom(100d)
                     .meetingRoom(10d)
                     .foodAndBeverage(100d)
@@ -101,7 +103,7 @@ public class Application {
                     .notes("Estimated cost includes taxes.")
                     .build())
                 .contacts(List.of(
-                    ContactJson.builder()
+                    Contact2.builder()
                         .firstName("Saurabh")
                         .lastName("Sachdeva")
                         .organizationWebsite("www.cvent.com")
@@ -120,7 +122,7 @@ public class Application {
                         .notes("Available between 8am - 5pm.")
                         .build()))
                 .plannerContacts(List.of(
-                    ContactJson.builder()
+                    Contact2.builder()
                         .firstName("Saurabh")
                         .lastName("Sachdeva")
                         .organizationWebsite("www.cvent.com")
@@ -138,9 +140,56 @@ public class Application {
                         .postalCode("110079")
                         .notes("Available between 8am - 5pm.")
                         .build()))
-                .meetingRoom(MeetingRoomJson.builder()
+                .meetingRoom(MeetingRoom.builder()
+                    .name("Conference Room A")
                     .notes("This meeting room has the best audio quality.")
                     .build())
+                .agendaItems(AgendaItems.builder()
+                    .items(List.of(
+                        AgendaItem.builder()
+                            .name("Cvent Connect Intro")
+                            .number(1L)
+                            .startTime(OffsetDateTime.parse("2021-01-13T14:06:20.080Z"))
+                            .endTime(OffsetDateTime.parse("2021-01-13T14:06:20.080Z"))
+                            .requiredRoomSize(100L)
+                            .expectedNumberOfPeople(500L)
+                            .roomInfoRequired(true)
+                            .roomHoldRequired(true)
+                            .twentyFourHourHoldRequired(true)
+                            .locatedAtPrimeEventVenue(true)
+                            .days(List.of(
+                                Day.builder()
+                                    .dayNumber(1L)
+                                    .date(LocalDate.parse("2021-07-03"))
+                                    .build()))
+                            .roomOptedOut(true)
+                            .audioVideoNeeds("Audio")
+                            .notes("Video is good to have for this event.")
+                            .meetingRoom(List.of(
+                                MeetingRoom.builder()
+                                    .name("Conference Room A")
+                                    .notes("This meeting room has the best audio quality.")
+                                    .build()))
+                            .build()))
+                    .roomRequirementsMet(true)
+                    .responseNotes("We cannot accommodate agenda items starting before 8am.")
+                    .build())
+                .packages(List.of(
+                    Package.builder()
+                        .checkInDate(LocalDate.parse("2016-10-13"))
+                        .availablePackages(List.of(
+                            AvailablePackage.builder()
+                                .day(Day.builder()
+                                    .dayNumber(1L)
+                                    .date(LocalDate.parse("2021-07-03"))
+                                    .build())
+                                .rate(100d)
+                                .quantity(100L)
+                                .notes("We will give complimentary access of jacuzzi.")
+                                .build()))
+                        .additionalInfo("The offered packages are best-in-class.")
+                        .totalPackageCost(100d)
+                        .build()))
                 .build();
 
         CreateProposalDraftResponse res = sdk.proposalDraft().createProposalDraft()
@@ -168,5 +217,5 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse11 | 400, 401, 403, 429            | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 429            | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |

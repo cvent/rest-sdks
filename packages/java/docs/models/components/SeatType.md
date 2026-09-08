@@ -1,6 +1,6 @@
 # SeatType
 
-Preferred or assigned seat type for an air booking.
+Preferred or assigned seat type for a travel booking.
 
 ## Example Usage
 

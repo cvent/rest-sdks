@@ -5,10 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.annotation.Nullable;
+import jakarta.annotation.Nonnull;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
@@ -28,24 +26,19 @@ public class ExpandableCustomObject {
     /**
      * Unique identifier for custom field.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     @JsonCreator
-    public ExpandableCustomObject(@JsonProperty("id") @Nullable String id) {
-        this.id = id;
-    }
-
-    public ExpandableCustomObject() {
-        this(null);
+    public ExpandableCustomObject(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
      * Unique identifier for custom field.
      */
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
+    public String id() {
+        return this.id;
     }
 
     public static Builder builder() {
@@ -55,8 +48,8 @@ public class ExpandableCustomObject {
     /**
      * Unique identifier for custom field.
      */
-    public ExpandableCustomObject withId(@Nullable String id) {
-        this.id = id;
+    public ExpandableCustomObject withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
         return this;
     }
 
@@ -94,8 +87,8 @@ public class ExpandableCustomObject {
         /**
          * Unique identifier for custom field.
          */
-        public Builder id(@Nullable String id) {
-            this.id = id;
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
             return this;
         }
 

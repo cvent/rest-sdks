@@ -9,8 +9,8 @@
 Attendees.CreateAttendeeAddResponse(/* values here */);
 ```
 
-### ErrorResponse11
+### ErrorResponse12
 
 ```csharp
-Attendees.CreateErrorResponse11(/* values here */);
+Attendees.CreateErrorResponse12(/* values here */);
 ```

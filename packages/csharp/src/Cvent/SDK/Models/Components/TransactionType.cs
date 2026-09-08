@@ -14,15 +14,27 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// This is used to denote the transaction type for a transaction.
+    /// The proposal transaction type.
     /// </summary>
     public enum TransactionType
     {
-        [JsonProperty("Payments")] Payments,
-        [JsonProperty("Refunds")] Refunds,
-        [JsonProperty("Authorized")] Authorized,
-        [JsonProperty("Approved")] Approved,
-        [JsonProperty("Declined")] Declined,
+        [JsonProperty("AWARD")] Award,
+        [JsonProperty("CANCEL")] Cancel,
+        [JsonProperty("COPY")] Copy,
+        [JsonProperty("CREATE")] Create,
+        [JsonProperty("DECLINE")] Decline,
+        [JsonProperty("DELETE")] Delete,
+        [JsonProperty("EXPIRE")] Expire,
+        [JsonProperty("MODIFY")] Modify,
+        [JsonProperty("OBFUSCATE")] Obfuscate,
+        [JsonProperty("PUBLISH")] Publish,
+        [JsonProperty("PUBLISH_CANCEL")] PublishCancel,
+        [JsonProperty("PUBLISH_REQUEST")] PublishRequest,
+        [JsonProperty("REOPEN")] Reopen,
+        [JsonProperty("RESEND_EMAIL")] ResendEmail,
+        [JsonProperty("SUBMIT")] Submit,
+        [JsonProperty("VALIDATE")] Validate,
+        [JsonProperty("WITHDRAW")] Withdraw,
     }
 
     public static class TransactionTypeExtension

@@ -21,6 +21,6 @@ namespace Cvent.SDK.Models.Requests
         public string VenueId { get; set; } = default!;
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public MeetingRoom MeetingRoom { get; set; } = default!;
+        public MeetingRoomInput MeetingRoom { get; set; } = default!;
     }
 }

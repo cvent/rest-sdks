@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.MeetingRoom;
+import com.cvent.models.components.MeetingRoomInput;
 import com.cvent.utils.SpeakeasyMetadata;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -20,10 +20,10 @@ public class CreateMeetingRoomRequest {
     private String venueId;
 
     @SpeakeasyMetadata("request:mediaType=application/json")
-    private MeetingRoom meetingRoom;
+    private MeetingRoomInput meetingRoom;
 
     @JsonCreator
-    public CreateMeetingRoomRequest(@Nonnull String venueId, @Nonnull MeetingRoom meetingRoom) {
+    public CreateMeetingRoomRequest(@Nonnull String venueId, @Nonnull MeetingRoomInput meetingRoom) {
         this.venueId =
                 Optional.ofNullable(venueId).orElseThrow(() -> new IllegalArgumentException("venueId cannot be null"));
         this.meetingRoom = Optional.ofNullable(meetingRoom)
@@ -37,7 +37,7 @@ public class CreateMeetingRoomRequest {
         return this.venueId;
     }
 
-    public MeetingRoom meetingRoom() {
+    public MeetingRoomInput meetingRoom() {
         return this.meetingRoom;
     }
 
@@ -53,7 +53,7 @@ public class CreateMeetingRoomRequest {
         return this;
     }
 
-    public CreateMeetingRoomRequest withMeetingRoom(@Nonnull MeetingRoom meetingRoom) {
+    public CreateMeetingRoomRequest withMeetingRoom(@Nonnull MeetingRoomInput meetingRoom) {
         this.meetingRoom = Utils.checkNotNull(meetingRoom, "meetingRoom");
         return this;
     }
@@ -86,7 +86,7 @@ public class CreateMeetingRoomRequest {
 
         private String venueId;
 
-        private MeetingRoom meetingRoom;
+        private MeetingRoomInput meetingRoom;
 
         private Builder() {
             // force use of static builder() method
@@ -100,7 +100,7 @@ public class CreateMeetingRoomRequest {
             return this;
         }
 
-        public Builder meetingRoom(@Nonnull MeetingRoom meetingRoom) {
+        public Builder meetingRoom(@Nonnull MeetingRoomInput meetingRoom) {
             this.meetingRoom = Utils.checkNotNull(meetingRoom, "meetingRoom");
             return this;
         }

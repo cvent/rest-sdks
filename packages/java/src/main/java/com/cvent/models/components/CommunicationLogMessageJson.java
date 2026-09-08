@@ -59,7 +59,7 @@ public class CommunicationLogMessageJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("attachments")
-    private List<AttachmentJson1> attachments;
+    private List<AttachmentJson> attachments;
 
     @JsonCreator
     public CommunicationLogMessageJson(
@@ -68,7 +68,7 @@ public class CommunicationLogMessageJson {
             @JsonProperty("created") @Nonnull OffsetDateTime created,
             @JsonProperty("tags") @Nullable Map<String, String> tags,
             @JsonProperty("message") @Nonnull Message message,
-            @JsonProperty("attachments") @Nullable List<AttachmentJson1> attachments) {
+            @JsonProperty("attachments") @Nullable List<AttachmentJson> attachments) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.created =
@@ -125,7 +125,7 @@ public class CommunicationLogMessageJson {
     /**
      * A collection of attachments that are associated with this message.
      */
-    public Optional<List<AttachmentJson1>> attachments() {
+    public Optional<List<AttachmentJson>> attachments() {
         return Optional.ofNullable(this.attachments);
     }
 
@@ -176,7 +176,7 @@ public class CommunicationLogMessageJson {
     /**
      * A collection of attachments that are associated with this message.
      */
-    public CommunicationLogMessageJson withAttachments(@Nullable List<AttachmentJson1> attachments) {
+    public CommunicationLogMessageJson withAttachments(@Nullable List<AttachmentJson> attachments) {
         this.attachments = attachments;
         return this;
     }
@@ -234,7 +234,7 @@ public class CommunicationLogMessageJson {
 
         private Message message;
 
-        private List<AttachmentJson1> attachments;
+        private List<AttachmentJson> attachments;
 
         private Builder() {
             // force use of static builder() method
@@ -283,7 +283,7 @@ public class CommunicationLogMessageJson {
         /**
          * A collection of attachments that are associated with this message.
          */
-        public Builder attachments(@Nullable List<AttachmentJson1> attachments) {
+        public Builder attachments(@Nullable List<AttachmentJson> attachments) {
             this.attachments = attachments;
             return this;
         }

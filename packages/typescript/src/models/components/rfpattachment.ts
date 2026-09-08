@@ -23,11 +23,11 @@ export type RfpAttachmentSupplier = {
 };
 
 /**
- * This object contains Rfp specific attachments attributes.
+ * Attachment attributes and their supplier-level association.
  */
 export type RfpAttachment = {
   /**
-   * Unique identifier for this attachment record.
+   * ID for an attachment record.
    */
   id: string;
   /**
@@ -43,7 +43,7 @@ export type RfpAttachment = {
    */
   type?: DocumentType1 | undefined;
   /**
-   * True indicates the attachment is uploaded behind a secured URL.
+   * True indicates the attachment is uploaded behind a secure URL and won't be returned in the `url` field.
    */
   secure?: boolean | undefined;
   /**
@@ -55,37 +55,37 @@ export type RfpAttachment = {
    */
   uniqueName?: string | undefined;
   /**
-   * The content type of the attachment
+   * The [MIME](https://www.iana.org/assignments/media-types) media type of the attachment.
    */
   mimeType?: string | undefined;
-  /**
-   * The source from where the attachment was uploaded.
-   */
-  source?: AttachmentSource | undefined;
   /**
    * The file path pointing to where the attachment is stored in Cvent. This path is relative to the base URL of the storage system and omits the root address.
    */
   relativePath?: string | undefined;
   /**
-   * True indicates the attachment should be sent in emails that notify suppliers about RFPs.
-   */
-  sendInEmail?: boolean | undefined;
-  /**
    * True indicates this attachment can be deleted.
    */
   deletionAllowed?: boolean | undefined;
   /**
-   * URL of the attachment if `secure` is false. This field is null if `secure` is true.
+   * URL of the attachment. This field is null if `secure` is true.
    */
   url?: string | undefined;
-  /**
-   * Supplier associated with the attachment.
-   */
-  supplier?: RfpAttachmentSupplier | undefined;
   /**
    * True indicates the attachment is only shown in the UI to the supplier whose ID is present in supplier.id field.
    */
   supplierSpecific?: boolean | undefined;
+  /**
+   * The source from where the attachment was uploaded.
+   */
+  source?: AttachmentSource | undefined;
+  /**
+   * True indicates the attachment should be sent in emails that notify suppliers about RFPs.
+   */
+  sendInEmail?: boolean | undefined;
+  /**
+   * Supplier associated with the attachment.
+   */
+  supplier?: RfpAttachmentSupplier | undefined;
   /**
    * True indicates the attachment is selected for the supplier whose ID is present in supplier.id field.
    */
@@ -126,13 +126,13 @@ export const RfpAttachment$inboundSchema: z.ZodType<
   name: z.string().optional(),
   uniqueName: z.string().optional(),
   mimeType: z.string().optional(),
-  source: AttachmentSource$inboundSchema.optional(),
   relativePath: z.string().optional(),
-  sendInEmail: z.boolean().optional(),
   deletionAllowed: z.boolean().optional(),
   url: z.string().optional(),
-  supplier: z.lazy(() => RfpAttachmentSupplier$inboundSchema).optional(),
   supplierSpecific: z.boolean().optional(),
+  source: AttachmentSource$inboundSchema.optional(),
+  sendInEmail: z.boolean().optional(),
+  supplier: z.lazy(() => RfpAttachmentSupplier$inboundSchema).optional(),
   selectedForSupplier: z.boolean().optional(),
 });
 

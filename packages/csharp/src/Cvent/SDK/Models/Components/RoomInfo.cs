@@ -9,6 +9,7 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
+    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
 
@@ -28,5 +29,11 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
+
+        /// <summary>
+        /// The category that classifies a room type.
+        /// </summary>
+        [JsonProperty("roomCategory")]
+        public RoomCategory? RoomCategory { get; set; }
     }
 }

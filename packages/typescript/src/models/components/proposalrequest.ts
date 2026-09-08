@@ -4,68 +4,72 @@
 
 import * as z from "zod/v3";
 import {
-  AggregatedCostJson,
-  AggregatedCostJson$Outbound,
-  AggregatedCostJson$outboundSchema,
-} from "./aggregatedcostjson.js";
+  AgendaItems,
+  AgendaItems$Outbound,
+  AgendaItems$outboundSchema,
+} from "./agendaitems.js";
 import {
-  CategoryItemsCostJson,
-  CategoryItemsCostJson$Outbound,
-  CategoryItemsCostJson$outboundSchema,
-} from "./categoryitemscostjson.js";
+  AggregatedCost,
+  AggregatedCost$Outbound,
+  AggregatedCost$outboundSchema,
+} from "./aggregatedcost.js";
 import {
-  ContactJson,
-  ContactJson$Outbound,
-  ContactJson$outboundSchema,
-} from "./contactjson.js";
+  CategoryItemsCost,
+  CategoryItemsCost$Outbound,
+  CategoryItemsCost$outboundSchema,
+} from "./categoryitemscost.js";
 import {
-  CurrencyJson1,
-  CurrencyJson1$outboundSchema,
-} from "./currencyjson1.js";
+  Contact2,
+  Contact2$Outbound,
+  Contact2$outboundSchema,
+} from "./contact2.js";
+import { Currency, Currency$outboundSchema } from "./currency.js";
 import {
-  EstimatedCostJson,
-  EstimatedCostJson$Outbound,
-  EstimatedCostJson$outboundSchema,
-} from "./estimatedcostjson.js";
+  EstimatedCost,
+  EstimatedCost$Outbound,
+  EstimatedCost$outboundSchema,
+} from "./estimatedcost.js";
 import {
-  EventSummaryJson,
-  EventSummaryJson$Outbound,
-  EventSummaryJson$outboundSchema,
-} from "./eventsummaryjson.js";
+  EventSummary,
+  EventSummary$Outbound,
+  EventSummary$outboundSchema,
+} from "./eventsummary.js";
 import {
-  MeetingRoomJson,
-  MeetingRoomJson$Outbound,
-  MeetingRoomJson$outboundSchema,
-} from "./meetingroomjson.js";
+  MeetingRoom,
+  MeetingRoom$Outbound,
+  MeetingRoom$outboundSchema,
+} from "./meetingroom.js";
 import {
-  ProposalDateJson,
-  ProposalDateJson$Outbound,
-  ProposalDateJson$outboundSchema,
-} from "./proposaldatejson.js";
+  Package,
+  Package$Outbound,
+  Package$outboundSchema,
+} from "./package.js";
 import {
-  ProposalTypeJson,
-  ProposalTypeJson$outboundSchema,
-} from "./proposaltypejson.js";
+  ProposalDate,
+  ProposalDate$Outbound,
+  ProposalDate$outboundSchema,
+} from "./proposaldate.js";
+import { ProposalType, ProposalType$outboundSchema } from "./proposaltype.js";
 import {
-  RfpSummaryJson,
-  RfpSummaryJson$Outbound,
-  RfpSummaryJson$outboundSchema,
-} from "./rfpsummaryjson.js";
+  RfpSummary,
+  RfpSummary$Outbound,
+  RfpSummary$outboundSchema,
+} from "./rfpsummary.js";
 import {
-  SleepingRoomJson,
-  SleepingRoomJson$Outbound,
-  SleepingRoomJson$outboundSchema,
-} from "./sleepingroomjson.js";
+  SleepingRoom1,
+  SleepingRoom1$Outbound,
+  SleepingRoom1$outboundSchema,
+} from "./sleepingroom1.js";
 import {
-  StatusSummaryJson,
-  StatusSummaryJson$Outbound,
-  StatusSummaryJson$outboundSchema,
-} from "./statussummaryjson.js";
+  StatusSummary,
+  StatusSummary$Outbound,
+  StatusSummary$outboundSchema,
+} from "./statussummary.js";
 import {
-  SupplierSummaryJson,
-  SupplierSummaryJson$Outbound,
-  SupplierSummaryJson$outboundSchema,
-} from "./suppliersummaryjson.js";
+  SupplierSummary,
+  SupplierSummary$Outbound,
+  SupplierSummary$outboundSchema,
+} from "./suppliersummary.js";
 
 /**
  * Schema for proposal request.
@@ -78,23 +82,23 @@ export type ProposalRequest = {
   /**
    * The type of the proposal.
    */
-  type?: ProposalTypeJson | undefined;
+  type?: ProposalType | undefined;
   /**
    * Represents a summary of supplier information associated with current proposal.
    */
-  supplierSummary?: SupplierSummaryJson | undefined;
+  supplierSummary?: SupplierSummary | undefined;
   /**
    * Schema for Rfp details associated with this proposal.
    */
-  rfpSummary?: RfpSummaryJson | undefined;
+  rfpSummary?: RfpSummary | undefined;
   /**
    * Schema for event summary associated with this proposal.
    */
-  eventSummary?: EventSummaryJson | undefined;
+  eventSummary?: EventSummary | undefined;
   /**
    * Represents a summary of status associated with this proposal.
    */
-  statusSummary?: StatusSummaryJson | undefined;
+  statusSummary?: StatusSummary | undefined;
   /**
    * Introduction text for the proposal.
    */
@@ -108,7 +112,7 @@ export type ProposalRequest = {
   /**
    * The ISO 4217 standard format currency code used for RFPs.
    */
-  currencyCode?: CurrencyJson1 | undefined;
+  currencyCode?: Currency | undefined;
   /**
    * True indicates this is a commissionable bid.
    */
@@ -128,47 +132,55 @@ export type ProposalRequest = {
   /**
    * List of dates the venue is available.
    */
-  proposalDates?: Array<ProposalDateJson> | undefined;
+  proposalDates?: Array<ProposalDate> | undefined;
   /**
    * List of all sleeping rooms offered in the proposal.
    */
-  sleepingRooms?: Array<SleepingRoomJson> | undefined;
+  sleepingRooms?: Array<SleepingRoom1> | undefined;
   /**
    * Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by vendors, and the vendor marketplace is sunset.
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
-  categoryItemsCost?: CategoryItemsCostJson | undefined;
+  categoryItemsCost?: CategoryItemsCost | undefined;
   /**
    * The aggregated cost
    */
-  aggregatedCost?: AggregatedCostJson | undefined;
+  aggregatedCost?: AggregatedCost | undefined;
   /**
    * The estimated cost
    */
-  estimatedCost?: EstimatedCostJson | undefined;
+  estimatedCost?: EstimatedCost | undefined;
   /**
    * List of all contacts.
    */
-  contacts?: Array<ContactJson> | undefined;
+  contacts?: Array<Contact2> | undefined;
   /**
    * List of all planner contacts.
    */
-  plannerContacts?: Array<ContactJson> | undefined;
+  plannerContacts?: Array<Contact2> | undefined;
   /**
    * The meeting room.
    */
-  meetingRoom?: MeetingRoomJson | undefined;
+  meetingRoom?: MeetingRoom | undefined;
+  /**
+   * The agenda items with all agenda items and additional details
+   */
+  agendaItems?: AgendaItems | undefined;
+  /**
+   * List of Package Details
+   */
+  packages?: Array<Package> | undefined;
 };
 
 /** @internal */
 export type ProposalRequest$Outbound = {
   scpTemplateId?: string | undefined;
   type: string;
-  supplierSummary?: SupplierSummaryJson$Outbound | undefined;
-  rfpSummary?: RfpSummaryJson$Outbound | undefined;
-  eventSummary?: EventSummaryJson$Outbound | undefined;
-  statusSummary?: StatusSummaryJson$Outbound | undefined;
+  supplierSummary?: SupplierSummary$Outbound | undefined;
+  rfpSummary?: RfpSummary$Outbound | undefined;
+  eventSummary?: EventSummary$Outbound | undefined;
+  statusSummary?: StatusSummary$Outbound | undefined;
   introduction?: string | undefined;
   billingContractualResponse?: string | undefined;
   currencyCode?: string | undefined;
@@ -176,14 +188,16 @@ export type ProposalRequest$Outbound = {
   commissionRate?: number | undefined;
   name?: string | undefined;
   blockCode?: string | undefined;
-  proposalDates?: Array<ProposalDateJson$Outbound> | undefined;
-  sleepingRooms?: Array<SleepingRoomJson$Outbound> | undefined;
-  categoryItemsCost?: CategoryItemsCostJson$Outbound | undefined;
-  aggregatedCost?: AggregatedCostJson$Outbound | undefined;
-  estimatedCost?: EstimatedCostJson$Outbound | undefined;
-  contacts?: Array<ContactJson$Outbound> | undefined;
-  plannerContacts?: Array<ContactJson$Outbound> | undefined;
-  meetingRoom?: MeetingRoomJson$Outbound | undefined;
+  proposalDates?: Array<ProposalDate$Outbound> | undefined;
+  sleepingRooms?: Array<SleepingRoom1$Outbound> | undefined;
+  categoryItemsCost?: CategoryItemsCost$Outbound | undefined;
+  aggregatedCost?: AggregatedCost$Outbound | undefined;
+  estimatedCost?: EstimatedCost$Outbound | undefined;
+  contacts?: Array<Contact2$Outbound> | undefined;
+  plannerContacts?: Array<Contact2$Outbound> | undefined;
+  meetingRoom?: MeetingRoom$Outbound | undefined;
+  agendaItems?: AgendaItems$Outbound | undefined;
+  packages?: Array<Package$Outbound> | undefined;
 };
 
 /** @internal */
@@ -193,26 +207,28 @@ export const ProposalRequest$outboundSchema: z.ZodType<
   ProposalRequest
 > = z.object({
   scpTemplateId: z.string().optional(),
-  type: ProposalTypeJson$outboundSchema.default("VENUE"),
-  supplierSummary: SupplierSummaryJson$outboundSchema.optional(),
-  rfpSummary: RfpSummaryJson$outboundSchema.optional(),
-  eventSummary: EventSummaryJson$outboundSchema.optional(),
-  statusSummary: StatusSummaryJson$outboundSchema.optional(),
+  type: ProposalType$outboundSchema.default("VENUE"),
+  supplierSummary: SupplierSummary$outboundSchema.optional(),
+  rfpSummary: RfpSummary$outboundSchema.optional(),
+  eventSummary: EventSummary$outboundSchema.optional(),
+  statusSummary: StatusSummary$outboundSchema.optional(),
   introduction: z.string().optional(),
   billingContractualResponse: z.string().optional(),
-  currencyCode: CurrencyJson1$outboundSchema.optional(),
+  currencyCode: Currency$outboundSchema.optional(),
   commissionableBid: z.boolean().optional(),
   commissionRate: z.number().optional(),
   name: z.string().optional(),
   blockCode: z.string().optional(),
-  proposalDates: z.array(ProposalDateJson$outboundSchema).optional(),
-  sleepingRooms: z.array(SleepingRoomJson$outboundSchema).optional(),
-  categoryItemsCost: CategoryItemsCostJson$outboundSchema.optional(),
-  aggregatedCost: AggregatedCostJson$outboundSchema.optional(),
-  estimatedCost: EstimatedCostJson$outboundSchema.optional(),
-  contacts: z.array(ContactJson$outboundSchema).optional(),
-  plannerContacts: z.array(ContactJson$outboundSchema).optional(),
-  meetingRoom: MeetingRoomJson$outboundSchema.optional(),
+  proposalDates: z.array(ProposalDate$outboundSchema).optional(),
+  sleepingRooms: z.array(SleepingRoom1$outboundSchema).optional(),
+  categoryItemsCost: CategoryItemsCost$outboundSchema.optional(),
+  aggregatedCost: AggregatedCost$outboundSchema.optional(),
+  estimatedCost: EstimatedCost$outboundSchema.optional(),
+  contacts: z.array(Contact2$outboundSchema).optional(),
+  plannerContacts: z.array(Contact2$outboundSchema).optional(),
+  meetingRoom: MeetingRoom$outboundSchema.optional(),
+  agendaItems: AgendaItems$outboundSchema.optional(),
+  packages: z.array(Package$outboundSchema).optional(),
 });
 
 export function proposalRequestToJSON(

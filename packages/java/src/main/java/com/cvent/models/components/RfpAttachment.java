@@ -20,11 +20,11 @@ import java.util.Optional;
 /**
  * RfpAttachment
  *
- * <p>This object contains Rfp specific attachments attributes.
+ * <p>Attachment attributes and their supplier-level association.
  */
 public class RfpAttachment {
     /**
-     * Unique identifier for this attachment record.
+     * ID for an attachment record.
      */
     @JsonProperty("id")
     private String id;
@@ -51,7 +51,8 @@ public class RfpAttachment {
     private DocumentType1 type;
 
     /**
-     * True indicates the attachment is uploaded behind a secured URL.
+     * True indicates the attachment is uploaded behind a secure URL and won't be returned in the `url`
+     * field.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("secure")
@@ -72,18 +73,11 @@ public class RfpAttachment {
     private String uniqueName;
 
     /**
-     * The content type of the attachment
+     * The [MIME](https://www.iana.org/assignments/media-types) media type of the attachment.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("mimeType")
     private String mimeType;
-
-    /**
-     * The source from where the attachment was uploaded.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("source")
-    private AttachmentSource source;
 
     /**
      * The file path pointing to where the attachment is stored in Cvent. This path is relative to the base
@@ -94,13 +88,6 @@ public class RfpAttachment {
     private String relativePath;
 
     /**
-     * True indicates the attachment should be sent in emails that notify suppliers about RFPs.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("sendInEmail")
-    private Boolean sendInEmail;
-
-    /**
      * True indicates this attachment can be deleted.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -108,18 +95,11 @@ public class RfpAttachment {
     private Boolean deletionAllowed;
 
     /**
-     * URL of the attachment if `secure` is false. This field is null if `secure` is true.
+     * URL of the attachment. This field is null if `secure` is true.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("url")
     private String url;
-
-    /**
-     * Supplier associated with the attachment.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("supplier")
-    private RfpAttachmentSupplier supplier;
 
     /**
      * True indicates the attachment is only shown in the UI to the supplier whose ID is present in
@@ -128,6 +108,27 @@ public class RfpAttachment {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("supplierSpecific")
     private Boolean supplierSpecific;
+
+    /**
+     * The source from where the attachment was uploaded.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("source")
+    private AttachmentSource source;
+
+    /**
+     * True indicates the attachment should be sent in emails that notify suppliers about RFPs.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("sendInEmail")
+    private Boolean sendInEmail;
+
+    /**
+     * Supplier associated with the attachment.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("supplier")
+    private RfpAttachmentSupplier supplier;
 
     /**
      * True indicates the attachment is selected for the supplier whose ID is present in supplier.id field.
@@ -146,13 +147,13 @@ public class RfpAttachment {
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("uniqueName") @Nullable String uniqueName,
             @JsonProperty("mimeType") @Nullable String mimeType,
-            @JsonProperty("source") @Nullable AttachmentSource source,
             @JsonProperty("relativePath") @Nullable String relativePath,
-            @JsonProperty("sendInEmail") @Nullable Boolean sendInEmail,
             @JsonProperty("deletionAllowed") @Nullable Boolean deletionAllowed,
             @JsonProperty("url") @Nullable String url,
-            @JsonProperty("supplier") @Nullable RfpAttachmentSupplier supplier,
             @JsonProperty("supplierSpecific") @Nullable Boolean supplierSpecific,
+            @JsonProperty("source") @Nullable AttachmentSource source,
+            @JsonProperty("sendInEmail") @Nullable Boolean sendInEmail,
+            @JsonProperty("supplier") @Nullable RfpAttachmentSupplier supplier,
             @JsonProperty("selectedForSupplier") @Nullable Boolean selectedForSupplier) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.created = created;
@@ -162,13 +163,13 @@ public class RfpAttachment {
         this.name = name;
         this.uniqueName = uniqueName;
         this.mimeType = mimeType;
-        this.source = source;
         this.relativePath = relativePath;
-        this.sendInEmail = sendInEmail;
         this.deletionAllowed = deletionAllowed;
         this.url = url;
-        this.supplier = supplier;
         this.supplierSpecific = supplierSpecific;
+        this.source = source;
+        this.sendInEmail = sendInEmail;
+        this.supplier = supplier;
         this.selectedForSupplier = selectedForSupplier;
     }
 
@@ -177,7 +178,7 @@ public class RfpAttachment {
     }
 
     /**
-     * Unique identifier for this attachment record.
+     * ID for an attachment record.
      */
     public String id() {
         return this.id;
@@ -205,7 +206,8 @@ public class RfpAttachment {
     }
 
     /**
-     * True indicates the attachment is uploaded behind a secured URL.
+     * True indicates the attachment is uploaded behind a secure URL and won't be returned in the `url`
+     * field.
      */
     public Optional<Boolean> secure() {
         return Optional.ofNullable(this.secure);
@@ -226,17 +228,10 @@ public class RfpAttachment {
     }
 
     /**
-     * The content type of the attachment
+     * The [MIME](https://www.iana.org/assignments/media-types) media type of the attachment.
      */
     public Optional<String> mimeType() {
         return Optional.ofNullable(this.mimeType);
-    }
-
-    /**
-     * The source from where the attachment was uploaded.
-     */
-    public Optional<AttachmentSource> source() {
-        return Optional.ofNullable(this.source);
     }
 
     /**
@@ -248,13 +243,6 @@ public class RfpAttachment {
     }
 
     /**
-     * True indicates the attachment should be sent in emails that notify suppliers about RFPs.
-     */
-    public Optional<Boolean> sendInEmail() {
-        return Optional.ofNullable(this.sendInEmail);
-    }
-
-    /**
      * True indicates this attachment can be deleted.
      */
     public Optional<Boolean> deletionAllowed() {
@@ -262,17 +250,10 @@ public class RfpAttachment {
     }
 
     /**
-     * URL of the attachment if `secure` is false. This field is null if `secure` is true.
+     * URL of the attachment. This field is null if `secure` is true.
      */
     public Optional<String> url() {
         return Optional.ofNullable(this.url);
-    }
-
-    /**
-     * Supplier associated with the attachment.
-     */
-    public Optional<RfpAttachmentSupplier> supplier() {
-        return Optional.ofNullable(this.supplier);
     }
 
     /**
@@ -281,6 +262,27 @@ public class RfpAttachment {
      */
     public Optional<Boolean> supplierSpecific() {
         return Optional.ofNullable(this.supplierSpecific);
+    }
+
+    /**
+     * The source from where the attachment was uploaded.
+     */
+    public Optional<AttachmentSource> source() {
+        return Optional.ofNullable(this.source);
+    }
+
+    /**
+     * True indicates the attachment should be sent in emails that notify suppliers about RFPs.
+     */
+    public Optional<Boolean> sendInEmail() {
+        return Optional.ofNullable(this.sendInEmail);
+    }
+
+    /**
+     * Supplier associated with the attachment.
+     */
+    public Optional<RfpAttachmentSupplier> supplier() {
+        return Optional.ofNullable(this.supplier);
     }
 
     /**
@@ -295,7 +297,7 @@ public class RfpAttachment {
     }
 
     /**
-     * Unique identifier for this attachment record.
+     * ID for an attachment record.
      */
     public RfpAttachment withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -327,7 +329,8 @@ public class RfpAttachment {
     }
 
     /**
-     * True indicates the attachment is uploaded behind a secured URL.
+     * True indicates the attachment is uploaded behind a secure URL and won't be returned in the `url`
+     * field.
      */
     public RfpAttachment withSecure(@Nullable Boolean secure) {
         this.secure = secure;
@@ -351,18 +354,10 @@ public class RfpAttachment {
     }
 
     /**
-     * The content type of the attachment
+     * The [MIME](https://www.iana.org/assignments/media-types) media type of the attachment.
      */
     public RfpAttachment withMimeType(@Nullable String mimeType) {
         this.mimeType = mimeType;
-        return this;
-    }
-
-    /**
-     * The source from where the attachment was uploaded.
-     */
-    public RfpAttachment withSource(@Nullable AttachmentSource source) {
-        this.source = source;
         return this;
     }
 
@@ -376,14 +371,6 @@ public class RfpAttachment {
     }
 
     /**
-     * True indicates the attachment should be sent in emails that notify suppliers about RFPs.
-     */
-    public RfpAttachment withSendInEmail(@Nullable Boolean sendInEmail) {
-        this.sendInEmail = sendInEmail;
-        return this;
-    }
-
-    /**
      * True indicates this attachment can be deleted.
      */
     public RfpAttachment withDeletionAllowed(@Nullable Boolean deletionAllowed) {
@@ -392,18 +379,10 @@ public class RfpAttachment {
     }
 
     /**
-     * URL of the attachment if `secure` is false. This field is null if `secure` is true.
+     * URL of the attachment. This field is null if `secure` is true.
      */
     public RfpAttachment withUrl(@Nullable String url) {
         this.url = url;
-        return this;
-    }
-
-    /**
-     * Supplier associated with the attachment.
-     */
-    public RfpAttachment withSupplier(@Nullable RfpAttachmentSupplier supplier) {
-        this.supplier = supplier;
         return this;
     }
 
@@ -413,6 +392,30 @@ public class RfpAttachment {
      */
     public RfpAttachment withSupplierSpecific(@Nullable Boolean supplierSpecific) {
         this.supplierSpecific = supplierSpecific;
+        return this;
+    }
+
+    /**
+     * The source from where the attachment was uploaded.
+     */
+    public RfpAttachment withSource(@Nullable AttachmentSource source) {
+        this.source = source;
+        return this;
+    }
+
+    /**
+     * True indicates the attachment should be sent in emails that notify suppliers about RFPs.
+     */
+    public RfpAttachment withSendInEmail(@Nullable Boolean sendInEmail) {
+        this.sendInEmail = sendInEmail;
+        return this;
+    }
+
+    /**
+     * Supplier associated with the attachment.
+     */
+    public RfpAttachment withSupplier(@Nullable RfpAttachmentSupplier supplier) {
+        this.supplier = supplier;
         return this;
     }
 
@@ -441,13 +444,13 @@ public class RfpAttachment {
                 && Utils.enhancedDeepEquals(this.name, other.name)
                 && Utils.enhancedDeepEquals(this.uniqueName, other.uniqueName)
                 && Utils.enhancedDeepEquals(this.mimeType, other.mimeType)
-                && Utils.enhancedDeepEquals(this.source, other.source)
                 && Utils.enhancedDeepEquals(this.relativePath, other.relativePath)
-                && Utils.enhancedDeepEquals(this.sendInEmail, other.sendInEmail)
                 && Utils.enhancedDeepEquals(this.deletionAllowed, other.deletionAllowed)
                 && Utils.enhancedDeepEquals(this.url, other.url)
-                && Utils.enhancedDeepEquals(this.supplier, other.supplier)
                 && Utils.enhancedDeepEquals(this.supplierSpecific, other.supplierSpecific)
+                && Utils.enhancedDeepEquals(this.source, other.source)
+                && Utils.enhancedDeepEquals(this.sendInEmail, other.sendInEmail)
+                && Utils.enhancedDeepEquals(this.supplier, other.supplier)
                 && Utils.enhancedDeepEquals(this.selectedForSupplier, other.selectedForSupplier);
     }
 
@@ -462,13 +465,13 @@ public class RfpAttachment {
                 name,
                 uniqueName,
                 mimeType,
-                source,
                 relativePath,
-                sendInEmail,
                 deletionAllowed,
                 url,
-                supplier,
                 supplierSpecific,
+                source,
+                sendInEmail,
+                supplier,
                 selectedForSupplier);
     }
 
@@ -492,20 +495,20 @@ public class RfpAttachment {
                 uniqueName,
                 "mimeType",
                 mimeType,
-                "source",
-                source,
                 "relativePath",
                 relativePath,
-                "sendInEmail",
-                sendInEmail,
                 "deletionAllowed",
                 deletionAllowed,
                 "url",
                 url,
-                "supplier",
-                supplier,
                 "supplierSpecific",
                 supplierSpecific,
+                "source",
+                source,
+                "sendInEmail",
+                sendInEmail,
+                "supplier",
+                supplier,
                 "selectedForSupplier",
                 selectedForSupplier);
     }
@@ -529,19 +532,19 @@ public class RfpAttachment {
 
         private String mimeType;
 
-        private AttachmentSource source;
-
         private String relativePath;
-
-        private Boolean sendInEmail;
 
         private Boolean deletionAllowed;
 
         private String url;
 
-        private RfpAttachmentSupplier supplier;
-
         private Boolean supplierSpecific;
+
+        private AttachmentSource source;
+
+        private Boolean sendInEmail;
+
+        private RfpAttachmentSupplier supplier;
 
         private Boolean selectedForSupplier;
 
@@ -550,7 +553,7 @@ public class RfpAttachment {
         }
 
         /**
-         * Unique identifier for this attachment record.
+         * ID for an attachment record.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -582,7 +585,8 @@ public class RfpAttachment {
         }
 
         /**
-         * True indicates the attachment is uploaded behind a secured URL.
+         * True indicates the attachment is uploaded behind a secure URL and won't be returned in the `url`
+         * field.
          */
         public Builder secure(@Nullable Boolean secure) {
             this.secure = secure;
@@ -606,18 +610,10 @@ public class RfpAttachment {
         }
 
         /**
-         * The content type of the attachment
+         * The [MIME](https://www.iana.org/assignments/media-types) media type of the attachment.
          */
         public Builder mimeType(@Nullable String mimeType) {
             this.mimeType = mimeType;
-            return this;
-        }
-
-        /**
-         * The source from where the attachment was uploaded.
-         */
-        public Builder source(@Nullable AttachmentSource source) {
-            this.source = source;
             return this;
         }
 
@@ -631,14 +627,6 @@ public class RfpAttachment {
         }
 
         /**
-         * True indicates the attachment should be sent in emails that notify suppliers about RFPs.
-         */
-        public Builder sendInEmail(@Nullable Boolean sendInEmail) {
-            this.sendInEmail = sendInEmail;
-            return this;
-        }
-
-        /**
          * True indicates this attachment can be deleted.
          */
         public Builder deletionAllowed(@Nullable Boolean deletionAllowed) {
@@ -647,18 +635,10 @@ public class RfpAttachment {
         }
 
         /**
-         * URL of the attachment if `secure` is false. This field is null if `secure` is true.
+         * URL of the attachment. This field is null if `secure` is true.
          */
         public Builder url(@Nullable String url) {
             this.url = url;
-            return this;
-        }
-
-        /**
-         * Supplier associated with the attachment.
-         */
-        public Builder supplier(@Nullable RfpAttachmentSupplier supplier) {
-            this.supplier = supplier;
             return this;
         }
 
@@ -668,6 +648,30 @@ public class RfpAttachment {
          */
         public Builder supplierSpecific(@Nullable Boolean supplierSpecific) {
             this.supplierSpecific = supplierSpecific;
+            return this;
+        }
+
+        /**
+         * The source from where the attachment was uploaded.
+         */
+        public Builder source(@Nullable AttachmentSource source) {
+            this.source = source;
+            return this;
+        }
+
+        /**
+         * True indicates the attachment should be sent in emails that notify suppliers about RFPs.
+         */
+        public Builder sendInEmail(@Nullable Boolean sendInEmail) {
+            this.sendInEmail = sendInEmail;
+            return this;
+        }
+
+        /**
+         * Supplier associated with the attachment.
+         */
+        public Builder supplier(@Nullable RfpAttachmentSupplier supplier) {
+            this.supplier = supplier;
             return this;
         }
 
@@ -689,13 +693,13 @@ public class RfpAttachment {
                     name,
                     uniqueName,
                     mimeType,
-                    source,
                     relativePath,
-                    sendInEmail,
                     deletionAllowed,
                     url,
-                    supplier,
                     supplierSpecific,
+                    source,
+                    sendInEmail,
+                    supplier,
                     selectedForSupplier);
         }
     }

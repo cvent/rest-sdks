@@ -23,7 +23,7 @@ namespace Cvent.SDK.Models.Components
         /// Choices of custom fields.
         /// </summary>
         [JsonProperty("choices")]
-        public List<Choice2>? Choices { get; set; }
+        public List<Choice3>? Choices { get; set; }
 
         /// <summary>
         /// Display type indicating how to display the choices on UI. For 'Choice - Single Answer' custom field type, this defaults to Dropdown. For 'Choice - Multiple Answers' custom field type, this defaults to MultiSelectBox.

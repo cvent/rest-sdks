@@ -44,22 +44,22 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Event ID Information.
+        /// Budget Version ID Information.
         /// </summary>
         [JsonProperty("event")]
-        public Event1? Event { get; set; }
+        public BudgetVersionId? Event { get; set; }
 
         /// <summary>
-        /// Event ID Information.
+        /// Budget Version ID Information.
         /// </summary>
         [JsonProperty("rfp")]
-        public Event1? Rfp { get; set; }
+        public BudgetVersionId? Rfp { get; set; }
 
         /// <summary>
-        /// Event ID Information.
+        /// Budget Version ID Information.
         /// </summary>
         [JsonProperty("budgetVersion")]
-        public Event1? BudgetVersion { get; set; }
+        public BudgetVersionId? BudgetVersion { get; set; }
 
         /// <summary>
         /// The identifier of the budget item.

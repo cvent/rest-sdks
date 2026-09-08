@@ -30,31 +30,31 @@ namespace Cvent.SDK.Models.Components
         /// The type of the proposal.
         /// </summary>
         [JsonProperty("type")]
-        public ProposalTypeJson? Type { get; set; } = Cvent.SDK.Models.Components.ProposalTypeJson.Venue;
+        public ProposalType? Type { get; set; } = Cvent.SDK.Models.Components.ProposalType.Venue;
 
         /// <summary>
         /// Represents a summary of supplier information associated with current proposal.
         /// </summary>
         [JsonProperty("supplierSummary")]
-        public SupplierSummaryJson? SupplierSummary { get; set; }
+        public SupplierSummary? SupplierSummary { get; set; }
 
         /// <summary>
         /// Schema for Rfp details associated with this proposal.
         /// </summary>
         [JsonProperty("rfpSummary")]
-        public RfpSummaryJson? RfpSummary { get; set; }
+        public RfpSummary? RfpSummary { get; set; }
 
         /// <summary>
         /// Schema for event summary associated with this proposal.
         /// </summary>
         [JsonProperty("eventSummary")]
-        public EventSummaryJson? EventSummary { get; set; }
+        public EventSummary? EventSummary { get; set; }
 
         /// <summary>
         /// Represents a summary of status associated with this proposal.
         /// </summary>
         [JsonProperty("statusSummary")]
-        public StatusSummaryJson? StatusSummary { get; set; }
+        public StatusSummary? StatusSummary { get; set; }
 
         /// <summary>
         /// Introduction text for the proposal.
@@ -73,7 +73,7 @@ namespace Cvent.SDK.Models.Components
         /// The ISO 4217 standard format currency code used for RFPs.
         /// </summary>
         [JsonProperty("currencyCode")]
-        public CurrencyJson1? CurrencyCode { get; set; }
+        public Currency? CurrencyCode { get; set; }
 
         /// <summary>
         /// True indicates this is a commissionable bid.
@@ -103,49 +103,61 @@ namespace Cvent.SDK.Models.Components
         /// List of dates the venue is available.
         /// </summary>
         [JsonProperty("proposalDates")]
-        public List<ProposalDateJson>? ProposalDates { get; set; }
+        public List<ProposalDate>? ProposalDates { get; set; }
 
         /// <summary>
         /// List of all sleeping rooms offered in the proposal.
         /// </summary>
         [JsonProperty("sleepingRooms")]
-        public List<SleepingRoomJson>? SleepingRooms { get; set; }
+        public List<SleepingRoom1>? SleepingRooms { get; set; }
 
         /// <summary>
         /// Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by vendors, and the vendor marketplace is sunset.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("categoryItemsCost")]
-        public CategoryItemsCostJson? CategoryItemsCost { get; set; }
+        public CategoryItemsCost? CategoryItemsCost { get; set; }
 
         /// <summary>
         /// The aggregated cost.
         /// </summary>
         [JsonProperty("aggregatedCost")]
-        public AggregatedCostJson? AggregatedCost { get; set; }
+        public AggregatedCost? AggregatedCost { get; set; }
 
         /// <summary>
         /// The estimated cost.
         /// </summary>
         [JsonProperty("estimatedCost")]
-        public EstimatedCostJson? EstimatedCost { get; set; }
+        public EstimatedCost? EstimatedCost { get; set; }
 
         /// <summary>
         /// List of all contacts.
         /// </summary>
         [JsonProperty("contacts")]
-        public List<ContactJson>? Contacts { get; set; }
+        public List<Contact2>? Contacts { get; set; }
 
         /// <summary>
         /// List of all planner contacts.
         /// </summary>
         [JsonProperty("plannerContacts")]
-        public List<ContactJson>? PlannerContacts { get; set; }
+        public List<Contact2>? PlannerContacts { get; set; }
 
         /// <summary>
         /// The meeting room.
         /// </summary>
         [JsonProperty("meetingRoom")]
-        public MeetingRoomJson? MeetingRoom { get; set; }
+        public MeetingRoom? MeetingRoom { get; set; }
+
+        /// <summary>
+        /// The agenda items with all agenda items and additional details.
+        /// </summary>
+        [JsonProperty("agendaItems")]
+        public AgendaItems? AgendaItems { get; set; }
+
+        /// <summary>
+        /// List of Package Details.
+        /// </summary>
+        [JsonProperty("packages")]
+        public List<Package>? Packages { get; set; }
     }
 }

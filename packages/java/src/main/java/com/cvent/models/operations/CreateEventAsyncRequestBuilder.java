@@ -6,7 +6,7 @@ package com.cvent.models.operations;
 import static com.cvent.operations.Operations.RequestOperation;
 
 import com.cvent.SDKConfiguration;
-import com.cvent.models.components.Event1Input;
+import com.cvent.models.components.EventInput;
 import com.cvent.operations.CreateEventAsync;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
@@ -18,7 +18,7 @@ import jakarta.annotation.Nullable;
 public class CreateEventAsyncRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
-    private Event1Input request;
+    private EventInput request;
     private final Options.Builder optionsBuilder;
 
     public CreateEventAsyncRequestBuilder(SDKConfiguration sdkConfiguration) {
@@ -31,12 +31,12 @@ public class CreateEventAsyncRequestBuilder {
         return this;
     }
 
-    public CreateEventAsyncRequestBuilder request(@Nonnull Event1Input request) {
+    public CreateEventAsyncRequestBuilder request(@Nonnull EventInput request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
 
-    private Event1Input _buildRequest() {
+    private EventInput _buildRequest() {
         return this.request;
     }
 
@@ -54,7 +54,7 @@ public class CreateEventAsyncRequestBuilder {
      */
     public CreateEventAsyncResponse call() {
         Options options = optionsBuilder.build();
-        RequestOperation<Event1Input, CreateEventAsyncResponse> operation =
+        RequestOperation<EventInput, CreateEventAsyncResponse> operation =
                 new CreateEventAsync.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }

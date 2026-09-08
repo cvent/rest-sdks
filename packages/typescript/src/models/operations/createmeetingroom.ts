@@ -14,7 +14,7 @@ export type CreateMeetingRoomRequest = {
    * Unique Cvent based identifier for a Venue.
    */
   venueId: string;
-  meetingRoom: components.MeetingRoom;
+  meetingRoom: components.MeetingRoomInput;
 };
 
 export type CreateMeetingRoomResponse = {
@@ -25,7 +25,7 @@ export type CreateMeetingRoomResponse = {
 /** @internal */
 export type CreateMeetingRoomRequest$Outbound = {
   venueId: string;
-  meetingRoom: components.MeetingRoom$Outbound;
+  meetingRoom: components.MeetingRoomInput$Outbound;
 };
 
 /** @internal */
@@ -35,7 +35,7 @@ export const CreateMeetingRoomRequest$outboundSchema: z.ZodType<
   CreateMeetingRoomRequest
 > = z.object({
   venueId: z.string(),
-  meetingRoom: components.MeetingRoom$outboundSchema,
+  meetingRoom: components.MeetingRoomInput$outboundSchema,
 });
 
 export function createMeetingRoomRequestToJSON(

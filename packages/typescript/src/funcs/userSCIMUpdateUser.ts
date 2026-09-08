@@ -41,7 +41,7 @@ export function userSCIMUpdateUser(
 ): APIPromise<
   Result<
     components.User,
-    | errors.ErrorResponse2
+    | errors.ErrorResponse14
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -67,7 +67,7 @@ async function $do(
   [
     Result<
       components.User,
-      | errors.ErrorResponse2
+      | errors.ErrorResponse14
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -165,7 +165,7 @@ async function $do(
 
   const [result] = await M.match<
     components.User,
-    | errors.ErrorResponse2
+    | errors.ErrorResponse14
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -176,7 +176,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, components.User$inboundSchema),
-    M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse2$inboundSchema),
+    M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse14$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

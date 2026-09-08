@@ -3,16 +3,12 @@
  */
 
 import * as z from "zod/v3";
+import { Uuid, Uuid$Outbound, Uuid$outboundSchema } from "./uuid.js";
 import {
-  UuidJson,
-  UuidJson$Outbound,
-  UuidJson$outboundSchema,
-} from "./uuidjson.js";
-import {
-  WebcastLinkJson,
-  WebcastLinkJson$Outbound,
-  WebcastLinkJson$outboundSchema,
-} from "./webcastlinkjson.js";
+  WebcastLink,
+  WebcastLink$Outbound,
+  WebcastLink$outboundSchema,
+} from "./webcastlink.js";
 
 /**
  * An existing attendee link.
@@ -21,19 +17,19 @@ export type ExistingAttendeeLinkInput = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  webcast: UuidJson;
+  webcast: Uuid;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  event?: UuidJson | undefined;
+  event?: Uuid | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  session?: UuidJson | undefined;
+  session?: Uuid | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  attendee: UuidJson;
+  attendee: Uuid;
   /**
    * Source Id of the webcast provider
    */
@@ -41,17 +37,17 @@ export type ExistingAttendeeLinkInput = {
   /**
    * Link details for a webcast.
    */
-  join?: WebcastLinkJson | undefined;
+  join?: WebcastLink | undefined;
 };
 
 /** @internal */
 export type ExistingAttendeeLinkInput$Outbound = {
-  webcast: UuidJson$Outbound;
-  event?: UuidJson$Outbound | undefined;
-  session?: UuidJson$Outbound | undefined;
-  attendee: UuidJson$Outbound;
+  webcast: Uuid$Outbound;
+  event?: Uuid$Outbound | undefined;
+  session?: Uuid$Outbound | undefined;
+  attendee: Uuid$Outbound;
   sourceId?: string | undefined;
-  join?: WebcastLinkJson$Outbound | undefined;
+  join?: WebcastLink$Outbound | undefined;
 };
 
 /** @internal */
@@ -60,12 +56,12 @@ export const ExistingAttendeeLinkInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ExistingAttendeeLinkInput
 > = z.object({
-  webcast: UuidJson$outboundSchema,
-  event: UuidJson$outboundSchema.optional(),
-  session: UuidJson$outboundSchema.optional(),
-  attendee: UuidJson$outboundSchema,
+  webcast: Uuid$outboundSchema,
+  event: Uuid$outboundSchema.optional(),
+  session: Uuid$outboundSchema.optional(),
+  attendee: Uuid$outboundSchema,
   sourceId: z.string().optional(),
-  join: WebcastLinkJson$outboundSchema.optional(),
+  join: WebcastLink$outboundSchema.optional(),
 });
 
 export function existingAttendeeLinkInputToJSON(

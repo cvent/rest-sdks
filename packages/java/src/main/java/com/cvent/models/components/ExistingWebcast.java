@@ -56,21 +56,21 @@ public class ExistingWebcast {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private UuidJson event;
+    private Uuid event;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("session")
-    private UuidJson session;
+    private Uuid session;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("appointment")
-    private UuidJson appointment;
+    private Uuid appointment;
 
     /**
      * This is used to denote the solution type to be used for webcast. The 'Cvent Video Conferencing'
@@ -79,49 +79,49 @@ public class ExistingWebcast {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("solutionType")
-    private SolutionTypeJson solutionType;
+    private SolutionType solutionType;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
-    private UuidJson exhibitor;
+    private Uuid exhibitor;
 
     /**
      * This is used to denote the format of a webcast
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("format")
-    private FormatJson format;
+    private Format format;
 
     /**
      * This is used to denote the type of a webcast
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private WebcastTypeJson type;
+    private WebcastType type;
 
     /**
      * Name of the webcast provider.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("provider")
-    private WebcastProviderJson provider;
+    private WebcastProvider provider;
 
     /**
      * This is used to denote the status of a webcast
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private WebcastStatusJson status;
+    private WebcastStatus status;
 
     /**
      * This is used to denote the type of a video player
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("playerType")
-    private PlayerTypeJson playerType;
+    private PlayerType playerType;
 
     /**
      * Indicates if the webcast is simulated live or not
@@ -177,7 +177,7 @@ public class ExistingWebcast {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("_links")
-    private WebcastLinksJson links;
+    private WebcastLinks links;
 
     /**
      * Additional information related to the webcast
@@ -206,16 +206,16 @@ public class ExistingWebcast {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nullable UuidJson event,
-            @JsonProperty("session") @Nullable UuidJson session,
-            @JsonProperty("appointment") @Nullable UuidJson appointment,
-            @JsonProperty("solutionType") @Nullable SolutionTypeJson solutionType,
-            @JsonProperty("exhibitor") @Nullable UuidJson exhibitor,
-            @JsonProperty("format") @Nullable FormatJson format,
-            @JsonProperty("type") @Nullable WebcastTypeJson type,
-            @JsonProperty("provider") @Nullable WebcastProviderJson provider,
-            @JsonProperty("status") @Nullable WebcastStatusJson status,
-            @JsonProperty("playerType") @Nullable PlayerTypeJson playerType,
+            @JsonProperty("event") @Nullable Uuid event,
+            @JsonProperty("session") @Nullable Uuid session,
+            @JsonProperty("appointment") @Nullable Uuid appointment,
+            @JsonProperty("solutionType") @Nullable SolutionType solutionType,
+            @JsonProperty("exhibitor") @Nullable Uuid exhibitor,
+            @JsonProperty("format") @Nullable Format format,
+            @JsonProperty("type") @Nullable WebcastType type,
+            @JsonProperty("provider") @Nullable WebcastProvider provider,
+            @JsonProperty("status") @Nullable WebcastStatus status,
+            @JsonProperty("playerType") @Nullable PlayerType playerType,
             @JsonProperty("simulatedLive") @Nullable Boolean simulatedLive,
             @JsonProperty("recordLiveStream") @Nullable Boolean recordLiveStream,
             @JsonProperty("autoAddToLibrary") @Nullable Boolean autoAddToLibrary,
@@ -223,7 +223,7 @@ public class ExistingWebcast {
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("title") @Nullable String title,
             @JsonProperty("meetingId") @Nullable String meetingId,
-            @JsonProperty("_links") @Nullable WebcastLinksJson links,
+            @JsonProperty("_links") @Nullable WebcastLinks links,
             @JsonProperty("details") @Nullable String details,
             @JsonProperty("video") @Nullable Video video,
             @JsonProperty("id") @Nullable String id) {
@@ -315,21 +315,21 @@ public class ExistingWebcast {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> event() {
+    public Optional<Uuid> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> session() {
+    public Optional<Uuid> session() {
         return Optional.ofNullable(this.session);
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> appointment() {
+    public Optional<Uuid> appointment() {
         return Optional.ofNullable(this.appointment);
     }
 
@@ -338,49 +338,49 @@ public class ExistingWebcast {
      * refers to the video experience which links out the Attendee hub whereas 'Embedded Cvent Video
      * Conferencing' refers to the video experience within the Attendee hub.
      */
-    public Optional<SolutionTypeJson> solutionType() {
+    public Optional<SolutionType> solutionType() {
         return Optional.ofNullable(this.solutionType);
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> exhibitor() {
+    public Optional<Uuid> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
     /**
      * This is used to denote the format of a webcast
      */
-    public Optional<FormatJson> format() {
+    public Optional<Format> format() {
         return Optional.ofNullable(this.format);
     }
 
     /**
      * This is used to denote the type of a webcast
      */
-    public Optional<WebcastTypeJson> type() {
+    public Optional<WebcastType> type() {
         return Optional.ofNullable(this.type);
     }
 
     /**
      * Name of the webcast provider.
      */
-    public Optional<WebcastProviderJson> provider() {
+    public Optional<WebcastProvider> provider() {
         return Optional.ofNullable(this.provider);
     }
 
     /**
      * This is used to denote the status of a webcast
      */
-    public Optional<WebcastStatusJson> status() {
+    public Optional<WebcastStatus> status() {
         return Optional.ofNullable(this.status);
     }
 
     /**
      * This is used to denote the type of a video player
      */
-    public Optional<PlayerTypeJson> playerType() {
+    public Optional<PlayerType> playerType() {
         return Optional.ofNullable(this.playerType);
     }
 
@@ -436,7 +436,7 @@ public class ExistingWebcast {
     /**
      * webcast link references
      */
-    public Optional<WebcastLinksJson> links() {
+    public Optional<WebcastLinks> links() {
         return Optional.ofNullable(this.links);
     }
 
@@ -500,7 +500,7 @@ public class ExistingWebcast {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExistingWebcast withEvent(@Nullable UuidJson event) {
+    public ExistingWebcast withEvent(@Nullable Uuid event) {
         this.event = event;
         return this;
     }
@@ -508,7 +508,7 @@ public class ExistingWebcast {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExistingWebcast withSession(@Nullable UuidJson session) {
+    public ExistingWebcast withSession(@Nullable Uuid session) {
         this.session = session;
         return this;
     }
@@ -516,7 +516,7 @@ public class ExistingWebcast {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExistingWebcast withAppointment(@Nullable UuidJson appointment) {
+    public ExistingWebcast withAppointment(@Nullable Uuid appointment) {
         this.appointment = appointment;
         return this;
     }
@@ -526,7 +526,7 @@ public class ExistingWebcast {
      * refers to the video experience which links out the Attendee hub whereas 'Embedded Cvent Video
      * Conferencing' refers to the video experience within the Attendee hub.
      */
-    public ExistingWebcast withSolutionType(@Nullable SolutionTypeJson solutionType) {
+    public ExistingWebcast withSolutionType(@Nullable SolutionType solutionType) {
         this.solutionType = solutionType;
         return this;
     }
@@ -534,7 +534,7 @@ public class ExistingWebcast {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExistingWebcast withExhibitor(@Nullable UuidJson exhibitor) {
+    public ExistingWebcast withExhibitor(@Nullable Uuid exhibitor) {
         this.exhibitor = exhibitor;
         return this;
     }
@@ -542,7 +542,7 @@ public class ExistingWebcast {
     /**
      * This is used to denote the format of a webcast
      */
-    public ExistingWebcast withFormat(@Nullable FormatJson format) {
+    public ExistingWebcast withFormat(@Nullable Format format) {
         this.format = format;
         return this;
     }
@@ -550,7 +550,7 @@ public class ExistingWebcast {
     /**
      * This is used to denote the type of a webcast
      */
-    public ExistingWebcast withType(@Nullable WebcastTypeJson type) {
+    public ExistingWebcast withType(@Nullable WebcastType type) {
         this.type = type;
         return this;
     }
@@ -558,7 +558,7 @@ public class ExistingWebcast {
     /**
      * Name of the webcast provider.
      */
-    public ExistingWebcast withProvider(@Nullable WebcastProviderJson provider) {
+    public ExistingWebcast withProvider(@Nullable WebcastProvider provider) {
         this.provider = provider;
         return this;
     }
@@ -566,7 +566,7 @@ public class ExistingWebcast {
     /**
      * This is used to denote the status of a webcast
      */
-    public ExistingWebcast withStatus(@Nullable WebcastStatusJson status) {
+    public ExistingWebcast withStatus(@Nullable WebcastStatus status) {
         this.status = status;
         return this;
     }
@@ -574,7 +574,7 @@ public class ExistingWebcast {
     /**
      * This is used to denote the type of a video player
      */
-    public ExistingWebcast withPlayerType(@Nullable PlayerTypeJson playerType) {
+    public ExistingWebcast withPlayerType(@Nullable PlayerType playerType) {
         this.playerType = playerType;
         return this;
     }
@@ -638,7 +638,7 @@ public class ExistingWebcast {
     /**
      * webcast link references
      */
-    public ExistingWebcast withLinks(@Nullable WebcastLinksJson links) {
+    public ExistingWebcast withLinks(@Nullable WebcastLinks links) {
         this.links = links;
         return this;
     }
@@ -800,25 +800,25 @@ public class ExistingWebcast {
 
         private String lastModifiedBy;
 
-        private UuidJson event;
+        private Uuid event;
 
-        private UuidJson session;
+        private Uuid session;
 
-        private UuidJson appointment;
+        private Uuid appointment;
 
-        private SolutionTypeJson solutionType;
+        private SolutionType solutionType;
 
-        private UuidJson exhibitor;
+        private Uuid exhibitor;
 
-        private FormatJson format;
+        private Format format;
 
-        private WebcastTypeJson type;
+        private WebcastType type;
 
-        private WebcastProviderJson provider;
+        private WebcastProvider provider;
 
-        private WebcastStatusJson status;
+        private WebcastStatus status;
 
-        private PlayerTypeJson playerType;
+        private PlayerType playerType;
 
         private Boolean simulatedLive;
 
@@ -834,7 +834,7 @@ public class ExistingWebcast {
 
         private String meetingId;
 
-        private WebcastLinksJson links;
+        private WebcastLinks links;
 
         private String details;
 
@@ -881,7 +881,7 @@ public class ExistingWebcast {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder event(@Nullable UuidJson event) {
+        public Builder event(@Nullable Uuid event) {
             this.event = event;
             return this;
         }
@@ -889,7 +889,7 @@ public class ExistingWebcast {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder session(@Nullable UuidJson session) {
+        public Builder session(@Nullable Uuid session) {
             this.session = session;
             return this;
         }
@@ -897,7 +897,7 @@ public class ExistingWebcast {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder appointment(@Nullable UuidJson appointment) {
+        public Builder appointment(@Nullable Uuid appointment) {
             this.appointment = appointment;
             return this;
         }
@@ -907,7 +907,7 @@ public class ExistingWebcast {
          * refers to the video experience which links out the Attendee hub whereas 'Embedded Cvent Video
          * Conferencing' refers to the video experience within the Attendee hub.
          */
-        public Builder solutionType(@Nullable SolutionTypeJson solutionType) {
+        public Builder solutionType(@Nullable SolutionType solutionType) {
             this.solutionType = solutionType;
             return this;
         }
@@ -915,7 +915,7 @@ public class ExistingWebcast {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder exhibitor(@Nullable UuidJson exhibitor) {
+        public Builder exhibitor(@Nullable Uuid exhibitor) {
             this.exhibitor = exhibitor;
             return this;
         }
@@ -923,7 +923,7 @@ public class ExistingWebcast {
         /**
          * This is used to denote the format of a webcast
          */
-        public Builder format(@Nullable FormatJson format) {
+        public Builder format(@Nullable Format format) {
             this.format = format;
             return this;
         }
@@ -931,7 +931,7 @@ public class ExistingWebcast {
         /**
          * This is used to denote the type of a webcast
          */
-        public Builder type(@Nullable WebcastTypeJson type) {
+        public Builder type(@Nullable WebcastType type) {
             this.type = type;
             return this;
         }
@@ -939,7 +939,7 @@ public class ExistingWebcast {
         /**
          * Name of the webcast provider.
          */
-        public Builder provider(@Nullable WebcastProviderJson provider) {
+        public Builder provider(@Nullable WebcastProvider provider) {
             this.provider = provider;
             return this;
         }
@@ -947,7 +947,7 @@ public class ExistingWebcast {
         /**
          * This is used to denote the status of a webcast
          */
-        public Builder status(@Nullable WebcastStatusJson status) {
+        public Builder status(@Nullable WebcastStatus status) {
             this.status = status;
             return this;
         }
@@ -955,7 +955,7 @@ public class ExistingWebcast {
         /**
          * This is used to denote the type of a video player
          */
-        public Builder playerType(@Nullable PlayerTypeJson playerType) {
+        public Builder playerType(@Nullable PlayerType playerType) {
             this.playerType = playerType;
             return this;
         }
@@ -1019,7 +1019,7 @@ public class ExistingWebcast {
         /**
          * webcast link references
          */
-        public Builder links(@Nullable WebcastLinksJson links) {
+        public Builder links(@Nullable WebcastLinks links) {
             this.links = links;
             return this;
         }
@@ -1077,8 +1077,8 @@ public class ExistingWebcast {
                     id);
         }
 
-        private static final LazySingletonValue<FormatJson> _SINGLETON_VALUE_Format =
-                new LazySingletonValue<>("format", "\"Live\"", new TypeReference<FormatJson>() {});
+        private static final LazySingletonValue<Format> _SINGLETON_VALUE_Format =
+                new LazySingletonValue<>("format", "\"Live\"", new TypeReference<Format>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_AutoAddToLibrary =
                 new LazySingletonValue<>("autoAddToLibrary", "false", new TypeReference<Boolean>() {});

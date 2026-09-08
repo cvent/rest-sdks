@@ -53,27 +53,27 @@ public class ExistingAttendeeLink {
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonProperty("webcast")
-    private UuidJson webcast;
+    private Uuid webcast;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private UuidJson event;
+    private Uuid event;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("session")
-    private UuidJson session;
+    private Uuid session;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonProperty("attendee")
-    private UuidJson attendee;
+    private Uuid attendee;
 
     /**
      * Source Id of the webcast provider
@@ -87,7 +87,7 @@ public class ExistingAttendeeLink {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("join")
-    private WebcastLinkJson join;
+    private WebcastLink join;
 
     /**
      * Attendee-link ID
@@ -101,12 +101,12 @@ public class ExistingAttendeeLink {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("webcast") @Nonnull UuidJson webcast,
-            @JsonProperty("event") @Nullable UuidJson event,
-            @JsonProperty("session") @Nullable UuidJson session,
-            @JsonProperty("attendee") @Nonnull UuidJson attendee,
+            @JsonProperty("webcast") @Nonnull Uuid webcast,
+            @JsonProperty("event") @Nullable Uuid event,
+            @JsonProperty("session") @Nullable Uuid session,
+            @JsonProperty("attendee") @Nonnull Uuid attendee,
             @JsonProperty("sourceId") @Nullable String sourceId,
-            @JsonProperty("join") @Nullable WebcastLinkJson join,
+            @JsonProperty("join") @Nullable WebcastLink join,
             @JsonProperty("id") @Nonnull String id) {
         this.created = created;
         this.createdBy = createdBy;
@@ -123,7 +123,7 @@ public class ExistingAttendeeLink {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
-    public ExistingAttendeeLink(@Nonnull UuidJson webcast, @Nonnull UuidJson attendee, @Nonnull String id) {
+    public ExistingAttendeeLink(@Nonnull Uuid webcast, @Nonnull Uuid attendee, @Nonnull String id) {
         this(null, null, null, null, webcast, null, null, attendee, null, null, id);
     }
 
@@ -158,28 +158,28 @@ public class ExistingAttendeeLink {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public UuidJson webcast() {
+    public Uuid webcast() {
         return this.webcast;
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> event() {
+    public Optional<Uuid> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> session() {
+    public Optional<Uuid> session() {
         return Optional.ofNullable(this.session);
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public UuidJson attendee() {
+    public Uuid attendee() {
         return this.attendee;
     }
 
@@ -193,7 +193,7 @@ public class ExistingAttendeeLink {
     /**
      * Link details for a webcast.
      */
-    public Optional<WebcastLinkJson> join() {
+    public Optional<WebcastLink> join() {
         return Optional.ofNullable(this.join);
     }
 
@@ -243,7 +243,7 @@ public class ExistingAttendeeLink {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExistingAttendeeLink withWebcast(@Nonnull UuidJson webcast) {
+    public ExistingAttendeeLink withWebcast(@Nonnull Uuid webcast) {
         this.webcast = Utils.checkNotNull(webcast, "webcast");
         return this;
     }
@@ -251,7 +251,7 @@ public class ExistingAttendeeLink {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExistingAttendeeLink withEvent(@Nullable UuidJson event) {
+    public ExistingAttendeeLink withEvent(@Nullable Uuid event) {
         this.event = event;
         return this;
     }
@@ -259,7 +259,7 @@ public class ExistingAttendeeLink {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExistingAttendeeLink withSession(@Nullable UuidJson session) {
+    public ExistingAttendeeLink withSession(@Nullable Uuid session) {
         this.session = session;
         return this;
     }
@@ -267,7 +267,7 @@ public class ExistingAttendeeLink {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExistingAttendeeLink withAttendee(@Nonnull UuidJson attendee) {
+    public ExistingAttendeeLink withAttendee(@Nonnull Uuid attendee) {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
@@ -283,7 +283,7 @@ public class ExistingAttendeeLink {
     /**
      * Link details for a webcast.
      */
-    public ExistingAttendeeLink withJoin(@Nullable WebcastLinkJson join) {
+    public ExistingAttendeeLink withJoin(@Nullable WebcastLink join) {
         this.join = join;
         return this;
     }
@@ -373,17 +373,17 @@ public class ExistingAttendeeLink {
 
         private String lastModifiedBy;
 
-        private UuidJson webcast;
+        private Uuid webcast;
 
-        private UuidJson event;
+        private Uuid event;
 
-        private UuidJson session;
+        private Uuid session;
 
-        private UuidJson attendee;
+        private Uuid attendee;
 
         private String sourceId;
 
-        private WebcastLinkJson join;
+        private WebcastLink join;
 
         private String id;
 
@@ -426,7 +426,7 @@ public class ExistingAttendeeLink {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder webcast(@Nonnull UuidJson webcast) {
+        public Builder webcast(@Nonnull Uuid webcast) {
             this.webcast = Utils.checkNotNull(webcast, "webcast");
             return this;
         }
@@ -434,7 +434,7 @@ public class ExistingAttendeeLink {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder event(@Nullable UuidJson event) {
+        public Builder event(@Nullable Uuid event) {
             this.event = event;
             return this;
         }
@@ -442,7 +442,7 @@ public class ExistingAttendeeLink {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder session(@Nullable UuidJson session) {
+        public Builder session(@Nullable Uuid session) {
             this.session = session;
             return this;
         }
@@ -450,7 +450,7 @@ public class ExistingAttendeeLink {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder attendee(@Nonnull UuidJson attendee) {
+        public Builder attendee(@Nonnull Uuid attendee) {
             this.attendee = Utils.checkNotNull(attendee, "attendee");
             return this;
         }
@@ -466,7 +466,7 @@ public class ExistingAttendeeLink {
         /**
          * Link details for a webcast.
          */
-        public Builder join(@Nullable WebcastLinkJson join) {
+        public Builder join(@Nullable WebcastLink join) {
             this.join = join;
             return this;
         }

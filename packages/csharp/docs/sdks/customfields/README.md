@@ -70,7 +70,7 @@ while(res != null)
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 429                      | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## CreateCustomField
@@ -96,12 +96,12 @@ var sdk = new CventSDK(security: new Security() {
     },
 });
 
-CustomField2 req = new CustomField2() {
+CustomField1 req = new CustomField1() {
     Category = CustomFieldCategory.Contact,
     Name = "What is a your favorite color?",
     Code = "FAVORITE_COLOR_CODE",
     Type = CustomFieldType2.OpenEndedTextOneLine,
-    Details = CustomField2Details.CreateOpenEndedOneLine(
+    Details = CustomField1Details.CreateOpenEndedOneLine(
         new OpenEndedOneLine() {
             AnswerFormat = "General",
             Minimum = 2,
@@ -121,7 +121,7 @@ var res = await sdk.CustomFields.CreateCustomFieldAsync(req);
 
 | Parameter                                               | Type                                                    | Required                                                | Description                                             |
 | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
-| `request`                                               | [CustomField2](../../Models/Components/CustomField2.md) | :heavy_check_mark:                                      | The request object to use for the request.              |
+| `request`                                               | [CustomField1](../../Models/Components/CustomField1.md) | :heavy_check_mark:                                      | The request object to use for the request.              |
 
 ### Response
 
@@ -131,7 +131,7 @@ var res = await sdk.CustomFields.CreateCustomFieldAsync(req);
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 429                      | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## UpdateCustomField
@@ -168,8 +168,8 @@ UpdateCustomFieldRequest req = new UpdateCustomFieldRequest() {
         Type = CustomFieldType2.OpenEndedTextOneLine,
         Details = ExistingCustomFieldDetailsInput.CreateChoices1Input(
             new Choices1Input() {
-                Choices = new List<Choice2Input>() {
-                    new Choice2Input() {
+                Choices = new List<Choice3Input>() {
+                    new Choice3Input() {
                         Text = "What is your current designation?",
                     },
                 },
@@ -199,7 +199,7 @@ var res = await sdk.CustomFields.UpdateCustomFieldAsync(req);
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetCustomField
@@ -249,7 +249,7 @@ var res = await sdk.CustomFields.GetCustomFieldAsync(req);
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 401, 403, 404, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 401, 403, 404, 429                      | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## UpdateCustomFieldAdvancedLogic
@@ -302,7 +302,7 @@ var res = await sdk.CustomFields.UpdateCustomFieldAdvancedLogicAsync(req);
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## CreateCustomFieldTranslation
@@ -365,7 +365,7 @@ var res = await sdk.CustomFields.CreateCustomFieldTranslationAsync(req);
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## UpdateCustomFieldTranslation
@@ -428,5 +428,5 @@ var res = await sdk.CustomFields.UpdateCustomFieldTranslationAsync(req);
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse11 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |

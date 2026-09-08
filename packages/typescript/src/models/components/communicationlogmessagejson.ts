@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AttachmentJson1,
-  AttachmentJson1$inboundSchema,
-} from "./attachmentjson1.js";
+  AttachmentJson,
+  AttachmentJson$inboundSchema,
+} from "./attachmentjson.js";
 import { AttendeeJson, AttendeeJson$inboundSchema } from "./attendeejson.js";
 import { ChannelJson, ChannelJson$inboundSchema } from "./channeljson.js";
 import {
@@ -136,7 +136,7 @@ export type CommunicationLogMessageJson = {
   /**
    * A collection of attachments that are associated with this message.
    */
-  attachments?: Array<AttachmentJson1> | undefined;
+  attachments?: Array<AttachmentJson> | undefined;
 };
 
 /** @internal */
@@ -237,7 +237,7 @@ export const CommunicationLogMessageJson$inboundSchema: z.ZodType<
     z.lazy(() => SessionQaMessage$inboundSchema),
     z.lazy(() => EmailMessage$inboundSchema),
   ]),
-  attachments: z.array(AttachmentJson1$inboundSchema).optional(),
+  attachments: z.array(AttachmentJson$inboundSchema).optional(),
 });
 
 export function communicationLogMessageJsonFromJSON(

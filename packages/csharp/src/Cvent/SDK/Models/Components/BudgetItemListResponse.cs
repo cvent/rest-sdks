@@ -171,6 +171,12 @@ namespace Cvent.SDK.Models.Components
         public string? AssociatedSession { get; set; }
 
         /// <summary>
+        /// Budget Version ID Information.
+        /// </summary>
+        [JsonProperty("budgetVersion")]
+        public BudgetVersionId? BudgetVersion { get; set; }
+
+        /// <summary>
         /// List of budget item custom fields.
         /// </summary>
         [JsonProperty("customFields")]

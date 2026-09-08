@@ -16,6 +16,7 @@ import {
   RoomAttendeeType,
   RoomAttendeeType$inboundSchema,
 } from "./roomattendeetype.js";
+import { RoomCategory, RoomCategory$inboundSchema } from "./roomcategory.js";
 
 /**
  * Room type details.
@@ -50,6 +51,10 @@ export type RoomTypeDetails = {
    */
   images?: Array<ImageLink> | undefined;
   /**
+   * The category that classifies a room type.
+   */
+  roomCategory?: RoomCategory | undefined;
+  /**
    * Specifies a custom sort order defined by the user. This property is applicable only when the default price-based sorting is not active.
    */
   customOrder?: number | undefined;
@@ -68,6 +73,7 @@ export const RoomTypeDetails$inboundSchema: z.ZodType<
   name: z.string(),
   description: z.string(),
   images: z.array(ImageLink$inboundSchema).optional(),
+  roomCategory: RoomCategory$inboundSchema.optional(),
   customOrder: z.number().int().optional(),
 });
 

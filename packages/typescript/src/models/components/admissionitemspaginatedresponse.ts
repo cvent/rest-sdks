@@ -10,7 +10,7 @@ import {
   ExistingAdmissionItem,
   ExistingAdmissionItem$inboundSchema,
 } from "./existingadmissionitem.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * Paginated collection of admission items.
@@ -19,7 +19,7 @@ export type AdmissionItemsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * A collection of admission items and their associated details.
    */
@@ -32,7 +32,7 @@ export const AdmissionItemsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
+  paging: Paging$inboundSchema,
   data: z.array(ExistingAdmissionItem$inboundSchema),
 });
 

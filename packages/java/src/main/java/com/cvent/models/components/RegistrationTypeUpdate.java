@@ -90,7 +90,7 @@ public class RegistrationTypeUpdate {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("capacity")
-    private CapacityJson capacity;
+    private Capacity1 capacity;
 
     @JsonCreator
     public RegistrationTypeUpdate(
@@ -103,7 +103,7 @@ public class RegistrationTypeUpdate {
             @JsonProperty("automaticEndDate") @Nullable OffsetDateTime automaticEndDate,
             @JsonProperty("event") @Nullable RegistrationTypeUpdateEvent event,
             @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("capacity") @Nullable CapacityJson capacity) {
+            @JsonProperty("capacity") @Nullable Capacity1 capacity) {
         this.name = name;
         this.code = code;
         this.description = description;
@@ -188,7 +188,7 @@ public class RegistrationTypeUpdate {
     /**
      * Represents capacity statistics of the registration type.
      */
-    public Optional<CapacityJson> capacity() {
+    public Optional<Capacity1> capacity() {
         return Optional.ofNullable(this.capacity);
     }
 
@@ -273,7 +273,7 @@ public class RegistrationTypeUpdate {
     /**
      * Represents capacity statistics of the registration type.
      */
-    public RegistrationTypeUpdate withCapacity(@Nullable CapacityJson capacity) {
+    public RegistrationTypeUpdate withCapacity(@Nullable Capacity1 capacity) {
         this.capacity = capacity;
         return this;
     }
@@ -361,7 +361,7 @@ public class RegistrationTypeUpdate {
 
         private String id;
 
-        private CapacityJson capacity;
+        private Capacity1 capacity;
 
         private Builder() {
             // force use of static builder() method
@@ -444,7 +444,7 @@ public class RegistrationTypeUpdate {
         /**
          * Represents capacity statistics of the registration type.
          */
-        public Builder capacity(@Nullable CapacityJson capacity) {
+        public Builder capacity(@Nullable Capacity1 capacity) {
             this.capacity = capacity;
             return this;
         }

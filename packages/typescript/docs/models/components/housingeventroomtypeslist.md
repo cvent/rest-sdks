@@ -55,6 +55,10 @@ let value: HousingEventRoomTypesList = {
           href: "https://example.com/content/example.jpg",
         },
       ],
+      roomCategory: {
+        id: 12345,
+        name: "Deluxe King",
+      },
       customOrder: 1,
     },
   ],

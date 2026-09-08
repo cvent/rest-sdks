@@ -3,109 +3,257 @@
  */
 package com.cvent.models.components;
 
+import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
-import java.lang.Long;
+import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
-import java.util.List;
 import java.util.Optional;
 
 /**
  * CustomField1
  *
- * <p>A Custom Field
+ * <p>This is used to denote the custom field data.
  */
 public class CustomField1 {
     /**
-     * The unique ID representing this custom field.
+     * This is used to denote the category of a custom field.
      */
-    @JsonProperty("id")
-    private String id;
+    @JsonProperty("category")
+    private CustomFieldCategory category;
 
     /**
      * The actual text of the custom field.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("name")
     private String name;
 
     /**
-     * The set of answers or possible answers to a question.
+     * Code to uniquely identify custom field.
      */
-    @JsonProperty("value")
-    private List<String> value;
+    @JsonProperty("code")
+    private String code;
 
     /**
-     * The order of this question in the bigger list of questions.
+     * Whether answer to custom field is mandatory or not.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("order")
-    private Long order;
+    @JsonProperty("required")
+    private Boolean required;
 
     /**
-     * The type of data collected by a custom field.
+     * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields
+     * are read only.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private CustomField1CustomFieldType type;
+    private CustomFieldType2 type;
+
+    /**
+     * Type-specific details of the custom-field.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("details")
+    private CustomField1Details details;
+
+    /**
+     * The help text of the custom field.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("helpText")
+    private String helpText;
+
+    /**
+     * This option allows you to choose whether to display the custom field in emails. The field name and
+     * the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to
+     * display always or only when answered.
+     *
+     * <p>Only applicable to session custom fields.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("displayInDataTag")
+    private DisplayInDataTag displayInDataTag;
+
+    /**
+     * Default text in emails when a contact does not have a value answered for this custom field. Only
+     * applicable to contact custom fields.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("defaultTagText")
+    private String defaultTagText;
+
+    /**
+     * True means that this is a consent field. Only applicable to contact custom fields.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("consentField")
+    private Boolean consentField;
+
+    /**
+     * True means that this custom field is active. Determines visibility for event custom fields.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("active")
+    private Boolean active;
+
+    /**
+     * True means that the field will be displayed in the event creation wizard. Only applicable to event
+     * custom fields.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("displayInEventCreationWizard")
+    private Boolean displayInEventCreationWizard;
+
+    /**
+     * Visibility of the custom field on various pages/forms.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("pageVisibility")
+    private PageVisibility pageVisibility;
 
     @JsonCreator
     public CustomField1(
-            @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("name") @Nullable String name,
-            @JsonProperty("value") @Nonnull List<String> value,
-            @JsonProperty("order") @Nullable Long order,
-            @JsonProperty("type") @Nullable CustomField1CustomFieldType type) {
-        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.name = name;
-        this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
-        this.order = order;
-        this.type = type;
+            @JsonProperty("category") @Nonnull CustomFieldCategory category,
+            @JsonProperty("name") @Nonnull String name,
+            @JsonProperty("code") @Nonnull String code,
+            @JsonProperty("required") @Nullable Boolean required,
+            @JsonProperty("type") @Nonnull CustomFieldType2 type,
+            @JsonProperty("details") @Nullable CustomField1Details details,
+            @JsonProperty("helpText") @Nullable String helpText,
+            @JsonProperty("displayInDataTag") @Nullable DisplayInDataTag displayInDataTag,
+            @JsonProperty("defaultTagText") @Nullable String defaultTagText,
+            @JsonProperty("consentField") @Nullable Boolean consentField,
+            @JsonProperty("active") @Nullable Boolean active,
+            @JsonProperty("displayInEventCreationWizard") @Nullable Boolean displayInEventCreationWizard,
+            @JsonProperty("pageVisibility") @Nullable PageVisibility pageVisibility) {
+        this.category = Optional.ofNullable(category)
+                .orElseThrow(() -> new IllegalArgumentException("category cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.code = Optional.ofNullable(code).orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
+        this.required = Optional.ofNullable(required).orElse(Builder._SINGLETON_VALUE_Required.value());
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.details = details;
+        this.helpText = helpText;
+        this.displayInDataTag =
+                Optional.ofNullable(displayInDataTag).orElse(Builder._SINGLETON_VALUE_DisplayInDataTag.value());
+        this.defaultTagText = defaultTagText;
+        this.consentField = Optional.ofNullable(consentField).orElse(Builder._SINGLETON_VALUE_ConsentField.value());
+        this.active = Optional.ofNullable(active).orElse(Builder._SINGLETON_VALUE_Active.value());
+        this.displayInEventCreationWizard = Optional.ofNullable(displayInEventCreationWizard)
+                .orElse(Builder._SINGLETON_VALUE_DisplayInEventCreationWizard.value());
+        this.pageVisibility = pageVisibility;
     }
 
-    public CustomField1(@Nonnull String id, @Nonnull List<String> value) {
-        this(id, null, value, null, null);
+    public CustomField1(
+            @Nonnull CustomFieldCategory category,
+            @Nonnull String name,
+            @Nonnull String code,
+            @Nonnull CustomFieldType2 type) {
+        this(category, name, code, null, type, null, null, null, null, null, null, null, null);
     }
 
     /**
-     * The unique ID representing this custom field.
+     * This is used to denote the category of a custom field.
      */
-    public String id() {
-        return this.id;
+    public CustomFieldCategory category() {
+        return this.category;
     }
 
     /**
      * The actual text of the custom field.
      */
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
+    public String name() {
+        return this.name;
     }
 
     /**
-     * The set of answers or possible answers to a question.
+     * Code to uniquely identify custom field.
      */
-    public List<String> value() {
-        return this.value;
+    public String code() {
+        return this.code;
     }
 
     /**
-     * The order of this question in the bigger list of questions.
+     * Whether answer to custom field is mandatory or not.
      */
-    public Optional<Long> order() {
-        return Optional.ofNullable(this.order);
+    public Optional<Boolean> required() {
+        return Optional.ofNullable(this.required);
     }
 
     /**
-     * The type of data collected by a custom field.
+     * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields
+     * are read only.
      */
-    public Optional<CustomField1CustomFieldType> type() {
-        return Optional.ofNullable(this.type);
+    public CustomFieldType2 type() {
+        return this.type;
+    }
+
+    /**
+     * Type-specific details of the custom-field.
+     */
+    public Optional<CustomField1Details> details() {
+        return Optional.ofNullable(this.details);
+    }
+
+    /**
+     * The help text of the custom field.
+     */
+    public Optional<String> helpText() {
+        return Optional.ofNullable(this.helpText);
+    }
+
+    /**
+     * This option allows you to choose whether to display the custom field in emails. The field name and
+     * the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to
+     * display always or only when answered.
+     *
+     * <p>Only applicable to session custom fields.
+     */
+    public Optional<DisplayInDataTag> displayInDataTag() {
+        return Optional.ofNullable(this.displayInDataTag);
+    }
+
+    /**
+     * Default text in emails when a contact does not have a value answered for this custom field. Only
+     * applicable to contact custom fields.
+     */
+    public Optional<String> defaultTagText() {
+        return Optional.ofNullable(this.defaultTagText);
+    }
+
+    /**
+     * True means that this is a consent field. Only applicable to contact custom fields.
+     */
+    public Optional<Boolean> consentField() {
+        return Optional.ofNullable(this.consentField);
+    }
+
+    /**
+     * True means that this custom field is active. Determines visibility for event custom fields.
+     */
+    public Optional<Boolean> active() {
+        return Optional.ofNullable(this.active);
+    }
+
+    /**
+     * True means that the field will be displayed in the event creation wizard. Only applicable to event
+     * custom fields.
+     */
+    public Optional<Boolean> displayInEventCreationWizard() {
+        return Optional.ofNullable(this.displayInEventCreationWizard);
+    }
+
+    /**
+     * Visibility of the custom field on various pages/forms.
+     */
+    public Optional<PageVisibility> pageVisibility() {
+        return Optional.ofNullable(this.pageVisibility);
     }
 
     public static Builder builder() {
@@ -113,42 +261,113 @@ public class CustomField1 {
     }
 
     /**
-     * The unique ID representing this custom field.
+     * This is used to denote the category of a custom field.
      */
-    public CustomField1 withId(@Nonnull String id) {
-        this.id = Utils.checkNotNull(id, "id");
+    public CustomField1 withCategory(@Nonnull CustomFieldCategory category) {
+        this.category = Utils.checkNotNull(category, "category");
         return this;
     }
 
     /**
      * The actual text of the custom field.
      */
-    public CustomField1 withName(@Nullable String name) {
-        this.name = name;
+    public CustomField1 withName(@Nonnull String name) {
+        this.name = Utils.checkNotNull(name, "name");
         return this;
     }
 
     /**
-     * The set of answers or possible answers to a question.
+     * Code to uniquely identify custom field.
      */
-    public CustomField1 withValue(@Nonnull List<String> value) {
-        this.value = Utils.checkNotNull(value, "value");
+    public CustomField1 withCode(@Nonnull String code) {
+        this.code = Utils.checkNotNull(code, "code");
         return this;
     }
 
     /**
-     * The order of this question in the bigger list of questions.
+     * Whether answer to custom field is mandatory or not.
      */
-    public CustomField1 withOrder(@Nullable Long order) {
-        this.order = order;
+    public CustomField1 withRequired(@Nullable Boolean required) {
+        this.required = required;
         return this;
     }
 
     /**
-     * The type of data collected by a custom field.
+     * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields
+     * are read only.
      */
-    public CustomField1 withType(@Nullable CustomField1CustomFieldType type) {
-        this.type = type;
+    public CustomField1 withType(@Nonnull CustomFieldType2 type) {
+        this.type = Utils.checkNotNull(type, "type");
+        return this;
+    }
+
+    /**
+     * Type-specific details of the custom-field.
+     */
+    public CustomField1 withDetails(@Nullable CustomField1Details details) {
+        this.details = details;
+        return this;
+    }
+
+    /**
+     * The help text of the custom field.
+     */
+    public CustomField1 withHelpText(@Nullable String helpText) {
+        this.helpText = helpText;
+        return this;
+    }
+
+    /**
+     * This option allows you to choose whether to display the custom field in emails. The field name and
+     * the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to
+     * display always or only when answered.
+     *
+     * <p>Only applicable to session custom fields.
+     */
+    public CustomField1 withDisplayInDataTag(@Nullable DisplayInDataTag displayInDataTag) {
+        this.displayInDataTag = displayInDataTag;
+        return this;
+    }
+
+    /**
+     * Default text in emails when a contact does not have a value answered for this custom field. Only
+     * applicable to contact custom fields.
+     */
+    public CustomField1 withDefaultTagText(@Nullable String defaultTagText) {
+        this.defaultTagText = defaultTagText;
+        return this;
+    }
+
+    /**
+     * True means that this is a consent field. Only applicable to contact custom fields.
+     */
+    public CustomField1 withConsentField(@Nullable Boolean consentField) {
+        this.consentField = consentField;
+        return this;
+    }
+
+    /**
+     * True means that this custom field is active. Determines visibility for event custom fields.
+     */
+    public CustomField1 withActive(@Nullable Boolean active) {
+        this.active = active;
+        return this;
+    }
+
+    /**
+     * True means that the field will be displayed in the event creation wizard. Only applicable to event
+     * custom fields.
+     */
+    public CustomField1 withDisplayInEventCreationWizard(@Nullable Boolean displayInEventCreationWizard) {
+        this.displayInEventCreationWizard = displayInEventCreationWizard;
+        return this;
+    }
+
+    /**
+     * Visibility of the custom field on various pages/forms.
+     */
+    public CustomField1 withPageVisibility(@Nullable PageVisibility pageVisibility) {
+        this.pageVisibility = pageVisibility;
         return this;
     }
 
@@ -161,82 +380,245 @@ public class CustomField1 {
             return false;
         }
         CustomField1 other = (CustomField1) o;
-        return Utils.enhancedDeepEquals(this.id, other.id)
+        return Utils.enhancedDeepEquals(this.category, other.category)
                 && Utils.enhancedDeepEquals(this.name, other.name)
-                && Utils.enhancedDeepEquals(this.value, other.value)
-                && Utils.enhancedDeepEquals(this.order, other.order)
-                && Utils.enhancedDeepEquals(this.type, other.type);
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.required, other.required)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.details, other.details)
+                && Utils.enhancedDeepEquals(this.helpText, other.helpText)
+                && Utils.enhancedDeepEquals(this.displayInDataTag, other.displayInDataTag)
+                && Utils.enhancedDeepEquals(this.defaultTagText, other.defaultTagText)
+                && Utils.enhancedDeepEquals(this.consentField, other.consentField)
+                && Utils.enhancedDeepEquals(this.active, other.active)
+                && Utils.enhancedDeepEquals(this.displayInEventCreationWizard, other.displayInEventCreationWizard)
+                && Utils.enhancedDeepEquals(this.pageVisibility, other.pageVisibility);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, name, value, order, type);
+        return Utils.enhancedHash(
+                category,
+                name,
+                code,
+                required,
+                type,
+                details,
+                helpText,
+                displayInDataTag,
+                defaultTagText,
+                consentField,
+                active,
+                displayInEventCreationWizard,
+                pageVisibility);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(CustomField1.class, "id", id, "name", name, "value", value, "order", order, "type", type);
+        return Utils.toString(
+                CustomField1.class,
+                "category",
+                category,
+                "name",
+                name,
+                "code",
+                code,
+                "required",
+                required,
+                "type",
+                type,
+                "details",
+                details,
+                "helpText",
+                helpText,
+                "displayInDataTag",
+                displayInDataTag,
+                "defaultTagText",
+                defaultTagText,
+                "consentField",
+                consentField,
+                "active",
+                active,
+                "displayInEventCreationWizard",
+                displayInEventCreationWizard,
+                "pageVisibility",
+                pageVisibility);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private String id;
+        private CustomFieldCategory category;
 
         private String name;
 
-        private List<String> value;
+        private String code;
 
-        private Long order;
+        private Boolean required;
 
-        private CustomField1CustomFieldType type;
+        private CustomFieldType2 type;
+
+        private CustomField1Details details;
+
+        private String helpText;
+
+        private DisplayInDataTag displayInDataTag;
+
+        private String defaultTagText;
+
+        private Boolean consentField;
+
+        private Boolean active;
+
+        private Boolean displayInEventCreationWizard;
+
+        private PageVisibility pageVisibility;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The unique ID representing this custom field.
+         * This is used to denote the category of a custom field.
          */
-        public Builder id(@Nonnull String id) {
-            this.id = Utils.checkNotNull(id, "id");
+        public Builder category(@Nonnull CustomFieldCategory category) {
+            this.category = Utils.checkNotNull(category, "category");
             return this;
         }
 
         /**
          * The actual text of the custom field.
          */
-        public Builder name(@Nullable String name) {
-            this.name = name;
+        public Builder name(@Nonnull String name) {
+            this.name = Utils.checkNotNull(name, "name");
             return this;
         }
 
         /**
-         * The set of answers or possible answers to a question.
+         * Code to uniquely identify custom field.
          */
-        public Builder value(@Nonnull List<String> value) {
-            this.value = Utils.checkNotNull(value, "value");
+        public Builder code(@Nonnull String code) {
+            this.code = Utils.checkNotNull(code, "code");
             return this;
         }
 
         /**
-         * The order of this question in the bigger list of questions.
+         * Whether answer to custom field is mandatory or not.
          */
-        public Builder order(@Nullable Long order) {
-            this.order = order;
+        public Builder required(@Nullable Boolean required) {
+            this.required = required;
             return this;
         }
 
         /**
-         * The type of data collected by a custom field.
+         * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields
+         * are read only.
          */
-        public Builder type(@Nullable CustomField1CustomFieldType type) {
-            this.type = type;
+        public Builder type(@Nonnull CustomFieldType2 type) {
+            this.type = Utils.checkNotNull(type, "type");
+            return this;
+        }
+
+        /**
+         * Type-specific details of the custom-field.
+         */
+        public Builder details(@Nullable CustomField1Details details) {
+            this.details = details;
+            return this;
+        }
+
+        /**
+         * The help text of the custom field.
+         */
+        public Builder helpText(@Nullable String helpText) {
+            this.helpText = helpText;
+            return this;
+        }
+
+        /**
+         * This option allows you to choose whether to display the custom field in emails. The field name and
+         * the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to
+         * display always or only when answered.
+         *
+         * <p>Only applicable to session custom fields.
+         */
+        public Builder displayInDataTag(@Nullable DisplayInDataTag displayInDataTag) {
+            this.displayInDataTag = displayInDataTag;
+            return this;
+        }
+
+        /**
+         * Default text in emails when a contact does not have a value answered for this custom field. Only
+         * applicable to contact custom fields.
+         */
+        public Builder defaultTagText(@Nullable String defaultTagText) {
+            this.defaultTagText = defaultTagText;
+            return this;
+        }
+
+        /**
+         * True means that this is a consent field. Only applicable to contact custom fields.
+         */
+        public Builder consentField(@Nullable Boolean consentField) {
+            this.consentField = consentField;
+            return this;
+        }
+
+        /**
+         * True means that this custom field is active. Determines visibility for event custom fields.
+         */
+        public Builder active(@Nullable Boolean active) {
+            this.active = active;
+            return this;
+        }
+
+        /**
+         * True means that the field will be displayed in the event creation wizard. Only applicable to event
+         * custom fields.
+         */
+        public Builder displayInEventCreationWizard(@Nullable Boolean displayInEventCreationWizard) {
+            this.displayInEventCreationWizard = displayInEventCreationWizard;
+            return this;
+        }
+
+        /**
+         * Visibility of the custom field on various pages/forms.
+         */
+        public Builder pageVisibility(@Nullable PageVisibility pageVisibility) {
+            this.pageVisibility = pageVisibility;
             return this;
         }
 
         public CustomField1 build() {
-            return new CustomField1(id, name, value, order, type);
+            return new CustomField1(
+                    category,
+                    name,
+                    code,
+                    required,
+                    type,
+                    details,
+                    helpText,
+                    displayInDataTag,
+                    defaultTagText,
+                    consentField,
+                    active,
+                    displayInEventCreationWizard,
+                    pageVisibility);
         }
+
+        private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Required =
+                new LazySingletonValue<>("required", "true", new TypeReference<Boolean>() {});
+
+        private static final LazySingletonValue<DisplayInDataTag> _SINGLETON_VALUE_DisplayInDataTag =
+                new LazySingletonValue<>("displayInDataTag", "\"No\"", new TypeReference<DisplayInDataTag>() {});
+
+        private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_ConsentField =
+                new LazySingletonValue<>("consentField", "false", new TypeReference<Boolean>() {});
+
+        private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Active =
+                new LazySingletonValue<>("active", "true", new TypeReference<Boolean>() {});
+
+        private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_DisplayInEventCreationWizard =
+                new LazySingletonValue<>("displayInEventCreationWizard", "false", new TypeReference<Boolean>() {});
     }
 }

@@ -48,7 +48,7 @@ export function attendeesListAttendees(
   PageIterator<
     Result<
       operations.ListAttendeesResponse,
-      | errors.ErrorResponse11
+      | errors.ErrorResponse12
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -77,7 +77,7 @@ async function $do(
     PageIterator<
       Result<
         operations.ListAttendeesResponse,
-        | errors.ErrorResponse11
+        | errors.ErrorResponse12
         | CventSDKError
         | ResponseValidationError
         | ConnectionError
@@ -181,7 +181,7 @@ async function $do(
 
   const [result, raw] = await M.match<
     operations.ListAttendeesResponse,
-    | errors.ErrorResponse11
+    | errors.ErrorResponse12
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -194,7 +194,7 @@ async function $do(
     M.json(200, operations.ListAttendeesResponse$inboundSchema, {
       key: "Result",
     }),
-    M.jsonErr([400, 401, 403, 429], errors.ErrorResponse11$inboundSchema),
+    M.jsonErr([400, 401, 403, 429], errors.ErrorResponse12$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });
@@ -212,7 +212,7 @@ async function $do(
     next: Paginator<
       Result<
         operations.ListAttendeesResponse,
-        | errors.ErrorResponse11
+        | errors.ErrorResponse12
         | CventSDKError
         | ResponseValidationError
         | ConnectionError

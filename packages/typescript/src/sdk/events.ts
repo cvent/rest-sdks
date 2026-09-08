@@ -178,7 +178,7 @@ export class Events extends ClientSDK {
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
   async createEventAsync(
-    request: components.Event1Input,
+    request: components.EventInput,
     options?: RequestOptions,
   ): Promise<operations.CreateEventAsyncResponse> {
     return unwrapAsync(eventsCreateEventAsync(
@@ -296,7 +296,7 @@ export class Events extends ClientSDK {
   async getEventById(
     request: operations.GetEventByIdRequest,
     options?: RequestOptions,
-  ): Promise<components.Event11> {
+  ): Promise<components.Event1> {
     return unwrapAsync(eventsGetEventById(
       this,
       request,
@@ -334,7 +334,7 @@ export class Events extends ClientSDK {
   async eventCheckIn(
     request: operations.EventCheckInRequest,
     options?: RequestOptions,
-  ): Promise<Array<components.AttendeeAddBulkItemEventJson>> {
+  ): Promise<Array<components.AttendeeInvitesBulkResponseItem11>> {
     return unwrapAsync(eventsEventCheckIn(
       this,
       request,
@@ -393,7 +393,7 @@ export class Events extends ClientSDK {
   async answerEventCustomField(
     request: operations.AnswerEventCustomFieldRequest,
     options?: RequestOptions,
-  ): Promise<components.CustomField1> {
+  ): Promise<components.CustomField> {
     return unwrapAsync(eventsAnswerEventCustomField(
       this,
       request,
@@ -1045,7 +1045,7 @@ export class Events extends ClientSDK {
   async sessionCheckIn(
     request: operations.SessionCheckInRequest,
     options?: RequestOptions,
-  ): Promise<Array<components.AttendeeAddBulkItemJson>> {
+  ): Promise<Array<components.AttendeeInvitesBulkResponseItem12>> {
     return unwrapAsync(eventsSessionCheckIn(
       this,
       request,
@@ -1064,7 +1064,7 @@ export class Events extends ClientSDK {
   async updateSessionCheckIn(
     request: operations.UpdateSessionCheckInRequest,
     options?: RequestOptions,
-  ): Promise<Array<components.AttendeeAddBulkItemJson>> {
+  ): Promise<Array<components.AttendeeInvitesBulkResponseItem12>> {
     return unwrapAsync(eventsUpdateSessionCheckIn(
       this,
       request,

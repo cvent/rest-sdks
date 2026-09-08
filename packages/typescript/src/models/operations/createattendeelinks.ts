@@ -14,13 +14,13 @@ export type CreateAttendeeLinksRequest = {
   /**
    * Up to **100 attendee links** can be created per call.
    */
-  requestBody: Array<components.ZeroInput>;
+  requestBody: Array<components.AttendeeLink>;
 };
 
 /** @internal */
 export type CreateAttendeeLinksRequest$Outbound = {
   id: string;
-  RequestBody: Array<components.ZeroInput$Outbound>;
+  RequestBody: Array<components.AttendeeLink$Outbound>;
 };
 
 /** @internal */
@@ -30,7 +30,7 @@ export const CreateAttendeeLinksRequest$outboundSchema: z.ZodType<
   CreateAttendeeLinksRequest
 > = z.object({
   id: z.string(),
-  requestBody: z.array(components.ZeroInput$outboundSchema),
+  requestBody: z.array(components.AttendeeLink$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     requestBody: "RequestBody",

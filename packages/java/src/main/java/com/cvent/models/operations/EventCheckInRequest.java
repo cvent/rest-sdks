@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.CheckinJson;
+import com.cvent.models.components.Checkin;
 import com.cvent.utils.SpeakeasyMetadata;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,10 +24,10 @@ public class EventCheckInRequest {
      * Attendees to be checked-in. Up to **100 attendees** can be checked-in per call.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    private List<CheckinJson> requestBody;
+    private List<Checkin> requestBody;
 
     @JsonCreator
-    public EventCheckInRequest(@Nonnull String id, @Nonnull List<CheckinJson> requestBody) {
+    public EventCheckInRequest(@Nonnull String id, @Nonnull List<Checkin> requestBody) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.requestBody = Optional.ofNullable(requestBody)
                 .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
@@ -43,7 +43,7 @@ public class EventCheckInRequest {
     /**
      * Attendees to be checked-in. Up to **100 attendees** can be checked-in per call.
      */
-    public List<CheckinJson> requestBody() {
+    public List<Checkin> requestBody() {
         return this.requestBody;
     }
 
@@ -62,7 +62,7 @@ public class EventCheckInRequest {
     /**
      * Attendees to be checked-in. Up to **100 attendees** can be checked-in per call.
      */
-    public EventCheckInRequest withRequestBody(@Nonnull List<CheckinJson> requestBody) {
+    public EventCheckInRequest withRequestBody(@Nonnull List<Checkin> requestBody) {
         this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
         return this;
     }
@@ -94,7 +94,7 @@ public class EventCheckInRequest {
 
         private String id;
 
-        private List<CheckinJson> requestBody;
+        private List<Checkin> requestBody;
 
         private Builder() {
             // force use of static builder() method
@@ -111,7 +111,7 @@ public class EventCheckInRequest {
         /**
          * Attendees to be checked-in. Up to **100 attendees** can be checked-in per call.
          */
-        public Builder requestBody(@Nonnull List<CheckinJson> requestBody) {
+        public Builder requestBody(@Nonnull List<Checkin> requestBody) {
             this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
             return this;
         }

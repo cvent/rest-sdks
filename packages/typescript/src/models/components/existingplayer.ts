@@ -6,17 +6,14 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { LiveStream, LiveStream$inboundSchema } from "./livestream.js";
 import {
-  LiveStreamJson,
-  LiveStreamJson$inboundSchema,
-} from "./livestreamjson.js";
-import {
-  PlayerTypeProviderJson,
-  PlayerTypeProviderJson$inboundSchema,
-} from "./playertypeproviderjson.js";
-import { RegionJson, RegionJson$inboundSchema } from "./regionjson.js";
-import { ScheduleJson, ScheduleJson$inboundSchema } from "./schedulejson.js";
-import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
+  PlayerTypeProvider,
+  PlayerTypeProvider$inboundSchema,
+} from "./playertypeprovider.js";
+import { Region1, Region1$inboundSchema } from "./region1.js";
+import { Schedule, Schedule$inboundSchema } from "./schedule.js";
+import { Uuid, Uuid$inboundSchema } from "./uuid.js";
 
 /**
  * An existing webcast player.
@@ -41,7 +38,7 @@ export type ExistingPlayer = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  webcast?: UuidJson | undefined;
+  webcast?: Uuid | undefined;
   /**
    * ID of the video to be played.
    */
@@ -57,11 +54,11 @@ export type ExistingPlayer = {
   /**
    * A webcast Live Stream.
    */
-  stream?: LiveStreamJson | undefined;
+  stream?: LiveStream | undefined;
   /**
-   * Region where the live stream originates (These regions are only for Brightcove player)
+   * Region where the live stream originates. Although, the value is consumed for IVS livestreams the requested origin is actually ignored due to IVS' global data plane.
    */
-  region?: RegionJson | undefined;
+  region?: Region1 | undefined;
   /**
    * Video duration (milliseconds)
    */
@@ -69,11 +66,11 @@ export type ExistingPlayer = {
   /**
    * A scheduled action.
    */
-  schedule?: ScheduleJson | undefined;
+  schedule?: Schedule | undefined;
   /**
    * This is used to denote the type of a video player used for the Cvent Video Player
    */
-  playerTypeProvider?: PlayerTypeProviderJson | undefined;
+  playerTypeProvider?: PlayerTypeProvider | undefined;
   /**
    * Offset (seconds) to determine start date for simulated live video.
    */
@@ -97,15 +94,15 @@ export const ExistingPlayer$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  webcast: UuidJson$inboundSchema.optional(),
+  webcast: Uuid$inboundSchema.optional(),
   videoId: z.string().optional(),
   videoUrl: z.string().optional(),
   password: z.string().optional(),
-  stream: LiveStreamJson$inboundSchema.optional(),
-  region: RegionJson$inboundSchema.optional(),
+  stream: LiveStream$inboundSchema.optional(),
+  region: Region1$inboundSchema.optional(),
   duration: z.number().int().optional(),
-  schedule: ScheduleJson$inboundSchema.optional(),
-  playerTypeProvider: PlayerTypeProviderJson$inboundSchema.optional(),
+  schedule: Schedule$inboundSchema.optional(),
+  playerTypeProvider: PlayerTypeProvider$inboundSchema.optional(),
   simuliveOffset: z.number().int().optional(),
   id: z.string().optional(),
 });
