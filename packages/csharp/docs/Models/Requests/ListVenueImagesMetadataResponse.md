@@ -1,0 +1,9 @@
+# ListVenueImagesMetadataResponse
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                            | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                               | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `VenueImagesMetadataOverviewResponse`                                                                 | [VenueImagesMetadataOverviewResponse](../../Models/Components/VenueImagesMetadataOverviewResponse.md) | :heavy_minus_sign:                                                                                    | Successfully retrieved the venue images metadata.                                                     |

@@ -15,7 +15,8 @@ import java.util.Optional;
  */
 public enum BusinessType {
     CORPORATE("corporate"),
-    LEISURE("leisure");
+    LEISURE("leisure"),
+    CONSORTIA("consortia");
 
     @JsonValue
     private final String value;

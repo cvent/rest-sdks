@@ -13,5 +13,5 @@ let value: BusinessType = "corporate";
 ## Values
 
 ```typescript
-"corporate" | "leisure"
+"corporate" | "leisure" | "consortia"
 ```

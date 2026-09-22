@@ -3,10 +3,12 @@
  */
 
 import { venueProfilesGetVenueDetailsOverview } from "../funcs/venueProfilesGetVenueDetailsOverview.js";
+import { venueProfilesGetVenueRatings } from "../funcs/venueProfilesGetVenueRatings.js";
 import { venueProfilesPatchVenueDetails } from "../funcs/venueProfilesPatchVenueDetails.js";
 import { venueProfilesPatchVenueFacility } from "../funcs/venueProfilesPatchVenueFacility.js";
 import { venueProfilesUpdateVenueDetails } from "../funcs/venueProfilesUpdateVenueDetails.js";
 import { venueProfilesUpdateVenueFacility } from "../funcs/venueProfilesUpdateVenueFacility.js";
+import { venueProfilesUpdateVenueRatings } from "../funcs/venueProfilesUpdateVenueRatings.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
 import * as operations from "../models/operations/index.js";
@@ -112,6 +114,50 @@ export class VenueProfiles extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.VenueFacilityPatch> {
     return unwrapAsync(venueProfilesPatchVenueFacility(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get Venue Ratings
+   *
+   * @remarks
+   * Retrieve the current ratings and awards for the specified venue.
+   *
+   * Returns all rating agencies applicable to this venue (based on its type and country), including agencies where no rating has been saved yet. Use this response to discover which agencies are valid and which can be set as primary before submitting a PUT request.
+   */
+  async getVenueRatings(
+    request: operations.GetVenueRatingsRequest,
+    options?: RequestOptions,
+  ): Promise<components.ExistingVenueRatings> {
+    return unwrapAsync(venueProfilesGetVenueRatings(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Venue Ratings
+   *
+   * @remarks
+   * Replace all ratings and awards for the specified venue with those provided in the request body.
+   *
+   * This is a full replace — agencies omitted from the request will be removed. It is recommended to call GET first to retrieve the current state and the list of applicable agencies for the venue.
+   *
+   * Additional rules:
+   * - Ratings do not apply to CVB/DMC venues.
+   * - At most one rating may be marked as primary. Zagat ratings cannot be primary.
+   * - Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response before submitting a rating value for those agencies.
+   * - Agency eligibility is determined by the venue's type and country — passing an ineligible agency returns a 400.
+   */
+  async updateVenueRatings(
+    request: operations.UpdateVenueRatingsRequest,
+    options?: RequestOptions,
+  ): Promise<components.ExistingVenueRatings> {
+    return unwrapAsync(venueProfilesUpdateVenueRatings(
       this,
       request,
       options,

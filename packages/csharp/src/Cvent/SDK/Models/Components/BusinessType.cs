@@ -20,6 +20,7 @@ namespace Cvent.SDK.Models.Components
     {
         [JsonProperty("corporate")] Corporate,
         [JsonProperty("leisure")] Leisure,
+        [JsonProperty("consortia")] Consortia,
     }
 
     public static class BusinessTypeExtension

@@ -30,21 +30,22 @@ export type ListContactGroupsRequest = {
    */
   token?: string | undefined;
   /**
-   * Use filter query parameters to limit results
+   * Use filter query parameters to limit results to data that matches your criteria.
    *
    * @remarks
-   * to data that matches your criteria. See
-   * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+   * See [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
    *
    * Supported fields and operators are listed below:
    *
-   * | Field            | Operators                          | Notes |
-   * |------------------|-------------------------------------|-------|
-   * | name             | `eq`, `ne`, `sw`, `contains`        | |
-   * | type             | `eq`                                | Not supported with before or after parameters |
+   * | Field  | Operators                    | Notes                                                                        |
+   * |--------|------------------------------|------------------------------------------------------------------------------|
+   * | id     | `eq`, `ne`                   |                                                                              |
+   * | name   | `eq`, `ne`, `sw`, `contains` |                                                                              |
+   * | type   | `eq`                         | Not supported with `before` or `after` parameters.                           |
    *
    * The following logical operators are supported for combining filters:
    * * and
+   * * or
    */
   filter?: string | undefined;
 };

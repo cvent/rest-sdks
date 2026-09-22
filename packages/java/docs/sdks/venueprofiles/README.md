@@ -11,6 +11,8 @@ Manage venue profile details including type, contact information, address, and o
 * [getVenueDetailsOverview](#getvenuedetailsoverview) - Get Venue Details Overview
 * [updateVenueFacility](#updatevenuefacility) - Update Venue Facility
 * [patchVenueFacility](#patchvenuefacility) - Patch Venue Facility
+* [getVenueRatings](#getvenueratings) - Get Venue Ratings
+* [updateVenueRatings](#updatevenueratings) - Update Venue Ratings
 
 ## updateVenueDetails
 
@@ -470,6 +472,158 @@ public class Application {
 ### Response
 
 **[PatchVenueFacilityResponse](../../models/operations/PatchVenueFacilityResponse.md)**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
+
+## getVenueRatings
+
+Retrieve the current ratings and awards for the specified venue.
+
+Returns all rating agencies applicable to this venue (based on its type and country), including agencies where no rating has been saved yet. Use this response to discover which agencies are valid and which can be set as primary before submitting a PUT request.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="getVenueRatings" method="get" path="/venues/{venueId}/ratings" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse12;
+import com.cvent.models.operations.GetVenueRatingsRequest;
+import com.cvent.models.operations.GetVenueRatingsResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse12, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        GetVenueRatingsRequest req = GetVenueRatingsRequest.builder()
+                .venueId("6bb0e2db-861f-46e3-a923-eb4d959ffa00")
+                .build();
+
+        GetVenueRatingsResponse res = sdk.venueProfiles().getVenueRatings()
+                .request(req)
+                .call();
+
+        if (res.existingVenueRatings().isPresent()) {
+            System.out.println(res.existingVenueRatings().get());
+        }
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `request`                                                                   | [GetVenueRatingsRequest](../../models/operations/GetVenueRatingsRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
+
+### Response
+
+**[GetVenueRatingsResponse](../../models/operations/GetVenueRatingsResponse.md)**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
+
+## updateVenueRatings
+
+Replace all ratings and awards for the specified venue with those provided in the request body.
+
+This is a full replace — agencies omitted from the request will be removed. It is recommended to call GET first to retrieve the current state and the list of applicable agencies for the venue.
+
+Additional rules:
+- Ratings do not apply to CVB/DMC venues.
+- At most one rating may be marked as primary. Zagat ratings cannot be primary.
+- Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response before submitting a rating value for those agencies.
+- Agency eligibility is determined by the venue's type and country — passing an ineligible agency returns a 400.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="updateVenueRatings" method="put" path="/venues/{venueId}/ratings" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.*;
+import com.cvent.models.errors.ErrorResponse12;
+import com.cvent.models.operations.UpdateVenueRatingsRequest;
+import com.cvent.models.operations.UpdateVenueRatingsResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse12, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        UpdateVenueRatingsRequest req = UpdateVenueRatingsRequest.builder()
+                .venueId("6bb0e2db-861f-46e3-a923-eb4d959ffa00")
+                .venueRatings(VenueRatings.builder()
+                    .ratings(List.of(
+                        VenueRatingInput.builder()
+                            .ratingAgency(RatingAgency.AAA)
+                            .ratingValue(RatingValue.FOUR_DIAMONDS)
+                            .primaryRating(true)
+                            .build()))
+                    .venueAwards("Recipient of the 2025 Green Hospitality Award.")
+                    .build())
+                .build();
+
+        UpdateVenueRatingsResponse res = sdk.venueProfiles().updateVenueRatings()
+                .request(req)
+                .call();
+
+        if (res.existingVenueRatings().isPresent()) {
+            System.out.println(res.existingVenueRatings().get());
+        }
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `request`                                                                         | [UpdateVenueRatingsRequest](../../models/operations/UpdateVenueRatingsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+
+### Response
+
+**[UpdateVenueRatingsResponse](../../models/operations/UpdateVenueRatingsResponse.md)**
 
 ### Errors
 

@@ -71,25 +71,23 @@ public class GetAttendeeCreditsRequest {
     private List<Expand1> expand;
 
     /**
-     * A filter query string narrows search
-     * results and supports the combination of logical and comparison
-     * operators.
+     * Use the filter query parameter to narrow results using comparison operators. Combine multiple
+     * conditions using logical operators. See
+     * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
      *
-     * <p>The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * <p>Supported fields and operators:
      *
-     * <p>These are the comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
+     * <p>| Field         | Comparison operators | Logical operators |
+     * |---------------|----------------------|-------------------|
+     * | attendee.id   | `eq`, `ne`           | -                 |
+     * | event.id      | `eq`, `ne`           | -                 |
+     * | session.id    | `eq`, `ne`           | -                 |
+     * | creditType.id | `eq`, `ne`           | -                 |
+     * | type          | `eq`                 | -                 |
+     * | tags          | `contains`           | -                 |
      *
-     * <p>The following fields are filterable:
-     * * attendee.id (eq|ne)
-     * * event.id (eq|ne)
-     * * session.id (eq|ne)
-     * * creditType.id (eq|ne)
-     * * type (eq)
-     *
-     * <p>Note:
-     * * lastModified: Used by the 'before' and 'after' filters.
+     * <p>Notes:
+     * - lastModified is used by the 'before' and 'after' filters.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
@@ -175,25 +173,23 @@ public class GetAttendeeCreditsRequest {
     }
 
     /**
-     * A filter query string narrows search
-     * results and supports the combination of logical and comparison
-     * operators.
+     * Use the filter query parameter to narrow results using comparison operators. Combine multiple
+     * conditions using logical operators. See
+     * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
      *
-     * <p>The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * <p>Supported fields and operators:
      *
-     * <p>These are the comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
+     * <p>| Field         | Comparison operators | Logical operators |
+     * |---------------|----------------------|-------------------|
+     * | attendee.id   | `eq`, `ne`           | -                 |
+     * | event.id      | `eq`, `ne`           | -                 |
+     * | session.id    | `eq`, `ne`           | -                 |
+     * | creditType.id | `eq`, `ne`           | -                 |
+     * | type          | `eq`                 | -                 |
+     * | tags          | `contains`           | -                 |
      *
-     * <p>The following fields are filterable:
-     * * attendee.id (eq|ne)
-     * * event.id (eq|ne)
-     * * session.id (eq|ne)
-     * * creditType.id (eq|ne)
-     * * type (eq)
-     *
-     * <p>Note:
-     * * lastModified: Used by the 'before' and 'after' filters.
+     * <p>Notes:
+     * - lastModified is used by the 'before' and 'after' filters.
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
@@ -268,25 +264,23 @@ public class GetAttendeeCreditsRequest {
     }
 
     /**
-     * A filter query string narrows search
-     * results and supports the combination of logical and comparison
-     * operators.
+     * Use the filter query parameter to narrow results using comparison operators. Combine multiple
+     * conditions using logical operators. See
+     * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
      *
-     * <p>The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * <p>Supported fields and operators:
      *
-     * <p>These are the comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
+     * <p>| Field         | Comparison operators | Logical operators |
+     * |---------------|----------------------|-------------------|
+     * | attendee.id   | `eq`, `ne`           | -                 |
+     * | event.id      | `eq`, `ne`           | -                 |
+     * | session.id    | `eq`, `ne`           | -                 |
+     * | creditType.id | `eq`, `ne`           | -                 |
+     * | type          | `eq`                 | -                 |
+     * | tags          | `contains`           | -                 |
      *
-     * <p>The following fields are filterable:
-     * * attendee.id (eq|ne)
-     * * event.id (eq|ne)
-     * * session.id (eq|ne)
-     * * creditType.id (eq|ne)
-     * * type (eq)
-     *
-     * <p>Note:
-     * * lastModified: Used by the 'before' and 'after' filters.
+     * <p>Notes:
+     * - lastModified is used by the 'before' and 'after' filters.
      */
     public GetAttendeeCreditsRequest withFilter(@Nullable String filter) {
         this.filter = filter;
@@ -422,25 +416,23 @@ public class GetAttendeeCreditsRequest {
         }
 
         /**
-         * A filter query string narrows search
-         * results and supports the combination of logical and comparison
-         * operators.
+         * Use the filter query parameter to narrow results using comparison operators. Combine multiple
+         * conditions using logical operators. See
+         * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
          *
-         * <p>The filter adheres to the pattern filter='field' comparisonType 'value'.
+         * <p>Supported fields and operators:
          *
-         * <p>These are the comparison types that can be used in filter expressions:
-         * * equal: eq
-         * * not equal: ne
+         * <p>| Field         | Comparison operators | Logical operators |
+         * |---------------|----------------------|-------------------|
+         * | attendee.id   | `eq`, `ne`           | -                 |
+         * | event.id      | `eq`, `ne`           | -                 |
+         * | session.id    | `eq`, `ne`           | -                 |
+         * | creditType.id | `eq`, `ne`           | -                 |
+         * | type          | `eq`                 | -                 |
+         * | tags          | `contains`           | -                 |
          *
-         * <p>The following fields are filterable:
-         * * attendee.id (eq|ne)
-         * * event.id (eq|ne)
-         * * session.id (eq|ne)
-         * * creditType.id (eq|ne)
-         * * type (eq)
-         *
-         * <p>Note:
-         * * lastModified: Used by the 'before' and 'after' filters.
+         * <p>Notes:
+         * - lastModified is used by the 'before' and 'after' filters.
          */
         public Builder filter(@Nullable String filter) {
             this.filter = filter;

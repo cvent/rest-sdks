@@ -8,6 +8,9 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.models.operations.GetVenueDetailsOverviewRequest;
 import com.cvent.models.operations.GetVenueDetailsOverviewRequestBuilder;
 import com.cvent.models.operations.GetVenueDetailsOverviewResponse;
+import com.cvent.models.operations.GetVenueRatingsRequest;
+import com.cvent.models.operations.GetVenueRatingsRequestBuilder;
+import com.cvent.models.operations.GetVenueRatingsResponse;
 import com.cvent.models.operations.PatchVenueDetailsRequest;
 import com.cvent.models.operations.PatchVenueDetailsRequestBuilder;
 import com.cvent.models.operations.PatchVenueDetailsResponse;
@@ -20,11 +23,16 @@ import com.cvent.models.operations.UpdateVenueDetailsResponse;
 import com.cvent.models.operations.UpdateVenueFacilityRequest;
 import com.cvent.models.operations.UpdateVenueFacilityRequestBuilder;
 import com.cvent.models.operations.UpdateVenueFacilityResponse;
+import com.cvent.models.operations.UpdateVenueRatingsRequest;
+import com.cvent.models.operations.UpdateVenueRatingsRequestBuilder;
+import com.cvent.models.operations.UpdateVenueRatingsResponse;
 import com.cvent.operations.GetVenueDetailsOverview;
+import com.cvent.operations.GetVenueRatings;
 import com.cvent.operations.PatchVenueDetails;
 import com.cvent.operations.PatchVenueFacility;
 import com.cvent.operations.UpdateVenueDetails;
 import com.cvent.operations.UpdateVenueFacility;
+import com.cvent.operations.UpdateVenueRatings;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
@@ -324,6 +332,132 @@ public class VenueProfiles {
             @Nonnull PatchVenueFacilityRequest request, @Nullable Options options) {
         RequestOperation<PatchVenueFacilityRequest, PatchVenueFacilityResponse> operation =
                 new PatchVenueFacility.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Get Venue Ratings
+     *
+     * <p>Retrieve the current ratings and awards for the specified venue.
+     *
+     * <p>Returns all rating agencies applicable to this venue (based on its type and country), including
+     * agencies where no rating has been saved yet. Use this response to discover which agencies are valid
+     * and which can be set as primary before submitting a PUT request.
+     *
+     * @return The call builder
+     */
+    public GetVenueRatingsRequestBuilder getVenueRatings() {
+        return new GetVenueRatingsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get Venue Ratings
+     *
+     * <p>Retrieve the current ratings and awards for the specified venue.
+     *
+     * <p>Returns all rating agencies applicable to this venue (based on its type and country), including
+     * agencies where no rating has been saved yet. Use this response to discover which agencies are valid
+     * and which can be set as primary before submitting a PUT request.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetVenueRatingsResponse getVenueRatings(@Nonnull GetVenueRatingsRequest request) {
+        return getVenueRatings(request, null);
+    }
+
+    /**
+     * Get Venue Ratings
+     *
+     * <p>Retrieve the current ratings and awards for the specified venue.
+     *
+     * <p>Returns all rating agencies applicable to this venue (based on its type and country), including
+     * agencies where no rating has been saved yet. Use this response to discover which agencies are valid
+     * and which can be set as primary before submitting a PUT request.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetVenueRatingsResponse getVenueRatings(@Nonnull GetVenueRatingsRequest request, @Nullable Options options) {
+        RequestOperation<GetVenueRatingsRequest, GetVenueRatingsResponse> operation =
+                new GetVenueRatings.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Update Venue Ratings
+     *
+     * <p>Replace all ratings and awards for the specified venue with those provided in the request body.
+     *
+     * <p>This is a full replace — agencies omitted from the request will be removed. It is recommended to
+     * call GET first to retrieve the current state and the list of applicable agencies for the venue.
+     *
+     * <p>Additional rules:
+     * - Ratings do not apply to CVB/DMC venues.
+     * - At most one rating may be marked as primary. Zagat ratings cannot be primary.
+     * - Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response
+     * before submitting a rating value for those agencies.
+     * - Agency eligibility is determined by the venue's type and country — passing an ineligible agency
+     * returns a 400.
+     *
+     * @return The call builder
+     */
+    public UpdateVenueRatingsRequestBuilder updateVenueRatings() {
+        return new UpdateVenueRatingsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update Venue Ratings
+     *
+     * <p>Replace all ratings and awards for the specified venue with those provided in the request body.
+     *
+     * <p>This is a full replace — agencies omitted from the request will be removed. It is recommended to
+     * call GET first to retrieve the current state and the list of applicable agencies for the venue.
+     *
+     * <p>Additional rules:
+     * - Ratings do not apply to CVB/DMC venues.
+     * - At most one rating may be marked as primary. Zagat ratings cannot be primary.
+     * - Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response
+     * before submitting a rating value for those agencies.
+     * - Agency eligibility is determined by the venue's type and country — passing an ineligible agency
+     * returns a 400.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateVenueRatingsResponse updateVenueRatings(@Nonnull UpdateVenueRatingsRequest request) {
+        return updateVenueRatings(request, null);
+    }
+
+    /**
+     * Update Venue Ratings
+     *
+     * <p>Replace all ratings and awards for the specified venue with those provided in the request body.
+     *
+     * <p>This is a full replace — agencies omitted from the request will be removed. It is recommended to
+     * call GET first to retrieve the current state and the list of applicable agencies for the venue.
+     *
+     * <p>Additional rules:
+     * - Ratings do not apply to CVB/DMC venues.
+     * - At most one rating may be marked as primary. Zagat ratings cannot be primary.
+     * - Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response
+     * before submitting a rating value for those agencies.
+     * - Agency eligibility is determined by the venue's type and country — passing an ineligible agency
+     * returns a 400.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateVenueRatingsResponse updateVenueRatings(
+            @Nonnull UpdateVenueRatingsRequest request, @Nullable Options options) {
+        RequestOperation<UpdateVenueRatingsRequest, UpdateVenueRatingsResponse> operation =
+                new UpdateVenueRatings.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

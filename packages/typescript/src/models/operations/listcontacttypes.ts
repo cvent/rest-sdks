@@ -22,20 +22,21 @@ export type ListContactTypesRequest = {
    */
   token?: string | undefined;
   /**
-   * Use filter query parameters to limit results
+   * Use filter query parameters to limit results to data that matches your criteria.
    *
    * @remarks
-   * to data that matches your criteria. See
-   * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+   * See [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
    *
    * Supported fields and operators are listed below:
    *
-   * | Field            | Operators                          |
-   * |------------------|-------------------------------------|
-   * | name             | `eq`, `ne`, `sw`, `contains`        |
+   * | Field  | Operators                    | Notes                                                                        |
+   * |--------|------------------------------|------------------------------------------------------------------------------|
+   * | id     | `eq`, `ne`                   |                                                                              |
+   * | name   | `eq`, `ne`, `sw`, `contains` |                                                                              |
    *
-   * No logical operators are supported on this endpoint, only one filter
-   * can be passed in each request.
+   * The following logical operators are supported for combining filters:
+   * * and
+   * * or
    */
   filter?: string | undefined;
 };

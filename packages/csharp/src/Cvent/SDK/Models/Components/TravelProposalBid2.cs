@@ -44,7 +44,7 @@ namespace Cvent.SDK.Models.Components
         public long? Order { get; set; } = 1;
 
         /// <summary>
-        /// Bid stay type.
+        /// Bid status type.
         /// </summary>
         [JsonProperty("status")]
         public BidStatusType? Status { get; set; } = Cvent.SDK.Models.Components.BidStatusType.InProgress;

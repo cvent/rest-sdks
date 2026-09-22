@@ -1,0 +1,9 @@
+# GetVenueAvailabilitySettingsResponse
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                        | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                           | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `ExistingVenueAvailabilitySettings`                                                               | [ExistingVenueAvailabilitySettings](../../Models/Components/ExistingVenueAvailabilitySettings.md) | :heavy_minus_sign:                                                                                | Successfully retrieved the venue availability settings.                                           |

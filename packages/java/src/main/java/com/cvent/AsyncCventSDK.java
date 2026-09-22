@@ -448,10 +448,18 @@ public class AsyncCventSDK {
      */
     private final AsyncUsage usage;
     /**
+     * Manage the date ranges when a venue is available for event bookings.
+     */
+    private final AsyncVenueAvailability venueAvailability;
+    /**
      * Manage venue profile details including type, contact information, address, and other venue
      * properties.
      */
     private final AsyncVenueProfiles venueProfiles;
+    /**
+     * Manage images, amenities, and nearby attractions associated with a venue.
+     */
+    private final AsyncVenueContent venueContent;
     /**
      * Manage meeting rooms for a venue, including creating and updating room details, configuring
      * capacities and amenities, and associating images.
@@ -1009,11 +1017,23 @@ public class AsyncCventSDK {
         return usage;
     }
     /**
+     * Manage the date ranges when a venue is available for event bookings.
+     */
+    public AsyncVenueAvailability venueAvailability() {
+        return venueAvailability;
+    }
+    /**
      * Manage venue profile details including type, contact information, address, and other venue
      * properties.
      */
     public AsyncVenueProfiles venueProfiles() {
         return venueProfiles;
+    }
+    /**
+     * Manage images, amenities, and nearby attractions associated with a venue.
+     */
+    public AsyncVenueContent venueContent() {
+        return venueContent;
     }
     /**
      * Manage meeting rooms for a venue, including creating and updating room details, configuring
@@ -1100,7 +1120,9 @@ public class AsyncCventSDK {
         this.travelRFPs = new AsyncTravelRFPs(syncSDK.travelRFPs(), sdkConfiguration);
         this.travelSuppliers = new AsyncTravelSuppliers(syncSDK.travelSuppliers(), sdkConfiguration);
         this.usage = new AsyncUsage(syncSDK.usage(), sdkConfiguration);
+        this.venueAvailability = new AsyncVenueAvailability(syncSDK.venueAvailability(), sdkConfiguration);
         this.venueProfiles = new AsyncVenueProfiles(syncSDK.venueProfiles(), sdkConfiguration);
+        this.venueContent = new AsyncVenueContent(syncSDK.venueContent(), sdkConfiguration);
         this.venueMeetingRooms = new AsyncVenueMeetingRooms(syncSDK.venueMeetingRooms(), sdkConfiguration);
         this.video = new AsyncVideo(syncSDK.video(), sdkConfiguration);
         this.webcasts = new AsyncWebcasts(syncSDK.webcasts(), sdkConfiguration);

@@ -106,7 +106,7 @@ public class Property {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address")
-    private AddressJson address;
+    private Address6 address;
 
     /**
      * Collection of external codes for a property. This includes GDS nd other codes used to identify a
@@ -114,7 +114,7 @@ public class Property {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("externalCodes")
-    private List<PropertyExternalCodeJson> externalCodes;
+    private List<PropertyExternalCodes> externalCodes;
 
     @JsonCreator
     public Property(
@@ -129,8 +129,8 @@ public class Property {
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("deleted") @Nullable Boolean deleted,
             @JsonProperty("currencyCode") @Nullable String currencyCode,
-            @JsonProperty("address") @Nullable AddressJson address,
-            @JsonProperty("externalCodes") @Nullable List<PropertyExternalCodeJson> externalCodes) {
+            @JsonProperty("address") @Nullable Address6 address,
+            @JsonProperty("externalCodes") @Nullable List<PropertyExternalCodes> externalCodes) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -230,7 +230,7 @@ public class Property {
     /**
      * A physical address.
      */
-    public Optional<AddressJson> address() {
+    public Optional<Address6> address() {
         return Optional.ofNullable(this.address);
     }
 
@@ -238,7 +238,7 @@ public class Property {
      * Collection of external codes for a property. This includes GDS nd other codes used to identify a
      * property in external systems.
      */
-    public Optional<List<PropertyExternalCodeJson>> externalCodes() {
+    public Optional<List<PropertyExternalCodes>> externalCodes() {
         return Optional.ofNullable(this.externalCodes);
     }
 
@@ -337,7 +337,7 @@ public class Property {
     /**
      * A physical address.
      */
-    public Property withAddress(@Nullable AddressJson address) {
+    public Property withAddress(@Nullable Address6 address) {
         this.address = address;
         return this;
     }
@@ -346,7 +346,7 @@ public class Property {
      * Collection of external codes for a property. This includes GDS nd other codes used to identify a
      * property in external systems.
      */
-    public Property withExternalCodes(@Nullable List<PropertyExternalCodeJson> externalCodes) {
+    public Property withExternalCodes(@Nullable List<PropertyExternalCodes> externalCodes) {
         this.externalCodes = externalCodes;
         return this;
     }
@@ -450,9 +450,9 @@ public class Property {
 
         private String currencyCode;
 
-        private AddressJson address;
+        private Address6 address;
 
-        private List<PropertyExternalCodeJson> externalCodes;
+        private List<PropertyExternalCodes> externalCodes;
 
         private Builder() {
             // force use of static builder() method
@@ -549,7 +549,7 @@ public class Property {
         /**
          * A physical address.
          */
-        public Builder address(@Nullable AddressJson address) {
+        public Builder address(@Nullable Address6 address) {
             this.address = address;
             return this;
         }
@@ -558,7 +558,7 @@ public class Property {
          * Collection of external codes for a property. This includes GDS nd other codes used to identify a
          * property in external systems.
          */
-        public Builder externalCodes(@Nullable List<PropertyExternalCodeJson> externalCodes) {
+        public Builder externalCodes(@Nullable List<PropertyExternalCodes> externalCodes) {
             this.externalCodes = externalCodes;
             return this;
         }

@@ -90,12 +90,12 @@ namespace Cvent.SDK.Models.Components
         /// A physical address.
         /// </summary>
         [JsonProperty("address")]
-        public AddressJson? Address { get; set; }
+        public Address6? Address { get; set; }
 
         /// <summary>
         /// Collection of external codes for a property. This includes GDS nd other codes used to identify a property in external systems.
         /// </summary>
         [JsonProperty("externalCodes")]
-        public List<PropertyExternalCodeJson>? ExternalCodes { get; set; }
+        public List<PropertyExternalCodes>? ExternalCodes { get; set; }
     }
 }

@@ -17,3 +17,4 @@ var value = BusinessType.Corporate;
 | ----------- | ----------- |
 | `Corporate` | corporate   |
 | `Leisure`   | leisure     |
+| `Consortia` | consortia   |

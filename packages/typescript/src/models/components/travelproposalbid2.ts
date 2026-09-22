@@ -77,7 +77,7 @@ export type TravelProposalBid2 = {
    */
   order: number;
   /**
-   * Bid stay type.
+   * Bid status type.
    */
   status: BidStatusType;
   /**

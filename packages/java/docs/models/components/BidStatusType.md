@@ -1,6 +1,6 @@
 # BidStatusType
 
-Bid stay type.
+Bid status type.
 
 ## Example Usage
 
@@ -13,8 +13,9 @@ BidStatusType value = BidStatusType.IN_PROGRESS;
 
 ## Values
 
-| Name          | Value         |
-| ------------- | ------------- |
-| `IN_PROGRESS` | in_progress   |
-| `ATTACHED`    | attached      |
-| `DELETED`     | deleted       |
+| Name               | Value              |
+| ------------------ | ------------------ |
+| `IN_PROGRESS`      | in_progress        |
+| `ATTACHED`         | attached           |
+| `DELETED`          | deleted            |
+| `DELETE_REQUESTED` | delete_requested   |

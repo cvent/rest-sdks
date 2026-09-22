@@ -11,6 +11,7 @@ import { ClosedEnum } from "../../types/enums.js";
 export const BusinessType = {
   Corporate: "corporate",
   Leisure: "leisure",
+  Consortia: "consortia",
 } as const;
 /**
  * Business type.

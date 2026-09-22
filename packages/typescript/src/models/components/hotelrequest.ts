@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Address7, Address7$inboundSchema } from "./address7.js";
+import { Address9, Address9$inboundSchema } from "./address9.js";
 import {
   AttendeeAnswer1,
   AttendeeAnswer1$inboundSchema,
@@ -188,7 +188,7 @@ export type HotelRequest = {
   /**
    * Address of the hotel.
    */
-  hotelAddress?: Address7 | undefined;
+  hotelAddress?: Address9 | undefined;
   /**
    * Collection of hotel room rates the requester has taken.
    */
@@ -257,7 +257,7 @@ export const HotelRequest$inboundSchema: z.ZodType<
   ).optional(),
   roomTaxBillingExceptions: z.string().optional(),
   incidentalBillingExceptions: z.string().optional(),
-  hotelAddress: Address7$inboundSchema.optional(),
+  hotelAddress: Address9$inboundSchema.optional(),
   hotelRoomRates: z.array(HotelRoomRate$inboundSchema).optional(),
   hotelRequestAnswers: z.array(AttendeeAnswer1$inboundSchema).optional(),
 });

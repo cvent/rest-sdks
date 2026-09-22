@@ -65,25 +65,22 @@ namespace Cvent.SDK.Models.Requests
         public List<Expand1>? Expand { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search<br/>
-        /// results and supports the combination of logical and comparison<br/>
-        /// operators.<br/>
+        /// Use the filter query parameter to narrow results using comparison operators. Combine multiple<br/>
+        /// conditions using logical operators. See <a href="https://developers.cvent.com/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
+        /// Supported fields and operators:<br/>
         /// <br/>
-        /// These are the comparison types that can be used in filter expressions:<br/>
-        ///   * equal: eq<br/>
-        ///   * not equal: ne<br/>
+        /// | Field         | Comparison operators | Logical operators |<br/>
+        /// |---------------|----------------------|-------------------|<br/>
+        /// | attendee.id   | `eq`, `ne`           | -                 |<br/>
+        /// | event.id      | `eq`, `ne`           | -                 |<br/>
+        /// | session.id    | `eq`, `ne`           | -                 |<br/>
+        /// | creditType.id | `eq`, `ne`           | -                 |<br/>
+        /// | type          | `eq`                 | -                 |<br/>
+        /// | tags          | `contains`           | -                 |<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        /// * attendee.id (eq|ne)<br/>
-        /// * event.id (eq|ne)<br/>
-        /// * session.id (eq|ne)<br/>
-        /// * creditType.id (eq|ne)<br/>
-        /// * type (eq)<br/>
-        /// <br/>
-        /// Note:<br/>
-        /// * lastModified: Used by the 'before' and 'after' filters.
+        /// Notes:<br/>
+        /// - lastModified is used by the 'before' and 'after' filters.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

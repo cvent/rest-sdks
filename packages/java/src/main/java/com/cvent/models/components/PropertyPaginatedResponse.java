@@ -25,7 +25,7 @@ public class PropertyPaginatedResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of properties and their related details.
@@ -36,7 +36,7 @@ public class PropertyPaginatedResponse {
 
     @JsonCreator
     public PropertyPaginatedResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging, @JsonProperty("data") @Nullable List<Property> data) {
+            @JsonProperty("paging") @Nullable Paging paging, @JsonProperty("data") @Nullable List<Property> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -48,7 +48,7 @@ public class PropertyPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
@@ -66,7 +66,7 @@ public class PropertyPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PropertyPaginatedResponse withPaging(@Nullable PagingJson paging) {
+    public PropertyPaginatedResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -104,7 +104,7 @@ public class PropertyPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
         private List<Property> data;
 
@@ -115,7 +115,7 @@ public class PropertyPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }

@@ -17,7 +17,7 @@ import {
   CategoryItemsCost$inboundSchema,
 } from "./categoryitemscost.js";
 import { Contact2, Contact2$inboundSchema } from "./contact2.js";
-import { Currency, Currency$inboundSchema } from "./currency.js";
+import { Currency1, Currency1$inboundSchema } from "./currency1.js";
 import { EstimatedCost, EstimatedCost$inboundSchema } from "./estimatedcost.js";
 import { EventSummary, EventSummary$inboundSchema } from "./eventsummary.js";
 import { MeetingRoom, MeetingRoom$inboundSchema } from "./meetingroom.js";
@@ -147,7 +147,7 @@ export type ProposalResponse = {
   /**
    * The ISO 4217 standard format currency code used for RFPs.
    */
-  currencyCode?: Currency | undefined;
+  currencyCode?: Currency1 | undefined;
   /**
    * True indicates this is a commissionable bid.
    */
@@ -288,7 +288,7 @@ export const ProposalResponse$inboundSchema: z.ZodType<
   statusSummary: StatusSummary$inboundSchema.optional(),
   introduction: z.string().optional(),
   billingContractualResponse: z.string().optional(),
-  currencyCode: Currency$inboundSchema.optional(),
+  currencyCode: Currency1$inboundSchema.optional(),
   commissionableBid: z.boolean().optional(),
   commissionRate: z.number().optional(),
   name: z.string().optional(),

@@ -19,7 +19,11 @@ information on rates and amenities.'
 * [ListTravelProposals](#listtravelproposals) - List Travel Proposals
 * [ListTravelProposalBids](#listtravelproposalbids) - List Travel Proposal Bids
 * [GetTravelProposalBid](#gettravelproposalbid) - Get Travel Proposal Bid
+* [ListTravelBuyerProposalBids](#listtravelbuyerproposalbids) - List Buyer Proposal Bids
+* [GetTravelBuyerProposalBid](#gettravelbuyerproposalbid) - Get Buyer Proposal Bid
+* [ListTravelProposalStaticContent](#listtravelproposalstaticcontent) - List Static Contents
 * [GetTravelProposal](#gettravelproposal) - Get Travel Proposal
+* [GetTravelProposalStaticContent](#gettravelproposalstaticcontent) - Get Static Content
 
 ## ListTravelPrograms
 
@@ -442,6 +446,165 @@ var res = await sdk.TravelRFPs.GetTravelProposalBidAsync(req);
 | Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
+## ListTravelBuyerProposalBids
+
+Get a paginated list of travel buyer proposal bids.
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="ListTravelBuyerProposalBids" method="get" path="/travel-proposals/buyer-bids" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+ListTravelBuyerProposalBidsRequest req = new ListTravelBuyerProposalBidsRequest() {
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    Filter = "proposal.id eq '1ffa56d9-9f60-4b8c-8b3b-3451de21293c'",
+};
+
+ListTravelBuyerProposalBidsResponse? res = await sdk.TravelRFPs.ListTravelBuyerProposalBidsAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+
+### Parameters
+
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [ListTravelBuyerProposalBidsRequest](../../Models/Requests/ListTravelBuyerProposalBidsRequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+
+### Response
+
+**[ListTravelBuyerProposalBidsResponse](../../Models/Requests/ListTravelBuyerProposalBidsResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## GetTravelBuyerProposalBid
+
+Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="GetTravelBuyerProposalBid" method="get" path="/travel-proposals/buyer-bids/{travelProposalBidId}" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+GetTravelBuyerProposalBidRequest req = new GetTravelBuyerProposalBidRequest() {
+    TravelProposalBidId = "413c5cc2-cb77-4082-9131-bab73fde5834",
+};
+
+var res = await sdk.TravelRFPs.GetTravelBuyerProposalBidAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [GetTravelBuyerProposalBidRequest](../../Models/Requests/GetTravelBuyerProposalBidRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+
+### Response
+
+**[GetTravelBuyerProposalBidResponse](../../Models/Requests/GetTravelBuyerProposalBidResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## ListTravelProposalStaticContent
+
+Gets a paginated list of proposal static content across multiple proposals.
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="ListTravelProposalStaticContent" method="get" path="/travel-proposals/static-contents" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+ListTravelProposalStaticContentRequest req = new ListTravelProposalStaticContentRequest() {
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    Filter = "travelProposal.id eq '1ffa56d9-9f60-4b8c-8b3b-3451de21293c'",
+};
+
+ListTravelProposalStaticContentResponse? res = await sdk.TravelRFPs.ListTravelProposalStaticContentAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [ListTravelProposalStaticContentRequest](../../Models/Requests/ListTravelProposalStaticContentRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+
+### Response
+
+**[ListTravelProposalStaticContentResponse](../../Models/Requests/ListTravelProposalStaticContentResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
 ## GetTravelProposal
 
 Gets a travel proposal for the given travel proposal ID.
@@ -487,4 +650,51 @@ var res = await sdk.TravelRFPs.GetTravelProposalAsync(req);
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
 | Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## GetTravelProposalStaticContent
+
+Retrieves static content for a specific proposal as a list of field-value pairs with sequence ordering.
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="GetTravelProposalStaticContent" method="get" path="/travel-proposals/{travelProposalId}/static-content" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+GetTravelProposalStaticContentRequest req = new GetTravelProposalStaticContentRequest() {
+    TravelProposalId = "413c5cc2-cb77-4082-9131-bab73fde5834",
+};
+
+var res = await sdk.TravelRFPs.GetTravelProposalStaticContentAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [GetTravelProposalStaticContentRequest](../../Models/Requests/GetTravelProposalStaticContentRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+
+### Response
+
+**[GetTravelProposalStaticContentResponse](../../Models/Requests/GetTravelProposalStaticContentResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 401, 403, 404, 429                      | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |

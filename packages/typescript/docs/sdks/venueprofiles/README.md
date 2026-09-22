@@ -11,6 +11,8 @@ Manage venue profile details including type, contact information, address, and o
 * [getVenueDetailsOverview](#getvenuedetailsoverview) - Get Venue Details Overview
 * [updateVenueFacility](#updatevenuefacility) - Update Venue Facility
 * [patchVenueFacility](#patchvenuefacility) - Patch Venue Facility
+* [getVenueRatings](#getvenueratings) - Get Venue Ratings
+* [updateVenueRatings](#updatevenueratings) - Update Venue Ratings
 
 ## updateVenueDetails
 
@@ -705,6 +707,214 @@ run();
 ### Response
 
 **Promise\<[components.VenueFacilityPatch](../../models/components/venuefacilitypatch.md)\>**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
+
+## getVenueRatings
+
+Retrieve the current ratings and awards for the specified venue.
+
+Returns all rating agencies applicable to this venue (based on its type and country), including agencies where no rating has been saved yet. Use this response to discover which agencies are valid and which can be set as primary before submitting a PUT request.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getVenueRatings" method="get" path="/venues/{venueId}/ratings" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.venueProfiles.getVenueRatings({
+    venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { venueProfilesGetVenueRatings } from "@cvent/sdk/funcs/venueProfilesGetVenueRatings.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await venueProfilesGetVenueRatings(cventSDK, {
+    venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("venueProfilesGetVenueRatings failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetVenueRatingsRequest](../../models/operations/getvenueratingsrequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.ExistingVenueRatings](../../models/components/existingvenueratings.md)\>**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
+
+## updateVenueRatings
+
+Replace all ratings and awards for the specified venue with those provided in the request body.
+
+This is a full replace — agencies omitted from the request will be removed. It is recommended to call GET first to retrieve the current state and the list of applicable agencies for the venue.
+
+Additional rules:
+- Ratings do not apply to CVB/DMC venues.
+- At most one rating may be marked as primary. Zagat ratings cannot be primary.
+- Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response before submitting a rating value for those agencies.
+- Agency eligibility is determined by the venue's type and country — passing an ineligible agency returns a 400.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="updateVenueRatings" method="put" path="/venues/{venueId}/ratings" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.venueProfiles.updateVenueRatings({
+    venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00",
+    venueRatings: {
+      ratings: [
+        {
+          ratingAgency: "AAA",
+          ratingValue: "FOUR_DIAMONDS",
+          primaryRating: true,
+        },
+      ],
+      venueAwards: "Recipient of the 2025 Green Hospitality Award.",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { venueProfilesUpdateVenueRatings } from "@cvent/sdk/funcs/venueProfilesUpdateVenueRatings.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await venueProfilesUpdateVenueRatings(cventSDK, {
+    venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00",
+    venueRatings: {
+      ratings: [
+        {
+          ratingAgency: "AAA",
+          ratingValue: "FOUR_DIAMONDS",
+          primaryRating: true,
+        },
+      ],
+      venueAwards: "Recipient of the 2025 Green Hospitality Award.",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("venueProfilesUpdateVenueRatings failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateVenueRatingsRequest](../../models/operations/updatevenueratingsrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.ExistingVenueRatings](../../models/components/existingvenueratings.md)\>**
 
 ### Errors
 

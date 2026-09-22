@@ -29,18 +29,22 @@ public class ListContactTypesRequest {
     private String token;
 
     /**
-     * Use filter query parameters to limit results
-     * to data that matches your criteria. See
-     * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+     * Use filter query parameters to limit results to data that matches your criteria.
+     * See [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
      *
      * <p>Supported fields and operators are listed below:
      *
-     * <p>| Field            | Operators                          |
-     * |------------------|-------------------------------------|
-     * | name             | `eq`, `ne`, `sw`, `contains`        |
+     * <p>| Field  | Operators                    | Notes
+     * |
+     * |--------|------------------------------|------------------------------------------------------------------------------|
+     * | id     | `eq`, `ne`                   |
+     * |
+     * | name   | `eq`, `ne`, `sw`, `contains` |
+     * |
      *
-     * <p>No logical operators are supported on this endpoint, only one filter
-     * can be passed in each request.
+     * <p>The following logical operators are supported for combining filters:
+     * * and
+     * * or
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
@@ -72,18 +76,22 @@ public class ListContactTypesRequest {
     }
 
     /**
-     * Use filter query parameters to limit results
-     * to data that matches your criteria. See
-     * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+     * Use filter query parameters to limit results to data that matches your criteria.
+     * See [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
      *
      * <p>Supported fields and operators are listed below:
      *
-     * <p>| Field            | Operators                          |
-     * |------------------|-------------------------------------|
-     * | name             | `eq`, `ne`, `sw`, `contains`        |
+     * <p>| Field  | Operators                    | Notes
+     * |
+     * |--------|------------------------------|------------------------------------------------------------------------------|
+     * | id     | `eq`, `ne`                   |
+     * |
+     * | name   | `eq`, `ne`, `sw`, `contains` |
+     * |
      *
-     * <p>No logical operators are supported on this endpoint, only one filter
-     * can be passed in each request.
+     * <p>The following logical operators are supported for combining filters:
+     * * and
+     * * or
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
@@ -111,18 +119,22 @@ public class ListContactTypesRequest {
     }
 
     /**
-     * Use filter query parameters to limit results
-     * to data that matches your criteria. See
-     * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+     * Use filter query parameters to limit results to data that matches your criteria.
+     * See [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
      *
      * <p>Supported fields and operators are listed below:
      *
-     * <p>| Field            | Operators                          |
-     * |------------------|-------------------------------------|
-     * | name             | `eq`, `ne`, `sw`, `contains`        |
+     * <p>| Field  | Operators                    | Notes
+     * |
+     * |--------|------------------------------|------------------------------------------------------------------------------|
+     * | id     | `eq`, `ne`                   |
+     * |
+     * | name   | `eq`, `ne`, `sw`, `contains` |
+     * |
      *
-     * <p>No logical operators are supported on this endpoint, only one filter
-     * can be passed in each request.
+     * <p>The following logical operators are supported for combining filters:
+     * * and
+     * * or
      */
     public ListContactTypesRequest withFilter(@Nullable String filter) {
         this.filter = filter;
@@ -184,18 +196,22 @@ public class ListContactTypesRequest {
         }
 
         /**
-         * Use filter query parameters to limit results
-         * to data that matches your criteria. See
-         * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+         * Use filter query parameters to limit results to data that matches your criteria.
+         * See [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
          *
          * <p>Supported fields and operators are listed below:
          *
-         * <p>| Field            | Operators                          |
-         * |------------------|-------------------------------------|
-         * | name             | `eq`, `ne`, `sw`, `contains`        |
+         * <p>| Field  | Operators                    | Notes
+         * |
+         * |--------|------------------------------|------------------------------------------------------------------------------|
+         * | id     | `eq`, `ne`                   |
+         * |
+         * | name   | `eq`, `ne`, `sw`, `contains` |
+         * |
          *
-         * <p>No logical operators are supported on this endpoint, only one filter
-         * can be passed in each request.
+         * <p>The following logical operators are supported for combining filters:
+         * * and
+         * * or
          */
         public Builder filter(@Nullable String filter) {
             this.filter = filter;

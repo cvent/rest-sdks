@@ -14,13 +14,14 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Bid stay type.
+    /// Bid status type.
     /// </summary>
     public enum BidStatusType
     {
         [JsonProperty("in_progress")] InProgress,
         [JsonProperty("attached")] Attached,
         [JsonProperty("deleted")] Deleted,
+        [JsonProperty("delete_requested")] DeleteRequested,
     }
 
     public static class BidStatusTypeExtension

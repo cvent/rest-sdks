@@ -72,6 +72,6 @@ namespace Cvent.SDK.Models.Components
         /// List of addresses associated with the travel account.
         /// </summary>
         [JsonProperty("addresses")]
-        public List<Address8>? Addresses { get; set; }
+        public List<Address10>? Addresses { get; set; }
     }
 }

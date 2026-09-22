@@ -25,7 +25,7 @@ public class BrandPaginatedResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of brands and their related details.
@@ -36,7 +36,7 @@ public class BrandPaginatedResponse {
 
     @JsonCreator
     public BrandPaginatedResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging, @JsonProperty("data") @Nullable List<Brand> data) {
+            @JsonProperty("paging") @Nullable Paging paging, @JsonProperty("data") @Nullable List<Brand> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -48,7 +48,7 @@ public class BrandPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
@@ -66,7 +66,7 @@ public class BrandPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public BrandPaginatedResponse withPaging(@Nullable PagingJson paging) {
+    public BrandPaginatedResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -104,7 +104,7 @@ public class BrandPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
         private List<Brand> data;
 
@@ -115,7 +115,7 @@ public class BrandPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }

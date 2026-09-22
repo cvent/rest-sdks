@@ -6,11 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AddressJson, AddressJson$inboundSchema } from "./addressjson.js";
+import { Address6, Address6$inboundSchema } from "./address6.js";
 import {
-  PropertyExternalCodeJson,
-  PropertyExternalCodeJson$inboundSchema,
-} from "./propertyexternalcodejson.js";
+  PropertyExternalCodes,
+  PropertyExternalCodes$inboundSchema,
+} from "./propertyexternalcodes.js";
 
 /**
  * The chain that the property belongs to.
@@ -83,11 +83,11 @@ export type Property = {
   /**
    * A physical address.
    */
-  address?: AddressJson | undefined;
+  address?: Address6 | undefined;
   /**
    * Collection of external codes for a property. This includes GDS nd other codes used to identify a property in external systems.
    */
-  externalCodes?: Array<PropertyExternalCodeJson> | undefined;
+  externalCodes?: Array<PropertyExternalCodes> | undefined;
 };
 
 /** @internal */
@@ -148,8 +148,8 @@ export const Property$inboundSchema: z.ZodType<
   code: z.string().optional(),
   deleted: z.boolean().default(false),
   currencyCode: z.string().default("USD"),
-  address: AddressJson$inboundSchema.optional(),
-  externalCodes: z.array(PropertyExternalCodeJson$inboundSchema).optional(),
+  address: Address6$inboundSchema.optional(),
+  externalCodes: z.array(PropertyExternalCodes$inboundSchema).optional(),
 });
 
 export function propertyFromJSON(

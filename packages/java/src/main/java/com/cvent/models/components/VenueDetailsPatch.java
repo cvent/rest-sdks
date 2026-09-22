@@ -117,7 +117,7 @@ public class VenueDetailsPatch {
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("currency")
-    private JsonNullable<VenueDetailsPatchCurrency> currency;
+    private JsonNullable<Currency> currency;
 
     /**
      * Venue opening date as free-form text.
@@ -173,7 +173,7 @@ public class VenueDetailsPatch {
             @JsonProperty("salesFaxNumber") @Nullable JsonNullable<String> salesFaxNumber,
             @JsonProperty("tollFreeNumber") @Nullable JsonNullable<String> tollFreeNumber,
             @JsonProperty("websiteAddress") @Nullable JsonNullable<String> websiteAddress,
-            @JsonProperty("currency") @Nullable JsonNullable<VenueDetailsPatchCurrency> currency,
+            @JsonProperty("currency") @Nullable JsonNullable<Currency> currency,
             @JsonProperty("openingDate") @Nullable JsonNullable<String> openingDate,
             @JsonProperty("description") @Nullable JsonNullable<String> description,
             @JsonProperty("additionalInformation") @Nullable JsonNullable<String> additionalInformation,
@@ -297,7 +297,7 @@ public class VenueDetailsPatch {
         return this.websiteAddress;
     }
 
-    public JsonNullable<VenueDetailsPatchCurrency> currency() {
+    public JsonNullable<Currency> currency() {
         return this.currency;
     }
 
@@ -451,7 +451,7 @@ public class VenueDetailsPatch {
         return this;
     }
 
-    public VenueDetailsPatch withCurrency(@Nullable VenueDetailsPatchCurrency currency) {
+    public VenueDetailsPatch withCurrency(@Nullable Currency currency) {
         this.currency = JsonNullable.of(currency);
         return this;
     }
@@ -617,7 +617,7 @@ public class VenueDetailsPatch {
 
         private JsonNullable<String> websiteAddress;
 
-        private JsonNullable<VenueDetailsPatchCurrency> currency;
+        private JsonNullable<Currency> currency;
 
         private JsonNullable<String> openingDate;
 
@@ -739,7 +739,7 @@ public class VenueDetailsPatch {
             return this;
         }
 
-        public Builder currency(@Nullable VenueDetailsPatchCurrency currency) {
+        public Builder currency(@Nullable Currency currency) {
             this.currency = JsonNullable.of(currency);
             return this;
         }

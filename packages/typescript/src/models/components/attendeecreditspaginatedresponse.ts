@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AttendeeCreditJson,
-  AttendeeCreditJson$inboundSchema,
-} from "./attendeecreditjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  AttendeeCredit,
+  AttendeeCredit$inboundSchema,
+} from "./attendeecredit.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * Response containing attendee credits information.
@@ -19,11 +19,11 @@ export type AttendeeCreditsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of credits assigned to attendees.
    */
-  data: Array<AttendeeCreditJson>;
+  data: Array<AttendeeCredit>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const AttendeeCreditsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(AttendeeCreditJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(AttendeeCredit$inboundSchema),
 });
 
 export function attendeeCreditsPaginatedResponseFromJSON(

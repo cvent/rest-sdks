@@ -9,7 +9,7 @@ import {
   AddressInfo$outboundSchema,
 } from "./addressinfo.js";
 import { ChainScale, ChainScale$outboundSchema } from "./chainscale.js";
-import { Currency, Currency$outboundSchema } from "./currency.js";
+import { Currency1, Currency1$outboundSchema } from "./currency1.js";
 import { LocationType, LocationType$outboundSchema } from "./locationtype.js";
 import { VenueType, VenueType$outboundSchema } from "./venuetype.js";
 
@@ -101,7 +101,7 @@ export type ExistingVenueDetailsInput = {
   /**
    * The ISO 4217 standard format currency code used for RFPs.
    */
-  currency?: Currency | undefined;
+  currency?: Currency1 | undefined;
   /**
    * Venue opening date as free-form text.
    */
@@ -165,7 +165,7 @@ export const ExistingVenueDetailsInput$outboundSchema: z.ZodType<
   salesFaxNumber: z.string().optional(),
   tollFreeNumber: z.string().optional(),
   websiteAddress: z.string().optional(),
-  currency: Currency$outboundSchema.optional(),
+  currency: Currency1$outboundSchema.optional(),
   openingDate: z.string().optional(),
   description: z.string().optional(),
   additionalInformation: z.string().optional(),

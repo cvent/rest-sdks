@@ -740,7 +740,11 @@ run();
 * [listTravelProposals](docs/sdks/travelrfps/README.md#listtravelproposals) - List Travel Proposals
 * [listTravelProposalBids](docs/sdks/travelrfps/README.md#listtravelproposalbids) - List Travel Proposal Bids
 * [getTravelProposalBid](docs/sdks/travelrfps/README.md#gettravelproposalbid) - Get Travel Proposal Bid
+* [listTravelBuyerProposalBids](docs/sdks/travelrfps/README.md#listtravelbuyerproposalbids) - List Buyer Proposal Bids
+* [getTravelBuyerProposalBid](docs/sdks/travelrfps/README.md#gettravelbuyerproposalbid) - Get Buyer Proposal Bid
+* [listTravelProposalStaticContent](docs/sdks/travelrfps/README.md#listtravelproposalstaticcontent) - List Static Contents
 * [getTravelProposal](docs/sdks/travelrfps/README.md#gettravelproposal) - Get Travel Proposal
+* [getTravelProposalStaticContent](docs/sdks/travelrfps/README.md#gettravelproposalstaticcontent) - Get Static Content
 
 ### [TravelSuppliers](docs/sdks/travelsuppliers/README.md)
 
@@ -782,6 +786,25 @@ run();
 * [addUserToAccountUserGroup](docs/sdks/users/README.md#addusertoaccountusergroup) - Associate User to Group
 * [deleteUserFromAccountUserGroup](docs/sdks/users/README.md#deleteuserfromaccountusergroup) - Delete User from Group
 
+### [VenueAvailability](docs/sdks/venueavailability/README.md)
+
+* [getVenueAvailabilitySettings](docs/sdks/venueavailability/README.md#getvenueavailabilitysettings) - Get Availability Settings
+* [updateVenueAvailabilitySettings](docs/sdks/venueavailability/README.md#updatevenueavailabilitysettings) - Update Availability Settings
+* [listVenueNeedDates](docs/sdks/venueavailability/README.md#listvenueneeddates) - List Venue Need Dates
+* [createVenueNeedDate](docs/sdks/venueavailability/README.md#createvenueneeddate) - Create Venue Need Date
+* [getVenueNeedDate](docs/sdks/venueavailability/README.md#getvenueneeddate) - Get Venue Need Date
+* [updateVenueNeedDate](docs/sdks/venueavailability/README.md#updatevenueneeddate) - Update Venue Need Date
+* [deleteVenueNeedDate](docs/sdks/venueavailability/README.md#deletevenueneeddate) - Delete Venue Need Date
+
+### [VenueContent](docs/sdks/venuecontent/README.md)
+
+* [createVenueImageMetadata](docs/sdks/venuecontent/README.md#createvenueimagemetadata) - Create Venue Image Metadata
+* [listVenueImagesMetadata](docs/sdks/venuecontent/README.md#listvenueimagesmetadata) - List Images Metadata
+* [updateVenueImageMetadata](docs/sdks/venuecontent/README.md#updatevenueimagemetadata) - Update Venue Image Metadata
+* [getVenueImageMetadata](docs/sdks/venuecontent/README.md#getvenueimagemetadata) - Get Image Metadata
+* [associateVenueImage](docs/sdks/venuecontent/README.md#associatevenueimage) - Associate Venue Image
+* [disassociateVenueImage](docs/sdks/venuecontent/README.md#disassociatevenueimage) - Remove Venue Image
+
 ### [VenueMeetingRooms](docs/sdks/venuemeetingrooms/README.md)
 
 * [createMeetingRoom](docs/sdks/venuemeetingrooms/README.md#createmeetingroom) - Create Meeting Room
@@ -800,6 +823,8 @@ run();
 * [getVenueDetailsOverview](docs/sdks/venueprofiles/README.md#getvenuedetailsoverview) - Get Venue Details Overview
 * [updateVenueFacility](docs/sdks/venueprofiles/README.md#updatevenuefacility) - Update Venue Facility
 * [patchVenueFacility](docs/sdks/venueprofiles/README.md#patchvenuefacility) - Patch Venue Facility
+* [getVenueRatings](docs/sdks/venueprofiles/README.md#getvenueratings) - Get Venue Ratings
+* [updateVenueRatings](docs/sdks/venueprofiles/README.md#updatevenueratings) - Update Venue Ratings
 
 ### [Video](docs/sdks/video/README.md)
 
@@ -1246,15 +1271,19 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`travelAccountsGetTravelAccount`](docs/sdks/travelaccounts/README.md#gettravelaccount) - Get Travel Account
 - [`travelAccountsListSupplierAccounts`](docs/sdks/travelaccounts/README.md#listsupplieraccounts) - List Supplier Accounts
 - [`travelAccountsListTravelAccounts`](docs/sdks/travelaccounts/README.md#listtravelaccounts) - List Travel Accounts
+- [`travelRFPsGetTravelBuyerProposalBid`](docs/sdks/travelrfps/README.md#gettravelbuyerproposalbid) - Get Buyer Proposal Bid
 - [`travelRFPsGetTravelProgram`](docs/sdks/travelrfps/README.md#gettravelprogram) - Get Travel Program
 - [`travelRFPsGetTravelProgramQuestion`](docs/sdks/travelrfps/README.md#gettravelprogramquestion) - Get Travel Program Question
 - [`travelRFPsGetTravelProposal`](docs/sdks/travelrfps/README.md#gettravelproposal) - Get Travel Proposal
 - [`travelRFPsGetTravelProposalBid`](docs/sdks/travelrfps/README.md#gettravelproposalbid) - Get Travel Proposal Bid
+- [`travelRFPsGetTravelProposalStaticContent`](docs/sdks/travelrfps/README.md#gettravelproposalstaticcontent) - Get Static Content
+- [`travelRFPsListTravelBuyerProposalBids`](docs/sdks/travelrfps/README.md#listtravelbuyerproposalbids) - List Buyer Proposal Bids
 - [`travelRFPsListTravelProgramQuestions`](docs/sdks/travelrfps/README.md#listtravelprogramquestions) - List Travel Program Questions
 - [`travelRFPsListTravelPrograms`](docs/sdks/travelrfps/README.md#listtravelprograms) - List Travel Programs
 - [`travelRFPsListTravelProgramsQuestions`](docs/sdks/travelrfps/README.md#listtravelprogramsquestions) - List Travel Programs Questions
 - [`travelRFPsListTravelProposalBids`](docs/sdks/travelrfps/README.md#listtravelproposalbids) - List Travel Proposal Bids
 - [`travelRFPsListTravelProposals`](docs/sdks/travelrfps/README.md#listtravelproposals) - List Travel Proposals
+- [`travelRFPsListTravelProposalStaticContent`](docs/sdks/travelrfps/README.md#listtravelproposalstaticcontent) - List Static Contents
 - [`travelSuppliersBtApiGetPropertyRooms`](docs/sdks/travelsuppliers/README.md#btapigetpropertyrooms) - List Supplier Property Rooms
 - [`travelSuppliersPropertyApiGetBrand`](docs/sdks/travelsuppliers/README.md#propertyapigetbrand) - Get Supplier Brand
 - [`travelSuppliersPropertyApiGetChain`](docs/sdks/travelsuppliers/README.md#propertyapigetchain) - Get Supplier Chain
@@ -1283,6 +1312,19 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`usersGetAccountUserGroup`](docs/sdks/users/README.md#getaccountusergroup) - Get Account User Group
 - [`usersGetAccountUserGroups`](docs/sdks/users/README.md#getaccountusergroups) - List Account User Groups
 - [`usersUpdateAccountUserGroup`](docs/sdks/users/README.md#updateaccountusergroup) - Update Account User Group
+- [`venueAvailabilityCreateVenueNeedDate`](docs/sdks/venueavailability/README.md#createvenueneeddate) - Create Venue Need Date
+- [`venueAvailabilityDeleteVenueNeedDate`](docs/sdks/venueavailability/README.md#deletevenueneeddate) - Delete Venue Need Date
+- [`venueAvailabilityGetVenueAvailabilitySettings`](docs/sdks/venueavailability/README.md#getvenueavailabilitysettings) - Get Availability Settings
+- [`venueAvailabilityGetVenueNeedDate`](docs/sdks/venueavailability/README.md#getvenueneeddate) - Get Venue Need Date
+- [`venueAvailabilityListVenueNeedDates`](docs/sdks/venueavailability/README.md#listvenueneeddates) - List Venue Need Dates
+- [`venueAvailabilityUpdateVenueAvailabilitySettings`](docs/sdks/venueavailability/README.md#updatevenueavailabilitysettings) - Update Availability Settings
+- [`venueAvailabilityUpdateVenueNeedDate`](docs/sdks/venueavailability/README.md#updatevenueneeddate) - Update Venue Need Date
+- [`venueContentAssociateVenueImage`](docs/sdks/venuecontent/README.md#associatevenueimage) - Associate Venue Image
+- [`venueContentCreateVenueImageMetadata`](docs/sdks/venuecontent/README.md#createvenueimagemetadata) - Create Venue Image Metadata
+- [`venueContentDisassociateVenueImage`](docs/sdks/venuecontent/README.md#disassociatevenueimage) - Remove Venue Image
+- [`venueContentGetVenueImageMetadata`](docs/sdks/venuecontent/README.md#getvenueimagemetadata) - Get Image Metadata
+- [`venueContentListVenueImagesMetadata`](docs/sdks/venuecontent/README.md#listvenueimagesmetadata) - List Images Metadata
+- [`venueContentUpdateVenueImageMetadata`](docs/sdks/venuecontent/README.md#updatevenueimagemetadata) - Update Venue Image Metadata
 - [`venueMeetingRoomsAssociateMeetingRoomImage`](docs/sdks/venuemeetingrooms/README.md#associatemeetingroomimage) - Associate Meeting Room Image
 - [`venueMeetingRoomsCreateMeetingRoom`](docs/sdks/venuemeetingrooms/README.md#createmeetingroom) - Create Meeting Room
 - [`venueMeetingRoomsDisassociateMeetingRoomImage`](docs/sdks/venuemeetingrooms/README.md#disassociatemeetingroomimage) - Remove Meeting Room Image
@@ -1292,10 +1334,12 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`venueMeetingRoomsPatchMeetingRoom`](docs/sdks/venuemeetingrooms/README.md#patchmeetingroom) - Patch Meeting Room
 - [`venueMeetingRoomsUpdateMeetingRoom`](docs/sdks/venuemeetingrooms/README.md#updatemeetingroom) - Update Meeting Room
 - [`venueProfilesGetVenueDetailsOverview`](docs/sdks/venueprofiles/README.md#getvenuedetailsoverview) - Get Venue Details Overview
+- [`venueProfilesGetVenueRatings`](docs/sdks/venueprofiles/README.md#getvenueratings) - Get Venue Ratings
 - [`venueProfilesPatchVenueDetails`](docs/sdks/venueprofiles/README.md#patchvenuedetails) - Patch Venue Details
 - [`venueProfilesPatchVenueFacility`](docs/sdks/venueprofiles/README.md#patchvenuefacility) - Patch Venue Facility
 - [`venueProfilesUpdateVenueDetails`](docs/sdks/venueprofiles/README.md#updatevenuedetails) - Update Venue Details
 - [`venueProfilesUpdateVenueFacility`](docs/sdks/venueprofiles/README.md#updatevenuefacility) - Update Venue Facility
+- [`venueProfilesUpdateVenueRatings`](docs/sdks/venueprofiles/README.md#updatevenueratings) - Update Venue Ratings
 - [`videoCreateTextTrack`](docs/sdks/video/README.md#createtexttrack) - Create Text Track
 - [`videoGetVideoViews`](docs/sdks/video/README.md#getvideoviews) - List Video Views
 - [`videoListAudioTracks`](docs/sdks/video/README.md#listaudiotracks) - List Audio Tracks
@@ -1572,10 +1616,10 @@ run();
 
 
 **Inherit from [`CventSDKError`](./src/models/errors/cventsdkerror.ts)**:
-* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 469 methods.*
-* [`ErrorResponse14`](./src/models/errors/errorresponse14.ts): The error response. Applicable to 11 of 469 methods.*
-* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 469 methods.*
-* [`Oauth2TokenPostResponse0Error`](./src/models/errors/oauth2tokenpostresponse0error.ts): A bad token response. Status code `400`. Applicable to 1 of 469 methods.*
+* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 488 methods.*
+* [`ErrorResponse16`](./src/models/errors/errorresponse16.ts): The error response. Applicable to 11 of 488 methods.*
+* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 488 methods.*
+* [`Oauth2TokenPostResponse0Error`](./src/models/errors/oauth2tokenpostresponse0error.ts): A bad token response. Status code `400`. Applicable to 1 of 488 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

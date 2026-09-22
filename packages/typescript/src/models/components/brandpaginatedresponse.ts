@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Brand, Brand$inboundSchema } from "./brand.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * A list of brands.
@@ -16,7 +16,7 @@ export type BrandPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * Collection of brands and their related details.
    */
@@ -29,7 +29,7 @@ export const BrandPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
+  paging: Paging$inboundSchema.optional(),
   data: z.array(Brand$inboundSchema).optional(),
 });
 

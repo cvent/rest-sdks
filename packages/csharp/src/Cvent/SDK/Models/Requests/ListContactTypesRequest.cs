@@ -27,18 +27,19 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// Use filter query parameters to limit results<br/>
-        /// to data that matches your criteria. See<br/>
-        /// <a href="https://developers.cvent.com/docs/rest-api/reference/filters">Filters</a> for details.<br/>
+        /// Use filter query parameters to limit results to data that matches your criteria.<br/>
+        /// See <a href="https://developers.cvent.com/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
         /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// | Field            | Operators                          |<br/>
-        /// |------------------|-------------------------------------|<br/>
-        /// | name             | `eq`, `ne`, `sw`, `contains`        |<br/>
+        /// | Field  | Operators                    | Notes                                                                        |<br/>
+        /// |--------|------------------------------|------------------------------------------------------------------------------|<br/>
+        /// | id     | `eq`, `ne`                   |                                                                              |<br/>
+        /// | name   | `eq`, `ne`, `sw`, `contains` |                                                                              |<br/>
         /// <br/>
-        /// No logical operators are supported on this endpoint, only one filter<br/>
-        /// can be passed in each request.
+        /// The following logical operators are supported for combining filters:<br/>
+        /// * and<br/>
+        /// * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { AddressInfo, AddressInfo$inboundSchema } from "./addressinfo.js";
 import { ChainScale, ChainScale$inboundSchema } from "./chainscale.js";
-import { Currency, Currency$inboundSchema } from "./currency.js";
+import { Currency1, Currency1$inboundSchema } from "./currency1.js";
 import { LocationType, LocationType$inboundSchema } from "./locationtype.js";
 import { VenueType, VenueType$inboundSchema } from "./venuetype.js";
 
@@ -116,7 +116,7 @@ export type ExistingVenueDetails = {
   /**
    * The ISO 4217 standard format currency code used for RFPs.
    */
-  currency?: Currency | undefined;
+  currency?: Currency1 | undefined;
   /**
    * Venue opening date as free-form text.
    */
@@ -178,7 +178,7 @@ export const ExistingVenueDetails$inboundSchema: z.ZodType<
   salesFaxNumber: z.string().optional(),
   tollFreeNumber: z.string().optional(),
   websiteAddress: z.string().optional(),
-  currency: Currency$inboundSchema.optional(),
+  currency: Currency1$inboundSchema.optional(),
   openingDate: z.string().optional(),
   description: z.string().optional(),
   additionalInformation: z.string().optional(),
