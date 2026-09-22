@@ -1,0 +1,11 @@
+# ExistingVenueNeedDateInput
+
+A venue need date range with its server-assigned identifier.
+
+
+## Fields
+
+| Field                                                                                                     | Type                                                                                                      | Required                                                                                                  | Description                                                                                               | Example                                                                                                   |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `StartDate`                                                                                               | [DateOnly](https://learn.microsoft.com/en-us/dotnet/api/system.dateonly?view=net-6.0)                     | :heavy_check_mark:                                                                                        | The ISO 8601 date representing the start of the need date range (inclusive).                              | 2026-07-01                                                                                                |
+| `EndDate`                                                                                                 | [DateOnly](https://learn.microsoft.com/en-us/dotnet/api/system.dateonly?view=net-6.0)                     | :heavy_check_mark:                                                                                        | The ISO 8601 date representing the end of the need date range (inclusive). Must be on or after startDate. | 2026-07-31                                                                                                |

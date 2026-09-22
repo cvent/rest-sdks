@@ -717,7 +717,11 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [ListTravelProposals](docs/sdks/travelrfps/README.md#listtravelproposals) - List Travel Proposals
 * [ListTravelProposalBids](docs/sdks/travelrfps/README.md#listtravelproposalbids) - List Travel Proposal Bids
 * [GetTravelProposalBid](docs/sdks/travelrfps/README.md#gettravelproposalbid) - Get Travel Proposal Bid
+* [ListTravelBuyerProposalBids](docs/sdks/travelrfps/README.md#listtravelbuyerproposalbids) - List Buyer Proposal Bids
+* [GetTravelBuyerProposalBid](docs/sdks/travelrfps/README.md#gettravelbuyerproposalbid) - Get Buyer Proposal Bid
+* [ListTravelProposalStaticContent](docs/sdks/travelrfps/README.md#listtravelproposalstaticcontent) - List Static Contents
 * [GetTravelProposal](docs/sdks/travelrfps/README.md#gettravelproposal) - Get Travel Proposal
+* [GetTravelProposalStaticContent](docs/sdks/travelrfps/README.md#gettravelproposalstaticcontent) - Get Static Content
 
 ### [TravelSuppliers](docs/sdks/travelsuppliers/README.md)
 
@@ -759,6 +763,25 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [AddUserToAccountUserGroup](docs/sdks/users/README.md#addusertoaccountusergroup) - Associate User to Group
 * [DeleteUserFromAccountUserGroup](docs/sdks/users/README.md#deleteuserfromaccountusergroup) - Delete User from Group
 
+### [VenueAvailability](docs/sdks/venueavailability/README.md)
+
+* [GetVenueAvailabilitySettings](docs/sdks/venueavailability/README.md#getvenueavailabilitysettings) - Get Availability Settings
+* [UpdateVenueAvailabilitySettings](docs/sdks/venueavailability/README.md#updatevenueavailabilitysettings) - Update Availability Settings
+* [ListVenueNeedDates](docs/sdks/venueavailability/README.md#listvenueneeddates) - List Venue Need Dates
+* [CreateVenueNeedDate](docs/sdks/venueavailability/README.md#createvenueneeddate) - Create Venue Need Date
+* [GetVenueNeedDate](docs/sdks/venueavailability/README.md#getvenueneeddate) - Get Venue Need Date
+* [UpdateVenueNeedDate](docs/sdks/venueavailability/README.md#updatevenueneeddate) - Update Venue Need Date
+* [DeleteVenueNeedDate](docs/sdks/venueavailability/README.md#deletevenueneeddate) - Delete Venue Need Date
+
+### [VenueContent](docs/sdks/venuecontent/README.md)
+
+* [CreateVenueImageMetadata](docs/sdks/venuecontent/README.md#createvenueimagemetadata) - Create Venue Image Metadata
+* [ListVenueImagesMetadata](docs/sdks/venuecontent/README.md#listvenueimagesmetadata) - List Images Metadata
+* [UpdateVenueImageMetadata](docs/sdks/venuecontent/README.md#updatevenueimagemetadata) - Update Venue Image Metadata
+* [GetVenueImageMetadata](docs/sdks/venuecontent/README.md#getvenueimagemetadata) - Get Image Metadata
+* [AssociateVenueImage](docs/sdks/venuecontent/README.md#associatevenueimage) - Associate Venue Image
+* [DisassociateVenueImage](docs/sdks/venuecontent/README.md#disassociatevenueimage) - Remove Venue Image
+
 ### [VenueMeetingRooms](docs/sdks/venuemeetingrooms/README.md)
 
 * [CreateMeetingRoom](docs/sdks/venuemeetingrooms/README.md#createmeetingroom) - Create Meeting Room
@@ -777,6 +800,8 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [GetVenueDetailsOverview](docs/sdks/venueprofiles/README.md#getvenuedetailsoverview) - Get Venue Details Overview
 * [UpdateVenueFacility](docs/sdks/venueprofiles/README.md#updatevenuefacility) - Update Venue Facility
 * [PatchVenueFacility](docs/sdks/venueprofiles/README.md#patchvenuefacility) - Patch Venue Facility
+* [GetVenueRatings](docs/sdks/venueprofiles/README.md#getvenueratings) - Get Venue Ratings
+* [UpdateVenueRatings](docs/sdks/venueprofiles/README.md#updatevenueratings) - Update Venue Ratings
 
 ### [Video](docs/sdks/video/README.md)
 
@@ -1022,10 +1047,10 @@ catch (System.Net.Http.HttpRequestException ex)
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs):
-  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 18 of 469 methods.*
-  * [`ErrorResponse14`](./src/Cvent/SDK/Models/Errors/ErrorResponse14.cs): The error response. Applicable to 11 of 469 methods.*
-  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 469 methods.*
-  * [`Oauth2TokenPostResponse0Exception`](./src/Cvent/SDK/Models/Errors/Oauth2TokenPostResponse0Exception.cs): A bad token response. Status code `400`. Applicable to 1 of 469 methods.*
+  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 18 of 488 methods.*
+  * [`ErrorResponse16`](./src/Cvent/SDK/Models/Errors/ErrorResponse16.cs): The error response. Applicable to 11 of 488 methods.*
+  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 488 methods.*
+  * [`Oauth2TokenPostResponse0Exception`](./src/Cvent/SDK/Models/Errors/Oauth2TokenPostResponse0Exception.cs): A bad token response. Status code `400`. Applicable to 1 of 488 methods.*
   * [`ResponseValidationError`](./src/Cvent/SDK/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
 </details>
 

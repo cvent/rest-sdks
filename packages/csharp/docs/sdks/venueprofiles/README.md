@@ -11,6 +11,8 @@ Manage venue profile details including type, contact information, address, and o
 * [GetVenueDetailsOverview](#getvenuedetailsoverview) - Get Venue Details Overview
 * [UpdateVenueFacility](#updatevenuefacility) - Update Venue Facility
 * [PatchVenueFacility](#patchvenuefacility) - Patch Venue Facility
+* [GetVenueRatings](#getvenueratings) - Get Venue Ratings
+* [UpdateVenueRatings](#updatevenueratings) - Update Venue Ratings
 
 ## UpdateVenueDetails
 
@@ -383,6 +385,123 @@ var res = await sdk.VenueProfiles.PatchVenueFacilityAsync(req);
 ### Response
 
 **[PatchVenueFacilityResponse](../../Models/Requests/PatchVenueFacilityResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## GetVenueRatings
+
+Retrieve the current ratings and awards for the specified venue.
+
+Returns all rating agencies applicable to this venue (based on its type and country), including agencies where no rating has been saved yet. Use this response to discover which agencies are valid and which can be set as primary before submitting a PUT request.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="getVenueRatings" method="get" path="/venues/{venueId}/ratings" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+GetVenueRatingsRequest req = new GetVenueRatingsRequest() {
+    VenueId = "6bb0e2db-861f-46e3-a923-eb4d959ffa00",
+};
+
+var res = await sdk.VenueProfiles.GetVenueRatingsAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `request`                                                                 | [GetVenueRatingsRequest](../../Models/Requests/GetVenueRatingsRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+
+### Response
+
+**[GetVenueRatingsResponse](../../Models/Requests/GetVenueRatingsResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## UpdateVenueRatings
+
+Replace all ratings and awards for the specified venue with those provided in the request body.
+
+This is a full replace — agencies omitted from the request will be removed. It is recommended to call GET first to retrieve the current state and the list of applicable agencies for the venue.
+
+Additional rules:
+- Ratings do not apply to CVB/DMC venues.
+- At most one rating may be marked as primary. Zagat ratings cannot be primary.
+- Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response before submitting a rating value for those agencies.
+- Agency eligibility is determined by the venue's type and country — passing an ineligible agency returns a 400.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="updateVenueRatings" method="put" path="/venues/{venueId}/ratings" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System.Collections.Generic;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+UpdateVenueRatingsRequest req = new UpdateVenueRatingsRequest() {
+    VenueId = "6bb0e2db-861f-46e3-a923-eb4d959ffa00",
+    VenueRatings = new VenueRatings() {
+        Ratings = new List<VenueRatingInput>() {
+            new VenueRatingInput() {
+                RatingAgency = RatingAgency.Aaa,
+                RatingValue = RatingValue.FourDiamonds,
+                PrimaryRating = true,
+            },
+        },
+        VenueAwards = "Recipient of the 2025 Green Hospitality Award.",
+    },
+};
+
+var res = await sdk.VenueProfiles.UpdateVenueRatingsAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [UpdateVenueRatingsRequest](../../Models/Requests/UpdateVenueRatingsRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+
+### Response
+
+**[UpdateVenueRatingsResponse](../../Models/Requests/UpdateVenueRatingsResponse.md)**
 
 ### Errors
 

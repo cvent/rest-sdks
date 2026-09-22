@@ -44,7 +44,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cvent:sdk:1.6.2'
+implementation 'com.cvent:sdk:1.6.3'
 ```
 
 Maven:
@@ -52,7 +52,7 @@ Maven:
 <dependency>
     <groupId>com.cvent</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.6.2</version>
+    <version>1.6.3</version>
 </dependency>
 ```
 
@@ -904,7 +904,11 @@ public class Application {
 * [listTravelProposals](docs/sdks/travelrfps/README.md#listtravelproposals) - List Travel Proposals
 * [listTravelProposalBids](docs/sdks/travelrfps/README.md#listtravelproposalbids) - List Travel Proposal Bids
 * [getTravelProposalBid](docs/sdks/travelrfps/README.md#gettravelproposalbid) - Get Travel Proposal Bid
+* [listTravelBuyerProposalBids](docs/sdks/travelrfps/README.md#listtravelbuyerproposalbids) - List Buyer Proposal Bids
+* [getTravelBuyerProposalBid](docs/sdks/travelrfps/README.md#gettravelbuyerproposalbid) - Get Buyer Proposal Bid
+* [listTravelProposalStaticContent](docs/sdks/travelrfps/README.md#listtravelproposalstaticcontent) - List Static Contents
 * [getTravelProposal](docs/sdks/travelrfps/README.md#gettravelproposal) - Get Travel Proposal
+* [getTravelProposalStaticContent](docs/sdks/travelrfps/README.md#gettravelproposalstaticcontent) - Get Static Content
 
 ### [TravelSuppliers](docs/sdks/travelsuppliers/README.md)
 
@@ -946,6 +950,25 @@ public class Application {
 * [addUserToAccountUserGroup](docs/sdks/users/README.md#addusertoaccountusergroup) - Associate User to Group
 * [deleteUserFromAccountUserGroup](docs/sdks/users/README.md#deleteuserfromaccountusergroup) - Delete User from Group
 
+### [VenueAvailability](docs/sdks/venueavailability/README.md)
+
+* [getVenueAvailabilitySettings](docs/sdks/venueavailability/README.md#getvenueavailabilitysettings) - Get Availability Settings
+* [updateVenueAvailabilitySettings](docs/sdks/venueavailability/README.md#updatevenueavailabilitysettings) - Update Availability Settings
+* [listVenueNeedDates](docs/sdks/venueavailability/README.md#listvenueneeddates) - List Venue Need Dates
+* [createVenueNeedDate](docs/sdks/venueavailability/README.md#createvenueneeddate) - Create Venue Need Date
+* [getVenueNeedDate](docs/sdks/venueavailability/README.md#getvenueneeddate) - Get Venue Need Date
+* [updateVenueNeedDate](docs/sdks/venueavailability/README.md#updatevenueneeddate) - Update Venue Need Date
+* [deleteVenueNeedDate](docs/sdks/venueavailability/README.md#deletevenueneeddate) - Delete Venue Need Date
+
+### [VenueContent](docs/sdks/venuecontent/README.md)
+
+* [createVenueImageMetadata](docs/sdks/venuecontent/README.md#createvenueimagemetadata) - Create Venue Image Metadata
+* [listVenueImagesMetadata](docs/sdks/venuecontent/README.md#listvenueimagesmetadata) - List Images Metadata
+* [updateVenueImageMetadata](docs/sdks/venuecontent/README.md#updatevenueimagemetadata) - Update Venue Image Metadata
+* [getVenueImageMetadata](docs/sdks/venuecontent/README.md#getvenueimagemetadata) - Get Image Metadata
+* [associateVenueImage](docs/sdks/venuecontent/README.md#associatevenueimage) - Associate Venue Image
+* [disassociateVenueImage](docs/sdks/venuecontent/README.md#disassociatevenueimage) - Remove Venue Image
+
 ### [VenueMeetingRooms](docs/sdks/venuemeetingrooms/README.md)
 
 * [createMeetingRoom](docs/sdks/venuemeetingrooms/README.md#createmeetingroom) - Create Meeting Room
@@ -964,6 +987,8 @@ public class Application {
 * [getVenueDetailsOverview](docs/sdks/venueprofiles/README.md#getvenuedetailsoverview) - Get Venue Details Overview
 * [updateVenueFacility](docs/sdks/venueprofiles/README.md#updatevenuefacility) - Update Venue Facility
 * [patchVenueFacility](docs/sdks/venueprofiles/README.md#patchvenuefacility) - Patch Venue Facility
+* [getVenueRatings](docs/sdks/venueprofiles/README.md#getvenueratings) - Get Venue Ratings
+* [updateVenueRatings](docs/sdks/venueprofiles/README.md#updatevenueratings) - Update Venue Ratings
 
 ### [Video](docs/sdks/video/README.md)
 
@@ -1334,10 +1359,10 @@ public class Application {
 many more subclasses in the JDK platform).
 
 **Inherit from [`CventSDKError`](./src/main/java/models/errors/CventSDKError.java)**:
-* [`com.cvent.models.errors.ErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse.java): Represents an error response with additional details of cascading error messages. Applicable to 18 of 469 methods.*
-* [`com.cvent.models.errors.ErrorResponse14`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse14.java): The error response. Applicable to 11 of 469 methods.*
-* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 469 methods.*
-* [`com.cvent.models.errors.Oauth2TokenPostResponse0Exception`](./src/main/java/models/errors/com.cvent.models.errors.Oauth2TokenPostResponse0Exception.java): A bad token response. Status code `400`. Applicable to 1 of 469 methods.*
+* [`com.cvent.models.errors.ErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse.java): Represents an error response with additional details of cascading error messages. Applicable to 18 of 488 methods.*
+* [`com.cvent.models.errors.ErrorResponse16`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse16.java): The error response. Applicable to 11 of 488 methods.*
+* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 488 methods.*
+* [`com.cvent.models.errors.Oauth2TokenPostResponse0Exception`](./src/main/java/models/errors/com.cvent.models.errors.Oauth2TokenPostResponse0Exception.java): A bad token response. Status code `400`. Applicable to 1 of 488 methods.*
 
 
 </details>

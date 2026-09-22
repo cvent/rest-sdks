@@ -515,10 +515,20 @@ public class CventSDK {
     private final Usage usage;
 
     /**
+     * Manage the date ranges when a venue is available for event bookings.
+     */
+    private final VenueAvailability venueAvailability;
+
+    /**
      * Manage venue profile details including type, contact information, address, and other venue
      * properties.
      */
     private final VenueProfiles venueProfiles;
+
+    /**
+     * Manage images, amenities, and nearby attractions associated with a venue.
+     */
+    private final VenueContent venueContent;
 
     /**
      * Manage meeting rooms for a venue, including creating and updating room details, configuring
@@ -1132,11 +1142,25 @@ public class CventSDK {
     }
 
     /**
+     * Manage the date ranges when a venue is available for event bookings.
+     */
+    public VenueAvailability venueAvailability() {
+        return venueAvailability;
+    }
+
+    /**
      * Manage venue profile details including type, contact information, address, and other venue
      * properties.
      */
     public VenueProfiles venueProfiles() {
         return venueProfiles;
+    }
+
+    /**
+     * Manage images, amenities, and nearby attractions associated with a venue.
+     */
+    public VenueContent venueContent() {
+        return venueContent;
     }
 
     /**
@@ -1367,7 +1391,9 @@ public class CventSDK {
         this.travelRFPs = new TravelRFPs(sdkConfiguration);
         this.travelSuppliers = new TravelSuppliers(sdkConfiguration);
         this.usage = new Usage(sdkConfiguration);
+        this.venueAvailability = new VenueAvailability(sdkConfiguration);
         this.venueProfiles = new VenueProfiles(sdkConfiguration);
+        this.venueContent = new VenueContent(sdkConfiguration);
         this.venueMeetingRooms = new VenueMeetingRooms(sdkConfiguration);
         this.video = new Video(sdkConfiguration);
         this.webcasts = new Webcasts(sdkConfiguration);

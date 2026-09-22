@@ -7,13 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  PropertyRoomExternalCodeJson,
-  PropertyRoomExternalCodeJson$inboundSchema,
-} from "./propertyroomexternalcodejson.js";
-import {
-  RoomBedTypeJson,
-  RoomBedTypeJson$inboundSchema,
-} from "./roombedtypejson.js";
+  PropertyRoomExternalCode,
+  PropertyRoomExternalCode$inboundSchema,
+} from "./propertyroomexternalcode.js";
+import { RoomBedType1, RoomBedType1$inboundSchema } from "./roombedtype1.js";
 
 /**
  * The property that the room belongs to.
@@ -68,7 +65,7 @@ export type PropertyRoom = {
   /**
    * Code representing the bed type.
    */
-  bedTypeCode?: RoomBedTypeJson | undefined;
+  bedTypeCode?: RoomBedType1 | undefined;
   /**
    * The number of beds in the room.
    */
@@ -84,7 +81,7 @@ export type PropertyRoom = {
   /**
    * Collection of external codes for the room. This includes GDS and other codes used to identify a room in external systems.
    */
-  externalCodes?: Array<PropertyRoomExternalCodeJson> | undefined;
+  externalCodes?: Array<PropertyRoomExternalCode> | undefined;
 };
 
 /** @internal */
@@ -124,11 +121,11 @@ export const PropertyRoom$inboundSchema: z.ZodType<
   code: z.string().optional(),
   property: z.lazy(() => PropertyRoomProperty$inboundSchema).optional(),
   deleted: z.boolean().default(false),
-  bedTypeCode: RoomBedTypeJson$inboundSchema.optional(),
+  bedTypeCode: RoomBedType1$inboundSchema.optional(),
   numberOfBeds: z.number().int().optional(),
   capacity: z.number().int().optional(),
   description: z.string().optional(),
-  externalCodes: z.array(PropertyRoomExternalCodeJson$inboundSchema).optional(),
+  externalCodes: z.array(PropertyRoomExternalCode$inboundSchema).optional(),
 });
 
 export function propertyRoomFromJSON(

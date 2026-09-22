@@ -103,7 +103,7 @@ namespace Cvent.SDK.Models.Components
         public string? WebsiteAddress { get; set; } = null;
 
         [JsonProperty("currency")]
-        public VenueDetailsPatchCurrency? Currency { get; set; } = null;
+        public Currency? Currency { get; set; } = null;
 
         /// <summary>
         /// Venue opening date as free-form text.

@@ -1146,28 +1146,25 @@ paths:
           in: query
           required: false
           description: |
-            A filter query string narrows search
-            results and supports the combination of logical and comparison
-            operators.
+            Use the filter query parameter to narrow results using comparison operators. Combine multiple
+            conditions using logical operators. See [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
 
-            The filter adheres to the pattern filter='field' comparisonType 'value'.
+            Supported fields and operators:
 
-            These are the comparison types that can be used in filter expressions:
-              * equal: eq
-              * not equal: ne
+            | Field         | Comparison operators | Logical operators |
+            |---------------|----------------------|-------------------|
+            | attendee.id   | `eq`, `ne`           | -                 |
+            | event.id      | `eq`, `ne`           | -                 |
+            | session.id    | `eq`, `ne`           | -                 |
+            | creditType.id | `eq`, `ne`           | -                 |
+            | type          | `eq`                 | -                 |
+            | tags          | `contains`           | -                 |
 
-            The following fields are filterable:
-            * attendee.id (eq|ne)
-            * event.id (eq|ne)
-            * session.id (eq|ne)
-            * creditType.id (eq|ne)
-            * type (eq)
-
-            Note:
-            * lastModified: Used by the 'before' and 'after' filters.
+            Notes:
+            - lastModified is used by the 'before' and 'after' filters.
           schema:
             type: string
-            example: attendee.id eq '{UUID}'
+            example: attendee.id eq '3b311c21-d8c4-4b87-ac90-81852eb39aa7'
       responses:
         '200':
           description: Successfully retrieved a paginated list of event credits for attendees.
@@ -2704,15 +2701,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-job-with-data'
         '400':
-          $ref: '#/components/responses/BadRequest27'
+          $ref: '#/components/responses/BadRequest29'
         '401':
-          $ref: '#/components/responses/Unauthorized27'
+          $ref: '#/components/responses/Unauthorized29'
         '403':
-          $ref: '#/components/responses/Forbidden27'
+          $ref: '#/components/responses/Forbidden29'
         '409':
           $ref: '#/components/responses/JobLimitExceeded'
         '429':
-          $ref: '#/components/responses/TooManyRequests26'
+          $ref: '#/components/responses/TooManyRequests28'
       deprecated: false
   /bulk-jobs/{id}:
     parameters:
@@ -2735,15 +2732,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-job'
         '400':
-          $ref: '#/components/responses/BadRequest27'
+          $ref: '#/components/responses/BadRequest29'
         '401':
-          $ref: '#/components/responses/Unauthorized27'
+          $ref: '#/components/responses/Unauthorized29'
         '403':
-          $ref: '#/components/responses/Forbidden27'
+          $ref: '#/components/responses/Forbidden29'
         '404':
-          $ref: '#/components/responses/NotFound27'
+          $ref: '#/components/responses/NotFound29'
         '429':
-          $ref: '#/components/responses/TooManyRequests26'
+          $ref: '#/components/responses/TooManyRequests28'
   /bulk-jobs/{id}/cancel:
     parameters:
       - $ref: '#/components/parameters/uuid1'
@@ -2765,15 +2762,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-job'
         '400':
-          $ref: '#/components/responses/BadRequest27'
+          $ref: '#/components/responses/BadRequest29'
         '401':
-          $ref: '#/components/responses/Unauthorized27'
+          $ref: '#/components/responses/Unauthorized29'
         '403':
-          $ref: '#/components/responses/Forbidden27'
+          $ref: '#/components/responses/Forbidden29'
         '404':
-          $ref: '#/components/responses/NotFound27'
+          $ref: '#/components/responses/NotFound29'
         '429':
-          $ref: '#/components/responses/TooManyRequests26'
+          $ref: '#/components/responses/TooManyRequests28'
   /bulk-jobs/{id}/data:
     parameters:
       - $ref: '#/components/parameters/uuid1'
@@ -2806,17 +2803,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-data-upload-response'
         '400':
-          $ref: '#/components/responses/BadRequest27'
+          $ref: '#/components/responses/BadRequest29'
         '401':
-          $ref: '#/components/responses/Unauthorized27'
+          $ref: '#/components/responses/Unauthorized29'
         '403':
-          $ref: '#/components/responses/Forbidden27'
+          $ref: '#/components/responses/Forbidden29'
         '404':
-          $ref: '#/components/responses/NotFound27'
+          $ref: '#/components/responses/NotFound29'
         '409':
           $ref: '#/components/responses/DataLimitExceeded'
         '429':
-          $ref: '#/components/responses/TooManyRequests26'
+          $ref: '#/components/responses/TooManyRequests28'
   /bulk-jobs/{id}/results:
     parameters:
       - $ref: '#/components/parameters/uuid1'
@@ -2870,15 +2867,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-results-paginated-response'
         '400':
-          $ref: '#/components/responses/BadRequest27'
+          $ref: '#/components/responses/BadRequest29'
         '401':
-          $ref: '#/components/responses/Unauthorized27'
+          $ref: '#/components/responses/Unauthorized29'
         '403':
-          $ref: '#/components/responses/Forbidden27'
+          $ref: '#/components/responses/Forbidden29'
         '404':
-          $ref: '#/components/responses/NotFound27'
+          $ref: '#/components/responses/NotFound29'
         '429':
-          $ref: '#/components/responses/TooManyRequests26'
+          $ref: '#/components/responses/TooManyRequests28'
   /bulk-jobs/{id}/run:
     parameters:
       - $ref: '#/components/parameters/uuid1'
@@ -2903,17 +2900,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/bulk-job'
         '400':
-          $ref: '#/components/responses/BadRequest27'
+          $ref: '#/components/responses/BadRequest29'
         '401':
-          $ref: '#/components/responses/Unauthorized27'
+          $ref: '#/components/responses/Unauthorized29'
         '403':
-          $ref: '#/components/responses/Forbidden27'
+          $ref: '#/components/responses/Forbidden29'
         '404':
-          $ref: '#/components/responses/NotFound27'
+          $ref: '#/components/responses/NotFound29'
         '409':
           $ref: '#/components/responses/JobLimitExceeded'
         '429':
-          $ref: '#/components/responses/TooManyRequests26'
+          $ref: '#/components/responses/TooManyRequests28'
   /campaigns:
     get:
       summary: List eMarketing Campaigns
@@ -3313,26 +3310,7 @@ paths:
         - $ref: '#/components/parameters/before'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
-        - name: filter
-          in: query
-          required: false
-          description: |
-            Use filter query parameters to limit results
-            to data that matches your criteria. See
-            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
-
-            Supported fields and operators are listed below:
-
-            | Field            | Operators                          | Notes |
-            |------------------|-------------------------------------|-------|
-            | name             | `eq`, `ne`, `sw`, `contains`        | |
-            | type             | `eq`                                | Not supported with before or after parameters |
-
-            The following logical operators are supported for combining filters:
-            * and
-          schema:
-            type: string
-            example: name eq 'groupName' and type eq 'STANDARD'
+        - $ref: '#/components/parameters/listContactGroupsFilter'
       responses:
         '200':
           description: Successfully retrieved a paginated list of Contact Groups.
@@ -3566,25 +3544,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
-        - name: filter
-          in: query
-          required: false
-          description: |
-            Use filter query parameters to limit results
-            to data that matches your criteria. See
-            [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
-
-            Supported fields and operators are listed below:
-
-            | Field            | Operators                          |
-            |------------------|-------------------------------------|
-            | name             | `eq`, `ne`, `sw`, `contains`        |
-
-            No logical operators are supported on this endpoint, only one filter
-            can be passed in each request.
-          schema:
-            type: string
-            example: name eq 'groupType'
+        - $ref: '#/components/parameters/listContactTypesFilter'
       responses:
         '200':
           description: Successfully retrieved a paginated list of contact types.
@@ -8054,7 +8014,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/id6'
         - $ref: '#/components/parameters/exhibitorCategoryId'
-        - $ref: '#/components/parameters/fileId1'
+        - $ref: '#/components/parameters/fileId2'
       responses:
         '200':
           description: Successfully updated the exhibitor category banner image.
@@ -8090,7 +8050,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/id6'
         - $ref: '#/components/parameters/exhibitorCategoryId'
-        - $ref: '#/components/parameters/fileId1'
+        - $ref: '#/components/parameters/fileId2'
       responses:
         '204':
           description: Successfully deleted exhibitor category banner image.
@@ -8617,7 +8577,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/id6'
         - $ref: '#/components/parameters/exhibitorId'
-        - $ref: '#/components/parameters/fileId1'
+        - $ref: '#/components/parameters/fileId2'
       responses:
         '200':
           description: Successfully added the exhibitor banner image.
@@ -8653,7 +8613,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/id6'
         - $ref: '#/components/parameters/exhibitorId'
-        - $ref: '#/components/parameters/fileId1'
+        - $ref: '#/components/parameters/fileId2'
       responses:
         '204':
           description: Successfully deleted exhibitor banner image data.
@@ -8981,7 +8941,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/id6'
         - $ref: '#/components/parameters/exhibitorId'
-        - $ref: '#/components/parameters/fileId1'
+        - $ref: '#/components/parameters/fileId2'
       responses:
         '200':
           description: Successfully retrieved exhibitor file.
@@ -9018,7 +8978,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/id6'
         - $ref: '#/components/parameters/exhibitorId'
-        - $ref: '#/components/parameters/fileId1'
+        - $ref: '#/components/parameters/fileId2'
       requestBody:
         description: Exhibitor file content to be updated.
         required: true
@@ -9063,7 +9023,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/id6'
         - $ref: '#/components/parameters/exhibitorId'
-        - $ref: '#/components/parameters/fileId1'
+        - $ref: '#/components/parameters/fileId2'
       responses:
         '204':
           description: Successfully disassociated exhibitor file.
@@ -9134,7 +9094,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/id6'
         - $ref: '#/components/parameters/exhibitorId'
-        - $ref: '#/components/parameters/fileId1'
+        - $ref: '#/components/parameters/fileId2'
       responses:
         '200':
           description: Successfully added the exhibitor logo image.
@@ -9170,7 +9130,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/id6'
         - $ref: '#/components/parameters/exhibitorId'
-        - $ref: '#/components/parameters/fileId1'
+        - $ref: '#/components/parameters/fileId2'
       responses:
         '204':
           description: Successfully deleted exhibitor logo image data.
@@ -13889,7 +13849,7 @@ paths:
   /program-items/{programItemId}/docs/{fileId}:
     parameters:
       - $ref: '#/components/parameters/programItemId1'
-      - $ref: '#/components/parameters/fileId'
+      - $ref: '#/components/parameters/fileId1'
     put:
       security:
         - OAuth2.clientCredentials:
@@ -15167,13 +15127,13 @@ paths:
         '200':
           $ref: '#/components/responses/UsersGroupsResponse'
         '400':
-          $ref: '#/components/responses/BadRequest21'
+          $ref: '#/components/responses/BadRequest23'
         '401':
-          $ref: '#/components/responses/Unauthorized21'
+          $ref: '#/components/responses/Unauthorized23'
         '403':
-          $ref: '#/components/responses/Forbidden21'
+          $ref: '#/components/responses/Forbidden23'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests22'
       parameters:
         - $ref: '#/components/parameters/startIndex'
         - $ref: '#/components/parameters/count1'
@@ -15196,11 +15156,11 @@ paths:
         '200':
           $ref: '#/components/responses/ResourceTypes'
         '401':
-          $ref: '#/components/responses/Unauthorized21'
+          $ref: '#/components/responses/Unauthorized23'
         '403':
-          $ref: '#/components/responses/Forbidden21'
+          $ref: '#/components/responses/Forbidden23'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests22'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15226,15 +15186,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResourceType'
         '400':
-          $ref: '#/components/responses/BadRequest21'
+          $ref: '#/components/responses/BadRequest23'
         '401':
-          $ref: '#/components/responses/Unauthorized21'
+          $ref: '#/components/responses/Unauthorized23'
         '403':
-          $ref: '#/components/responses/Forbidden21'
+          $ref: '#/components/responses/Forbidden23'
         '404':
-          $ref: '#/components/responses/NotFound21'
+          $ref: '#/components/responses/NotFound23'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests22'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15254,11 +15214,11 @@ paths:
         '200':
           $ref: '#/components/responses/UsersSchemaResponse'
         '401':
-          $ref: '#/components/responses/Unauthorized21'
+          $ref: '#/components/responses/Unauthorized23'
         '403':
-          $ref: '#/components/responses/Forbidden21'
+          $ref: '#/components/responses/Forbidden23'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests22'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15284,15 +15244,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/UsersSchema'
         '400':
-          $ref: '#/components/responses/BadRequest21'
+          $ref: '#/components/responses/BadRequest23'
         '401':
-          $ref: '#/components/responses/Unauthorized21'
+          $ref: '#/components/responses/Unauthorized23'
         '403':
-          $ref: '#/components/responses/Forbidden21'
+          $ref: '#/components/responses/Forbidden23'
         '404':
-          $ref: '#/components/responses/NotFound21'
+          $ref: '#/components/responses/NotFound23'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests22'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15312,11 +15272,11 @@ paths:
         '200':
           $ref: '#/components/responses/ServiceProviderConfig'
         '401':
-          $ref: '#/components/responses/Unauthorized21'
+          $ref: '#/components/responses/Unauthorized23'
         '403':
-          $ref: '#/components/responses/Forbidden21'
+          $ref: '#/components/responses/Forbidden23'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests22'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15345,15 +15305,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '400':
-          $ref: '#/components/responses/BadRequest21'
+          $ref: '#/components/responses/BadRequest23'
         '401':
-          $ref: '#/components/responses/Unauthorized21'
+          $ref: '#/components/responses/Unauthorized23'
         '403':
-          $ref: '#/components/responses/Forbidden21'
+          $ref: '#/components/responses/Forbidden23'
         '409':
           $ref: '#/components/responses/Conflict15'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests22'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15405,13 +15365,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/Users'
         '400':
-          $ref: '#/components/responses/BadRequest21'
+          $ref: '#/components/responses/BadRequest23'
         '401':
-          $ref: '#/components/responses/Unauthorized21'
+          $ref: '#/components/responses/Unauthorized23'
         '403':
-          $ref: '#/components/responses/Forbidden21'
+          $ref: '#/components/responses/Forbidden23'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests22'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15437,15 +15397,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '400':
-          $ref: '#/components/responses/BadRequest21'
+          $ref: '#/components/responses/BadRequest23'
         '401':
-          $ref: '#/components/responses/Unauthorized21'
+          $ref: '#/components/responses/Unauthorized23'
         '403':
-          $ref: '#/components/responses/Forbidden21'
+          $ref: '#/components/responses/Forbidden23'
         '404':
-          $ref: '#/components/responses/NotFound21'
+          $ref: '#/components/responses/NotFound23'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests22'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15475,15 +15435,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '400':
-          $ref: '#/components/responses/BadRequest21'
+          $ref: '#/components/responses/BadRequest23'
         '401':
-          $ref: '#/components/responses/Unauthorized21'
+          $ref: '#/components/responses/Unauthorized23'
         '403':
-          $ref: '#/components/responses/Forbidden21'
+          $ref: '#/components/responses/Forbidden23'
         '404':
-          $ref: '#/components/responses/NotFound21'
+          $ref: '#/components/responses/NotFound23'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests22'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -15505,13 +15465,13 @@ paths:
           description: Successfully deleted a User.
           headers: {}
         '401':
-          $ref: '#/components/responses/Unauthorized21'
+          $ref: '#/components/responses/Unauthorized23'
         '403':
-          $ref: '#/components/responses/Forbidden21'
+          $ref: '#/components/responses/Forbidden23'
         '404':
-          $ref: '#/components/responses/NotFound21'
+          $ref: '#/components/responses/NotFound23'
         '429':
-          $ref: '#/components/responses/TooManyRequests20'
+          $ref: '#/components/responses/TooManyRequests22'
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
@@ -16358,7 +16318,7 @@ paths:
   /sessions/{id}/docs/{fileId}:
     parameters:
       - $ref: '#/components/parameters/sessionId2'
-      - $ref: '#/components/parameters/fileId'
+      - $ref: '#/components/parameters/fileId1'
     get:
       security:
         - OAuth2.clientCredentials:
@@ -17090,7 +17050,7 @@ paths:
   /speakers/{id}/docs/{fileId}:
     parameters:
       - $ref: '#/components/parameters/speakerId'
-      - $ref: '#/components/parameters/fileId'
+      - $ref: '#/components/parameters/fileId1'
     get:
       security:
         - OAuth2.clientCredentials:
@@ -18354,10 +18314,8 @@ paths:
       security:
         - OAuth2.clientCredentials:
             - business-transient/bids:read
-            - business-travel/bids:read
         - OAuth2.authorizationCode:
             - business-transient/bids:read
-            - business-travel/bids:read
       parameters:
         - $ref: '#/components/parameters/after'
         - $ref: '#/components/parameters/before'
@@ -18392,7 +18350,6 @@ paths:
       security:
         - OAuth2.clientCredentials:
             - business-transient/bids:read
-            - business-travel/bids:read
       responses:
         '200':
           description: Successfully retrieved a travel proposal bid.
@@ -18409,6 +18366,101 @@ paths:
           $ref: '#/components/responses/Forbidden1'
         '404':
           $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /travel-proposals/buyer-bids:
+    get:
+      summary: List Buyer Proposal Bids
+      operationId: ListTravelBuyerProposalBids
+      description: Get a paginated list of travel buyer proposal bids.
+      tags:
+        - Travel RFPs
+      security:
+        - OAuth2.clientCredentials:
+            - business-travel/bids:read
+      parameters:
+        - $ref: '#/components/parameters/after'
+        - $ref: '#/components/parameters/before'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/token'
+        - $ref: '#/components/parameters/travel-bid-filter'
+      responses:
+        '200':
+          description: Successfully retrieved a paginated list of travel buyer proposal bids.
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/travel-buyer-proposal-bid-paginated-response'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /travel-proposals/buyer-bids/{travelProposalBidId}:
+    parameters:
+      - $ref: '#/components/parameters/travelProposalBidId'
+    get:
+      summary: Get Buyer Proposal Bid
+      operationId: GetTravelBuyerProposalBid
+      description: Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+      tags:
+        - Travel RFPs
+      security:
+        - OAuth2.clientCredentials:
+            - business-travel/bids:read
+      responses:
+        '200':
+          description: Successfully retrieved a travel buyer proposal bid.
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/travel-buyer-proposal-bid'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /travel-proposals/static-contents:
+    get:
+      summary: List Static Contents
+      operationId: ListTravelProposalStaticContent
+      description: Gets a paginated list of proposal static content across multiple proposals.
+      tags:
+        - Travel RFPs
+      security:
+        - OAuth2.clientCredentials:
+            - business-transient/proposals:read
+            - business-travel/proposals:read
+      parameters:
+        - $ref: '#/components/parameters/after'
+        - $ref: '#/components/parameters/before'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/token'
+        - $ref: '#/components/parameters/travel-static-content-filter'
+      responses:
+        '200':
+          description: Successfully retrieved a paginated list of proposal static content.
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/travel-proposal-static-content-list-response'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
         '429':
           $ref: '#/components/responses/TooManyRequests1'
   /travel-proposals/{travelProposalId}:
@@ -18437,6 +18489,35 @@ paths:
                 $ref: '#/components/schemas/travel-proposal'
         '400':
           $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /travel-proposals/{travelProposalId}/static-content:
+    parameters:
+      - $ref: '#/components/parameters/travelProposalId'
+    get:
+      summary: Get Static Content
+      operationId: GetTravelProposalStaticContent
+      description: Retrieves static content for a specific proposal as a list of field-value pairs with sequence ordering.
+      tags:
+        - Travel RFPs
+      security:
+        - OAuth2.clientCredentials:
+            - business-transient/proposals:read
+            - business-travel/proposals:read
+      responses:
+        '200':
+          description: Successfully retrieved proposal static content.
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/travel-proposal-static-content-response'
         '401':
           $ref: '#/components/responses/Unauthorized1'
         '403':
@@ -18765,6 +18846,73 @@ paths:
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
+  /venues/{venueId}/availability-settings:
+    get:
+      operationId: getVenueAvailabilitySettings
+      summary: Get Availability Settings
+      description: Retrieve the availability settings for the specified venue.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/availability-settings:read
+        - OAuth2.clientCredentials:
+            - venue/availability-settings:read
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+      tags:
+        - Venue Availability
+      responses:
+        '200':
+          description: Successfully retrieved the venue availability settings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/existingVenueAvailabilitySettings'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+    put:
+      operationId: updateVenueAvailabilitySettings
+      summary: Update Availability Settings
+      description: Update the availability settings for the specified venue.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/availability-settings:write
+        - OAuth2.clientCredentials:
+            - venue/availability-settings:write
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/venueAvailabilitySettings'
+      tags:
+        - Venue Availability
+      responses:
+        '200':
+          description: Successfully updated the venue availability settings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/existingVenueAvailabilitySettings'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
   /venues/{venueId}/details:
     put:
       operationId: updateVenueDetails
@@ -18955,6 +19103,233 @@ paths:
                 $ref: '#/components/schemas/venueFacilityPatch'
         '400':
           $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /venues/{venueId}/images-metadata:
+    post:
+      operationId: createVenueImageMetadata
+      summary: Create Venue Image Metadata
+      description: |
+        Create venue image metadata for the specified venue. This creates a new venue image record with the provided details such as name, description, image group, and display order. Use the <a href="#operation/associateVenueImage">Associate Venue Image</a> endpoint to associate an uploaded image file to a venue.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/images:write
+        - OAuth2.clientCredentials:
+            - venue/images:write
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/venueImage'
+      tags:
+        - Venue Content
+      responses:
+        '201':
+          description: Venue image metadata created successfully.
+          headers:
+            Location:
+              description: URL of the newly created venue image metadata.
+              schema:
+                type: string
+                format: uri
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/existingVenueImage'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+    get:
+      operationId: listVenueImagesMetadata
+      summary: List Images Metadata
+      description: Retrieve a paginated list of venue image metadata for the specified venue.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/images:read
+        - OAuth2.clientCredentials:
+            - venue/images:read
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - name: limit
+          in: query
+          required: false
+          description: The maximum number of records to return per page.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+            default: 100
+          example: 100
+        - name: token
+          in: query
+          required: false
+          description: The continuation token returned from a previous request. This must be a valid UUID v4 if provided. This will override any other pageable parameters provided.
+          schema:
+            type: string
+            format: uuid
+          example: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+      tags:
+        - Venue Content
+      responses:
+        '200':
+          description: Successfully retrieved the venue images metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/venueImagesMetadataOverviewResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /venues/{venueId}/images-metadata/{venueImageId}:
+    put:
+      operationId: updateVenueImageMetadata
+      summary: Update Venue Image Metadata
+      description: Updates the metadata of an existing venue image such as name, description, image group, active status, and display order.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/images:write
+        - OAuth2.clientCredentials:
+            - venue/images:write
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - $ref: '#/components/parameters/venueImageId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/venueImage'
+      tags:
+        - Venue Content
+      responses:
+        '200':
+          description: Successfully updated the venue image metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/existingVenueImage'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+    get:
+      operationId: getVenueImageMetadata
+      summary: Get Image Metadata
+      description: Retrieve venue image metadata for the specified venue image.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/images:read
+        - OAuth2.clientCredentials:
+            - venue/images:read
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - $ref: '#/components/parameters/venueImageId'
+      tags:
+        - Venue Content
+      responses:
+        '200':
+          description: Successfully retrieved the venue image metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/existingVenueImage'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /venues/{venueId}/images/{venueImageId}:
+    put:
+      operationId: associateVenueImage
+      summary: Associate Venue Image
+      description: |
+        Associate a previously uploaded image with a venue image using a file UUID from the <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current image file if one is already associated.
+
+        **Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg, .jpeg) are accepted. Maximum file size is 10 MB.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/images:write
+        - OAuth2.clientCredentials:
+            - venue/images:write
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - $ref: '#/components/parameters/venueImageId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/venueImageAssociationRequest'
+      tags:
+        - Venue Content
+      responses:
+        '200':
+          description: Successfully associated the image with the venue image.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/venueImageAssociationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+    delete:
+      operationId: disassociateVenueImage
+      summary: Remove Venue Image
+      description: Disassociates the image from a venue image and deletes the venue image record.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/images:delete
+        - OAuth2.clientCredentials:
+            - venue/images:delete
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - $ref: '#/components/parameters/venueImageId'
+      tags:
+        - Venue Content
+      responses:
+        '204':
+          description: Successfully disassociated the image from the venue.
         '401':
           $ref: '#/components/responses/Unauthorized1'
         '403':
@@ -19265,6 +19640,254 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/meetingRoomOverview'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /venues/{venueId}/need-dates:
+    get:
+      operationId: listVenueNeedDates
+      summary: List Venue Need Dates
+      description: Returns a paginated list of active need dates for the specified venue.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/need-dates:read
+        - OAuth2.clientCredentials:
+            - venue/need-dates:read
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/token'
+      tags:
+        - Venue Availability
+      responses:
+        '200':
+          description: Successfully retrieved the list of venue need dates.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/venueNeedDatesPaginatedResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+    post:
+      operationId: createVenueNeedDate
+      summary: Create Venue Need Date
+      description: Creates a new need date range for the specified venue. If the submitted range overlaps or is adjacent to an existing range, they are merged into a single range. For example, submitting 2026-08-10 to 2026-08-14 when 2026-08-12 to 2026-08-18 exists returns 2026-08-10 to 2026-08-18.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/need-dates:write
+        - OAuth2.clientCredentials:
+            - venue/need-dates:write
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/venueNeedDate'
+      tags:
+        - Venue Availability
+      responses:
+        '201':
+          description: Venue need date created successfully.
+          headers:
+            Location:
+              description: URL of the newly created venue need date.
+              schema:
+                type: string
+                format: uri
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/existingVenueNeedDate'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /venues/{venueId}/need-dates/{needDateId}:
+    get:
+      operationId: getVenueNeedDate
+      summary: Get Venue Need Date
+      description: Retrieves an active need date range for the specified venue.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/need-dates:read
+        - OAuth2.clientCredentials:
+            - venue/need-dates:read
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - $ref: '#/components/parameters/needDateId'
+      tags:
+        - Venue Availability
+      responses:
+        '200':
+          description: Successfully retrieved the venue need date.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/existingVenueNeedDate'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+    put:
+      operationId: updateVenueNeedDate
+      summary: Update Venue Need Date
+      description: Replaces the specified need date range with the values provided in the request body. If the updated range overlaps or is adjacent to another existing range, both are merged into a single range. For example, if 2026-08-01 to 2026-08-10 and 2026-08-15 to 2026-08-20 exist and you update the first to 2026-08-01 to 2026-08-16, the response returns 2026-08-01 to 2026-08-20.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/need-dates:write
+        - OAuth2.clientCredentials:
+            - venue/need-dates:write
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - $ref: '#/components/parameters/needDateId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/existingVenueNeedDate'
+      tags:
+        - Venue Availability
+      responses:
+        '200':
+          description: Successfully updated the venue need date.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/existingVenueNeedDate'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+    delete:
+      operationId: deleteVenueNeedDate
+      summary: Delete Venue Need Date
+      description: Deletes the specified need date range for the venue.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/need-dates:delete
+        - OAuth2.clientCredentials:
+            - venue/need-dates:delete
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - $ref: '#/components/parameters/needDateId'
+      tags:
+        - Venue Availability
+      responses:
+        '204':
+          description: Successfully deleted the venue need date.
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /venues/{venueId}/ratings:
+    get:
+      operationId: getVenueRatings
+      summary: Get Venue Ratings
+      description: |
+        Retrieve the current ratings and awards for the specified venue.
+
+        Returns all rating agencies applicable to this venue (based on its type and country), including agencies where no rating has been saved yet. Use this response to discover which agencies are valid and which can be set as primary before submitting a PUT request.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/venue-ratings:read
+        - OAuth2.clientCredentials:
+            - venue/venue-ratings:read
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+      tags:
+        - Venue Profiles
+      responses:
+        '200':
+          description: Successfully retrieved the venue ratings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/existingVenueRatings'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+    put:
+      operationId: updateVenueRatings
+      summary: Update Venue Ratings
+      description: |
+        Replace all ratings and awards for the specified venue with those provided in the request body.
+
+        This is a full replace — agencies omitted from the request will be removed. It is recommended to call GET first to retrieve the current state and the list of applicable agencies for the venue.
+
+        Additional rules:
+        - Ratings do not apply to CVB/DMC venues.
+        - At most one rating may be marked as primary. Zagat ratings cannot be primary.
+        - Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response before submitting a rating value for those agencies.
+        - Agency eligibility is determined by the venue's type and country — passing an ineligible agency returns a 400.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/venue-ratings:write
+        - OAuth2.clientCredentials:
+            - venue/venue-ratings:write
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/venueRatings'
+      tags:
+        - Venue Profiles
+      responses:
+        '200':
+          description: Successfully updated the venue ratings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/existingVenueRatings'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
         '401':
           $ref: '#/components/responses/Unauthorized1'
         '403':
@@ -20077,6 +20700,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
 components:
   examples: {}
+  headers: {}
   parameters:
     accessCode:
       in: header
@@ -20854,14 +21478,14 @@ components:
           type: string
           enum:
             - hotelRequestDetails.hotelRequestAnswers.question
-    fileId:
+    fileId1:
       in: path
       name: fileId
       description: The unique identifier of a file from <a href="#operation/uploadFile">file upload</a> service.
       required: true
       schema:
         $ref: '#/components/schemas/uuid-property'
-    fileId1:
+    fileId2:
       in: path
       name: fileId
       description: ID of a file.
@@ -21321,6 +21945,49 @@ components:
         maximum: 200
         minimum: 1
         default: 100
+    listContactGroupsFilter:
+      name: filter
+      in: query
+      required: false
+      description: |
+        Use filter query parameters to limit results to data that matches your criteria.
+        See [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+
+        Supported fields and operators are listed below:
+
+        | Field  | Operators                    | Notes                                                                        |
+        |--------|------------------------------|------------------------------------------------------------------------------|
+        | id     | `eq`, `ne`                   |                                                                              |
+        | name   | `eq`, `ne`, `sw`, `contains` |                                                                              |
+        | type   | `eq`                         | Not supported with `before` or `after` parameters.                           |
+
+        The following logical operators are supported for combining filters:
+        * and
+        * or
+      schema:
+        type: string
+        example: id eq 'a3f1c2d4-5e6b-7890-abcd-ef1234567890' and name eq 'groupName' and type eq 'STANDARD'
+    listContactTypesFilter:
+      name: filter
+      in: query
+      required: false
+      description: |
+        Use filter query parameters to limit results to data that matches your criteria.
+        See [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+
+        Supported fields and operators are listed below:
+
+        | Field  | Operators                    | Notes                                                                        |
+        |--------|------------------------------|------------------------------------------------------------------------------|
+        | id     | `eq`, `ne`                   |                                                                              |
+        | name   | `eq`, `ne`, `sw`, `contains` |                                                                              |
+
+        The following logical operators are supported for combining filters:
+        * and
+        * or
+      schema:
+        type: string
+        example: id eq '550e8400-e29b-41d4-a716-446655440000' or name eq 'typeName'
     locale2:
       name: locale
       required: false
@@ -21394,6 +22061,15 @@ components:
       schema:
         type: string
         example: firstName:ASC,lastName:ASC
+    needDateId:
+      description: The venue need date ID.
+      name: needDateId
+      required: true
+      in: path
+      schema:
+        type: string
+        format: uuid
+      example: 8a4d1f3c-c9ee-42b5-bcd0-037295f7820a
     obfuscateId:
       in: path
       name: obfuscateId
@@ -22268,6 +22944,23 @@ components:
       schema:
         type: string
         example: travelProgram.id eq '1ffa56d9-9f60-4b8c-8b3b-3451de21293c'
+    travel-static-content-filter:
+      name: filter
+      in: query
+      required: false
+      description: |
+        A filter query string narrows search results. The filter adheres to the pattern filter='field' comparisonType 'value'.
+
+        Supported comparison types:
+        * equal: eq
+        * not equal: ne
+
+        Filterable fields:
+        * travelProposal.id (eq|ne)
+        * fieldName (eq|ne)
+      schema:
+        type: string
+        example: travelProposal.id eq '1ffa56d9-9f60-4b8c-8b3b-3451de21293c'
     travel-supplier-account-filter:
       name: filter
       in: query
@@ -22376,6 +23069,13 @@ components:
       in: path
       schema:
         $ref: '#/components/schemas/VenueID'
+    venueImageId:
+      description: Unique identifier of a venue image.
+      name: venueImageId
+      required: true
+      in: path
+      schema:
+        $ref: '#/components/schemas/VenueImageID'
     videoHubFilter:
       name: filter
       in: query
@@ -22467,19 +23167,19 @@ components:
           example:
             code: 400
             message: Bad Request
-    BadRequest21:
+    BadRequest23:
       description: Bad request
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse14'
+            $ref: '#/components/schemas/ErrorResponse16'
           example:
             schemas:
               - urn:ietf:params:scim:api:messages:2.0:Error
             status: 400
             detail: Request is unparsable, syntactically incorrect, or violates schema.
             scimType: invalidSyntax
-    BadRequest27:
+    BadRequest29:
       description: Bad request
       content:
         application/json:
@@ -22505,7 +23205,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse14'
+            $ref: '#/components/schemas/ErrorResponse16'
           example:
             schemas:
               - urn:ietf:params:scim:api:messages:2.0:Error
@@ -22542,18 +23242,18 @@ components:
           example:
             code: 403
             message: Access Forbidden
-    Forbidden21:
+    Forbidden23:
       description: You do not have access to the resource
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse14'
+            $ref: '#/components/schemas/ErrorResponse16'
           example:
             schemas:
               - urn:ietf:params:scim:api:messages:2.0:Error
             status: 403
             detail: User is Forbidden to make this request
-    Forbidden27:
+    Forbidden29:
       description: You do not have access to the resource
       content:
         application/json:
@@ -22595,18 +23295,18 @@ components:
           example:
             code: 404
             message: Not found
-    NotFound21:
+    NotFound23:
       description: Resource not found
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse14'
+            $ref: '#/components/schemas/ErrorResponse16'
           example:
             schemas:
               - urn:ietf:params:scim:api:messages:2.0:Error
             status: 404
             detail: HTTP 404 Not Found
-    NotFound27:
+    NotFound29:
       description: Resource not found
       content:
         application/json:
@@ -22645,18 +23345,18 @@ components:
           example:
             code: 429
             message: Limit Exceeded
-    TooManyRequests20:
+    TooManyRequests22:
       description: Too Many Requests
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse14'
+            $ref: '#/components/schemas/ErrorResponse16'
           example:
             schemas:
               - urn:ietf:params:scim:api:messages:2.0:Error
             status: 429
             detail: Too Many Requests
-    TooManyRequests26:
+    TooManyRequests28:
       description: Too many requests
       content:
         application/json:
@@ -22671,19 +23371,19 @@ components:
           example:
             code: 401
             message: Unauthorized
-    Unauthorized21:
+    Unauthorized23:
       description: Bad or expired token
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse14'
+            $ref: '#/components/schemas/ErrorResponse16'
           example:
             schemas:
               - urn:ietf:params:scim:api:messages:2.0:Error
             status: 401
             detail: Request failed authentication/authorization process
             scimType: invalidValue
-    Unauthorized27:
+    Unauthorized29:
       description: Bad or expired token
       content:
         application/json:
@@ -23347,7 +24047,7 @@ components:
               type: number
               example: 15
             currency:
-              $ref: '#/components/schemas/Currency1'
+              $ref: '#/components/schemas/Currency2'
     Address:
       title: Address
       description: Contact address details.
@@ -23429,9 +24129,9 @@ components:
           type: string
           description: ISO 3166 two-letter (alpha-2) country code
           example: US
-    address.json:
+    Address10:
       title: Address
-      description: A physical address.
+      description: Address details.
       type: object
       properties:
         address1:
@@ -23578,67 +24278,7 @@ components:
           example: United States of America
     Address6:
       title: Address
-      description: Address
-      type: object
-      required:
-        - type
-        - primary
-      properties:
-        type:
-          $ref: '#/components/schemas/AddressType1'
-        streetAddress:
-          type: string
-          description: The street address of the user.
-          example: 100 Universal City Plaza
-          maxLength: 40
-        locality:
-          type: string
-          description: The locality/city of the user.
-          example: Hollywood
-          maxLength: 40
-        region:
-          type: string
-          description: The region/state/province of the user.
-          example: CA
-        postalCode:
-          type: string
-          description: Postal code (also known as zipcode) of the user.
-          example: '91608'
-        country:
-          type: string
-          description: The country of the user.
-          example: USA
-        primary:
-          type: boolean
-          description: True indicates the address is primary.
-          example: true
-          default: false
-    Address7:
-      title: Address
-      description: Address of the hotel.
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/BaseAddress'
-      properties:
-        region:
-          type: string
-          description: The name of the state/province/region of the address.
-          readOnly: true
-          example: Texas
-        regionCode:
-          type: string
-          description: The abbreviation of the state/province/region of the address.
-          minLength: 2
-          maxLength: 10
-          example: TX
-        country:
-          type: string
-          description: Name of the country.
-          readOnly: true
-          example: United States of America
-    Address8:
-      title: Address
-      description: Address details.
+      description: A physical address.
       type: object
       properties:
         address1:
@@ -23682,6 +24322,66 @@ components:
           maxLength: 2
           minLength: 2
           example: US
+    Address7:
+      title: Address
+      description: Address
+      type: object
+      required:
+        - type
+        - primary
+      properties:
+        type:
+          $ref: '#/components/schemas/AddressType1'
+        streetAddress:
+          type: string
+          description: The street address of the user.
+          example: 100 Universal City Plaza
+          maxLength: 40
+        locality:
+          type: string
+          description: The locality/city of the user.
+          example: Hollywood
+          maxLength: 40
+        region:
+          type: string
+          description: The region/state/province of the user.
+          example: CA
+        postalCode:
+          type: string
+          description: Postal code (also known as zipcode) of the user.
+          example: '91608'
+        country:
+          type: string
+          description: The country of the user.
+          example: USA
+        primary:
+          type: boolean
+          description: True indicates the address is primary.
+          example: true
+          default: false
+    Address9:
+      title: Address
+      description: Address of the hotel.
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/BaseAddress'
+      properties:
+        region:
+          type: string
+          description: The name of the state/province/region of the address.
+          readOnly: true
+          example: Texas
+        regionCode:
+          type: string
+          description: The abbreviation of the state/province/region of the address.
+          minLength: 2
+          maxLength: 10
+          example: TX
+        country:
+          type: string
+          description: Name of the country.
+          readOnly: true
+          example: United States of America
     AddressInfo:
       title: AddressInfo
       description: Venue address information.
@@ -25613,68 +26313,6 @@ components:
           items:
             $ref: '#/components/schemas/attendee-audience-segment-association'
           description: Collection of audience segment associations for the attendee.
-    attendee-credit-type.json:
-      title: AttendeeCreditType
-      description: 'Represents the entity that granted the credit. Event: This credit was granted by an event. Session: This credit was granted by a session.'
-      type: string
-      enum:
-        - Event
-        - Session
-      example: Session
-    attendee-credit.json:
-      title: AttendeeCredit
-      description: Credit details for an attendee.
-      type: object
-      properties:
-        id:
-          type: string
-          description: A unique identifier representing the attendee credit response. Can be the format of a string or UUID.
-          example: 1db28cfc-db22-11eb-8d19-0242ac130003_6ef33f60-64c7-4f92-81e5-af717da5c398_c15d600b-1363-413e-b00a-87d946903fe1
-        type:
-          $ref: '#/components/schemas/attendee-credit-type.json'
-        creditType:
-          $ref: '#/components/schemas/expandable-credit-type.json'
-        amount:
-          type: number
-          description: Credit amount earned by the attendee.
-          example: 20
-        attendee:
-          type: object
-          description: The attendee who earned the credit.
-          properties:
-            id:
-              type: string
-              format: uuid
-              example: 1db28cfc-db22-11eb-8d19-0242ac130003
-              description: A unique identifier of the attendee.
-        event:
-          description: The event where the credit was earned.
-          type: object
-          properties:
-            id:
-              type: string
-              format: UUID
-              example: 3db28cfc-db22-11eb-8d19-0242ac130003
-              description: A unique identifier of the event.
-        session:
-          description: Session associated to the credit.
-          type: object
-          properties:
-            id:
-              type: string
-              format: uuid
-              description: A unique identifier of the session.
-              example: 6ef33f60-64c7-4f92-81e5-af717da5c398
-        created:
-          type: string
-          description: The ISO 8601 zoned date time when this record was created.
-          example: '2024-01-05T03:00:00Z'
-          format: date-time
-        lastModified:
-          type: string
-          description: The ISO 8601 zoned date time when this record was last modified.
-          example: '2024-01-07T02:00:00Z'
-          format: date-time
     attendee-insights:
       title: AttendeeInsights
       description: Attendee insights.
@@ -26443,6 +27081,69 @@ components:
           description: A descriptive name for the contact type
           example: VIP Member
           readOnly: true
+    AttendeeCredit:
+      title: AttendeeCredit
+      description: Credit details for an attendee.
+      type: object
+      properties:
+        id:
+          type: string
+          description: A unique identifier representing the attendee credit response. Can be the format of a string or UUID.
+          example: 1db28cfc-db22-11eb-8d19-0242ac130003_6ef33f60-64c7-4f92-81e5-af717da5c398_c15d600b-1363-413e-b00a-87d946903fe1
+        type:
+          $ref: '#/components/schemas/AttendeeCreditType'
+        creditType:
+          $ref: '#/components/schemas/ExpandableCreditType'
+        amount:
+          type: number
+          description: Credit amount earned by the attendee.
+          example: 20
+        attendee:
+          type: object
+          description: The attendee who earned the credit.
+          properties:
+            id:
+              type: string
+              format: uuid
+              example: 1db28cfc-db22-11eb-8d19-0242ac130003
+              description: A unique identifier of the attendee.
+        event:
+          description: The event where the credit was earned.
+          type: object
+          properties:
+            id:
+              type: string
+              format: UUID
+              example: 3db28cfc-db22-11eb-8d19-0242ac130003
+              description: A unique identifier of the event.
+        session:
+          description: Session associated to the credit.
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+              description: A unique identifier of the session.
+              example: 6ef33f60-64c7-4f92-81e5-af717da5c398
+        created:
+          type: string
+          description: The ISO 8601 zoned date time when this record was created.
+          example: '2024-01-05T03:00:00Z'
+          format: date-time
+        lastModified:
+          type: string
+          description: The ISO 8601 zoned date time when this record was last modified.
+          example: '2024-01-07T02:00:00Z'
+          format: date-time
+        tags:
+          type: array
+          readOnly: true
+          description: Tags associated with this credit.
+          items:
+            type: string
+            example: eventtype:default
+            maxLength: 300
+          maxItems: 50
     attendeeCreditsPaginatedResponse:
       title: Credits information
       description: Response containing attendee credits information.
@@ -26452,12 +27153,20 @@ components:
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
-            $ref: '#/components/schemas/attendee-credit.json'
+            $ref: '#/components/schemas/AttendeeCredit'
           description: Collection of credits assigned to attendees.
+    AttendeeCreditType:
+      title: AttendeeCreditType
+      description: 'Represents the entity that granted the credit. Event: This credit was granted by an event. Session: This credit was granted by a session.'
+      type: string
+      enum:
+        - Event
+        - Session
+      example: Session
     AttendeeGroup:
       title: AttendeeGroup
       description: An attendee group.
@@ -27200,7 +27909,7 @@ components:
         taxStructure:
           $ref: '#/components/schemas/TaxStructure'
         currency:
-          $ref: '#/components/schemas/Currency1'
+          $ref: '#/components/schemas/Currency2'
         maxGuests:
           $ref: '#/components/schemas/MaxGuests'
         minLengthOfStay:
@@ -27545,7 +28254,7 @@ components:
           example: All invoices must be paid in 30 days.
           deprecated: true
         currencyCode:
-          $ref: '#/components/schemas/Currency'
+          $ref: '#/components/schemas/Currency1'
         commissionableBid:
           type: boolean
           description: True indicates this is a commissionable bid.
@@ -27644,8 +28353,9 @@ components:
         - in_progress
         - attached
         - deleted
+        - delete_requested
       type: string
-      description: Bid stay type.
+      description: Bid status type.
       default: in_progress
     BidStayType:
       title: Bid Stay Type
@@ -27834,7 +28544,7 @@ components:
       description: Brand details.
       type: object
       allOf:
-        - $ref: '#/components/schemas/property/allOf/0'
+        - $ref: '#/components/schemas/Audit'
       properties:
         id:
           type: string
@@ -27847,7 +28557,7 @@ components:
           maxLength: 50
           example: Northern Hotel Group
         address:
-          $ref: '#/components/schemas/address.json'
+          $ref: '#/components/schemas/Address6'
         deleted:
           type: boolean
           description: True indicates the brand is deleted.
@@ -27860,7 +28570,7 @@ components:
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
@@ -28817,6 +29527,7 @@ components:
       enum:
         - corporate
         - leisure
+        - consortia
       type: string
       description: Business type.
       example: corporate
@@ -29334,7 +30045,7 @@ components:
       description: Chain details.
       type: object
       allOf:
-        - $ref: '#/components/schemas/property/allOf/0'
+        - $ref: '#/components/schemas/Audit'
       properties:
         id:
           title: Chain ID
@@ -29362,7 +30073,7 @@ components:
               type: string
               example: NorthernHotels
         address:
-          $ref: '#/components/schemas/address.json'
+          $ref: '#/components/schemas/Address6'
         deleted:
           type: boolean
           description: True indicates the chain is deleted.
@@ -29375,7 +30086,7 @@ components:
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
@@ -31635,6 +32346,86 @@ components:
         type:
           $ref: '#/components/schemas/credit-card-types'
     Currency:
+      description: ISO 4217 currency code.
+      title: Currency
+      type: string
+      example: USD
+      default: USD
+    currency-conversion-rate:
+      title: CurrencyConversionRate
+      description: Currency conversion rate for a currency based on dates in an account.
+      required:
+        - conversionRate
+        - startDate
+      type: object
+      properties:
+        conversionRate:
+          type: number
+          description: Currency conversion rate from accounts base currency to the other defined currency in this conversion rate.
+          example: 5.2
+        startDate:
+          type: string
+          format: date
+          description: The ISO 8601 date format assigned for the currency conversion, typically denotes start date from when defined conversion rate is applicable.
+          example: '2020-02-07'
+        endDate:
+          type: string
+          format: date
+          description: The ISO 8601 date format for the currency conversion, typically denotes end date till when defined conversion rate is applicable.
+          example: '2020-02-08'
+    currency-conversion-rate-paginated-response:
+      title: Currency Conversion Rate Paginated Response
+      description: The response from a request to get the list of conversions rate for a currency.
+      required:
+        - paging
+        - data
+      type: object
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CurrencyConversionRateListResponse'
+          description: Collection of conversion rate for a currency in an account.
+    currency-conversion-rate-request:
+      title: CurrencyConversionRateRequest
+      description: Currency conversion rate request for a currency in an account.
+      required:
+        - id
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/currency-conversion-rate'
+      properties:
+        id:
+          type: string
+          description: The unique ID for this defined conversion rate.
+          format: uuid
+          example: 9463c74e-18c6-401a-a710-ae0f485bf959
+    currency-conversion-rate-response:
+      title: CurrencyConversionRateResponse
+      description: Currency conversion rate response for a currency in an account.
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/currency-conversion-rate-request'
+      properties:
+        baseCurrency:
+          type: string
+          description: The ISO 4217 standard format currency code for account base currency.
+          maxLength: 3
+          example: USD
+        currency:
+          type: string
+          description: The ISO 4217 standard format currency code of currency for which conversion rate is defined.
+          maxLength: 3
+          example: EUR
+        lastModified:
+          type: string
+          format: date-time
+          description: The ISO 8601 zoned date and time when the conversion rate was last modified.
+          example: '2020-02-07T00:00:00.000Z'
+          readOnly: true
+    Currency1:
       title: Currency
       type: string
       description: The ISO 4217 standard format currency code used for RFPs.
@@ -31806,87 +32597,7 @@ components:
         - SCR
         - ZMW
         - ZWL
-    currency-conversion-rate:
-      title: CurrencyConversionRate
-      description: Currency conversion rate for a currency based on dates in an account.
-      required:
-        - conversionRate
-        - startDate
-      type: object
-      properties:
-        conversionRate:
-          type: number
-          description: Currency conversion rate from accounts base currency to the other defined currency in this conversion rate.
-          example: 5.2
-        startDate:
-          type: string
-          format: date
-          description: The ISO 8601 date format assigned for the currency conversion, typically denotes start date from when defined conversion rate is applicable.
-          example: '2020-02-07'
-        endDate:
-          type: string
-          format: date
-          description: The ISO 8601 date format for the currency conversion, typically denotes end date till when defined conversion rate is applicable.
-          example: '2020-02-08'
-    currency-conversion-rate-paginated-response:
-      title: Currency Conversion Rate Paginated Response
-      description: The response from a request to get the list of conversions rate for a currency.
-      required:
-        - paging
-        - data
-      type: object
-      properties:
-        paging:
-          $ref: '#/components/schemas/Paging'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/CurrencyConversionRateListResponse'
-          description: Collection of conversion rate for a currency in an account.
-    currency-conversion-rate-request:
-      title: CurrencyConversionRateRequest
-      description: Currency conversion rate request for a currency in an account.
-      required:
-        - id
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/currency-conversion-rate'
-      properties:
-        id:
-          type: string
-          description: The unique ID for this defined conversion rate.
-          format: uuid
-          example: 9463c74e-18c6-401a-a710-ae0f485bf959
-    currency-conversion-rate-response:
-      title: CurrencyConversionRateResponse
-      description: Currency conversion rate response for a currency in an account.
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/currency-conversion-rate-request'
-      properties:
-        baseCurrency:
-          type: string
-          description: The ISO 4217 standard format currency code for account base currency.
-          maxLength: 3
-          example: USD
-        currency:
-          type: string
-          description: The ISO 4217 standard format currency code of currency for which conversion rate is defined.
-          maxLength: 3
-          example: EUR
-        lastModified:
-          type: string
-          format: date-time
-          description: The ISO 8601 zoned date and time when the conversion rate was last modified.
-          example: '2020-02-07T00:00:00.000Z'
-          readOnly: true
-    currency.json:
-      description: ISO 4217 currency code.
-      title: Currency
-      type: string
-      example: USD
-      default: USD
-    Currency1:
+    Currency2:
       description: ISO 4217 currency code.
       title: Currency
       type: string
@@ -33681,7 +34392,7 @@ components:
           items:
             $ref: '#/components/schemas/ErrorResponseBase-1'
           description: Additional details of cascading error messages.
-    ErrorResponse14:
+    ErrorResponse16:
       title: ErrorResponse
       description: The error response.
       type: object
@@ -36842,6 +37553,21 @@ components:
       properties:
         registrationPath:
           $ref: '#/components/schemas/AssociatedRegistrationPath'
+    existingVenueAvailabilitySettings:
+      title: ExistingVenueAvailabilitySettings
+      description: Availability settings for a venue.
+      type: object
+      required:
+        - id
+      allOf:
+        - $ref: '#/components/schemas/venueAvailabilitySettings'
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Venue ID.
+          readOnly: true
+          example: 6bb0e2db-861f-46e3-a923-eb4d959ff128
     existingVenueDetails:
       title: ExistingVenueDetails
       description: An existing venue details model with read-only generated properties.
@@ -36893,6 +37619,59 @@ components:
           minLength: 1
           maxLength: 100
           example: Vienna Wolf Trap Hotel
+    existingVenueImage:
+      title: ExistingVenueImageMetadata
+      description: An existing venue image metadata with server-generated read-only properties.
+      type: object
+      required:
+        - id
+        - active
+        - displayOrder
+      allOf:
+        - $ref: '#/components/schemas/venueImage'
+      properties:
+        id:
+          type: string
+          allOf:
+            - readOnly: true
+            - $ref: '#/components/schemas/VenueImageID'
+    existingVenueNeedDate:
+      title: Existing Venue Need Date
+      description: A venue need date range with its server-assigned identifier.
+      type: object
+      required:
+        - id
+      allOf:
+        - $ref: '#/components/schemas/venueNeedDate'
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The need date range ID.
+          readOnly: true
+          example: 7e5c2c23-b2bb-461a-adc9-025184988519
+    existingVenueRatings:
+      title: ExistingVenueRatings
+      description: The full set of agency ratings and awards for a venue, including all applicable agencies and read-only eligibility flags. Use the GET response as a discovery step before constructing a PUT.
+      type: object
+      required:
+        - id
+        - name
+      allOf:
+        - $ref: '#/components/schemas/venueRatings'
+      properties:
+        id:
+          type: string
+          allOf:
+            - $ref: '#/components/schemas/VenueID'
+          readOnly: true
+        name:
+          type: string
+          description: Name of the venue.
+          readOnly: true
+          minLength: 1
+          maxLength: 100
+          example: Harbor View Convention Center
     ExistingVolumeDiscount:
       title: Existing Volume Discount
       description: Representation of an existing volume based discount.
@@ -36922,19 +37701,6 @@ components:
             - ACCOUNT
           example: EVENT
           readOnly: true
-    expandable-credit-type.json:
-      title: ExpandableCreditType
-      description: |-
-        An object that contains the associated credit type ID.
-
-        This is an **expandable** object and if requested will contain the name of a credit type object.
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          example: c15d600b-1363-413e-b00a-87d946903fe1
-          description: A unique identifier of the credit type.
     expandable-seat.json:
       title: ExpandableSeat
       description: |-
@@ -36975,6 +37741,19 @@ components:
           format: uuid
           description: The unique ID of the table.
           example: c9763ce5-b965-44ed-9c2b-b5657dfab012
+    ExpandableCreditType:
+      title: ExpandableCreditType
+      description: |-
+        An object that contains the associated credit type ID.
+
+        This is an **expandable** object and if requested will contain the name of a credit type object.
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: c15d600b-1363-413e-b00a-87d946903fe1
+          description: A unique identifier of the credit type.
     external-activity:
       title: ExternalAttendeeActivity
       description: An external attendee activity.
@@ -37045,17 +37824,6 @@ components:
           items:
             $ref: '#/components/schemas/external-activity-metadata'
           description: Collection of external attendee activities metadata in an account.
-    external-code-type.json:
-      title: External Code Type
-      enum:
-        - amadeus_gds
-        - worldspan_gds
-        - galileo_gds
-        - sabre_gds
-        - crs
-      type: string
-      description: Type of the external Code.
-      example: amadeus
     ExternalActivitiesAdditionalFields:
       title: External Activities Additional Fields
       description: Additional fields for external activities.
@@ -37126,6 +37894,17 @@ components:
         - exhibitor.external
       type: string
       example: event.external
+    ExternalCodeType:
+      title: External Code Type
+      enum:
+        - amadeus_gds
+        - worldspan_gds
+        - galileo_gds
+        - sabre_gds
+        - crs
+      type: string
+      description: Type of the external Code.
+      example: amadeus
     ExternalReference:
       title: ExternalReference
       description: An external reference.
@@ -38230,7 +39009,7 @@ components:
           description: Specifies who the hotel will charge incidental (extra) room expenses, like room service or long-distance calling.
           example: exceptions noted here.
         hotelAddress:
-          $ref: '#/components/schemas/Address7'
+          $ref: '#/components/schemas/Address9'
         hotelRoomRates:
           type: array
           description: Collection of hotel room rates the requester has taken.
@@ -38295,7 +39074,7 @@ components:
           type: number
           example: 150
         currencyCode:
-          $ref: '#/components/schemas/currency.json'
+          $ref: '#/components/schemas/Currency'
     HotelRoomRatesResponse:
       description: Represents hotel room rates response.
       title: HotelRoomRatesResponse
@@ -38308,34 +39087,7 @@ components:
         - roomRate
         - currencyCode
       allOf:
-        - description: Represents hotel room rates request.
-          title: HotelRoomRatesRequest
-          type: object
-          required:
-            - startDate
-            - endDate
-            - roomRate
-          properties:
-            rateCode:
-              type: string
-              description: The rate code.
-              example: VIPRATE
-            startDate:
-              description: The start of the date range the rate applies. Date is in ISO 8601 format.
-              type: string
-              example: '2025-03-25'
-              format: date
-            endDate:
-              description: The end of the date range the rate applies. Date is in ISO 8601 format.
-              type: string
-              example: '2025-03-25'
-              format: date
-            roomRate:
-              description: Cost of room per night.
-              type: number
-              example: 150
-            currencyCode:
-              $ref: '#/components/schemas/currency.json'
+        - $ref: '#/components/schemas/HotelRoomRatesRequest'
       properties:
         hotelCode:
           type: string
@@ -38413,7 +39165,7 @@ components:
           items:
             $ref: '#/components/schemas/Planner'
         currency:
-          $ref: '#/components/schemas/Currency1'
+          $ref: '#/components/schemas/Currency2'
         roomsSortType:
           $ref: '#/components/schemas/rooms-sort-type'
     housing-event-hotel:
@@ -38900,6 +39652,25 @@ components:
           type: string
           description: The entity's id value.
           example: abc-123
+    ImageGroup:
+      title: Image Group
+      description: The image group category for a venue image.<br><br>Values:<br>- `AREA_MAP` — Area Map.<br>- `EXTERIOR` — Exterior.<br>- `FLOOR_PLAN` — Floor Plan.<br>- `INTERIOR` — Interior.<br>- `LOBBY` — Lobby.<br>- `LOCAL_ATTRACTIONS` — Local Attractions.<br>- `MEETING_SPACE` — Meeting Space.<br>- `MISCELLANEOUS` — Miscellaneous.<br>- `RECREATION` — Recreation.<br>- `RESTAURANT_LOUNGE` — Restaurant/Lounge.<br>- `SLEEPING_ROOM` — Sleeping Room.<br>- `SMART_PROPOSALS` — Images used in [Smart Custom Proposals](https://support.cvent.com/s/communityarticle/Managing-Images-in-Custom-Proposal-Templates).<br>- `UNCATEGORIZED` — Uncategorized.
+      type: string
+      example: EXTERIOR
+      enum:
+        - AREA_MAP
+        - EXTERIOR
+        - FLOOR_PLAN
+        - INTERIOR
+        - LOBBY
+        - LOCAL_ATTRACTIONS
+        - MEETING_SPACE
+        - MISCELLANEOUS
+        - RECREATION
+        - RESTAURANT_LOUNGE
+        - SLEEPING_ROOM
+        - SMART_PROPOSALS
+        - UNCATEGORIZED
     ImageLink:
       type: object
       title: ImageLink
@@ -41066,7 +41837,7 @@ components:
           type: number
           example: 150
         currency:
-          $ref: '#/components/schemas/Currency1'
+          $ref: '#/components/schemas/Currency2'
     numeric-answer-format:
       type: string
       description: The answer format that a given number is stored in.
@@ -43341,32 +44112,7 @@ components:
       description: Details of the property
       type: object
       allOf:
-        - title: Audit
-          description: Audit information
-          type: object
-          properties:
-            created:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date time when this record was created.
-              readOnly: true
-              example: '2017-01-02T02:00:00Z'
-            createdBy:
-              type: string
-              description: The identifier of the user that created this record.
-              readOnly: true
-              example: hporter
-            lastModified:
-              type: string
-              format: date-time
-              description: The ISO 8601 zoned date time when this record was updated.
-              readOnly: true
-              example: '2019-02-12T03:00:00Z'
-            lastModifiedBy:
-              type: string
-              description: The identifier of the user that last updated this record.
-              readOnly: true
-              example: hporter
+        - $ref: '#/components/schemas/Audit'
       properties:
         id:
           title: Property ID
@@ -43417,37 +44163,20 @@ components:
           example: USD
           description: The ISO 4217 standard format currency code specified for the property.
         address:
-          $ref: '#/components/schemas/address.json'
+          $ref: '#/components/schemas/Address6'
         externalCodes:
           type: array
           items:
-            $ref: '#/components/schemas/property-external-code.json'
+            $ref: '#/components/schemas/PropertyExternalCodes'
           description: Collection of external codes for a property. This includes GDS nd other codes used to identify a property in external systems.
           maxItems: 5
-    property-external-code.json:
-      title: Property External Codes
-      description: The external chain and property codes for the property
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/external-code-type.json'
-        chainCode:
-          type: string
-          maxLength: 6
-          example: NH
-          description: The code identifying the property's chain in the given external system.
-        propertyCode:
-          type: string
-          maxLength: 15
-          example: GH1
-          description: The code identifying a property in the given external system.
     property-paginated-response:
       title: Property paginated response
       description: A list of properties.
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
@@ -43458,7 +44187,7 @@ components:
       description: Property room details.
       type: object
       allOf:
-        - $ref: '#/components/schemas/property/allOf/0'
+        - $ref: '#/components/schemas/Audit'
       properties:
         id:
           title: Property Room ID
@@ -43493,7 +44222,7 @@ components:
           example: false
           readOnly: true
         bedTypeCode:
-          $ref: '#/components/schemas/room-bed-type.json'
+          $ref: '#/components/schemas/RoomBedType1'
         numberOfBeds:
           type: integer
           description: The number of beds in the room.
@@ -43510,33 +44239,50 @@ components:
         externalCodes:
           type: array
           items:
-            $ref: '#/components/schemas/property-room-external-code.json'
+            $ref: '#/components/schemas/PropertyRoomExternalCode'
           description: Collection of external codes for the room. This includes GDS and other codes used to identify a room in external systems.
           maxItems: 5
-    property-room-external-code.json:
-      title: Property Room External Code
-      description: The external room codes for the room
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/external-code-type.json'
-        roomCode:
-          type: string
-          maxLength: 10
-          example: std887
-          description: The code identifying the room in the given external system.
     property-room-paginated-response:
       title: Property room paginated response
       description: A list of property sleeping rooms.
       type: object
       properties:
         paging:
-          $ref: '#/components/schemas/paging.json'
+          $ref: '#/components/schemas/Paging'
         data:
           type: array
           items:
             $ref: '#/components/schemas/property-room'
           description: Collection of property rooms and related details.
+    PropertyExternalCodes:
+      title: Property External Codes
+      description: The external chain and property codes for the property
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ExternalCodeType'
+        chainCode:
+          type: string
+          maxLength: 6
+          example: NH
+          description: The code identifying the property's chain in the given external system.
+        propertyCode:
+          type: string
+          maxLength: 15
+          example: GH1
+          description: The code identifying a property in the given external system.
+    PropertyRoomExternalCode:
+      title: Property Room External Code
+      description: The external room codes for the room
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ExternalCodeType'
+        roomCode:
+          type: string
+          maxLength: 10
+          example: std887
+          description: The code identifying the room in the given external system.
     proposal-status-type:
       title: Proposal Status Type
       enum:
@@ -43544,11 +44290,14 @@ components:
         - new
         - active
         - submitted
-        - declined_participation
+        - decline_participation
         - verified
         - approved
         - account_accepted
         - account_rejected
+        - account_accepted_pending
+        - account_rejected_pending
+        - account_hold
         - internal_rejected
         - request_renegotiation
         - decline_renegotiation
@@ -44362,6 +45111,221 @@ components:
       type: string
       description: Rate type.
       default: fixed
+    RatingAgency:
+      title: RatingAgency
+      description: |-
+        The rating agency. Only agencies applicable to the venue's type and country are accepted. Use the GET response to discover which agencies are valid for a specific venue.
+
+        **Core agencies (available regardless of country):**
+
+        | Value | Agency | Scale |
+        |-------|--------|-------|
+        | `AAA` | AAA | Diamonds |
+        | `FORBES_TRAVEL_GUIDE` | Forbes Travel Guide | Whole stars |
+        | `GENERALITAT_DE_CATALUNYA` | Generalitat de Catalunya | Catalunya scale |
+        | `MINISTRY_OF_TOURISM_INDIA` | Ministry of Tourism, India | Half-star |
+        | `PHRI` | Perhimpunan Hotel dan Restoran Indonesia | Whole stars |
+        | `ZAGAT_APPEAL` | Zagat – Appeal | Zagat numeric |
+        | `ZAGAT_COST` | Zagat – Cost | Zagat cost tier |
+        | `ZAGAT_DECOR` | Zagat – Decor | Zagat numeric |
+        | `ZAGAT_DINING` | Zagat – Dining | Zagat numeric |
+        | `ZAGAT_FACILITIES` | Zagat – Facilities | Zagat numeric |
+        | `ZAGAT_FOOD` | Zagat – Food | Zagat numeric |
+        | `ZAGAT_ROOMS` | Zagat – Rooms | Zagat numeric |
+        | `ZAGAT_SERVICE` | Zagat – Service | Zagat numeric |
+
+        **Country-specific tourism boards (half-star scale; only available for venues in the listed countries):**
+
+        | Value | Agency | Country codes |
+        |-------|--------|---------------|
+        | `AA_HOTEL_SERVICES` | AA Hotel Services | GB1, GB2, FR |
+        | `AAA_TOURISM` | AAA Tourism | AU |
+        | `ABU_DHABI_TOURISM` | Abu Dhabi Tourism and Culture Authority | AE |
+        | `ATIC_AUSTRALIA` | ATIC Australia | AU |
+        | `ATOUT_FRANCE` | Atout France | FR |
+        | `BALI_HOTEL_ASSOCIATION` | Bali Hotel Association | ID |
+        | `CAMARA_MUNICIPAL_DE_LISBOA` | Camara Municipal de Lisboa | PT |
+        | `CHINA_NATIONAL_TOURISM_ADMINISTRATION` | China National Tourism Administration | CN |
+        | `COMUNIDAD_DE_MADRID` | Comunidad de Madrid | ES |
+        | `CONSEJERIA_DE_FOMENTO_MURCIA` | Consejeria de Fomento Murcia | ES |
+        | `DEHOGA` | DEHOGA | AT, CH, CZ, DE, EE, HU, LT, LV, NL, SE |
+        | `DEPARTMENT_OF_TOURISM_PHILIPPINES` | Department of Tourism Philippines | PH |
+        | `DEPARTMENT_OF_TOURISM_THAILAND` | Department of Tourism Thailand | TH |
+        | `DISCOVER_IRELAND` | Discover Ireland | IE |
+        | `DISCOVER_NORTHERN_IRELAND` | Discover Northern Ireland | GB4 |
+        | `DUBAI_TOURISM` | Dubai Tourism (DTCM) | AE |
+        | `ESKISEHIR_DIRECTORATE` | Eskisehir Provincial Directorate of Culture and Tourism | TR |
+        | `FAILTE_IRELAND` | Failte Ireland | IE |
+        | `HELLENIC_CHAMBER_OF_HOTELS` | Hellenic Chamber of Hotels | GR |
+        | `HOTELLERIESUISSE` | Hotelleriesuisse | CH |
+        | `HOTELSTARS_UNION` | Hotelstars Union | AT, BT, CZ, DK, ET, DE, GR, HU, LV, LT, LU, MT, NL, ES, SE, CH, BE, EE |
+        | `INDONESIAN_TOURISM_BUSINESS_CERTIFICATION` | Indonesian Tourism Business Certification | ID |
+        | `ITALIA_HOTEL_CLASSIFICATION` | Italia Hotel Classification | IT |
+        | `MINISTRY_CULTURE_SPORTS_TOURISM_SOUTH_KOREA` | Ministry of Culture, Sports and Tourism (South Korea) | KR |
+        | `MINISTRY_OF_CULTURE_RUSSIA` | Ministry of Culture of the Russian Federation | RU |
+        | `MINISTRY_OF_CULTURE_TOURISM_AZERBAIJAN` | Ministry of Culture and Tourism of Azerbaijan | AZ |
+        | `MINISTRY_OF_TOURISM_CULTURE_MALAYSIA` | Ministry of Tourism and Culture Malaysia | MY |
+        | `MINISTRY_OF_TOURISM_EGYPT` | Ministry of Tourism, Egypt | EG |
+        | `MINISTRY_OF_TOURISM_MOROCCO` | Ministry of Tourism, Kingdom of Morocco | MA |
+        | `NATIONAL_HOSPITALITY_CERTIFICATION` | National Hospitality Certification | ID |
+        | `PORTUGAL_TOURISM` | Portugal Tourism | PT |
+        | `QUALMARK_NEW_ZEALAND` | Qualmark New Zealand | NZ |
+        | `RUSSIAN_HOTEL_ASSOCIATION` | Russian Hotel Association | RU |
+        | `SAMORZAD_MAZOWIECKI` | Samorzad Wojewodztwa Mazowieckiego | PL |
+        | `SERTIFIKASI_USAHA_PARIWISATA_INDONESIA` | Sertifikasi Usaha Pariwisata Indonesia | ID |
+        | `TGCSA` | Tourism Grading Council of South Africa | ZA |
+        | `TGCSA_2` | Tourism Grading Council of South Africa (TGCSA) | ZA |
+        | `THAI_HOTELS_ASSOCIATION` | Thai Hotels Association | TH |
+        | `TOERISME_VLAANDEREN` | Toerisme Vlaanderen | BE |
+        | `TURKISH_TOURISM` | Turkish Tourism | TR |
+        | `TUV_RHEINLAND_INDONESIA` | TUV Rheinland Indonesia (TRID) | ID |
+        | `VIETNAM_NATIONAL_ADMINISTRATION_OF_TOURISM` | Vietnam National Administration of Tourism | VN |
+        | `VORARLBERG_CHAMBER_OF_COMMERCE` | Vorarlberg Chamber of Commerce | AT |
+      type: string
+      enum:
+        - AA_HOTEL_SERVICES
+        - AAA
+        - AAA_TOURISM
+        - ABU_DHABI_TOURISM
+        - ATIC_AUSTRALIA
+        - ATOUT_FRANCE
+        - BALI_HOTEL_ASSOCIATION
+        - CAMARA_MUNICIPAL_DE_LISBOA
+        - CHINA_NATIONAL_TOURISM_ADMINISTRATION
+        - COMUNIDAD_DE_MADRID
+        - CONSEJERIA_DE_FOMENTO_MURCIA
+        - DEHOGA
+        - DEPARTMENT_OF_TOURISM_PHILIPPINES
+        - DEPARTMENT_OF_TOURISM_THAILAND
+        - DISCOVER_IRELAND
+        - DISCOVER_NORTHERN_IRELAND
+        - DUBAI_TOURISM
+        - ESKISEHIR_DIRECTORATE
+        - FAILTE_IRELAND
+        - FORBES_TRAVEL_GUIDE
+        - GENERALITAT_DE_CATALUNYA
+        - HELLENIC_CHAMBER_OF_HOTELS
+        - HOTELLERIESUISSE
+        - HOTELSTARS_UNION
+        - INDONESIAN_TOURISM_BUSINESS_CERTIFICATION
+        - ITALIA_HOTEL_CLASSIFICATION
+        - MINISTRY_CULTURE_SPORTS_TOURISM_SOUTH_KOREA
+        - MINISTRY_OF_CULTURE_RUSSIA
+        - MINISTRY_OF_CULTURE_TOURISM_AZERBAIJAN
+        - MINISTRY_OF_TOURISM_CULTURE_MALAYSIA
+        - MINISTRY_OF_TOURISM_EGYPT
+        - MINISTRY_OF_TOURISM_INDIA
+        - MINISTRY_OF_TOURISM_MOROCCO
+        - NATIONAL_HOSPITALITY_CERTIFICATION
+        - PHRI
+        - PORTUGAL_TOURISM
+        - QUALMARK_NEW_ZEALAND
+        - RUSSIAN_HOTEL_ASSOCIATION
+        - SAMORZAD_MAZOWIECKI
+        - SERTIFIKASI_USAHA_PARIWISATA_INDONESIA
+        - TGCSA
+        - TGCSA_2
+        - THAI_HOTELS_ASSOCIATION
+        - TOERISME_VLAANDEREN
+        - TURKISH_TOURISM
+        - TUV_RHEINLAND_INDONESIA
+        - VIETNAM_NATIONAL_ADMINISTRATION_OF_TOURISM
+        - VORARLBERG_CHAMBER_OF_COMMERCE
+        - ZAGAT_APPEAL
+        - ZAGAT_COST
+        - ZAGAT_DECOR
+        - ZAGAT_DINING
+        - ZAGAT_FACILITIES
+        - ZAGAT_FOOD
+        - ZAGAT_ROOMS
+        - ZAGAT_SERVICE
+      example: AAA
+    RatingValue:
+      title: RatingValue
+      description: |-
+        The grade awarded by the agency. Accepted values depend on the agency's rating scale — refer to the lists below. Omit to remove a previously saved rating for that agency.
+
+        **AAA — diamonds:**
+        `ONE_DIAMOND`, `TWO_DIAMONDS`, `THREE_DIAMONDS`, `FOUR_DIAMONDS`, `FIVE_DIAMONDS`
+
+        **Forbes Travel Guide / PHRI — whole stars:**
+        `ONE_STAR`, `TWO_STARS`, `THREE_STARS`, `FOUR_STARS`, `FIVE_STARS`
+
+        **Zagat numeric score (`ZAGAT_ROOMS`, `ZAGAT_DINING`, `ZAGAT_SERVICE`, `ZAGAT_FACILITIES`, `ZAGAT_APPEAL`, `ZAGAT_DECOR`, `ZAGAT_FOOD`):**
+        `ZAGAT_SCORE_1` … `ZAGAT_SCORE_30`
+
+        **Zagat cost tier (`ZAGAT_COST`):**
+        `VERY_EXPENSIVE`, `EXPENSIVE`, `MODERATE`, `INEXPENSIVE`
+
+        **Half-star scale — Ministry of Tourism India and all country-specific tourism boards:**
+        `HALF_STAR_1`, `HALF_STAR_1_5`, `HALF_STAR_2`, `HALF_STAR_2_5`, `HALF_STAR_3`, `HALF_STAR_3_5`, `HALF_STAR_4`, `HALF_STAR_4_5`, `HALF_STAR_5`, `HALF_STAR_5_5`
+
+        **Catalunya scale (`GENERALITAT_DE_CATALUNYA`):**
+        `CATALUNYA_1_STAR`, `CATALUNYA_2_STARS`, `CATALUNYA_3_STARS`, `CATALUNYA_4_STARS`, `CATALUNYA_4_STARS_SUPERIOR`, `CATALUNYA_5_STARS`, `CATALUNYA_LUXE`
+      type: string
+      enum:
+        - ONE_DIAMOND
+        - TWO_DIAMONDS
+        - THREE_DIAMONDS
+        - FOUR_DIAMONDS
+        - FIVE_DIAMONDS
+        - ONE_STAR
+        - TWO_STARS
+        - THREE_STARS
+        - FOUR_STARS
+        - FIVE_STARS
+        - ZAGAT_SCORE_1
+        - ZAGAT_SCORE_2
+        - ZAGAT_SCORE_3
+        - ZAGAT_SCORE_4
+        - ZAGAT_SCORE_5
+        - ZAGAT_SCORE_6
+        - ZAGAT_SCORE_7
+        - ZAGAT_SCORE_8
+        - ZAGAT_SCORE_9
+        - ZAGAT_SCORE_10
+        - ZAGAT_SCORE_11
+        - ZAGAT_SCORE_12
+        - ZAGAT_SCORE_13
+        - ZAGAT_SCORE_14
+        - ZAGAT_SCORE_15
+        - ZAGAT_SCORE_16
+        - ZAGAT_SCORE_17
+        - ZAGAT_SCORE_18
+        - ZAGAT_SCORE_19
+        - ZAGAT_SCORE_20
+        - ZAGAT_SCORE_21
+        - ZAGAT_SCORE_22
+        - ZAGAT_SCORE_23
+        - ZAGAT_SCORE_24
+        - ZAGAT_SCORE_25
+        - ZAGAT_SCORE_26
+        - ZAGAT_SCORE_27
+        - ZAGAT_SCORE_28
+        - ZAGAT_SCORE_29
+        - ZAGAT_SCORE_30
+        - VERY_EXPENSIVE
+        - EXPENSIVE
+        - MODERATE
+        - INEXPENSIVE
+        - HALF_STAR_1
+        - HALF_STAR_1_5
+        - HALF_STAR_2
+        - HALF_STAR_2_5
+        - HALF_STAR_3
+        - HALF_STAR_3_5
+        - HALF_STAR_4
+        - HALF_STAR_4_5
+        - HALF_STAR_5
+        - HALF_STAR_5_5
+        - CATALUNYA_1_STAR
+        - CATALUNYA_2_STARS
+        - CATALUNYA_3_STARS
+        - CATALUNYA_4_STARS
+        - CATALUNYA_4_STARS_SUPERIOR
+        - CATALUNYA_5_STARS
+        - CATALUNYA_LUXE
+      example: FOUR_DIAMONDS
     RebateType:
       title: RebateType
       description: Rebate type for specifying the rebate value on citywide RFPs. If rebateType is `BY_AMOUNT`, the rebate value will be in decimal format. If rebateType is `BY_PERCENTAGE`, the rebate value will represent a percentage.
@@ -45125,7 +46089,7 @@ components:
           type: number
           example: 830
         currency:
-          $ref: '#/components/schemas/Currency1'
+          $ref: '#/components/schemas/Currency2'
     ResourceType:
       title: resourceType
       description: Resource Type
@@ -46623,21 +47587,6 @@ components:
         - GUEST_ROOMS_ONLY
         - RESTAURANT_RFP
         - SERVICE_PROVIDER
-    room-bed-type.json:
-      title: Room bed type
-      enum:
-        - sofa_bed
-        - double
-        - full
-        - king
-        - murphy
-        - queen
-        - run_of_house
-        - single
-        - twin
-      type: string
-      description: Code representing the bed type.
-      example: queen
     room-inventory:
       description: Room inventory details for single night.
       type: object
@@ -46733,6 +47682,21 @@ components:
           description: Room tax policy for the attendee types.
           type: string
           example: New York State Sales Tax is currently 8.875% per night.
+    RoomBedType1:
+      title: Room bed type
+      enum:
+        - sofa_bed
+        - double
+        - full
+        - king
+        - murphy
+        - queen
+        - run_of_house
+        - single
+        - twin
+      type: string
+      description: Code representing the bed type.
+      example: queen
     RoomBlock:
       title: RoomBlock
       description: Contains details related to room allotment for a day.
@@ -50023,6 +50987,29 @@ components:
         - YOR
         - YT
         - ZET
+    StaticContentItem:
+      title: Static Content Item
+      description: Represents a single static content field with its value and sequence order
+      type: object
+      required:
+        - fieldName
+        - sequence
+      properties:
+        fieldName:
+          type: string
+          description: The name of the static content field (e.g., propertyName, numberOfRooms, extendedStay)
+          example: propertyName
+        sequence:
+          type: integer
+          description: Sequence number for ordering the static content items
+          example: 1
+        value:
+          type: string
+          nullable: true
+          maxLength: 300
+          description: The value of the static content field
+          example: Grand Hotel Downtown
+      additionalProperties: false
     status.json:
       title: Status
       enum:
@@ -51055,7 +52042,7 @@ components:
           title: Addresses
           type: array
           items:
-            $ref: '#/components/schemas/Address8'
+            $ref: '#/components/schemas/Address10'
           description: List of addresses associated with the travel account.
     travel-account-paginated-response:
       title: Travel account paginated response
@@ -51126,6 +52113,135 @@ components:
           items:
             $ref: '#/components/schemas/travel-account-supplier-account'
           description: Collection of suppliers travel accounts and their related details.
+    travel-buyer-proposal-bid:
+      title: Travel Buyer Proposal Bid
+      type: object
+      description: A travel buyer proposal bid rate plan that is being proposed to a customer.
+      properties:
+        travelProposal:
+          description: The travel proposal that the bid belongs to.
+          type: object
+          properties:
+            id:
+              title: Travel Proposal ID
+              description: The ID of the travel proposal.
+              type: string
+              format: uuid
+              example: a91187db-d3c2-4035-b696-1d77fb1ab9d8
+        id:
+          title: Bid ID
+          description: The unique ID of the bid.
+          type: string
+          format: uuid
+          example: 3e2a8614-7d52-442e-8c4f-a6a18ed9ac4d
+          readOnly: true
+        stayType:
+          $ref: '#/components/schemas/BidStayType'
+        order:
+          type: integer
+          default: 1
+          example: 1
+          description: The order of the bid compared to other bids of the same stay type. This is used to distinguish between extended stay 1 vs extended stay 2.
+        status:
+          $ref: '#/components/schemas/BidStatusType'
+        name:
+          type: string
+          minLength: 3
+          maxLength: 60
+          description: Name given to the bid.
+          example: My Corporate Bid
+        rate:
+          $ref: '#/components/schemas/TravelProposalBidRate'
+        marketCode:
+          type: string
+          description: The market code given to the rate plan / bid by the supplier.
+          maxLength: 10
+          example: mc12
+        currencyCode:
+          type: string
+          minLength: 3
+          maxLength: 3
+          example: USD
+          description: The ISO 4217 currency code used for the rates and other monetary values in the bid.
+        weekendDays:
+          type: array
+          description: Days of the week that are considered weekend days, to apply weekend rates. Does not apply when format is GBTA2013.
+          items:
+            $ref: '#/components/schemas/TravelBidWeekendDays'
+        lra:
+          type: boolean
+          default: true
+          description: Does the bid include LRA (Last Room Availability) rates?
+        nlra:
+          type: boolean
+          default: true
+          description: Does the bid include non-LRA rates?
+        fairDateLra:
+          type: boolean
+          default: true
+          description: Are the fair date rates LRA (Last Room Availability)?
+        internalNote:
+          type: string
+          maxLength: 3000
+          example: ''
+          description: Additional comments passed from the domain-level rate plan.
+        comments:
+          type: array
+          description: Additional Info
+          items:
+            $ref: '#/components/schemas/TravelBidComment'
+          maxItems: 5
+        roomTypes:
+          type: array
+          description: Room Types associated with the bid
+          items:
+            $ref: '#/components/schemas/TravelBidRoom-1'
+          maxItems: 99
+        seasons:
+          type: array
+          description: Seasons associated with the bid
+          items:
+            $ref: '#/components/schemas/TravelBidSeason'
+          maxItems: 99
+        discounts:
+          type: array
+          description: Dynamic discounts associated with the bid
+          items:
+            $ref: '#/components/schemas/TravelBidDiscount'
+          maxItems: 99
+        fairSeasons:
+          type: array
+          description: Fair seasons associated with the bid
+          items:
+            $ref: '#/components/schemas/TravelBidFairSeason'
+          maxItems: 99
+        amenities:
+          type: array
+          description: Amenities associated with the bid
+          items:
+            $ref: '#/components/schemas/TravelBidAmenity'
+        policies:
+          type: array
+          description: Policies associated with the bid
+          items:
+            $ref: '#/components/schemas/TravelBidPolicy'
+        taxesAndFees:
+          type: array
+          description: Taxes & fees associated with the bid
+          items:
+            $ref: '#/components/schemas/TravelBidTaxAndFee'
+    travel-buyer-proposal-bid-paginated-response:
+      title: Travel Buyer Proposal Paginated Response
+      description: A paginated list of travel buyer proposals.
+      type: object
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/travel-buyer-proposal-bid'
+          description: Paginated list of business transient buyer proposal bids.
     travel-program:
       title: Travel Program
       description: Travel program details.
@@ -51453,6 +52569,89 @@ components:
           items:
             $ref: '#/components/schemas/travel-proposal'
           description: Paginated list of business transient proposals.
+    travel-proposal-static-content-list-response:
+      title: Travel Proposal Static Content List Response
+      description: Paginated response containing a list of proposal static content across multiple proposals
+      type: object
+      required:
+        - data
+        - paging
+      properties:
+        data:
+          type: array
+          description: Array of proposal static content responses
+          items:
+            $ref: '#/components/schemas/travel-proposal-static-content-response'
+        paging:
+          $ref: '#/components/schemas/Paging'
+      additionalProperties: false
+      example:
+        data:
+          - travelProposal:
+              id: 123e4567-e89b-12d3-a456-426614174000
+            staticContents:
+              - fieldName: Property Code
+                sequence: 1
+                value: Hotel Property Code One
+              - fieldName: Internal Hotel Reference Code
+                sequence: 2
+                value: Internal Reference One
+          - travelProposal:
+              id: 223e4567-e89b-12d3-a456-426614174001
+            staticContents:
+              - fieldName: Property Code
+                sequence: 1
+                value: Hotel Property Code Two
+              - fieldName: Internal Hotel Reference Code
+                sequence: 2
+                value: Internal Reference Two
+        paging:
+          previousToken: 1a2b3c4d5e6f7g8h9i10j11k
+          nextToken: 2b3c4d5e6f7g8h9i10j11k12l
+          currentToken: 0a1b2c3d4e5f6g7h8i9j10k11l
+          limit: 100
+          totalCount: 2
+          _links:
+            next:
+              href: '?token=2b3c4d5e6f7g8h9i10j11k12l'
+            self:
+              href: '?token=0a1b2c3d4e5f6g7h8i9j10k11l'
+            prev:
+              href: '?token=1a2b3c4d5e6f7g8h9i10j11k'
+    travel-proposal-static-content-response:
+      title: Travel Proposal Static Content Response
+      description: Response containing static content for a specific proposal as a list of field-value pairs with sequence ordering
+      type: object
+      required:
+        - travelProposal
+        - staticContents
+      properties:
+        travelProposal:
+          description: The travel proposal that the static content belongs to.
+          type: object
+          properties:
+            id:
+              title: Travel Proposal ID
+              description: The ID of the travel proposal.
+              type: string
+              format: uuid
+              example: a91187db-d3c2-4035-b696-1d77fb1ab9d8
+        staticContents:
+          type: array
+          description: List of static content items for the proposal
+          items:
+            $ref: '#/components/schemas/StaticContentItem'
+      additionalProperties: false
+      example:
+        travelProposal:
+          id: a91187db-d3c2-4035-b696-1d77fb1ab9d8
+        staticContents:
+          - fieldName: Property Code
+            sequence: 1
+            value: Hotel Property Code One
+          - fieldName: Internal Hotel Reference Code
+            sequence: 2
+            value: Internal Reference One
     TravelAccountType:
       title: Travel Account Type
       enum:
@@ -51727,6 +52926,46 @@ components:
               type: string
               format: uuid
               example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        allocation:
+          type: integer
+          minimum: 1
+          maximum: 9999
+          description: The number of rooms allocated to the bid.
+          example: 10
+        order:
+          type: integer
+          description: The order of the room in the bid.
+          example: 1
+        status:
+          $ref: '#/components/schemas/BidItemStatusType'
+    TravelBidRoom-1:
+      title: Travel Bid Room
+      type: object
+      description: A room in a travel bid.
+      properties:
+        propertyRoom:
+          title: Property Room
+          description: Property Room Detail
+          type: object
+          properties:
+            id:
+              title: Property Room ID
+              description: The unique ID of the property room.
+              type: string
+              format: uuid
+              example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+            name:
+              type: string
+              description: The name of the property room.
+              minLength: 1
+              maxLength: 30
+              example: Standard
+            code:
+              type: string
+              minLength: 1
+              maxLength: 6
+              description: Room code of the property room.
+              example: std
         allocation:
           type: integer
           minimum: 1
@@ -52600,7 +53839,7 @@ components:
           type: array
           description: 'The address of the user. The user can have only one address. <br> If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence'
           items:
-            $ref: '#/components/schemas/Address6'
+            $ref: '#/components/schemas/Address7'
         userType:
           $ref: '#/components/schemas/UserType'
         timezone:
@@ -53049,6 +54288,17 @@ components:
           maximum: 180
           example: -97.71518
           readOnly: true
+    venueAvailabilitySettings:
+      title: Venue Availability Settings
+      description: Availability settings for a venue.
+      type: object
+      required:
+        - displayNeedDatesToPlanner
+      properties:
+        displayNeedDatesToPlanner:
+          type: boolean
+          description: When true, the venue's need dates are displayed to planners.
+          example: true
     venueDetails:
       title: VenueDetails
       description: Venue details model.
@@ -53111,7 +54361,7 @@ components:
           maxLength: 300
           example: https://www.example-hotel.com
         currency:
-          $ref: '#/components/schemas/Currency'
+          $ref: '#/components/schemas/Currency1'
         openingDate:
           type: string
           description: Venue opening date as free-form text.
@@ -53225,7 +54475,7 @@ components:
         currency:
           type: string
           allOf:
-            - $ref: '#/components/schemas/Currency'
+            - $ref: '#/components/schemas/Currency1'
           nullable: true
         openingDate:
           type: string
@@ -53629,6 +54879,106 @@ components:
       type: string
       format: uuid
       example: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+    venueImage:
+      title: VenueImage
+      description: A venue image.
+      allOf:
+        - $ref: '#/components/schemas/Audit'
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: The display name of the venue image.
+          example: Grand Ballroom Exterior
+        description:
+          type: string
+          maxLength: 300
+          description: A brief description of the venue image.
+          example: Main exterior view of the venue showing the grand entrance.
+        imageGroup:
+          $ref: '#/components/schemas/ImageGroup'
+        active:
+          type: boolean
+          default: true
+          description: True indicates the image is active and visible on the venue profile.
+          example: true
+        displayOrder:
+          type: integer
+          minimum: 1
+          maximum: 9999
+          default: 1
+          description: The display order of the image in the venue gallery.
+          example: 1
+    venueImageAssociationRequest:
+      title: Venue Image Association Request
+      description: Request body for associating a previously uploaded image file with a venue image.
+      type: object
+      required:
+        - file
+      properties:
+        file:
+          type: object
+          description: The previously uploaded image file to associate with the venue.
+          required:
+            - id
+          properties:
+            id:
+              type: string
+              format: uuid
+              description: The unique identifier of a previously uploaded image file.
+              example: e0921301-7742-4354-a0d8-2a747ff66958
+    venueImageAssociationResponse:
+      title: Venue Image Association Response
+      description: Response body after successfully associating an image with a venue.
+      type: object
+      required:
+        - file
+        - href
+      properties:
+        file:
+          type: object
+          description: The file uploaded to be associated with the venue.
+          readOnly: true
+          required:
+            - id
+          properties:
+            id:
+              type: string
+              format: uuid
+              description: The ID of the uploaded image file.
+              example: 080a01ef-2f73-45f6-8f48-91dbc83a4c47
+        href:
+          type: string
+          format: uri
+          readOnly: true
+          description: URL of the venue image.
+          example: https://images.cvent.com/production/csn/3c7be8c9-cddb-4eaf-93a8-27da3250ed4f/images/83142ebfecbb42d2ac3be0433a180829_extrasmall!_!5b5c517134afb758b6fbbefb0e94d819.jpg
+    VenueImageID:
+      title: Venue Image ID
+      description: A unique identifier for a venue image.
+      type: string
+      format: uuid
+      example: 286e2866-b443-4d09-ab0f-0fac45cc026f
+    venueImagesMetadataOverviewResponse:
+      title: Venue Images Metadata List
+      description: Paginated list of venue image metadata.
+      type: object
+      required:
+        - data
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        data:
+          type: array
+          description: The image metadata for a venue.
+          minItems: 0
+          maxItems: 200
+          items:
+            $ref: '#/components/schemas/existingVenueImage'
     VenueIntegrationPreference:
       title: VenueIntegrationPreference
       description: Venue integration preference for an RFP.
@@ -53651,6 +55001,85 @@ components:
         - CED
         - PASSKEY
       example: PASSKEY
+    venueNeedDate:
+      title: Venue Need Date
+      description: A need date range indicating when a venue wants to receive event business.
+      type: object
+      required:
+        - startDate
+        - endDate
+      properties:
+        startDate:
+          type: string
+          format: date
+          description: The ISO 8601 date representing the start of the need date range (inclusive).
+          example: '2026-07-01'
+        endDate:
+          type: string
+          format: date
+          description: The ISO 8601 date representing the end of the need date range (inclusive). Must be on or after startDate.
+          example: '2026-07-31'
+    venueNeedDatesPaginatedResponse:
+      title: Venue Need Dates Paginated Response
+      description: Paginated list of need dates for a venue.
+      type: object
+      required:
+        - data
+        - paging
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        data:
+          type: array
+          description: List of need date ranges for the venue. Each item represents a contiguous period when the venue is actively seeking event business.
+          minItems: 0
+          maxItems: 200
+          items:
+            $ref: '#/components/schemas/existingVenueNeedDate'
+    VenueRating:
+      title: VenueRating
+      description: Represents a rating awarded to a venue by a specific agency. Not all agencies are available for every venue — eligibility is determined by the venue's type and country. Use `GET /venues/{venueId}/ratings` to retrieve the list of applicable agencies for a venue before submitting a PUT request.
+      type: object
+      required:
+        - ratingAgency
+      properties:
+        ratingAgency:
+          $ref: '#/components/schemas/RatingAgency'
+        ratingValue:
+          $ref: '#/components/schemas/RatingValue'
+        primaryRating:
+          type: boolean
+          description: True indicates this is the venue's primary rating, displayed in search results and on the venue profile. Only one rating across all agencies may be marked as primary. Check the `canBePrimary` flag in the GET response before setting this.
+          default: false
+          example: true
+        ratingEditable:
+          type: boolean
+          description: Returned in GET responses only. True indicates the caller may change `ratingValue` for this agency. When false, `ratingValue` is read-only and cannot be changed via the API.
+          readOnly: true
+          example: true
+        canBePrimary:
+          type: boolean
+          description: 'Returned in GET responses only. True indicates `primaryRating` may be set to `true` for this agency. When false, setting `primaryRating: true` will be rejected.'
+          readOnly: true
+          example: true
+    venueRatings:
+      title: VenueRatings
+      description: The full set of agency ratings and awards for a venue. Submitting a PUT with this payload replaces all existing ratings for the venue. Not applicable to CVB/DMC venues.
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Audit'
+      properties:
+        ratings:
+          type: array
+          description: The list of agency ratings for this venue. On PUT, this list replaces all previously saved ratings — agencies omitted from the request will be removed.
+          maxItems: 57
+          items:
+            $ref: '#/components/schemas/VenueRating'
+        venueAwards:
+          type: string
+          description: A free-text description of awards or accolades the venue has received. Maximum 2500 characters. Omit to clear.
+          maxLength: 2500
+          example: Recipient of the 2025 Green Hospitality Award.
     VenueSummary:
       description: Represents a summary of venue information associated with current proposal.
       type: object
@@ -54646,7 +56075,6 @@ components:
             budget/transactions:write: Allows creation of card transactions.
             business-transient/bids:read: Allows the reading of BT Bid data
             business-transient/proposals:read: Allows the reading of BT Proposal data
-            business-travel/bids:read: Allows the reading of BT Bid data
             business-travel/proposals:read: Allows the reading of BT Proposal data
             compliance/communications:read: Allows the reading of communication compliance
             compliance/communications:write: Allows the writing of communication compliance
@@ -54810,14 +56238,24 @@ components:
             survey/survey-responses:read: Allows reading the event survey responses
             survey/survey-responses:write: Allows write operations on the event surveys respondent's responses
             survey/surveys:read: Allows the reading of event surveys
+            venue/availability-settings:read: Allows reading of venue availability settings.
+            venue/availability-settings:write: Allows the modification of venue availability settings.
+            venue/images:delete: Allows disassociating images from venues.
+            venue/images:read: Allows read access for venue images metadata.
+            venue/images:write: Allows associating images with venues.
             venue/meeting-room-images:delete: Allows disassociating images from meeting rooms.
             venue/meeting-room-images:read: Allows retrieving meeting room images.
             venue/meeting-room-images:write: Allows associating images with meeting rooms.
             venue/meeting-room-overviews:read: Allows read access for overview of meeting room.
             venue/meeting-rooms:write: Allows the creation and modification of meeting rooms.
+            venue/need-dates:delete: Allows the deletion of venue need dates.
+            venue/need-dates:read: Allows reading of venue need dates.
+            venue/need-dates:write: Allows the creation and modification of venue need dates.
             venue/venue-details-overview:read: Allows read access for overview of venue details.
             venue/venue-details:write: Allows the creation and modification of venue details.
             venue/venue-facility:write: Allows the modification of venue facility information.
+            venue/venue-ratings:read: Allows reading of venue ratings and awards.
+            venue/venue-ratings:write: Allows the modification of venue ratings and awards.
     OAuth2.clientCredentials:
       type: oauth2
       description: OAuth2 Client Credentials Flow.
@@ -55055,14 +56493,24 @@ components:
             survey/survey-responses:read: Allows reading the event survey responses
             survey/survey-responses:write: Allows write operations on the event surveys respondent's responses
             survey/surveys:read: Allows the reading of event surveys
+            venue/availability-settings:read: Allows reading of venue availability settings.
+            venue/availability-settings:write: Allows the modification of venue availability settings.
+            venue/images:delete: Allows disassociating images from venues.
+            venue/images:read: Allows read access for venue images metadata.
+            venue/images:write: Allows associating images with venues.
             venue/meeting-room-images:delete: Allows disassociating images from meeting rooms.
             venue/meeting-room-images:read: Allows retrieving meeting room images.
             venue/meeting-room-images:write: Allows associating images with meeting rooms.
             venue/meeting-room-overviews:read: Allows read access for overview of meeting room.
             venue/meeting-rooms:write: Allows the creation and modification of meeting rooms.
+            venue/need-dates:delete: Allows the deletion of venue need dates.
+            venue/need-dates:read: Allows reading of venue need dates.
+            venue/need-dates:write: Allows the creation and modification of venue need dates.
             venue/venue-details-overview:read: Allows read access for overview of venue details.
             venue/venue-details:write: Allows the creation and modification of venue details.
             venue/venue-facility:write: Allows the modification of venue facility information.
+            venue/venue-ratings:read: Allows reading of venue ratings and awards.
+            venue/venue-ratings:write: Allows the modification of venue ratings and awards.
     CallbackApiKeyAuth:
       type: apiKey
       in: header
@@ -55297,6 +56745,11 @@ tags:
     description: The [SCIM](https://www.simplecloud.info/) standard allows for easier cross-domain identity management. This API allows you to manage your account users and SCIM groups (representing Cvent user roles).
   - name: Users
     description: Operations for managing account users and user groups, including creation, retrieval, update, and deletion. Use these endpoints to administer user access and roles within your account.
+  - name: Venue Availability
+    description: |
+      Manage the date ranges when a venue is available for event bookings.
+  - name: Venue Content
+    description: Manage images, amenities, and nearby attractions associated with a venue.
   - name: Venue Meeting Rooms
     description: Manage meeting rooms for a venue, including creating and updating room details, configuring capacities and amenities, and associating images.
   - name: Venue Profiles

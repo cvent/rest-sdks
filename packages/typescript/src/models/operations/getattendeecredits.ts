@@ -53,27 +53,24 @@ export type GetAttendeeCreditsRequest = {
    */
   expand?: Array<components.Expand1> | undefined;
   /**
-   * A filter query string narrows search
+   * Use the filter query parameter to narrow results using comparison operators. Combine multiple
    *
    * @remarks
-   * results and supports the combination of logical and comparison
-   * operators.
+   * conditions using logical operators. See [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
    *
-   * The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * Supported fields and operators:
    *
-   * These are the comparison types that can be used in filter expressions:
-   *   * equal: eq
-   *   * not equal: ne
+   * | Field         | Comparison operators | Logical operators |
+   * |---------------|----------------------|-------------------|
+   * | attendee.id   | `eq`, `ne`           | -                 |
+   * | event.id      | `eq`, `ne`           | -                 |
+   * | session.id    | `eq`, `ne`           | -                 |
+   * | creditType.id | `eq`, `ne`           | -                 |
+   * | type          | `eq`                 | -                 |
+   * | tags          | `contains`           | -                 |
    *
-   * The following fields are filterable:
-   * * attendee.id (eq|ne)
-   * * event.id (eq|ne)
-   * * session.id (eq|ne)
-   * * creditType.id (eq|ne)
-   * * type (eq)
-   *
-   * Note:
-   * * lastModified: Used by the 'before' and 'after' filters.
+   * Notes:
+   * - lastModified is used by the 'before' and 'after' filters.
    */
   filter?: string | undefined;
 };

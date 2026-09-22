@@ -5,15 +5,21 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
+import com.cvent.models.operations.GetTravelBuyerProposalBidRequest;
 import com.cvent.models.operations.GetTravelProgramQuestionRequest;
 import com.cvent.models.operations.GetTravelProgramRequest;
 import com.cvent.models.operations.GetTravelProposalBidRequest;
 import com.cvent.models.operations.GetTravelProposalRequest;
+import com.cvent.models.operations.GetTravelProposalStaticContentRequest;
+import com.cvent.models.operations.ListTravelBuyerProposalBidsRequest;
 import com.cvent.models.operations.ListTravelProgramQuestionsRequest;
 import com.cvent.models.operations.ListTravelProgramsQuestionsRequest;
 import com.cvent.models.operations.ListTravelProgramsRequest;
 import com.cvent.models.operations.ListTravelProposalBidsRequest;
+import com.cvent.models.operations.ListTravelProposalStaticContentRequest;
 import com.cvent.models.operations.ListTravelProposalsRequest;
+import com.cvent.models.operations.async.GetTravelBuyerProposalBidRequestBuilder;
+import com.cvent.models.operations.async.GetTravelBuyerProposalBidResponse;
 import com.cvent.models.operations.async.GetTravelProgramQuestionRequestBuilder;
 import com.cvent.models.operations.async.GetTravelProgramQuestionResponse;
 import com.cvent.models.operations.async.GetTravelProgramRequestBuilder;
@@ -22,6 +28,10 @@ import com.cvent.models.operations.async.GetTravelProposalBidRequestBuilder;
 import com.cvent.models.operations.async.GetTravelProposalBidResponse;
 import com.cvent.models.operations.async.GetTravelProposalRequestBuilder;
 import com.cvent.models.operations.async.GetTravelProposalResponse;
+import com.cvent.models.operations.async.GetTravelProposalStaticContentRequestBuilder;
+import com.cvent.models.operations.async.GetTravelProposalStaticContentResponse;
+import com.cvent.models.operations.async.ListTravelBuyerProposalBidsRequestBuilder;
+import com.cvent.models.operations.async.ListTravelBuyerProposalBidsResponse;
 import com.cvent.models.operations.async.ListTravelProgramQuestionsRequestBuilder;
 import com.cvent.models.operations.async.ListTravelProgramQuestionsResponse;
 import com.cvent.models.operations.async.ListTravelProgramsQuestionsRequestBuilder;
@@ -30,16 +40,22 @@ import com.cvent.models.operations.async.ListTravelProgramsRequestBuilder;
 import com.cvent.models.operations.async.ListTravelProgramsResponse;
 import com.cvent.models.operations.async.ListTravelProposalBidsRequestBuilder;
 import com.cvent.models.operations.async.ListTravelProposalBidsResponse;
+import com.cvent.models.operations.async.ListTravelProposalStaticContentRequestBuilder;
+import com.cvent.models.operations.async.ListTravelProposalStaticContentResponse;
 import com.cvent.models.operations.async.ListTravelProposalsRequestBuilder;
 import com.cvent.models.operations.async.ListTravelProposalsResponse;
+import com.cvent.operations.GetTravelBuyerProposalBid;
 import com.cvent.operations.GetTravelProgram;
 import com.cvent.operations.GetTravelProgramQuestion;
 import com.cvent.operations.GetTravelProposal;
 import com.cvent.operations.GetTravelProposalBid;
+import com.cvent.operations.GetTravelProposalStaticContent;
+import com.cvent.operations.ListTravelBuyerProposalBids;
 import com.cvent.operations.ListTravelProgramQuestions;
 import com.cvent.operations.ListTravelPrograms;
 import com.cvent.operations.ListTravelProgramsQuestions;
 import com.cvent.operations.ListTravelProposalBids;
+import com.cvent.operations.ListTravelProposalStaticContent;
 import com.cvent.operations.ListTravelProposals;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
@@ -393,6 +409,127 @@ public class AsyncTravelRFPs {
     }
 
     /**
+     * List Buyer Proposal Bids
+     *
+     * <p>Get a paginated list of travel buyer proposal bids.
+     *
+     * @return The async call builder
+     */
+    public ListTravelBuyerProposalBidsRequestBuilder listTravelBuyerProposalBids() {
+        return new ListTravelBuyerProposalBidsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Buyer Proposal Bids
+     *
+     * <p>Get a paginated list of travel buyer proposal bids.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<ListTravelBuyerProposalBidsResponse>} - The async response
+     */
+    public CompletableFuture<ListTravelBuyerProposalBidsResponse> listTravelBuyerProposalBids(
+            @Nonnull ListTravelBuyerProposalBidsRequest request) {
+        return listTravelBuyerProposalBids(request, null);
+    }
+
+    /**
+     * List Buyer Proposal Bids
+     *
+     * <p>Get a paginated list of travel buyer proposal bids.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListTravelBuyerProposalBidsResponse>} - The async response
+     */
+    public CompletableFuture<ListTravelBuyerProposalBidsResponse> listTravelBuyerProposalBids(
+            @Nonnull ListTravelBuyerProposalBidsRequest request, @Nullable Options options) {
+        AsyncRequestOperation<ListTravelBuyerProposalBidsRequest, ListTravelBuyerProposalBidsResponse> operation =
+                new ListTravelBuyerProposalBids.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Get Buyer Proposal Bid
+     *
+     * <p>Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+     *
+     * @return The async call builder
+     */
+    public GetTravelBuyerProposalBidRequestBuilder getTravelBuyerProposalBid() {
+        return new GetTravelBuyerProposalBidRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get Buyer Proposal Bid
+     *
+     * <p>Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<GetTravelBuyerProposalBidResponse>} - The async response
+     */
+    public CompletableFuture<GetTravelBuyerProposalBidResponse> getTravelBuyerProposalBid(
+            @Nonnull GetTravelBuyerProposalBidRequest request) {
+        return getTravelBuyerProposalBid(request, null);
+    }
+
+    /**
+     * Get Buyer Proposal Bid
+     *
+     * <p>Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetTravelBuyerProposalBidResponse>} - The async response
+     */
+    public CompletableFuture<GetTravelBuyerProposalBidResponse> getTravelBuyerProposalBid(
+            @Nonnull GetTravelBuyerProposalBidRequest request, @Nullable Options options) {
+        AsyncRequestOperation<GetTravelBuyerProposalBidRequest, GetTravelBuyerProposalBidResponse> operation =
+                new GetTravelBuyerProposalBid.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * List Static Contents
+     *
+     * <p>Gets a paginated list of proposal static content across multiple proposals.
+     *
+     * @return The async call builder
+     */
+    public ListTravelProposalStaticContentRequestBuilder listTravelProposalStaticContent() {
+        return new ListTravelProposalStaticContentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Static Contents
+     *
+     * <p>Gets a paginated list of proposal static content across multiple proposals.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<ListTravelProposalStaticContentResponse>} - The async response
+     */
+    public CompletableFuture<ListTravelProposalStaticContentResponse> listTravelProposalStaticContent(
+            @Nonnull ListTravelProposalStaticContentRequest request) {
+        return listTravelProposalStaticContent(request, null);
+    }
+
+    /**
+     * List Static Contents
+     *
+     * <p>Gets a paginated list of proposal static content across multiple proposals.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListTravelProposalStaticContentResponse>} - The async response
+     */
+    public CompletableFuture<ListTravelProposalStaticContentResponse> listTravelProposalStaticContent(
+            @Nonnull ListTravelProposalStaticContentRequest request, @Nullable Options options) {
+        AsyncRequestOperation<ListTravelProposalStaticContentRequest, ListTravelProposalStaticContentResponse> operation =
+                new ListTravelProposalStaticContent.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
      * Get Travel Proposal
      *
      * <p>Gets a travel proposal for the given travel proposal ID.
@@ -428,6 +565,50 @@ public class AsyncTravelRFPs {
             @Nonnull GetTravelProposalRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetTravelProposalRequest, GetTravelProposalResponse> operation =
                 new GetTravelProposal.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Get Static Content
+     *
+     * <p>Retrieves static content for a specific proposal as a list of field-value pairs with sequence
+     * ordering.
+     *
+     * @return The async call builder
+     */
+    public GetTravelProposalStaticContentRequestBuilder getTravelProposalStaticContent() {
+        return new GetTravelProposalStaticContentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get Static Content
+     *
+     * <p>Retrieves static content for a specific proposal as a list of field-value pairs with sequence
+     * ordering.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<GetTravelProposalStaticContentResponse>} - The async response
+     */
+    public CompletableFuture<GetTravelProposalStaticContentResponse> getTravelProposalStaticContent(
+            @Nonnull GetTravelProposalStaticContentRequest request) {
+        return getTravelProposalStaticContent(request, null);
+    }
+
+    /**
+     * Get Static Content
+     *
+     * <p>Retrieves static content for a specific proposal as a list of field-value pairs with sequence
+     * ordering.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetTravelProposalStaticContentResponse>} - The async response
+     */
+    public CompletableFuture<GetTravelProposalStaticContentResponse> getTravelProposalStaticContent(
+            @Nonnull GetTravelProposalStaticContentRequest request, @Nullable Options options) {
+        AsyncRequestOperation<GetTravelProposalStaticContentRequest, GetTravelProposalStaticContentResponse> operation =
+                new GetTravelProposalStaticContent.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

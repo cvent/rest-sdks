@@ -120,7 +120,7 @@ public class ProposalResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("currencyCode")
-    private Currency currencyCode;
+    private Currency1 currencyCode;
 
     /**
      * True indicates this is a commissionable bid.
@@ -292,7 +292,7 @@ public class ProposalResponse {
             @JsonProperty("statusSummary") @Nullable StatusSummary statusSummary,
             @JsonProperty("introduction") @Nullable String introduction,
             @JsonProperty("billingContractualResponse") @Nullable String billingContractualResponse,
-            @JsonProperty("currencyCode") @Nullable Currency currencyCode,
+            @JsonProperty("currencyCode") @Nullable Currency1 currencyCode,
             @JsonProperty("commissionableBid") @Nullable Boolean commissionableBid,
             @JsonProperty("commissionRate") @Nullable Double commissionRate,
             @JsonProperty("name") @Nullable String name,
@@ -483,7 +483,7 @@ public class ProposalResponse {
     /**
      * The ISO 4217 standard format currency code used for RFPs.
      */
-    public Optional<Currency> currencyCode() {
+    public Optional<Currency1> currencyCode() {
         return Optional.ofNullable(this.currencyCode);
     }
 
@@ -753,7 +753,7 @@ public class ProposalResponse {
     /**
      * The ISO 4217 standard format currency code used for RFPs.
      */
-    public ProposalResponse withCurrencyCode(@Nullable Currency currencyCode) {
+    public ProposalResponse withCurrencyCode(@Nullable Currency1 currencyCode) {
         this.currencyCode = currencyCode;
         return this;
     }
@@ -1129,7 +1129,7 @@ public class ProposalResponse {
         @Deprecated
         private String billingContractualResponse;
 
-        private Currency currencyCode;
+        private Currency1 currencyCode;
 
         private Boolean commissionableBid;
 
@@ -1283,7 +1283,7 @@ public class ProposalResponse {
         /**
          * The ISO 4217 standard format currency code used for RFPs.
          */
-        public Builder currencyCode(@Nullable Currency currencyCode) {
+        public Builder currencyCode(@Nullable Currency1 currencyCode) {
             this.currencyCode = currencyCode;
             return this;
         }

@@ -93,7 +93,7 @@ public class PropertyRoom {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bedTypeCode")
-    private RoomBedTypeJson bedTypeCode;
+    private RoomBedType1 bedTypeCode;
 
     /**
      * The number of beds in the room.
@@ -122,7 +122,7 @@ public class PropertyRoom {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("externalCodes")
-    private List<PropertyRoomExternalCodeJson> externalCodes;
+    private List<PropertyRoomExternalCode> externalCodes;
 
     @JsonCreator
     public PropertyRoom(
@@ -135,11 +135,11 @@ public class PropertyRoom {
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("property") @Nullable PropertyRoomProperty property,
             @JsonProperty("deleted") @Nullable Boolean deleted,
-            @JsonProperty("bedTypeCode") @Nullable RoomBedTypeJson bedTypeCode,
+            @JsonProperty("bedTypeCode") @Nullable RoomBedType1 bedTypeCode,
             @JsonProperty("numberOfBeds") @Nullable Long numberOfBeds,
             @JsonProperty("capacity") @Nullable Long capacity,
             @JsonProperty("description") @Nullable String description,
-            @JsonProperty("externalCodes") @Nullable List<PropertyRoomExternalCodeJson> externalCodes) {
+            @JsonProperty("externalCodes") @Nullable List<PropertyRoomExternalCode> externalCodes) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -226,7 +226,7 @@ public class PropertyRoom {
     /**
      * Code representing the bed type.
      */
-    public Optional<RoomBedTypeJson> bedTypeCode() {
+    public Optional<RoomBedType1> bedTypeCode() {
         return Optional.ofNullable(this.bedTypeCode);
     }
 
@@ -255,7 +255,7 @@ public class PropertyRoom {
      * Collection of external codes for the room. This includes GDS and other codes used to identify a room
      * in external systems.
      */
-    public Optional<List<PropertyRoomExternalCodeJson>> externalCodes() {
+    public Optional<List<PropertyRoomExternalCode>> externalCodes() {
         return Optional.ofNullable(this.externalCodes);
     }
 
@@ -338,7 +338,7 @@ public class PropertyRoom {
     /**
      * Code representing the bed type.
      */
-    public PropertyRoom withBedTypeCode(@Nullable RoomBedTypeJson bedTypeCode) {
+    public PropertyRoom withBedTypeCode(@Nullable RoomBedType1 bedTypeCode) {
         this.bedTypeCode = bedTypeCode;
         return this;
     }
@@ -371,7 +371,7 @@ public class PropertyRoom {
      * Collection of external codes for the room. This includes GDS and other codes used to identify a room
      * in external systems.
      */
-    public PropertyRoom withExternalCodes(@Nullable List<PropertyRoomExternalCodeJson> externalCodes) {
+    public PropertyRoom withExternalCodes(@Nullable List<PropertyRoomExternalCode> externalCodes) {
         this.externalCodes = externalCodes;
         return this;
     }
@@ -475,7 +475,7 @@ public class PropertyRoom {
 
         private Boolean deleted;
 
-        private RoomBedTypeJson bedTypeCode;
+        private RoomBedType1 bedTypeCode;
 
         private Long numberOfBeds;
 
@@ -483,7 +483,7 @@ public class PropertyRoom {
 
         private String description;
 
-        private List<PropertyRoomExternalCodeJson> externalCodes;
+        private List<PropertyRoomExternalCode> externalCodes;
 
         private Builder() {
             // force use of static builder() method
@@ -564,7 +564,7 @@ public class PropertyRoom {
         /**
          * Code representing the bed type.
          */
-        public Builder bedTypeCode(@Nullable RoomBedTypeJson bedTypeCode) {
+        public Builder bedTypeCode(@Nullable RoomBedType1 bedTypeCode) {
             this.bedTypeCode = bedTypeCode;
             return this;
         }
@@ -597,7 +597,7 @@ public class PropertyRoom {
          * Collection of external codes for the room. This includes GDS and other codes used to identify a room
          * in external systems.
          */
-        public Builder externalCodes(@Nullable List<PropertyRoomExternalCodeJson> externalCodes) {
+        public Builder externalCodes(@Nullable List<PropertyRoomExternalCode> externalCodes) {
             this.externalCodes = externalCodes;
             return this;
         }

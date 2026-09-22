@@ -154,10 +154,6 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "business-transient/proposals:read"
   /**
-   * Allows the reading of BT Bid data
-   */
-  | "business-travel/bids:read"
-  /**
    * Allows the reading of BT Proposal data
    */
   | "business-travel/proposals:read"
@@ -810,6 +806,26 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "survey/surveys:read"
   /**
+   * Allows reading of venue availability settings.
+   */
+  | "venue/availability-settings:read"
+  /**
+   * Allows the modification of venue availability settings.
+   */
+  | "venue/availability-settings:write"
+  /**
+   * Allows disassociating images from venues.
+   */
+  | "venue/images:delete"
+  /**
+   * Allows read access for venue images metadata.
+   */
+  | "venue/images:read"
+  /**
+   * Allows associating images with venues.
+   */
+  | "venue/images:write"
+  /**
    * Allows disassociating images from meeting rooms.
    */
   | "venue/meeting-room-images:delete"
@@ -830,6 +846,18 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "venue/meeting-rooms:write"
   /**
+   * Allows the deletion of venue need dates.
+   */
+  | "venue/need-dates:delete"
+  /**
+   * Allows reading of venue need dates.
+   */
+  | "venue/need-dates:read"
+  /**
+   * Allows the creation and modification of venue need dates.
+   */
+  | "venue/need-dates:write"
+  /**
    * Allows read access for overview of venue details.
    */
   | "venue/venue-details-overview:read"
@@ -840,7 +868,15 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
   /**
    * Allows the modification of venue facility information.
    */
-  | "venue/venue-facility:write";
+  | "venue/venue-facility:write"
+  /**
+   * Allows reading of venue ratings and awards.
+   */
+  | "venue/venue-ratings:read"
+  /**
+   * Allows the modification of venue ratings and awards.
+   */
+  | "venue/venue-ratings:write";
 
 /**
  * Available scopes for the OAuth2.clientCredentials OAuth 2.0 scheme (clientCredentials flow).
@@ -1770,6 +1806,26 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    */
   | "survey/surveys:read"
   /**
+   * Allows reading of venue availability settings.
+   */
+  | "venue/availability-settings:read"
+  /**
+   * Allows the modification of venue availability settings.
+   */
+  | "venue/availability-settings:write"
+  /**
+   * Allows disassociating images from venues.
+   */
+  | "venue/images:delete"
+  /**
+   * Allows read access for venue images metadata.
+   */
+  | "venue/images:read"
+  /**
+   * Allows associating images with venues.
+   */
+  | "venue/images:write"
+  /**
    * Allows disassociating images from meeting rooms.
    */
   | "venue/meeting-room-images:delete"
@@ -1790,6 +1846,18 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    */
   | "venue/meeting-rooms:write"
   /**
+   * Allows the deletion of venue need dates.
+   */
+  | "venue/need-dates:delete"
+  /**
+   * Allows reading of venue need dates.
+   */
+  | "venue/need-dates:read"
+  /**
+   * Allows the creation and modification of venue need dates.
+   */
+  | "venue/need-dates:write"
+  /**
    * Allows read access for overview of venue details.
    */
   | "venue/venue-details-overview:read"
@@ -1800,4 +1868,12 @@ export type OAuth2ClientCredentialsOAuth2Scope =
   /**
    * Allows the modification of venue facility information.
    */
-  | "venue/venue-facility:write";
+  | "venue/venue-facility:write"
+  /**
+   * Allows reading of venue ratings and awards.
+   */
+  | "venue/venue-ratings:read"
+  /**
+   * Allows the modification of venue ratings and awards.
+   */
+  | "venue/venue-ratings:write";

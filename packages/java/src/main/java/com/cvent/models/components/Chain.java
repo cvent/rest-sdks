@@ -84,7 +84,7 @@ public class Chain {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address")
-    private AddressJson address;
+    private Address6 address;
 
     /**
      * True indicates the chain is deleted.
@@ -103,7 +103,7 @@ public class Chain {
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("brand") @Nullable ChainBrand brand,
-            @JsonProperty("address") @Nullable AddressJson address,
+            @JsonProperty("address") @Nullable Address6 address,
             @JsonProperty("deleted") @Nullable Boolean deleted) {
         this.created = created;
         this.createdBy = createdBy;
@@ -180,7 +180,7 @@ public class Chain {
     /**
      * A physical address.
      */
-    public Optional<AddressJson> address() {
+    public Optional<Address6> address() {
         return Optional.ofNullable(this.address);
     }
 
@@ -262,7 +262,7 @@ public class Chain {
     /**
      * A physical address.
      */
-    public Chain withAddress(@Nullable AddressJson address) {
+    public Chain withAddress(@Nullable Address6 address) {
         this.address = address;
         return this;
     }
@@ -347,7 +347,7 @@ public class Chain {
 
         private ChainBrand brand;
 
-        private AddressJson address;
+        private Address6 address;
 
         private Boolean deleted;
 
@@ -422,7 +422,7 @@ public class Chain {
         /**
          * A physical address.
          */
-        public Builder address(@Nullable AddressJson address) {
+        public Builder address(@Nullable Address6 address) {
             this.address = address;
             return this;
         }

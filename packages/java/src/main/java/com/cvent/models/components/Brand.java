@@ -70,7 +70,7 @@ public class Brand {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address")
-    private AddressJson address;
+    private Address6 address;
 
     /**
      * True indicates the brand is deleted.
@@ -87,7 +87,7 @@ public class Brand {
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("name") @Nullable String name,
-            @JsonProperty("address") @Nullable AddressJson address,
+            @JsonProperty("address") @Nullable Address6 address,
             @JsonProperty("deleted") @Nullable Boolean deleted) {
         this.created = created;
         this.createdBy = createdBy;
@@ -148,7 +148,7 @@ public class Brand {
     /**
      * A physical address.
      */
-    public Optional<AddressJson> address() {
+    public Optional<Address6> address() {
         return Optional.ofNullable(this.address);
     }
 
@@ -214,7 +214,7 @@ public class Brand {
     /**
      * A physical address.
      */
-    public Brand withAddress(@Nullable AddressJson address) {
+    public Brand withAddress(@Nullable Address6 address) {
         this.address = address;
         return this;
     }
@@ -288,7 +288,7 @@ public class Brand {
 
         private String name;
 
-        private AddressJson address;
+        private Address6 address;
 
         private Boolean deleted;
 
@@ -347,7 +347,7 @@ public class Brand {
         /**
          * A physical address.
          */
-        public Builder address(@Nullable AddressJson address) {
+        public Builder address(@Nullable Address6 address) {
             this.address = address;
             return this;
         }

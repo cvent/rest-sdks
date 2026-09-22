@@ -19,7 +19,11 @@ information on rates and amenities.'
 * [listTravelProposals](#listtravelproposals) - List Travel Proposals
 * [listTravelProposalBids](#listtravelproposalbids) - List Travel Proposal Bids
 * [getTravelProposalBid](#gettravelproposalbid) - Get Travel Proposal Bid
+* [listTravelBuyerProposalBids](#listtravelbuyerproposalbids) - List Buyer Proposal Bids
+* [getTravelBuyerProposalBid](#gettravelbuyerproposalbid) - Get Buyer Proposal Bid
+* [listTravelProposalStaticContent](#listtravelproposalstaticcontent) - List Static Contents
 * [getTravelProposal](#gettravelproposal) - Get Travel Proposal
+* [getTravelProposalStaticContent](#gettravelproposalstaticcontent) - Get Static Content
 
 ## listTravelPrograms
 
@@ -569,6 +573,212 @@ public class Application {
 | models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
+## listTravelBuyerProposalBids
+
+Get a paginated list of travel buyer proposal bids.
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="ListTravelBuyerProposalBids" method="get" path="/travel-proposals/buyer-bids" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse12;
+import com.cvent.models.operations.ListTravelBuyerProposalBidsRequest;
+import com.cvent.models.operations.ListTravelBuyerProposalBidsResponse;
+import java.lang.Exception;
+import java.time.OffsetDateTime;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse12, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        ListTravelBuyerProposalBidsRequest req = ListTravelBuyerProposalBidsRequest.builder()
+                .after(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
+                .before(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
+                .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
+                .filter("proposal.id eq '1ffa56d9-9f60-4b8c-8b3b-3451de21293c'")
+                .build();
+
+
+        sdk.travelRFPs().listTravelBuyerProposalBids()
+                .callAsStream()
+                .forEach((ListTravelBuyerProposalBidsResponse item) -> {
+                   // handle page
+                });
+
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [ListTravelBuyerProposalBidsRequest](../../models/operations/ListTravelBuyerProposalBidsRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+
+### Response
+
+**[ListTravelBuyerProposalBidsResponse](../../models/operations/ListTravelBuyerProposalBidsResponse.md)**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse12 | 400, 401, 403, 429            | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
+
+## getTravelBuyerProposalBid
+
+Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="GetTravelBuyerProposalBid" method="get" path="/travel-proposals/buyer-bids/{travelProposalBidId}" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse12;
+import com.cvent.models.operations.GetTravelBuyerProposalBidRequest;
+import com.cvent.models.operations.GetTravelBuyerProposalBidResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse12, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        GetTravelBuyerProposalBidRequest req = GetTravelBuyerProposalBidRequest.builder()
+                .travelProposalBidId("413c5cc2-cb77-4082-9131-bab73fde5834")
+                .build();
+
+        GetTravelBuyerProposalBidResponse res = sdk.travelRFPs().getTravelBuyerProposalBid()
+                .request(req)
+                .call();
+
+        if (res.travelBuyerProposalBid().isPresent()) {
+            System.out.println(res.travelBuyerProposalBid().get());
+        }
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [GetTravelBuyerProposalBidRequest](../../models/operations/GetTravelBuyerProposalBidRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+
+### Response
+
+**[GetTravelBuyerProposalBidResponse](../../models/operations/GetTravelBuyerProposalBidResponse.md)**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
+
+## listTravelProposalStaticContent
+
+Gets a paginated list of proposal static content across multiple proposals.
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="ListTravelProposalStaticContent" method="get" path="/travel-proposals/static-contents" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse12;
+import com.cvent.models.operations.ListTravelProposalStaticContentRequest;
+import com.cvent.models.operations.ListTravelProposalStaticContentResponse;
+import java.lang.Exception;
+import java.time.OffsetDateTime;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse12, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        ListTravelProposalStaticContentRequest req = ListTravelProposalStaticContentRequest.builder()
+                .after(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
+                .before(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
+                .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
+                .filter("travelProposal.id eq '1ffa56d9-9f60-4b8c-8b3b-3451de21293c'")
+                .build();
+
+
+        sdk.travelRFPs().listTravelProposalStaticContent()
+                .callAsStream()
+                .forEach((ListTravelProposalStaticContentResponse item) -> {
+                   // handle page
+                });
+
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                   | [ListTravelProposalStaticContentRequest](../../models/operations/ListTravelProposalStaticContentRequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
+
+### Response
+
+**[ListTravelProposalStaticContentResponse](../../models/operations/ListTravelProposalStaticContentResponse.md)**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse12 | 400, 401, 403, 429            | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
+
 ## getTravelProposal
 
 Gets a travel proposal for the given travel proposal ID.
@@ -633,4 +843,70 @@ public class Application {
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
+
+## getTravelProposalStaticContent
+
+Retrieves static content for a specific proposal as a list of field-value pairs with sequence ordering.
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="GetTravelProposalStaticContent" method="get" path="/travel-proposals/{travelProposalId}/static-content" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse12;
+import com.cvent.models.operations.GetTravelProposalStaticContentRequest;
+import com.cvent.models.operations.GetTravelProposalStaticContentResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse12, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        GetTravelProposalStaticContentRequest req = GetTravelProposalStaticContentRequest.builder()
+                .travelProposalId("413c5cc2-cb77-4082-9131-bab73fde5834")
+                .build();
+
+        GetTravelProposalStaticContentResponse res = sdk.travelRFPs().getTravelProposalStaticContent()
+                .request(req)
+                .call();
+
+        if (res.travelProposalStaticContentResponse().isPresent()) {
+            System.out.println(res.travelProposalStaticContentResponse().get());
+        }
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [GetTravelProposalStaticContentRequest](../../models/operations/GetTravelProposalStaticContentRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+
+### Response
+
+**[GetTravelProposalStaticContentResponse](../../models/operations/GetTravelProposalStaticContentResponse.md)**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse12 | 401, 403, 404, 429            | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |

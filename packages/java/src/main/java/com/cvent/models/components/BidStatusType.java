@@ -11,12 +11,13 @@ import java.util.Optional;
 /**
  * BidStatusType
  *
- * <p>Bid stay type.
+ * <p>Bid status type.
  */
 public enum BidStatusType {
     IN_PROGRESS("in_progress"),
     ATTACHED("attached"),
-    DELETED("deleted");
+    DELETED("deleted"),
+    DELETE_REQUESTED("delete_requested");
 
     @JsonValue
     private final String value;

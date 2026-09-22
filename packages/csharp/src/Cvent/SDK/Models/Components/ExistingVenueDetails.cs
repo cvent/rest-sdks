@@ -146,7 +146,7 @@ namespace Cvent.SDK.Models.Components
         /// The ISO 4217 standard format currency code used for RFPs.
         /// </summary>
         [JsonProperty("currency")]
-        public Currency? Currency { get; set; }
+        public Currency1? Currency { get; set; }
 
         /// <summary>
         /// Venue opening date as free-form text.

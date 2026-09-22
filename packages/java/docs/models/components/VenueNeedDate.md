@@ -1,0 +1,11 @@
+# VenueNeedDate
+
+A need date range indicating when a venue wants to receive event business.
+
+
+## Fields
+
+| Field                                                                                                     | Type                                                                                                      | Required                                                                                                  | Description                                                                                               | Example                                                                                                   |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `startDate`                                                                                               | [LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html)                           | :heavy_check_mark:                                                                                        | The ISO 8601 date representing the start of the need date range (inclusive).                              | 2026-07-01                                                                                                |
+| `endDate`                                                                                                 | [LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html)                           | :heavy_check_mark:                                                                                        | The ISO 8601 date representing the end of the need date range (inclusive). Must be on or after startDate. | 2026-07-31                                                                                                |

@@ -54,7 +54,7 @@ public class TravelProposalBid2 {
     private Long order;
 
     /**
-     * Bid stay type.
+     * Bid status type.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
@@ -284,7 +284,7 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Bid stay type.
+     * Bid status type.
      */
     public Optional<BidStatusType> status() {
         return Optional.ofNullable(this.status);
@@ -448,7 +448,7 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Bid stay type.
+     * Bid status type.
      */
     public TravelProposalBid2 withStatus(@Nullable BidStatusType status) {
         this.status = status;
@@ -787,7 +787,7 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * Bid stay type.
+         * Bid status type.
          */
         public Builder status(@Nullable BidStatusType status) {
             this.status = status;

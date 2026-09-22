@@ -17,3 +17,4 @@ BusinessType value = BusinessType.CORPORATE;
 | ----------- | ----------- |
 | `CORPORATE` | corporate   |
 | `LEISURE`   | leisure     |
+| `CONSORTIA` | consortia   |

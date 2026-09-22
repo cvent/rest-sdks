@@ -5,6 +5,9 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.RequestOperation;
 
+import com.cvent.models.operations.GetTravelBuyerProposalBidRequest;
+import com.cvent.models.operations.GetTravelBuyerProposalBidRequestBuilder;
+import com.cvent.models.operations.GetTravelBuyerProposalBidResponse;
 import com.cvent.models.operations.GetTravelProgramQuestionRequest;
 import com.cvent.models.operations.GetTravelProgramQuestionRequestBuilder;
 import com.cvent.models.operations.GetTravelProgramQuestionResponse;
@@ -17,6 +20,12 @@ import com.cvent.models.operations.GetTravelProposalBidResponse;
 import com.cvent.models.operations.GetTravelProposalRequest;
 import com.cvent.models.operations.GetTravelProposalRequestBuilder;
 import com.cvent.models.operations.GetTravelProposalResponse;
+import com.cvent.models.operations.GetTravelProposalStaticContentRequest;
+import com.cvent.models.operations.GetTravelProposalStaticContentRequestBuilder;
+import com.cvent.models.operations.GetTravelProposalStaticContentResponse;
+import com.cvent.models.operations.ListTravelBuyerProposalBidsRequest;
+import com.cvent.models.operations.ListTravelBuyerProposalBidsRequestBuilder;
+import com.cvent.models.operations.ListTravelBuyerProposalBidsResponse;
 import com.cvent.models.operations.ListTravelProgramQuestionsRequest;
 import com.cvent.models.operations.ListTravelProgramQuestionsRequestBuilder;
 import com.cvent.models.operations.ListTravelProgramQuestionsResponse;
@@ -29,17 +38,24 @@ import com.cvent.models.operations.ListTravelProgramsResponse;
 import com.cvent.models.operations.ListTravelProposalBidsRequest;
 import com.cvent.models.operations.ListTravelProposalBidsRequestBuilder;
 import com.cvent.models.operations.ListTravelProposalBidsResponse;
+import com.cvent.models.operations.ListTravelProposalStaticContentRequest;
+import com.cvent.models.operations.ListTravelProposalStaticContentRequestBuilder;
+import com.cvent.models.operations.ListTravelProposalStaticContentResponse;
 import com.cvent.models.operations.ListTravelProposalsRequest;
 import com.cvent.models.operations.ListTravelProposalsRequestBuilder;
 import com.cvent.models.operations.ListTravelProposalsResponse;
+import com.cvent.operations.GetTravelBuyerProposalBid;
 import com.cvent.operations.GetTravelProgram;
 import com.cvent.operations.GetTravelProgramQuestion;
 import com.cvent.operations.GetTravelProposal;
 import com.cvent.operations.GetTravelProposalBid;
+import com.cvent.operations.GetTravelProposalStaticContent;
+import com.cvent.operations.ListTravelBuyerProposalBids;
 import com.cvent.operations.ListTravelProgramQuestions;
 import com.cvent.operations.ListTravelPrograms;
 import com.cvent.operations.ListTravelProgramsQuestions;
 import com.cvent.operations.ListTravelProposalBids;
+import com.cvent.operations.ListTravelProposalStaticContent;
 import com.cvent.operations.ListTravelProposals;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
@@ -403,6 +419,132 @@ public class TravelRFPs {
     }
 
     /**
+     * List Buyer Proposal Bids
+     *
+     * <p>Get a paginated list of travel buyer proposal bids.
+     *
+     * @return The call builder
+     */
+    public ListTravelBuyerProposalBidsRequestBuilder listTravelBuyerProposalBids() {
+        return new ListTravelBuyerProposalBidsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Buyer Proposal Bids
+     *
+     * <p>Get a paginated list of travel buyer proposal bids.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListTravelBuyerProposalBidsResponse listTravelBuyerProposalBids(
+            @Nonnull ListTravelBuyerProposalBidsRequest request) {
+        return listTravelBuyerProposalBids(request, null);
+    }
+
+    /**
+     * List Buyer Proposal Bids
+     *
+     * <p>Get a paginated list of travel buyer proposal bids.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListTravelBuyerProposalBidsResponse listTravelBuyerProposalBids(
+            @Nonnull ListTravelBuyerProposalBidsRequest request, @Nullable Options options) {
+        RequestOperation<ListTravelBuyerProposalBidsRequest, ListTravelBuyerProposalBidsResponse> operation =
+                new ListTravelBuyerProposalBids.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Get Buyer Proposal Bid
+     *
+     * <p>Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+     *
+     * @return The call builder
+     */
+    public GetTravelBuyerProposalBidRequestBuilder getTravelBuyerProposalBid() {
+        return new GetTravelBuyerProposalBidRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get Buyer Proposal Bid
+     *
+     * <p>Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetTravelBuyerProposalBidResponse getTravelBuyerProposalBid(
+            @Nonnull GetTravelBuyerProposalBidRequest request) {
+        return getTravelBuyerProposalBid(request, null);
+    }
+
+    /**
+     * Get Buyer Proposal Bid
+     *
+     * <p>Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetTravelBuyerProposalBidResponse getTravelBuyerProposalBid(
+            @Nonnull GetTravelBuyerProposalBidRequest request, @Nullable Options options) {
+        RequestOperation<GetTravelBuyerProposalBidRequest, GetTravelBuyerProposalBidResponse> operation =
+                new GetTravelBuyerProposalBid.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * List Static Contents
+     *
+     * <p>Gets a paginated list of proposal static content across multiple proposals.
+     *
+     * @return The call builder
+     */
+    public ListTravelProposalStaticContentRequestBuilder listTravelProposalStaticContent() {
+        return new ListTravelProposalStaticContentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Static Contents
+     *
+     * <p>Gets a paginated list of proposal static content across multiple proposals.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListTravelProposalStaticContentResponse listTravelProposalStaticContent(
+            @Nonnull ListTravelProposalStaticContentRequest request) {
+        return listTravelProposalStaticContent(request, null);
+    }
+
+    /**
+     * List Static Contents
+     *
+     * <p>Gets a paginated list of proposal static content across multiple proposals.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListTravelProposalStaticContentResponse listTravelProposalStaticContent(
+            @Nonnull ListTravelProposalStaticContentRequest request, @Nullable Options options) {
+        RequestOperation<ListTravelProposalStaticContentRequest, ListTravelProposalStaticContentResponse> operation =
+                new ListTravelProposalStaticContent.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
      * Get Travel Proposal
      *
      * <p>Gets a travel proposal for the given travel proposal ID.
@@ -440,6 +582,51 @@ public class TravelRFPs {
             @Nonnull GetTravelProposalRequest request, @Nullable Options options) {
         RequestOperation<GetTravelProposalRequest, GetTravelProposalResponse> operation =
                 new GetTravelProposal.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Get Static Content
+     *
+     * <p>Retrieves static content for a specific proposal as a list of field-value pairs with sequence
+     * ordering.
+     *
+     * @return The call builder
+     */
+    public GetTravelProposalStaticContentRequestBuilder getTravelProposalStaticContent() {
+        return new GetTravelProposalStaticContentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get Static Content
+     *
+     * <p>Retrieves static content for a specific proposal as a list of field-value pairs with sequence
+     * ordering.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetTravelProposalStaticContentResponse getTravelProposalStaticContent(
+            @Nonnull GetTravelProposalStaticContentRequest request) {
+        return getTravelProposalStaticContent(request, null);
+    }
+
+    /**
+     * Get Static Content
+     *
+     * <p>Retrieves static content for a specific proposal as a list of field-value pairs with sequence
+     * ordering.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetTravelProposalStaticContentResponse getTravelProposalStaticContent(
+            @Nonnull GetTravelProposalStaticContentRequest request, @Nullable Options options) {
+        RequestOperation<GetTravelProposalStaticContentRequest, GetTravelProposalStaticContentResponse> operation =
+                new GetTravelProposalStaticContent.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

@@ -1,0 +1,12 @@
+# StaticContentItem
+
+Represents a single static content field with its value and sequence order
+
+
+## Fields
+
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            | Example                                                                                |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `fieldName`                                                                            | *String*                                                                               | :heavy_check_mark:                                                                     | The name of the static content field (e.g., propertyName, numberOfRooms, extendedStay) | propertyName                                                                           |
+| `sequence`                                                                             | *long*                                                                                 | :heavy_check_mark:                                                                     | Sequence number for ordering the static content items                                  | 1                                                                                      |
+| `value`                                                                                | *JsonNullable\<String>*                                                                | :heavy_minus_sign:                                                                     | The value of the static content field                                                  | Grand Hotel Downtown                                                                   |

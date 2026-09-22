@@ -1,6 +1,6 @@
 # BidStatusType
 
-Bid stay type.
+Bid status type.
 
 ## Example Usage
 
@@ -13,5 +13,5 @@ let value: BidStatusType = "attached";
 ## Values
 
 ```typescript
-"in_progress" | "attached" | "deleted"
+"in_progress" | "attached" | "deleted" | "delete_requested"
 ```

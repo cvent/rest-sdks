@@ -161,7 +161,7 @@ public class ExistingVenueDetails {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("currency")
-    private Currency currency;
+    private Currency1 currency;
 
     /**
      * Venue opening date as free-form text.
@@ -239,7 +239,7 @@ public class ExistingVenueDetails {
             @JsonProperty("salesFaxNumber") @Nullable String salesFaxNumber,
             @JsonProperty("tollFreeNumber") @Nullable String tollFreeNumber,
             @JsonProperty("websiteAddress") @Nullable String websiteAddress,
-            @JsonProperty("currency") @Nullable Currency currency,
+            @JsonProperty("currency") @Nullable Currency1 currency,
             @JsonProperty("openingDate") @Nullable String openingDate,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("additionalInformation") @Nullable String additionalInformation,
@@ -452,7 +452,7 @@ public class ExistingVenueDetails {
     /**
      * The ISO 4217 standard format currency code used for RFPs.
      */
-    public Optional<Currency> currency() {
+    public Optional<Currency1> currency() {
         return Optional.ofNullable(this.currency);
     }
 
@@ -677,7 +677,7 @@ public class ExistingVenueDetails {
     /**
      * The ISO 4217 standard format currency code used for RFPs.
      */
-    public ExistingVenueDetails withCurrency(@Nullable Currency currency) {
+    public ExistingVenueDetails withCurrency(@Nullable Currency1 currency) {
         this.currency = currency;
         return this;
     }
@@ -903,7 +903,7 @@ public class ExistingVenueDetails {
 
         private String websiteAddress;
 
-        private Currency currency;
+        private Currency1 currency;
 
         private String openingDate;
 
@@ -1081,7 +1081,7 @@ public class ExistingVenueDetails {
         /**
          * The ISO 4217 standard format currency code used for RFPs.
          */
-        public Builder currency(@Nullable Currency currency) {
+        public Builder currency(@Nullable Currency1 currency) {
             this.currency = currency;
             return this;
         }

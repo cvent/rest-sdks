@@ -1,0 +1,11 @@
+# TravelProposalStaticContentResponse
+
+Response containing static content for a specific proposal as a list of field-value pairs with sequence ordering
+
+
+## Fields
+
+| Field                                                                                                                             | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `TravelProposal`                                                                                                                  | [TravelProposalStaticContentResponseTravelProposal](../../Models/Components/TravelProposalStaticContentResponseTravelProposal.md) | :heavy_check_mark:                                                                                                                | The travel proposal that the static content belongs to.                                                                           |
+| `StaticContents`                                                                                                                  | List<[StaticContentItem](../../Models/Components/StaticContentItem.md)>                                                           | :heavy_check_mark:                                                                                                                | List of static content items for the proposal                                                                                     |

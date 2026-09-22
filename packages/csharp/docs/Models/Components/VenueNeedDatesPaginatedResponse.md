@@ -1,0 +1,11 @@
+# VenueNeedDatesPaginatedResponse
+
+Paginated list of need dates for a venue.
+
+
+## Fields
+
+| Field                                                                                                                               | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `Paging`                                                                                                                            | [Paging](../../Models/Components/Paging.md)                                                                                         | :heavy_check_mark:                                                                                                                  | Represents pagination information for a collection of resources.                                                                    |
+| `Data`                                                                                                                              | List<[ExistingVenueNeedDate](../../Models/Components/ExistingVenueNeedDate.md)>                                                     | :heavy_check_mark:                                                                                                                  | List of need date ranges for the venue. Each item represents a contiguous period when the venue is actively seeking event business. |

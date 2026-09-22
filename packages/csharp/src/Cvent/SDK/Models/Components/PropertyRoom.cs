@@ -78,7 +78,7 @@ namespace Cvent.SDK.Models.Components
         /// Code representing the bed type.
         /// </summary>
         [JsonProperty("bedTypeCode")]
-        public RoomBedTypeJson? BedTypeCode { get; set; }
+        public RoomBedType1? BedTypeCode { get; set; }
 
         /// <summary>
         /// The number of beds in the room.
@@ -102,6 +102,6 @@ namespace Cvent.SDK.Models.Components
         /// Collection of external codes for the room. This includes GDS and other codes used to identify a room in external systems.
         /// </summary>
         [JsonProperty("externalCodes")]
-        public List<PropertyRoomExternalCodeJson>? ExternalCodes { get; set; }
+        public List<PropertyRoomExternalCode>? ExternalCodes { get; set; }
     }
 }

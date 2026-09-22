@@ -1,6 +1,6 @@
 # BidStatusType
 
-Bid stay type.
+Bid status type.
 
 ## Example Usage
 
@@ -13,8 +13,9 @@ var value = BidStatusType.InProgress;
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `InProgress` | in_progress  |
-| `Attached`   | attached     |
-| `Deleted`    | deleted      |
+| Name              | Value             |
+| ----------------- | ----------------- |
+| `InProgress`      | in_progress       |
+| `Attached`        | attached          |
+| `Deleted`         | deleted           |
+| `DeleteRequested` | delete_requested  |

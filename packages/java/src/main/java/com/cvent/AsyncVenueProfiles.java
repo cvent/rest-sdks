@@ -6,12 +6,16 @@ package com.cvent;
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.models.operations.GetVenueDetailsOverviewRequest;
+import com.cvent.models.operations.GetVenueRatingsRequest;
 import com.cvent.models.operations.PatchVenueDetailsRequest;
 import com.cvent.models.operations.PatchVenueFacilityRequest;
 import com.cvent.models.operations.UpdateVenueDetailsRequest;
 import com.cvent.models.operations.UpdateVenueFacilityRequest;
+import com.cvent.models.operations.UpdateVenueRatingsRequest;
 import com.cvent.models.operations.async.GetVenueDetailsOverviewRequestBuilder;
 import com.cvent.models.operations.async.GetVenueDetailsOverviewResponse;
+import com.cvent.models.operations.async.GetVenueRatingsRequestBuilder;
+import com.cvent.models.operations.async.GetVenueRatingsResponse;
 import com.cvent.models.operations.async.PatchVenueDetailsRequestBuilder;
 import com.cvent.models.operations.async.PatchVenueDetailsResponse;
 import com.cvent.models.operations.async.PatchVenueFacilityRequestBuilder;
@@ -20,11 +24,15 @@ import com.cvent.models.operations.async.UpdateVenueDetailsRequestBuilder;
 import com.cvent.models.operations.async.UpdateVenueDetailsResponse;
 import com.cvent.models.operations.async.UpdateVenueFacilityRequestBuilder;
 import com.cvent.models.operations.async.UpdateVenueFacilityResponse;
+import com.cvent.models.operations.async.UpdateVenueRatingsRequestBuilder;
+import com.cvent.models.operations.async.UpdateVenueRatingsResponse;
 import com.cvent.operations.GetVenueDetailsOverview;
+import com.cvent.operations.GetVenueRatings;
 import com.cvent.operations.PatchVenueDetails;
 import com.cvent.operations.PatchVenueFacility;
 import com.cvent.operations.UpdateVenueDetails;
 import com.cvent.operations.UpdateVenueFacility;
+import com.cvent.operations.UpdateVenueRatings;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
@@ -319,6 +327,130 @@ public class AsyncVenueProfiles {
             @Nonnull PatchVenueFacilityRequest request, @Nullable Options options) {
         AsyncRequestOperation<PatchVenueFacilityRequest, PatchVenueFacilityResponse> operation =
                 new PatchVenueFacility.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Get Venue Ratings
+     *
+     * <p>Retrieve the current ratings and awards for the specified venue.
+     *
+     * <p>Returns all rating agencies applicable to this venue (based on its type and country), including
+     * agencies where no rating has been saved yet. Use this response to discover which agencies are valid
+     * and which can be set as primary before submitting a PUT request.
+     *
+     * @return The async call builder
+     */
+    public GetVenueRatingsRequestBuilder getVenueRatings() {
+        return new GetVenueRatingsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get Venue Ratings
+     *
+     * <p>Retrieve the current ratings and awards for the specified venue.
+     *
+     * <p>Returns all rating agencies applicable to this venue (based on its type and country), including
+     * agencies where no rating has been saved yet. Use this response to discover which agencies are valid
+     * and which can be set as primary before submitting a PUT request.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<GetVenueRatingsResponse>} - The async response
+     */
+    public CompletableFuture<GetVenueRatingsResponse> getVenueRatings(@Nonnull GetVenueRatingsRequest request) {
+        return getVenueRatings(request, null);
+    }
+
+    /**
+     * Get Venue Ratings
+     *
+     * <p>Retrieve the current ratings and awards for the specified venue.
+     *
+     * <p>Returns all rating agencies applicable to this venue (based on its type and country), including
+     * agencies where no rating has been saved yet. Use this response to discover which agencies are valid
+     * and which can be set as primary before submitting a PUT request.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetVenueRatingsResponse>} - The async response
+     */
+    public CompletableFuture<GetVenueRatingsResponse> getVenueRatings(
+            @Nonnull GetVenueRatingsRequest request, @Nullable Options options) {
+        AsyncRequestOperation<GetVenueRatingsRequest, GetVenueRatingsResponse> operation =
+                new GetVenueRatings.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Update Venue Ratings
+     *
+     * <p>Replace all ratings and awards for the specified venue with those provided in the request body.
+     *
+     * <p>This is a full replace — agencies omitted from the request will be removed. It is recommended to
+     * call GET first to retrieve the current state and the list of applicable agencies for the venue.
+     *
+     * <p>Additional rules:
+     * - Ratings do not apply to CVB/DMC venues.
+     * - At most one rating may be marked as primary. Zagat ratings cannot be primary.
+     * - Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response
+     * before submitting a rating value for those agencies.
+     * - Agency eligibility is determined by the venue's type and country — passing an ineligible agency
+     * returns a 400.
+     *
+     * @return The async call builder
+     */
+    public UpdateVenueRatingsRequestBuilder updateVenueRatings() {
+        return new UpdateVenueRatingsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update Venue Ratings
+     *
+     * <p>Replace all ratings and awards for the specified venue with those provided in the request body.
+     *
+     * <p>This is a full replace — agencies omitted from the request will be removed. It is recommended to
+     * call GET first to retrieve the current state and the list of applicable agencies for the venue.
+     *
+     * <p>Additional rules:
+     * - Ratings do not apply to CVB/DMC venues.
+     * - At most one rating may be marked as primary. Zagat ratings cannot be primary.
+     * - Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response
+     * before submitting a rating value for those agencies.
+     * - Agency eligibility is determined by the venue's type and country — passing an ineligible agency
+     * returns a 400.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<UpdateVenueRatingsResponse>} - The async response
+     */
+    public CompletableFuture<UpdateVenueRatingsResponse> updateVenueRatings(
+            @Nonnull UpdateVenueRatingsRequest request) {
+        return updateVenueRatings(request, null);
+    }
+
+    /**
+     * Update Venue Ratings
+     *
+     * <p>Replace all ratings and awards for the specified venue with those provided in the request body.
+     *
+     * <p>This is a full replace — agencies omitted from the request will be removed. It is recommended to
+     * call GET first to retrieve the current state and the list of applicable agencies for the venue.
+     *
+     * <p>Additional rules:
+     * - Ratings do not apply to CVB/DMC venues.
+     * - At most one rating may be marked as primary. Zagat ratings cannot be primary.
+     * - Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response
+     * before submitting a rating value for those agencies.
+     * - Agency eligibility is determined by the venue's type and country — passing an ineligible agency
+     * returns a 400.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateVenueRatingsResponse>} - The async response
+     */
+    public CompletableFuture<UpdateVenueRatingsResponse> updateVenueRatings(
+            @Nonnull UpdateVenueRatingsRequest request, @Nullable Options options) {
+        AsyncRequestOperation<UpdateVenueRatingsRequest, UpdateVenueRatingsResponse> operation =
+                new UpdateVenueRatings.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

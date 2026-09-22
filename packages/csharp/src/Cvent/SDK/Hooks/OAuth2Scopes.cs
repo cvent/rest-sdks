@@ -201,11 +201,6 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("business-transient/proposals:read")] BusinessTransientProposalsRead,
 
         /// <summary>
-        /// Allows the reading of BT Bid data.
-        /// </summary>
-        [JsonProperty("business-travel/bids:read")] BusinessTravelBidsRead,
-
-        /// <summary>
         /// Allows the reading of BT Proposal data.
         /// </summary>
         [JsonProperty("business-travel/proposals:read")] BusinessTravelProposalsRead,
@@ -1021,6 +1016,31 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("survey/surveys:read")] SurveySurveysRead,
 
         /// <summary>
+        /// Allows reading of venue availability settings.
+        /// </summary>
+        [JsonProperty("venue/availability-settings:read")] VenueAvailabilitySettingsRead,
+
+        /// <summary>
+        /// Allows the modification of venue availability settings.
+        /// </summary>
+        [JsonProperty("venue/availability-settings:write")] VenueAvailabilitySettingsWrite,
+
+        /// <summary>
+        /// Allows disassociating images from venues.
+        /// </summary>
+        [JsonProperty("venue/images:delete")] VenueImagesDelete,
+
+        /// <summary>
+        /// Allows read access for venue images metadata.
+        /// </summary>
+        [JsonProperty("venue/images:read")] VenueImagesRead,
+
+        /// <summary>
+        /// Allows associating images with venues.
+        /// </summary>
+        [JsonProperty("venue/images:write")] VenueImagesWrite,
+
+        /// <summary>
         /// Allows disassociating images from meeting rooms.
         /// </summary>
         [JsonProperty("venue/meeting-room-images:delete")] VenueMeetingRoomImagesDelete,
@@ -1046,6 +1066,21 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("venue/meeting-rooms:write")] VenueMeetingRoomsWrite,
 
         /// <summary>
+        /// Allows the deletion of venue need dates.
+        /// </summary>
+        [JsonProperty("venue/need-dates:delete")] VenueNeedDatesDelete,
+
+        /// <summary>
+        /// Allows reading of venue need dates.
+        /// </summary>
+        [JsonProperty("venue/need-dates:read")] VenueNeedDatesRead,
+
+        /// <summary>
+        /// Allows the creation and modification of venue need dates.
+        /// </summary>
+        [JsonProperty("venue/need-dates:write")] VenueNeedDatesWrite,
+
+        /// <summary>
         /// Allows read access for overview of venue details.
         /// </summary>
         [JsonProperty("venue/venue-details-overview:read")] VenueVenueDetailsOverviewRead,
@@ -1059,6 +1094,16 @@ namespace Cvent.SDK.Hooks
         /// Allows the modification of venue facility information.
         /// </summary>
         [JsonProperty("venue/venue-facility:write")] VenueVenueFacilityWrite,
+
+        /// <summary>
+        /// Allows reading of venue ratings and awards.
+        /// </summary>
+        [JsonProperty("venue/venue-ratings:read")] VenueVenueRatingsRead,
+
+        /// <summary>
+        /// Allows the modification of venue ratings and awards.
+        /// </summary>
+        [JsonProperty("venue/venue-ratings:write")] VenueVenueRatingsWrite,
     }
 
     public static class OAuth2AuthorizationCodeOAuth2ScopeExtension
@@ -2253,6 +2298,31 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("survey/surveys:read")] SurveySurveysRead,
 
         /// <summary>
+        /// Allows reading of venue availability settings.
+        /// </summary>
+        [JsonProperty("venue/availability-settings:read")] VenueAvailabilitySettingsRead,
+
+        /// <summary>
+        /// Allows the modification of venue availability settings.
+        /// </summary>
+        [JsonProperty("venue/availability-settings:write")] VenueAvailabilitySettingsWrite,
+
+        /// <summary>
+        /// Allows disassociating images from venues.
+        /// </summary>
+        [JsonProperty("venue/images:delete")] VenueImagesDelete,
+
+        /// <summary>
+        /// Allows read access for venue images metadata.
+        /// </summary>
+        [JsonProperty("venue/images:read")] VenueImagesRead,
+
+        /// <summary>
+        /// Allows associating images with venues.
+        /// </summary>
+        [JsonProperty("venue/images:write")] VenueImagesWrite,
+
+        /// <summary>
         /// Allows disassociating images from meeting rooms.
         /// </summary>
         [JsonProperty("venue/meeting-room-images:delete")] VenueMeetingRoomImagesDelete,
@@ -2278,6 +2348,21 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("venue/meeting-rooms:write")] VenueMeetingRoomsWrite,
 
         /// <summary>
+        /// Allows the deletion of venue need dates.
+        /// </summary>
+        [JsonProperty("venue/need-dates:delete")] VenueNeedDatesDelete,
+
+        /// <summary>
+        /// Allows reading of venue need dates.
+        /// </summary>
+        [JsonProperty("venue/need-dates:read")] VenueNeedDatesRead,
+
+        /// <summary>
+        /// Allows the creation and modification of venue need dates.
+        /// </summary>
+        [JsonProperty("venue/need-dates:write")] VenueNeedDatesWrite,
+
+        /// <summary>
         /// Allows read access for overview of venue details.
         /// </summary>
         [JsonProperty("venue/venue-details-overview:read")] VenueVenueDetailsOverviewRead,
@@ -2291,6 +2376,16 @@ namespace Cvent.SDK.Hooks
         /// Allows the modification of venue facility information.
         /// </summary>
         [JsonProperty("venue/venue-facility:write")] VenueVenueFacilityWrite,
+
+        /// <summary>
+        /// Allows reading of venue ratings and awards.
+        /// </summary>
+        [JsonProperty("venue/venue-ratings:read")] VenueVenueRatingsRead,
+
+        /// <summary>
+        /// Allows the modification of venue ratings and awards.
+        /// </summary>
+        [JsonProperty("venue/venue-ratings:write")] VenueVenueRatingsWrite,
     }
 
     public static class OAuth2ClientCredentialsOAuth2ScopeExtension

@@ -81,7 +81,7 @@ export type VenueDetailsPatchChainScale = ClosedEnum<
 /**
  * The ISO 4217 standard format currency code used for RFPs.
  */
-export const VenueDetailsPatchCurrency = {
+export const Currency = {
   Usd: "USD",
   Cad: "CAD",
   Aud: "AUD",
@@ -253,9 +253,7 @@ export const VenueDetailsPatchCurrency = {
 /**
  * The ISO 4217 standard format currency code used for RFPs.
  */
-export type VenueDetailsPatchCurrency = ClosedEnum<
-  typeof VenueDetailsPatchCurrency
->;
+export type Currency = ClosedEnum<typeof Currency>;
 
 /**
  * Venue address information.
@@ -359,7 +357,7 @@ export type VenueDetailsPatch = {
    * Website address.
    */
   websiteAddress?: string | null | undefined;
-  currency?: VenueDetailsPatchCurrency | null | undefined;
+  currency?: Currency | null | undefined;
   /**
    * Venue opening date as free-form text.
    */
@@ -396,13 +394,11 @@ export const VenueDetailsPatchChainScale$outboundSchema: z.ZodNativeEnum<
 > = VenueDetailsPatchChainScale$inboundSchema;
 
 /** @internal */
-export const VenueDetailsPatchCurrency$inboundSchema: z.ZodNativeEnum<
-  typeof VenueDetailsPatchCurrency
-> = z.nativeEnum(VenueDetailsPatchCurrency);
+export const Currency$inboundSchema: z.ZodNativeEnum<typeof Currency> = z
+  .nativeEnum(Currency);
 /** @internal */
-export const VenueDetailsPatchCurrency$outboundSchema: z.ZodNativeEnum<
-  typeof VenueDetailsPatchCurrency
-> = VenueDetailsPatchCurrency$inboundSchema;
+export const Currency$outboundSchema: z.ZodNativeEnum<typeof Currency> =
+  Currency$inboundSchema;
 
 /** @internal */
 export const VenueDetailsPatchAddress$inboundSchema: z.ZodType<
@@ -477,7 +473,7 @@ export const VenueDetailsPatch$inboundSchema: z.ZodType<
   salesFaxNumber: z.nullable(z.string()).optional(),
   tollFreeNumber: z.nullable(z.string()).optional(),
   websiteAddress: z.nullable(z.string()).optional(),
-  currency: z.nullable(VenueDetailsPatchCurrency$inboundSchema).optional(),
+  currency: z.nullable(Currency$inboundSchema).optional(),
   openingDate: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
   additionalInformation: z.nullable(z.string()).optional(),
@@ -523,7 +519,7 @@ export const VenueDetailsPatch$outboundSchema: z.ZodType<
   salesFaxNumber: z.nullable(z.string()).optional(),
   tollFreeNumber: z.nullable(z.string()).optional(),
   websiteAddress: z.nullable(z.string()).optional(),
-  currency: z.nullable(VenueDetailsPatchCurrency$outboundSchema).optional(),
+  currency: z.nullable(Currency$outboundSchema).optional(),
   openingDate: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
   additionalInformation: z.nullable(z.string()).optional(),

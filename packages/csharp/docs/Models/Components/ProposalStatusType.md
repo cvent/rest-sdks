@@ -19,11 +19,14 @@ var value = ProposalStatusType.ParticipationRequested;
 | `New`                    | new                      |
 | `Active`                 | active                   |
 | `Submitted`              | submitted                |
-| `DeclinedParticipation`  | declined_participation   |
+| `DeclineParticipation`   | decline_participation    |
 | `Verified`               | verified                 |
 | `Approved`               | approved                 |
 | `AccountAccepted`        | account_accepted         |
 | `AccountRejected`        | account_rejected         |
+| `AccountAcceptedPending` | account_accepted_pending |
+| `AccountRejectedPending` | account_rejected_pending |
+| `AccountHold`            | account_hold             |
 | `InternalRejected`       | internal_rejected        |
 | `RequestRenegotiation`   | request_renegotiation    |
 | `DeclineRenegotiation`   | decline_renegotiation    |

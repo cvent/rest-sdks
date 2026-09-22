@@ -1,0 +1,35 @@
+# RatingValue
+
+The grade awarded by the agency. Accepted values depend on the agency's rating scale — refer to the lists below. Omit to remove a previously saved rating for that agency.
+
+**AAA — diamonds:**
+`ONE_DIAMOND`, `TWO_DIAMONDS`, `THREE_DIAMONDS`, `FOUR_DIAMONDS`, `FIVE_DIAMONDS`
+
+**Forbes Travel Guide / PHRI — whole stars:**
+`ONE_STAR`, `TWO_STARS`, `THREE_STARS`, `FOUR_STARS`, `FIVE_STARS`
+
+**Zagat numeric score (`ZAGAT_ROOMS`, `ZAGAT_DINING`, `ZAGAT_SERVICE`, `ZAGAT_FACILITIES`, `ZAGAT_APPEAL`, `ZAGAT_DECOR`, `ZAGAT_FOOD`):**
+`ZAGAT_SCORE_1` … `ZAGAT_SCORE_30`
+
+**Zagat cost tier (`ZAGAT_COST`):**
+`VERY_EXPENSIVE`, `EXPENSIVE`, `MODERATE`, `INEXPENSIVE`
+
+**Half-star scale — Ministry of Tourism India and all country-specific tourism boards:**
+`HALF_STAR_1`, `HALF_STAR_1_5`, `HALF_STAR_2`, `HALF_STAR_2_5`, `HALF_STAR_3`, `HALF_STAR_3_5`, `HALF_STAR_4`, `HALF_STAR_4_5`, `HALF_STAR_5`, `HALF_STAR_5_5`
+
+**Catalunya scale (`GENERALITAT_DE_CATALUNYA`):**
+`CATALUNYA_1_STAR`, `CATALUNYA_2_STARS`, `CATALUNYA_3_STARS`, `CATALUNYA_4_STARS`, `CATALUNYA_4_STARS_SUPERIOR`, `CATALUNYA_5_STARS`, `CATALUNYA_LUXE`
+
+## Example Usage
+
+```typescript
+import { RatingValue } from "@cvent/sdk/models/components";
+
+let value: RatingValue = "FOUR_DIAMONDS";
+```
+
+## Values
+
+```typescript
+"ONE_DIAMOND" | "TWO_DIAMONDS" | "THREE_DIAMONDS" | "FOUR_DIAMONDS" | "FIVE_DIAMONDS" | "ONE_STAR" | "TWO_STARS" | "THREE_STARS" | "FOUR_STARS" | "FIVE_STARS" | "ZAGAT_SCORE_1" | "ZAGAT_SCORE_2" | "ZAGAT_SCORE_3" | "ZAGAT_SCORE_4" | "ZAGAT_SCORE_5" | "ZAGAT_SCORE_6" | "ZAGAT_SCORE_7" | "ZAGAT_SCORE_8" | "ZAGAT_SCORE_9" | "ZAGAT_SCORE_10" | "ZAGAT_SCORE_11" | "ZAGAT_SCORE_12" | "ZAGAT_SCORE_13" | "ZAGAT_SCORE_14" | "ZAGAT_SCORE_15" | "ZAGAT_SCORE_16" | "ZAGAT_SCORE_17" | "ZAGAT_SCORE_18" | "ZAGAT_SCORE_19" | "ZAGAT_SCORE_20" | "ZAGAT_SCORE_21" | "ZAGAT_SCORE_22" | "ZAGAT_SCORE_23" | "ZAGAT_SCORE_24" | "ZAGAT_SCORE_25" | "ZAGAT_SCORE_26" | "ZAGAT_SCORE_27" | "ZAGAT_SCORE_28" | "ZAGAT_SCORE_29" | "ZAGAT_SCORE_30" | "VERY_EXPENSIVE" | "EXPENSIVE" | "MODERATE" | "INEXPENSIVE" | "HALF_STAR_1" | "HALF_STAR_1_5" | "HALF_STAR_2" | "HALF_STAR_2_5" | "HALF_STAR_3" | "HALF_STAR_3_5" | "HALF_STAR_4" | "HALF_STAR_4_5" | "HALF_STAR_5" | "HALF_STAR_5_5" | "CATALUNYA_1_STAR" | "CATALUNYA_2_STARS" | "CATALUNYA_3_STARS" | "CATALUNYA_4_STARS" | "CATALUNYA_4_STARS_SUPERIOR" | "CATALUNYA_5_STARS" | "CATALUNYA_LUXE"
+```

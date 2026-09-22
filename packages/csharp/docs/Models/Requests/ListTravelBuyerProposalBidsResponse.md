@@ -1,0 +1,9 @@
+# ListTravelBuyerProposalBidsResponse
+
+
+## Fields
+
+| Field                                                                                                         | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                                    | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                                       | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
+| `TravelBuyerProposalBidPaginatedResponse`                                                                     | [TravelBuyerProposalBidPaginatedResponse](../../Models/Components/TravelBuyerProposalBidPaginatedResponse.md) | :heavy_minus_sign:                                                                                            | Successfully retrieved a paginated list of travel buyer proposal bids.                                        |

@@ -23,7 +23,7 @@ import {
   Contact2$Outbound,
   Contact2$outboundSchema,
 } from "./contact2.js";
-import { Currency, Currency$outboundSchema } from "./currency.js";
+import { Currency1, Currency1$outboundSchema } from "./currency1.js";
 import {
   EstimatedCost,
   EstimatedCost$Outbound,
@@ -112,7 +112,7 @@ export type ProposalRequest = {
   /**
    * The ISO 4217 standard format currency code used for RFPs.
    */
-  currencyCode?: Currency | undefined;
+  currencyCode?: Currency1 | undefined;
   /**
    * True indicates this is a commissionable bid.
    */
@@ -214,7 +214,7 @@ export const ProposalRequest$outboundSchema: z.ZodType<
   statusSummary: StatusSummary$outboundSchema.optional(),
   introduction: z.string().optional(),
   billingContractualResponse: z.string().optional(),
-  currencyCode: Currency$outboundSchema.optional(),
+  currencyCode: Currency1$outboundSchema.optional(),
   commissionableBid: z.boolean().optional(),
   commissionRate: z.number().optional(),
   name: z.string().optional(),

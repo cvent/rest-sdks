@@ -197,11 +197,6 @@ public final class OAuth2Scopes {
         BusinessTransientProposalsRead("business-transient/proposals:read"),
 
         /**
-         * Allows the reading of BT Bid data
-         */
-        BusinessTravelBidsRead("business-travel/bids:read"),
-
-        /**
          * Allows the reading of BT Proposal data
          */
         BusinessTravelProposalsRead("business-travel/proposals:read"),
@@ -1017,6 +1012,31 @@ public final class OAuth2Scopes {
         SurveySurveysRead("survey/surveys:read"),
 
         /**
+         * Allows reading of venue availability settings.
+         */
+        VenueAvailabilitySettingsRead("venue/availability-settings:read"),
+
+        /**
+         * Allows the modification of venue availability settings.
+         */
+        VenueAvailabilitySettingsWrite("venue/availability-settings:write"),
+
+        /**
+         * Allows disassociating images from venues.
+         */
+        VenueImagesDelete("venue/images:delete"),
+
+        /**
+         * Allows read access for venue images metadata.
+         */
+        VenueImagesRead("venue/images:read"),
+
+        /**
+         * Allows associating images with venues.
+         */
+        VenueImagesWrite("venue/images:write"),
+
+        /**
          * Allows disassociating images from meeting rooms.
          */
         VenueMeetingRoomImagesDelete("venue/meeting-room-images:delete"),
@@ -1042,6 +1062,21 @@ public final class OAuth2Scopes {
         VenueMeetingRoomsWrite("venue/meeting-rooms:write"),
 
         /**
+         * Allows the deletion of venue need dates.
+         */
+        VenueNeedDatesDelete("venue/need-dates:delete"),
+
+        /**
+         * Allows reading of venue need dates.
+         */
+        VenueNeedDatesRead("venue/need-dates:read"),
+
+        /**
+         * Allows the creation and modification of venue need dates.
+         */
+        VenueNeedDatesWrite("venue/need-dates:write"),
+
+        /**
          * Allows read access for overview of venue details.
          */
         VenueVenueDetailsOverviewRead("venue/venue-details-overview:read"),
@@ -1054,7 +1089,17 @@ public final class OAuth2Scopes {
         /**
          * Allows the modification of venue facility information.
          */
-        VenueVenueFacilityWrite("venue/venue-facility:write");
+        VenueVenueFacilityWrite("venue/venue-facility:write"),
+
+        /**
+         * Allows reading of venue ratings and awards.
+         */
+        VenueVenueRatingsRead("venue/venue-ratings:read"),
+
+        /**
+         * Allows the modification of venue ratings and awards.
+         */
+        VenueVenueRatingsWrite("venue/venue-ratings:write");
 
         private final java.lang.String value;
 
@@ -2234,6 +2279,31 @@ public final class OAuth2Scopes {
         SurveySurveysRead("survey/surveys:read"),
 
         /**
+         * Allows reading of venue availability settings.
+         */
+        VenueAvailabilitySettingsRead("venue/availability-settings:read"),
+
+        /**
+         * Allows the modification of venue availability settings.
+         */
+        VenueAvailabilitySettingsWrite("venue/availability-settings:write"),
+
+        /**
+         * Allows disassociating images from venues.
+         */
+        VenueImagesDelete("venue/images:delete"),
+
+        /**
+         * Allows read access for venue images metadata.
+         */
+        VenueImagesRead("venue/images:read"),
+
+        /**
+         * Allows associating images with venues.
+         */
+        VenueImagesWrite("venue/images:write"),
+
+        /**
          * Allows disassociating images from meeting rooms.
          */
         VenueMeetingRoomImagesDelete("venue/meeting-room-images:delete"),
@@ -2259,6 +2329,21 @@ public final class OAuth2Scopes {
         VenueMeetingRoomsWrite("venue/meeting-rooms:write"),
 
         /**
+         * Allows the deletion of venue need dates.
+         */
+        VenueNeedDatesDelete("venue/need-dates:delete"),
+
+        /**
+         * Allows reading of venue need dates.
+         */
+        VenueNeedDatesRead("venue/need-dates:read"),
+
+        /**
+         * Allows the creation and modification of venue need dates.
+         */
+        VenueNeedDatesWrite("venue/need-dates:write"),
+
+        /**
          * Allows read access for overview of venue details.
          */
         VenueVenueDetailsOverviewRead("venue/venue-details-overview:read"),
@@ -2271,7 +2356,17 @@ public final class OAuth2Scopes {
         /**
          * Allows the modification of venue facility information.
          */
-        VenueVenueFacilityWrite("venue/venue-facility:write");
+        VenueVenueFacilityWrite("venue/venue-facility:write"),
+
+        /**
+         * Allows reading of venue ratings and awards.
+         */
+        VenueVenueRatingsRead("venue/venue-ratings:read"),
+
+        /**
+         * Allows the modification of venue ratings and awards.
+         */
+        VenueVenueRatingsWrite("venue/venue-ratings:write");
 
         private final java.lang.String value;
 

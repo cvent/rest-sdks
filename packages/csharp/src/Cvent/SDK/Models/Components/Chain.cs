@@ -71,7 +71,7 @@ namespace Cvent.SDK.Models.Components
         /// A physical address.
         /// </summary>
         [JsonProperty("address")]
-        public AddressJson? Address { get; set; }
+        public Address6? Address { get; set; }
 
         /// <summary>
         /// True indicates the chain is deleted.
