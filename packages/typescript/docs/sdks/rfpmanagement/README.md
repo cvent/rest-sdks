@@ -275,7 +275,7 @@ run();
 
 ### Response
 
-**Promise\<[components.Rfp](../../models/components/rfp.md)\>**
+**Promise\<[components.Rfp2](../../models/components/rfp2.md)\>**
 
 ### Errors
 

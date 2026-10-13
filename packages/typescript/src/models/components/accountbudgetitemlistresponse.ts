@@ -14,10 +14,9 @@ import {
   BudgetSubCategory,
   BudgetSubCategory$inboundSchema,
 } from "./budgetsubcategory.js";
-import {
-  BudgetVersionId,
-  BudgetVersionId$inboundSchema,
-} from "./budgetversionid.js";
+import { BudgetVersion, BudgetVersion$inboundSchema } from "./budgetversion.js";
+import { Event1, Event1$inboundSchema } from "./event1.js";
+import { Rfp1, Rfp1$inboundSchema } from "./rfp1.js";
 
 /**
  * The response from a request to retrieve list of budget items across all events linked to the account.
@@ -40,17 +39,17 @@ export type AccountBudgetItemListResponse = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * Budget Version ID Information.
+   * Event ID Information.
    */
-  event?: BudgetVersionId | undefined;
+  event?: Event1 | undefined;
   /**
-   * Budget Version ID Information.
+   * Represents the RFP associated with a budget item.
    */
-  rfp?: BudgetVersionId | undefined;
+  rfp?: Rfp1 | undefined;
   /**
-   * Budget Version ID Information.
+   * Budget version ID information. Defaults to the account's default budget version when creating or updating budget items.
    */
-  budgetVersion?: BudgetVersionId | undefined;
+  budgetVersion?: BudgetVersion | undefined;
   /**
    * The identifier of the budget item.
    */
@@ -90,9 +89,9 @@ export const AccountBudgetItemListResponse$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: BudgetVersionId$inboundSchema.optional(),
-  rfp: BudgetVersionId$inboundSchema.optional(),
-  budgetVersion: BudgetVersionId$inboundSchema.optional(),
+  event: Event1$inboundSchema.optional(),
+  rfp: Rfp1$inboundSchema.optional(),
+  budgetVersion: BudgetVersion$inboundSchema.optional(),
   id: z.string().optional(),
   name: z.string().optional(),
   code: z.string().optional(),

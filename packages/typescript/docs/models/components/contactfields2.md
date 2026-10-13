@@ -14,6 +14,6 @@ let value: ContactFields2 = {
 
 ## Fields
 
-| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `data`                                                                       | [components.ContactFieldJson](../../models/components/contactfieldjson.md)[] | :heavy_check_mark:                                                           | Collection of standard contact fields.                                       |
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `data`                                                               | [components.ContactField](../../models/components/contactfield.md)[] | :heavy_check_mark:                                                   | Collection of standard contact fields.                               |

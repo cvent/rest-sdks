@@ -26,6 +26,9 @@ import com.cvent.models.operations.ListAttendeesResponse;
 import com.cvent.models.operations.ListDurationsRequest;
 import com.cvent.models.operations.ListDurationsRequestBuilder;
 import com.cvent.models.operations.ListDurationsResponse;
+import com.cvent.models.operations.ListOptionalItemsRequest;
+import com.cvent.models.operations.ListOptionalItemsRequestBuilder;
+import com.cvent.models.operations.ListOptionalItemsResponse;
 import com.cvent.models.operations.PostBadgeRequest;
 import com.cvent.models.operations.PostBadgeRequestBuilder;
 import com.cvent.models.operations.PostBadgeResponse;
@@ -48,6 +51,7 @@ import com.cvent.operations.GetBadgesPostFilters;
 import com.cvent.operations.ListAttendees;
 import com.cvent.operations.ListAttendeesPostFilter;
 import com.cvent.operations.ListDurations;
+import com.cvent.operations.ListOptionalItems;
 import com.cvent.operations.PostBadge;
 import com.cvent.operations.UpdateAttendee;
 import com.cvent.operations.UpdateAttendeeSubscriptionStatus;
@@ -466,6 +470,53 @@ public class Attendees {
             @Nonnull UpdateInternalInfoAnswersRequest request, @Nullable Options options) {
         RequestOperation<UpdateInternalInfoAnswersRequest, UpdateInternalInfoAnswersResponse> operation =
                 new UpdateInternalInfoAnswers.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * List Attendee Optional Items
+     *
+     * <p>Lists all optional items selected by a single attendee during event registration.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @return The call builder
+     */
+    public ListOptionalItemsRequestBuilder listOptionalItems() {
+        return new ListOptionalItemsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Attendee Optional Items
+     *
+     * <p>Lists all optional items selected by a single attendee during event registration.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListOptionalItemsResponse listOptionalItems(@Nonnull ListOptionalItemsRequest request) {
+        return listOptionalItems(request, null);
+    }
+
+    /**
+     * List Attendee Optional Items
+     *
+     * <p>Lists all optional items selected by a single attendee during event registration.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListOptionalItemsResponse listOptionalItems(
+            @Nonnull ListOptionalItemsRequest request, @Nullable Options options) {
+        RequestOperation<ListOptionalItemsRequest, ListOptionalItemsResponse> operation =
+                new ListOptionalItems.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 

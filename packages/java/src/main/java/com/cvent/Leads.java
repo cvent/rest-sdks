@@ -25,6 +25,7 @@ import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
+import java.lang.Deprecated;
 
 /**
  * * **Leads -** Leads include leads gathered by LeadCapture, Appointments, and Inbound Leads. Use this
@@ -57,18 +58,24 @@ public class Leads {
     /**
      * List E-literature Requests
      *
+     * <p>**Deprecated.** The E-literature Requests feature has been sunset.
+     *
      * <p>Gets a paginated list of eliterature requests data
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
      * @return The call builder
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
+    @Deprecated
     public GetEliteratureRequestsRequestBuilder getEliteratureRequests() {
         return new GetEliteratureRequestsRequestBuilder(sdkConfiguration);
     }
 
     /**
      * List E-literature Requests
+     *
+     * <p>**Deprecated.** The E-literature Requests feature has been sunset.
      *
      * <p>Gets a paginated list of eliterature requests data
      *
@@ -77,13 +84,17 @@ public class Leads {
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
+    @Deprecated
     public GetEliteratureRequestsResponse getEliteratureRequests(@Nonnull GetEliteratureRequestsRequest request) {
         return getEliteratureRequests(request, null);
     }
 
     /**
      * List E-literature Requests
+     *
+     * <p>**Deprecated.** The E-literature Requests feature has been sunset.
      *
      * <p>Gets a paginated list of eliterature requests data
      *
@@ -93,7 +104,9 @@ public class Leads {
      * @param options additional options
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
+    @Deprecated
     public GetEliteratureRequestsResponse getEliteratureRequests(
             @Nonnull GetEliteratureRequestsRequest request, @Nullable Options options) {
         RequestOperation<GetEliteratureRequestsRequest, GetEliteratureRequestsResponse> operation =

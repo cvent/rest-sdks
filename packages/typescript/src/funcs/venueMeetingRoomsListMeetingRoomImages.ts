@@ -31,6 +31,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Retrieves the images associated with a meeting room. Each meeting room has at most one image.
+ *
+ * Not applicable to CVB/DMC venues.
  */
 export function venueMeetingRoomsListMeetingRoomImages(
   client: CventSDKCore,

@@ -26,7 +26,7 @@ public class TablesPaginatedResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * A list of event tables
@@ -36,7 +36,7 @@ public class TablesPaginatedResponse {
 
     @JsonCreator
     public TablesPaginatedResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
+            @JsonProperty("paging") @Nullable Paging paging,
             @JsonProperty("data") @Nonnull List<ExistingTableWithSeats> data) {
         this.paging = paging;
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -49,7 +49,7 @@ public class TablesPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
@@ -67,7 +67,7 @@ public class TablesPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public TablesPaginatedResponse withPaging(@Nullable PagingJson paging) {
+    public TablesPaginatedResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -105,7 +105,7 @@ public class TablesPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
         private List<ExistingTableWithSeats> data;
 
@@ -116,7 +116,7 @@ public class TablesPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }

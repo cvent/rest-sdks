@@ -30,10 +30,11 @@ import { Result } from "../types/fp.js";
  * Create Session Registration
  *
  * @remarks
- * Register an attendee in the given session. Requires the modify registration widget to be
+ * Submit an enrollment request for an attendee in the given session. Requires the modify registration widget to be
  * present on the event's registration path. See the following
  * [article](https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown) for
  * more information.
+ * The request is processed asynchronously after the downstream registration call returns. A successful response means that the enrollment request was accepted for processing; it does not guarantee that the attendee is already enrolled or immediately queryable.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

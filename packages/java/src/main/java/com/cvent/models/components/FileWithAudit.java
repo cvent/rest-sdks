@@ -41,7 +41,7 @@ public class FileWithAudit {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("path")
-    private FileLinkJson path;
+    private FileLink path;
 
     /**
      * Size of the file in bytes.
@@ -94,7 +94,7 @@ public class FileWithAudit {
     public FileWithAudit(
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("friendlyName") @Nullable String friendlyName,
-            @JsonProperty("path") @Nullable FileLinkJson path,
+            @JsonProperty("path") @Nullable FileLink path,
             @JsonProperty("fileSize") @Nullable Long fileSize,
             @JsonProperty("created") @Nullable OffsetDateTime created,
             @JsonProperty("createdBy") @Nullable String createdBy,
@@ -131,7 +131,7 @@ public class FileWithAudit {
     /**
      * Represents a link to the associated file resource.
      */
-    public Optional<FileLinkJson> path() {
+    public Optional<FileLink> path() {
         return Optional.ofNullable(this.path);
     }
 
@@ -205,7 +205,7 @@ public class FileWithAudit {
     /**
      * Represents a link to the associated file resource.
      */
-    public FileWithAudit withPath(@Nullable FileLinkJson path) {
+    public FileWithAudit withPath(@Nullable FileLink path) {
         this.path = path;
         return this;
     }
@@ -315,7 +315,7 @@ public class FileWithAudit {
 
         private String friendlyName;
 
-        private FileLinkJson path;
+        private FileLink path;
 
         private Long fileSize;
 
@@ -354,7 +354,7 @@ public class FileWithAudit {
         /**
          * Represents a link to the associated file resource.
          */
-        public Builder path(@Nullable FileLinkJson path) {
+        public Builder path(@Nullable FileLink path) {
             this.path = path;
             return this;
         }

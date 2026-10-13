@@ -31,6 +31,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Retrieve an overview of a specific meeting room for the specified venue.
+ *
+ * Not applicable to CVB/DMC venues.
  */
 export function venueMeetingRoomsGetMeetingRoomOverview(
   client: CventSDKCore,

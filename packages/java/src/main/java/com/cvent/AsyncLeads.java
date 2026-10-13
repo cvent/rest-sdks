@@ -25,6 +25,7 @@ import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
+import java.lang.Deprecated;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -58,12 +59,16 @@ public class AsyncLeads {
     /**
      * List E-literature Requests
      *
+     * <p>**Deprecated.** The E-literature Requests feature has been sunset.
+     *
      * <p>Gets a paginated list of eliterature requests data
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
      * @return The async call builder
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
+    @Deprecated
     public GetEliteratureRequestsRequestBuilder getEliteratureRequests() {
         return new GetEliteratureRequestsRequestBuilder(sdkConfiguration);
     }
@@ -71,13 +76,17 @@ public class AsyncLeads {
     /**
      * List E-literature Requests
      *
+     * <p>**Deprecated.** The E-literature Requests feature has been sunset.
+     *
      * <p>Gets a paginated list of eliterature requests data
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetEliteratureRequestsResponse>} - The async response
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
+    @Deprecated
     public CompletableFuture<GetEliteratureRequestsResponse> getEliteratureRequests(
             @Nonnull GetEliteratureRequestsRequest request) {
         return getEliteratureRequests(request, null);
@@ -86,6 +95,8 @@ public class AsyncLeads {
     /**
      * List E-literature Requests
      *
+     * <p>**Deprecated.** The E-literature Requests feature has been sunset.
+     *
      * <p>Gets a paginated list of eliterature requests data
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
@@ -93,7 +104,9 @@ public class AsyncLeads {
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
      * @return {@code CompletableFuture<GetEliteratureRequestsResponse>} - The async response
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
+    @Deprecated
     public CompletableFuture<GetEliteratureRequestsResponse> getEliteratureRequests(
             @Nonnull GetEliteratureRequestsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEliteratureRequestsRequest, GetEliteratureRequestsResponse> operation =

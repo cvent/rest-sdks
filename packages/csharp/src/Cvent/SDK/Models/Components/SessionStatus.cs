@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// This is used to denote the status of a session.
+    /// Active: The registration process is visible to invitees and accepts new registrations. Closed: The registration process is visible but does not accept new registrations or submissions. Cancelled: The planner cancelled the registration process.
     /// </summary>
     public enum SessionStatus
     {

@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations.async;
 
-import com.cvent.models.components.Rfp;
+import com.cvent.models.components.Rfp2;
 import com.cvent.utils.AsyncResponse;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
@@ -35,11 +35,11 @@ public class GetRFPResponse implements AsyncResponse {
     /**
      * Successfully returns the basic details of the RFP.
      */
-    private Rfp rfp;
+    private Rfp2 rfp;
 
     @JsonCreator
     public GetRFPResponse(
-            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse, @Nullable Rfp rfp) {
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse, @Nullable Rfp2 rfp) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -76,7 +76,7 @@ public class GetRFPResponse implements AsyncResponse {
     /**
      * Successfully returns the basic details of the RFP.
      */
-    public Optional<Rfp> rfp() {
+    public Optional<Rfp2> rfp() {
         return Optional.ofNullable(this.rfp);
     }
 
@@ -111,7 +111,7 @@ public class GetRFPResponse implements AsyncResponse {
     /**
      * Successfully returns the basic details of the RFP.
      */
-    public GetRFPResponse withRfp(@Nullable Rfp rfp) {
+    public GetRFPResponse withRfp(@Nullable Rfp2 rfp) {
         this.rfp = rfp;
         return this;
     }
@@ -159,7 +159,7 @@ public class GetRFPResponse implements AsyncResponse {
 
         private HttpResponse<Blob> rawResponse;
 
-        private Rfp rfp;
+        private Rfp2 rfp;
 
         private Builder() {
             // force use of static builder() method
@@ -192,7 +192,7 @@ public class GetRFPResponse implements AsyncResponse {
         /**
          * Successfully returns the basic details of the RFP.
          */
-        public Builder rfp(@Nullable Rfp rfp) {
+        public Builder rfp(@Nullable Rfp2 rfp) {
             this.rfp = rfp;
             return this;
         }

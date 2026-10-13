@@ -35,7 +35,7 @@ namespace Cvent.SDK.Models.Components
         /// Represents a link to the associated file resource.
         /// </summary>
         [JsonProperty("path")]
-        public FileLinkJson? Path { get; set; }
+        public FileLink? Path { get; set; }
 
         /// <summary>
         /// Size of the file in bytes.

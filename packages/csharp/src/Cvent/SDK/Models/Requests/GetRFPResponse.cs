@@ -21,6 +21,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// Successfully returns the basic details of the RFP.
         /// </summary>
-        public Rfp? Rfp { get; set; }
+        public Rfp2? Rfp { get; set; }
     }
 }

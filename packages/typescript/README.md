@@ -233,6 +233,7 @@ run();
 * [updateAttendee](docs/sdks/attendees/README.md#updateattendee) - Update Attendee
 * [updateAttendeeSubscriptionStatus](docs/sdks/attendees/README.md#updateattendeesubscriptionstatus) - Update Email Subscription
 * [updateInternalInfoAnswers](docs/sdks/attendees/README.md#updateinternalinfoanswers) - Update Internal Information
+* [listOptionalItems](docs/sdks/attendees/README.md#listoptionalitems) - List Attendee Optional Items
 * [postBadge](docs/sdks/attendees/README.md#postbadge) - Create Badge
 * [getBadge](docs/sdks/attendees/README.md#getbadge) - Get Badge
 * [getBadgesPostFilters](docs/sdks/attendees/README.md#getbadgespostfilters) - Get Badges
@@ -565,7 +566,7 @@ run();
 
 ### [Leads](docs/sdks/leads/README.md)
 
-* [getEliteratureRequests](docs/sdks/leads/README.md#geteliteraturerequests) - List E-literature Requests
+* [~~getEliteratureRequests~~](docs/sdks/leads/README.md#geteliteraturerequests) - List E-literature Requests :warning: **Deprecated**
 * [getLeadQualificationAnswers](docs/sdks/leads/README.md#getleadqualificationanswers) - List Qualification Answers
 * [getLeads](docs/sdks/leads/README.md#getleads) - List Leads
 * [getLeadsPostFiltersData](docs/sdks/leads/README.md#getleadspostfiltersdata) - List Leads
@@ -798,10 +799,18 @@ run();
 
 ### [VenueContent](docs/sdks/venuecontent/README.md)
 
+* [listVenueAttractions](docs/sdks/venuecontent/README.md#listvenueattractions) - List Venue Attractions
+* [createVenueAttraction](docs/sdks/venuecontent/README.md#createvenueattraction) - Create Venue Attraction
+* [getVenueAttraction](docs/sdks/venuecontent/README.md#getvenueattraction) - Get Venue Attraction
+* [updateVenueAttraction](docs/sdks/venuecontent/README.md#updatevenueattraction) - Update Venue Attraction
+* [deleteVenueAttraction](docs/sdks/venuecontent/README.md#deletevenueattraction) - Delete Venue Attraction
+* [associateAttractionImage](docs/sdks/venuecontent/README.md#associateattractionimage) - Associate Attraction Image
+* [getAttractionImages](docs/sdks/venuecontent/README.md#getattractionimages) - Get Attraction Images
+* [disassociateAttractionImage](docs/sdks/venuecontent/README.md#disassociateattractionimage) - Remove Attraction Image
 * [createVenueImageMetadata](docs/sdks/venuecontent/README.md#createvenueimagemetadata) - Create Venue Image Metadata
-* [listVenueImagesMetadata](docs/sdks/venuecontent/README.md#listvenueimagesmetadata) - List Images Metadata
+* [listVenueImagesMetadata](docs/sdks/venuecontent/README.md#listvenueimagesmetadata) - List Venue Images Metadata
 * [updateVenueImageMetadata](docs/sdks/venuecontent/README.md#updatevenueimagemetadata) - Update Venue Image Metadata
-* [getVenueImageMetadata](docs/sdks/venuecontent/README.md#getvenueimagemetadata) - Get Image Metadata
+* [getVenueImageMetadata](docs/sdks/venuecontent/README.md#getvenueimagemetadata) - Get Venue Image Metadata
 * [associateVenueImage](docs/sdks/venuecontent/README.md#associatevenueimage) - Associate Venue Image
 * [disassociateVenueImage](docs/sdks/venuecontent/README.md#disassociatevenueimage) - Remove Venue Image
 
@@ -902,6 +911,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`attendeesListAttendees`](docs/sdks/attendees/README.md#listattendees) - List Attendees
 - [`attendeesListAttendeesPostFilter`](docs/sdks/attendees/README.md#listattendeespostfilter) - List Attendees
 - [`attendeesListDurations`](docs/sdks/attendees/README.md#listdurations) - List Attendance Duration
+- [`attendeesListOptionalItems`](docs/sdks/attendees/README.md#listoptionalitems) - List Attendee Optional Items
 - [`attendeesPostBadge`](docs/sdks/attendees/README.md#postbadge) - Create Badge
 - [`attendeesUpdateAttendee`](docs/sdks/attendees/README.md#updateattendee) - Update Attendee
 - [`attendeesUpdateAttendeeSubscriptionStatus`](docs/sdks/attendees/README.md#updateattendeesubscriptionstatus) - Update Email Subscription
@@ -1153,7 +1163,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`housingUnlinkReservation`](docs/sdks/housing/README.md#unlinkreservation) - Unlink Reservation
 - [`housingUpdateReservationRequest`](docs/sdks/housing/README.md#updatereservationrequest) - Update Reservation Request
 - [`housingUpdateReservationSync`](docs/sdks/housing/README.md#updatereservationsync) - Update Reservation
-- [`leadsGetEliteratureRequests`](docs/sdks/leads/README.md#geteliteraturerequests) - List E-literature Requests
 - [`leadsGetLeadQualificationAnswers`](docs/sdks/leads/README.md#getleadqualificationanswers) - List Qualification Answers
 - [`leadsGetLeads`](docs/sdks/leads/README.md#getleads) - List Leads
 - [`leadsGetLeadsPostFiltersData`](docs/sdks/leads/README.md#getleadspostfiltersdata) - List Leads
@@ -1319,11 +1328,19 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`venueAvailabilityListVenueNeedDates`](docs/sdks/venueavailability/README.md#listvenueneeddates) - List Venue Need Dates
 - [`venueAvailabilityUpdateVenueAvailabilitySettings`](docs/sdks/venueavailability/README.md#updatevenueavailabilitysettings) - Update Availability Settings
 - [`venueAvailabilityUpdateVenueNeedDate`](docs/sdks/venueavailability/README.md#updatevenueneeddate) - Update Venue Need Date
+- [`venueContentAssociateAttractionImage`](docs/sdks/venuecontent/README.md#associateattractionimage) - Associate Attraction Image
 - [`venueContentAssociateVenueImage`](docs/sdks/venuecontent/README.md#associatevenueimage) - Associate Venue Image
+- [`venueContentCreateVenueAttraction`](docs/sdks/venuecontent/README.md#createvenueattraction) - Create Venue Attraction
 - [`venueContentCreateVenueImageMetadata`](docs/sdks/venuecontent/README.md#createvenueimagemetadata) - Create Venue Image Metadata
+- [`venueContentDeleteVenueAttraction`](docs/sdks/venuecontent/README.md#deletevenueattraction) - Delete Venue Attraction
+- [`venueContentDisassociateAttractionImage`](docs/sdks/venuecontent/README.md#disassociateattractionimage) - Remove Attraction Image
 - [`venueContentDisassociateVenueImage`](docs/sdks/venuecontent/README.md#disassociatevenueimage) - Remove Venue Image
-- [`venueContentGetVenueImageMetadata`](docs/sdks/venuecontent/README.md#getvenueimagemetadata) - Get Image Metadata
-- [`venueContentListVenueImagesMetadata`](docs/sdks/venuecontent/README.md#listvenueimagesmetadata) - List Images Metadata
+- [`venueContentGetAttractionImages`](docs/sdks/venuecontent/README.md#getattractionimages) - Get Attraction Images
+- [`venueContentGetVenueAttraction`](docs/sdks/venuecontent/README.md#getvenueattraction) - Get Venue Attraction
+- [`venueContentGetVenueImageMetadata`](docs/sdks/venuecontent/README.md#getvenueimagemetadata) - Get Venue Image Metadata
+- [`venueContentListVenueAttractions`](docs/sdks/venuecontent/README.md#listvenueattractions) - List Venue Attractions
+- [`venueContentListVenueImagesMetadata`](docs/sdks/venuecontent/README.md#listvenueimagesmetadata) - List Venue Images Metadata
+- [`venueContentUpdateVenueAttraction`](docs/sdks/venuecontent/README.md#updatevenueattraction) - Update Venue Attraction
 - [`venueContentUpdateVenueImageMetadata`](docs/sdks/venuecontent/README.md#updatevenueimagemetadata) - Update Venue Image Metadata
 - [`venueMeetingRoomsAssociateMeetingRoomImage`](docs/sdks/venuemeetingrooms/README.md#associatemeetingroomimage) - Associate Meeting Room Image
 - [`venueMeetingRoomsCreateMeetingRoom`](docs/sdks/venuemeetingrooms/README.md#createmeetingroom) - Create Meeting Room
@@ -1358,6 +1375,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`webcastsUpdateAttendeeLinks`](docs/sdks/webcasts/README.md#updateattendeelinks) - Update Attendee Link
 - [`webcastsUpdateWebcast`](docs/sdks/webcasts/README.md#updatewebcast) - Update Webcast
 - ~~[`emailsGetEmailStatus`](docs/sdks/emails/README.md#getemailstatus)~~ - List Email Status :warning: **Deprecated**
+- ~~[`leadsGetEliteratureRequests`](docs/sdks/leads/README.md#geteliteraturerequests)~~ - List E-literature Requests :warning: **Deprecated**
 - ~~[`sessionsGetProgramItemDocuments`](docs/sdks/sessions/README.md#getprogramitemdocuments)~~ - Get Program Item Documents :warning: **Deprecated**
 - ~~[`webcastsListWebcastAttendeeLinks`](docs/sdks/webcasts/README.md#listwebcastattendeelinks)~~ - List Attendee Links :warning: **Deprecated**
 
@@ -1616,10 +1634,10 @@ run();
 
 
 **Inherit from [`CventSDKError`](./src/models/errors/cventsdkerror.ts)**:
-* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 488 methods.*
-* [`ErrorResponse16`](./src/models/errors/errorresponse16.ts): The error response. Applicable to 11 of 488 methods.*
-* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 488 methods.*
-* [`Oauth2TokenPostResponse0Error`](./src/models/errors/oauth2tokenpostresponse0error.ts): A bad token response. Status code `400`. Applicable to 1 of 488 methods.*
+* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 497 methods.*
+* [`ErrorResponse17`](./src/models/errors/errorresponse17.ts): The error response. Applicable to 11 of 497 methods.*
+* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 497 methods.*
+* [`Oauth2TokenPostResponse0Error`](./src/models/errors/oauth2tokenpostresponse0error.ts): A bad token response. Status code `400`. Applicable to 1 of 497 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

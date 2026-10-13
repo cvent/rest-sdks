@@ -101,9 +101,9 @@ var sdk = new CventSDK(security: new Security() {
 HookInput req = new HookInput() {
     Name = "Attendee Identification",
     Callback = "https://myserver.com/send/callback/here",
-    Security = HookSecurityJson.CreateBasicAuthentication(
+    Security = HookSecurity.CreateBasicAuthentication(
         new BasicAuthentication() {
-            Type = AuthorizationHeaderType2.ApiKey,
+            Type = BasicAuthenticationAuthorizationHeaderType.ApiKey,
             Secret = "ZGVtbzpwQDU1dzByZA==",
         }
     ),
@@ -160,9 +160,9 @@ UpdateContactHookRequest req = new UpdateContactHookRequest() {
     Hook = new HookInput() {
         Name = "Attendee Identification",
         Callback = "https://myserver.com/send/callback/here",
-        Security = HookSecurityJson.CreateAPIKeyAuthentication(
+        Security = HookSecurity.CreateAPIKeyAuthentication(
             new APIKeyAuthentication() {
-                Type = AuthorizationHeaderType1.ApiKey,
+                Type = APIKeyAuthenticationAuthorizationHeaderType.ApiKey,
                 Secret = "2b3cc2bf083ff11206ce6b2f3ee09591",
                 AuthHeaderKey = "x-api-key",
             }

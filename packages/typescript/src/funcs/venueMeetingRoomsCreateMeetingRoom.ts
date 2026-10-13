@@ -30,6 +30,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Create a new meeting room for the specified venue.
+ *
+ * Not applicable to CVB/DMC venues.
  */
 export function venueMeetingRoomsCreateMeetingRoom(
   client: CventSDKCore,

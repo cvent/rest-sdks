@@ -6,11 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 import {
-  TableAssignmentJson,
-  TableAssignmentJson$inboundSchema,
-} from "./tableassignmentjson.js";
+  TableAssignment,
+  TableAssignment$inboundSchema,
+} from "./tableassignment.js";
 
 /**
  * The response from a request to get the table assignment.
@@ -19,11 +19,11 @@ export type TableAssignmentPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * A list of table assignments
    */
-  data: Array<TableAssignmentJson>;
+  data: Array<TableAssignment>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const TableAssignmentPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(TableAssignmentJson$inboundSchema),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(TableAssignment$inboundSchema),
 });
 
 export function tableAssignmentPaginatedResponseFromJSON(

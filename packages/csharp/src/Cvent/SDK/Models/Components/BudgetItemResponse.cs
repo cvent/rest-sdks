@@ -171,10 +171,10 @@ namespace Cvent.SDK.Models.Components
         public string? AssociatedSession { get; set; }
 
         /// <summary>
-        /// Budget Version ID Information.
+        /// Budget version ID information. Defaults to the account's default budget version when creating or updating budget items.
         /// </summary>
         [JsonProperty("budgetVersion")]
-        public BudgetVersionId? BudgetVersion { get; set; }
+        public BudgetVersion? BudgetVersion { get; set; }
 
         /// <summary>
         /// List of budget item custom fields.

@@ -33,6 +33,8 @@ import { Result } from "../types/fp.js";
  * Associate a previously uploaded image with a meeting room using a file UUID from the <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current image if one is already associated.
  *
  * **Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg, .jpeg) are accepted. Maximum file size is 10 MB.
+ *
+ * Not applicable to CVB/DMC venues.
  */
 export function venueMeetingRoomsAssociateMeetingRoomImage(
   client: CventSDKCore,

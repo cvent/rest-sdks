@@ -22,10 +22,10 @@ public class BasicAuthenticationOutput {
      * client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
      */
     @JsonProperty("type")
-    private AuthorizationHeaderType2 type;
+    private BasicAuthenticationAuthorizationHeaderType type;
 
     @JsonCreator
-    public BasicAuthenticationOutput(@JsonProperty("type") @Nonnull AuthorizationHeaderType2 type) {
+    public BasicAuthenticationOutput(@JsonProperty("type") @Nonnull BasicAuthenticationAuthorizationHeaderType type) {
         this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
     }
 
@@ -33,7 +33,7 @@ public class BasicAuthenticationOutput {
      * Authorization header support characterizing the authentication type to be used for callbacks to the
      * client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
      */
-    public AuthorizationHeaderType2 type() {
+    public BasicAuthenticationAuthorizationHeaderType type() {
         return this.type;
     }
 
@@ -45,7 +45,7 @@ public class BasicAuthenticationOutput {
      * Authorization header support characterizing the authentication type to be used for callbacks to the
      * client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
      */
-    public BasicAuthenticationOutput withType(@Nonnull AuthorizationHeaderType2 type) {
+    public BasicAuthenticationOutput withType(@Nonnull BasicAuthenticationAuthorizationHeaderType type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
@@ -75,7 +75,7 @@ public class BasicAuthenticationOutput {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private AuthorizationHeaderType2 type;
+        private BasicAuthenticationAuthorizationHeaderType type;
 
         private Builder() {
             // force use of static builder() method
@@ -85,7 +85,7 @@ public class BasicAuthenticationOutput {
          * Authorization header support characterizing the authentication type to be used for callbacks to the
          * client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
          */
-        public Builder type(@Nonnull AuthorizationHeaderType2 type) {
+        public Builder type(@Nonnull BasicAuthenticationAuthorizationHeaderType type) {
             this.type = Utils.checkNotNull(type, "type");
             return this;
         }

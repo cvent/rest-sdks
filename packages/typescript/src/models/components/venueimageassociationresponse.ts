@@ -22,6 +22,10 @@ export type VenueImageAssociationResponseFile = {
  */
 export type VenueImageAssociationResponse = {
   /**
+   * The ID of the venue image.
+   */
+  id: string;
+  /**
    * The file uploaded to be associated with the venue.
    */
   file: VenueImageAssociationResponseFile;
@@ -56,6 +60,7 @@ export const VenueImageAssociationResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   file: z.lazy(() => VenueImageAssociationResponseFile$inboundSchema),
   href: z.string(),
 });

@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// Authorization header support characterizing the authentication type to be used for callbacks to the client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
         /// </summary>
         [JsonProperty("type")]
-        public AuthorizationHeaderType2 Type { get; set; } = default!;
+        public BasicAuthenticationAuthorizationHeaderType Type { get; set; } = default!;
 
         /// <summary>
         /// Base64 encoded Basic Authentication credentials.

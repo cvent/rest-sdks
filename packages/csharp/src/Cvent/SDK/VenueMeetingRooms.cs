@@ -31,7 +31,9 @@ namespace Cvent.SDK
         /// Create Meeting Room.
         /// </summary>
         /// <remarks>
-        /// Create a new meeting room for the specified venue.
+        /// Create a new meeting room for the specified venue.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.
         /// </remarks>
         /// <param name="request">A <see cref="CreateMeetingRoomRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -50,7 +52,9 @@ namespace Cvent.SDK
         /// List Meeting Rooms Overviews.
         /// </summary>
         /// <remarks>
-        /// Retrieve a paginated list of meeting room overviews for the specified venue.
+        /// Retrieve a paginated list of meeting room overviews for the specified venue.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.
         /// </remarks>
         /// <param name="request">A <see cref="ListMeetingRoomsOverviewsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -69,7 +73,9 @@ namespace Cvent.SDK
         /// Update Meeting Room.
         /// </summary>
         /// <remarks>
-        /// Update a meeting room for the specified venue, replacing the existing meeting room data.
+        /// Update a meeting room for the specified venue, replacing the existing meeting room data.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateMeetingRoomRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -89,6 +95,8 @@ namespace Cvent.SDK
         /// </summary>
         /// <remarks>
         /// Partially update a meeting room for the specified venue.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.<br/>
         /// <br/>
         /// - Only fields present in the request body are updated; omitted fields remain unchanged.<br/>
         /// - Set a field to `null` to unset it.<br/>
@@ -114,7 +122,9 @@ namespace Cvent.SDK
         /// <remarks>
         /// Associate a previously uploaded image with a meeting room using a file UUID from the <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current image if one is already associated.<br/>
         /// <br/>
-        /// **Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg, .jpeg) are accepted. Maximum file size is 10 MB.
+        /// **Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg, .jpeg) are accepted. Maximum file size is 10 MB.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.
         /// </remarks>
         /// <param name="request">A <see cref="AssociateMeetingRoomImageRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -133,7 +143,9 @@ namespace Cvent.SDK
         /// List Meeting Room Images.
         /// </summary>
         /// <remarks>
-        /// Retrieves the images associated with a meeting room. Each meeting room has at most one image.
+        /// Retrieves the images associated with a meeting room. Each meeting room has at most one image.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.
         /// </remarks>
         /// <param name="request">A <see cref="ListMeetingRoomImagesRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -152,7 +164,9 @@ namespace Cvent.SDK
         /// Remove Meeting Room Image.
         /// </summary>
         /// <remarks>
-        /// Disassociates the current image from a meeting room.
+        /// Disassociates the current image from a meeting room.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.
         /// </remarks>
         /// <param name="request">A <see cref="DisassociateMeetingRoomImageRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -171,7 +185,9 @@ namespace Cvent.SDK
         /// Get Meeting Room Overview.
         /// </summary>
         /// <remarks>
-        /// Retrieve an overview of a specific meeting room for the specified venue.
+        /// Retrieve an overview of a specific meeting room for the specified venue.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.
         /// </remarks>
         /// <param name="request">A <see cref="GetMeetingRoomOverviewRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -207,7 +223,9 @@ namespace Cvent.SDK
         /// Create Meeting Room.
         /// </summary>
         /// <remarks>
-        /// Create a new meeting room for the specified venue.
+        /// Create a new meeting room for the specified venue.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.
         /// </remarks>
         /// <param name="request">A <see cref="CreateMeetingRoomRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -380,7 +398,9 @@ namespace Cvent.SDK
         /// List Meeting Rooms Overviews.
         /// </summary>
         /// <remarks>
-        /// Retrieve a paginated list of meeting room overviews for the specified venue.
+        /// Retrieve a paginated list of meeting room overviews for the specified venue.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.
         /// </remarks>
         /// <param name="request">A <see cref="ListMeetingRoomsOverviewsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -546,7 +566,9 @@ namespace Cvent.SDK
         /// Update Meeting Room.
         /// </summary>
         /// <remarks>
-        /// Update a meeting room for the specified venue, replacing the existing meeting room data.
+        /// Update a meeting room for the specified venue, replacing the existing meeting room data.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateMeetingRoomRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -719,6 +741,8 @@ namespace Cvent.SDK
         /// </summary>
         /// <remarks>
         /// Partially update a meeting room for the specified venue.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.<br/>
         /// <br/>
         /// - Only fields present in the request body are updated; omitted fields remain unchanged.<br/>
         /// - Set a field to `null` to unset it.<br/>
@@ -897,7 +921,9 @@ namespace Cvent.SDK
         /// <remarks>
         /// Associate a previously uploaded image with a meeting room using a file UUID from the <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current image if one is already associated.<br/>
         /// <br/>
-        /// **Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg, .jpeg) are accepted. Maximum file size is 10 MB.
+        /// **Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg, .jpeg) are accepted. Maximum file size is 10 MB.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.
         /// </remarks>
         /// <param name="request">A <see cref="AssociateMeetingRoomImageRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1069,7 +1095,9 @@ namespace Cvent.SDK
         /// List Meeting Room Images.
         /// </summary>
         /// <remarks>
-        /// Retrieves the images associated with a meeting room. Each meeting room has at most one image.
+        /// Retrieves the images associated with a meeting room. Each meeting room has at most one image.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.
         /// </remarks>
         /// <param name="request">A <see cref="ListMeetingRoomImagesRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1235,7 +1263,9 @@ namespace Cvent.SDK
         /// Remove Meeting Room Image.
         /// </summary>
         /// <remarks>
-        /// Disassociates the current image from a meeting room.
+        /// Disassociates the current image from a meeting room.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.
         /// </remarks>
         /// <param name="request">A <see cref="DisassociateMeetingRoomImageRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1383,7 +1413,9 @@ namespace Cvent.SDK
         /// Get Meeting Room Overview.
         /// </summary>
         /// <remarks>
-        /// Retrieve an overview of a specific meeting room for the specified venue.
+        /// Retrieve an overview of a specific meeting room for the specified venue.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.
         /// </remarks>
         /// <param name="request">A <see cref="GetMeetingRoomOverviewRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

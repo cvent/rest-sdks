@@ -44,7 +44,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cvent:sdk:1.6.3'
+implementation 'com.cvent:sdk:1.6.4'
 ```
 
 Maven:
@@ -52,7 +52,7 @@ Maven:
 <dependency>
     <groupId>com.cvent</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.6.3</version>
+    <version>1.6.4</version>
 </dependency>
 ```
 
@@ -397,6 +397,7 @@ public class Application {
 * [updateAttendee](docs/sdks/attendees/README.md#updateattendee) - Update Attendee
 * [updateAttendeeSubscriptionStatus](docs/sdks/attendees/README.md#updateattendeesubscriptionstatus) - Update Email Subscription
 * [updateInternalInfoAnswers](docs/sdks/attendees/README.md#updateinternalinfoanswers) - Update Internal Information
+* [listOptionalItems](docs/sdks/attendees/README.md#listoptionalitems) - List Attendee Optional Items
 * [postBadge](docs/sdks/attendees/README.md#postbadge) - Create Badge
 * [getBadge](docs/sdks/attendees/README.md#getbadge) - Get Badge
 * [getBadgesPostFilters](docs/sdks/attendees/README.md#getbadgespostfilters) - Get Badges
@@ -729,7 +730,7 @@ public class Application {
 
 ### [Leads](docs/sdks/leads/README.md)
 
-* [getEliteratureRequests](docs/sdks/leads/README.md#geteliteraturerequests) - List E-literature Requests
+* [~~getEliteratureRequests~~](docs/sdks/leads/README.md#geteliteraturerequests) - List E-literature Requests :warning: **Deprecated**
 * [getLeadQualificationAnswers](docs/sdks/leads/README.md#getleadqualificationanswers) - List Qualification Answers
 * [getLeads](docs/sdks/leads/README.md#getleads) - List Leads
 * [getLeadsPostFiltersData](docs/sdks/leads/README.md#getleadspostfiltersdata) - List Leads
@@ -962,10 +963,18 @@ public class Application {
 
 ### [VenueContent](docs/sdks/venuecontent/README.md)
 
+* [listVenueAttractions](docs/sdks/venuecontent/README.md#listvenueattractions) - List Venue Attractions
+* [createVenueAttraction](docs/sdks/venuecontent/README.md#createvenueattraction) - Create Venue Attraction
+* [getVenueAttraction](docs/sdks/venuecontent/README.md#getvenueattraction) - Get Venue Attraction
+* [updateVenueAttraction](docs/sdks/venuecontent/README.md#updatevenueattraction) - Update Venue Attraction
+* [deleteVenueAttraction](docs/sdks/venuecontent/README.md#deletevenueattraction) - Delete Venue Attraction
+* [associateAttractionImage](docs/sdks/venuecontent/README.md#associateattractionimage) - Associate Attraction Image
+* [getAttractionImages](docs/sdks/venuecontent/README.md#getattractionimages) - Get Attraction Images
+* [disassociateAttractionImage](docs/sdks/venuecontent/README.md#disassociateattractionimage) - Remove Attraction Image
 * [createVenueImageMetadata](docs/sdks/venuecontent/README.md#createvenueimagemetadata) - Create Venue Image Metadata
-* [listVenueImagesMetadata](docs/sdks/venuecontent/README.md#listvenueimagesmetadata) - List Images Metadata
+* [listVenueImagesMetadata](docs/sdks/venuecontent/README.md#listvenueimagesmetadata) - List Venue Images Metadata
 * [updateVenueImageMetadata](docs/sdks/venuecontent/README.md#updatevenueimagemetadata) - Update Venue Image Metadata
-* [getVenueImageMetadata](docs/sdks/venuecontent/README.md#getvenueimagemetadata) - Get Image Metadata
+* [getVenueImageMetadata](docs/sdks/venuecontent/README.md#getvenueimagemetadata) - Get Venue Image Metadata
 * [associateVenueImage](docs/sdks/venuecontent/README.md#associatevenueimage) - Associate Venue Image
 * [disassociateVenueImage](docs/sdks/venuecontent/README.md#disassociatevenueimage) - Remove Venue Image
 
@@ -1359,10 +1368,10 @@ public class Application {
 many more subclasses in the JDK platform).
 
 **Inherit from [`CventSDKError`](./src/main/java/models/errors/CventSDKError.java)**:
-* [`com.cvent.models.errors.ErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse.java): Represents an error response with additional details of cascading error messages. Applicable to 18 of 488 methods.*
-* [`com.cvent.models.errors.ErrorResponse16`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse16.java): The error response. Applicable to 11 of 488 methods.*
-* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 488 methods.*
-* [`com.cvent.models.errors.Oauth2TokenPostResponse0Exception`](./src/main/java/models/errors/com.cvent.models.errors.Oauth2TokenPostResponse0Exception.java): A bad token response. Status code `400`. Applicable to 1 of 488 methods.*
+* [`com.cvent.models.errors.ErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse.java): Represents an error response with additional details of cascading error messages. Applicable to 18 of 497 methods.*
+* [`com.cvent.models.errors.ErrorResponse17`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse17.java): The error response. Applicable to 11 of 497 methods.*
+* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 497 methods.*
+* [`com.cvent.models.errors.Oauth2TokenPostResponse0Exception`](./src/main/java/models/errors/com.cvent.models.errors.Oauth2TokenPostResponse0Exception.java): A bad token response. Status code `400`. Applicable to 1 of 497 methods.*
 
 
 </details>

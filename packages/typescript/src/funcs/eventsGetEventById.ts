@@ -40,7 +40,7 @@ export function eventsGetEventById(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    components.Event1,
+    components.Event11,
     | errors.ErrorResponse12
     | CventSDKError
     | ResponseValidationError
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      components.Event1,
+      components.Event11,
       | errors.ErrorResponse12
       | CventSDKError
       | ResponseValidationError
@@ -163,7 +163,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    components.Event1,
+    components.Event11,
     | errors.ErrorResponse12
     | CventSDKError
     | ResponseValidationError
@@ -174,7 +174,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, components.Event1$inboundSchema),
+    M.json(200, components.Event11$inboundSchema),
     M.jsonErr([401, 403, 404, 429], errors.ErrorResponse12$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

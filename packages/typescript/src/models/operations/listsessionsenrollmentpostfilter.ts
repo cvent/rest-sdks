@@ -30,7 +30,7 @@ export type ListSessionsEnrollmentPostFilterRequest = {
    */
   token?: string | undefined;
   /**
-   * The request body accepts filters to refine the data returned.  Refer to available filter details in [GET List Session Registrants](#operation/listSessionsEnrollment).
+   * The request body accepts filters to refine the data returned. Refer to available filter details in [GET List Session Registrants](#operation/listSessionsEnrollment).
    *
    * @remarks
    */

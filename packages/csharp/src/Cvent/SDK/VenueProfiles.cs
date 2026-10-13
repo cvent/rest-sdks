@@ -99,8 +99,7 @@ namespace Cvent.SDK
         /// <remarks>
         /// Update the facility information for the specified venue, replacing all existing values with those provided in the request body.<br/>
         /// <br/>
-        /// Field applicability varies by venue type:<br/>
-        /// - Most facility information fields do not apply to CVB/DMC or Restaurant venues.
+        /// Not applicable to CVB/DMC or Restaurant venues.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateVenueFacilityRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -126,8 +125,7 @@ namespace Cvent.SDK
         /// - If any part of the patch fails, the entire request will fail.<br/>
         /// - `proximityFromAirport.unit` is required when `proximityFromAirport.distance` is provided.<br/>
         /// <br/>
-        /// Field applicability varies by venue type:<br/>
-        /// - Most facility information fields do not apply to CVB/DMC or Restaurant venues.
+        /// Not applicable to CVB/DMC or Restaurant venues.
         /// </remarks>
         /// <param name="request">A <see cref="PatchVenueFacilityRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -148,7 +146,9 @@ namespace Cvent.SDK
         /// <remarks>
         /// Retrieve the current ratings and awards for the specified venue.<br/>
         /// <br/>
-        /// Returns all rating agencies applicable to this venue (based on its type and country), including agencies where no rating has been saved yet. Use this response to discover which agencies are valid and which can be set as primary before submitting a PUT request.
+        /// Returns all rating agencies applicable to this venue (based on its type and country), including agencies where no rating has been saved yet. Use this response to discover which agencies are valid and which can be set as primary before submitting a PUT request.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.
         /// </remarks>
         /// <param name="request">A <see cref="GetVenueRatingsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -172,8 +172,9 @@ namespace Cvent.SDK
         /// This is a full replace — agencies omitted from the request will be removed. It is recommended to call GET first to retrieve the current state and the list of applicable agencies for the venue.<br/>
         /// <br/>
         /// Additional rules:<br/>
-        /// - Ratings do not apply to CVB/DMC venues.<br/>
+        /// - Not applicable to CVB/DMC venues.<br/>
         /// - At most one rating may be marked as primary. Zagat ratings cannot be primary.<br/>
+        /// - No rating may be marked as primary for Restaurant venues.<br/>
         /// - Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response before submitting a rating value for those agencies.<br/>
         /// - Agency eligibility is determined by the venue's type and country — passing an ineligible agency returns a 400.
         /// </remarks>
@@ -732,8 +733,7 @@ namespace Cvent.SDK
         /// <remarks>
         /// Update the facility information for the specified venue, replacing all existing values with those provided in the request body.<br/>
         /// <br/>
-        /// Field applicability varies by venue type:<br/>
-        /// - Most facility information fields do not apply to CVB/DMC or Restaurant venues.
+        /// Not applicable to CVB/DMC or Restaurant venues.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateVenueFacilityRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -912,8 +912,7 @@ namespace Cvent.SDK
         /// - If any part of the patch fails, the entire request will fail.<br/>
         /// - `proximityFromAirport.unit` is required when `proximityFromAirport.distance` is provided.<br/>
         /// <br/>
-        /// Field applicability varies by venue type:<br/>
-        /// - Most facility information fields do not apply to CVB/DMC or Restaurant venues.
+        /// Not applicable to CVB/DMC or Restaurant venues.
         /// </remarks>
         /// <param name="request">A <see cref="PatchVenueFacilityRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1087,7 +1086,9 @@ namespace Cvent.SDK
         /// <remarks>
         /// Retrieve the current ratings and awards for the specified venue.<br/>
         /// <br/>
-        /// Returns all rating agencies applicable to this venue (based on its type and country), including agencies where no rating has been saved yet. Use this response to discover which agencies are valid and which can be set as primary before submitting a PUT request.
+        /// Returns all rating agencies applicable to this venue (based on its type and country), including agencies where no rating has been saved yet. Use this response to discover which agencies are valid and which can be set as primary before submitting a PUT request.<br/>
+        /// <br/>
+        /// Not applicable to CVB/DMC venues.
         /// </remarks>
         /// <param name="request">A <see cref="GetVenueRatingsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1258,8 +1259,9 @@ namespace Cvent.SDK
         /// This is a full replace — agencies omitted from the request will be removed. It is recommended to call GET first to retrieve the current state and the list of applicable agencies for the venue.<br/>
         /// <br/>
         /// Additional rules:<br/>
-        /// - Ratings do not apply to CVB/DMC venues.<br/>
+        /// - Not applicable to CVB/DMC venues.<br/>
         /// - At most one rating may be marked as primary. Zagat ratings cannot be primary.<br/>
+        /// - No rating may be marked as primary for Restaurant venues.<br/>
         /// - Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response before submitting a rating value for those agencies.<br/>
         /// - Agency eligibility is determined by the venue's type and country — passing an ineligible agency returns a 400.
         /// </remarks>

@@ -9,7 +9,7 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.Rfp;
+import com.cvent.models.components.Rfp2;
 import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.GetRFPRequest;
@@ -181,7 +181,7 @@ public class GetRFP {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withRfp(Utils.unmarshal(response, new TypeReference<Rfp>() {}));
+                    return res.withRfp(Utils.unmarshal(response, new TypeReference<Rfp2>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -268,7 +268,7 @@ public class GetRFP {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<Rfp>() {})
+                    return Utils.unmarshalAsync(response, new TypeReference<Rfp2>() {})
                             .thenApply(res::withRfp);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);

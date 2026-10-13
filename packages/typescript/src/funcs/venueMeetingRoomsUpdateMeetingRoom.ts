@@ -31,6 +31,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update a meeting room for the specified venue, replacing the existing meeting room data.
+ *
+ * Not applicable to CVB/DMC venues.
  */
 export function venueMeetingRoomsUpdateMeetingRoom(
   client: CventSDKCore,

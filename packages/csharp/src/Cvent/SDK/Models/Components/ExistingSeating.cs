@@ -46,5 +46,17 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
+
+        /// <summary>
+        /// The total number of tables in the seating.
+        /// </summary>
+        [JsonProperty("tableCount")]
+        public long? TableCount { get; set; }
+
+        /// <summary>
+        /// The total seat capacity of the seating.
+        /// </summary>
+        [JsonProperty("totalCapacity")]
+        public long? TotalCapacity { get; set; }
     }
 }

@@ -1,0 +1,13 @@
+# ContactFieldInput
+
+Contains contact data. For example, a User's email address.
+
+
+## Fields
+
+| Field                                                           | Type                                                            | Required                                                        | Description                                                     | Example                                                         |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `Name`                                                          | *string*                                                        | :heavy_check_mark:                                              | The name of the field.                                          | Email Address                                                   |
+| `MaximumLength`                                                 | *long*                                                          | :heavy_check_mark:                                              | The maximum length allowed for a value.                         | 80                                                              |
+| `Type`                                                          | [ContactFieldType](../../Models/Components/ContactFieldType.md) | :heavy_check_mark:                                              | The type of the field.                                          | String                                                          |
+| `Value`                                                         | List<*string*>                                                  | :heavy_minus_sign:                                              | The value(s) of the field.                                      |                                                                 |

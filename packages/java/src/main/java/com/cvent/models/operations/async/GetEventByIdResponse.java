@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations.async;
 
-import com.cvent.models.components.Event1;
+import com.cvent.models.components.Event11;
 import com.cvent.utils.AsyncResponse;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
@@ -35,20 +35,20 @@ public class GetEventByIdResponse implements AsyncResponse {
     /**
      * Successfully retrieved the event.
      */
-    private Event1 event;
+    private Event11 event1;
 
     @JsonCreator
     public GetEventByIdResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<Blob> rawResponse,
-            @Nullable Event1 event) {
+            @Nullable Event11 event1) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
                 .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
-        this.event = event;
+        this.event1 = event1;
     }
 
     public GetEventByIdResponse(@Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
@@ -79,8 +79,8 @@ public class GetEventByIdResponse implements AsyncResponse {
     /**
      * Successfully retrieved the event.
      */
-    public Optional<Event1> event() {
-        return Optional.ofNullable(this.event);
+    public Optional<Event11> event1() {
+        return Optional.ofNullable(this.event1);
     }
 
     public static Builder builder() {
@@ -114,8 +114,8 @@ public class GetEventByIdResponse implements AsyncResponse {
     /**
      * Successfully retrieved the event.
      */
-    public GetEventByIdResponse withEvent(@Nullable Event1 event) {
-        this.event = event;
+    public GetEventByIdResponse withEvent1(@Nullable Event11 event1) {
+        this.event1 = event1;
         return this;
     }
 
@@ -131,12 +131,12 @@ public class GetEventByIdResponse implements AsyncResponse {
         return Utils.enhancedDeepEquals(this.contentType, other.contentType)
                 && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
                 && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
-                && Utils.enhancedDeepEquals(this.event, other.event);
+                && Utils.enhancedDeepEquals(this.event1, other.event1);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(contentType, statusCode, rawResponse, event);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, event1);
     }
 
     @Override
@@ -149,8 +149,8 @@ public class GetEventByIdResponse implements AsyncResponse {
                 statusCode,
                 "rawResponse",
                 rawResponse,
-                "event",
-                event);
+                "event1",
+                event1);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -162,7 +162,7 @@ public class GetEventByIdResponse implements AsyncResponse {
 
         private HttpResponse<Blob> rawResponse;
 
-        private Event1 event;
+        private Event11 event1;
 
         private Builder() {
             // force use of static builder() method
@@ -195,13 +195,13 @@ public class GetEventByIdResponse implements AsyncResponse {
         /**
          * Successfully retrieved the event.
          */
-        public Builder event(@Nullable Event1 event) {
-            this.event = event;
+        public Builder event1(@Nullable Event11 event1) {
+            this.event1 = event1;
             return this;
         }
 
         public GetEventByIdResponse build() {
-            return new GetEventByIdResponse(contentType, statusCode, rawResponse, event);
+            return new GetEventByIdResponse(contentType, statusCode, rawResponse, event1);
         }
     }
 }

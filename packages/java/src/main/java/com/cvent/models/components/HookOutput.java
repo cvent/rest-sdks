@@ -74,7 +74,7 @@ public class HookOutput {
      * variant.
      */
     @JsonProperty("security")
-    private HookSecurityJsonOutput security;
+    private HookSecurityOutput security;
 
     @JsonCreator
     public HookOutput(
@@ -85,7 +85,7 @@ public class HookOutput {
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("callback") @Nonnull String callback,
-            @JsonProperty("security") @Nonnull HookSecurityJsonOutput security) {
+            @JsonProperty("security") @Nonnull HookSecurityOutput security) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -98,7 +98,7 @@ public class HookOutput {
                 .orElseThrow(() -> new IllegalArgumentException("security cannot be null"));
     }
 
-    public HookOutput(@Nonnull String name, @Nonnull String callback, @Nonnull HookSecurityJsonOutput security) {
+    public HookOutput(@Nonnull String name, @Nonnull String callback, @Nonnull HookSecurityOutput security) {
         this(null, null, null, null, null, name, callback, security);
     }
 
@@ -156,7 +156,7 @@ public class HookOutput {
      * Describe security for a web hook callback. Each option corresponds to an Authorization header
      * variant.
      */
-    public HookSecurityJsonOutput security() {
+    public HookSecurityOutput security() {
         return this.security;
     }
 
@@ -225,7 +225,7 @@ public class HookOutput {
      * Describe security for a web hook callback. Each option corresponds to an Authorization header
      * variant.
      */
-    public HookOutput withSecurity(@Nonnull HookSecurityJsonOutput security) {
+    public HookOutput withSecurity(@Nonnull HookSecurityOutput security) {
         this.security = Utils.checkNotNull(security, "security");
         return this;
     }
@@ -293,7 +293,7 @@ public class HookOutput {
 
         private String callback;
 
-        private HookSecurityJsonOutput security;
+        private HookSecurityOutput security;
 
         private Builder() {
             // force use of static builder() method
@@ -360,7 +360,7 @@ public class HookOutput {
          * Describe security for a web hook callback. Each option corresponds to an Authorization header
          * variant.
          */
-        public Builder security(@Nonnull HookSecurityJsonOutput security) {
+        public Builder security(@Nonnull HookSecurityOutput security) {
             this.security = Utils.checkNotNull(security, "security");
             return this;
         }

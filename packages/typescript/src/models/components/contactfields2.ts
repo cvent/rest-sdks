@@ -7,11 +7,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ContactFieldJson,
-  ContactFieldJson$inboundSchema,
-  ContactFieldJson$Outbound,
-  ContactFieldJson$outboundSchema,
-} from "./contactfieldjsoninput.js";
+  ContactField,
+  ContactField$inboundSchema,
+  ContactField$Outbound,
+  ContactField$outboundSchema,
+} from "./contactfieldinput.js";
 
 /**
  * An array of standard contact fields supported by Cvent.
@@ -20,7 +20,7 @@ export type ContactFields2 = {
   /**
    * Collection of standard contact fields.
    */
-  data: Array<ContactFieldJson>;
+  data: Array<ContactField>;
 };
 
 /** @internal */
@@ -29,11 +29,11 @@ export const ContactFields2$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(ContactFieldJson$inboundSchema),
+  data: z.array(ContactField$inboundSchema),
 });
 /** @internal */
 export type ContactFields2$Outbound = {
-  data: Array<ContactFieldJson$Outbound>;
+  data: Array<ContactField$Outbound>;
 };
 
 /** @internal */
@@ -42,7 +42,7 @@ export const ContactFields2$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ContactFields2
 > = z.object({
-  data: z.array(ContactFieldJson$outboundSchema),
+  data: z.array(ContactField$outboundSchema),
 });
 
 export function contactFields2ToJSON(contactFields2: ContactFields2): string {

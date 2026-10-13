@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
+import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
@@ -57,22 +58,40 @@ public class ExistingSeating {
     @JsonProperty("id")
     private String id;
 
+    /**
+     * The total number of tables in the seating.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("tableCount")
+    private Long tableCount;
+
+    /**
+     * The total seat capacity of the seating.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("totalCapacity")
+    private Long totalCapacity;
+
     @JsonCreator
     public ExistingSeating(
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("readOnly") @Nullable Boolean readOnly,
             @JsonProperty("sourceId") @Nullable String sourceId,
-            @JsonProperty("id") @Nullable String id) {
+            @JsonProperty("id") @Nullable String id,
+            @JsonProperty("tableCount") @Nullable Long tableCount,
+            @JsonProperty("totalCapacity") @Nullable Long totalCapacity) {
         this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.code = code;
         this.readOnly = readOnly;
         this.sourceId = sourceId;
         this.id = id;
+        this.tableCount = tableCount;
+        this.totalCapacity = totalCapacity;
     }
 
     public ExistingSeating(@Nonnull String name) {
-        this(name, null, null, null, null);
+        this(name, null, null, null, null, null, null);
     }
 
     /**
@@ -110,6 +129,20 @@ public class ExistingSeating {
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
+    }
+
+    /**
+     * The total number of tables in the seating.
+     */
+    public Optional<Long> tableCount() {
+        return Optional.ofNullable(this.tableCount);
+    }
+
+    /**
+     * The total seat capacity of the seating.
+     */
+    public Optional<Long> totalCapacity() {
+        return Optional.ofNullable(this.totalCapacity);
     }
 
     public static Builder builder() {
@@ -158,6 +191,22 @@ public class ExistingSeating {
         return this;
     }
 
+    /**
+     * The total number of tables in the seating.
+     */
+    public ExistingSeating withTableCount(@Nullable Long tableCount) {
+        this.tableCount = tableCount;
+        return this;
+    }
+
+    /**
+     * The total seat capacity of the seating.
+     */
+    public ExistingSeating withTotalCapacity(@Nullable Long totalCapacity) {
+        this.totalCapacity = totalCapacity;
+        return this;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -171,12 +220,14 @@ public class ExistingSeating {
                 && Utils.enhancedDeepEquals(this.code, other.code)
                 && Utils.enhancedDeepEquals(this.readOnly, other.readOnly)
                 && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
-                && Utils.enhancedDeepEquals(this.id, other.id);
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.tableCount, other.tableCount)
+                && Utils.enhancedDeepEquals(this.totalCapacity, other.totalCapacity);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(name, code, readOnly, sourceId, id);
+        return Utils.enhancedHash(name, code, readOnly, sourceId, id, tableCount, totalCapacity);
     }
 
     @Override
@@ -192,7 +243,11 @@ public class ExistingSeating {
                 "sourceId",
                 sourceId,
                 "id",
-                id);
+                id,
+                "tableCount",
+                tableCount,
+                "totalCapacity",
+                totalCapacity);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -207,6 +262,10 @@ public class ExistingSeating {
         private String sourceId;
 
         private String id;
+
+        private Long tableCount;
+
+        private Long totalCapacity;
 
         private Builder() {
             // force use of static builder() method
@@ -254,8 +313,24 @@ public class ExistingSeating {
             return this;
         }
 
+        /**
+         * The total number of tables in the seating.
+         */
+        public Builder tableCount(@Nullable Long tableCount) {
+            this.tableCount = tableCount;
+            return this;
+        }
+
+        /**
+         * The total seat capacity of the seating.
+         */
+        public Builder totalCapacity(@Nullable Long totalCapacity) {
+            this.totalCapacity = totalCapacity;
+            return this;
+        }
+
         public ExistingSeating build() {
-            return new ExistingSeating(name, code, readOnly, sourceId, id);
+            return new ExistingSeating(name, code, readOnly, sourceId, id, tableCount, totalCapacity);
         }
     }
 }

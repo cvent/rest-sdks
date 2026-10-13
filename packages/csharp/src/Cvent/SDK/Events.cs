@@ -139,7 +139,10 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse12">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<CreateEventAsyncResponse> CreateEventAsyncAsync(EventInput request, RetryConfig? retryConfig = null);
+        public Task<CreateEventAsyncResponse> CreateEventAsyncAsync(
+            Event1Input request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Get Event Async Status<br/>
@@ -921,10 +924,10 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets registrant data for sessions. The returned data depends on the individual session type.   - **Optional Sessions:** Provides a paginated list of attendees registered for the session.   - **Included Session:** Provides a paginated list of attendees who have participated or been<br/>
+        /// Gets registrant data for sessions. The returned data depends on the individual session type. - **Optional Sessions:** Provides a paginated list of attendees registered for the session. - **Included Session:** Provides a paginated list of attendees who have participated or been<br/>
         ///   marked as no-shows. It does not list all registered attendees.<br/>
         /// <br/>
-        /// This method will return the same data as <a href="#operation/listSessionsEnrollment">GET List Session Registrants</a>  but allows for longer filters.
+        /// This method will return the same data as <a href="#operation/listSessionsEnrollment">GET List Session Registrants</a> but allows for longer filters.
         /// </remarks>
         /// <param name="request">A <see cref="ListSessionsEnrollmentPostFilterRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1003,10 +1006,11 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Register an attendee in the given session. Requires the modify registration widget to be<br/>
+        /// Submit an enrollment request for an attendee in the given session. Requires the modify registration widget to be<br/>
         /// present on the event's registration path. See the following<br/>
         /// <a href="https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown">article</a> for<br/>
-        /// more information.
+        /// more information.<br/>
+        /// The request is processed asynchronously after the downstream registration call returns. A successful response means that the enrollment request was accepted for processing; it does not guarantee that the attendee is already enrolled or immediately queryable.
         /// </remarks>
         /// <param name="request">A <see cref="CreateSessionEnrollmentRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2065,7 +2069,7 @@ namespace Cvent.SDK
         /// <exception cref="Models.Errors.ErrorResponse12">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<CreateEventAsyncResponse> CreateEventAsyncAsync(
-            EventInput request,
+            Event1Input request,
             RetryConfig? retryConfig = null
         )
         {
@@ -3211,14 +3215,14 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Event1 obj;
+                    Event11 obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<Event1>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<Event11>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Event1.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Event11.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new GetEventByIdResponse() {
@@ -3227,7 +3231,7 @@ namespace Cvent.SDK
                             Request = httpRequest
                         }
                     };
-                    response.Event = obj;
+                    response.Event1 = obj;
                     return response;
                 }
 
@@ -9663,10 +9667,10 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets registrant data for sessions. The returned data depends on the individual session type.   - **Optional Sessions:** Provides a paginated list of attendees registered for the session.   - **Included Session:** Provides a paginated list of attendees who have participated or been<br/>
+        /// Gets registrant data for sessions. The returned data depends on the individual session type. - **Optional Sessions:** Provides a paginated list of attendees registered for the session. - **Included Session:** Provides a paginated list of attendees who have participated or been<br/>
         ///   marked as no-shows. It does not list all registered attendees.<br/>
         /// <br/>
-        /// This method will return the same data as <a href="#operation/listSessionsEnrollment">GET List Session Registrants</a>  but allows for longer filters.
+        /// This method will return the same data as <a href="#operation/listSessionsEnrollment">GET List Session Registrants</a> but allows for longer filters.
         /// </remarks>
         /// <param name="request">A <see cref="ListSessionsEnrollmentPostFilterRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -10364,10 +10368,11 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Register an attendee in the given session. Requires the modify registration widget to be<br/>
+        /// Submit an enrollment request for an attendee in the given session. Requires the modify registration widget to be<br/>
         /// present on the event's registration path. See the following<br/>
         /// <a href="https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown">article</a> for<br/>
-        /// more information.
+        /// more information.<br/>
+        /// The request is processed asynchronously after the downstream registration call returns. A successful response means that the enrollment request was accepted for processing; it does not guarantee that the attendee is already enrolled or immediately queryable.
         /// </remarks>
         /// <param name="request">A <see cref="CreateSessionEnrollmentRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

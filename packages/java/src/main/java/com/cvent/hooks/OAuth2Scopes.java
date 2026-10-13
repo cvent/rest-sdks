@@ -1077,6 +1077,36 @@ public final class OAuth2Scopes {
         VenueNeedDatesWrite("venue/need-dates:write"),
 
         /**
+         * Allows disassociating images from attractions.
+         */
+        VenueVenueAttractionImagesDelete("venue/venue-attraction-images:delete"),
+
+        /**
+         * Allows retrieving attraction images.
+         */
+        VenueVenueAttractionImagesRead("venue/venue-attraction-images:read"),
+
+        /**
+         * Allows associating images with attractions.
+         */
+        VenueVenueAttractionImagesWrite("venue/venue-attraction-images:write"),
+
+        /**
+         * Allows the deletion of venue attractions.
+         */
+        VenueVenueAttractionsDelete("venue/venue-attractions:delete"),
+
+        /**
+         * Allows reading of venue attractions.
+         */
+        VenueVenueAttractionsRead("venue/venue-attractions:read"),
+
+        /**
+         * Allows the creation and modification of venue attractions.
+         */
+        VenueVenueAttractionsWrite("venue/venue-attractions:write"),
+
+        /**
          * Allows read access for overview of venue details.
          */
         VenueVenueDetailsOverviewRead("venue/venue-details-overview:read"),
@@ -2342,6 +2372,36 @@ public final class OAuth2Scopes {
          * Allows the creation and modification of venue need dates.
          */
         VenueNeedDatesWrite("venue/need-dates:write"),
+
+        /**
+         * Allows disassociating images from attractions.
+         */
+        VenueVenueAttractionImagesDelete("venue/venue-attraction-images:delete"),
+
+        /**
+         * Allows retrieving attraction images.
+         */
+        VenueVenueAttractionImagesRead("venue/venue-attraction-images:read"),
+
+        /**
+         * Allows associating images with attractions.
+         */
+        VenueVenueAttractionImagesWrite("venue/venue-attraction-images:write"),
+
+        /**
+         * Allows the deletion of venue attractions.
+         */
+        VenueVenueAttractionsDelete("venue/venue-attractions:delete"),
+
+        /**
+         * Allows reading of venue attractions.
+         */
+        VenueVenueAttractionsRead("venue/venue-attractions:read"),
+
+        /**
+         * Allows the creation and modification of venue attractions.
+         */
+        VenueVenueAttractionsWrite("venue/venue-attractions:write"),
 
         /**
          * Allows read access for overview of venue details.

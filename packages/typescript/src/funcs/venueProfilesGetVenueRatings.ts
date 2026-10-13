@@ -33,6 +33,8 @@ import { Result } from "../types/fp.js";
  * Retrieve the current ratings and awards for the specified venue.
  *
  * Returns all rating agencies applicable to this venue (based on its type and country), including agencies where no rating has been saved yet. Use this response to discover which agencies are valid and which can be set as primary before submitting a PUT request.
+ *
+ * Not applicable to CVB/DMC venues.
  */
 export function venueProfilesGetVenueRatings(
   client: CventSDKCore,

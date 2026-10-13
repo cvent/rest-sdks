@@ -9,6 +9,7 @@ import { attendeesGetBadgesPostFilters } from "../funcs/attendeesGetBadgesPostFi
 import { attendeesListAttendees } from "../funcs/attendeesListAttendees.js";
 import { attendeesListAttendeesPostFilter } from "../funcs/attendeesListAttendeesPostFilter.js";
 import { attendeesListDurations } from "../funcs/attendeesListDurations.js";
+import { attendeesListOptionalItems } from "../funcs/attendeesListOptionalItems.js";
 import { attendeesPostBadge } from "../funcs/attendeesPostBadge.js";
 import { attendeesUpdateAttendee } from "../funcs/attendeesUpdateAttendee.js";
 import { attendeesUpdateAttendeeSubscriptionStatus } from "../funcs/attendeesUpdateAttendeeSubscriptionStatus.js";
@@ -173,6 +174,27 @@ export class Attendees extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.AttendeeInternalInfo> {
     return unwrapAsync(attendeesUpdateInternalInfoAnswers(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Attendee Optional Items
+   *
+   * @remarks
+   * Lists all optional items selected by a single attendee during event registration.
+   *
+   * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
+   */
+  async listOptionalItems(
+    request: operations.ListOptionalItemsRequest,
+    options?: RequestOptions,
+  ): Promise<
+    PageIterator<operations.ListOptionalItemsResponse, { cursor: string }>
+  > {
+    return unwrapResultIterator(attendeesListOptionalItems(
       this,
       request,
       options,

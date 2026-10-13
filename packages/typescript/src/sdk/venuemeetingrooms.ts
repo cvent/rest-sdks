@@ -21,6 +21,8 @@ export class VenueMeetingRooms extends ClientSDK {
    *
    * @remarks
    * Create a new meeting room for the specified venue.
+   *
+   * Not applicable to CVB/DMC venues.
    */
   async createMeetingRoom(
     request: operations.CreateMeetingRoomRequest,
@@ -38,6 +40,8 @@ export class VenueMeetingRooms extends ClientSDK {
    *
    * @remarks
    * Retrieve a paginated list of meeting room overviews for the specified venue.
+   *
+   * Not applicable to CVB/DMC venues.
    */
   async listMeetingRoomsOverviews(
     request: operations.ListMeetingRoomsOverviewsRequest,
@@ -55,6 +59,8 @@ export class VenueMeetingRooms extends ClientSDK {
    *
    * @remarks
    * Update a meeting room for the specified venue, replacing the existing meeting room data.
+   *
+   * Not applicable to CVB/DMC venues.
    */
   async updateMeetingRoom(
     request: operations.UpdateMeetingRoomRequest,
@@ -72,6 +78,8 @@ export class VenueMeetingRooms extends ClientSDK {
    *
    * @remarks
    * Partially update a meeting room for the specified venue.
+   *
+   * Not applicable to CVB/DMC venues.
    *
    * - Only fields present in the request body are updated; omitted fields remain unchanged.
    * - Set a field to `null` to unset it.
@@ -96,6 +104,8 @@ export class VenueMeetingRooms extends ClientSDK {
    * Associate a previously uploaded image with a meeting room using a file UUID from the <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current image if one is already associated.
    *
    * **Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg, .jpeg) are accepted. Maximum file size is 10 MB.
+   *
+   * Not applicable to CVB/DMC venues.
    */
   async associateMeetingRoomImage(
     request: operations.AssociateMeetingRoomImageRequest,
@@ -113,6 +123,8 @@ export class VenueMeetingRooms extends ClientSDK {
    *
    * @remarks
    * Retrieves the images associated with a meeting room. Each meeting room has at most one image.
+   *
+   * Not applicable to CVB/DMC venues.
    */
   async listMeetingRoomImages(
     request: operations.ListMeetingRoomImagesRequest,
@@ -130,6 +142,8 @@ export class VenueMeetingRooms extends ClientSDK {
    *
    * @remarks
    * Disassociates the current image from a meeting room.
+   *
+   * Not applicable to CVB/DMC venues.
    */
   async disassociateMeetingRoomImage(
     request: operations.DisassociateMeetingRoomImageRequest,
@@ -147,6 +161,8 @@ export class VenueMeetingRooms extends ClientSDK {
    *
    * @remarks
    * Retrieve an overview of a specific meeting room for the specified venue.
+   *
+   * Not applicable to CVB/DMC venues.
    */
   async getMeetingRoomOverview(
     request: operations.GetMeetingRoomOverviewRequest,

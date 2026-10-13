@@ -35,13 +35,13 @@ public class HookInput {
      * variant.
      */
     @JsonProperty("security")
-    private HookSecurityJson security;
+    private HookSecurity security;
 
     @JsonCreator
     public HookInput(
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("callback") @Nonnull String callback,
-            @JsonProperty("security") @Nonnull HookSecurityJson security) {
+            @JsonProperty("security") @Nonnull HookSecurity security) {
         this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.callback = Optional.ofNullable(callback)
                 .orElseThrow(() -> new IllegalArgumentException("callback cannot be null"));
@@ -68,7 +68,7 @@ public class HookInput {
      * Describe security for a web hook callback. Each option corresponds to an Authorization header
      * variant.
      */
-    public HookSecurityJson security() {
+    public HookSecurity security() {
         return this.security;
     }
 
@@ -97,7 +97,7 @@ public class HookInput {
      * Describe security for a web hook callback. Each option corresponds to an Authorization header
      * variant.
      */
-    public HookInput withSecurity(@Nonnull HookSecurityJson security) {
+    public HookInput withSecurity(@Nonnull HookSecurity security) {
         this.security = Utils.checkNotNull(security, "security");
         return this;
     }
@@ -133,7 +133,7 @@ public class HookInput {
 
         private String callback;
 
-        private HookSecurityJson security;
+        private HookSecurity security;
 
         private Builder() {
             // force use of static builder() method
@@ -160,7 +160,7 @@ public class HookInput {
          * Describe security for a web hook callback. Each option corresponds to an Authorization header
          * variant.
          */
-        public Builder security(@Nonnull HookSecurityJson security) {
+        public Builder security(@Nonnull HookSecurity security) {
             this.security = Utils.checkNotNull(security, "security");
             return this;
         }

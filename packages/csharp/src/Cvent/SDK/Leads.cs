@@ -38,6 +38,8 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
+        /// **Deprecated.** The E-literature Requests feature has been sunset.<br/>
+        /// <br/>
         /// Gets a paginated list of eliterature requests data.
         /// </remarks>
         /// <param name="request">A <see cref="GetEliteratureRequestsRequest"/> parameter.</param>
@@ -47,6 +49,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse12">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public Task<GetEliteratureRequestsResponse> GetEliteratureRequestsAsync(
             GetEliteratureRequestsRequest? request = null,
             RetryConfig? retryConfig = null
@@ -133,6 +136,8 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
+        /// **Deprecated.** The E-literature Requests feature has been sunset.<br/>
+        /// <br/>
         /// Gets a paginated list of eliterature requests data.
         /// </remarks>
         /// <param name="request">A <see cref="GetEliteratureRequestsRequest"/> parameter.</param>
@@ -142,6 +147,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse12">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetEliteratureRequestsResponse> GetEliteratureRequestsAsync(
             GetEliteratureRequestsRequest? request = null,
             RetryConfig? retryConfig = null

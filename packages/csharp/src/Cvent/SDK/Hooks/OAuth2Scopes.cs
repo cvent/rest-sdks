@@ -1081,6 +1081,36 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("venue/need-dates:write")] VenueNeedDatesWrite,
 
         /// <summary>
+        /// Allows disassociating images from attractions.
+        /// </summary>
+        [JsonProperty("venue/venue-attraction-images:delete")] VenueVenueAttractionImagesDelete,
+
+        /// <summary>
+        /// Allows retrieving attraction images.
+        /// </summary>
+        [JsonProperty("venue/venue-attraction-images:read")] VenueVenueAttractionImagesRead,
+
+        /// <summary>
+        /// Allows associating images with attractions.
+        /// </summary>
+        [JsonProperty("venue/venue-attraction-images:write")] VenueVenueAttractionImagesWrite,
+
+        /// <summary>
+        /// Allows the deletion of venue attractions.
+        /// </summary>
+        [JsonProperty("venue/venue-attractions:delete")] VenueVenueAttractionsDelete,
+
+        /// <summary>
+        /// Allows reading of venue attractions.
+        /// </summary>
+        [JsonProperty("venue/venue-attractions:read")] VenueVenueAttractionsRead,
+
+        /// <summary>
+        /// Allows the creation and modification of venue attractions.
+        /// </summary>
+        [JsonProperty("venue/venue-attractions:write")] VenueVenueAttractionsWrite,
+
+        /// <summary>
         /// Allows read access for overview of venue details.
         /// </summary>
         [JsonProperty("venue/venue-details-overview:read")] VenueVenueDetailsOverviewRead,
@@ -2361,6 +2391,36 @@ namespace Cvent.SDK.Hooks
         /// Allows the creation and modification of venue need dates.
         /// </summary>
         [JsonProperty("venue/need-dates:write")] VenueNeedDatesWrite,
+
+        /// <summary>
+        /// Allows disassociating images from attractions.
+        /// </summary>
+        [JsonProperty("venue/venue-attraction-images:delete")] VenueVenueAttractionImagesDelete,
+
+        /// <summary>
+        /// Allows retrieving attraction images.
+        /// </summary>
+        [JsonProperty("venue/venue-attraction-images:read")] VenueVenueAttractionImagesRead,
+
+        /// <summary>
+        /// Allows associating images with attractions.
+        /// </summary>
+        [JsonProperty("venue/venue-attraction-images:write")] VenueVenueAttractionImagesWrite,
+
+        /// <summary>
+        /// Allows the deletion of venue attractions.
+        /// </summary>
+        [JsonProperty("venue/venue-attractions:delete")] VenueVenueAttractionsDelete,
+
+        /// <summary>
+        /// Allows reading of venue attractions.
+        /// </summary>
+        [JsonProperty("venue/venue-attractions:read")] VenueVenueAttractionsRead,
+
+        /// <summary>
+        /// Allows the creation and modification of venue attractions.
+        /// </summary>
+        [JsonProperty("venue/venue-attractions:write")] VenueVenueAttractionsWrite,
 
         /// <summary>
         /// Allows read access for overview of venue details.

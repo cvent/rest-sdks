@@ -54,7 +54,7 @@ export class RFPManagement extends ClientSDK {
   async getRFP(
     request: operations.GetRFPRequest,
     options?: RequestOptions,
-  ): Promise<components.Rfp> {
+  ): Promise<components.Rfp2> {
     return unwrapAsync(rfpManagementGetRFP(
       this,
       request,

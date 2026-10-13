@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Paging, Paging$inboundSchema } from "./paging.js";
-import { QuantityItem, QuantityItem$inboundSchema } from "./quantityitem.js";
+import { QuantityItem2, QuantityItem2$inboundSchema } from "./quantityitem2.js";
 
 /**
  * A paginated response of quantity items objects.
@@ -20,7 +20,7 @@ export type QuantityItemsPaginatedResponse = {
   /**
    * Collection of quantity items.
    */
-  data: Array<QuantityItem>;
+  data: Array<QuantityItem2>;
 };
 
 /** @internal */
@@ -30,7 +30,7 @@ export const QuantityItemsPaginatedResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   paging: Paging$inboundSchema,
-  data: z.array(QuantityItem$inboundSchema),
+  data: z.array(QuantityItem2$inboundSchema),
 });
 
 export function quantityItemsPaginatedResponseFromJSON(

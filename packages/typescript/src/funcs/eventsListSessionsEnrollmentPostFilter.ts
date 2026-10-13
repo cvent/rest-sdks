@@ -36,10 +36,10 @@ import {
  * List Session Registrants
  *
  * @remarks
- * Gets registrant data for sessions. The returned data depends on the individual session type.   - **Optional Sessions:** Provides a paginated list of attendees registered for the session.   - **Included Session:** Provides a paginated list of attendees who have participated or been
+ * Gets registrant data for sessions. The returned data depends on the individual session type. - **Optional Sessions:** Provides a paginated list of attendees registered for the session. - **Included Session:** Provides a paginated list of attendees who have participated or been
  *   marked as no-shows. It does not list all registered attendees.
  *
- * This method will return the same data as [GET List Session Registrants](#operation/listSessionsEnrollment)  but allows for longer filters.
+ * This method will return the same data as [GET List Session Registrants](#operation/listSessionsEnrollment) but allows for longer filters.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

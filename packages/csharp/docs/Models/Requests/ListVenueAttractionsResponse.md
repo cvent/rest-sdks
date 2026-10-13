@@ -1,0 +1,9 @@
+# ListVenueAttractionsResponse
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                        | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                           | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `VenueAttractionsPaginatedResponse`                                                               | [VenueAttractionsPaginatedResponse](../../Models/Components/VenueAttractionsPaginatedResponse.md) | :heavy_minus_sign:                                                                                | Successfully retrieved the list of venue attractions.                                             |

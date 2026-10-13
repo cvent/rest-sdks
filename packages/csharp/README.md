@@ -210,6 +210,7 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [UpdateAttendee](docs/sdks/attendees/README.md#updateattendee) - Update Attendee
 * [UpdateAttendeeSubscriptionStatus](docs/sdks/attendees/README.md#updateattendeesubscriptionstatus) - Update Email Subscription
 * [UpdateInternalInfoAnswers](docs/sdks/attendees/README.md#updateinternalinfoanswers) - Update Internal Information
+* [ListOptionalItems](docs/sdks/attendees/README.md#listoptionalitems) - List Attendee Optional Items
 * [PostBadge](docs/sdks/attendees/README.md#postbadge) - Create Badge
 * [GetBadge](docs/sdks/attendees/README.md#getbadge) - Get Badge
 * [GetBadgesPostFilters](docs/sdks/attendees/README.md#getbadgespostfilters) - Get Badges
@@ -542,7 +543,7 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 
 ### [Leads](docs/sdks/leads/README.md)
 
-* [GetEliteratureRequests](docs/sdks/leads/README.md#geteliteraturerequests) - List E-literature Requests
+* [~~GetEliteratureRequests~~](docs/sdks/leads/README.md#geteliteraturerequests) - List E-literature Requests :warning: **Deprecated**
 * [GetLeadQualificationAnswers](docs/sdks/leads/README.md#getleadqualificationanswers) - List Qualification Answers
 * [GetLeads](docs/sdks/leads/README.md#getleads) - List Leads
 * [GetLeadsPostFiltersData](docs/sdks/leads/README.md#getleadspostfiltersdata) - List Leads
@@ -775,10 +776,18 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 
 ### [VenueContent](docs/sdks/venuecontent/README.md)
 
+* [ListVenueAttractions](docs/sdks/venuecontent/README.md#listvenueattractions) - List Venue Attractions
+* [CreateVenueAttraction](docs/sdks/venuecontent/README.md#createvenueattraction) - Create Venue Attraction
+* [GetVenueAttraction](docs/sdks/venuecontent/README.md#getvenueattraction) - Get Venue Attraction
+* [UpdateVenueAttraction](docs/sdks/venuecontent/README.md#updatevenueattraction) - Update Venue Attraction
+* [DeleteVenueAttraction](docs/sdks/venuecontent/README.md#deletevenueattraction) - Delete Venue Attraction
+* [AssociateAttractionImage](docs/sdks/venuecontent/README.md#associateattractionimage) - Associate Attraction Image
+* [GetAttractionImages](docs/sdks/venuecontent/README.md#getattractionimages) - Get Attraction Images
+* [DisassociateAttractionImage](docs/sdks/venuecontent/README.md#disassociateattractionimage) - Remove Attraction Image
 * [CreateVenueImageMetadata](docs/sdks/venuecontent/README.md#createvenueimagemetadata) - Create Venue Image Metadata
-* [ListVenueImagesMetadata](docs/sdks/venuecontent/README.md#listvenueimagesmetadata) - List Images Metadata
+* [ListVenueImagesMetadata](docs/sdks/venuecontent/README.md#listvenueimagesmetadata) - List Venue Images Metadata
 * [UpdateVenueImageMetadata](docs/sdks/venuecontent/README.md#updatevenueimagemetadata) - Update Venue Image Metadata
-* [GetVenueImageMetadata](docs/sdks/venuecontent/README.md#getvenueimagemetadata) - Get Image Metadata
+* [GetVenueImageMetadata](docs/sdks/venuecontent/README.md#getvenueimagemetadata) - Get Venue Image Metadata
 * [AssociateVenueImage](docs/sdks/venuecontent/README.md#associatevenueimage) - Associate Venue Image
 * [DisassociateVenueImage](docs/sdks/venuecontent/README.md#disassociatevenueimage) - Remove Venue Image
 
@@ -1047,10 +1056,10 @@ catch (System.Net.Http.HttpRequestException ex)
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs):
-  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 18 of 488 methods.*
-  * [`ErrorResponse16`](./src/Cvent/SDK/Models/Errors/ErrorResponse16.cs): The error response. Applicable to 11 of 488 methods.*
-  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 488 methods.*
-  * [`Oauth2TokenPostResponse0Exception`](./src/Cvent/SDK/Models/Errors/Oauth2TokenPostResponse0Exception.cs): A bad token response. Status code `400`. Applicable to 1 of 488 methods.*
+  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 18 of 497 methods.*
+  * [`ErrorResponse17`](./src/Cvent/SDK/Models/Errors/ErrorResponse17.cs): The error response. Applicable to 11 of 497 methods.*
+  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 497 methods.*
+  * [`Oauth2TokenPostResponse0Exception`](./src/Cvent/SDK/Models/Errors/Oauth2TokenPostResponse0Exception.cs): A bad token response. Status code `400`. Applicable to 1 of 497 methods.*
   * [`ResponseValidationError`](./src/Cvent/SDK/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
 </details>
 

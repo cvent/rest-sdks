@@ -51,25 +51,26 @@ public class AccountBudgetItemListResponse {
     private String lastModifiedBy;
 
     /**
-     * Budget Version ID Information.
+     * Event ID Information.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private BudgetVersionId event;
+    private Event1 event;
 
     /**
-     * Budget Version ID Information.
+     * Represents the RFP associated with a budget item.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rfp")
-    private BudgetVersionId rfp;
+    private Rfp1 rfp;
 
     /**
-     * Budget Version ID Information.
+     * Budget version ID information. Defaults to the account's default budget version when creating or
+     * updating budget items.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("budgetVersion")
-    private BudgetVersionId budgetVersion;
+    private BudgetVersion budgetVersion;
 
     /**
      * The identifier of the budget item.
@@ -119,9 +120,9 @@ public class AccountBudgetItemListResponse {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nullable BudgetVersionId event,
-            @JsonProperty("rfp") @Nullable BudgetVersionId rfp,
-            @JsonProperty("budgetVersion") @Nullable BudgetVersionId budgetVersion,
+            @JsonProperty("event") @Nullable Event1 event,
+            @JsonProperty("rfp") @Nullable Rfp1 rfp,
+            @JsonProperty("budgetVersion") @Nullable BudgetVersion budgetVersion,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("code") @Nullable String code,
@@ -176,23 +177,24 @@ public class AccountBudgetItemListResponse {
     }
 
     /**
-     * Budget Version ID Information.
+     * Event ID Information.
      */
-    public Optional<BudgetVersionId> event() {
+    public Optional<Event1> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
-     * Budget Version ID Information.
+     * Represents the RFP associated with a budget item.
      */
-    public Optional<BudgetVersionId> rfp() {
+    public Optional<Rfp1> rfp() {
         return Optional.ofNullable(this.rfp);
     }
 
     /**
-     * Budget Version ID Information.
+     * Budget version ID information. Defaults to the account's default budget version when creating or
+     * updating budget items.
      */
-    public Optional<BudgetVersionId> budgetVersion() {
+    public Optional<BudgetVersion> budgetVersion() {
         return Optional.ofNullable(this.budgetVersion);
     }
 
@@ -275,25 +277,26 @@ public class AccountBudgetItemListResponse {
     }
 
     /**
-     * Budget Version ID Information.
+     * Event ID Information.
      */
-    public AccountBudgetItemListResponse withEvent(@Nullable BudgetVersionId event) {
+    public AccountBudgetItemListResponse withEvent(@Nullable Event1 event) {
         this.event = event;
         return this;
     }
 
     /**
-     * Budget Version ID Information.
+     * Represents the RFP associated with a budget item.
      */
-    public AccountBudgetItemListResponse withRfp(@Nullable BudgetVersionId rfp) {
+    public AccountBudgetItemListResponse withRfp(@Nullable Rfp1 rfp) {
         this.rfp = rfp;
         return this;
     }
 
     /**
-     * Budget Version ID Information.
+     * Budget version ID information. Defaults to the account's default budget version when creating or
+     * updating budget items.
      */
-    public AccountBudgetItemListResponse withBudgetVersion(@Nullable BudgetVersionId budgetVersion) {
+    public AccountBudgetItemListResponse withBudgetVersion(@Nullable BudgetVersion budgetVersion) {
         this.budgetVersion = budgetVersion;
         return this;
     }
@@ -431,11 +434,11 @@ public class AccountBudgetItemListResponse {
 
         private String lastModifiedBy;
 
-        private BudgetVersionId event;
+        private Event1 event;
 
-        private BudgetVersionId rfp;
+        private Rfp1 rfp;
 
-        private BudgetVersionId budgetVersion;
+        private BudgetVersion budgetVersion;
 
         private String id;
 
@@ -486,25 +489,26 @@ public class AccountBudgetItemListResponse {
         }
 
         /**
-         * Budget Version ID Information.
+         * Event ID Information.
          */
-        public Builder event(@Nullable BudgetVersionId event) {
+        public Builder event(@Nullable Event1 event) {
             this.event = event;
             return this;
         }
 
         /**
-         * Budget Version ID Information.
+         * Represents the RFP associated with a budget item.
          */
-        public Builder rfp(@Nullable BudgetVersionId rfp) {
+        public Builder rfp(@Nullable Rfp1 rfp) {
             this.rfp = rfp;
             return this;
         }
 
         /**
-         * Budget Version ID Information.
+         * Budget version ID information. Defaults to the account's default budget version when creating or
+         * updating budget items.
          */
-        public Builder budgetVersion(@Nullable BudgetVersionId budgetVersion) {
+        public Builder budgetVersion(@Nullable BudgetVersion budgetVersion) {
             this.budgetVersion = budgetVersion;
             return this;
         }

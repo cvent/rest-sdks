@@ -539,14 +539,14 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Rfp obj;
+                    Rfp2 obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<Rfp>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<Rfp2>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Rfp.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Rfp2.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new GetRFPResponse() {

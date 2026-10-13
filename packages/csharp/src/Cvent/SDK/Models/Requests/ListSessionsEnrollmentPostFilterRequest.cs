@@ -41,7 +41,7 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// The request body accepts filters to refine the data returned.  Refer to available filter details in <a href="#operation/listSessionsEnrollment">GET List Session Registrants</a>.
+        /// The request body accepts filters to refine the data returned. Refer to available filter details in <a href="#operation/listSessionsEnrollment">GET List Session Registrants</a>.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Filter? Filter { get; set; }

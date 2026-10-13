@@ -38,16 +38,17 @@ export type GetAccountBudgetItemsRequest = {
    *
    * Supported fields and operators are listed below:
    *
-   * | Field            | Operators  |
-   * |:-----------------|:-----------|
-   * | event.id         | `eq`, `ne` |
-   * | rfp.id           | `eq`, `ne` |
-   * | budgetVersion.id | `eq`, `ne` |
-   * | id               | `eq`, `ne` |
-   * | category.id      | `eq`, `ne` |
-   * | category.name    | `eq`, `ne` |
-   * | subCategory.id   | `eq`, `ne` |
-   * | subCategory.name | `eq`, `ne` |
+   * | Field            | Operators  | Notes                                                                                                                                         |
+   * |:-----------------|:-----------|:----------------------------------------------------------------------------------------------------------------------------------------------|
+   * | event.id         | `eq`, `ne` |                                                                                                                                               |
+   * | rfp.id           | `eq`, `ne` |                                                                                                                                               |
+   * | budgetVersion.id | `eq`, `ne` |                                                                                                                                               |
+   * | id               | `eq`, `ne` |                                                                                                                                               |
+   * | category.id      | `eq`, `ne` |                                                                                                                                               |
+   * | category.name    | `eq`, `ne` |                                                                                                                                               |
+   * | subCategory.id   | `eq`, `ne` |                                                                                                                                               |
+   * | subCategory.name | `eq`, `ne` |                                                                                                                                               |
+   * | deleted          | `eq`, `ne` | Budget items that are deleted are available for 3 months after deletion. After this, they are removed and no longer appear in search results. |
    *
    * The following logical operators are supported for combining filters:
    * * and

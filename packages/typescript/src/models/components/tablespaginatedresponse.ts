@@ -10,7 +10,7 @@ import {
   ExistingTableWithSeats,
   ExistingTableWithSeats$inboundSchema,
 } from "./existingtablewithseats.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to get the event table for the event.
@@ -19,7 +19,7 @@ export type TablesPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * A list of event tables
    */
@@ -32,7 +32,7 @@ export const TablesPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
+  paging: Paging$inboundSchema.optional(),
   data: z.array(ExistingTableWithSeats$inboundSchema),
 });
 

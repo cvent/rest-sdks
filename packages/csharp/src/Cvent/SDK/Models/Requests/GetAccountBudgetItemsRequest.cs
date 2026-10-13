@@ -46,16 +46,17 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// | Field            | Operators  |<br/>
-        /// |:-----------------|:-----------|<br/>
-        /// | event.id         | `eq`, `ne` |<br/>
-        /// | rfp.id           | `eq`, `ne` |<br/>
-        /// | budgetVersion.id | `eq`, `ne` |<br/>
-        /// | id               | `eq`, `ne` |<br/>
-        /// | category.id      | `eq`, `ne` |<br/>
-        /// | category.name    | `eq`, `ne` |<br/>
-        /// | subCategory.id   | `eq`, `ne` |<br/>
-        /// | subCategory.name | `eq`, `ne` |<br/>
+        /// | Field            | Operators  | Notes                                                                                                                                         |<br/>
+        /// |:-----------------|:-----------|:----------------------------------------------------------------------------------------------------------------------------------------------|<br/>
+        /// | event.id         | `eq`, `ne` |                                                                                                                                               |<br/>
+        /// | rfp.id           | `eq`, `ne` |                                                                                                                                               |<br/>
+        /// | budgetVersion.id | `eq`, `ne` |                                                                                                                                               |<br/>
+        /// | id               | `eq`, `ne` |                                                                                                                                               |<br/>
+        /// | category.id      | `eq`, `ne` |                                                                                                                                               |<br/>
+        /// | category.name    | `eq`, `ne` |                                                                                                                                               |<br/>
+        /// | subCategory.id   | `eq`, `ne` |                                                                                                                                               |<br/>
+        /// | subCategory.name | `eq`, `ne` |                                                                                                                                               |<br/>
+        /// | deleted          | `eq`, `ne` | Budget items that are deleted are available for 3 months after deletion. After this, they are removed and no longer appear in search results. |<br/>
         /// <br/>
         /// The following logical operators are supported for combining filters:<br/>
         /// * and<br/>

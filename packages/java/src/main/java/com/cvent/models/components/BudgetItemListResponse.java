@@ -196,11 +196,12 @@ public class BudgetItemListResponse {
     private String associatedSession;
 
     /**
-     * Budget Version ID Information.
+     * Budget version ID information. Defaults to the account's default budget version when creating or
+     * updating budget items.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("budgetVersion")
-    private BudgetVersionId budgetVersion;
+    private BudgetVersion budgetVersion;
 
     /**
      * List of budget item custom fields.
@@ -243,7 +244,7 @@ public class BudgetItemListResponse {
             @JsonProperty("savings") @Nullable List<BudgetSavings> savings,
             @JsonProperty("associatedRegistrants") @Nullable List<BudgetAssociatedRegistrant> associatedRegistrants,
             @JsonProperty("associatedSession") @Nullable String associatedSession,
-            @JsonProperty("budgetVersion") @Nullable BudgetVersionId budgetVersion,
+            @JsonProperty("budgetVersion") @Nullable BudgetVersion budgetVersion,
             @JsonProperty("customFields") @Nullable List<BudgetItemCustomField> customFields,
             @JsonProperty("deleted") @Nullable Boolean deleted) {
         this.event = event;
@@ -506,9 +507,10 @@ public class BudgetItemListResponse {
     }
 
     /**
-     * Budget Version ID Information.
+     * Budget version ID information. Defaults to the account's default budget version when creating or
+     * updating budget items.
      */
-    public Optional<BudgetVersionId> budgetVersion() {
+    public Optional<BudgetVersion> budgetVersion() {
         return Optional.ofNullable(this.budgetVersion);
     }
 
@@ -739,9 +741,10 @@ public class BudgetItemListResponse {
     }
 
     /**
-     * Budget Version ID Information.
+     * Budget version ID information. Defaults to the account's default budget version when creating or
+     * updating budget items.
      */
-    public BudgetItemListResponse withBudgetVersion(@Nullable BudgetVersionId budgetVersion) {
+    public BudgetItemListResponse withBudgetVersion(@Nullable BudgetVersion budgetVersion) {
         this.budgetVersion = budgetVersion;
         return this;
     }
@@ -949,7 +952,7 @@ public class BudgetItemListResponse {
 
         private String associatedSession;
 
-        private BudgetVersionId budgetVersion;
+        private BudgetVersion budgetVersion;
 
         private List<BudgetItemCustomField> customFields;
 
@@ -1167,9 +1170,10 @@ public class BudgetItemListResponse {
         }
 
         /**
-         * Budget Version ID Information.
+         * Budget version ID information. Defaults to the account's default budget version when creating or
+         * updating budget items.
          */
-        public Builder budgetVersion(@Nullable BudgetVersionId budgetVersion) {
+        public Builder budgetVersion(@Nullable BudgetVersion budgetVersion) {
             this.budgetVersion = budgetVersion;
             return this;
         }

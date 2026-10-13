@@ -37,7 +37,7 @@ export function userSCIMGetResourceTypes(
 ): APIPromise<
   Result<
     components.ResourceTypes,
-    | errors.ErrorResponse16
+    | errors.ErrorResponse17
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -61,7 +61,7 @@ async function $do(
   [
     Result<
       components.ResourceTypes,
-      | errors.ErrorResponse16
+      | errors.ErrorResponse17
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -139,7 +139,7 @@ async function $do(
 
   const [result] = await M.match<
     components.ResourceTypes,
-    | errors.ErrorResponse16
+    | errors.ErrorResponse17
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -150,7 +150,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, components.ResourceTypes$inboundSchema),
-    M.jsonErr([401, 403, 429], errors.ErrorResponse16$inboundSchema),
+    M.jsonErr([401, 403, 429], errors.ErrorResponse17$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

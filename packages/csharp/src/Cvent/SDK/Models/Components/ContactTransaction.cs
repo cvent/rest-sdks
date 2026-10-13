@@ -23,6 +23,6 @@ namespace Cvent.SDK.Models.Components
         /// Collection of standard contact fields.
         /// </summary>
         [JsonProperty("data")]
-        public List<ContactFieldJsonInput> Data { get; set; } = default!;
+        public List<ContactFieldInput> Data { get; set; } = default!;
     }
 }

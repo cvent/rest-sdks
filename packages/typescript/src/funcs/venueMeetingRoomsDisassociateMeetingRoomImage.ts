@@ -31,6 +31,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Disassociates the current image from a meeting room.
+ *
+ * Not applicable to CVB/DMC venues.
  */
 export function venueMeetingRoomsDisassociateMeetingRoomImage(
   client: CventSDKCore,

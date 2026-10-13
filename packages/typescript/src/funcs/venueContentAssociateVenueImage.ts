@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Associate Venue Image
  *
  * @remarks
- * Associate a previously uploaded image with a venue image using a file UUID from the <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current image file if one is already associated.
+ * Associate a previously uploaded image with a venue image using a file UUID from the [file upload](#operation/uploadFile) endpoint. This will replace the current image file if one is already associated.
  *
  * **Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg, .jpeg) are accepted. Maximum file size is 10 MB.
  */

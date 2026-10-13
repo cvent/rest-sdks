@@ -5,7 +5,7 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
-import com.cvent.models.components.EventInput;
+import com.cvent.models.components.Event1Input;
 import com.cvent.models.components.SendEmailEventRequest;
 import com.cvent.models.operations.AnswerEventCustomFieldRequest;
 import com.cvent.models.operations.AssociateDiscountCodeToOrderItemRequest;
@@ -504,7 +504,7 @@ public class AsyncEvents {
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateEventAsyncResponse>} - The async response
      */
-    public CompletableFuture<CreateEventAsyncResponse> createEventAsync(@Nonnull EventInput request) {
+    public CompletableFuture<CreateEventAsyncResponse> createEventAsync(@Nonnull Event1Input request) {
         return createEventAsync(request, null);
     }
 
@@ -522,8 +522,8 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<CreateEventAsyncResponse>} - The async response
      */
     public CompletableFuture<CreateEventAsyncResponse> createEventAsync(
-            @Nonnull EventInput request, @Nullable Options options) {
-        AsyncRequestOperation<EventInput, CreateEventAsyncResponse> operation =
+            @Nonnull Event1Input request, @Nullable Options options) {
+        AsyncRequestOperation<Event1Input, CreateEventAsyncResponse> operation =
                 new CreateEventAsync.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
@@ -2365,7 +2365,7 @@ public class AsyncEvents {
      * marked as no-shows. It does not list all registered attendees.
      *
      * <p>This method will return the same data as [GET List Session
-     * Registrants](#operation/listSessionsEnrollment)  but allows for longer filters.
+     * Registrants](#operation/listSessionsEnrollment) but allows for longer filters.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -2385,7 +2385,7 @@ public class AsyncEvents {
      * marked as no-shows. It does not list all registered attendees.
      *
      * <p>This method will return the same data as [GET List Session
-     * Registrants](#operation/listSessionsEnrollment)  but allows for longer filters.
+     * Registrants](#operation/listSessionsEnrollment) but allows for longer filters.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -2407,7 +2407,7 @@ public class AsyncEvents {
      * marked as no-shows. It does not list all registered attendees.
      *
      * <p>This method will return the same data as [GET List Session
-     * Registrants](#operation/listSessionsEnrollment)  but allows for longer filters.
+     * Registrants](#operation/listSessionsEnrollment) but allows for longer filters.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -2566,10 +2566,14 @@ public class AsyncEvents {
     /**
      * Create Session Registration
      *
-     * <p>Register an attendee in the given session. Requires the modify registration widget to be
+     * <p>Submit an enrollment request for an attendee in the given session. Requires the modify registration
+     * widget to be
      * present on the event's registration path. See the following
      * [article](https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown) for
      * more information.
+     * The request is processed asynchronously after the downstream registration call returns. A successful
+     * response means that the enrollment request was accepted for processing; it does not guarantee that
+     * the attendee is already enrolled or immediately queryable.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -2582,10 +2586,14 @@ public class AsyncEvents {
     /**
      * Create Session Registration
      *
-     * <p>Register an attendee in the given session. Requires the modify registration widget to be
+     * <p>Submit an enrollment request for an attendee in the given session. Requires the modify registration
+     * widget to be
      * present on the event's registration path. See the following
      * [article](https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown) for
      * more information.
+     * The request is processed asynchronously after the downstream registration call returns. A successful
+     * response means that the enrollment request was accepted for processing; it does not guarantee that
+     * the attendee is already enrolled or immediately queryable.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -2600,10 +2608,14 @@ public class AsyncEvents {
     /**
      * Create Session Registration
      *
-     * <p>Register an attendee in the given session. Requires the modify registration widget to be
+     * <p>Submit an enrollment request for an attendee in the given session. Requires the modify registration
+     * widget to be
      * present on the event's registration path. See the following
      * [article](https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown) for
      * more information.
+     * The request is processed asynchronously after the downstream registration call returns. A successful
+     * response means that the enrollment request was accepted for processing; it does not guarantee that
+     * the attendee is already enrolled or immediately queryable.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *

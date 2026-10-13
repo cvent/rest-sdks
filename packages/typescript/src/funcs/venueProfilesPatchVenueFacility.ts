@@ -37,8 +37,7 @@ import { Result } from "../types/fp.js";
  * - If any part of the patch fails, the entire request will fail.
  * - `proximityFromAirport.unit` is required when `proximityFromAirport.distance` is provided.
  *
- * Field applicability varies by venue type:
- * - Most facility information fields do not apply to CVB/DMC or Restaurant venues.
+ * Not applicable to CVB/DMC or Restaurant venues.
  */
 export function venueProfilesPatchVenueFacility(
   client: CventSDKCore,

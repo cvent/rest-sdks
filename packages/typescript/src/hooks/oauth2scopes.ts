@@ -858,6 +858,30 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "venue/need-dates:write"
   /**
+   * Allows disassociating images from attractions.
+   */
+  | "venue/venue-attraction-images:delete"
+  /**
+   * Allows retrieving attraction images.
+   */
+  | "venue/venue-attraction-images:read"
+  /**
+   * Allows associating images with attractions.
+   */
+  | "venue/venue-attraction-images:write"
+  /**
+   * Allows the deletion of venue attractions.
+   */
+  | "venue/venue-attractions:delete"
+  /**
+   * Allows reading of venue attractions.
+   */
+  | "venue/venue-attractions:read"
+  /**
+   * Allows the creation and modification of venue attractions.
+   */
+  | "venue/venue-attractions:write"
+  /**
    * Allows read access for overview of venue details.
    */
   | "venue/venue-details-overview:read"
@@ -1857,6 +1881,30 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    * Allows the creation and modification of venue need dates.
    */
   | "venue/need-dates:write"
+  /**
+   * Allows disassociating images from attractions.
+   */
+  | "venue/venue-attraction-images:delete"
+  /**
+   * Allows retrieving attraction images.
+   */
+  | "venue/venue-attraction-images:read"
+  /**
+   * Allows associating images with attractions.
+   */
+  | "venue/venue-attraction-images:write"
+  /**
+   * Allows the deletion of venue attractions.
+   */
+  | "venue/venue-attractions:delete"
+  /**
+   * Allows reading of venue attractions.
+   */
+  | "venue/venue-attractions:read"
+  /**
+   * Allows the creation and modification of venue attractions.
+   */
+  | "venue/venue-attractions:write"
   /**
    * Allows read access for overview of venue details.
    */

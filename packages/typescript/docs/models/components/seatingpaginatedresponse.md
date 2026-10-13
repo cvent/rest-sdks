@@ -33,6 +33,8 @@ let value: SeatingPaginatedResponse = {
       readOnly: false,
       sourceId: "Id2854",
       id: "ad6df5aa-f21f-47e6-9c48-8d3a7831ad5f",
+      tableCount: 10,
+      totalCapacity: 100,
     },
   ],
 };
@@ -42,5 +44,5 @@ let value: SeatingPaginatedResponse = {
 
 | Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
 | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `paging`                                                                   | [components.PagingJson](../../models/components/pagingjson.md)             | :heavy_minus_sign:                                                         | Represents pagination information for a collection of resources.           |
+| `paging`                                                                   | [components.Paging](../../models/components/paging.md)                     | :heavy_minus_sign:                                                         | Represents pagination information for a collection of resources.           |
 | `data`                                                                     | [components.ExistingSeating](../../models/components/existingseating.md)[] | :heavy_check_mark:                                                         | A list of event seating                                                    |

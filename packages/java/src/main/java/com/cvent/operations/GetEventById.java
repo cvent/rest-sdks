@@ -9,7 +9,7 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.Event1;
+import com.cvent.models.components.Event11;
 import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.GetEventByIdRequest;
@@ -178,7 +178,7 @@ public class GetEventById {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withEvent(Utils.unmarshal(response, new TypeReference<Event1>() {}));
+                    return res.withEvent1(Utils.unmarshal(response, new TypeReference<Event11>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -266,8 +266,8 @@ public class GetEventById {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<Event1>() {})
-                            .thenApply(res::withEvent);
+                    return Utils.unmarshalAsync(response, new TypeReference<Event11>() {})
+                            .thenApply(res::withEvent1);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }
