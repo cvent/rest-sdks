@@ -220,8 +220,7 @@ public class VenueProfiles {
      * <p>Update the facility information for the specified venue, replacing all existing values with those
      * provided in the request body.
      *
-     * <p>Field applicability varies by venue type:
-     * - Most facility information fields do not apply to CVB/DMC or Restaurant venues.
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
      *
      * @return The call builder
      */
@@ -235,8 +234,7 @@ public class VenueProfiles {
      * <p>Update the facility information for the specified venue, replacing all existing values with those
      * provided in the request body.
      *
-     * <p>Field applicability varies by venue type:
-     * - Most facility information fields do not apply to CVB/DMC or Restaurant venues.
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -252,8 +250,7 @@ public class VenueProfiles {
      * <p>Update the facility information for the specified venue, replacing all existing values with those
      * provided in the request body.
      *
-     * <p>Field applicability varies by venue type:
-     * - Most facility information fields do not apply to CVB/DMC or Restaurant venues.
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -278,8 +275,7 @@ public class VenueProfiles {
      * - If any part of the patch fails, the entire request will fail.
      * - `proximityFromAirport.unit` is required when `proximityFromAirport.distance` is provided.
      *
-     * <p>Field applicability varies by venue type:
-     * - Most facility information fields do not apply to CVB/DMC or Restaurant venues.
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
      *
      * @return The call builder
      */
@@ -298,8 +294,7 @@ public class VenueProfiles {
      * - If any part of the patch fails, the entire request will fail.
      * - `proximityFromAirport.unit` is required when `proximityFromAirport.distance` is provided.
      *
-     * <p>Field applicability varies by venue type:
-     * - Most facility information fields do not apply to CVB/DMC or Restaurant venues.
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -320,8 +315,7 @@ public class VenueProfiles {
      * - If any part of the patch fails, the entire request will fail.
      * - `proximityFromAirport.unit` is required when `proximityFromAirport.distance` is provided.
      *
-     * <p>Field applicability varies by venue type:
-     * - Most facility information fields do not apply to CVB/DMC or Restaurant venues.
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -344,6 +338,8 @@ public class VenueProfiles {
      * agencies where no rating has been saved yet. Use this response to discover which agencies are valid
      * and which can be set as primary before submitting a PUT request.
      *
+     * <p>Not applicable to CVB/DMC venues.
+     *
      * @return The call builder
      */
     public GetVenueRatingsRequestBuilder getVenueRatings() {
@@ -358,6 +354,8 @@ public class VenueProfiles {
      * <p>Returns all rating agencies applicable to this venue (based on its type and country), including
      * agencies where no rating has been saved yet. Use this response to discover which agencies are valid
      * and which can be set as primary before submitting a PUT request.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -375,6 +373,8 @@ public class VenueProfiles {
      * <p>Returns all rating agencies applicable to this venue (based on its type and country), including
      * agencies where no rating has been saved yet. Use this response to discover which agencies are valid
      * and which can be set as primary before submitting a PUT request.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -396,8 +396,9 @@ public class VenueProfiles {
      * call GET first to retrieve the current state and the list of applicable agencies for the venue.
      *
      * <p>Additional rules:
-     * - Ratings do not apply to CVB/DMC venues.
+     * - Not applicable to CVB/DMC venues.
      * - At most one rating may be marked as primary. Zagat ratings cannot be primary.
+     * - No rating may be marked as primary for Restaurant venues.
      * - Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response
      * before submitting a rating value for those agencies.
      * - Agency eligibility is determined by the venue's type and country — passing an ineligible agency
@@ -418,8 +419,9 @@ public class VenueProfiles {
      * call GET first to retrieve the current state and the list of applicable agencies for the venue.
      *
      * <p>Additional rules:
-     * - Ratings do not apply to CVB/DMC venues.
+     * - Not applicable to CVB/DMC venues.
      * - At most one rating may be marked as primary. Zagat ratings cannot be primary.
+     * - No rating may be marked as primary for Restaurant venues.
      * - Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response
      * before submitting a rating value for those agencies.
      * - Agency eligibility is determined by the venue's type and country — passing an ineligible agency
@@ -442,8 +444,9 @@ public class VenueProfiles {
      * call GET first to retrieve the current state and the list of applicable agencies for the venue.
      *
      * <p>Additional rules:
-     * - Ratings do not apply to CVB/DMC venues.
+     * - Not applicable to CVB/DMC venues.
      * - At most one rating may be marked as primary. Zagat ratings cannot be primary.
+     * - No rating may be marked as primary for Restaurant venues.
      * - Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response
      * before submitting a rating value for those agencies.
      * - Agency eligibility is determined by the venue's type and country — passing an ineligible agency

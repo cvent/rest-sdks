@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  HookSecurityJson,
-  HookSecurityJson$Outbound,
-  HookSecurityJson$outboundSchema,
-} from "./hooksecurityjsonoutput.js";
+  HookSecurity,
+  HookSecurity$Outbound,
+  HookSecurity$outboundSchema,
+} from "./hooksecurity.js";
 
 /**
  * A hook with a callback URI.
@@ -24,14 +24,14 @@ export type HookInput = {
   /**
    * Describe security for a web hook callback. Each option corresponds to an Authorization header variant.
    */
-  security: HookSecurityJson;
+  security: HookSecurity;
 };
 
 /** @internal */
 export type HookInput$Outbound = {
   name: string;
   callback: string;
-  security: HookSecurityJson$Outbound;
+  security: HookSecurity$Outbound;
 };
 
 /** @internal */
@@ -42,7 +42,7 @@ export const HookInput$outboundSchema: z.ZodType<
 > = z.object({
   name: z.string(),
   callback: z.string(),
-  security: HookSecurityJson$outboundSchema,
+  security: HookSecurity$outboundSchema,
 });
 
 export function hookInputToJSON(hookInput: HookInput): string {

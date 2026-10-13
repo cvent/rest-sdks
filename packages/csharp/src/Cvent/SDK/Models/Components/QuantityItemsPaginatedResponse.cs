@@ -29,6 +29,6 @@ namespace Cvent.SDK.Models.Components
         /// Collection of quantity items.
         /// </summary>
         [JsonProperty("data")]
-        public List<QuantityItem> Data { get; set; } = default!;
+        public List<QuantityItem2> Data { get; set; } = default!;
     }
 }

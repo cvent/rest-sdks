@@ -17,9 +17,13 @@ export class Leads extends ClientSDK {
    * List E-literature Requests
    *
    * @remarks
+   * **Deprecated.** The E-literature Requests feature has been sunset.
+   *
    * Gets a paginated list of eliterature requests data
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async getEliteratureRequests(
     request: operations.GetEliteratureRequestsRequest,

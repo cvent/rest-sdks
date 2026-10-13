@@ -37,7 +37,8 @@ public class BudgetCostDetail11 {
 
     /**
      * The number of units associated with a budget item. This field can be any number if the budget item
-     * is a Variable cost type. If the budget item uses a Fixed cost type, set this field to 1.
+     * is a Variable cost type. For Fixed cost type items, any provided value is ignored and the server
+     * persists units as 1.
      */
     @JsonProperty("units")
     private double units;
@@ -107,7 +108,8 @@ public class BudgetCostDetail11 {
 
     /**
      * The number of units associated with a budget item. This field can be any number if the budget item
-     * is a Variable cost type. If the budget item uses a Fixed cost type, set this field to 1.
+     * is a Variable cost type. For Fixed cost type items, any provided value is ignored and the server
+     * persists units as 1.
      */
     public double units() {
         return this.units;
@@ -163,7 +165,8 @@ public class BudgetCostDetail11 {
 
     /**
      * The number of units associated with a budget item. This field can be any number if the budget item
-     * is a Variable cost type. If the budget item uses a Fixed cost type, set this field to 1.
+     * is a Variable cost type. For Fixed cost type items, any provided value is ignored and the server
+     * persists units as 1.
      */
     public BudgetCostDetail11 withUnits(double units) {
         this.units = units;
@@ -284,7 +287,8 @@ public class BudgetCostDetail11 {
 
         /**
          * The number of units associated with a budget item. This field can be any number if the budget item
-         * is a Variable cost type. If the budget item uses a Fixed cost type, set this field to 1.
+         * is a Variable cost type. For Fixed cost type items, any provided value is ignored and the server
+         * persists units as 1.
          */
         public Builder units(double units) {
             this.units = units;

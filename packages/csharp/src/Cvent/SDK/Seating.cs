@@ -25,7 +25,7 @@ namespace Cvent.SDK
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Seating lets you plan seating at your events by configuring tables and assigning seats to your attendees. The seating APIs allow you to create, update, and delete seating, tables, seats, and seating assignments.<br/>
+    /// Seating lets you plan seating at your events by configuring tables and assigning seats to your attendees. The seating APIs allow you to retrieve seating, tables, seats, and seating assignments.<br/>
     /// * **Seating** - A diagram of tables and seats. Your event can have many seatings.<br/>
     /// * **Table** - A communal location where chairs are assigned. Each table is assigned to a seating.<br/>
     /// * **Seat** - Individual seat at a table. Each seat can be assigned to an attendee.<br/>
@@ -177,7 +177,7 @@ namespace Cvent.SDK
     }
 
     /// <summary>
-    /// Seating lets you plan seating at your events by configuring tables and assigning seats to your attendees. The seating APIs allow you to create, update, and delete seating, tables, seats, and seating assignments.<br/>
+    /// Seating lets you plan seating at your events by configuring tables and assigning seats to your attendees. The seating APIs allow you to retrieve seating, tables, seats, and seating assignments.<br/>
     /// * **Seating** - A diagram of tables and seats. Your event can have many seatings.<br/>
     /// * **Table** - A communal location where chairs are assigned. Each table is assigned to a seating.<br/>
     /// * **Seat** - Individual seat at a table. Each seat can be assigned to an attendee.<br/>

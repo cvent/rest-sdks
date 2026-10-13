@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
+import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
 import java.util.List;
@@ -56,6 +57,14 @@ public class ExistingTableWithSeats {
     private String sourceId;
 
     /**
+     * When true, the table allows open seating where attendees may choose any available seat. When false,
+     * each seat is individually named and must be explicitly assigned to an attendee.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("open")
+    private Boolean open;
+
+    /**
      * The unique ID of the table.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -69,7 +78,7 @@ public class ExistingTableWithSeats {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("seats")
-    private List<ExpandableSeatJson> seats;
+    private List<ExpandableSeat> seats;
 
     @JsonCreator
     public ExistingTableWithSeats(
@@ -78,19 +87,21 @@ public class ExistingTableWithSeats {
             @JsonProperty("capacity") long capacity,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("sourceId") @Nullable String sourceId,
+            @JsonProperty("open") @Nullable Boolean open,
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("seats") @Nullable List<ExpandableSeatJson> seats) {
+            @JsonProperty("seats") @Nullable List<ExpandableSeat> seats) {
         this.name = name;
         this.code = code;
         this.capacity = capacity;
         this.description = description;
         this.sourceId = sourceId;
+        this.open = open;
         this.id = id;
         this.seats = seats;
     }
 
     public ExistingTableWithSeats(long capacity) {
-        this(null, null, capacity, null, null, null, null);
+        this(null, null, capacity, null, null, null, null, null);
     }
 
     /**
@@ -130,6 +141,14 @@ public class ExistingTableWithSeats {
     }
 
     /**
+     * When true, the table allows open seating where attendees may choose any available seat. When false,
+     * each seat is individually named and must be explicitly assigned to an attendee.
+     */
+    public Optional<Boolean> open() {
+        return Optional.ofNullable(this.open);
+    }
+
+    /**
      * The unique ID of the table.
      */
     public Optional<String> id() {
@@ -141,7 +160,7 @@ public class ExistingTableWithSeats {
      *
      * <p>This is an **expandable** object and if requested will contain all the properties of a seat object.
      */
-    public Optional<List<ExpandableSeatJson>> seats() {
+    public Optional<List<ExpandableSeat>> seats() {
         return Optional.ofNullable(this.seats);
     }
 
@@ -191,6 +210,15 @@ public class ExistingTableWithSeats {
     }
 
     /**
+     * When true, the table allows open seating where attendees may choose any available seat. When false,
+     * each seat is individually named and must be explicitly assigned to an attendee.
+     */
+    public ExistingTableWithSeats withOpen(@Nullable Boolean open) {
+        this.open = open;
+        return this;
+    }
+
+    /**
      * The unique ID of the table.
      */
     public ExistingTableWithSeats withId(@Nullable String id) {
@@ -203,7 +231,7 @@ public class ExistingTableWithSeats {
      *
      * <p>This is an **expandable** object and if requested will contain all the properties of a seat object.
      */
-    public ExistingTableWithSeats withSeats(@Nullable List<ExpandableSeatJson> seats) {
+    public ExistingTableWithSeats withSeats(@Nullable List<ExpandableSeat> seats) {
         this.seats = seats;
         return this;
     }
@@ -222,13 +250,14 @@ public class ExistingTableWithSeats {
                 && Utils.enhancedDeepEquals(this.capacity, other.capacity)
                 && Utils.enhancedDeepEquals(this.description, other.description)
                 && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.open, other.open)
                 && Utils.enhancedDeepEquals(this.id, other.id)
                 && Utils.enhancedDeepEquals(this.seats, other.seats);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(name, code, capacity, description, sourceId, id, seats);
+        return Utils.enhancedHash(name, code, capacity, description, sourceId, open, id, seats);
     }
 
     @Override
@@ -245,6 +274,8 @@ public class ExistingTableWithSeats {
                 description,
                 "sourceId",
                 sourceId,
+                "open",
+                open,
                 "id",
                 id,
                 "seats",
@@ -264,9 +295,11 @@ public class ExistingTableWithSeats {
 
         private String sourceId;
 
+        private Boolean open;
+
         private String id;
 
-        private List<ExpandableSeatJson> seats;
+        private List<ExpandableSeat> seats;
 
         private Builder() {
             // force use of static builder() method
@@ -314,6 +347,15 @@ public class ExistingTableWithSeats {
         }
 
         /**
+         * When true, the table allows open seating where attendees may choose any available seat. When false,
+         * each seat is individually named and must be explicitly assigned to an attendee.
+         */
+        public Builder open(@Nullable Boolean open) {
+            this.open = open;
+            return this;
+        }
+
+        /**
          * The unique ID of the table.
          */
         public Builder id(@Nullable String id) {
@@ -326,13 +368,13 @@ public class ExistingTableWithSeats {
          *
          * <p>This is an **expandable** object and if requested will contain all the properties of a seat object.
          */
-        public Builder seats(@Nullable List<ExpandableSeatJson> seats) {
+        public Builder seats(@Nullable List<ExpandableSeat> seats) {
             this.seats = seats;
             return this;
         }
 
         public ExistingTableWithSeats build() {
-            return new ExistingTableWithSeats(name, code, capacity, description, sourceId, id, seats);
+            return new ExistingTableWithSeats(name, code, capacity, description, sourceId, open, id, seats);
         }
     }
 }

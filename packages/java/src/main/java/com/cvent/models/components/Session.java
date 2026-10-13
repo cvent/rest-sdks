@@ -138,7 +138,9 @@ public class Session {
     private OffsetDateTime end;
 
     /**
-     * This is used to denote the status of a session.
+     * Active: The registration process is visible to invitees and accepts new registrations. Closed: The
+     * registration process is visible but does not accept new registrations or submissions. Cancelled: The
+     * planner cancelled the registration process.
      */
     @JsonProperty("status")
     private SessionStatus status;
@@ -577,7 +579,9 @@ public class Session {
     }
 
     /**
-     * This is used to denote the status of a session.
+     * Active: The registration process is visible to invitees and accepts new registrations. Closed: The
+     * registration process is visible but does not accept new registrations or submissions. Cancelled: The
+     * planner cancelled the registration process.
      */
     public SessionStatus status() {
         return this.status;
@@ -897,7 +901,9 @@ public class Session {
     }
 
     /**
-     * This is used to denote the status of a session.
+     * Active: The registration process is visible to invitees and accepts new registrations. Closed: The
+     * registration process is visible but does not accept new registrations or submissions. Cancelled: The
+     * planner cancelled the registration process.
      */
     public Session withStatus(@Nonnull SessionStatus status) {
         this.status = Utils.checkNotNull(status, "status");
@@ -1515,7 +1521,9 @@ public class Session {
         }
 
         /**
-         * This is used to denote the status of a session.
+         * Active: The registration process is visible to invitees and accepts new registrations. Closed: The
+         * registration process is visible but does not accept new registrations or submissions. Cancelled: The
+         * planner cancelled the registration process.
          */
         public Builder status(@Nonnull SessionStatus status) {
             this.status = Utils.checkNotNull(status, "status");

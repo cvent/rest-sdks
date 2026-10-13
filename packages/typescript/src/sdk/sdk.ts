@@ -325,6 +325,11 @@ export class CventSDK extends ClientSDK {
     return (this._usage ??= new Usage(this._options));
   }
 
+  private _venueContent?: VenueContent;
+  get venueContent(): VenueContent {
+    return (this._venueContent ??= new VenueContent(this._options));
+  }
+
   private _venueAvailability?: VenueAvailability;
   get venueAvailability(): VenueAvailability {
     return (this._venueAvailability ??= new VenueAvailability(this._options));
@@ -333,11 +338,6 @@ export class CventSDK extends ClientSDK {
   private _venueProfiles?: VenueProfiles;
   get venueProfiles(): VenueProfiles {
     return (this._venueProfiles ??= new VenueProfiles(this._options));
-  }
-
-  private _venueContent?: VenueContent;
-  get venueContent(): VenueContent {
-    return (this._venueContent ??= new VenueContent(this._options));
   }
 
   private _venueMeetingRooms?: VenueMeetingRooms;

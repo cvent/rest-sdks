@@ -70,6 +70,8 @@ public class VenueMeetingRooms {
      *
      * <p>Create a new meeting room for the specified venue.
      *
+     * <p>Not applicable to CVB/DMC venues.
+     *
      * @return The call builder
      */
     public CreateMeetingRoomRequestBuilder createMeetingRoom() {
@@ -80,6 +82,8 @@ public class VenueMeetingRooms {
      * Create Meeting Room
      *
      * <p>Create a new meeting room for the specified venue.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -93,6 +97,8 @@ public class VenueMeetingRooms {
      * Create Meeting Room
      *
      * <p>Create a new meeting room for the specified venue.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -111,6 +117,8 @@ public class VenueMeetingRooms {
      *
      * <p>Retrieve a paginated list of meeting room overviews for the specified venue.
      *
+     * <p>Not applicable to CVB/DMC venues.
+     *
      * @return The call builder
      */
     public ListMeetingRoomsOverviewsRequestBuilder listMeetingRoomsOverviews() {
@@ -121,6 +129,8 @@ public class VenueMeetingRooms {
      * List Meeting Rooms Overviews
      *
      * <p>Retrieve a paginated list of meeting room overviews for the specified venue.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -135,6 +145,8 @@ public class VenueMeetingRooms {
      * List Meeting Rooms Overviews
      *
      * <p>Retrieve a paginated list of meeting room overviews for the specified venue.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -153,6 +165,8 @@ public class VenueMeetingRooms {
      *
      * <p>Update a meeting room for the specified venue, replacing the existing meeting room data.
      *
+     * <p>Not applicable to CVB/DMC venues.
+     *
      * @return The call builder
      */
     public UpdateMeetingRoomRequestBuilder updateMeetingRoom() {
@@ -163,6 +177,8 @@ public class VenueMeetingRooms {
      * Update Meeting Room
      *
      * <p>Update a meeting room for the specified venue, replacing the existing meeting room data.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -176,6 +192,8 @@ public class VenueMeetingRooms {
      * Update Meeting Room
      *
      * <p>Update a meeting room for the specified venue, replacing the existing meeting room data.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -194,6 +212,8 @@ public class VenueMeetingRooms {
      *
      * <p>Partially update a meeting room for the specified venue.
      *
+     * <p>Not applicable to CVB/DMC venues.
+     *
      * <p>- Only fields present in the request body are updated; omitted fields remain unchanged.
      * - Set a field to `null` to unset it.
      * - **Arrays (`capacities`, `amenities`) are treated as full replacements** — the entire array is
@@ -210,6 +230,8 @@ public class VenueMeetingRooms {
      * Patch Meeting Room
      *
      * <p>Partially update a meeting room for the specified venue.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * <p>- Only fields present in the request body are updated; omitted fields remain unchanged.
      * - Set a field to `null` to unset it.
@@ -229,6 +251,8 @@ public class VenueMeetingRooms {
      * Patch Meeting Room
      *
      * <p>Partially update a meeting room for the specified venue.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * <p>- Only fields present in the request body are updated; omitted fields remain unchanged.
      * - Set a field to `null` to unset it.
@@ -258,6 +282,8 @@ public class VenueMeetingRooms {
      * <p>**Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg,
      * .jpeg) are accepted. Maximum file size is 10 MB.
      *
+     * <p>Not applicable to CVB/DMC venues.
+     *
      * @return The call builder
      */
     public AssociateMeetingRoomImageRequestBuilder associateMeetingRoomImage() {
@@ -273,6 +299,8 @@ public class VenueMeetingRooms {
      *
      * <p>**Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg,
      * .jpeg) are accepted. Maximum file size is 10 MB.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -293,6 +321,8 @@ public class VenueMeetingRooms {
      * <p>**Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg,
      * .jpeg) are accepted. Maximum file size is 10 MB.
      *
+     * <p>Not applicable to CVB/DMC venues.
+     *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
      * @return The response from the API call
@@ -310,6 +340,8 @@ public class VenueMeetingRooms {
      *
      * <p>Retrieves the images associated with a meeting room. Each meeting room has at most one image.
      *
+     * <p>Not applicable to CVB/DMC venues.
+     *
      * @return The call builder
      */
     public ListMeetingRoomImagesRequestBuilder listMeetingRoomImages() {
@@ -320,6 +352,8 @@ public class VenueMeetingRooms {
      * List Meeting Room Images
      *
      * <p>Retrieves the images associated with a meeting room. Each meeting room has at most one image.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -333,6 +367,8 @@ public class VenueMeetingRooms {
      * List Meeting Room Images
      *
      * <p>Retrieves the images associated with a meeting room. Each meeting room has at most one image.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -351,6 +387,8 @@ public class VenueMeetingRooms {
      *
      * <p>Disassociates the current image from a meeting room.
      *
+     * <p>Not applicable to CVB/DMC venues.
+     *
      * @return The call builder
      */
     public DisassociateMeetingRoomImageRequestBuilder disassociateMeetingRoomImage() {
@@ -361,6 +399,8 @@ public class VenueMeetingRooms {
      * Remove Meeting Room Image
      *
      * <p>Disassociates the current image from a meeting room.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -375,6 +415,8 @@ public class VenueMeetingRooms {
      * Remove Meeting Room Image
      *
      * <p>Disassociates the current image from a meeting room.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -393,6 +435,8 @@ public class VenueMeetingRooms {
      *
      * <p>Retrieve an overview of a specific meeting room for the specified venue.
      *
+     * <p>Not applicable to CVB/DMC venues.
+     *
      * @return The call builder
      */
     public GetMeetingRoomOverviewRequestBuilder getMeetingRoomOverview() {
@@ -403,6 +447,8 @@ public class VenueMeetingRooms {
      * Get Meeting Room Overview
      *
      * <p>Retrieve an overview of a specific meeting room for the specified venue.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -416,6 +462,8 @@ public class VenueMeetingRooms {
      * Get Meeting Room Overview
      *
      * <p>Retrieve an overview of a specific meeting room for the specified venue.
+     *
+     * <p>Not applicable to CVB/DMC venues.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options

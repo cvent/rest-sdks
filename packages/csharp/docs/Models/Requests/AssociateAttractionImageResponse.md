@@ -1,0 +1,9 @@
+# AssociateAttractionImageResponse
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `HttpMeta`                                                                                          | [HTTPMetadata](../../Models/Components/HTTPMetadata.md)                                             | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `AttractionImageAssociationResponse`                                                                | [AttractionImageAssociationResponse](../../Models/Components/AttractionImageAssociationResponse.md) | :heavy_minus_sign:                                                                                  | Successfully associated the image with the attraction.                                              |

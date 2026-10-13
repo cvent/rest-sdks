@@ -22,17 +22,17 @@ public class ContactTransaction {
      * Collection of standard contact fields.
      */
     @JsonProperty("data")
-    private List<ContactFieldJsonInput> data;
+    private List<ContactFieldInput> data;
 
     @JsonCreator
-    public ContactTransaction(@JsonProperty("data") @Nonnull List<ContactFieldJsonInput> data) {
+    public ContactTransaction(@JsonProperty("data") @Nonnull List<ContactFieldInput> data) {
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     /**
      * Collection of standard contact fields.
      */
-    public List<ContactFieldJsonInput> data() {
+    public List<ContactFieldInput> data() {
         return this.data;
     }
 
@@ -43,7 +43,7 @@ public class ContactTransaction {
     /**
      * Collection of standard contact fields.
      */
-    public ContactTransaction withData(@Nonnull List<ContactFieldJsonInput> data) {
+    public ContactTransaction withData(@Nonnull List<ContactFieldInput> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -73,7 +73,7 @@ public class ContactTransaction {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private List<ContactFieldJsonInput> data;
+        private List<ContactFieldInput> data;
 
         private Builder() {
             // force use of static builder() method
@@ -82,7 +82,7 @@ public class ContactTransaction {
         /**
          * Collection of standard contact fields.
          */
-        public Builder data(@Nonnull List<ContactFieldJsonInput> data) {
+        public Builder data(@Nonnull List<ContactFieldInput> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

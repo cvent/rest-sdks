@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { HookOutput, HookOutput$inboundSchema } from "./hookoutput.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to get the list of hooks with a callback URI. This includes the paging object as well as the collection of hooks.
@@ -16,7 +16,7 @@ export type HooksPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of contact hooks.
    */
@@ -29,7 +29,7 @@ export const HooksPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
+  paging: Paging$inboundSchema,
   data: z.array(HookOutput$inboundSchema),
 });
 

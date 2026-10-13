@@ -32,6 +32,8 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Partially update a meeting room for the specified venue.
  *
+ * Not applicable to CVB/DMC venues.
+ *
  * - Only fields present in the request body are updated; omitted fields remain unchanged.
  * - Set a field to `null` to unset it.
  * - **Arrays (`capacities`, `amenities`) are treated as full replacements** — the entire array is replaced, not merged.

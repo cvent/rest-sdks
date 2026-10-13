@@ -97,7 +97,7 @@ export type SessionUpdate = {
    */
   end: Date;
   /**
-   * This is used to denote the status of a session.
+   * Active: The registration process is visible to invitees and accepts new registrations. Closed: The registration process is visible but does not accept new registrations or submissions. Cancelled: The planner cancelled the registration process.
    */
   status: SessionStatus;
   /**

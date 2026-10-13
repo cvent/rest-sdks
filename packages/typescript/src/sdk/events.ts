@@ -178,7 +178,7 @@ export class Events extends ClientSDK {
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
   async createEventAsync(
-    request: components.EventInput,
+    request: components.Event1Input,
     options?: RequestOptions,
   ): Promise<operations.CreateEventAsyncResponse> {
     return unwrapAsync(eventsCreateEventAsync(
@@ -296,7 +296,7 @@ export class Events extends ClientSDK {
   async getEventById(
     request: operations.GetEventByIdRequest,
     options?: RequestOptions,
-  ): Promise<components.Event1> {
+  ): Promise<components.Event11> {
     return unwrapAsync(eventsGetEventById(
       this,
       request,
@@ -992,10 +992,10 @@ export class Events extends ClientSDK {
    * List Session Registrants
    *
    * @remarks
-   * Gets registrant data for sessions. The returned data depends on the individual session type.   - **Optional Sessions:** Provides a paginated list of attendees registered for the session.   - **Included Session:** Provides a paginated list of attendees who have participated or been
+   * Gets registrant data for sessions. The returned data depends on the individual session type. - **Optional Sessions:** Provides a paginated list of attendees registered for the session. - **Included Session:** Provides a paginated list of attendees who have participated or been
    *   marked as no-shows. It does not list all registered attendees.
    *
-   * This method will return the same data as [GET List Session Registrants](#operation/listSessionsEnrollment)  but allows for longer filters.
+   * This method will return the same data as [GET List Session Registrants](#operation/listSessionsEnrollment) but allows for longer filters.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -1076,10 +1076,11 @@ export class Events extends ClientSDK {
    * Create Session Registration
    *
    * @remarks
-   * Register an attendee in the given session. Requires the modify registration widget to be
+   * Submit an enrollment request for an attendee in the given session. Requires the modify registration widget to be
    * present on the event's registration path. See the following
    * [article](https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown) for
    * more information.
+   * The request is processed asynchronously after the downstream registration call returns. A successful response means that the enrollment request was accepted for processing; it does not guarantee that the attendee is already enrolled or immediately queryable.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */

@@ -364,8 +364,7 @@ public class CventSDK {
 
     /**
      * Seating lets you plan seating at your events by configuring tables and assigning seats to your
-     * attendees. The seating APIs allow you to create, update, and delete seating, tables, seats, and
-     * seating assignments.
+     * attendees. The seating APIs allow you to retrieve seating, tables, seats, and seating assignments.
      * * **Seating** - A diagram of tables and seats. Your event can have many seatings.
      * * **Table** - A communal location where chairs are assigned. Each table is assigned to a seating.
      * * **Seat** - Individual seat at a table. Each seat can be assigned to an attendee.
@@ -515,6 +514,11 @@ public class CventSDK {
     private final Usage usage;
 
     /**
+     * Manage images, amenities, and nearby attractions associated with a venue.
+     */
+    private final VenueContent venueContent;
+
+    /**
      * Manage the date ranges when a venue is available for event bookings.
      */
     private final VenueAvailability venueAvailability;
@@ -524,11 +528,6 @@ public class CventSDK {
      * properties.
      */
     private final VenueProfiles venueProfiles;
-
-    /**
-     * Manage images, amenities, and nearby attractions associated with a venue.
-     */
-    private final VenueContent venueContent;
 
     /**
      * Manage meeting rooms for a venue, including creating and updating room details, configuring
@@ -947,8 +946,7 @@ public class CventSDK {
 
     /**
      * Seating lets you plan seating at your events by configuring tables and assigning seats to your
-     * attendees. The seating APIs allow you to create, update, and delete seating, tables, seats, and
-     * seating assignments.
+     * attendees. The seating APIs allow you to retrieve seating, tables, seats, and seating assignments.
      * * **Seating** - A diagram of tables and seats. Your event can have many seatings.
      * * **Table** - A communal location where chairs are assigned. Each table is assigned to a seating.
      * * **Seat** - Individual seat at a table. Each seat can be assigned to an attendee.
@@ -1142,6 +1140,13 @@ public class CventSDK {
     }
 
     /**
+     * Manage images, amenities, and nearby attractions associated with a venue.
+     */
+    public VenueContent venueContent() {
+        return venueContent;
+    }
+
+    /**
      * Manage the date ranges when a venue is available for event bookings.
      */
     public VenueAvailability venueAvailability() {
@@ -1154,13 +1159,6 @@ public class CventSDK {
      */
     public VenueProfiles venueProfiles() {
         return venueProfiles;
-    }
-
-    /**
-     * Manage images, amenities, and nearby attractions associated with a venue.
-     */
-    public VenueContent venueContent() {
-        return venueContent;
     }
 
     /**
@@ -1391,9 +1389,9 @@ public class CventSDK {
         this.travelRFPs = new TravelRFPs(sdkConfiguration);
         this.travelSuppliers = new TravelSuppliers(sdkConfiguration);
         this.usage = new Usage(sdkConfiguration);
+        this.venueContent = new VenueContent(sdkConfiguration);
         this.venueAvailability = new VenueAvailability(sdkConfiguration);
         this.venueProfiles = new VenueProfiles(sdkConfiguration);
-        this.venueContent = new VenueContent(sdkConfiguration);
         this.venueMeetingRooms = new VenueMeetingRooms(sdkConfiguration);
         this.video = new Video(sdkConfiguration);
         this.webcasts = new Webcasts(sdkConfiguration);

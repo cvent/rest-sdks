@@ -45,8 +45,7 @@ import java.util.concurrent.CompletableFuture;
 
 /**
  * Seating lets you plan seating at your events by configuring tables and assigning seats to your
- * attendees. The seating APIs allow you to create, update, and delete seating, tables, seats, and
- * seating assignments.
+ * attendees. The seating APIs allow you to retrieve seating, tables, seats, and seating assignments.
  * * **Seating** - A diagram of tables and seats. Your event can have many seatings.
  * * **Table** - A communal location where chairs are assigned. Each table is assigned to a seating.
  * * **Seat** - Individual seat at a table. Each seat can be assigned to an attendee.

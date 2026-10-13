@@ -30,7 +30,7 @@ export type ListAdmissionItemsPostFiltersRequest = {
    */
   token?: string | undefined;
   /**
-   * The request body accepts filters to refine the data returned.  Refer to available filter details in  [GET List Admission](#operation/listAdmissionItems).
+   * The request body accepts filters to refine the data returned. Refer to available filter details in [GET List Admission](#operation/listAdmissionItems).
    *
    * @remarks
    */

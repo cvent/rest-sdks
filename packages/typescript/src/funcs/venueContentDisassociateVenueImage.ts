@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Remove Venue Image
  *
  * @remarks
- * Disassociates the image from a venue image and deletes the venue image record.
+ * Disassociates the image from the venue and deletes the venue image record.
  */
 export function venueContentDisassociateVenueImage(
   client: CventSDKCore,

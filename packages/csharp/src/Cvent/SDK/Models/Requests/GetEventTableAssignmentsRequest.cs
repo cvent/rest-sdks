@@ -35,21 +35,22 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter string passed in the query parameter of the request, narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="https://developers.cvent.com/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// There is only one comparison type that can be used in filter expressions:<br/>
-        ///   * equal: eq<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        ///   * seating.id (eq)<br/>
-        ///   * attendee.id (eq)<br/>
-        ///   * table.id (eq)<br/>
-        ///   * seat.id (eq)<br/>
+        /// | Field            | Operators                          |<br/>
+        /// |------------------|-------------------------------------|<br/>
+        /// | seating.id       | `eq`                                |<br/>
+        /// | attendee.id      | `eq`                                |<br/>
+        /// | table.id         | `eq`                                |<br/>
+        /// | seat.id          | `eq`                                |<br/>
         /// <br/>
-        /// The following operators are available:<br/>
-        ///   * and<br/>
-        ///   * or.
+        /// The following logical operators are supported for combining filters:<br/>
+        /// * and<br/>
+        /// * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

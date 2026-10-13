@@ -14,6 +14,7 @@ The Attendee entity primarily refers to the person throughout the lifecycle of a
 * [updateAttendee](#updateattendee) - Update Attendee
 * [updateAttendeeSubscriptionStatus](#updateattendeesubscriptionstatus) - Update Email Subscription
 * [updateInternalInfoAnswers](#updateinternalinfoanswers) - Update Internal Information
+* [listOptionalItems](#listoptionalitems) - List Attendee Optional Items
 * [postBadge](#postbadge) - Create Badge
 * [getBadge](#getbadge) - Get Badge
 * [getBadgesPostFilters](#getbadgespostfilters) - Get Badges
@@ -654,6 +655,76 @@ public class Application {
 ### Response
 
 **[UpdateInternalInfoAnswersResponse](../../models/operations/UpdateInternalInfoAnswersResponse.md)**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
+
+## listOptionalItems
+
+Lists all optional items selected by a single attendee during event registration.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="listOptionalItems" method="get" path="/attendees/{id}/optional-items" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse12;
+import com.cvent.models.operations.ListOptionalItemsRequest;
+import com.cvent.models.operations.ListOptionalItemsResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse12, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        ListOptionalItemsRequest req = ListOptionalItemsRequest.builder()
+                .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
+                .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
+                .build();
+
+
+        sdk.attendees().listOptionalItems()
+                .callAsStream()
+                .forEach((ListOptionalItemsResponse item) -> {
+                   // handle page
+                });
+
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [ListOptionalItemsRequest](../../models/operations/ListOptionalItemsRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+
+### Response
+
+**[ListOptionalItemsResponse](../../models/operations/ListOptionalItemsResponse.md)**
 
 ### Errors
 

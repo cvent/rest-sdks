@@ -262,7 +262,7 @@ namespace Cvent.SDK
         public IMeetingRequest MeetingRequest { get; }
 
         /// <summary>
-        /// Seating lets you plan seating at your events by configuring tables and assigning seats to your attendees. The seating APIs allow you to create, update, and delete seating, tables, seats, and seating assignments.<br/>
+        /// Seating lets you plan seating at your events by configuring tables and assigning seats to your attendees. The seating APIs allow you to retrieve seating, tables, seats, and seating assignments.<br/>
         /// * **Seating** - A diagram of tables and seats. Your event can have many seatings.<br/>
         /// * **Table** - A communal location where chairs are assigned. Each table is assigned to a seating.<br/>
         /// * **Seat** - Individual seat at a table. Each seat can be assigned to an attendee.<br/>
@@ -392,6 +392,11 @@ namespace Cvent.SDK
         public IUsage Usage { get; }
 
         /// <summary>
+        /// Manage images, amenities, and nearby attractions associated with a venue.
+        /// </summary>
+        public IVenueContent VenueContent { get; }
+
+        /// <summary>
         /// Manage the date ranges when a venue is available for event bookings.
         /// </summary>
         public IVenueAvailability VenueAvailability { get; }
@@ -400,11 +405,6 @@ namespace Cvent.SDK
         /// Manage venue profile details including type, contact information, address, and other venue properties.
         /// </summary>
         public IVenueProfiles VenueProfiles { get; }
-
-        /// <summary>
-        /// Manage images, amenities, and nearby attractions associated with a venue.
-        /// </summary>
-        public IVenueContent VenueContent { get; }
 
         /// <summary>
         /// Manage meeting rooms for a venue, including creating and updating room details, configuring capacities and amenities, and associating images.
@@ -643,6 +643,10 @@ namespace Cvent.SDK
         /// </summary>
         public IUsage Usage { get; private set; }
         /// <summary>
+        /// The VenueContent sub-SDK.
+        /// </summary>
+        public IVenueContent VenueContent { get; private set; }
+        /// <summary>
         /// The VenueAvailability sub-SDK.
         /// </summary>
         public IVenueAvailability VenueAvailability { get; private set; }
@@ -650,10 +654,6 @@ namespace Cvent.SDK
         /// The VenueProfiles sub-SDK.
         /// </summary>
         public IVenueProfiles VenueProfiles { get; private set; }
-        /// <summary>
-        /// The VenueContent sub-SDK.
-        /// </summary>
-        public IVenueContent VenueContent { get; private set; }
         /// <summary>
         /// The VenueMeetingRooms sub-SDK.
         /// </summary>
@@ -780,11 +780,11 @@ namespace Cvent.SDK
 
             Usage = new Usage(SDKConfiguration);
 
+            VenueContent = new VenueContent(SDKConfiguration);
+
             VenueAvailability = new VenueAvailability(SDKConfiguration);
 
             VenueProfiles = new VenueProfiles(SDKConfiguration);
-
-            VenueContent = new VenueContent(SDKConfiguration);
 
             VenueMeetingRooms = new VenueMeetingRooms(SDKConfiguration);
 
@@ -953,11 +953,11 @@ namespace Cvent.SDK
 
             Usage = new Usage(SDKConfiguration);
 
+            VenueContent = new VenueContent(SDKConfiguration);
+
             VenueAvailability = new VenueAvailability(SDKConfiguration);
 
             VenueProfiles = new VenueProfiles(SDKConfiguration);
-
-            VenueContent = new VenueContent(SDKConfiguration);
 
             VenueMeetingRooms = new VenueMeetingRooms(SDKConfiguration);
 

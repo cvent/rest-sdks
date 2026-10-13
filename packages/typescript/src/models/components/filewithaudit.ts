@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { FileLinkJson, FileLinkJson$inboundSchema } from "./filelinkjson.js";
+import { FileLink, FileLink$inboundSchema } from "./filelink.js";
 
 /**
  * File object that represents a file uploaded to the platform.
@@ -23,7 +23,7 @@ export type FileWithAudit = {
   /**
    * Represents a link to the associated file resource.
    */
-  path?: FileLinkJson | undefined;
+  path?: FileLink | undefined;
   /**
    * Size of the file in bytes.
    */
@@ -62,7 +62,7 @@ export const FileWithAudit$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string().optional(),
   friendlyName: z.string().optional(),
-  path: FileLinkJson$inboundSchema.optional(),
+  path: FileLink$inboundSchema.optional(),
   fileSize: z.number().int().optional(),
   created: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),

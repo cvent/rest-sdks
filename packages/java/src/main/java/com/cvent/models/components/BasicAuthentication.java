@@ -22,7 +22,7 @@ public class BasicAuthentication {
      * client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
      */
     @JsonProperty("type")
-    private AuthorizationHeaderType2 type;
+    private BasicAuthenticationAuthorizationHeaderType type;
 
     /**
      * Base64 encoded Basic Authentication credentials.
@@ -32,7 +32,7 @@ public class BasicAuthentication {
 
     @JsonCreator
     public BasicAuthentication(
-            @JsonProperty("type") @Nonnull AuthorizationHeaderType2 type,
+            @JsonProperty("type") @Nonnull BasicAuthenticationAuthorizationHeaderType type,
             @JsonProperty("secret") @Nonnull String secret) {
         this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.secret =
@@ -43,7 +43,7 @@ public class BasicAuthentication {
      * Authorization header support characterizing the authentication type to be used for callbacks to the
      * client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
      */
-    public AuthorizationHeaderType2 type() {
+    public BasicAuthenticationAuthorizationHeaderType type() {
         return this.type;
     }
 
@@ -62,7 +62,7 @@ public class BasicAuthentication {
      * Authorization header support characterizing the authentication type to be used for callbacks to the
      * client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
      */
-    public BasicAuthentication withType(@Nonnull AuthorizationHeaderType2 type) {
+    public BasicAuthentication withType(@Nonnull BasicAuthenticationAuthorizationHeaderType type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
@@ -100,7 +100,7 @@ public class BasicAuthentication {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private AuthorizationHeaderType2 type;
+        private BasicAuthenticationAuthorizationHeaderType type;
 
         private String secret;
 
@@ -112,7 +112,7 @@ public class BasicAuthentication {
          * Authorization header support characterizing the authentication type to be used for callbacks to the
          * client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
          */
-        public Builder type(@Nonnull AuthorizationHeaderType2 type) {
+        public Builder type(@Nonnull BasicAuthenticationAuthorizationHeaderType type) {
             this.type = Utils.checkNotNull(type, "type");
             return this;
         }

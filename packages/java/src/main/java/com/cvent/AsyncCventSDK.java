@@ -319,8 +319,7 @@ public class AsyncCventSDK {
     private final AsyncMeetingRequest meetingRequest;
     /**
      * Seating lets you plan seating at your events by configuring tables and assigning seats to your
-     * attendees. The seating APIs allow you to create, update, and delete seating, tables, seats, and
-     * seating assignments.
+     * attendees. The seating APIs allow you to retrieve seating, tables, seats, and seating assignments.
      * * **Seating** - A diagram of tables and seats. Your event can have many seatings.
      * * **Table** - A communal location where chairs are assigned. Each table is assigned to a seating.
      * * **Seat** - Individual seat at a table. Each seat can be assigned to an attendee.
@@ -448,6 +447,10 @@ public class AsyncCventSDK {
      */
     private final AsyncUsage usage;
     /**
+     * Manage images, amenities, and nearby attractions associated with a venue.
+     */
+    private final AsyncVenueContent venueContent;
+    /**
      * Manage the date ranges when a venue is available for event bookings.
      */
     private final AsyncVenueAvailability venueAvailability;
@@ -456,10 +459,6 @@ public class AsyncCventSDK {
      * properties.
      */
     private final AsyncVenueProfiles venueProfiles;
-    /**
-     * Manage images, amenities, and nearby attractions associated with a venue.
-     */
-    private final AsyncVenueContent venueContent;
     /**
      * Manage meeting rooms for a venue, including creating and updating room details, configuring
      * capacities and amenities, and associating images.
@@ -844,8 +843,7 @@ public class AsyncCventSDK {
     }
     /**
      * Seating lets you plan seating at your events by configuring tables and assigning seats to your
-     * attendees. The seating APIs allow you to create, update, and delete seating, tables, seats, and
-     * seating assignments.
+     * attendees. The seating APIs allow you to retrieve seating, tables, seats, and seating assignments.
      * * **Seating** - A diagram of tables and seats. Your event can have many seatings.
      * * **Table** - A communal location where chairs are assigned. Each table is assigned to a seating.
      * * **Seat** - Individual seat at a table. Each seat can be assigned to an attendee.
@@ -1017,6 +1015,12 @@ public class AsyncCventSDK {
         return usage;
     }
     /**
+     * Manage images, amenities, and nearby attractions associated with a venue.
+     */
+    public AsyncVenueContent venueContent() {
+        return venueContent;
+    }
+    /**
      * Manage the date ranges when a venue is available for event bookings.
      */
     public AsyncVenueAvailability venueAvailability() {
@@ -1028,12 +1032,6 @@ public class AsyncCventSDK {
      */
     public AsyncVenueProfiles venueProfiles() {
         return venueProfiles;
-    }
-    /**
-     * Manage images, amenities, and nearby attractions associated with a venue.
-     */
-    public AsyncVenueContent venueContent() {
-        return venueContent;
     }
     /**
      * Manage meeting rooms for a venue, including creating and updating room details, configuring
@@ -1120,9 +1118,9 @@ public class AsyncCventSDK {
         this.travelRFPs = new AsyncTravelRFPs(syncSDK.travelRFPs(), sdkConfiguration);
         this.travelSuppliers = new AsyncTravelSuppliers(syncSDK.travelSuppliers(), sdkConfiguration);
         this.usage = new AsyncUsage(syncSDK.usage(), sdkConfiguration);
+        this.venueContent = new AsyncVenueContent(syncSDK.venueContent(), sdkConfiguration);
         this.venueAvailability = new AsyncVenueAvailability(syncSDK.venueAvailability(), sdkConfiguration);
         this.venueProfiles = new AsyncVenueProfiles(syncSDK.venueProfiles(), sdkConfiguration);
-        this.venueContent = new AsyncVenueContent(syncSDK.venueContent(), sdkConfiguration);
         this.venueMeetingRooms = new AsyncVenueMeetingRooms(syncSDK.venueMeetingRooms(), sdkConfiguration);
         this.video = new AsyncVideo(syncSDK.video(), sdkConfiguration);
         this.webcasts = new AsyncWebcasts(syncSDK.webcasts(), sdkConfiguration);

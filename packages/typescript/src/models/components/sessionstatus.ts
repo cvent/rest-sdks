@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * This is used to denote the status of a session.
+ * Active: The registration process is visible to invitees and accepts new registrations. Closed: The registration process is visible but does not accept new registrations or submissions. Cancelled: The planner cancelled the registration process.
  */
 export const SessionStatus = {
   Active: "Active",
@@ -14,7 +14,7 @@ export const SessionStatus = {
   Closed: "Closed",
 } as const;
 /**
- * This is used to denote the status of a session.
+ * Active: The registration process is visible to invitees and accepts new registrations. Closed: The registration process is visible but does not accept new registrations or submissions. Cancelled: The planner cancelled the registration process.
  */
 export type SessionStatus = ClosedEnum<typeof SessionStatus>;
 

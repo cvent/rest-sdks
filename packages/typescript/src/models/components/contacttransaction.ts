@@ -7,11 +7,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ContactFieldJsonInput,
-  ContactFieldJsonInput$inboundSchema,
-  ContactFieldJsonInput$Outbound,
-  ContactFieldJsonInput$outboundSchema,
-} from "./contactfieldjsoninput.js";
+  ContactFieldInput,
+  ContactFieldInput$inboundSchema,
+  ContactFieldInput$Outbound,
+  ContactFieldInput$outboundSchema,
+} from "./contactfieldinput.js";
 
 /**
  * A changeset of contact fields.
@@ -20,7 +20,7 @@ export type ContactTransaction = {
   /**
    * Collection of standard contact fields.
    */
-  data: Array<ContactFieldJsonInput>;
+  data: Array<ContactFieldInput>;
 };
 
 /** @internal */
@@ -29,11 +29,11 @@ export const ContactTransaction$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(ContactFieldJsonInput$inboundSchema),
+  data: z.array(ContactFieldInput$inboundSchema),
 });
 /** @internal */
 export type ContactTransaction$Outbound = {
-  data: Array<ContactFieldJsonInput$Outbound>;
+  data: Array<ContactFieldInput$Outbound>;
 };
 
 /** @internal */
@@ -42,7 +42,7 @@ export const ContactTransaction$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ContactTransaction
 > = z.object({
-  data: z.array(ContactFieldJsonInput$outboundSchema),
+  data: z.array(ContactFieldInput$outboundSchema),
 });
 
 export function contactTransactionToJSON(

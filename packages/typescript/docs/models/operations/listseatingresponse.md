@@ -32,6 +32,8 @@ let value: ListSeatingResponse = {
         readOnly: false,
         sourceId: "Id2854",
         id: "ad6df5aa-f21f-47e6-9c48-8d3a7831ad5f",
+        tableCount: 10,
+        totalCapacity: 100,
       },
     ],
   },

@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  HookSecurityJsonOutput,
-  HookSecurityJsonOutput$inboundSchema,
-} from "./hooksecurityjsonoutput.js";
+  HookSecurityOutput,
+  HookSecurityOutput$inboundSchema,
+} from "./hooksecurityoutput.js";
 
 /**
  * A hook with a callback URI.
@@ -46,7 +46,7 @@ export type HookOutput = {
   /**
    * Describe security for a web hook callback. Each option corresponds to an Authorization header variant.
    */
-  security: HookSecurityJsonOutput;
+  security: HookSecurityOutput;
 };
 
 /** @internal */
@@ -65,7 +65,7 @@ export const HookOutput$inboundSchema: z.ZodType<
   id: z.string().optional(),
   name: z.string(),
   callback: z.string(),
-  security: HookSecurityJsonOutput$inboundSchema,
+  security: HookSecurityOutput$inboundSchema,
 });
 
 export function hookOutputFromJSON(

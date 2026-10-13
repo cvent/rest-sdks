@@ -11,17 +11,22 @@
 
 ### Available Operations
 
-* [GetEliteratureRequests](#geteliteraturerequests) - List E-literature Requests
+* [~~GetEliteratureRequests~~](#geteliteraturerequests) - List E-literature Requests :warning: **Deprecated**
 * [GetLeadQualificationAnswers](#getleadqualificationanswers) - List Qualification Answers
 * [GetLeads](#getleads) - List Leads
 * [GetLeadsPostFiltersData](#getleadspostfiltersdata) - List Leads
 
-## GetEliteratureRequests
+## ~~GetEliteratureRequests~~
+
+**Deprecated.** The E-literature Requests feature has been sunset.
 
 Gets a paginated list of eliterature requests data
 
+
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

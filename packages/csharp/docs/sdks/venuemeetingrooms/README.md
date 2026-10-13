@@ -19,6 +19,9 @@ Manage meeting rooms for a venue, including creating and updating room details, 
 
 Create a new meeting room for the specified venue.
 
+Not applicable to CVB/DMC venues.
+
+
 ### Example Usage
 
 <!-- UsageSnippet language="csharp" operationID="createMeetingRoom" method="post" path="/venues/{venueId}/meeting-rooms" -->
@@ -122,6 +125,9 @@ var res = await sdk.VenueMeetingRooms.CreateMeetingRoomAsync(req);
 
 Retrieve a paginated list of meeting room overviews for the specified venue.
 
+Not applicable to CVB/DMC venues.
+
+
 ### Example Usage
 
 <!-- UsageSnippet language="csharp" operationID="listMeetingRoomsOverviews" method="get" path="/venues/{venueId}/meeting-rooms/overviews" -->
@@ -170,6 +176,9 @@ var res = await sdk.VenueMeetingRooms.ListMeetingRoomsOverviewsAsync(req);
 ## UpdateMeetingRoom
 
 Update a meeting room for the specified venue, replacing the existing meeting room data.
+
+Not applicable to CVB/DMC venues.
+
 
 ### Example Usage
 
@@ -275,6 +284,8 @@ var res = await sdk.VenueMeetingRooms.UpdateMeetingRoomAsync(req);
 
 Partially update a meeting room for the specified venue.
 
+Not applicable to CVB/DMC venues.
+
 - Only fields present in the request body are updated; omitted fields remain unchanged.
 - Set a field to `null` to unset it.
 - **Arrays (`capacities`, `amenities`) are treated as full replacements** — the entire array is replaced, not merged.
@@ -362,6 +373,8 @@ Associate a previously uploaded image with a meeting room using a file UUID from
 
 **Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg, .jpeg) are accepted. Maximum file size is 10 MB.
 
+Not applicable to CVB/DMC venues.
+
 
 ### Example Usage
 
@@ -416,6 +429,9 @@ var res = await sdk.VenueMeetingRooms.AssociateMeetingRoomImageAsync(req);
 
 Retrieves the images associated with a meeting room. Each meeting room has at most one image.
 
+Not applicable to CVB/DMC venues.
+
+
 ### Example Usage
 
 <!-- UsageSnippet language="csharp" operationID="listMeetingRoomImages" method="get" path="/venues/{venueId}/meeting-rooms/{meetingRoomId}/images" -->
@@ -463,6 +479,9 @@ var res = await sdk.VenueMeetingRooms.ListMeetingRoomImagesAsync(req);
 ## DisassociateMeetingRoomImage
 
 Disassociates the current image from a meeting room.
+
+Not applicable to CVB/DMC venues.
+
 
 ### Example Usage
 
@@ -512,6 +531,9 @@ var res = await sdk.VenueMeetingRooms.DisassociateMeetingRoomImageAsync(req);
 ## GetMeetingRoomOverview
 
 Retrieve an overview of a specific meeting room for the specified venue.
+
+Not applicable to CVB/DMC venues.
+
 
 ### Example Usage
 

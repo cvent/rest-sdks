@@ -50,6 +50,12 @@ namespace Cvent.SDK.Models.Components
         public string? SourceId { get; set; }
 
         /// <summary>
+        /// When true, the table allows open seating where attendees may choose any available seat. When false, each seat is individually named and must be explicitly assigned to an attendee.
+        /// </summary>
+        [JsonProperty("open")]
+        public bool? Open { get; set; }
+
+        /// <summary>
         /// The unique ID of the table.
         /// </summary>
         [JsonProperty("id")]
@@ -61,6 +67,6 @@ namespace Cvent.SDK.Models.Components
         /// This is an **expandable** object and if requested will contain all the properties of a seat object.
         /// </summary>
         [JsonProperty("seats")]
-        public List<ExpandableSeatJson>? Seats { get; set; }
+        public List<ExpandableSeat>? Seats { get; set; }
     }
 }

@@ -7384,7 +7384,7 @@ workflows:
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"name":"Awards Dinner","code":"1VCAPITRAN18012023","readOnly":false,"sourceId":"Id2854","id":"ad6df5aa-f21f-47e6-9c48-8d3a7831ad5f"}
+              {"name":"Awards Dinner","code":"1VCAPITRAN18012023","readOnly":false,"sourceId":"Id2854","id":"ad6df5aa-f21f-47e6-9c48-8d3a7831ad5f","tableCount":10,"totalCapacity":100}
             type: simple
     x-speakeasy-test-group: Seating
     x-speakeasy-test-rebuild: true
@@ -7478,7 +7478,7 @@ workflows:
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"name":"CVENT table","code":"CAETABLE1","capacity":10,"description":"This table is for VIP attendees.","sourceId":"Id1255","id":"c9763ce5-b965-44ed-9c2b-b5657dfab012","seats":[{"id":"37ace026-f4ac-40e3-9144-e2c8399844be"}]}
+              {"name":"CVENT table","code":"CAETABLE1","capacity":10,"description":"This table is for VIP attendees.","sourceId":"Id1255","open":false,"id":"c9763ce5-b965-44ed-9c2b-b5657dfab012","seats":[{"id":"37ace026-f4ac-40e3-9144-e2c8399844be"}]}
             type: simple
     x-speakeasy-test-group: Seating
     x-speakeasy-test-rebuild: true
@@ -11878,7 +11878,183 @@ workflows:
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"file":{"id":"080a01ef-2f73-45f6-8f48-91dbc83a4c47"},"href":"https://images.cvent.com/production/csn/3c7be8c9-cddb-4eaf-93a8-27da3250ed4f/images/83142ebfecbb42d2ac3be0433a180829_extrasmall!_!5b5c517134afb758b6fbbefb0e94d819.jpg"}
+              {"id":"286e2866-b443-4d09-ab0f-0fac45cc026f","file":{"id":"080a01ef-2f73-45f6-8f48-91dbc83a4c47"},"href":"https://images.cvent.com/production/csn/3c7be8c9-cddb-4eaf-93a8-27da3250ed4f/images/83142ebfecbb42d2ac3be0433a180829_extrasmall!_!5b5c517134afb758b6fbbefb0e94d819.jpg"}
+            type: simple
+    x-speakeasy-test-group: Venue Content
+    x-speakeasy-test-rebuild: true
+  - workflowId: listOptionalItems
+    steps:
+      - stepId: test
+        operationId: listOptionalItems
+        parameters:
+          - name: id
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[]}
+            type: simple
+    x-speakeasy-test-group: Attendees
+    x-speakeasy-test-rebuild: true
+  - workflowId: listVenueAttractions
+    steps:
+      - stepId: test
+        operationId: listVenueAttractions
+        parameters:
+          - name: venueId
+            in: path
+            value: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","name":"Golden Gate Bridge","description":"Iconic suspension bridge, 10 minutes from the venue.","url":"https://www.example.com","distance":{"value":2},"displayOrder":1,"address":{"streetAddress1":"Golden Gate Bridge","streetAddress2":"Suite 100","city":"San Francisco","zipPostalCode":"94129"},"id":"7e5c2c23-b2bb-461a-adc9-025184988519"}]}
+            type: simple
+    x-speakeasy-test-group: Venue Content
+    x-speakeasy-test-rebuild: true
+  - workflowId: createVenueAttraction
+    steps:
+      - stepId: test
+        operationId: createVenueAttraction
+        parameters:
+          - name: venueId
+            in: path
+            value: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+        requestBody:
+          contentType: application/json
+          payload:
+            address:
+              city: San Francisco
+              streetAddress1: Golden Gate Bridge
+              streetAddress2: Suite 100
+              zipPostalCode: "94129"
+            description: Iconic suspension bridge, 10 minutes from the venue.
+            displayOrder: 1
+            distance:
+              value: 2
+            name: Golden Gate Bridge
+            url: https://www.example.com
+        successCriteria:
+          - condition: $statusCode == 201
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","name":"Golden Gate Bridge","description":"Iconic suspension bridge, 10 minutes from the venue.","url":"https://www.example.com","distance":{"value":2},"displayOrder":1,"address":{"streetAddress1":"Golden Gate Bridge","streetAddress2":"Suite 100","city":"San Francisco","zipPostalCode":"94129"},"id":"7e5c2c23-b2bb-461a-adc9-025184988519"}
+            type: simple
+    x-speakeasy-test-group: Venue Content
+    x-speakeasy-test-rebuild: true
+  - workflowId: getVenueAttraction
+    steps:
+      - stepId: test
+        operationId: getVenueAttraction
+        parameters:
+          - name: venueId
+            in: path
+            value: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+          - name: attractionId
+            in: path
+            value: 085d6c08-a5e1-4434-9ca4-db1193317657
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","name":"Golden Gate Bridge","description":"Iconic suspension bridge, 10 minutes from the venue.","url":"https://www.example.com","distance":{"value":2},"displayOrder":1,"address":{"streetAddress1":"Golden Gate Bridge","streetAddress2":"Suite 100","city":"San Francisco","zipPostalCode":"94129"},"id":"7e5c2c23-b2bb-461a-adc9-025184988519"}
+            type: simple
+    x-speakeasy-test-group: Venue Content
+    x-speakeasy-test-rebuild: true
+  - workflowId: updateVenueAttraction
+    steps:
+      - stepId: test
+        operationId: updateVenueAttraction
+        parameters:
+          - name: venueId
+            in: path
+            value: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+          - name: attractionId
+            in: path
+            value: e9db7203-82f8-4b3f-9e91-a8b6970ff2b4
+        requestBody:
+          contentType: application/json
+          payload:
+            address:
+              city: San Francisco
+              streetAddress1: Golden Gate Bridge
+              streetAddress2: Suite 100
+              zipPostalCode: "94129"
+            description: Iconic suspension bridge, 10 minutes from the venue.
+            displayOrder: 1
+            distance:
+              value: 2
+            name: Golden Gate Bridge
+            url: https://www.example.com
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","name":"Golden Gate Bridge","description":"Iconic suspension bridge, 10 minutes from the venue.","url":"https://www.example.com","distance":{"value":2},"displayOrder":1,"address":{"streetAddress1":"Golden Gate Bridge","streetAddress2":"Suite 100","city":"San Francisco","zipPostalCode":"94129"},"id":"7e5c2c23-b2bb-461a-adc9-025184988519"}
+            type: simple
+    x-speakeasy-test-group: Venue Content
+    x-speakeasy-test-rebuild: true
+  - workflowId: associateAttractionImage
+    steps:
+      - stepId: test
+        operationId: associateAttractionImage
+        parameters:
+          - name: venueId
+            in: path
+            value: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+          - name: attractionId
+            in: path
+            value: 866bb720-507f-4df9-bdf8-ce9082764bff
+        requestBody:
+          contentType: application/json
+          payload:
+            file:
+              id: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"id":"286e2866-b443-4d09-ab0f-0fac45cc026f","href":"https://images.cvent.com/production/csn/3c7be8c9-cddb-4eaf-93a8-27da3250ed4f/images/83142ebfecbb42d2ac3be0433a180829_extrasmall!_!5b5c517134afb758b6fbbefb0e94d819.jpg","file":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"}}
+            type: simple
+    x-speakeasy-test-group: Venue Content
+    x-speakeasy-test-rebuild: true
+  - workflowId: getAttractionImages
+    steps:
+      - stepId: test
+        operationId: getAttractionImages
+        parameters:
+          - name: venueId
+            in: path
+            value: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+          - name: attractionId
+            in: path
+            value: e43d626a-e1ba-447a-89ad-26eeea82a10a
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"data":[{"id":"286e2866-b443-4d09-ab0f-0fac45cc026f","href":"https://images.cvent.com/production/csn/3c7be8c9-cddb-4eaf-93a8-27da3250ed4f/images/83142ebfecbb42d2ac3be0433a180829_extrasmall!_!5b5c517134afb758b6fbbefb0e94d819.jpg"}]}
             type: simple
     x-speakeasy-test-group: Venue Content
     x-speakeasy-test-rebuild: true

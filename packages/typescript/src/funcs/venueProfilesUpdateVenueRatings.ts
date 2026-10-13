@@ -35,8 +35,9 @@ import { Result } from "../types/fp.js";
  * This is a full replace — agencies omitted from the request will be removed. It is recommended to call GET first to retrieve the current state and the list of applicable agencies for the venue.
  *
  * Additional rules:
- * - Ratings do not apply to CVB/DMC venues.
+ * - Not applicable to CVB/DMC venues.
  * - At most one rating may be marked as primary. Zagat ratings cannot be primary.
+ * - No rating may be marked as primary for Restaurant venues.
  * - Some agencies have read-only rating values; check the `ratingEditable` flag in the GET response before submitting a rating value for those agencies.
  * - Agency eligibility is determined by the venue's type and country — passing an ineligible agency returns a 400.
  */

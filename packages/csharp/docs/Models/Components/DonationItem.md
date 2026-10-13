@@ -1,0 +1,15 @@
+# DonationItem
+
+Donation item selected by attendee during event registration.
+
+
+## Fields
+
+| Field                                                             | Type                                                              | Required                                                          | Description                                                       | Example                                                           |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `Id`                                                              | *string*                                                          | :heavy_minus_sign:                                                | The unique ID representing the optional item.                     | 2d8234f1-55df-483c-abe3-7e2cb98f8275                              |
+| `Event`                                                           | [DonationItemEvent](../../Models/Components/DonationItemEvent.md) | :heavy_minus_sign:                                                | The event this optional item belongs to.                          |                                                                   |
+| `Name`                                                            | *string*                                                          | :heavy_minus_sign:                                                | The name of the optional item.                                    | T-Shirts                                                          |
+| `Code`                                                            | *string*                                                          | :heavy_minus_sign:                                                | The planner provided code of the optional item.                   | SHIRTS                                                            |
+| `Type`                                                            | [OptionalItemType](../../Models/Components/OptionalItemType.md)   | :heavy_minus_sign:                                                | Denotes the product type of the optional item.                    | DonationItem                                                      |
+| `AmountPaid`                                                      | *double*                                                          | :heavy_minus_sign:                                                | The donation amount paid by an attendee in the event.             | 500.75                                                            |

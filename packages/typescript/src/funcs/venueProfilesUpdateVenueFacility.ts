@@ -32,8 +32,7 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Update the facility information for the specified venue, replacing all existing values with those provided in the request body.
  *
- * Field applicability varies by venue type:
- * - Most facility information fields do not apply to CVB/DMC or Restaurant venues.
+ * Not applicable to CVB/DMC or Restaurant venues.
  */
 export function venueProfilesUpdateVenueFacility(
   client: CventSDKCore,

@@ -28,7 +28,7 @@ public class APIKeyAuthentication {
      * client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
      */
     @JsonProperty("type")
-    private AuthorizationHeaderType1 type;
+    private APIKeyAuthenticationAuthorizationHeaderType type;
 
     /**
      * An API key to be included in callback requests.
@@ -54,7 +54,7 @@ public class APIKeyAuthentication {
 
     @JsonCreator
     public APIKeyAuthentication(
-            @JsonProperty("type") @Nonnull AuthorizationHeaderType1 type,
+            @JsonProperty("type") @Nonnull APIKeyAuthenticationAuthorizationHeaderType type,
             @JsonProperty("secret") @Nonnull String secret,
             @JsonProperty("authHeaderKey") @Nullable String authHeaderKey,
             @JsonProperty("apiKeyPrefix") @Nullable Boolean apiKeyPrefix) {
@@ -65,7 +65,7 @@ public class APIKeyAuthentication {
         this.apiKeyPrefix = Optional.ofNullable(apiKeyPrefix).orElse(Builder._SINGLETON_VALUE_ApiKeyPrefix.value());
     }
 
-    public APIKeyAuthentication(@Nonnull AuthorizationHeaderType1 type, @Nonnull String secret) {
+    public APIKeyAuthentication(@Nonnull APIKeyAuthenticationAuthorizationHeaderType type, @Nonnull String secret) {
         this(type, secret, null, null);
     }
 
@@ -73,7 +73,7 @@ public class APIKeyAuthentication {
      * Authorization header support characterizing the authentication type to be used for callbacks to the
      * client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
      */
-    public AuthorizationHeaderType1 type() {
+    public APIKeyAuthenticationAuthorizationHeaderType type() {
         return this.type;
     }
 
@@ -108,7 +108,7 @@ public class APIKeyAuthentication {
      * Authorization header support characterizing the authentication type to be used for callbacks to the
      * client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
      */
-    public APIKeyAuthentication withType(@Nonnull AuthorizationHeaderType1 type) {
+    public APIKeyAuthentication withType(@Nonnull APIKeyAuthenticationAuthorizationHeaderType type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
@@ -176,7 +176,7 @@ public class APIKeyAuthentication {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private AuthorizationHeaderType1 type;
+        private APIKeyAuthenticationAuthorizationHeaderType type;
 
         private String secret;
 
@@ -192,7 +192,7 @@ public class APIKeyAuthentication {
          * Authorization header support characterizing the authentication type to be used for callbacks to the
          * client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
          */
-        public Builder type(@Nonnull AuthorizationHeaderType1 type) {
+        public Builder type(@Nonnull APIKeyAuthenticationAuthorizationHeaderType type) {
             this.type = Utils.checkNotNull(type, "type");
             return this;
         }

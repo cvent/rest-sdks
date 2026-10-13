@@ -42,10 +42,7 @@ import {
   BudgetTaxGratuityType$inboundSchema,
 } from "./budgettaxgratuitytype.js";
 import { BudgetVendor, BudgetVendor$inboundSchema } from "./budgetvendor.js";
-import {
-  BudgetVersionId,
-  BudgetVersionId$inboundSchema,
-} from "./budgetversionid.js";
+import { BudgetVersion, BudgetVersion$inboundSchema } from "./budgetversion.js";
 import {
   GeneralLedger1,
   GeneralLedger1$inboundSchema,
@@ -166,9 +163,9 @@ export type BudgetItemResponse = {
    */
   associatedSession?: string | undefined;
   /**
-   * Budget Version ID Information.
+   * Budget version ID information. Defaults to the account's default budget version when creating or updating budget items.
    */
-  budgetVersion?: BudgetVersionId | undefined;
+  budgetVersion?: BudgetVersion | undefined;
   /**
    * List of budget item custom fields.
    */
@@ -228,7 +225,7 @@ export const BudgetItemResponse$inboundSchema: z.ZodType<
   associatedRegistrants: z.array(BudgetAssociatedRegistrant$inboundSchema)
     .optional(),
   associatedSession: z.string().optional(),
-  budgetVersion: BudgetVersionId$inboundSchema.optional(),
+  budgetVersion: BudgetVersion$inboundSchema.optional(),
   customFields: z.array(BudgetItemCustomField$inboundSchema).optional(),
 });
 

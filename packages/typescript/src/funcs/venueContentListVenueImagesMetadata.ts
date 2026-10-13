@@ -27,7 +27,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * List Images Metadata
+ * List Venue Images Metadata
  *
  * @remarks
  * Retrieve a paginated list of venue image metadata for the specified venue.

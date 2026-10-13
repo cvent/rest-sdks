@@ -44,22 +44,22 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Budget Version ID Information.
+        /// Event ID Information.
         /// </summary>
         [JsonProperty("event")]
-        public BudgetVersionId? Event { get; set; }
+        public Event1? Event { get; set; }
 
         /// <summary>
-        /// Budget Version ID Information.
+        /// Represents the RFP associated with a budget item.
         /// </summary>
         [JsonProperty("rfp")]
-        public BudgetVersionId? Rfp { get; set; }
+        public Rfp1? Rfp { get; set; }
 
         /// <summary>
-        /// Budget Version ID Information.
+        /// Budget version ID information. Defaults to the account's default budget version when creating or updating budget items.
         /// </summary>
         [JsonProperty("budgetVersion")]
-        public BudgetVersionId? BudgetVersion { get; set; }
+        public BudgetVersion? BudgetVersion { get; set; }
 
         /// <summary>
         /// The identifier of the budget item.

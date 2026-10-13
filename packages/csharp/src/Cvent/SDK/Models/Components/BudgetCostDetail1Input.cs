@@ -26,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// The number of units associated with a budget item. This field can be any number if the budget item is a Variable cost type. If the budget item uses a Fixed cost type, set this field to 1.
+        /// The number of units associated with a budget item. This field can be any number if the budget item is a Variable cost type. For Fixed cost type items, any provided value is ignored and the server persists units as 1.
         /// </summary>
         [JsonProperty("units")]
         public double Units { get; set; } = default!;

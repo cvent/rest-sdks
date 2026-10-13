@@ -32,6 +32,7 @@ let value: ListTablesResponse = {
         capacity: 10,
         description: "This table is for VIP attendees.",
         sourceId: "Id1255",
+        open: false,
         id: "c9763ce5-b965-44ed-9c2b-b5657dfab012",
         seats: [
           {

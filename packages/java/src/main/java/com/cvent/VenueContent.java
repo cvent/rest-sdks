@@ -5,29 +5,61 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.RequestOperation;
 
+import com.cvent.models.operations.AssociateAttractionImageRequest;
+import com.cvent.models.operations.AssociateAttractionImageRequestBuilder;
+import com.cvent.models.operations.AssociateAttractionImageResponse;
 import com.cvent.models.operations.AssociateVenueImageRequest;
 import com.cvent.models.operations.AssociateVenueImageRequestBuilder;
 import com.cvent.models.operations.AssociateVenueImageResponse;
+import com.cvent.models.operations.CreateVenueAttractionRequest;
+import com.cvent.models.operations.CreateVenueAttractionRequestBuilder;
+import com.cvent.models.operations.CreateVenueAttractionResponse;
 import com.cvent.models.operations.CreateVenueImageMetadataRequest;
 import com.cvent.models.operations.CreateVenueImageMetadataRequestBuilder;
 import com.cvent.models.operations.CreateVenueImageMetadataResponse;
+import com.cvent.models.operations.DeleteVenueAttractionRequest;
+import com.cvent.models.operations.DeleteVenueAttractionRequestBuilder;
+import com.cvent.models.operations.DeleteVenueAttractionResponse;
+import com.cvent.models.operations.DisassociateAttractionImageRequest;
+import com.cvent.models.operations.DisassociateAttractionImageRequestBuilder;
+import com.cvent.models.operations.DisassociateAttractionImageResponse;
 import com.cvent.models.operations.DisassociateVenueImageRequest;
 import com.cvent.models.operations.DisassociateVenueImageRequestBuilder;
 import com.cvent.models.operations.DisassociateVenueImageResponse;
+import com.cvent.models.operations.GetAttractionImagesRequest;
+import com.cvent.models.operations.GetAttractionImagesRequestBuilder;
+import com.cvent.models.operations.GetAttractionImagesResponse;
+import com.cvent.models.operations.GetVenueAttractionRequest;
+import com.cvent.models.operations.GetVenueAttractionRequestBuilder;
+import com.cvent.models.operations.GetVenueAttractionResponse;
 import com.cvent.models.operations.GetVenueImageMetadataRequest;
 import com.cvent.models.operations.GetVenueImageMetadataRequestBuilder;
 import com.cvent.models.operations.GetVenueImageMetadataResponse;
+import com.cvent.models.operations.ListVenueAttractionsRequest;
+import com.cvent.models.operations.ListVenueAttractionsRequestBuilder;
+import com.cvent.models.operations.ListVenueAttractionsResponse;
 import com.cvent.models.operations.ListVenueImagesMetadataRequest;
 import com.cvent.models.operations.ListVenueImagesMetadataRequestBuilder;
 import com.cvent.models.operations.ListVenueImagesMetadataResponse;
+import com.cvent.models.operations.UpdateVenueAttractionRequest;
+import com.cvent.models.operations.UpdateVenueAttractionRequestBuilder;
+import com.cvent.models.operations.UpdateVenueAttractionResponse;
 import com.cvent.models.operations.UpdateVenueImageMetadataRequest;
 import com.cvent.models.operations.UpdateVenueImageMetadataRequestBuilder;
 import com.cvent.models.operations.UpdateVenueImageMetadataResponse;
+import com.cvent.operations.AssociateAttractionImage;
 import com.cvent.operations.AssociateVenueImage;
+import com.cvent.operations.CreateVenueAttraction;
 import com.cvent.operations.CreateVenueImageMetadata;
+import com.cvent.operations.DeleteVenueAttraction;
+import com.cvent.operations.DisassociateAttractionImage;
 import com.cvent.operations.DisassociateVenueImage;
+import com.cvent.operations.GetAttractionImages;
+import com.cvent.operations.GetVenueAttraction;
 import com.cvent.operations.GetVenueImageMetadata;
+import com.cvent.operations.ListVenueAttractions;
 import com.cvent.operations.ListVenueImagesMetadata;
+import com.cvent.operations.UpdateVenueAttraction;
 import com.cvent.operations.UpdateVenueImageMetadata;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
@@ -57,12 +89,355 @@ public class VenueContent {
     }
 
     /**
+     * List Venue Attractions
+     *
+     * <p>Returns a paginated list of attractions for the specified venue.
+     *
+     * @return The call builder
+     */
+    public ListVenueAttractionsRequestBuilder listVenueAttractions() {
+        return new ListVenueAttractionsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Venue Attractions
+     *
+     * <p>Returns a paginated list of attractions for the specified venue.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListVenueAttractionsResponse listVenueAttractions(@Nonnull ListVenueAttractionsRequest request) {
+        return listVenueAttractions(request, null);
+    }
+
+    /**
+     * List Venue Attractions
+     *
+     * <p>Returns a paginated list of attractions for the specified venue.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListVenueAttractionsResponse listVenueAttractions(
+            @Nonnull ListVenueAttractionsRequest request, @Nullable Options options) {
+        RequestOperation<ListVenueAttractionsRequest, ListVenueAttractionsResponse> operation =
+                new ListVenueAttractions.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Create Venue Attraction
+     *
+     * <p>Creates a new attraction for the specified venue.
+     *
+     * @return The call builder
+     */
+    public CreateVenueAttractionRequestBuilder createVenueAttraction() {
+        return new CreateVenueAttractionRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Create Venue Attraction
+     *
+     * <p>Creates a new attraction for the specified venue.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateVenueAttractionResponse createVenueAttraction(@Nonnull CreateVenueAttractionRequest request) {
+        return createVenueAttraction(request, null);
+    }
+
+    /**
+     * Create Venue Attraction
+     *
+     * <p>Creates a new attraction for the specified venue.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateVenueAttractionResponse createVenueAttraction(
+            @Nonnull CreateVenueAttractionRequest request, @Nullable Options options) {
+        RequestOperation<CreateVenueAttractionRequest, CreateVenueAttractionResponse> operation =
+                new CreateVenueAttraction.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Get Venue Attraction
+     *
+     * <p>Retrieves the given attraction for the specified venue.
+     *
+     * @return The call builder
+     */
+    public GetVenueAttractionRequestBuilder getVenueAttraction() {
+        return new GetVenueAttractionRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get Venue Attraction
+     *
+     * <p>Retrieves the given attraction for the specified venue.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetVenueAttractionResponse getVenueAttraction(@Nonnull GetVenueAttractionRequest request) {
+        return getVenueAttraction(request, null);
+    }
+
+    /**
+     * Get Venue Attraction
+     *
+     * <p>Retrieves the given attraction for the specified venue.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetVenueAttractionResponse getVenueAttraction(
+            @Nonnull GetVenueAttractionRequest request, @Nullable Options options) {
+        RequestOperation<GetVenueAttractionRequest, GetVenueAttractionResponse> operation =
+                new GetVenueAttraction.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Update Venue Attraction
+     *
+     * <p>Update the given attraction for the specified venue, replacing existing attraction data.
+     *
+     * @return The call builder
+     */
+    public UpdateVenueAttractionRequestBuilder updateVenueAttraction() {
+        return new UpdateVenueAttractionRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update Venue Attraction
+     *
+     * <p>Update the given attraction for the specified venue, replacing existing attraction data.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateVenueAttractionResponse updateVenueAttraction(@Nonnull UpdateVenueAttractionRequest request) {
+        return updateVenueAttraction(request, null);
+    }
+
+    /**
+     * Update Venue Attraction
+     *
+     * <p>Update the given attraction for the specified venue, replacing existing attraction data.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateVenueAttractionResponse updateVenueAttraction(
+            @Nonnull UpdateVenueAttractionRequest request, @Nullable Options options) {
+        RequestOperation<UpdateVenueAttractionRequest, UpdateVenueAttractionResponse> operation =
+                new UpdateVenueAttraction.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Delete Venue Attraction
+     *
+     * <p>Deletes the specified attraction for the venue.
+     *
+     * @return The call builder
+     */
+    public DeleteVenueAttractionRequestBuilder deleteVenueAttraction() {
+        return new DeleteVenueAttractionRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Delete Venue Attraction
+     *
+     * <p>Deletes the specified attraction for the venue.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteVenueAttractionResponse deleteVenueAttraction(@Nonnull DeleteVenueAttractionRequest request) {
+        return deleteVenueAttraction(request, null);
+    }
+
+    /**
+     * Delete Venue Attraction
+     *
+     * <p>Deletes the specified attraction for the venue.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteVenueAttractionResponse deleteVenueAttraction(
+            @Nonnull DeleteVenueAttractionRequest request, @Nullable Options options) {
+        RequestOperation<DeleteVenueAttractionRequest, DeleteVenueAttractionResponse> operation =
+                new DeleteVenueAttraction.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Associate Attraction Image
+     *
+     * <p>Associate a previously uploaded image with an attraction using a file UUID from the [file
+     * upload](#operation/uploadFile) endpoint. This will replace the current image if one is already
+     * associated.
+     *
+     * <p>**Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg,
+     * .jpeg) are accepted. Maximum file size is 10 MB.
+     *
+     * @return The call builder
+     */
+    public AssociateAttractionImageRequestBuilder associateAttractionImage() {
+        return new AssociateAttractionImageRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Associate Attraction Image
+     *
+     * <p>Associate a previously uploaded image with an attraction using a file UUID from the [file
+     * upload](#operation/uploadFile) endpoint. This will replace the current image if one is already
+     * associated.
+     *
+     * <p>**Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg,
+     * .jpeg) are accepted. Maximum file size is 10 MB.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AssociateAttractionImageResponse associateAttractionImage(@Nonnull AssociateAttractionImageRequest request) {
+        return associateAttractionImage(request, null);
+    }
+
+    /**
+     * Associate Attraction Image
+     *
+     * <p>Associate a previously uploaded image with an attraction using a file UUID from the [file
+     * upload](#operation/uploadFile) endpoint. This will replace the current image if one is already
+     * associated.
+     *
+     * <p>**Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg,
+     * .jpeg) are accepted. Maximum file size is 10 MB.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AssociateAttractionImageResponse associateAttractionImage(
+            @Nonnull AssociateAttractionImageRequest request, @Nullable Options options) {
+        RequestOperation<AssociateAttractionImageRequest, AssociateAttractionImageResponse> operation =
+                new AssociateAttractionImage.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Get Attraction Images
+     *
+     * <p>Retrieves the images associated with the specified attraction.
+     *
+     * @return The call builder
+     */
+    public GetAttractionImagesRequestBuilder getAttractionImages() {
+        return new GetAttractionImagesRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get Attraction Images
+     *
+     * <p>Retrieves the images associated with the specified attraction.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetAttractionImagesResponse getAttractionImages(@Nonnull GetAttractionImagesRequest request) {
+        return getAttractionImages(request, null);
+    }
+
+    /**
+     * Get Attraction Images
+     *
+     * <p>Retrieves the images associated with the specified attraction.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetAttractionImagesResponse getAttractionImages(
+            @Nonnull GetAttractionImagesRequest request, @Nullable Options options) {
+        RequestOperation<GetAttractionImagesRequest, GetAttractionImagesResponse> operation =
+                new GetAttractionImages.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Remove Attraction Image
+     *
+     * <p>Removes the association between an image and the specified attraction.
+     *
+     * @return The call builder
+     */
+    public DisassociateAttractionImageRequestBuilder disassociateAttractionImage() {
+        return new DisassociateAttractionImageRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Remove Attraction Image
+     *
+     * <p>Removes the association between an image and the specified attraction.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DisassociateAttractionImageResponse disassociateAttractionImage(
+            @Nonnull DisassociateAttractionImageRequest request) {
+        return disassociateAttractionImage(request, null);
+    }
+
+    /**
+     * Remove Attraction Image
+     *
+     * <p>Removes the association between an image and the specified attraction.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DisassociateAttractionImageResponse disassociateAttractionImage(
+            @Nonnull DisassociateAttractionImageRequest request, @Nullable Options options) {
+        RequestOperation<DisassociateAttractionImageRequest, DisassociateAttractionImageResponse> operation =
+                new DisassociateAttractionImage.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
      * Create Venue Image Metadata
      *
      * <p>Create venue image metadata for the specified venue. This creates a new venue image record with the
-     * provided details such as name, description, image group, and display order. Use the <a
-     * href="#operation/associateVenueImage">Associate Venue Image</a> endpoint to associate an uploaded
-     * image file to a venue.
+     * provided details such as name, description, image group, and display order. Use the [Associate Venue
+     * Image](#operation/associateVenueImage) endpoint to associate an uploaded image file to a venue.
      *
      * @return The call builder
      */
@@ -74,9 +449,8 @@ public class VenueContent {
      * Create Venue Image Metadata
      *
      * <p>Create venue image metadata for the specified venue. This creates a new venue image record with the
-     * provided details such as name, description, image group, and display order. Use the <a
-     * href="#operation/associateVenueImage">Associate Venue Image</a> endpoint to associate an uploaded
-     * image file to a venue.
+     * provided details such as name, description, image group, and display order. Use the [Associate Venue
+     * Image](#operation/associateVenueImage) endpoint to associate an uploaded image file to a venue.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -90,9 +464,8 @@ public class VenueContent {
      * Create Venue Image Metadata
      *
      * <p>Create venue image metadata for the specified venue. This creates a new venue image record with the
-     * provided details such as name, description, image group, and display order. Use the <a
-     * href="#operation/associateVenueImage">Associate Venue Image</a> endpoint to associate an uploaded
-     * image file to a venue.
+     * provided details such as name, description, image group, and display order. Use the [Associate Venue
+     * Image](#operation/associateVenueImage) endpoint to associate an uploaded image file to a venue.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -107,7 +480,7 @@ public class VenueContent {
     }
 
     /**
-     * List Images Metadata
+     * List Venue Images Metadata
      *
      * <p>Retrieve a paginated list of venue image metadata for the specified venue.
      *
@@ -118,7 +491,7 @@ public class VenueContent {
     }
 
     /**
-     * List Images Metadata
+     * List Venue Images Metadata
      *
      * <p>Retrieve a paginated list of venue image metadata for the specified venue.
      *
@@ -131,7 +504,7 @@ public class VenueContent {
     }
 
     /**
-     * List Images Metadata
+     * List Venue Images Metadata
      *
      * <p>Retrieve a paginated list of venue image metadata for the specified venue.
      *
@@ -192,7 +565,7 @@ public class VenueContent {
     }
 
     /**
-     * Get Image Metadata
+     * Get Venue Image Metadata
      *
      * <p>Retrieve venue image metadata for the specified venue image.
      *
@@ -203,7 +576,7 @@ public class VenueContent {
     }
 
     /**
-     * Get Image Metadata
+     * Get Venue Image Metadata
      *
      * <p>Retrieve venue image metadata for the specified venue image.
      *
@@ -216,7 +589,7 @@ public class VenueContent {
     }
 
     /**
-     * Get Image Metadata
+     * Get Venue Image Metadata
      *
      * <p>Retrieve venue image metadata for the specified venue image.
      *
@@ -235,9 +608,9 @@ public class VenueContent {
     /**
      * Associate Venue Image
      *
-     * <p>Associate a previously uploaded image with a venue image using a file UUID from the <a
-     * href="#operation/uploadFile">file upload</a> endpoint. This will replace the current image file if
-     * one is already associated.
+     * <p>Associate a previously uploaded image with a venue image using a file UUID from the [file
+     * upload](#operation/uploadFile) endpoint. This will replace the current image file if one is already
+     * associated.
      *
      * <p>**Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg,
      * .jpeg) are accepted. Maximum file size is 10 MB.
@@ -251,9 +624,9 @@ public class VenueContent {
     /**
      * Associate Venue Image
      *
-     * <p>Associate a previously uploaded image with a venue image using a file UUID from the <a
-     * href="#operation/uploadFile">file upload</a> endpoint. This will replace the current image file if
-     * one is already associated.
+     * <p>Associate a previously uploaded image with a venue image using a file UUID from the [file
+     * upload](#operation/uploadFile) endpoint. This will replace the current image file if one is already
+     * associated.
      *
      * <p>**Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg,
      * .jpeg) are accepted. Maximum file size is 10 MB.
@@ -269,9 +642,9 @@ public class VenueContent {
     /**
      * Associate Venue Image
      *
-     * <p>Associate a previously uploaded image with a venue image using a file UUID from the <a
-     * href="#operation/uploadFile">file upload</a> endpoint. This will replace the current image file if
-     * one is already associated.
+     * <p>Associate a previously uploaded image with a venue image using a file UUID from the [file
+     * upload](#operation/uploadFile) endpoint. This will replace the current image file if one is already
+     * associated.
      *
      * <p>**Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg,
      * .jpeg) are accepted. Maximum file size is 10 MB.
@@ -291,7 +664,7 @@ public class VenueContent {
     /**
      * Remove Venue Image
      *
-     * <p>Disassociates the image from a venue image and deletes the venue image record.
+     * <p>Disassociates the image from the venue and deletes the venue image record.
      *
      * @return The call builder
      */
@@ -302,7 +675,7 @@ public class VenueContent {
     /**
      * Remove Venue Image
      *
-     * <p>Disassociates the image from a venue image and deletes the venue image record.
+     * <p>Disassociates the image from the venue and deletes the venue image record.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -315,7 +688,7 @@ public class VenueContent {
     /**
      * Remove Venue Image
      *
-     * <p>Disassociates the image from a venue image and deletes the venue image record.
+     * <p>Disassociates the image from the venue and deletes the venue image record.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options

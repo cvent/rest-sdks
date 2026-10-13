@@ -38,7 +38,7 @@ import { Result } from "../types/fp.js";
  */
 export function eventsCreateEventAsync(
   client: CventSDKCore,
-  request: components.EventInput,
+  request: components.Event1Input,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -63,7 +63,7 @@ export function eventsCreateEventAsync(
 
 async function $do(
   client: CventSDKCore,
-  request: components.EventInput,
+  request: components.Event1Input,
   options?: RequestOptions,
 ): Promise<
   [
@@ -84,7 +84,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => components.EventInput$outboundSchema.parse(value),
+    (value) => components.Event1Input$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {

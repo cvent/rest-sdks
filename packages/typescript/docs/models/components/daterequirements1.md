@@ -24,7 +24,9 @@ let value: DateRequirements1 = {
     endDate: new RFCDate("2016-10-15"),
     startDate: new RFCDate("2016-10-13"),
     durationDays: 3,
-    startDays: [],
+    startDays: [
+      "MONDAY",
+    ],
     generatedDates: [
       {
         preferred: true,

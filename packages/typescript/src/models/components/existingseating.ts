@@ -31,6 +31,14 @@ export type ExistingSeating = {
    * The unique ID of the seating.
    */
   id?: string | undefined;
+  /**
+   * The total number of tables in the seating.
+   */
+  tableCount?: number | undefined;
+  /**
+   * The total seat capacity of the seating.
+   */
+  totalCapacity?: number | undefined;
 };
 
 /** @internal */
@@ -44,6 +52,8 @@ export const ExistingSeating$inboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   sourceId: z.string().optional(),
   id: z.string().optional(),
+  tableCount: z.number().int().optional(),
+  totalCapacity: z.number().int().optional(),
 });
 
 export function existingSeatingFromJSON(

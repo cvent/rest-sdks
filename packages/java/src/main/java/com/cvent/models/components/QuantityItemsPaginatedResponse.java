@@ -28,11 +28,11 @@ public class QuantityItemsPaginatedResponse {
      * Collection of quantity items.
      */
     @JsonProperty("data")
-    private List<QuantityItem> data;
+    private List<QuantityItem2> data;
 
     @JsonCreator
     public QuantityItemsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<QuantityItem> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<QuantityItem2> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -48,7 +48,7 @@ public class QuantityItemsPaginatedResponse {
     /**
      * Collection of quantity items.
      */
-    public List<QuantityItem> data() {
+    public List<QuantityItem2> data() {
         return this.data;
     }
 
@@ -67,7 +67,7 @@ public class QuantityItemsPaginatedResponse {
     /**
      * Collection of quantity items.
      */
-    public QuantityItemsPaginatedResponse withData(@Nonnull List<QuantityItem> data) {
+    public QuantityItemsPaginatedResponse withData(@Nonnull List<QuantityItem2> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -99,7 +99,7 @@ public class QuantityItemsPaginatedResponse {
 
         private Paging paging;
 
-        private List<QuantityItem> data;
+        private List<QuantityItem2> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class QuantityItemsPaginatedResponse {
         /**
          * Collection of quantity items.
          */
-        public Builder data(@Nonnull List<QuantityItem> data) {
+        public Builder data(@Nonnull List<QuantityItem2> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

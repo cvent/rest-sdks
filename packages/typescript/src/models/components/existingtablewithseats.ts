@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ExpandableSeatJson,
-  ExpandableSeatJson$inboundSchema,
-} from "./expandableseatjson.js";
+  ExpandableSeat,
+  ExpandableSeat$inboundSchema,
+} from "./expandableseat.js";
 
 /**
  * The response from a request to get the event table for the event.
@@ -36,6 +36,10 @@ export type ExistingTableWithSeats = {
    */
   sourceId?: string | undefined;
   /**
+   * When true, the table allows open seating where attendees may choose any available seat. When false, each seat is individually named and must be explicitly assigned to an attendee.
+   */
+  open?: boolean | undefined;
+  /**
    * The unique ID of the table.
    */
   id?: string | undefined;
@@ -46,7 +50,7 @@ export type ExistingTableWithSeats = {
    *
    * This is an **expandable** object and if requested will contain all the properties of a seat object.
    */
-  seats?: Array<ExpandableSeatJson> | undefined;
+  seats?: Array<ExpandableSeat> | undefined;
 };
 
 /** @internal */
@@ -60,8 +64,9 @@ export const ExistingTableWithSeats$inboundSchema: z.ZodType<
   capacity: z.number().int(),
   description: z.string().optional(),
   sourceId: z.string().optional(),
+  open: z.boolean().optional(),
   id: z.string().optional(),
-  seats: z.array(ExpandableSeatJson$inboundSchema).optional(),
+  seats: z.array(ExpandableSeat$inboundSchema).optional(),
 });
 
 export function existingTableWithSeatsFromJSON(

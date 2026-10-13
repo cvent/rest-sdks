@@ -12,6 +12,7 @@ import com.cvent.models.operations.GetBadgesPostFiltersRequest;
 import com.cvent.models.operations.ListAttendeesPostFilterRequest;
 import com.cvent.models.operations.ListAttendeesRequest;
 import com.cvent.models.operations.ListDurationsRequest;
+import com.cvent.models.operations.ListOptionalItemsRequest;
 import com.cvent.models.operations.PostBadgeRequest;
 import com.cvent.models.operations.UpdateAttendeeRequest;
 import com.cvent.models.operations.UpdateAttendeeSubscriptionStatusRequest;
@@ -31,6 +32,8 @@ import com.cvent.models.operations.async.ListAttendeesRequestBuilder;
 import com.cvent.models.operations.async.ListAttendeesResponse;
 import com.cvent.models.operations.async.ListDurationsRequestBuilder;
 import com.cvent.models.operations.async.ListDurationsResponse;
+import com.cvent.models.operations.async.ListOptionalItemsRequestBuilder;
+import com.cvent.models.operations.async.ListOptionalItemsResponse;
 import com.cvent.models.operations.async.PostBadgeRequestBuilder;
 import com.cvent.models.operations.async.PostBadgeResponse;
 import com.cvent.models.operations.async.UpdateAttendeeRequestBuilder;
@@ -48,6 +51,7 @@ import com.cvent.operations.GetBadgesPostFilters;
 import com.cvent.operations.ListAttendees;
 import com.cvent.operations.ListAttendeesPostFilter;
 import com.cvent.operations.ListDurations;
+import com.cvent.operations.ListOptionalItems;
 import com.cvent.operations.PostBadge;
 import com.cvent.operations.UpdateAttendee;
 import com.cvent.operations.UpdateAttendeeSubscriptionStatus;
@@ -458,6 +462,51 @@ public class AsyncAttendees {
             @Nonnull UpdateInternalInfoAnswersRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateInternalInfoAnswersRequest, UpdateInternalInfoAnswersResponse> operation =
                 new UpdateInternalInfoAnswers.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * List Attendee Optional Items
+     *
+     * <p>Lists all optional items selected by a single attendee during event registration.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @return The async call builder
+     */
+    public ListOptionalItemsRequestBuilder listOptionalItems() {
+        return new ListOptionalItemsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Attendee Optional Items
+     *
+     * <p>Lists all optional items selected by a single attendee during event registration.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<ListOptionalItemsResponse>} - The async response
+     */
+    public CompletableFuture<ListOptionalItemsResponse> listOptionalItems(@Nonnull ListOptionalItemsRequest request) {
+        return listOptionalItems(request, null);
+    }
+
+    /**
+     * List Attendee Optional Items
+     *
+     * <p>Lists all optional items selected by a single attendee during event registration.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListOptionalItemsResponse>} - The async response
+     */
+    public CompletableFuture<ListOptionalItemsResponse> listOptionalItems(
+            @Nonnull ListOptionalItemsRequest request, @Nullable Options options) {
+        AsyncRequestOperation<ListOptionalItemsRequest, ListOptionalItemsResponse> operation =
+                new ListOptionalItems.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 

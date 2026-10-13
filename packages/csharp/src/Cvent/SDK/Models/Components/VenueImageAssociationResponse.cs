@@ -19,6 +19,12 @@ namespace Cvent.SDK.Models.Components
     public class VenueImageAssociationResponse
     {
         /// <summary>
+        /// The ID of the venue image.
+        /// </summary>
+        [JsonProperty("id")]
+        public string Id { get; set; } = default!;
+
+        /// <summary>
         /// The file uploaded to be associated with the venue.
         /// </summary>
         [JsonProperty("file")]

@@ -65,6 +65,6 @@ namespace Cvent.SDK.Models.Components
         /// Describe security for a web hook callback. Each option corresponds to an Authorization header variant.
         /// </summary>
         [JsonProperty("security", NullValueHandling = NullValueHandling.Include)]
-        public HookSecurityJsonOutput Security { get; set; } = default!;
+        public HookSecurityOutput Security { get; set; } = default!;
     }
 }

@@ -29,7 +29,7 @@ import { Result } from "../types/fp.js";
  * Create Venue Image Metadata
  *
  * @remarks
- * Create venue image metadata for the specified venue. This creates a new venue image record with the provided details such as name, description, image group, and display order. Use the <a href="#operation/associateVenueImage">Associate Venue Image</a> endpoint to associate an uploaded image file to a venue.
+ * Create venue image metadata for the specified venue. This creates a new venue image record with the provided details such as name, description, image group, and display order. Use the [Associate Venue Image](#operation/associateVenueImage) endpoint to associate an uploaded image file to a venue.
  */
 export function venueContentCreateVenueImageMetadata(
   client: CventSDKCore,

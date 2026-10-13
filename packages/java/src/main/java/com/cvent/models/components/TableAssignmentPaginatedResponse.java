@@ -26,37 +26,37 @@ public class TableAssignmentPaginatedResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * A list of table assignments
      */
     @JsonProperty("data")
-    private List<TableAssignmentJson> data;
+    private List<TableAssignment> data;
 
     @JsonCreator
     public TableAssignmentPaginatedResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nonnull List<TableAssignmentJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging,
+            @JsonProperty("data") @Nonnull List<TableAssignment> data) {
         this.paging = paging;
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
-    public TableAssignmentPaginatedResponse(@Nonnull List<TableAssignmentJson> data) {
+    public TableAssignmentPaginatedResponse(@Nonnull List<TableAssignment> data) {
         this(null, data);
     }
 
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * A list of table assignments
      */
-    public List<TableAssignmentJson> data() {
+    public List<TableAssignment> data() {
         return this.data;
     }
 
@@ -67,7 +67,7 @@ public class TableAssignmentPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public TableAssignmentPaginatedResponse withPaging(@Nullable PagingJson paging) {
+    public TableAssignmentPaginatedResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +75,7 @@ public class TableAssignmentPaginatedResponse {
     /**
      * A list of table assignments
      */
-    public TableAssignmentPaginatedResponse withData(@Nonnull List<TableAssignmentJson> data) {
+    public TableAssignmentPaginatedResponse withData(@Nonnull List<TableAssignment> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -105,9 +105,9 @@ public class TableAssignmentPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<TableAssignmentJson> data;
+        private List<TableAssignment> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class TableAssignmentPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +124,7 @@ public class TableAssignmentPaginatedResponse {
         /**
          * A list of table assignments
          */
-        public Builder data(@Nonnull List<TableAssignmentJson> data) {
+        public Builder data(@Nonnull List<TableAssignment> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

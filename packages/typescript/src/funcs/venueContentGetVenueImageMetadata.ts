@@ -27,7 +27,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get Image Metadata
+ * Get Venue Image Metadata
  *
  * @remarks
  * Retrieve venue image metadata for the specified venue image.

@@ -19,6 +19,9 @@ Manage meeting rooms for a venue, including creating and updating room details, 
 
 Create a new meeting room for the specified venue.
 
+Not applicable to CVB/DMC venues.
+
+
 ### Example Usage
 
 <!-- UsageSnippet language="java" operationID="createMeetingRoom" method="post" path="/venues/{venueId}/meeting-rooms" -->
@@ -136,6 +139,9 @@ public class Application {
 
 Retrieve a paginated list of meeting room overviews for the specified venue.
 
+Not applicable to CVB/DMC venues.
+
+
 ### Example Usage
 
 <!-- UsageSnippet language="java" operationID="listMeetingRoomsOverviews" method="get" path="/venues/{venueId}/meeting-rooms/overviews" -->
@@ -203,6 +209,9 @@ public class Application {
 ## updateMeetingRoom
 
 Update a meeting room for the specified venue, replacing the existing meeting room data.
+
+Not applicable to CVB/DMC venues.
+
 
 ### Example Usage
 
@@ -322,6 +331,8 @@ public class Application {
 
 Partially update a meeting room for the specified venue.
 
+Not applicable to CVB/DMC venues.
+
 - Only fields present in the request body are updated; omitted fields remain unchanged.
 - Set a field to `null` to unset it.
 - **Arrays (`capacities`, `amenities`) are treated as full replacements** — the entire array is replaced, not merged.
@@ -425,6 +436,8 @@ Associate a previously uploaded image with a meeting room using a file UUID from
 
 **Note:** The recommended image dimensions are at least 1920 x 1080 pixels. Only JPEG images (.jpg, .jpeg) are accepted. Maximum file size is 10 MB.
 
+Not applicable to CVB/DMC venues.
+
 
 ### Example Usage
 
@@ -497,6 +510,9 @@ public class Application {
 
 Retrieves the images associated with a meeting room. Each meeting room has at most one image.
 
+Not applicable to CVB/DMC venues.
+
+
 ### Example Usage
 
 <!-- UsageSnippet language="java" operationID="listMeetingRoomImages" method="get" path="/venues/{venueId}/meeting-rooms/{meetingRoomId}/images" -->
@@ -564,6 +580,9 @@ public class Application {
 
 Disassociates the current image from a meeting room.
 
+Not applicable to CVB/DMC venues.
+
+
 ### Example Usage
 
 <!-- UsageSnippet language="java" operationID="disassociateMeetingRoomImage" method="delete" path="/venues/{venueId}/meeting-rooms/{meetingRoomId}/images/{imageId}" -->
@@ -629,6 +648,9 @@ public class Application {
 ## getMeetingRoomOverview
 
 Retrieve an overview of a specific meeting room for the specified venue.
+
+Not applicable to CVB/DMC venues.
+
 
 ### Example Usage
 

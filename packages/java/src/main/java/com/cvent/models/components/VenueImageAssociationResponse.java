@@ -18,6 +18,12 @@ import java.util.Optional;
  */
 public class VenueImageAssociationResponse {
     /**
+     * The ID of the venue image.
+     */
+    @JsonProperty("id")
+    private String id;
+
+    /**
      * The file uploaded to be associated with the venue.
      */
     @JsonProperty("file")
@@ -31,10 +37,19 @@ public class VenueImageAssociationResponse {
 
     @JsonCreator
     public VenueImageAssociationResponse(
+            @JsonProperty("id") @Nonnull String id,
             @JsonProperty("file") @Nonnull VenueImageAssociationResponseFile file,
             @JsonProperty("href") @Nonnull String href) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.file = Optional.ofNullable(file).orElseThrow(() -> new IllegalArgumentException("file cannot be null"));
         this.href = Optional.ofNullable(href).orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
+    }
+
+    /**
+     * The ID of the venue image.
+     */
+    public String id() {
+        return this.id;
     }
 
     /**
@@ -53,6 +68,14 @@ public class VenueImageAssociationResponse {
 
     public static Builder builder() {
         return new Builder();
+    }
+
+    /**
+     * The ID of the venue image.
+     */
+    public VenueImageAssociationResponse withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
+        return this;
     }
 
     /**
@@ -80,21 +103,25 @@ public class VenueImageAssociationResponse {
             return false;
         }
         VenueImageAssociationResponse other = (VenueImageAssociationResponse) o;
-        return Utils.enhancedDeepEquals(this.file, other.file) && Utils.enhancedDeepEquals(this.href, other.href);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.file, other.file)
+                && Utils.enhancedDeepEquals(this.href, other.href);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(file, href);
+        return Utils.enhancedHash(id, file, href);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(VenueImageAssociationResponse.class, "file", file, "href", href);
+        return Utils.toString(VenueImageAssociationResponse.class, "id", id, "file", file, "href", href);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
+
+        private String id;
 
         private VenueImageAssociationResponseFile file;
 
@@ -102,6 +129,14 @@ public class VenueImageAssociationResponse {
 
         private Builder() {
             // force use of static builder() method
+        }
+
+        /**
+         * The ID of the venue image.
+         */
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
+            return this;
         }
 
         /**
@@ -121,7 +156,7 @@ public class VenueImageAssociationResponse {
         }
 
         public VenueImageAssociationResponse build() {
-            return new VenueImageAssociationResponse(file, href);
+            return new VenueImageAssociationResponse(id, file, href);
         }
     }
 }

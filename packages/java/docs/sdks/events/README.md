@@ -465,7 +465,7 @@ public class Application {
                     .build())
             .build();
 
-        EventInput req = EventInput.builder()
+        Event1Input req = Event1Input.builder()
                 .title("Cvent Connect 2020")
                 .format(EventFormat.VIRTUAL)
                 .timezone("America/New_York")
@@ -513,9 +513,9 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                       | Type                                            | Required                                        | Description                                     |
-| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| `request`                                       | [EventInput](../../models/shared/EventInput.md) | :heavy_check_mark:                              | The request object to use for the request.      |
+| Parameter                                         | Type                                              | Required                                          | Description                                       |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| `request`                                         | [Event1Input](../../models/shared/Event1Input.md) | :heavy_check_mark:                                | The request object to use for the request.        |
 
 ### Response
 
@@ -931,8 +931,8 @@ public class Application {
                 .request(req)
                 .call();
 
-        if (res.event().isPresent()) {
-            System.out.println(res.event().get());
+        if (res.event1().isPresent()) {
+            System.out.println(res.event1().get());
         }
     }
 }
@@ -3468,10 +3468,10 @@ public class Application {
 
 ## listSessionsEnrollmentPostFilter
 
-Gets registrant data for sessions. The returned data depends on the individual session type.   - **Optional Sessions:** Provides a paginated list of attendees registered for the session.   - **Included Session:** Provides a paginated list of attendees who have participated or been
+Gets registrant data for sessions. The returned data depends on the individual session type. - **Optional Sessions:** Provides a paginated list of attendees registered for the session. - **Included Session:** Provides a paginated list of attendees who have participated or been
   marked as no-shows. It does not list all registered attendees.
 
-This method will return the same data as [GET List Session Registrants](#operation/listSessionsEnrollment)  but allows for longer filters.
+This method will return the same data as [GET List Session Registrants](#operation/listSessionsEnrollment) but allows for longer filters.
 
 
 More about OAuth2 authorization code support for administrators
@@ -3754,10 +3754,11 @@ public class Application {
 
 ## createSessionEnrollment
 
-Register an attendee in the given session. Requires the modify registration widget to be
+Submit an enrollment request for an attendee in the given session. Requires the modify registration widget to be
 present on the event's registration path. See the following
 [article](https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown) for
 more information.
+The request is processed asynchronously after the downstream registration call returns. A successful response means that the enrollment request was accepted for processing; it does not guarantee that the attendee is already enrolled or immediately queryable.
 
 
 More about OAuth2 authorization code support for administrators

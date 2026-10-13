@@ -31,6 +31,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Retrieve a paginated list of meeting room overviews for the specified venue.
+ *
+ * Not applicable to CVB/DMC venues.
  */
 export function venueMeetingRoomsListMeetingRoomsOverviews(
   client: CventSDKCore,

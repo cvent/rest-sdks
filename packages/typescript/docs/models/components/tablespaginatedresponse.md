@@ -33,6 +33,7 @@ let value: TablesPaginatedResponse = {
       capacity: 10,
       description: "This table is for VIP attendees.",
       sourceId: "Id1255",
+      open: false,
       id: "c9763ce5-b965-44ed-9c2b-b5657dfab012",
       seats: [
         {
@@ -48,5 +49,5 @@ let value: TablesPaginatedResponse = {
 
 | Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
 | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `paging`                                                                                 | [components.PagingJson](../../models/components/pagingjson.md)                           | :heavy_minus_sign:                                                                       | Represents pagination information for a collection of resources.                         |
+| `paging`                                                                                 | [components.Paging](../../models/components/paging.md)                                   | :heavy_minus_sign:                                                                       | Represents pagination information for a collection of resources.                         |
 | `data`                                                                                   | [components.ExistingTableWithSeats](../../models/components/existingtablewithseats.md)[] | :heavy_check_mark:                                                                       | A list of event tables                                                                   |
