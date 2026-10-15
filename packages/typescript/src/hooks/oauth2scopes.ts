@@ -38,7 +38,7 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "account/users:delete"
   /**
-   * Allows the reading of User, User Group
+   * Allows the reading of account users
    */
   | "account/users:read"
   /**
@@ -938,7 +938,7 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    */
   | "account/users:delete"
   /**
-   * Allows the reading of User, User Group
+   * Allows the reading of account users
    */
   | "account/users:read"
   /**

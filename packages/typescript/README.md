@@ -786,6 +786,8 @@ run();
 * [deleteAccountUserGroup](docs/sdks/users/README.md#deleteaccountusergroup) - Delete Account User Group
 * [addUserToAccountUserGroup](docs/sdks/users/README.md#addusertoaccountusergroup) - Associate User to Group
 * [deleteUserFromAccountUserGroup](docs/sdks/users/README.md#deleteuserfromaccountusergroup) - Delete User from Group
+* [listAccountUsers](docs/sdks/users/README.md#listaccountusers) - List Account Users
+* [getAccountUser](docs/sdks/users/README.md#getaccountuser) - Get Account User
 
 ### [VenueAvailability](docs/sdks/venueavailability/README.md)
 
@@ -1318,8 +1320,10 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`usersCreateAccountUserGroup`](docs/sdks/users/README.md#createaccountusergroup) - Create Account User Group
 - [`usersDeleteAccountUserGroup`](docs/sdks/users/README.md#deleteaccountusergroup) - Delete Account User Group
 - [`usersDeleteUserFromAccountUserGroup`](docs/sdks/users/README.md#deleteuserfromaccountusergroup) - Delete User from Group
+- [`usersGetAccountUser`](docs/sdks/users/README.md#getaccountuser) - Get Account User
 - [`usersGetAccountUserGroup`](docs/sdks/users/README.md#getaccountusergroup) - Get Account User Group
 - [`usersGetAccountUserGroups`](docs/sdks/users/README.md#getaccountusergroups) - List Account User Groups
+- [`usersListAccountUsers`](docs/sdks/users/README.md#listaccountusers) - List Account Users
 - [`usersUpdateAccountUserGroup`](docs/sdks/users/README.md#updateaccountusergroup) - Update Account User Group
 - [`venueAvailabilityCreateVenueNeedDate`](docs/sdks/venueavailability/README.md#createvenueneeddate) - Create Venue Need Date
 - [`venueAvailabilityDeleteVenueNeedDate`](docs/sdks/venueavailability/README.md#deletevenueneeddate) - Delete Venue Need Date
@@ -1634,10 +1638,10 @@ run();
 
 
 **Inherit from [`CventSDKError`](./src/models/errors/cventsdkerror.ts)**:
-* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 497 methods.*
-* [`ErrorResponse17`](./src/models/errors/errorresponse17.ts): The error response. Applicable to 11 of 497 methods.*
-* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 497 methods.*
-* [`Oauth2TokenPostResponse0Error`](./src/models/errors/oauth2tokenpostresponse0error.ts): A bad token response. Status code `400`. Applicable to 1 of 497 methods.*
+* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 499 methods.*
+* [`ErrorResponse17`](./src/models/errors/errorresponse17.ts): The error response. Applicable to 11 of 499 methods.*
+* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 499 methods.*
+* [`Oauth2TokenPostResponse0Error`](./src/models/errors/oauth2tokenpostresponse0error.ts): A bad token response. Status code `400`. Applicable to 1 of 499 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

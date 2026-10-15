@@ -13,6 +13,8 @@ Operations for managing account users and user groups, including creation, retri
 * [deleteAccountUserGroup](#deleteaccountusergroup) - Delete Account User Group
 * [addUserToAccountUserGroup](#addusertoaccountusergroup) - Associate User to Group
 * [deleteUserFromAccountUserGroup](#deleteuserfromaccountusergroup) - Delete User from Group
+* [listAccountUsers](#listaccountusers) - List Account Users
+* [getAccountUser](#getaccountuser) - Get Account User
 
 ## getAccountUserGroups
 
@@ -474,4 +476,276 @@ public class Application {
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
+
+## listAccountUsers
+
+Gets a list of all users associated with your account.
+
+### Example Usage: active
+
+<!-- UsageSnippet language="java" operationID="listAccountUsers" method="get" path="/users" example="active" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse12;
+import com.cvent.models.operations.ListAccountUsersRequest;
+import com.cvent.models.operations.ListAccountUsersResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse12, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        ListAccountUsersRequest req = ListAccountUsersRequest.builder()
+                .filter("active eq 'true'")
+                .token("1a2b3c4d5e6f7g8h9i10j11k")
+                .sort("username DESC")
+                .build();
+
+
+        sdk.users().listAccountUsers()
+                .callAsStream()
+                .forEach((ListAccountUsersResponse item) -> {
+                   // handle page
+                });
+
+    }
+}
+```
+### Example Usage: combined
+
+<!-- UsageSnippet language="java" operationID="listAccountUsers" method="get" path="/users" example="combined" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse12;
+import com.cvent.models.operations.ListAccountUsersRequest;
+import com.cvent.models.operations.ListAccountUsersResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse12, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        ListAccountUsersRequest req = ListAccountUsersRequest.builder()
+                .filter("active eq 'true' and (role.id eq '007cfa3b-8c25-4b3b-b5d3-f6280aa7e6ee' or lockedOut eq 'true')")
+                .token("1a2b3c4d5e6f7g8h9i10j11k")
+                .sort("username DESC")
+                .build();
+
+
+        sdk.users().listAccountUsers()
+                .callAsStream()
+                .forEach((ListAccountUsersResponse item) -> {
+                   // handle page
+                });
+
+    }
+}
+```
+### Example Usage: created
+
+<!-- UsageSnippet language="java" operationID="listAccountUsers" method="get" path="/users" example="created" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse12;
+import com.cvent.models.operations.ListAccountUsersRequest;
+import com.cvent.models.operations.ListAccountUsersResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse12, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        ListAccountUsersRequest req = ListAccountUsersRequest.builder()
+                .filter("audit.created ge '2026-01-01T00:00:00.000Z'")
+                .token("1a2b3c4d5e6f7g8h9i10j11k")
+                .sort("username DESC")
+                .build();
+
+
+        sdk.users().listAccountUsers()
+                .callAsStream()
+                .forEach((ListAccountUsersResponse item) -> {
+                   // handle page
+                });
+
+    }
+}
+```
+### Example Usage: role
+
+<!-- UsageSnippet language="java" operationID="listAccountUsers" method="get" path="/users" example="role" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse12;
+import com.cvent.models.operations.ListAccountUsersRequest;
+import com.cvent.models.operations.ListAccountUsersResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse12, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        ListAccountUsersRequest req = ListAccountUsersRequest.builder()
+                .filter("role.id in ('e7e8c33e-aa42-40cd-b600-7d02d9c53f89', 'b41709f9-5f31-4ee5-800a-b77989d01b5d')")
+                .token("1a2b3c4d5e6f7g8h9i10j11k")
+                .sort("username DESC")
+                .build();
+
+
+        sdk.users().listAccountUsers()
+                .callAsStream()
+                .forEach((ListAccountUsersResponse item) -> {
+                   // handle page
+                });
+
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `request`                                                                     | [ListAccountUsersRequest](../../models/operations/ListAccountUsersRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+
+### Response
+
+**[ListAccountUsersResponse](../../models/operations/ListAccountUsersResponse.md)**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse12 | 400, 401, 403, 429            | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
+
+## getAccountUser
+
+Gets a single account user.
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="getAccountUser" method="get" path="/users/{userId}" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse12;
+import com.cvent.models.operations.GetAccountUserRequest;
+import com.cvent.models.operations.GetAccountUserResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse12, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        GetAccountUserRequest req = GetAccountUserRequest.builder()
+                .userId("ff8af134-3505-4d67-aaea-1975d8e1327c")
+                .build();
+
+        GetAccountUserResponse res = sdk.users().getAccountUser()
+                .request(req)
+                .call();
+
+        if (res.accountUser().isPresent()) {
+            System.out.println(res.accountUser().get());
+        }
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `request`                                                                 | [GetAccountUserRequest](../../models/operations/GetAccountUserRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+
+### Response
+
+**[GetAccountUserResponse](../../models/operations/GetAccountUserResponse.md)**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse12 | 401, 403, 404, 429            | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
