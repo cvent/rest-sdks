@@ -11,6 +11,8 @@ import com.cvent.models.operations.DeleteAccountUserGroupRequest;
 import com.cvent.models.operations.DeleteUserFromAccountUserGroupRequest;
 import com.cvent.models.operations.GetAccountUserGroupRequest;
 import com.cvent.models.operations.GetAccountUserGroupsRequest;
+import com.cvent.models.operations.GetAccountUserRequest;
+import com.cvent.models.operations.ListAccountUsersRequest;
 import com.cvent.models.operations.UpdateAccountUserGroupRequest;
 import com.cvent.models.operations.async.AddUserToAccountUserGroupRequestBuilder;
 import com.cvent.models.operations.async.AddUserToAccountUserGroupResponse;
@@ -24,14 +26,20 @@ import com.cvent.models.operations.async.GetAccountUserGroupRequestBuilder;
 import com.cvent.models.operations.async.GetAccountUserGroupResponse;
 import com.cvent.models.operations.async.GetAccountUserGroupsRequestBuilder;
 import com.cvent.models.operations.async.GetAccountUserGroupsResponse;
+import com.cvent.models.operations.async.GetAccountUserRequestBuilder;
+import com.cvent.models.operations.async.GetAccountUserResponse;
+import com.cvent.models.operations.async.ListAccountUsersRequestBuilder;
+import com.cvent.models.operations.async.ListAccountUsersResponse;
 import com.cvent.models.operations.async.UpdateAccountUserGroupRequestBuilder;
 import com.cvent.models.operations.async.UpdateAccountUserGroupResponse;
 import com.cvent.operations.AddUserToAccountUserGroup;
 import com.cvent.operations.CreateAccountUserGroup;
 import com.cvent.operations.DeleteAccountUserGroup;
 import com.cvent.operations.DeleteUserFromAccountUserGroup;
+import com.cvent.operations.GetAccountUser;
 import com.cvent.operations.GetAccountUserGroup;
 import com.cvent.operations.GetAccountUserGroups;
+import com.cvent.operations.ListAccountUsers;
 import com.cvent.operations.UpdateAccountUserGroup;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
@@ -338,6 +346,84 @@ public class AsyncUsers {
         AsyncRequestOperation<DeleteUserFromAccountUserGroupRequest, DeleteUserFromAccountUserGroupResponse> operation =
                 new DeleteUserFromAccountUserGroup.Async(
                         sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * List Account Users
+     *
+     * <p>Gets a list of all users associated with your account.
+     *
+     * @return The async call builder
+     */
+    public ListAccountUsersRequestBuilder listAccountUsers() {
+        return new ListAccountUsersRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Account Users
+     *
+     * <p>Gets a list of all users associated with your account.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<ListAccountUsersResponse>} - The async response
+     */
+    public CompletableFuture<ListAccountUsersResponse> listAccountUsers(@Nonnull ListAccountUsersRequest request) {
+        return listAccountUsers(request, null);
+    }
+
+    /**
+     * List Account Users
+     *
+     * <p>Gets a list of all users associated with your account.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListAccountUsersResponse>} - The async response
+     */
+    public CompletableFuture<ListAccountUsersResponse> listAccountUsers(
+            @Nonnull ListAccountUsersRequest request, @Nullable Options options) {
+        AsyncRequestOperation<ListAccountUsersRequest, ListAccountUsersResponse> operation =
+                new ListAccountUsers.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Get Account User
+     *
+     * <p>Gets a single account user.
+     *
+     * @return The async call builder
+     */
+    public GetAccountUserRequestBuilder getAccountUser() {
+        return new GetAccountUserRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get Account User
+     *
+     * <p>Gets a single account user.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<GetAccountUserResponse>} - The async response
+     */
+    public CompletableFuture<GetAccountUserResponse> getAccountUser(@Nonnull GetAccountUserRequest request) {
+        return getAccountUser(request, null);
+    }
+
+    /**
+     * Get Account User
+     *
+     * <p>Gets a single account user.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetAccountUserResponse>} - The async response
+     */
+    public CompletableFuture<GetAccountUserResponse> getAccountUser(
+            @Nonnull GetAccountUserRequest request, @Nullable Options options) {
+        AsyncRequestOperation<GetAccountUserRequest, GetAccountUserResponse> operation =
+                new GetAccountUser.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

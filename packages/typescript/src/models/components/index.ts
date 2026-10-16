@@ -4,8 +4,15 @@
 
 export * from "./accountbudgetitemlistresponse.js";
 export * from "./accountbudgetitemspaginatedresponse.js";
+export * from "./accountuser.js";
+export * from "./accountuseraddress.js";
+export * from "./accountuserauditdetails.js";
+export * from "./accountusercontactdetails.js";
+export * from "./accountusercustomfield.js";
 export * from "./accountusergroup.js";
 export * from "./accountusergroupinput.js";
+export * from "./accountuserrolereference.js";
+export * from "./accountusers.js";
 export * from "./activityad.js";
 export * from "./activityappointment.js";
 export * from "./activitybaseappointment.js";
@@ -1225,6 +1232,7 @@ export * from "./videowarning.js";
 export * from "./videowarningcode.js";
 export * from "./viewtype1.js";
 export * from "./virtualcardreportingfieldandvalue.js";
+export * from "./visibilityaccess.js";
 export * from "./volumediscountthresholdtype.js";
 export * from "./voucher.js";
 export * from "./vouchercapacity.js";

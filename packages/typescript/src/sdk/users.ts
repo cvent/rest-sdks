@@ -6,8 +6,10 @@ import { usersAddUserToAccountUserGroup } from "../funcs/usersAddUserToAccountUs
 import { usersCreateAccountUserGroup } from "../funcs/usersCreateAccountUserGroup.js";
 import { usersDeleteAccountUserGroup } from "../funcs/usersDeleteAccountUserGroup.js";
 import { usersDeleteUserFromAccountUserGroup } from "../funcs/usersDeleteUserFromAccountUserGroup.js";
+import { usersGetAccountUser } from "../funcs/usersGetAccountUser.js";
 import { usersGetAccountUserGroup } from "../funcs/usersGetAccountUserGroup.js";
 import { usersGetAccountUserGroups } from "../funcs/usersGetAccountUserGroups.js";
+import { usersListAccountUsers } from "../funcs/usersListAccountUsers.js";
 import { usersUpdateAccountUserGroup } from "../funcs/usersUpdateAccountUserGroup.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
@@ -131,6 +133,42 @@ export class Users extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(usersDeleteUserFromAccountUserGroup(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Account Users
+   *
+   * @remarks
+   * Gets a list of all users associated with your account.
+   */
+  async listAccountUsers(
+    request: operations.ListAccountUsersRequest,
+    options?: RequestOptions,
+  ): Promise<
+    PageIterator<operations.ListAccountUsersResponse, { cursor: string }>
+  > {
+    return unwrapResultIterator(usersListAccountUsers(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get Account User
+   *
+   * @remarks
+   * Gets a single account user.
+   */
+  async getAccountUser(
+    request: operations.GetAccountUserRequest,
+    options?: RequestOptions,
+  ): Promise<components.AccountUser> {
+    return unwrapAsync(usersGetAccountUser(
       this,
       request,
       options,

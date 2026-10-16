@@ -18843,6 +18843,94 @@ paths:
       externalDocs:
         description: More about OAuth2 authorization code support for administrators
         url: '#oauth2-auth-code-planner-admin'
+  /users:
+    get:
+      summary: List Account Users
+      description: Gets a list of all users associated with your account.
+      operationId: listAccountUsers
+      tags:
+        - Users
+      security:
+        - OAuth2.authorizationCode:
+            - account/users:read
+        - OAuth2.clientCredentials:
+            - account/users:read
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          style: form
+          explode: true
+          description: |
+            A Cvent DSL filter expression used to apply a filtered down list of account users. Combine multiple conditions using the `and` and `or` logical operators, and group them with parentheses.
+
+            Fields that may contain personally identifiable information (PII) are excluded from this filter query parameter.
+
+            ## Supported Account Users Filters:
+
+            | Field Path         | Operators                                   |
+            |--------------------|---------------------------------------------|
+            | role.id            | `in`, `eq`, `ne`                            |
+            | id                 | `in`, `eq`, `ne`                            |
+            | active             | `eq`, `ne`                                  |
+            | lockedOut          | `eq`, `ne`                                  |
+            | audit.created      | `eq`, `ne`, `lt`, `gt`, `le`, `ge`          |
+            | audit.lastModified | `eq`, `ne`, `lt`, `gt`, `le`, `ge`          |
+          schema:
+            type: string
+            example: active eq 'true'
+          examples:
+            role:
+              summary: Filter by a user's role
+              value: role.id in ('e7e8c33e-aa42-40cd-b600-7d02d9c53f89', 'b41709f9-5f31-4ee5-800a-b77989d01b5d')
+            active:
+              summary: Filter by active users
+              value: active eq 'true'
+            created:
+              summary: Filter by users created on or after a date
+              value: audit.created ge '2026-01-01T00:00:00.000Z'
+            combined:
+              summary: Combine multiple conditions
+              value: active eq 'true' and (role.id eq '007cfa3b-8c25-4b3b-b5d3-f6280aa7e6ee' or lockedOut eq 'true')
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/token1'
+        - $ref: '#/components/parameters/accountUsersSort'
+      responses:
+        '200':
+          $ref: '#/components/responses/PaginatedAccountUsers'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /users/{userId}:
+    get:
+      summary: Get Account User
+      description: Gets a single account user.
+      operationId: getAccountUser
+      tags:
+        - Users
+      security:
+        - OAuth2.authorizationCode:
+            - account/users:read
+        - OAuth2.clientCredentials:
+            - account/users:read
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      responses:
+        '200':
+          $ref: '#/components/responses/AccountUser'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
   /venues/{venueId}/attractions:
     get:
       operationId: listVenueAttractions
@@ -21002,6 +21090,22 @@ components:
       required: true
       schema:
         type: string
+    accountUsersSort:
+      name: sort
+      in: query
+      required: false
+      description: |
+        Sorts items in the list of results.
+
+        There are two orders:
+          - ascending: ASC
+          - descending: DESC
+
+        The following fields are sortable:
+          - username
+      schema:
+        type: string
+        example: username DESC
     adminId:
       in: path
       name: adminId
@@ -23486,6 +23590,12 @@ components:
           schema:
             $ref: '#/components/schemas/AccountUserGroup'
   responses:
+    AccountUser:
+      description: Successfully retrieved the specified account user.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AccountUser'
     BadRequest1:
       description: Bad request
       content:
@@ -23640,6 +23750,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse-12'
+    PaginatedAccountUsers:
+      description: Successfully retrieved a paginated list of account users.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AccountUsers'
     PublicUsagePlanResponse:
       description: The Usage Tier assigned to the account
       content:
@@ -23818,6 +23934,301 @@ components:
           type: boolean
           description: True indicates the event budget item is deleted.
           example: false
+    AccountUser:
+      title: Account User
+      description: Represents a Cvent core account user.
+      required:
+        - role
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/AccountUserBase'
+      properties:
+        role:
+          $ref: '#/components/schemas/AccountUserRoleReference'
+    AccountUserAddress:
+      title: Account User Address
+      description: Represents the address of a Cvent core account user.
+      type: object
+      properties:
+        address1:
+          type: string
+          description: First address line.
+          example: 1765 Greensboro Station Pl
+        address2:
+          type: string
+          description: Second address line.
+          example: 7th Floor
+        address3:
+          type: string
+          description: Third address line.
+          example: ''
+        city:
+          type: string
+          description: Address city.
+          example: McLean
+        countryCode:
+          $ref: '#/components/schemas/CountryCode'
+        regionCode:
+          $ref: '#/components/schemas/RegionCode'
+        postalCode:
+          type: string
+          description: Address postal code.
+          example: '22102'
+    AccountUserAuditDetails:
+      title: Account User Audit Details
+      description: The audit details of a Cvent core account user.
+      required:
+        - lockedOutDate
+        - termsOfUseAcceptedDate
+        - lastLoginDate
+        - passwordLastModifiedDate
+        - created
+        - createdBy
+        - lastModified
+        - lastModifiedBy
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Audit'
+      readOnly: true
+      properties:
+        lockedOutDate:
+          type: string
+          format: date-time
+          description: The ISO 8601 zoned date time when the user was locked out.
+          readOnly: true
+          example: '2017-01-02T02:00:00Z'
+        termsOfUseAcceptedDate:
+          type: string
+          format: date-time
+          description: The ISO 8601 zoned date time when the user has accepted [Cvent's Terms of Use](https://www.cvent.com/en/product-terms-of-use).
+          readOnly: true
+          example: '2017-01-02T02:00:00Z'
+        lastLoginDate:
+          type: string
+          format: date-time
+          description: The ISO 8601 zoned date time when the user last logged in.
+          readOnly: true
+          example: '2017-01-02T02:00:00Z'
+        passwordLastModifiedDate:
+          type: string
+          format: date-time
+          description: The ISO 8601 zoned date time when the user's password was last modified.
+          readOnly: true
+          example: '2017-01-02T02:00:00Z'
+    AccountUserBase:
+      title: Account User Base
+      description: Represents the base definition of an account user in Cvent core.
+      required:
+        - id
+        - username
+        - contact
+        - active
+        - termsOfUseAccepted
+        - lockedOut
+        - visibilityAccess
+        - usernameVerified
+        - emailVerified
+        - failedLoginCount
+        - locale
+        - timezone
+        - audit
+      type: object
+      properties:
+        id:
+          type: string
+          description: The identifier of the Account User.
+          example: 501fbc6a-cfd4-468f-a2f7-14e521d33c71
+          readOnly: true
+          format: uuid
+        platformUserId:
+          description: The account user's platform identifier.
+          readOnly: true
+          type: string
+          allOf:
+            - $ref: '#/components/schemas/PlatformUserId'
+        username:
+          type: string
+          description: The account user's username used to log into the account.
+          example: jsmith@example.com
+        federatedSsoLoginName:
+          type: string
+          description: The account user's federated SSO login name.
+          example: jsmith@example.com
+        contact:
+          $ref: '#/components/schemas/AccountUserContactDetails'
+        locale:
+          $ref: '#/components/schemas/Locale'
+        timezone:
+          type: string
+          description: The IANA timezone of the user.
+          example: America/New_York
+        active:
+          type: boolean
+          example: false
+          description: True indicates the account user is active. Active users can log into the account. Account users are created with this flag set to false by default.
+          readOnly: true
+        usernameVerified:
+          type: boolean
+          example: true
+          description: True indicates the account user's username has been verified.
+          readOnly: true
+        emailVerified:
+          type: string
+          description: "The account user's email verification status: `UNVERIFIED` indicates the email address has not been verified, `VERIFIED` indicates the email address has been verified, and `UNVERIFIED_BLOCK_LOGIN` indicates the email address has not been verified and the account user is blocked from logging in."
+          enum:
+            - UNVERIFIED
+            - VERIFIED
+            - UNVERIFIED_BLOCK_LOGIN
+          example: VERIFIED
+          readOnly: true
+        lockedOut:
+          type: boolean
+          example: false
+          description: True indicates the account user is locked.
+          readOnly: true
+        termsOfUseAccepted:
+          type: boolean
+          example: true
+          description: True indicates the account user has accepted [Cvent's Terms of Use](https://www.cvent.com/en/product-terms-of-use).
+          readOnly: true
+        failedLoginCount:
+          type: integer
+          description: The number of failed login attempts.
+          readOnly: true
+          example: 1
+        markDocumentsAsInternal:
+          type: boolean
+          default: false
+          description: True indicates the account user's uploaded documents will be considered internal and can only be viewed within the Cvent Platform.
+        visibilityAccess:
+          type: array
+          items:
+            $ref: '#/components/schemas/VisibilityAccess'
+          uniqueItems: true
+          description: |-
+            The visibility access of the user.
+
+             `DOCUMENT` - The user has the ability to view all documents uploaded within their account.
+
+             `EMARKETING_CAMPAIGN` - The user has the ability to view all eMarketing campaigns within their account.
+
+             `EVENT` - The user has the ability to view all Events within their account.
+
+             `MEETING_REQUEST` - The user has the ability to view all meeting requests within their account.
+
+             `RFI` - The user has the ability to view all RFIs within their account.
+
+             `RFP` - The user has the ability to view all RFPs within their account.
+
+             `SURVEY` - The user has the ability to view all Surveys within their account.
+          maxItems: 8
+        audit:
+          $ref: '#/components/schemas/AccountUserAuditDetails'
+        customFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountUserCustomField'
+          description: The account user's answers to account-level custom fields. Each item includes the custom field's ID, name, type, and submitted answer value(s).
+          readOnly: true
+          maxItems: 200
+          example:
+            - id: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+              name: What is your favorite color?
+              type: Choice - Multiple Answers
+              values:
+                - Choice C
+                - Choice A
+              order: 1
+    AccountUserContactDetails:
+      title: Account User Contact Details
+      description: The contact details of a Cvent core account user.
+      type: object
+      required:
+        - firstName
+        - lastName
+        - email
+      properties:
+        honorificPrefix:
+          $ref: '#/components/schemas/HonorificPrefix'
+        firstName:
+          $ref: '#/components/schemas/FirstName'
+        middleName:
+          $ref: '#/components/schemas/MiddleName'
+        lastName:
+          $ref: '#/components/schemas/LastName'
+        title:
+          $ref: '#/components/schemas/Title'
+        organization:
+          $ref: '#/components/schemas/Organization-1'
+        email:
+          $ref: '#/components/schemas/Email'
+        homePhone:
+          $ref: '#/components/schemas/PhoneNumber'
+        homeFax:
+          $ref: '#/components/schemas/PhoneNumber'
+        mobilePhone:
+          $ref: '#/components/schemas/PhoneNumber'
+        workPhone:
+          $ref: '#/components/schemas/PhoneNumber'
+        workFax:
+          $ref: '#/components/schemas/PhoneNumber'
+        pager:
+          $ref: '#/components/schemas/PhoneNumber'
+        address:
+          $ref: '#/components/schemas/AccountUserAddress'
+    AccountUserCustomField:
+      title: Account User Custom Field
+      description: Represents an account user's answer to a custom field.
+      type: object
+      required:
+        - id
+        - values
+      properties:
+        id:
+          type: string
+          description: The unique ID representing this custom field.
+          example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+          format: uuid
+        name:
+          type: string
+          description: The actual text of the custom field.
+          example: What is your favorite color?
+          readOnly: true
+        type:
+          type: string
+          description: The type of data collected by this custom field.
+          readOnly: true
+          allOf:
+            - $ref: '#/components/schemas/AccountUserCustomFieldType'
+        values:
+          type: array
+          items:
+            type: string
+            description: A custom field answer value.
+            maxLength: 16000
+          uniqueItems: true
+          description: The custom field answer or answers, represented as an array of strings. Single-answer or text fields contain one string; multiple-answer fields may contain multiple strings.
+          example:
+            - Choice C
+            - Choice A
+          maxItems: 100
+        order:
+          type: integer
+          description: The order of this custom field relative to other custom fields.
+          example: 1
+          readOnly: true
+    AccountUserCustomFieldType:
+      title: Account User Custom Field Type
+      description: The type of data collected by an account user custom field.
+      type: string
+      enum:
+        - Open Ended Text - Date/Time
+        - Open Ended Text - One Line
+        - Open Ended Text - Comment Box
+        - Choice - Single Answer
+        - Choice - Multiple Answers
+        - Auto-Increment
+      example: Choice - Single Answer
     AccountUserGroup:
       title: Account User Group
       description: A collection of account users which is used to help manage access and visibility to various other Cvent domain entities like events, surveys, account emails, and more. For example, a user group can be associated to specific events to allow the users within that group to view the events within Cvent's platform.
@@ -23849,6 +24260,38 @@ components:
           description: The description of the user group.
           example: MyUserGroupDescription
           maxLength: 300
+    AccountUserRoleId:
+      title: Account User Role Id
+      description: Represents the unique ID of an account user role.
+      type: string
+      format: uuid
+      example: 946505f6-6b29-421a-bda2-0815fcdea73c
+    AccountUserRoleReference:
+      title: Account User Role Reference
+      description: A model used to reference a Cvent core account user role by its ID.
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/AccountUserRoleId'
+    AccountUsers:
+      title: Account Users
+      description: A paginated result for a list of account users.
+      required:
+        - paging
+        - data
+      type: object
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountUser'
+          description: The list of Account Users retrieved for the specified page.
+          readOnly: true
+          maxItems: 200
     ActivityAd:
       type: object
       title: ActivityAd
@@ -32399,6 +32842,11 @@ components:
         - ZA
         - ZM
         - ZW
+    CountryCode:
+      title: Country Code
+      type: string
+      example: US
+      description: The ISO 3166-1 alpha-2 code which represents the Country. Visit [Cvent's Country Code API Standards](https://developers.cvent.com/docs/rest-api/api-standards#country-codes) to learn more.
     create-appointment-request:
       title: Create Appointment Request
       description: A request to create an appointment
@@ -34405,6 +34853,11 @@ components:
           minItems: 1
           maxItems: 25
           description: Collection of E-literature documents sent to lead.
+    Email:
+      title: Email
+      description: User associated email.
+      type: string
+      example: jack.tripper@example.com
     email-history-paginated-response:
       title: Email History Paginated Response
       description: The response from a request to get the list of email history. This includes the paging object as well as the collection of email history.
@@ -38862,6 +39315,11 @@ components:
           type: string
           example: property eq 'value'
           description: Filter included in the request.
+    FirstName:
+      title: First Name
+      description: User's first name.
+      type: string
+      example: Jack
     FlightDetail:
       title: FlightDetail
       description: Representation of a flight's details.
@@ -39201,6 +39659,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VideoClip'
+    HonorificPrefix:
+      title: Honorific Prefix
+      description: Honorific prefix to use before users name.
+      type: string
+      example: Mr.
     hook:
       title: Hook
       description: A hook with a callback URI.
@@ -40496,6 +40959,11 @@ components:
       description: The ISO 8601 zoned date time when this record was updated.
       readOnly: true
       example: '2019-02-12T03:00:00Z'
+    LastName:
+      title: Last Name
+      description: User's last name.
+      type: string
+      example: Tripper
     launch-feature-type.json:
       title: LaunchFeatureType
       description: These are the types of features used in the event container events that can be launched.
@@ -42193,6 +42661,11 @@ components:
           readOnly: true
           description: The ISO 8601 zoned date time when this record was modified.
           example: '2021-12-16T00:59:14.570Z'
+    MiddleName:
+      title: Middle Name
+      description: User's middle name.
+      type: string
+      example: John
     Mutability:
       title: Mutability
       description: This is used to denote the mutability of the attribute.
@@ -42843,6 +43316,11 @@ components:
           format: uuid
           description: Unique identifier for the organization.
           example: 50dc08af-24a9-4d01-84be-3d43133dc945
+    Organization-1:
+      title: Organization
+      description: Organization in which the user is employed.
+      type: string
+      example: Cvent
     OrganizationType-1:
       title: OrganizationType
       description: Organization type.
@@ -43698,6 +44176,11 @@ components:
       type: string
       description: Denotes the method of payment.
       example: Visa
+    PhoneNumber:
+      title: Phone Number
+      description: Phone number associated to given user.
+      type: string
+      example: '+17035551234'
     PhoneNumber1:
       title: Phone Number
       description: Phone Number
@@ -44088,6 +44571,11 @@ components:
           format: date-time
           description: The ISO 8601 formatted date and time at which the reference document will expire if an explicit expiration is defined.
           example: '2025-12-31T23:59:59Z'
+    PlatformUserId:
+      title: Platform User Id
+      description: Custom identifier used for tracking Okta association.
+      type: string
+      example: 00ad83olslLwIeKcW1m8
     player:
       title: Player
       description: A Webcast player details.
@@ -46029,6 +46517,11 @@ components:
       type: string
       description: Region where the live stream originates. Although, the value is consumed for IVS livestreams the requested origin is actually ignored due to IVS' global data plane.
       example: Oregon
+    RegionCode:
+      title: Region Code
+      type: string
+      example: VA
+      description: The region, province, or state code. Visit [Cvent's Region Code API Standards](https://developers.cvent.com/docs/rest-api/api-standards#region-codes) to learn more.
     registration-pack-request:
       title: RegistrationPack
       type: object
@@ -52171,6 +52664,11 @@ components:
       type: string
       description: "DEFINED: Appointments of this type can be created at time intervals and locations created by the planner. FLEXIBLE: Appointments of this type can be created any time on the schedule in a custom location of the host's choosing or within time intervals and locations created by the planner."
       example: DEFINED
+    Title:
+      title: Title
+      description: Position held by the current user.
+      type: string
+      example: Senior Software Engineer
     TokenizedCreditCard:
       description: Credit card info.
       title: Tokenized Credit Card
@@ -56244,6 +56742,33 @@ components:
           description: The reporting field value.
           example: '12'
           readOnly: true
+    VisibilityAccess:
+      title: Visibility Access
+      description: |-
+        Enumerated type to outline what the user has access to.
+
+         `DOCUMENT` - The user has the ability to view all documents uploaded within their account.
+
+         `EMARKETING_CAMPAIGN` - The user has the ability to view all eMarketing campaigns within their account.
+
+         `EVENT` - The user has the ability to view all Events within their account.
+
+         `MEETING_REQUEST` - The user has the ability to view all meeting requests within their account.
+
+         `RFI` - The user has the ability to view all RFIs within their account.
+
+         `RFP` - The user has the ability to view all RFPs within their account.
+
+         `SURVEY` - The user has the ability to view all Surveys within their account.
+      type: string
+      enum:
+        - DOCUMENT
+        - EMARKETING_CAMPAIGN
+        - EVENT
+        - MEETING_REQUEST
+        - RFI
+        - RFP
+        - SURVEY
     VolumeDiscount:
       title: Volume Discount
       description: Representation of a volume based discount.
@@ -56656,7 +57181,7 @@ components:
             account/user-groups:read: Allows the reading of user groups
             account/user-groups:write: Allows the writing of user groups
             account/users:delete: Allows the deletion of User
-            account/users:read: Allows the reading of User, User Group
+            account/users:read: Allows the reading of account users
             account/users:write: Allows the creation/updating of User
             appointments/appointment-attendees:read: Allows the reading of appointment attendees and their related entities.
             appointments/appointment-events:read: Allows the reading of appointment events and their related entities.
@@ -56886,7 +57411,7 @@ components:
             account/user-groups:read: Allows the reading of user groups
             account/user-groups:write: Allows the writing of user groups
             account/users:delete: Allows the deletion of User
-            account/users:read: Allows the reading of User, User Group
+            account/users:read: Allows the reading of account users
             account/users:write: Allows the creation/updating of User
             appointments/appointment-attendees:read: Allows the reading of appointment attendees and their related entities.
             appointments/appointment-events:read: Allows the reading of appointment events and their related entities.

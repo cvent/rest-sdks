@@ -52,7 +52,7 @@ public final class OAuth2Scopes {
         AccountUsersDelete("account/users:delete"),
 
         /**
-         * Allows the reading of User, User Group
+         * Allows the reading of account users
          */
         AccountUsersRead("account/users:read"),
 
@@ -1194,7 +1194,7 @@ public final class OAuth2Scopes {
         AccountUsersDelete("account/users:delete"),
 
         /**
-         * Allows the reading of User, User Group
+         * Allows the reading of account users
          */
         AccountUsersRead("account/users:read"),
 

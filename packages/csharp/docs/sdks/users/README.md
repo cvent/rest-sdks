@@ -13,6 +13,8 @@ Operations for managing account users and user groups, including creation, retri
 * [DeleteAccountUserGroup](#deleteaccountusergroup) - Delete Account User Group
 * [AddUserToAccountUserGroup](#addusertoaccountusergroup) - Associate User to Group
 * [DeleteUserFromAccountUserGroup](#deleteuserfromaccountusergroup) - Delete User from Group
+* [ListAccountUsers](#listaccountusers) - List Account Users
+* [GetAccountUser](#getaccountuser) - Get Account User
 
 ## GetAccountUserGroups
 
@@ -354,4 +356,201 @@ var res = await sdk.Users.DeleteUserFromAccountUserGroupAsync(req);
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
 | Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## ListAccountUsers
+
+Gets a list of all users associated with your account.
+
+### Example Usage: active
+
+<!-- UsageSnippet language="csharp" operationID="listAccountUsers" method="get" path="/users" example="active" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+ListAccountUsersRequest req = new ListAccountUsersRequest() {
+    Filter = "active eq 'true'",
+    Token = "1a2b3c4d5e6f7g8h9i10j11k",
+    Sort = "username DESC",
+};
+
+ListAccountUsersResponse? res = await sdk.Users.ListAccountUsersAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+### Example Usage: combined
+
+<!-- UsageSnippet language="csharp" operationID="listAccountUsers" method="get" path="/users" example="combined" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+ListAccountUsersRequest req = new ListAccountUsersRequest() {
+    Filter = "active eq 'true' and (role.id eq '007cfa3b-8c25-4b3b-b5d3-f6280aa7e6ee' or lockedOut eq 'true')",
+    Token = "1a2b3c4d5e6f7g8h9i10j11k",
+    Sort = "username DESC",
+};
+
+ListAccountUsersResponse? res = await sdk.Users.ListAccountUsersAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+### Example Usage: created
+
+<!-- UsageSnippet language="csharp" operationID="listAccountUsers" method="get" path="/users" example="created" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+ListAccountUsersRequest req = new ListAccountUsersRequest() {
+    Filter = "audit.created ge '2026-01-01T00:00:00.000Z'",
+    Token = "1a2b3c4d5e6f7g8h9i10j11k",
+    Sort = "username DESC",
+};
+
+ListAccountUsersResponse? res = await sdk.Users.ListAccountUsersAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+### Example Usage: role
+
+<!-- UsageSnippet language="csharp" operationID="listAccountUsers" method="get" path="/users" example="role" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+ListAccountUsersRequest req = new ListAccountUsersRequest() {
+    Filter = "role.id in ('e7e8c33e-aa42-40cd-b600-7d02d9c53f89', 'b41709f9-5f31-4ee5-800a-b77989d01b5d')",
+    Token = "1a2b3c4d5e6f7g8h9i10j11k",
+    Sort = "username DESC",
+};
+
+ListAccountUsersResponse? res = await sdk.Users.ListAccountUsersAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+
+### Parameters
+
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `request`                                                                   | [ListAccountUsersRequest](../../Models/Requests/ListAccountUsersRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
+
+### Response
+
+**[ListAccountUsersResponse](../../Models/Requests/ListAccountUsersResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## GetAccountUser
+
+Gets a single account user.
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="getAccountUser" method="get" path="/users/{userId}" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+GetAccountUserRequest req = new GetAccountUserRequest() {
+    UserId = "ff8af134-3505-4d67-aaea-1975d8e1327c",
+};
+
+var res = await sdk.Users.GetAccountUserAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `request`                                                               | [GetAccountUserRequest](../../Models/Requests/GetAccountUserRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+
+### Response
+
+**[GetAccountUserResponse](../../Models/Requests/GetAccountUserResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 401, 403, 404, 429                      | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |

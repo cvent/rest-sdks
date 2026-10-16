@@ -23,6 +23,12 @@ import com.cvent.models.operations.GetAccountUserGroupResponse;
 import com.cvent.models.operations.GetAccountUserGroupsRequest;
 import com.cvent.models.operations.GetAccountUserGroupsRequestBuilder;
 import com.cvent.models.operations.GetAccountUserGroupsResponse;
+import com.cvent.models.operations.GetAccountUserRequest;
+import com.cvent.models.operations.GetAccountUserRequestBuilder;
+import com.cvent.models.operations.GetAccountUserResponse;
+import com.cvent.models.operations.ListAccountUsersRequest;
+import com.cvent.models.operations.ListAccountUsersRequestBuilder;
+import com.cvent.models.operations.ListAccountUsersResponse;
 import com.cvent.models.operations.UpdateAccountUserGroupRequest;
 import com.cvent.models.operations.UpdateAccountUserGroupRequestBuilder;
 import com.cvent.models.operations.UpdateAccountUserGroupResponse;
@@ -30,8 +36,10 @@ import com.cvent.operations.AddUserToAccountUserGroup;
 import com.cvent.operations.CreateAccountUserGroup;
 import com.cvent.operations.DeleteAccountUserGroup;
 import com.cvent.operations.DeleteUserFromAccountUserGroup;
+import com.cvent.operations.GetAccountUser;
 import com.cvent.operations.GetAccountUserGroup;
 import com.cvent.operations.GetAccountUserGroups;
+import com.cvent.operations.ListAccountUsers;
 import com.cvent.operations.UpdateAccountUserGroup;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
@@ -346,6 +354,87 @@ public class Users {
             @Nonnull DeleteUserFromAccountUserGroupRequest request, @Nullable Options options) {
         RequestOperation<DeleteUserFromAccountUserGroupRequest, DeleteUserFromAccountUserGroupResponse> operation =
                 new DeleteUserFromAccountUserGroup.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * List Account Users
+     *
+     * <p>Gets a list of all users associated with your account.
+     *
+     * @return The call builder
+     */
+    public ListAccountUsersRequestBuilder listAccountUsers() {
+        return new ListAccountUsersRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Account Users
+     *
+     * <p>Gets a list of all users associated with your account.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListAccountUsersResponse listAccountUsers(@Nonnull ListAccountUsersRequest request) {
+        return listAccountUsers(request, null);
+    }
+
+    /**
+     * List Account Users
+     *
+     * <p>Gets a list of all users associated with your account.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListAccountUsersResponse listAccountUsers(
+            @Nonnull ListAccountUsersRequest request, @Nullable Options options) {
+        RequestOperation<ListAccountUsersRequest, ListAccountUsersResponse> operation =
+                new ListAccountUsers.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Get Account User
+     *
+     * <p>Gets a single account user.
+     *
+     * @return The call builder
+     */
+    public GetAccountUserRequestBuilder getAccountUser() {
+        return new GetAccountUserRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get Account User
+     *
+     * <p>Gets a single account user.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetAccountUserResponse getAccountUser(@Nonnull GetAccountUserRequest request) {
+        return getAccountUser(request, null);
+    }
+
+    /**
+     * Get Account User
+     *
+     * <p>Gets a single account user.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetAccountUserResponse getAccountUser(@Nonnull GetAccountUserRequest request, @Nullable Options options) {
+        RequestOperation<GetAccountUserRequest, GetAccountUserResponse> operation =
+                new GetAccountUser.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

@@ -56,7 +56,7 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("account/users:delete")] AccountUsersDelete,
 
         /// <summary>
-        /// Allows the reading of User, User Group.
+        /// Allows the reading of account users.
         /// </summary>
         [JsonProperty("account/users:read")] AccountUsersRead,
 
@@ -1213,7 +1213,7 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("account/users:delete")] AccountUsersDelete,
 
         /// <summary>
-        /// Allows the reading of User, User Group.
+        /// Allows the reading of account users.
         /// </summary>
         [JsonProperty("account/users:read")] AccountUsersRead,
 

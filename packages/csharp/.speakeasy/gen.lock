@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 3f6b1580-b75b-44d2-a95a-1b74729f1d26
 management:
-  docChecksum: 8e90e333b47f5f578a3170e752d227a7
+  docChecksum: 1fd9ebcd59841afef8d06776d975d698
   docVersion: ea
   speakeasyVersion: 1.752.0
   generationVersion: 2.859.2
-  releaseVersion: 1.6.4
-  configChecksum: dfa4bffdee48062a86d34af319e73f0c
+  releaseVersion: 1.6.5
+  configChecksum: ccac38de202a8bfd2884f256f1cf8bee
   published: true
 persistentEdits:
   generation_id: c50843e4-e393-4964-8f45-57aa92ab8994
@@ -46,7 +46,7 @@ trackedFiles:
     pristine_git_object: ec6bbb4bbe2f8ad9230b01a2da715a63475f5e3d
   NUGET.md:
     id: f4c8a442a6e5
-    last_write_checksum: sha1:c2f9e20ea13c7ebd9f3939654e82ec35c2bcbdf2
+    last_write_checksum: sha1:8394dd45665433d0526e382fd14cbd8af551389a
     pristine_git_object: 7a318ebe39215ade31d133b8f5920eb190ea74e3
   USAGE.md:
     id: 3aed33ce6e6f
@@ -74,10 +74,26 @@ trackedFiles:
     id: d5768916a6fb
     last_write_checksum: sha1:f8f2baac7bd75d3f34e2cfb9bb8ff17e0f295e17
     pristine_git_object: c796cd3d5b953035f82fdc2452b99d988704f8d4
+  docs/Models/Components/AccountUser.md:
+    last_write_checksum: sha1:bb02d7a1245792f0d39e4a4729a83d7758c1e649
+  docs/Models/Components/AccountUserAddress.md:
+    last_write_checksum: sha1:2b0d82b87bf5b069170d42cbc035afd0d779078a
+  docs/Models/Components/AccountUserAuditDetails.md:
+    last_write_checksum: sha1:aeec4f9f7e9cf7b3f53c0a86f48d7140de0f30a8
+  docs/Models/Components/AccountUserContactDetails.md:
+    last_write_checksum: sha1:4955c4fe9f3f7f8e313081eca31dd621cee0c1e9
+  docs/Models/Components/AccountUserCustomField.md:
+    last_write_checksum: sha1:718d86e8aad2eeb78e8734aee325d1b91e4b99de
+  docs/Models/Components/AccountUserCustomFieldType.md:
+    last_write_checksum: sha1:ad51955575b2e9e016d515af1626ac112c0d8b9d
   docs/Models/Components/AccountUserGroup.md:
     last_write_checksum: sha1:77e1c45a8c4d350bf7492cf482418d20a91c1963
   docs/Models/Components/AccountUserGroupInput.md:
     last_write_checksum: sha1:1e0f001fb42664789651a292edf9a9e4d8d21bb7
+  docs/Models/Components/AccountUserRoleReference.md:
+    last_write_checksum: sha1:435f8ed0bb62cbbc28e5f574f5b2f319b051ca53
+  docs/Models/Components/AccountUsers.md:
+    last_write_checksum: sha1:b5550b635374a07d70a75937f08980b64bcc6eb2
   docs/Models/Components/Action.md:
     last_write_checksum: sha1:987caa3d5a68a6f27955aa3b172585dc9a810983
   docs/Models/Components/ActivityAd.md:
@@ -1618,6 +1634,8 @@ trackedFiles:
     id: f262524bb67d
     last_write_checksum: sha1:78a80dfdb0f38f44cb16625b7b8c65da999220ad
     pristine_git_object: 230536eb0a4fab7644525b98873b39896ee86193
+  docs/Models/Components/EmailVerified.md:
+    last_write_checksum: sha1:1edda539551e1753c6da1c81b9b9b3e94fa31732
   docs/Models/Components/EncodingProfile.md:
     last_write_checksum: sha1:662aa4b698d4ea76daef2b0b28d56c15ba857260
   docs/Models/Components/EntityType1.md:
@@ -4664,6 +4682,8 @@ trackedFiles:
     last_write_checksum: sha1:d19f4fe778f0c7d950b872ca28d4fa841ea09341
   docs/Models/Components/VirtualCardReportingFieldAndValue.md:
     last_write_checksum: sha1:3ab60c7d832d2aac675890924e78c2a7ac35ab5d
+  docs/Models/Components/VisibilityAccess.md:
+    last_write_checksum: sha1:d65eee8c6b9a5a5fa13963ab09acf21c0e7a262e
   docs/Models/Components/VolumeDiscountThresholdType.md:
     last_write_checksum: sha1:0a5130d845898dc84d004b9dfdec99cb024ad87d
   docs/Models/Components/Voucher.md:
@@ -5614,6 +5634,10 @@ trackedFiles:
     id: 51ccfe9985a4
     last_write_checksum: sha1:1168e8b6ab790c91a14dfcb2e0caf74bdf7968b7
     pristine_git_object: 675141c3d20ac944ec1adba27e31737bf3b7b0ea
+  docs/Models/Requests/GetAccountUserRequest.md:
+    last_write_checksum: sha1:be2eea6c7614373afc53977776b2a9b2ee9d5912
+  docs/Models/Requests/GetAccountUserResponse.md:
+    last_write_checksum: sha1:704311dddeb1ee78490c976dc48761c0891468a7
   docs/Models/Requests/GetAccountVendorsRequest.md:
     last_write_checksum: sha1:87771bbd88051e1bb94807f958577ba57172cea3
   docs/Models/Requests/GetAccountVendorsResponse.md:
@@ -6822,6 +6846,10 @@ trackedFiles:
     id: 02c5a44b53d5
     last_write_checksum: sha1:10f4d3bf2fdf65ec374bc28b74c5aeea805eb1c0
     pristine_git_object: bf9bfb3be159c67dddc859f4331011630a6c8faa
+  docs/Models/Requests/ListAccountUsersRequest.md:
+    last_write_checksum: sha1:5e26b5b28c474974f346933ff9dc182277816ff6
+  docs/Models/Requests/ListAccountUsersResponse.md:
+    last_write_checksum: sha1:f481d069cec36ad6f16ff3c3e21dbdd2b4456751
   docs/Models/Requests/ListAdmissionItemsPostFiltersRequest.md:
     id: 7bbcd4ddeee1
     last_write_checksum: sha1:30503e80088b70e56130a956bd65c4bfe3be2987
@@ -8476,7 +8504,7 @@ trackedFiles:
     pristine_git_object: 22de2e20b2824fdf3c333e848e587d6e2ba5b189
   docs/sdks/users/README.md:
     id: 5d80027045fe
-    last_write_checksum: sha1:acaac9d0eb1ad67a2dcfd6bf2f711bc750390d57
+    last_write_checksum: sha1:70e40c4e6f8d9f15dd0b7b016d42e22f08489a09
     pristine_git_object: ae4345de8bbb2321bc1f484c5b5b9f21568a81f3
   docs/sdks/userscim/README.md:
     id: 50529a579425
@@ -8568,7 +8596,7 @@ trackedFiles:
     pristine_git_object: 977cd7381c7598682830d6e4a64a85cb14130b98
   src/Cvent/SDK/Cvent.SDK.csproj:
     id: 7a55759bc2f0
-    last_write_checksum: sha1:97cc9c6f969afa9a78d6b52e7e4a795c2e998a59
+    last_write_checksum: sha1:568bdf6cb37c2df087aceadb55c8a1b97356650e
     pristine_git_object: 711013944bc0505858b0b7cf177f166071b47593
   src/Cvent/SDK/CventSDK.cs:
     id: f7e1ad22cd8f
@@ -8632,7 +8660,7 @@ trackedFiles:
     pristine_git_object: 1937b5a9d23d666c998441dff6dfeb35f548e5a6
   src/Cvent/SDK/Hooks/OAuth2Scopes.cs:
     id: ea272e98d50c
-    last_write_checksum: sha1:5b16030e03011546a803c3923562900f30a75126
+    last_write_checksum: sha1:91a2532c1fdea22d27e67a24d34bc571df83dc8f
     pristine_git_object: 55a8b501e50769ad517eb3b3fb5ed1cafcd038cc
   src/Cvent/SDK/Hooks/SDKHooks.cs:
     id: 0038e747490d
@@ -8680,10 +8708,26 @@ trackedFiles:
     id: a63268c177fa
     last_write_checksum: sha1:e238239f527b4b96d45d978d0c299f5aa595676d
     pristine_git_object: 464af42f0c8134f898ff68861303d589dfbc7556
+  src/Cvent/SDK/Models/Components/AccountUser.cs:
+    last_write_checksum: sha1:ff373d2e8c9e294b3b56928167a85d56a526ed54
+  src/Cvent/SDK/Models/Components/AccountUserAddress.cs:
+    last_write_checksum: sha1:5cb86f57d929c10fbd450d4e02da02183be4f368
+  src/Cvent/SDK/Models/Components/AccountUserAuditDetails.cs:
+    last_write_checksum: sha1:54aeae6f64da0f810b7027c555d471bd9bd9d49c
+  src/Cvent/SDK/Models/Components/AccountUserContactDetails.cs:
+    last_write_checksum: sha1:5edfcecad1f5713442c9ed3f59fecbfb0dcbe6cb
+  src/Cvent/SDK/Models/Components/AccountUserCustomField.cs:
+    last_write_checksum: sha1:822c7c86d676e805fd9f4bbeee7c383b903618bf
+  src/Cvent/SDK/Models/Components/AccountUserCustomFieldType.cs:
+    last_write_checksum: sha1:a730e4ba1ca1e30862e4279d321be768205b9c1d
   src/Cvent/SDK/Models/Components/AccountUserGroup.cs:
     last_write_checksum: sha1:cf77d76119aa19746b25de6b279f06edcd698efc
   src/Cvent/SDK/Models/Components/AccountUserGroupInput.cs:
     last_write_checksum: sha1:7081253f8fede0483677e5c3b9d1de367d6fce5d
+  src/Cvent/SDK/Models/Components/AccountUserRoleReference.cs:
+    last_write_checksum: sha1:89646cf1bf41d6aa289235701ffc1001762cd828
+  src/Cvent/SDK/Models/Components/AccountUsers.cs:
+    last_write_checksum: sha1:b5aa60483435ddc5476a0e053e08172aa85e74d1
   src/Cvent/SDK/Models/Components/Action.cs:
     last_write_checksum: sha1:44d416d06cedf8d675d1c93a9562c2fd9f29f137
   src/Cvent/SDK/Models/Components/ActivityAd.cs:
@@ -10224,6 +10268,8 @@ trackedFiles:
     id: d4f44f9abdf8
     last_write_checksum: sha1:79516bee373d3713db0bd9da6dd09981fe7f0397
     pristine_git_object: febe34b952b92aa4997dc14ab249957e5779be77
+  src/Cvent/SDK/Models/Components/EmailVerified.cs:
+    last_write_checksum: sha1:0cf04f0af013751f4fdb36e41690d8f64ebec9d4
   src/Cvent/SDK/Models/Components/EncodingProfile.cs:
     last_write_checksum: sha1:529f1fae761ef71aaaa860b03bfb82fa0898ebac
   src/Cvent/SDK/Models/Components/EntityType1.cs:
@@ -13270,6 +13316,8 @@ trackedFiles:
     last_write_checksum: sha1:1c42ff3b21cc0644ef7fc40e4cabea7d601abb72
   src/Cvent/SDK/Models/Components/VirtualCardReportingFieldAndValue.cs:
     last_write_checksum: sha1:a6c91cfd4f09031fd4d98f61187063a66df182af
+  src/Cvent/SDK/Models/Components/VisibilityAccess.cs:
+    last_write_checksum: sha1:8de69364d422b681ee1e381be29b89ee9f4394b7
   src/Cvent/SDK/Models/Components/VolumeDiscountThresholdType.cs:
     last_write_checksum: sha1:e2174174d0e05463ccd853313bd0ca2c92201fad
   src/Cvent/SDK/Models/Components/Voucher.cs:
@@ -14232,6 +14280,10 @@ trackedFiles:
     id: cf414f374518
     last_write_checksum: sha1:22b2972be9145d741498fcc2dc747ff917687de9
     pristine_git_object: c328e98272441b53a2a13f003cf88ead1abbb64a
+  src/Cvent/SDK/Models/Requests/GetAccountUserRequest.cs:
+    last_write_checksum: sha1:7c1bb4c08b3c59fe53971850648452013a5643c2
+  src/Cvent/SDK/Models/Requests/GetAccountUserResponse.cs:
+    last_write_checksum: sha1:b223779ae7e0e480d4983e05a55b83cc1ff4a52a
   src/Cvent/SDK/Models/Requests/GetAccountVendorsRequest.cs:
     last_write_checksum: sha1:7f77b35dc5589031c21f6f9d5aa15132fd0ee953
   src/Cvent/SDK/Models/Requests/GetAccountVendorsResponse.cs:
@@ -15440,6 +15492,10 @@ trackedFiles:
     id: a5d8e61ea5a2
     last_write_checksum: sha1:ffc346029a4bfe7a150cce4af4514fd4424c1f6b
     pristine_git_object: 3ea3265bca16036b7f9bf5a42a51115aaf9de4cc
+  src/Cvent/SDK/Models/Requests/ListAccountUsersRequest.cs:
+    last_write_checksum: sha1:520a4e9df513894e7ebaafef900dc258299cb047
+  src/Cvent/SDK/Models/Requests/ListAccountUsersResponse.cs:
+    last_write_checksum: sha1:bbf494c5e1c4c388a522192e2de787b56e917f01
   src/Cvent/SDK/Models/Requests/ListAdmissionItemsPostFiltersRequest.cs:
     id: 0f91c67a12c4
     last_write_checksum: sha1:9277cc5d2ee16ae77822090912e23bcf27a60d17
@@ -16924,7 +16980,7 @@ trackedFiles:
     last_write_checksum: sha1:729557ecc2fc3c7455b0449a5706b0d91c274dad
   src/Cvent/SDK/SDKConfig.cs:
     id: 7ad7086454a8
-    last_write_checksum: sha1:9212685c2ea8fb662a76c79245295be30c8304df
+    last_write_checksum: sha1:16594dd306ba66ea39982e677edac07bf02e4d2c
     pristine_git_object: 796c23cd551fbe87f613d89d60ed25ac5fe0c54b
   src/Cvent/SDK/Seating.cs:
     id: 01c249fc2746
@@ -16970,7 +17026,7 @@ trackedFiles:
     pristine_git_object: 65ecc73aaa7b7e5c08403afc919813034ca19d90
   src/Cvent/SDK/Users.cs:
     id: 9ede83a21d40
-    last_write_checksum: sha1:9cd2c3cca2de596ee15a364d2ac26e249da34aee
+    last_write_checksum: sha1:7fa02dc9f01673fd1169ed33c543a6ac71716c9d
     pristine_git_object: e42fc3d5237f4fe4db02a3e0469cfe5e248712d2
   src/Cvent/SDK/Utils/AnyDeserializer.cs:
     id: 1d517da993f5
@@ -16982,7 +17038,7 @@ trackedFiles:
     pristine_git_object: a75f770b33edd25c0fa4d4a77ab523da12d269ba
   src/Cvent/SDK/Utils/Constants.cs:
     id: 231d94d8a5dc
-    last_write_checksum: sha1:5155cb65b4455c69b30f148b263de3c74b36e534
+    last_write_checksum: sha1:0a15bf594f24de50a2e23efb14e9c60f339a63c4
     pristine_git_object: 0a54932893793a10e459afbc15920803cff3ed1e
   src/Cvent/SDK/Utils/CventSDKHttpClient.cs:
     id: 374fee4fdbaf
@@ -23151,6 +23207,77 @@ examples:
       responses:
         "401":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  listAccountUsers:
+    role:
+      parameters:
+        query:
+          filter: "role.id in ('e7e8c33e-aa42-40cd-b600-7d02d9c53f89', 'b41709f9-5f31-4ee5-800a-b77989d01b5d')"
+          limit: 100
+          token: "1a2b3c4d5e6f7g8h9i10j11k"
+          sort: "username DESC"
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"id": "501fbc6a-cfd4-468f-a2f7-14e521d33c71", "platformUserId": "00ad83olslLwIeKcW1m8", "username": "jsmith@example.com", "federatedSsoLoginName": "jsmith@example.com", "contact": {"honorificPrefix": "Mr.", "firstName": "Jack", "middleName": "John", "lastName": "Tripper", "title": "Senior Software Engineer", "organization": "Cvent", "email": "jack.tripper@example.com", "homePhone": "+17035551234", "homeFax": "+17035551234", "mobilePhone": "+17035551234", "workPhone": "+17035551234", "workFax": "+17035551234", "pager": "+17035551234", "address": {"address1": "1765 Greensboro Station Pl", "address2": "7th Floor", "address3": "", "city": "McLean", "countryCode": "US", "regionCode": "VA", "postalCode": "22102"}}, "locale": "en-US", "timezone": "America/New_York", "active": false, "usernameVerified": true, "emailVerified": "VERIFIED", "lockedOut": false, "termsOfUseAccepted": true, "failedLoginCount": 1, "markDocumentsAsInternal": false, "visibilityAccess": ["RFI"], "audit": {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "lockedOutDate": "2017-01-02T02:00:00Z", "termsOfUseAcceptedDate": "2017-01-02T02:00:00Z", "lastLoginDate": "2017-01-02T02:00:00Z", "passwordLastModifiedDate": "2017-01-02T02:00:00Z"}, "customFields": [{"id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890", "name": "What is your favorite color?", "type": "Choice - Multiple Answers", "values": ["Choice C", "Choice A"], "order": 1}], "role": {"id": "946505f6-6b29-421a-bda2-0815fcdea73c"}}]}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+    active:
+      parameters:
+        query:
+          filter: "active eq 'true'"
+          limit: 100
+          token: "1a2b3c4d5e6f7g8h9i10j11k"
+          sort: "username DESC"
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"id": "501fbc6a-cfd4-468f-a2f7-14e521d33c71", "platformUserId": "00ad83olslLwIeKcW1m8", "username": "jsmith@example.com", "federatedSsoLoginName": "jsmith@example.com", "contact": {"honorificPrefix": "Mr.", "firstName": "Jack", "middleName": "John", "lastName": "Tripper", "title": "Senior Software Engineer", "organization": "Cvent", "email": "jack.tripper@example.com", "homePhone": "+17035551234", "homeFax": "+17035551234", "mobilePhone": "+17035551234", "workPhone": "+17035551234", "workFax": "+17035551234", "pager": "+17035551234", "address": {"address1": "1765 Greensboro Station Pl", "address2": "7th Floor", "address3": "", "city": "McLean", "countryCode": "US", "regionCode": "VA", "postalCode": "22102"}}, "locale": "en-US", "timezone": "America/New_York", "active": false, "usernameVerified": true, "emailVerified": "VERIFIED", "lockedOut": false, "termsOfUseAccepted": true, "failedLoginCount": 1, "markDocumentsAsInternal": false, "visibilityAccess": ["RFI"], "audit": {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "lockedOutDate": "2017-01-02T02:00:00Z", "termsOfUseAcceptedDate": "2017-01-02T02:00:00Z", "lastLoginDate": "2017-01-02T02:00:00Z", "passwordLastModifiedDate": "2017-01-02T02:00:00Z"}, "customFields": [{"id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890", "name": "What is your favorite color?", "type": "Choice - Multiple Answers", "values": ["Choice C", "Choice A"], "order": 1}], "role": {"id": "946505f6-6b29-421a-bda2-0815fcdea73c"}}]}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+    created:
+      parameters:
+        query:
+          filter: "audit.created ge '2026-01-01T00:00:00.000Z'"
+          limit: 100
+          token: "1a2b3c4d5e6f7g8h9i10j11k"
+          sort: "username DESC"
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"id": "501fbc6a-cfd4-468f-a2f7-14e521d33c71", "platformUserId": "00ad83olslLwIeKcW1m8", "username": "jsmith@example.com", "federatedSsoLoginName": "jsmith@example.com", "contact": {"honorificPrefix": "Mr.", "firstName": "Jack", "middleName": "John", "lastName": "Tripper", "title": "Senior Software Engineer", "organization": "Cvent", "email": "jack.tripper@example.com", "homePhone": "+17035551234", "homeFax": "+17035551234", "mobilePhone": "+17035551234", "workPhone": "+17035551234", "workFax": "+17035551234", "pager": "+17035551234", "address": {"address1": "1765 Greensboro Station Pl", "address2": "7th Floor", "address3": "", "city": "McLean", "countryCode": "US", "regionCode": "VA", "postalCode": "22102"}}, "locale": "en-US", "timezone": "America/New_York", "active": false, "usernameVerified": true, "emailVerified": "VERIFIED", "lockedOut": false, "termsOfUseAccepted": true, "failedLoginCount": 1, "markDocumentsAsInternal": false, "visibilityAccess": ["RFI"], "audit": {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "lockedOutDate": "2017-01-02T02:00:00Z", "termsOfUseAcceptedDate": "2017-01-02T02:00:00Z", "lastLoginDate": "2017-01-02T02:00:00Z", "passwordLastModifiedDate": "2017-01-02T02:00:00Z"}, "customFields": [{"id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890", "name": "What is your favorite color?", "type": "Choice - Multiple Answers", "values": ["Choice C", "Choice A"], "order": 1}], "role": {"id": "946505f6-6b29-421a-bda2-0815fcdea73c"}}]}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+    combined:
+      parameters:
+        query:
+          filter: "active eq 'true' and (role.id eq '007cfa3b-8c25-4b3b-b5d3-f6280aa7e6ee' or lockedOut eq 'true')"
+          limit: 100
+          token: "1a2b3c4d5e6f7g8h9i10j11k"
+          sort: "username DESC"
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"id": "501fbc6a-cfd4-468f-a2f7-14e521d33c71", "platformUserId": "00ad83olslLwIeKcW1m8", "username": "jsmith@example.com", "federatedSsoLoginName": "jsmith@example.com", "contact": {"honorificPrefix": "Mr.", "firstName": "Jack", "middleName": "John", "lastName": "Tripper", "title": "Senior Software Engineer", "organization": "Cvent", "email": "jack.tripper@example.com", "homePhone": "+17035551234", "homeFax": "+17035551234", "mobilePhone": "+17035551234", "workPhone": "+17035551234", "workFax": "+17035551234", "pager": "+17035551234", "address": {"address1": "1765 Greensboro Station Pl", "address2": "7th Floor", "address3": "", "city": "McLean", "countryCode": "US", "regionCode": "VA", "postalCode": "22102"}}, "locale": "en-US", "timezone": "America/New_York", "active": false, "usernameVerified": true, "emailVerified": "VERIFIED", "lockedOut": false, "termsOfUseAccepted": true, "failedLoginCount": 1, "markDocumentsAsInternal": false, "visibilityAccess": ["RFI"], "audit": {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "lockedOutDate": "2017-01-02T02:00:00Z", "termsOfUseAcceptedDate": "2017-01-02T02:00:00Z", "lastLoginDate": "2017-01-02T02:00:00Z", "passwordLastModifiedDate": "2017-01-02T02:00:00Z"}, "customFields": [{"id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890", "name": "What is your favorite color?", "type": "Choice - Multiple Answers", "values": ["Choice C", "Choice A"], "order": 1}], "role": {"id": "946505f6-6b29-421a-bda2-0815fcdea73c"}}]}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+    speakeasy-default-list-account-users:
+      parameters:
+        query:
+          filter: "active eq 'true'"
+          limit: 100
+          token: "1a2b3c4d5e6f7g8h9i10j11k"
+          sort: "username DESC"
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"id": "501fbc6a-cfd4-468f-a2f7-14e521d33c71", "platformUserId": "00ad83olslLwIeKcW1m8", "username": "jsmith@example.com", "federatedSsoLoginName": "jsmith@example.com", "contact": {"honorificPrefix": "Mr.", "firstName": "Jack", "middleName": "John", "lastName": "Tripper", "title": "Senior Software Engineer", "organization": "Cvent", "email": "jack.tripper@example.com", "homePhone": "+17035551234", "homeFax": "+17035551234", "mobilePhone": "+17035551234", "workPhone": "+17035551234", "workFax": "+17035551234", "pager": "+17035551234", "address": {"address1": "1765 Greensboro Station Pl", "address2": "7th Floor", "address3": "", "city": "McLean", "countryCode": "US", "regionCode": "VA", "postalCode": "22102"}}, "locale": "en-US", "timezone": "America/New_York", "active": false, "usernameVerified": true, "emailVerified": "VERIFIED", "lockedOut": false, "termsOfUseAccepted": true, "failedLoginCount": 1, "markDocumentsAsInternal": false, "visibilityAccess": ["RFI"], "audit": {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "lockedOutDate": "2017-01-02T02:00:00Z", "termsOfUseAcceptedDate": "2017-01-02T02:00:00Z", "lastLoginDate": "2017-01-02T02:00:00Z", "passwordLastModifiedDate": "2017-01-02T02:00:00Z"}, "customFields": [{"id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890", "name": "What is your favorite color?", "type": "Choice - Multiple Answers", "values": ["Choice C", "Choice A"], "order": 1}], "role": {"id": "946505f6-6b29-421a-bda2-0815fcdea73c"}}]}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getAccountUser:
+    speakeasy-default-get-account-user:
+      parameters:
+        path:
+          userId: "ff8af134-3505-4d67-aaea-1975d8e1327c"
+      responses:
+        "200":
+          application/json: {"id": "501fbc6a-cfd4-468f-a2f7-14e521d33c71", "platformUserId": "00ad83olslLwIeKcW1m8", "username": "jsmith@example.com", "federatedSsoLoginName": "jsmith@example.com", "contact": {"honorificPrefix": "Mr.", "firstName": "Jack", "middleName": "John", "lastName": "Tripper", "title": "Senior Software Engineer", "organization": "Cvent", "email": "jack.tripper@example.com", "homePhone": "+17035551234", "homeFax": "+17035551234", "mobilePhone": "+17035551234", "workPhone": "+17035551234", "workFax": "+17035551234", "pager": "+17035551234", "address": {"address1": "1765 Greensboro Station Pl", "address2": "7th Floor", "address3": "", "city": "McLean", "countryCode": "US", "regionCode": "VA", "postalCode": "22102"}}, "locale": "en-US", "timezone": "America/New_York", "active": false, "usernameVerified": true, "emailVerified": "VERIFIED", "lockedOut": false, "termsOfUseAccepted": true, "failedLoginCount": 1, "markDocumentsAsInternal": false, "visibilityAccess": [], "audit": {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "lockedOutDate": "2017-01-02T02:00:00Z", "termsOfUseAcceptedDate": "2017-01-02T02:00:00Z", "lastLoginDate": "2017-01-02T02:00:00Z", "passwordLastModifiedDate": "2017-01-02T02:00:00Z"}, "customFields": [{"id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890", "name": "What is your favorite color?", "type": "Choice - Multiple Answers", "values": ["Choice C", "Choice A"], "order": 1}], "role": {"id": "946505f6-6b29-421a-bda2-0815fcdea73c"}}
+        "401":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
 examplesVersion: 1.0.2
 generatedTests:
   getAccountUserGroups: "2026-02-27T14:14:25-04:00"
@@ -23586,3 +23713,9 @@ generatedTests:
   updateVenueAttraction: "2026-10-13T09:34:02-03:00"
   associateAttractionImage: "2026-10-13T09:34:02-03:00"
   getAttractionImages: "2026-10-13T09:34:02-03:00"
+  listAccountUsers-role: "2026-10-15T14:35:09-04:00"
+  listAccountUsers-active: "2026-10-15T14:35:09-04:00"
+  listAccountUsers-created: "2026-10-15T14:35:09-04:00"
+  listAccountUsers-combined: "2026-10-15T14:35:09-04:00"
+  listAccountUsers: "2026-10-15T14:35:09-04:00"
+  getAccountUser: "2026-10-15T14:35:09-04:00"
