@@ -1012,6 +1012,16 @@ public final class OAuth2Scopes {
         SurveySurveysRead("survey/surveys:read"),
 
         /**
+         * Allows reading of venue amenity selections.
+         */
+        VenueAmenitiesRead("venue/amenities:read"),
+
+        /**
+         * Allows the modification of venue amenity selections.
+         */
+        VenueAmenitiesWrite("venue/amenities:write"),
+
+        /**
          * Allows reading of venue availability settings.
          */
         VenueAvailabilitySettingsRead("venue/availability-settings:read"),
@@ -1035,6 +1045,21 @@ public final class OAuth2Scopes {
          * Allows associating images with venues.
          */
         VenueImagesWrite("venue/images:write"),
+
+        /**
+         * Allows read access for overview of lead catchers.
+         */
+        VenueLeadCatchersOverviewRead("venue/lead-catchers-overview:read"),
+
+        /**
+         * Allows the deletion of lead catchers.
+         */
+        VenueLeadCatchersDelete("venue/lead-catchers:delete"),
+
+        /**
+         * Allows the creation and modification of lead catchers.
+         */
+        VenueLeadCatchersWrite("venue/lead-catchers:write"),
 
         /**
          * Allows disassociating images from meeting rooms.
@@ -2309,6 +2334,16 @@ public final class OAuth2Scopes {
         SurveySurveysRead("survey/surveys:read"),
 
         /**
+         * Allows reading of venue amenity selections.
+         */
+        VenueAmenitiesRead("venue/amenities:read"),
+
+        /**
+         * Allows the modification of venue amenity selections.
+         */
+        VenueAmenitiesWrite("venue/amenities:write"),
+
+        /**
          * Allows reading of venue availability settings.
          */
         VenueAvailabilitySettingsRead("venue/availability-settings:read"),
@@ -2332,6 +2367,21 @@ public final class OAuth2Scopes {
          * Allows associating images with venues.
          */
         VenueImagesWrite("venue/images:write"),
+
+        /**
+         * Allows read access for overview of lead catchers.
+         */
+        VenueLeadCatchersOverviewRead("venue/lead-catchers-overview:read"),
+
+        /**
+         * Allows the deletion of lead catchers.
+         */
+        VenueLeadCatchersDelete("venue/lead-catchers:delete"),
+
+        /**
+         * Allows the creation and modification of lead catchers.
+         */
+        VenueLeadCatchersWrite("venue/lead-catchers:write"),
 
         /**
          * Allows disassociating images from meeting rooms.

@@ -57,6 +57,7 @@ import { Users } from "./users.js";
 import { UserSCIM } from "./userscim.js";
 import { VenueAvailability } from "./venueavailability.js";
 import { VenueContent } from "./venuecontent.js";
+import { VenueLeads } from "./venueleads.js";
 import { VenueMeetingRooms } from "./venuemeetingrooms.js";
 import { VenueProfiles } from "./venueprofiles.js";
 import { Video } from "./video.js";
@@ -338,6 +339,11 @@ export class CventSDK extends ClientSDK {
   private _venueProfiles?: VenueProfiles;
   get venueProfiles(): VenueProfiles {
     return (this._venueProfiles ??= new VenueProfiles(this._options));
+  }
+
+  private _venueLeads?: VenueLeads;
+  get venueLeads(): VenueLeads {
+    return (this._venueLeads ??= new VenueLeads(this._options));
   }
 
   private _venueMeetingRooms?: VenueMeetingRooms;

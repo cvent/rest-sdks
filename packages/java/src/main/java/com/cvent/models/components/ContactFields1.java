@@ -5,90 +5,35 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.annotation.Nullable;
+import jakarta.annotation.Nonnull;
 import java.lang.Override;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 
 /**
  * ContactFields1
  *
- * <p>Details of a contact.
+ * <p>An array of standard contact fields supported by Cvent.
  */
 public class ContactFields1 {
     /**
-     * Contact ID
+     * Collection of standard contact fields.
      */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("id")
-    private String id;
-
-    /**
-     * The first name of the contact.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("firstName")
-    private String firstName;
-
-    /**
-     * The last name of the contact.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("lastName")
-    private String lastName;
-
-    /**
-     * The email address of the contact.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("email")
-    private String email;
+    @JsonProperty("data")
+    private List<ContactField> data;
 
     @JsonCreator
-    public ContactFields1(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("firstName") @Nullable String firstName,
-            @JsonProperty("lastName") @Nullable String lastName,
-            @JsonProperty("email") @Nullable String email) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-    }
-
-    public ContactFields1() {
-        this(null, null, null, null);
+    public ContactFields1(@JsonProperty("data") @Nonnull List<ContactField> data) {
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     /**
-     * Contact ID
+     * Collection of standard contact fields.
      */
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
-    }
-
-    /**
-     * The first name of the contact.
-     */
-    public Optional<String> firstName() {
-        return Optional.ofNullable(this.firstName);
-    }
-
-    /**
-     * The last name of the contact.
-     */
-    public Optional<String> lastName() {
-        return Optional.ofNullable(this.lastName);
-    }
-
-    /**
-     * The email address of the contact.
-     */
-    public Optional<String> email() {
-        return Optional.ofNullable(this.email);
+    public List<ContactField> data() {
+        return this.data;
     }
 
     public static Builder builder() {
@@ -96,34 +41,10 @@ public class ContactFields1 {
     }
 
     /**
-     * Contact ID
+     * Collection of standard contact fields.
      */
-    public ContactFields1 withId(@Nullable String id) {
-        this.id = id;
-        return this;
-    }
-
-    /**
-     * The first name of the contact.
-     */
-    public ContactFields1 withFirstName(@Nullable String firstName) {
-        this.firstName = firstName;
-        return this;
-    }
-
-    /**
-     * The last name of the contact.
-     */
-    public ContactFields1 withLastName(@Nullable String lastName) {
-        this.lastName = lastName;
-        return this;
-    }
-
-    /**
-     * The email address of the contact.
-     */
-    public ContactFields1 withEmail(@Nullable String email) {
-        this.email = email;
+    public ContactFields1 withData(@Nonnull List<ContactField> data) {
+        this.data = Utils.checkNotNull(data, "data");
         return this;
     }
 
@@ -136,72 +57,38 @@ public class ContactFields1 {
             return false;
         }
         ContactFields1 other = (ContactFields1) o;
-        return Utils.enhancedDeepEquals(this.id, other.id)
-                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
-                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
-                && Utils.enhancedDeepEquals(this.email, other.email);
+        return Utils.enhancedDeepEquals(this.data, other.data);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, firstName, lastName, email);
+        return Utils.enhancedHash(data);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(
-                ContactFields1.class, "id", id, "firstName", firstName, "lastName", lastName, "email", email);
+        return Utils.toString(ContactFields1.class, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private String id;
-
-        private String firstName;
-
-        private String lastName;
-
-        private String email;
+        private List<ContactField> data;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * Contact ID
+         * Collection of standard contact fields.
          */
-        public Builder id(@Nullable String id) {
-            this.id = id;
-            return this;
-        }
-
-        /**
-         * The first name of the contact.
-         */
-        public Builder firstName(@Nullable String firstName) {
-            this.firstName = firstName;
-            return this;
-        }
-
-        /**
-         * The last name of the contact.
-         */
-        public Builder lastName(@Nullable String lastName) {
-            this.lastName = lastName;
-            return this;
-        }
-
-        /**
-         * The email address of the contact.
-         */
-        public Builder email(@Nullable String email) {
-            this.email = email;
+        public Builder data(@Nonnull List<ContactField> data) {
+            this.data = Utils.checkNotNull(data, "data");
             return this;
         }
 
         public ContactFields1 build() {
-            return new ContactFields1(id, firstName, lastName, email);
+            return new ContactFields1(data);
         }
     }
 }

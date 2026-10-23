@@ -44,7 +44,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cvent:sdk:1.6.5'
+implementation 'com.cvent:sdk:1.6.6'
 ```
 
 Maven:
@@ -52,7 +52,7 @@ Maven:
 <dependency>
     <groupId>com.cvent</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.6.5</version>
+    <version>1.6.6</version>
 </dependency>
 ```
 
@@ -965,6 +965,8 @@ public class Application {
 
 ### [VenueContent](docs/sdks/venuecontent/README.md)
 
+* [getVenueAmenities](docs/sdks/venuecontent/README.md#getvenueamenities) - Get Venue Amenities
+* [updateVenueAmenities](docs/sdks/venuecontent/README.md#updatevenueamenities) - Update Venue Amenities
 * [listVenueAttractions](docs/sdks/venuecontent/README.md#listvenueattractions) - List Venue Attractions
 * [createVenueAttraction](docs/sdks/venuecontent/README.md#createvenueattraction) - Create Venue Attraction
 * [getVenueAttraction](docs/sdks/venuecontent/README.md#getvenueattraction) - Get Venue Attraction
@@ -979,6 +981,15 @@ public class Application {
 * [getVenueImageMetadata](docs/sdks/venuecontent/README.md#getvenueimagemetadata) - Get Venue Image Metadata
 * [associateVenueImage](docs/sdks/venuecontent/README.md#associatevenueimage) - Associate Venue Image
 * [disassociateVenueImage](docs/sdks/venuecontent/README.md#disassociatevenueimage) - Remove Venue Image
+
+### [VenueLeads](docs/sdks/venueleads/README.md)
+
+* [createLeadCatcher](docs/sdks/venueleads/README.md#createleadcatcher) - Create Lead Catcher
+* [listLeadCatchersOverview](docs/sdks/venueleads/README.md#listleadcatchersoverview) - List Lead Catchers Overview
+* [updateLeadCatcher](docs/sdks/venueleads/README.md#updateleadcatcher) - Update Lead Catcher
+* [patchLeadCatcher](docs/sdks/venueleads/README.md#patchleadcatcher) - Patch Lead Catcher
+* [deleteLeadCatcher](docs/sdks/venueleads/README.md#deleteleadcatcher) - Delete Lead Catcher
+* [getLeadCatcherOverview](docs/sdks/venueleads/README.md#getleadcatcheroverview) - Get Lead Catcher Overview
 
 ### [VenueMeetingRooms](docs/sdks/venuemeetingrooms/README.md)
 
@@ -1370,10 +1381,10 @@ public class Application {
 many more subclasses in the JDK platform).
 
 **Inherit from [`CventSDKError`](./src/main/java/models/errors/CventSDKError.java)**:
-* [`com.cvent.models.errors.ErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse.java): Represents an error response with additional details of cascading error messages. Applicable to 18 of 499 methods.*
-* [`com.cvent.models.errors.ErrorResponse17`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse17.java): The error response. Applicable to 11 of 499 methods.*
-* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 499 methods.*
-* [`com.cvent.models.errors.Oauth2TokenPostResponse0Exception`](./src/main/java/models/errors/com.cvent.models.errors.Oauth2TokenPostResponse0Exception.java): A bad token response. Status code `400`. Applicable to 1 of 499 methods.*
+* [`com.cvent.models.errors.ErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse.java): Represents an error response with additional details of cascading error messages. Applicable to 18 of 507 methods.*
+* [`com.cvent.models.errors.ErrorResponse17`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse17.java): The error response. Applicable to 11 of 507 methods.*
+* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 507 methods.*
+* [`com.cvent.models.errors.Oauth2TokenPostResponse0Exception`](./src/main/java/models/errors/com.cvent.models.errors.Oauth2TokenPostResponse0Exception.java): A bad token response. Status code `400`. Applicable to 1 of 507 methods.*
 
 
 </details>

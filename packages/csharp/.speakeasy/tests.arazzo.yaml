@@ -10571,7 +10571,7 @@ workflows:
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","htmlText":"Question Html","code":"4l6x","type":"SingleChoice","choices":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","label":"Choice A"}],"categories":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","required":true}],"subCategories":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?"}],"notApplicableAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"otherAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"comments":"Comments Text","required":true,"fields":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","choices":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","label":"Choice A"}],"notApplicableAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"otherAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"required":true}],"maxScore":20,"totalSum":45,"minSelection":1,"maxSelection":3,"minDate":"2020-01-01","maxDate":"2020-12-31","showDateSelector":true,"showCurrentDate":true,"dateAnswerFormat":"DateTime","unitLabel":"miles","minLength":5,"maxLength":100,"customAnswerFormat":{"id":104},"supplierTypes":["CVB","HOTEL"],"order":1,"standardQuestion":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"aiQuestionGenerationSource":"MCP-Visual Studio Code/1.107.1"}]}
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","htmlText":"Question Html","code":"4l6x","type":"SingleChoice","choices":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","label":"Choice A"}],"categories":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","required":true}],"subCategories":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?"}],"notApplicableAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"otherAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"comments":"Comments Text","required":true,"fields":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","choices":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","label":"Choice A"}],"notApplicableAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"otherAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"required":true}],"maxScore":20,"totalSum":45,"minSelection":1,"maxSelection":3,"minDate":"2020-01-01","maxDate":"2020-12-31","showDateSelector":true,"showCurrentDate":true,"dateAnswerFormat":"DateTime","unitLabel":"miles","minLength":5,"maxLength":100,"customAnswerFormat":{"id":104},"supplierTypes":["CVB","HOTEL"],"classificationType":"MEETING_ROOM","order":1,"standardQuestion":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"aiQuestionGenerationSource":"MCP-Visual Studio Code/1.107.1"}]}
             type: simple
     x-speakeasy-test-group: RFP Requirements
     x-speakeasy-test-rebuild: true
@@ -12204,4 +12204,210 @@ workflows:
               {"id":"501fbc6a-cfd4-468f-a2f7-14e521d33c71","platformUserId":"00ad83olslLwIeKcW1m8","username":"jsmith@example.com","federatedSsoLoginName":"jsmith@example.com","contact":{"honorificPrefix":"Mr.","firstName":"Jack","middleName":"John","lastName":"Tripper","title":"Senior Software Engineer","organization":"Cvent","email":"jack.tripper@example.com","homePhone":"+17035551234","homeFax":"+17035551234","mobilePhone":"+17035551234","workPhone":"+17035551234","workFax":"+17035551234","pager":"+17035551234","address":{"address1":"1765 Greensboro Station Pl","address2":"7th Floor","address3":"","city":"McLean","countryCode":"US","regionCode":"VA","postalCode":"22102"}},"locale":"en-US","timezone":"America/New_York","active":false,"usernameVerified":true,"emailVerified":"VERIFIED","lockedOut":false,"termsOfUseAccepted":true,"failedLoginCount":1,"markDocumentsAsInternal":false,"visibilityAccess":[],"audit":{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","lockedOutDate":"2017-01-02T02:00:00Z","termsOfUseAcceptedDate":"2017-01-02T02:00:00Z","lastLoginDate":"2017-01-02T02:00:00Z","passwordLastModifiedDate":"2017-01-02T02:00:00Z"},"customFields":[{"id":"a1b2c3d4-e5f6-7890-abcd-ef1234567890","name":"What is your favorite color?","type":"Choice - Multiple Answers","values":["Choice C","Choice A"],"order":1}],"role":{"id":"946505f6-6b29-421a-bda2-0815fcdea73c"}}
             type: simple
     x-speakeasy-test-group: Users
+    x-speakeasy-test-rebuild: true
+  - workflowId: getVenueAmenities
+    steps:
+      - stepId: test
+        operationId: getVenueAmenities
+        parameters:
+          - name: venueId
+            in: path
+            value: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"avCapabilities":[{"amenity":"ONSITE_AV_STAFF","speed":1000}],"parking":[{"amenity":"COMPLIMENTARY_PARKING_PROVIDED","cost":25}],"facilitySpaceInfo":[{"amenity":"OUTDOOR_SPACE","value":5000}],"id":"6bb0e2db-861f-46e3-a923-eb4d959ffa00","name":"Harbor View Convention Center"}
+            type: simple
+    x-speakeasy-test-group: Venue Content
+    x-speakeasy-test-rebuild: true
+  - workflowId: updateVenueAmenities
+    steps:
+      - stepId: test
+        operationId: updateVenueAmenities
+        parameters:
+          - name: venueId
+            in: path
+            value: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+        requestBody:
+          contentType: application/json
+          payload:
+            avCapabilities:
+              - amenity: ONSITE_AV_STAFF
+                speed: 1000
+            facilitySpaceInfo:
+              - amenity: OUTDOOR_SPACE
+                value: 5000
+            parking:
+              - amenity: BUS_PARKING_AVAILABLE
+                cost: 25
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"avCapabilities":[{"amenity":"ONSITE_AV_STAFF","speed":1000}],"parking":[{"amenity":"BUS_PARKING_AVAILABLE","cost":25}],"facilitySpaceInfo":[{"amenity":"OUTDOOR_SPACE","value":5000}],"id":"6bb0e2db-861f-46e3-a923-eb4d959ffa00","name":"Harbor View Convention Center"}
+            type: simple
+    x-speakeasy-test-group: Venue Content
+    x-speakeasy-test-rebuild: true
+  - workflowId: createLeadCatcher
+    steps:
+      - stepId: test
+        operationId: createLeadCatcher
+        parameters:
+          - name: venueId
+            in: path
+            value: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+        requestBody:
+          contentType: application/json
+          payload:
+            additionalInfo: Preferred contact for APAC venues.
+            address:
+              city: Vienna
+              streetAddress1: 1234 Trap Road
+              streetAddress2: Suite 100
+              zipPostalCode: "22182"
+            config:
+              pdfLinkEnabled: true
+              rfpEmailEnabled: true
+              supplierContactRole: Sales Manager
+            email: jane.smith@example.com
+            fax: +1-555-555-0101
+            firstName: Jane
+            lastName: Smith
+            locale: en-US
+            phone: +1-555-555-0101
+            title: Director of Sales
+        successCriteria:
+          - condition: $statusCode == 201
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","firstName":"Jane","lastName":"Smith","title":"Director of Sales","email":"jane.smith@example.com","phone":"+1-555-555-0101","fax":"+1-555-555-0101","address":{"streetAddress1":"1234 Trap Road","streetAddress2":"Suite 100","city":"Vienna","zipPostalCode":"22182"},"locale":"en-US","config":{"rfpEmailEnabled":true,"pdfLinkEnabled":true,"supplierContactRole":"Sales Manager"},"additionalInfo":"Preferred contact for APAC venues.","id":"7e5c2c23-b2bb-461a-adc9-025184988519"}
+            type: simple
+    x-speakeasy-test-group: Venue Leads
+    x-speakeasy-test-rebuild: true
+  - workflowId: listLeadCatchersOverview
+    steps:
+      - stepId: test
+        operationId: listLeadCatchersOverview
+        parameters:
+          - name: venueId
+            in: path
+            value: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"id":"7e5c2c23-b2bb-461a-adc9-025184988519","firstName":"Jane","lastName":"Smith"}]}
+            type: simple
+    x-speakeasy-test-group: Venue Leads
+    x-speakeasy-test-rebuild: true
+  - workflowId: updateLeadCatcher
+    steps:
+      - stepId: test
+        operationId: updateLeadCatcher
+        parameters:
+          - name: venueId
+            in: path
+            value: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+          - name: leadCatcherId
+            in: path
+            value: 6e7d0d64-13f7-4472-8308-fa7067dba173
+        requestBody:
+          contentType: application/json
+          payload:
+            additionalInfo: Preferred contact for APAC venues.
+            address:
+              city: Vienna
+              streetAddress1: 1234 Trap Road
+              streetAddress2: Suite 100
+              zipPostalCode: "22182"
+            config:
+              pdfLinkEnabled: true
+              rfpEmailEnabled: true
+              supplierContactRole: Sales Manager
+            email: jane.smith@example.com
+            fax: +1-555-555-0101
+            firstName: Jane
+            lastName: Smith
+            locale: en-US
+            phone: +1-555-555-0101
+            title: Director of Sales
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","firstName":"Jane","lastName":"Smith","title":"Director of Sales","email":"jane.smith@example.com","phone":"+1-555-555-0101","fax":"+1-555-555-0101","address":{"streetAddress1":"1234 Trap Road","streetAddress2":"Suite 100","city":"Vienna","zipPostalCode":"22182"},"locale":"en-US","config":{"rfpEmailEnabled":true,"pdfLinkEnabled":true,"supplierContactRole":"Sales Manager"},"additionalInfo":"Preferred contact for APAC venues.","id":"7e5c2c23-b2bb-461a-adc9-025184988519"}
+            type: simple
+    x-speakeasy-test-group: Venue Leads
+    x-speakeasy-test-rebuild: true
+  - workflowId: patchLeadCatcher
+    steps:
+      - stepId: test
+        operationId: patchLeadCatcher
+        parameters:
+          - name: venueId
+            in: path
+            value: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+          - name: leadCatcherId
+            in: path
+            value: f72c984a-4f55-4563-90e5-7e34a3be1552
+        requestBody:
+          contentType: application/merge-patch+json
+          payload:
+            additionalInfo: Preferred contact for APAC venues.
+            address:
+              city: Vienna
+              streetAddress1: 1234 Trap Road
+              streetAddress2: Suite 100
+              zipPostalCode: "22182"
+            config:
+              pdfLinkEnabled: true
+              rfpEmailEnabled: true
+              supplierContactRole: roleName
+            email: jane.smith@example.com
+            fax: +1-555-0101
+            firstName: Jane
+            lastName: Smith
+            locale: en-US
+            phone: +1-555-0100
+            title: Director of Sales
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"firstName":"Jane","lastName":"Smith","title":"Director of Sales","email":"jane.smith@example.com","phone":"+1-555-0100","fax":"+1-555-0101","address":{"streetAddress1":"1234 Trap Road","streetAddress2":"Suite 100","city":"Vienna","zipPostalCode":"22182"},"locale":"en-US","config":{"rfpEmailEnabled":true,"pdfLinkEnabled":true,"supplierContactRole":"roleName"},"additionalInfo":"Preferred contact for APAC venues."}
+            type: simple
+    x-speakeasy-test-group: Venue Leads
+    x-speakeasy-test-rebuild: true
+  - workflowId: getLeadCatcherOverview
+    steps:
+      - stepId: test
+        operationId: getLeadCatcherOverview
+        parameters:
+          - name: venueId
+            in: path
+            value: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+          - name: leadCatcherId
+            in: path
+            value: 7de41b14-8083-46d4-91b6-5a3239d59277
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"id":"7e5c2c23-b2bb-461a-adc9-025184988519","firstName":"Jane","lastName":"Smith"}
+            type: simple
+    x-speakeasy-test-group: Venue Leads
     x-speakeasy-test-rebuild: true

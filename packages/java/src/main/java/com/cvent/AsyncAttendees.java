@@ -231,7 +231,7 @@ public class AsyncAttendees {
      * List Attendees
      *
      * <p>Gets a paginated list of attendees by sending a filter in the body of the request. This method will
-     * return the same data as  [GET List Attendees](#operation/listAttendees) but allows for longer
+     * return the same data as [GET List Attendees](#operation/listAttendees) but allows for longer
      * filters.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
@@ -246,7 +246,7 @@ public class AsyncAttendees {
      * List Attendees
      *
      * <p>Gets a paginated list of attendees by sending a filter in the body of the request. This method will
-     * return the same data as  [GET List Attendees](#operation/listAttendees) but allows for longer
+     * return the same data as [GET List Attendees](#operation/listAttendees) but allows for longer
      * filters.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
@@ -263,7 +263,7 @@ public class AsyncAttendees {
      * List Attendees
      *
      * <p>Gets a paginated list of attendees by sending a filter in the body of the request. This method will
-     * return the same data as  [GET List Attendees](#operation/listAttendees) but allows for longer
+     * return the same data as [GET List Attendees](#operation/listAttendees) but allows for longer
      * filters.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>

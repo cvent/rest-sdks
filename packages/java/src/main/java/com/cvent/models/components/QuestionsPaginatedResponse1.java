@@ -32,12 +32,12 @@ public class QuestionsPaginatedResponse1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<TravelProgramQuestion> data;
+    private List<QuestionWithProgramId> data;
 
     @JsonCreator
     public QuestionsPaginatedResponse1(
             @JsonProperty("paging") @Nullable Paging paging,
-            @JsonProperty("data") @Nullable List<TravelProgramQuestion> data) {
+            @JsonProperty("data") @Nullable List<QuestionWithProgramId> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -56,7 +56,7 @@ public class QuestionsPaginatedResponse1 {
     /**
      * Collection of Questions.
      */
-    public Optional<List<TravelProgramQuestion>> data() {
+    public Optional<List<QuestionWithProgramId>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -75,7 +75,7 @@ public class QuestionsPaginatedResponse1 {
     /**
      * Collection of Questions.
      */
-    public QuestionsPaginatedResponse1 withData(@Nullable List<TravelProgramQuestion> data) {
+    public QuestionsPaginatedResponse1 withData(@Nullable List<QuestionWithProgramId> data) {
         this.data = data;
         return this;
     }
@@ -107,7 +107,7 @@ public class QuestionsPaginatedResponse1 {
 
         private Paging paging;
 
-        private List<TravelProgramQuestion> data;
+        private List<QuestionWithProgramId> data;
 
         private Builder() {
             // force use of static builder() method
@@ -124,7 +124,7 @@ public class QuestionsPaginatedResponse1 {
         /**
          * Collection of Questions.
          */
-        public Builder data(@Nullable List<TravelProgramQuestion> data) {
+        public Builder data(@Nullable List<QuestionWithProgramId> data) {
             this.data = data;
             return this;
         }

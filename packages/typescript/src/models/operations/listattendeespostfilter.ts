@@ -76,7 +76,7 @@ export type ListAttendeesPostFilterRequest = {
    */
   includeDeletedGuests?: boolean | undefined;
   /**
-   * The request body accepts filters to refine the data returned.  Refer to available filter details in [GET List Attendees](#operation/listAttendees).
+   * The request body accepts filters to refine the data returned. Refer to available filter details in [GET List Attendees](#operation/listAttendees).
    *
    * @remarks
    */

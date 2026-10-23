@@ -29,6 +29,9 @@ import com.cvent.models.operations.DisassociateVenueImageResponse;
 import com.cvent.models.operations.GetAttractionImagesRequest;
 import com.cvent.models.operations.GetAttractionImagesRequestBuilder;
 import com.cvent.models.operations.GetAttractionImagesResponse;
+import com.cvent.models.operations.GetVenueAmenitiesRequest;
+import com.cvent.models.operations.GetVenueAmenitiesRequestBuilder;
+import com.cvent.models.operations.GetVenueAmenitiesResponse;
 import com.cvent.models.operations.GetVenueAttractionRequest;
 import com.cvent.models.operations.GetVenueAttractionRequestBuilder;
 import com.cvent.models.operations.GetVenueAttractionResponse;
@@ -41,6 +44,9 @@ import com.cvent.models.operations.ListVenueAttractionsResponse;
 import com.cvent.models.operations.ListVenueImagesMetadataRequest;
 import com.cvent.models.operations.ListVenueImagesMetadataRequestBuilder;
 import com.cvent.models.operations.ListVenueImagesMetadataResponse;
+import com.cvent.models.operations.UpdateVenueAmenitiesRequest;
+import com.cvent.models.operations.UpdateVenueAmenitiesRequestBuilder;
+import com.cvent.models.operations.UpdateVenueAmenitiesResponse;
 import com.cvent.models.operations.UpdateVenueAttractionRequest;
 import com.cvent.models.operations.UpdateVenueAttractionRequestBuilder;
 import com.cvent.models.operations.UpdateVenueAttractionResponse;
@@ -55,10 +61,12 @@ import com.cvent.operations.DeleteVenueAttraction;
 import com.cvent.operations.DisassociateAttractionImage;
 import com.cvent.operations.DisassociateVenueImage;
 import com.cvent.operations.GetAttractionImages;
+import com.cvent.operations.GetVenueAmenities;
 import com.cvent.operations.GetVenueAttraction;
 import com.cvent.operations.GetVenueImageMetadata;
 import com.cvent.operations.ListVenueAttractions;
 import com.cvent.operations.ListVenueImagesMetadata;
+import com.cvent.operations.UpdateVenueAmenities;
 import com.cvent.operations.UpdateVenueAttraction;
 import com.cvent.operations.UpdateVenueImageMetadata;
 import com.cvent.utils.Headers;
@@ -86,6 +94,106 @@ public class VenueContent {
      */
     public AsyncVenueContent async() {
         return asyncSDK;
+    }
+
+    /**
+     * Get Venue Amenities
+     *
+     * <p>Returns the current amenity selections for the specified venue.
+     *
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
+     *
+     * @return The call builder
+     */
+    public GetVenueAmenitiesRequestBuilder getVenueAmenities() {
+        return new GetVenueAmenitiesRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get Venue Amenities
+     *
+     * <p>Returns the current amenity selections for the specified venue.
+     *
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetVenueAmenitiesResponse getVenueAmenities(@Nonnull GetVenueAmenitiesRequest request) {
+        return getVenueAmenities(request, null);
+    }
+
+    /**
+     * Get Venue Amenities
+     *
+     * <p>Returns the current amenity selections for the specified venue.
+     *
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetVenueAmenitiesResponse getVenueAmenities(
+            @Nonnull GetVenueAmenitiesRequest request, @Nullable Options options) {
+        RequestOperation<GetVenueAmenitiesRequest, GetVenueAmenitiesResponse> operation =
+                new GetVenueAmenities.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Update Venue Amenities
+     *
+     * <p>Updates the amenity selections for the specified venue, replacing all existing selections with those
+     * provided in the request body. Sections absent from the request body or submitted as empty arrays
+     * will have their selections cleared.
+     *
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
+     *
+     * @return The call builder
+     */
+    public UpdateVenueAmenitiesRequestBuilder updateVenueAmenities() {
+        return new UpdateVenueAmenitiesRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update Venue Amenities
+     *
+     * <p>Updates the amenity selections for the specified venue, replacing all existing selections with those
+     * provided in the request body. Sections absent from the request body or submitted as empty arrays
+     * will have their selections cleared.
+     *
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateVenueAmenitiesResponse updateVenueAmenities(@Nonnull UpdateVenueAmenitiesRequest request) {
+        return updateVenueAmenities(request, null);
+    }
+
+    /**
+     * Update Venue Amenities
+     *
+     * <p>Updates the amenity selections for the specified venue, replacing all existing selections with those
+     * provided in the request body. Sections absent from the request body or submitted as empty arrays
+     * will have their selections cleared.
+     *
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateVenueAmenitiesResponse updateVenueAmenities(
+            @Nonnull UpdateVenueAmenitiesRequest request, @Nullable Options options) {
+        RequestOperation<UpdateVenueAmenitiesRequest, UpdateVenueAmenitiesResponse> operation =
+                new UpdateVenueAmenities.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
     }
 
     /**

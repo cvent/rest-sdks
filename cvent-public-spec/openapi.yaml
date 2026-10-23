@@ -1798,11 +1798,11 @@ paths:
             - event/attendees:read
       summary: List Attendees
       description: |
-        Gets a paginated list of attendees by sending a filter in the body of the request. This method will return the same data as  [GET List Attendees](#operation/listAttendees) but allows for longer filters.
+        Gets a paginated list of attendees by sending a filter in the body of the request. This method will return the same data as [GET List Attendees](#operation/listAttendees) but allows for longer filters.
       operationId: listAttendeesPostFilter
       requestBody:
         description: |
-          The request body accepts filters to refine the data returned.  Refer to available filter details in [GET List Attendees](#operation/listAttendees).
+          The request body accepts filters to refine the data returned. Refer to available filter details in [GET List Attendees](#operation/listAttendees).
         required: false
         content:
           application/json:
@@ -5958,7 +5958,7 @@ paths:
         - OAuth2.authorizationCode:
             - event/attendee-messages:read
       parameters:
-        - $ref: '#/components/parameters/eventId5'
+        - $ref: '#/components/parameters/eventId6'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
         - name: filter
@@ -7295,7 +7295,7 @@ paths:
       description: |
         Returns a paginated list of all discounts used in an event, including both event-specific and account-level discount codes used in an event.
       parameters:
-        - $ref: '#/components/parameters/eventId2'
+        - $ref: '#/components/parameters/eventId3'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/discountSort'
@@ -7334,7 +7334,7 @@ paths:
       description: |
         Create discount in an event.
       parameters:
-        - $ref: '#/components/parameters/eventId2'
+        - $ref: '#/components/parameters/eventId3'
       requestBody:
         content:
           application/json:
@@ -7373,7 +7373,7 @@ paths:
       description: |
         Returns a paginated list of agenda items that are associated with discounts for the specified event.  This endpoint helps identify which agenda items (such as admission items, sessions, session bundles, membership-items or quantity-items) are currently associated with discounts.
       parameters:
-        - $ref: '#/components/parameters/eventId2'
+        - $ref: '#/components/parameters/eventId3'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/discountAgendaItemFilter'
@@ -7409,7 +7409,7 @@ paths:
       description: |
         Update a discount in an event based on details in the request body. Fields not included in the request will revert to their default value.
       parameters:
-        - $ref: '#/components/parameters/eventId2'
+        - $ref: '#/components/parameters/eventId3'
         - $ref: '#/components/parameters/discountId'
       requestBody:
         description: Discount to be updated.
@@ -7437,7 +7437,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests1'
   /events/{id}/discounts/{discountId}/agenda-items/{agendaItemId}:
     parameters:
-      - $ref: '#/components/parameters/eventId2'
+      - $ref: '#/components/parameters/eventId3'
       - $ref: '#/components/parameters/discountId'
       - $ref: '#/components/parameters/agendaItemId1'
     put:
@@ -7506,7 +7506,7 @@ paths:
       description: |
         Gets a paginated list of donation items. Donation items are a type of [optional item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items).
       parameters:
-        - $ref: '#/components/parameters/eventId2'
+        - $ref: '#/components/parameters/eventId3'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
         - name: filter
@@ -7562,7 +7562,7 @@ paths:
       description: |
         Gets a paginated list of donation items by sending a filter in the body of the request. Donation items are a type of [optional item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items).
       parameters:
-        - $ref: '#/components/parameters/eventId2'
+        - $ref: '#/components/parameters/eventId3'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
       requestBody:
@@ -7749,7 +7749,7 @@ paths:
       - $ref: '#/components/parameters/id2'
     get:
       summary: Get Alternate Travel Answers
-      description: Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an event.
+      description: Get alternate travel answers submitted by attendees who opt out of air, hotel, or train bookings for an event.
       operationId: getAlternateTravelAnswers
       tags:
         - Event Travel
@@ -9741,7 +9741,7 @@ paths:
       description: |
         Gets a paginated list of fee items associated with the event.
       parameters:
-        - $ref: '#/components/parameters/eventId2'
+        - $ref: '#/components/parameters/eventId3'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
         - name: filter
@@ -9909,7 +9909,7 @@ paths:
       description: |
         Gets a paginated list of membership items. [Membership items](https://support.cvent.com/s/communityarticle/Setting-Up-Memberships) are a type of [optional item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items) that can be purchased during registration.
       parameters:
-        - $ref: '#/components/parameters/eventId2'
+        - $ref: '#/components/parameters/eventId3'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
         - name: filter
@@ -9964,7 +9964,7 @@ paths:
       description: |
         Gets a paginated list of membership items. [Membership items](https://support.cvent.com/s/communityarticle/Setting-Up-Memberships) are a type of [optional item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items) that can be purchased during registration.
       parameters:
-        - $ref: '#/components/parameters/eventId2'
+        - $ref: '#/components/parameters/eventId3'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
       requestBody:
@@ -10248,7 +10248,7 @@ paths:
       description: |
         Gets a paginated list of quantity items. Quantity items are a type of [optional item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items).
       parameters:
-        - $ref: '#/components/parameters/eventId2'
+        - $ref: '#/components/parameters/eventId3'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
         - name: filter
@@ -10304,7 +10304,7 @@ paths:
       description: |
         Gets a paginated list of quantity items by sending a filter in the body of the request. Quantity items are a type of [optional item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items).
       parameters:
-        - $ref: '#/components/parameters/eventId2'
+        - $ref: '#/components/parameters/eventId3'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
       requestBody:
@@ -10461,7 +10461,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /events/{id}/seatings:
     parameters:
-      - $ref: '#/components/parameters/eventId4'
+      - $ref: '#/components/parameters/eventId5'
     get:
       parameters:
         - $ref: '#/components/parameters/limit'
@@ -10519,7 +10519,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /events/{id}/seatings/assignments:
     parameters:
-      - $ref: '#/components/parameters/eventId4'
+      - $ref: '#/components/parameters/eventId5'
     get:
       summary: List All Seating Assignments
       description: Gets all the table assignments across all the seatings in an event.
@@ -10559,7 +10559,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /events/{id}/seatings/{seatingId}:
     parameters:
-      - $ref: '#/components/parameters/eventId4'
+      - $ref: '#/components/parameters/eventId5'
       - $ref: '#/components/parameters/seatingId'
     get:
       security:
@@ -10593,7 +10593,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /events/{id}/seatings/{seatingId}/assignments:
     parameters:
-      - $ref: '#/components/parameters/eventId4'
+      - $ref: '#/components/parameters/eventId5'
       - $ref: '#/components/parameters/seatingId'
     get:
       parameters:
@@ -10634,7 +10634,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /events/{id}/seatings/{seatingId}/tables:
     parameters:
-      - $ref: '#/components/parameters/eventId4'
+      - $ref: '#/components/parameters/eventId5'
       - $ref: '#/components/parameters/seatingId'
     get:
       parameters:
@@ -10694,7 +10694,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /events/{id}/seatings/{seatingId}/tables/{tableId}:
     parameters:
-      - $ref: '#/components/parameters/eventId4'
+      - $ref: '#/components/parameters/eventId5'
       - $ref: '#/components/parameters/seatingId'
       - $ref: '#/components/parameters/tableId'
     get:
@@ -10733,7 +10733,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /events/{id}/seatings/{seatingId}/tables/{tableId}/seats:
     parameters:
-      - $ref: '#/components/parameters/eventId4'
+      - $ref: '#/components/parameters/eventId5'
       - $ref: '#/components/parameters/seatingId'
       - $ref: '#/components/parameters/tableId'
     get:
@@ -10793,7 +10793,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /events/{id}/seatings/{seatingId}/tables/{tableId}/seats/{seatId}:
     parameters:
-      - $ref: '#/components/parameters/eventId4'
+      - $ref: '#/components/parameters/eventId5'
       - $ref: '#/components/parameters/seatingId'
       - $ref: '#/components/parameters/tableId'
       - $ref: '#/components/parameters/seatId'
@@ -11319,7 +11319,7 @@ paths:
       description: |
         Gets a paginated list of taxes for an event. A tax is an event-level pricing configuration applied to products such as admission items, sessions, and other billable items.
       parameters:
-        - $ref: '#/components/parameters/eventId2'
+        - $ref: '#/components/parameters/eventId3'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
         - name: filter
@@ -11641,7 +11641,7 @@ paths:
       description: |
         Retrieves a paginated list of vouchers set up for a specific event.
       parameters:
-        - $ref: '#/components/parameters/eventId2'
+        - $ref: '#/components/parameters/eventId3'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/before'
@@ -11697,7 +11697,7 @@ paths:
       description: |
         Retrieves a paginated list of vouchers configured for an event using a filter provided in the body of the request.
       parameters:
-        - $ref: '#/components/parameters/eventId2'
+        - $ref: '#/components/parameters/eventId3'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
         - $ref: '#/components/parameters/before'
@@ -11745,7 +11745,7 @@ paths:
       description: |
         Retrieves a paginated list of attendees who have redeemed a specific voucher for the given event.
       parameters:
-        - $ref: '#/components/parameters/eventId2'
+        - $ref: '#/components/parameters/eventId3'
         - $ref: '#/components/parameters/voucherId'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
@@ -17976,7 +17976,6 @@ paths:
       security:
         - OAuth2.clientCredentials:
             - business-transient/travel-accounts:read
-        - OAuth2.clientCredentials:
             - business-travel/travel-accounts:read
       parameters:
         - $ref: '#/components/parameters/after'
@@ -18044,7 +18043,6 @@ paths:
       security:
         - OAuth2.clientCredentials:
             - business-transient/travel-accounts:read
-        - OAuth2.clientCredentials:
             - business-travel/travel-accounts:read
       responses:
         '200':
@@ -18104,7 +18102,6 @@ paths:
       security:
         - OAuth2.clientCredentials:
             - business-transient/travel-programs:read
-        - OAuth2.clientCredentials:
             - business-travel/travel-programs:read
       parameters:
         - $ref: '#/components/parameters/after'
@@ -18138,7 +18135,6 @@ paths:
       security:
         - OAuth2.clientCredentials:
             - business-transient/travel-program-questions:read
-        - OAuth2.clientCredentials:
             - business-travel/travel-program-questions:read
       parameters:
         - $ref: '#/components/parameters/after'
@@ -18175,7 +18171,6 @@ paths:
       security:
         - OAuth2.clientCredentials:
             - business-transient/travel-programs:read
-        - OAuth2.clientCredentials:
             - business-travel/travel-programs:read
       responses:
         '200':
@@ -18207,7 +18202,6 @@ paths:
       security:
         - OAuth2.clientCredentials:
             - business-transient/travel-program-questions:read
-        - OAuth2.clientCredentials:
             - business-travel/travel-program-questions:read
       parameters:
         - $ref: '#/components/parameters/after'
@@ -18235,7 +18229,7 @@ paths:
   /travel-programs/{programId}/questions/{questionId}:
     parameters:
       - $ref: '#/components/parameters/programId'
-      - $ref: '#/components/parameters/questionId2'
+      - $ref: '#/components/parameters/questionId3'
     get:
       summary: Get Travel Program Question
       description: Returns the details of a single question based on the specified program and question ID.
@@ -18245,7 +18239,6 @@ paths:
       security:
         - OAuth2.clientCredentials:
             - business-transient/travel-program-questions:read
-        - OAuth2.clientCredentials:
             - business-travel/travel-program-questions:read
       responses:
         '200':
@@ -18923,6 +18916,79 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/AccountUser'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /venues/{venueId}/amenities:
+    get:
+      operationId: getVenueAmenities
+      summary: Get Venue Amenities
+      description: |
+        Returns the current amenity selections for the specified venue.
+
+        Not applicable to CVB/DMC or Restaurant venues.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/amenities:read
+        - OAuth2.clientCredentials:
+            - venue/amenities:read
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+      tags:
+        - Venue Content
+      responses:
+        '200':
+          description: Successfully retrieved the venue amenities.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/existingVenueAmenities'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+    put:
+      operationId: updateVenueAmenities
+      summary: Update Venue Amenities
+      description: |
+        Updates the amenity selections for the specified venue, replacing all existing selections with those provided in the request body. Sections absent from the request body or submitted as empty arrays will have their selections cleared.
+
+        Not applicable to CVB/DMC or Restaurant venues.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/amenities:write
+        - OAuth2.clientCredentials:
+            - venue/amenities:write
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/existingVenueAmenities'
+      tags:
+        - Venue Content
+      responses:
+        '200':
+          description: Successfully updated the venue amenities.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/existingVenueAmenities'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
         '401':
           $ref: '#/components/responses/Unauthorized1'
         '403':
@@ -19681,6 +19747,230 @@ paths:
       responses:
         '204':
           description: Successfully disassociated the image from the venue.
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /venues/{venueId}/lead-catchers:
+    post:
+      operationId: createLeadCatcher
+      summary: Create Lead Catcher
+      description: Creates a new lead catcher contact for the specified venue. Lead catchers receive email notifications when RFPs are submitted to the venue.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/lead-catchers:write
+        - OAuth2.clientCredentials:
+            - venue/lead-catchers:write
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/leadCatcher'
+      tags:
+        - Venue Leads
+      responses:
+        '201':
+          description: Lead catcher created successfully.
+          headers:
+            Location:
+              description: URL of the newly created lead catcher.
+              schema:
+                type: string
+                format: uri
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/existingLeadCatcher'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /venues/{venueId}/lead-catchers/overview:
+    get:
+      operationId: listLeadCatchersOverview
+      summary: List Lead Catchers Overview
+      description: |
+        Returns a paginated, lightweight overview of the lead catchers for the specified venue,
+        containing only `id`, `firstName`, and `lastName` for each contact.
+
+        Use this endpoint to discover the `leadCatcherId` needed for PATCH, PUT, and DELETE.
+        The response does not include contact details such as email address or phone number.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/lead-catchers-overview:read
+        - OAuth2.clientCredentials:
+            - venue/lead-catchers-overview:read
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/token'
+      tags:
+        - Venue Leads
+      responses:
+        '200':
+          description: Successfully retrieved the overview of lead catchers.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/leadCatchersOverviewResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /venues/{venueId}/lead-catchers/{leadCatcherId}:
+    put:
+      operationId: updateLeadCatcher
+      summary: Update Lead Catcher
+      description: Updates the given lead catcher for the specified venue, replacing the existing lead catcher data.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/lead-catchers:write
+        - OAuth2.clientCredentials:
+            - venue/lead-catchers:write
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - $ref: '#/components/parameters/leadCatcherId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/existingLeadCatcher'
+      tags:
+        - Venue Leads
+      responses:
+        '200':
+          description: Successfully updated the lead catcher.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/existingLeadCatcher'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+    patch:
+      operationId: patchLeadCatcher
+      summary: Patch Lead Catcher
+      description: |
+        Partially updates the specified lead catcher using JSON Merge Patch, as defined in [RFC 7396](https://www.rfc-editor.org/rfc/rfc7396.html).
+
+        - Only fields present in the request body are updated; omitted fields remain unchanged.
+        - Set a field to `null` to unset it.
+        - The response contains only the fields that were provided in the request payload.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/lead-catchers:write
+        - OAuth2.clientCredentials:
+            - venue/lead-catchers:write
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - $ref: '#/components/parameters/leadCatcherId'
+      requestBody:
+        required: true
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/leadCatcherPatch'
+      tags:
+        - Venue Leads
+      responses:
+        '200':
+          description: Successfully updated the lead catcher. The response contains only the fields that were provided in the request payload.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/leadCatcherPatch'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+    delete:
+      operationId: deleteLeadCatcher
+      summary: Delete Lead Catcher
+      description: Deletes the specified lead catcher for the venue.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/lead-catchers:delete
+        - OAuth2.clientCredentials:
+            - venue/lead-catchers:delete
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - $ref: '#/components/parameters/leadCatcherId'
+      tags:
+        - Venue Leads
+      responses:
+        '204':
+          description: Successfully deleted the lead catcher.
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+  /venues/{venueId}/lead-catchers/{leadCatcherId}/overview:
+    get:
+      operationId: getLeadCatcherOverview
+      summary: Get Lead Catcher Overview
+      description: |
+        Retrieves a lightweight overview of a specific lead catcher for the specified venue,
+        containing only `id`, `firstName`, and `lastName`.
+
+        The response does not include contact details such as email address or phone number.
+      security:
+        - OAuth2.authorizationCode:
+            - venue/lead-catchers-overview:read
+        - OAuth2.clientCredentials:
+            - venue/lead-catchers-overview:read
+      parameters:
+        - $ref: '#/components/parameters/venueId'
+        - $ref: '#/components/parameters/leadCatcherId'
+      tags:
+        - Venue Leads
+      responses:
+        '200':
+          description: Successfully retrieved the lead catcher overview.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/leadCatcherOverview'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
         '401':
           $ref: '#/components/responses/Unauthorized1'
         '403':
@@ -21275,12 +21565,12 @@ components:
     availabilityLimit:
       in: query
       name: limit
-      description: Limit to this number of search results. Maximum of 50, default of 10.
+      description: Limit to this number of search results. Maximum of 200, default of 10.
       required: false
       example: 10
       schema:
         type: integer
-        maximum: 50
+        maximum: 200
         minimum: 1
         default: 10
     availableNightsFilter:
@@ -21696,21 +21986,21 @@ components:
       required: true
       schema:
         $ref: '#/components/schemas/uuid-property'
-    eventId2:
+    eventId3:
       in: path
       name: id
       description: Unique ID of an event.
       required: true
       schema:
         $ref: '#/components/schemas/uuid-property'
-    eventId4:
+    eventId5:
       in: path
       name: id
       description: ID of an event.
       required: true
       schema:
         $ref: '#/components/schemas/uuid-property'
-    eventId5:
+    eventId6:
       in: path
       name: eventId
       description: Unique ID of an event
@@ -22250,6 +22540,14 @@ components:
       required: true
       schema:
         $ref: '#/components/schemas/launch-feature-type.json'
+    leadCatcherId:
+      description: Unique identifier for a lead catcher.
+      name: leadCatcherId
+      required: true
+      in: path
+      schema:
+        type: string
+        format: uuid
     leadId:
       in: path
       name: leadId
@@ -22673,7 +22971,7 @@ components:
       required: true
       schema:
         $ref: '#/components/schemas/uuid-property'
-    questionId2:
+    questionId3:
       name: questionId
       description: Unique ID for a question
       in: path
@@ -23655,7 +23953,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/contact-fields'
+            $ref: '#/components/schemas/contact-fields1'
     CreateTransactionResponse:
       description: Response of the create transaction request.
       content:
@@ -25905,7 +26203,7 @@ components:
           example: Why are you not booking a hotel with us?
     AlternateTravelDetail:
       title: AlternateTravelDetail
-      description: Details of an alternate travel answer submitted by an attendee who opted out of air or hotel bookings.
+      description: Details of an alternate travel answer submitted by an attendee who opted out of air, hotel, or train bookings.
       type: object
       allOf:
         - $ref: '#/components/schemas/Audit'
@@ -25926,12 +26224,14 @@ components:
           example: Contact
         travelType:
           type: string
-          description: Type of travel alternate question
+          description: 'Type of travel alternate question. Supported values: AirRequest = attendee requested air travel; HotelRequest = attendee requested hotel travel; AirActual = actual air travel booked; GroupFlight = group flight booking; TrainRequest = attendee requested train travel; AirAndTrainRequest = attendee did not want air or train travel and submitted an alternate response.'
           enum:
             - AirRequest
             - HotelRequest
             - AirActual
             - GroupFlight
+            - TrainRequest
+            - AirAndTrainRequest
           example: AirRequest
         question:
           $ref: '#/components/schemas/AlternateQuestion'
@@ -28274,7 +28574,25 @@ components:
         - Waitlisted
       type: string
       default: No Response
-      description: "Denotes the status of an attendee to be updated. No Response: The attendee was added to an invitation list but hasn't taken any action. Accepted: The attendee is registered for the event. Cancelled: The attendee's registration for the event is cancelled. Visited: The attendee visited the event's webpage but didn't finish registration. Declined: The attendee declined to attend the event. Pending Approval: When registration approval is enabled, this status indicates the attendee is still waiting to be approved by the planner. Denied Approval: When registration approval is enabled, this status indicates the attendee has been denied approval by the planner. Waitlisted: The attendee is on the waitlist for the event. <br>The following status transitions are supported by this API:<br> * No Response -> Visited <br> * No Response -> Accepted <br> * No Response -> Declined <br> * No Response -> Pending Approval <br> * Cancelled -> Accepted <br> * Cancelled -> Pending Approval <br> * Visited -> Accepted <br> * Visited -> Pending Approval <br> * Declined -> Accepted <br> * Declined -> Pending Approval <br> * Accepted -> Cancelled <br> * Pending Approval -> Accepted <br> * Pending Approval -> Cancelled <br> * Pending Approval -> Denied Approval <br> * Denied Approval -> Pending Approval <br> * Waitlisted -> Accepted"
+      description: |-
+        Denotes the status of an attendee to be updated. No Response: The attendee was added to an invitation list but hasn't taken any action. Accepted: The attendee is registered for the event. Cancelled: The attendee's registration for the event is cancelled. Visited: The attendee visited the event's webpage but didn't finish registration. Declined: The attendee declined to attend the event. Pending Approval: When registration approval is enabled, this status indicates the attendee is still waiting to be approved by the planner. Denied Approval: When registration approval is enabled, this status indicates the attendee has been denied approval by the planner. Waitlisted: The attendee is on the waitlist for the event.
+        The following status transitions are supported by this API:
+        * No Response -> Visited
+        * No Response -> Accepted
+        * No Response -> Declined
+        * No Response -> Pending Approval
+        * Cancelled -> Accepted
+        * Cancelled -> Pending Approval
+        * Visited -> Accepted
+        * Visited -> Pending Approval
+        * Declined -> Accepted
+        * Declined -> Pending Approval
+        * Accepted -> Cancelled
+        * Pending Approval -> Accepted
+        * Pending Approval -> Cancelled
+        * Pending Approval -> Denied Approval
+        * Denied Approval -> Pending Approval
+        * Waitlisted -> Accepted
       example: Accepted
     AttendeeVisibility:
       title: AttendeeVisibility
@@ -31809,7 +32127,7 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/contact-update'
-    contact-fields:
+    contact-fields1:
       title: Contact Fields
       description: An array of standard contact fields supported by Cvent.
       required:
@@ -32014,7 +32332,7 @@ components:
         - transactionId
       type: object
       allOf:
-        - $ref: '#/components/schemas/contact-fields'
+        - $ref: '#/components/schemas/contact-fields1'
       properties:
         transactionId:
           title: Readonly UUID Property
@@ -38488,6 +38806,25 @@ components:
           readOnly: true
           example: 06d2bfce-1793-11ec-9621-0242ac130002
           description: Exhibitor Answer id
+    existingLeadCatcher:
+      title: ExistingLeadCatcher
+      description: An existing lead catcher contact.
+      type: object
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - phone
+      allOf:
+        - $ref: '#/components/schemas/leadCatcher'
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Lead catcher ID.
+          readOnly: true
+          example: 7e5c2c23-b2bb-461a-adc9-025184988519
     existingMeetingRoom:
       title: Existing Meeting Room
       description: An existing venue meeting room with read-only generated properties.
@@ -38538,6 +38875,29 @@ components:
       properties:
         registrationPath:
           $ref: '#/components/schemas/AssociatedRegistrationPath'
+    existingVenueAmenities:
+      title: ExistingVenueAmenities
+      description: The current amenity selections for a venue, including identifying properties.
+      type: object
+      required:
+        - id
+        - name
+      allOf:
+        - $ref: '#/components/schemas/VenueAmenities'
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Venue ID.
+          readOnly: true
+          example: 6bb0e2db-861f-46e3-a923-eb4d959ffa00
+        name:
+          type: string
+          description: The name of the venue.
+          readOnly: true
+          minLength: 1
+          maxLength: 100
+          example: Harbor View Convention Center
     existingVenueAttraction:
       title: ExistingVenueAttraction
       description: An existing venue attraction with read-only generated properties.
@@ -39629,6 +39989,8 @@ components:
       title: GuestRoomOccupancyPerRoomType
       description: Room occupancy for a room type.
       type: object
+      required:
+        - type
       properties:
         occupancy:
           $ref: '#/components/schemas/GuestRoomOccupancy'
@@ -41141,6 +41503,281 @@ components:
           $ref: '#/components/schemas/ActivityExhibitor'
         lead:
           $ref: '#/components/schemas/ActivityLead'
+    leadCatcher:
+      title: LeadCatcher
+      description: A contact attached to a venue offering who receives email notifications when RFPs are submitted to that venue.
+      type: object
+      required:
+        - firstName
+        - lastName
+        - email
+        - phone
+      allOf:
+        - $ref: '#/components/schemas/Audit'
+      properties:
+        firstName:
+          type: string
+          description: First name of the lead catcher contact.
+          maxLength: 30
+          example: Jane
+        lastName:
+          type: string
+          description: Last name of the lead catcher contact.
+          maxLength: 30
+          example: Smith
+        title:
+          type: string
+          description: Job title of the lead catcher contact.
+          maxLength: 30
+          example: Director of Sales
+        email:
+          type: string
+          format: email
+          description: Email address of the lead catcher contact. RFP notifications are sent to this address.
+          maxLength: 80
+          example: jane.smith@example.com
+        phone:
+          type: string
+          description: Phone number of the lead catcher contact.
+          maxLength: 30
+          example: +1-555-555-0101
+        fax:
+          type: string
+          description: Fax number of the lead catcher contact.
+          maxLength: 30
+          example: +1-555-555-0101
+        address:
+          $ref: '#/components/schemas/LeadCatcherAddress'
+        locale:
+          $ref: '#/components/schemas/LocaleLanguageVariant'
+        config:
+          $ref: '#/components/schemas/LeadCatcherConfig'
+        additionalInfo:
+          type: string
+          description: Additional information about the lead catcher contact.
+          maxLength: 2500
+          example: Preferred contact for APAC venues.
+    LeadCatcherAddress:
+      title: Lead Catcher Address
+      description: Address information for a lead catcher contact.
+      type: object
+      properties:
+        streetAddress1:
+          type: string
+          description: Street address line 1.
+          maxLength: 40
+          example: 1234 Trap Road
+        streetAddress2:
+          type: string
+          description: Street address line 2.
+          maxLength: 40
+          example: Suite 100
+        city:
+          type: string
+          description: City.
+          maxLength: 40
+          example: Vienna
+        stateProvince:
+          type: string
+          allOf:
+            - $ref: '#/components/schemas/StateProvince'
+          description: State or province code for the contact address (ISO 3166-2).
+        zipPostalCode:
+          type: string
+          description: ZIP or postal code.
+          maxLength: 25
+          example: '22182'
+        country:
+          type: string
+          allOf:
+            - $ref: '#/components/schemas/Country'
+          description: Country code for the contact address (ISO 3166-1 alpha-2).
+    LeadCatcherAddressPatch:
+      title: Lead Catcher Address Patch
+      description: Partial update payload for a lead catcher contact's address.
+      type: object
+      properties:
+        streetAddress1:
+          type: string
+          nullable: true
+          description: Street address line 1.
+          maxLength: 40
+          example: 1234 Trap Road
+        streetAddress2:
+          type: string
+          nullable: true
+          description: Street address line 2.
+          maxLength: 40
+          example: Suite 100
+        city:
+          type: string
+          nullable: true
+          description: City.
+          maxLength: 40
+          example: Vienna
+        stateProvince:
+          type: string
+          allOf:
+            - $ref: '#/components/schemas/StateProvince'
+          nullable: true
+          description: The state province code used for contact information.
+        zipPostalCode:
+          type: string
+          nullable: true
+          description: ZIP or postal code.
+          maxLength: 25
+          example: '22182'
+        country:
+          type: string
+          allOf:
+            - $ref: '#/components/schemas/Country'
+          nullable: true
+          description: ISO 3166 two-letter (alpha-2) country code used for contact information.
+    LeadCatcherConfig:
+      title: Lead Catcher Config
+      description: Notification and role configuration for a lead catcher contact.
+      type: object
+      properties:
+        rfpEmailEnabled:
+          type: boolean
+          description: True indicates this contact receives email notifications when an RFP is submitted.
+          default: true
+          example: true
+        pdfLinkEnabled:
+          type: boolean
+          description: True indicates the RFP notification email includes a PDF link. Only meaningful when `rfpEmailEnabled` is `true`.
+          default: true
+          example: true
+        supplierContactRole:
+          type: string
+          description: Name of the supplier contact role assigned to this contact.
+          example: Sales Manager
+    LeadCatcherConfigPatch:
+      title: Lead Catcher Config Patch
+      description: Partial update payload for a lead catcher contact's notification and role configuration.
+      type: object
+      properties:
+        rfpEmailEnabled:
+          type: boolean
+          nullable: true
+          description: True indicates this contact receives email notifications when an RFP is submitted.
+          example: true
+        pdfLinkEnabled:
+          type: boolean
+          nullable: true
+          description: True indicates the RFP notification email includes a PDF link. Only meaningful when `rfpEmailEnabled` is `true`.
+          example: true
+        supplierContactRole:
+          type: string
+          nullable: true
+          description: Name of the supplier contact role assigned to this contact.
+          example: roleName
+    leadCatcherOverview:
+      title: Lead Catcher Overview
+      description: A lightweight, non-PII overview of a lead catcher contact.
+      type: object
+      required:
+        - id
+        - firstName
+        - lastName
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Lead catcher ID.
+          readOnly: true
+          example: 7e5c2c23-b2bb-461a-adc9-025184988519
+        firstName:
+          type: string
+          description: First name of the lead catcher contact.
+          maxLength: 30
+          example: Jane
+        lastName:
+          type: string
+          description: Last name of the lead catcher contact.
+          maxLength: 30
+          example: Smith
+    leadCatcherPatch:
+      title: LeadCatcherPatch
+      description: Partial update payload for a lead catcher contact.
+      type: object
+      properties:
+        firstName:
+          type: string
+          nullable: true
+          description: First name of the lead catcher contact.
+          maxLength: 30
+          example: Jane
+        lastName:
+          type: string
+          nullable: true
+          description: Last name of the lead catcher contact.
+          maxLength: 30
+          example: Smith
+        title:
+          type: string
+          nullable: true
+          description: Job title of the lead catcher contact.
+          maxLength: 30
+          example: Director of Sales
+        email:
+          type: string
+          format: email
+          nullable: true
+          description: Email address of the lead catcher contact. RFP notifications are sent to this address.
+          maxLength: 80
+          example: jane.smith@example.com
+        phone:
+          type: string
+          nullable: true
+          description: Phone number of the lead catcher contact.
+          maxLength: 30
+          example: +1-555-0100
+        fax:
+          type: string
+          nullable: true
+          description: Fax number of the lead catcher contact.
+          maxLength: 30
+          example: +1-555-0101
+        address:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/LeadCatcherAddressPatch'
+          nullable: true
+          description: Address information for the lead catcher contact. Only the address sub-fields supplied are updated; omitted sub-fields are left unchanged.
+        locale:
+          type: string
+          nullable: true
+          description: Locale used for planner communications sent to this contact.
+          example: en-US
+        config:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/LeadCatcherConfigPatch'
+          nullable: true
+          description: Notification and role configuration for the lead catcher contact. Only the config sub-fields supplied are updated; omitted sub-fields are left unchanged.
+        additionalInfo:
+          type: string
+          nullable: true
+          description: Additional information about the lead catcher contact.
+          maxLength: 2500
+          example: Preferred contact for APAC venues.
+    leadCatchersOverviewResponse:
+      title: Lead Catchers Overview Paginated Response
+      description: Paginated overview of lead catchers for a venue.
+      type: object
+      required:
+        - data
+        - paging
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        data:
+          type: array
+          description: Each item is a lightweight, non-PII overview of a lead catcher for the venue, containing only the `id`, `firstName`, and `lastName`.
+          minItems: 0
+          items:
+            $ref: '#/components/schemas/leadCatcherOverview'
     LeadInboundCreated:
       title: lead.inboundCreated
       description: A lead inbound-created activity.
@@ -41472,6 +42109,182 @@ components:
       example: en-US
       minLength: 1
       maxLength: 200
+    LocaleLanguageVariant:
+      title: Locale Language Variant
+      description: |-
+        Language locale of a Lead Catcher contact.
+
+        Values:
+        - `zh-CHS` — Chinese (Simplified) Legacy
+        - `zh-TW` — Chinese (Traditional, Taiwan)
+        - `de-DE` — German (Germany)
+        - `en-US` — English (United States)
+        - `fi-FI` — Finnish (Finland)
+        - `fr-FR` — French (France)
+        - `it-IT` — Italian (Italy)
+        - `ja-JP` — Japanese (Japan)
+        - `ko-KR` — Korean (Korea)
+        - `nl-NL` — Dutch (Netherlands)
+        - `pt-BR` — Portuguese (Brazil)
+        - `ru-RU` — Russian (Russia)
+        - `sv-SE` — Swedish (Sweden)
+        - `th-TH` — Thai (Thailand)
+        - `tr-TR` — Turkish (Turkey)
+        - `uk-UA` — Ukrainian (Ukraine)
+        - `zh-CN` — Chinese (Simplified, China)
+        - `de-CH` — German (Switzerland)
+        - `en-GB` — English (United Kingdom)
+        - `es-MX` — Spanish (Mexico)
+        - `fr-BE` — French (Belgium)
+        - `it-CH` — Italian (Switzerland)
+        - `nl-BE` — Dutch (Belgium)
+        - `pt-PT` — Portuguese (Portugal)
+        - `ru-MD` — Russian (Moldova)
+        - `sv-FI` — Swedish (Finland)
+        - `zh-HK` — Chinese (Traditional, Hong Kong SAR)
+        - `de-AT` — German (Austria)
+        - `en-AU` — English (Australia)
+        - `es-ES` — Spanish (Spain, International Sort)
+        - `fr-CA` — French (Canada)
+        - `zh-SG` — Chinese (Simplified, Singapore)
+        - `de-LU` — German (Luxembourg)
+        - `en-CA` — English (Canada)
+        - `es-GT` — Spanish (Guatemala)
+        - `fr-CH` — French (Switzerland)
+        - `zh-MO` — Chinese (Traditional, Macao SAR)
+        - `de-LI` — German (Liechtenstein)
+        - `en-NZ` — English (New Zealand)
+        - `es-CR` — Spanish (Costa Rica)
+        - `fr-LU` — French (Luxembourg)
+        - `en-IE` — English (Ireland)
+        - `es-PA` — Spanish (Panama)
+        - `fr-MC` — French (Monaco)
+        - `en-ZA` — English (South Africa)
+        - `es-DO` — Spanish (Dominican Republic)
+        - `fr-029` — French (Caribbean)
+        - `en-JM` — English (Jamaica)
+        - `es-VE` — Spanish (Venezuela)
+        - `fr-RE` — French (Réunion)
+        - `en-029` — English (Caribbean)
+        - `es-CO` — Spanish (Colombia)
+        - `fr-CD` — French Congo (DRC)
+        - `en-BZ` — English (Belize)
+        - `es-PE` — Spanish (Peru)
+        - `fr-SN` — French (Senegal)
+        - `en-TT` — English (Trinidad and Tobago)
+        - `es-AR` — Spanish (Argentina)
+        - `fr-CM` — French (Cameroon)
+        - `en-ZW` — English (Zimbabwe)
+        - `es-EC` — Spanish (Ecuador)
+        - `fr-CI` — French (Côte d'Ivoire)
+        - `en-PH` — English (Philippines)
+        - `es-CL` — Spanish (Chile)
+        - `fr-ML` — French (Mali)
+        - `en-ID` — English (Indonesia)
+        - `es-UY` — Spanish (Uruguay)
+        - `fr-MA` — French (Morocco)
+        - `en-HK` — English (Hong Kong SAR)
+        - `es-PY` — Spanish (Paraguay)
+        - `fr-HT` — French (Haiti)
+        - `en-IN` — English (India)
+        - `es-BO` — Spanish (Bolivia)
+        - `en-MY` — English (Malaysia)
+        - `es-SV` — Spanish (El Salvador)
+        - `en-SG` — English (Singapore)
+        - `es-HN` — Spanish (Honduras)
+        - `es-NI` — Spanish (Nicaragua)
+        - `es-PR` — Spanish (Puerto Rico)
+        - `es-US` — Spanish (United States)
+        - `es-419` — Spanish (Latin America)
+        - `es-CU` — Spanish (Cuba)
+        - `zh-CHT` — Chinese (Traditional) Legacy
+      type: string
+      enum:
+        - zh-CHS
+        - zh-TW
+        - de-DE
+        - en-US
+        - fi-FI
+        - fr-FR
+        - it-IT
+        - ja-JP
+        - ko-KR
+        - nl-NL
+        - pt-BR
+        - ru-RU
+        - sv-SE
+        - th-TH
+        - tr-TR
+        - uk-UA
+        - zh-CN
+        - de-CH
+        - en-GB
+        - es-MX
+        - fr-BE
+        - it-CH
+        - nl-BE
+        - pt-PT
+        - ru-MD
+        - sv-FI
+        - zh-HK
+        - de-AT
+        - en-AU
+        - es-ES
+        - fr-CA
+        - zh-SG
+        - de-LU
+        - en-CA
+        - es-GT
+        - fr-CH
+        - zh-MO
+        - de-LI
+        - en-NZ
+        - es-CR
+        - fr-LU
+        - en-IE
+        - es-PA
+        - fr-MC
+        - en-ZA
+        - es-DO
+        - fr-029
+        - en-JM
+        - es-VE
+        - fr-RE
+        - en-029
+        - es-CO
+        - fr-CD
+        - en-BZ
+        - es-PE
+        - fr-SN
+        - en-TT
+        - es-AR
+        - fr-CM
+        - en-ZW
+        - es-EC
+        - fr-CI
+        - en-PH
+        - es-CL
+        - fr-ML
+        - en-ID
+        - es-UY
+        - fr-MA
+        - en-HK
+        - es-PY
+        - fr-HT
+        - en-IN
+        - es-BO
+        - en-MY
+        - es-SV
+        - en-SG
+        - es-HN
+        - es-NI
+        - es-PR
+        - es-US
+        - es-419
+        - es-CU
+        - zh-CHT
+      default: en-US
+      example: en-US
     location.json:
       title: Location
       type: object
@@ -45534,7 +46347,7 @@ components:
           description: Denotes the count of quantity item selected by an attendee during event registration.
           example: 5
     question:
-      title: Travel Program Question
+      title: Question
       description: A question, defined by the program, for the supplier to answer as part of their proposal.
       type: object
       allOf:
@@ -45586,7 +46399,7 @@ components:
           format: uuid
           example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
     question-paginated-response:
-      title: Travel Program Question Paginated Response
+      title: Question Paginated Response
       description: A paginated list of Questions.
       type: object
       properties:
@@ -45963,7 +46776,7 @@ components:
             $ref: '#/components/schemas/question.json1'
           description: Collection of questions for surveys.
     questions-paginated-response1:
-      title: Travel Program Questions Paginated Response
+      title: Questions Paginated Response
       description: A paginated list of Questions.
       type: object
       properties:
@@ -45972,7 +46785,7 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/TravelProgramQuestion'
+            $ref: '#/components/schemas/QuestionWithProgramId'
           description: Collection of Questions.
     QuestionSection:
       title: Question Section
@@ -46068,6 +46881,58 @@ components:
         - FileUpload
         - MatrixSinglePerRow
         - MatrixMultiPerRow
+    QuestionWithProgramId:
+      title: Question With Program Id
+      description: A question, defined by the program, for the supplier to answer as part of their proposal.
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Audit'
+      properties:
+        travelProgram:
+          title: Travel Program
+          description: Travel program that the question belongs to.
+          type: object
+          properties:
+            id:
+              title: Travel Program ID
+              description: The unique ID of the travel program.
+              type: string
+              format: uuid
+              example: ddc61444-45c7-4e1d-9fdd-07713c8baf9b
+        id:
+          title: Question ID
+          description: The unique ID of the question.
+          type: string
+          format: uuid
+          example: 76c461cb-77f6-40b3-acc8-db44452f11c4
+        text:
+          title: Question Text
+          description: The text of the question.
+          type: string
+          maxLength: 300
+          example: What type of food is served in the hotel restaurant?
+        required:
+          title: Required
+          type: boolean
+          example: true
+          description: Is this question required by default?
+        responseType:
+          $ref: '#/components/schemas/QuestionResponseType'
+        responseDataType:
+          $ref: '#/components/schemas/QuestionResponseDataType'
+        responseFormat:
+          $ref: '#/components/schemas/QuestionResponseFormat'
+        responseChoices:
+          title: Response Choices
+          description: A list of options for the question.  This only applies when responseType is 'choice'
+          type: array
+          items:
+            type: string
+          example:
+            - Mexican
+            - American
+            - French
+            - Other
     RateApplicationType:
       title: Rate Application Type
       description: |-
@@ -47484,7 +48349,10 @@ components:
         status:
           $ref: '#/components/schemas/RfpStatus-1'
         type:
-          $ref: '#/components/schemas/RfpType-1'
+          type: string
+          readOnly: true
+          allOf:
+            - $ref: '#/components/schemas/RfpType-1'
         approvedBy:
           type: string
           readOnly: true
@@ -48131,6 +48999,9 @@ components:
       title: RfpQuestion
       description: Question associated with an RFP.
       type: object
+      required:
+        - supplierTypes
+        - classificationType
       allOf:
         - $ref: '#/components/schemas/QuestionCommon'
       properties:
@@ -48351,7 +49222,7 @@ components:
         preferredVenueIntegrations:
           type: array
           deprecated: true
-          description: 'DEPRECATED: Use [venueIntegrationPreference](#schema/VenueIntegrationPreference) instead. Venue integrations the planner prefers when sourcing venues. An empty array or absent field indicates no preference has been recorded.'
+          description: 'DEPRECATED: Use `venueIntegrationPreference` instead. Venue integrations the planner prefers when sourcing venues. An empty array or absent field indicates no preference has been recorded.'
           maxItems: 1
           uniqueItems: true
           items:
@@ -53075,7 +53946,7 @@ components:
             $ref: '#/components/schemas/Address10'
           description: List of addresses associated with the travel account.
     travel-account-paginated-response:
-      title: Travel account paginated response
+      title: Travel Account Paginated Response
       description: A paginated list of travel accounts.
       type: object
       properties:
@@ -53087,7 +53958,7 @@ components:
             $ref: '#/components/schemas/travel-account'
           description: Collection of travel accounts and their related details.
     travel-account-supplier-account:
-      title: Supplier Travel Account
+      title: Travel Account Supplier Account
       description: Details for the supplier travel account. These details are supplier specific and only visible for supply-side clients.
       type: object
       properties:
@@ -53132,7 +54003,7 @@ components:
           description: Travel account type defined at the supplier chain level.
           example: RFP
     travel-account-supplier-account-paginated-response:
-      title: Supplier travel account paginated response
+      title: Travel Account Supplier Account Paginated Response
       description: A paginated list of supplier travel accounts.
       type: object
       properties:
@@ -53344,9 +54215,9 @@ components:
           description: A list of program specific questions for the supplier to answer as part of their proposal.
           type: array
           items:
-            $ref: '#/components/schemas/TravelProgramQuestion-1'
+            $ref: '#/components/schemas/TravelProgramQuestion'
     travel-program-paginated-response:
-      title: Travel program paginated response
+      title: Travel Program Paginated Response
       description: A paginated list of travel programs.
       type: object
       properties:
@@ -54196,58 +55067,6 @@ components:
       description: Code representing the format of the travel program.
       example: gbta2013
     TravelProgramQuestion:
-      title: Travel Program Question
-      description: A question, defined by the program, for the supplier to answer as part of their proposal.
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/Audit'
-      properties:
-        travelProgram:
-          title: Travel Program
-          description: Travel program that the question belongs to.
-          type: object
-          properties:
-            id:
-              title: Travel Program ID
-              description: The unique ID of the travel program.
-              type: string
-              format: uuid
-              example: ddc61444-45c7-4e1d-9fdd-07713c8baf9b
-        id:
-          title: Question ID
-          description: The unique ID of the question.
-          type: string
-          format: uuid
-          example: 76c461cb-77f6-40b3-acc8-db44452f11c4
-        text:
-          title: Question Text
-          description: The text of the question.
-          type: string
-          maxLength: 300
-          example: What type of food is served in the hotel restaurant?
-        required:
-          title: Required
-          type: boolean
-          example: true
-          description: Is this question required by default?
-        responseType:
-          $ref: '#/components/schemas/QuestionResponseType'
-        responseDataType:
-          $ref: '#/components/schemas/QuestionResponseDataType'
-        responseFormat:
-          $ref: '#/components/schemas/QuestionResponseFormat'
-        responseChoices:
-          title: Response Choices
-          description: A list of options for the question.  This only applies when responseType is 'choice'
-          type: array
-          items:
-            type: string
-          example:
-            - Mexican
-            - American
-            - French
-            - Other
-    TravelProgramQuestion-1:
       title: Travel Program Question
       description: A question, defined by the account, for the supplier to answer as part of their proposal.
       type: object
@@ -55318,6 +56137,428 @@ components:
           maximum: 180
           example: -97.71518
           readOnly: true
+    VenueAmenities:
+      title: VenueAmenities
+      description: The complete set of amenity selections for a venue. Section applicability varies by venue type; sections that do not apply to the venue's type are silently ignored on write.
+      type: object
+      properties:
+        recreationalActivities:
+          type: array
+          description: |-
+            Recreational facilities and leisure activities available at the venue.
+
+            Values:
+            - `GOLF_ON_GROUNDS` — Golf on Grounds
+            - `HEALTH_CLUB` — Health Club
+            - `INDOOR_POOL` — Indoor Pool
+            - `OUTDOOR_POOL` — Outdoor Pool
+            - `SKIING` — Skiing
+            - `SPASALON` — Spa/Salon
+            - `TENNIS` — Tennis
+            - `WATER_SPORTS` — Water Sports
+            - `WHIRLPOOL` — Whirlpool
+          uniqueItems: true
+          maxItems: 9
+          items:
+            $ref: '#/components/schemas/VenueAmenityRecreationalActivity'
+        roomFeatures:
+          type: array
+          description: |-
+            In-room features and guest services available at the venue. Not applicable for venue types: Aquarium/Zoo, Arena/Stadium, Banquet Facility, Bar/Club, Corporate Office Space, Entertainment Venue, Gallery/Museum, Golf Course, Movie Theatre, and Special Event Venue.
+
+            Values:
+            - `CONCIERGE_SERVICES` — Concierge Services
+            - `FREE_LOCAL_CALLS` — Free Local Calls
+            - `FREE_TOLL_FREE_CALLS` — Toll-Free Calls
+            - `GARDEN_VIEWS` — Garden Views
+            - `INTERNET` — Internet
+            - `LAUNDRY` — Laundry
+            - `LUGGAGE_STORAGE` — Luggage Storage
+            - `MOUNTAIN_VIEWS` — Mountain Views
+            - `OCEANWATER_VIEWS` — Ocean/Water Views
+            - `ROOM_SERVICE` — Room Service
+            - `URBAN_VIEWS` — Urban Views
+            - `VOICE_MAIL_BOX` — Voicemail Box
+          uniqueItems: true
+          maxItems: 12
+          items:
+            $ref: '#/components/schemas/VenueAmenityRoomFeature'
+        avCapabilities:
+          type: array
+          description: |-
+            Audio-visual equipment and connectivity available at the venue. Not applicable for venue types: Aquarium/Zoo, Arena/Stadium, Banquet Facility, Bar/Club, Corporate Office Space, Entertainment Venue, Gallery/Museum, Golf Course, Movie Theatre, and Special Event Venue.
+
+            Each entry selects an AV capability and, where applicable, provides an internet speed. A `speed` value may only be supplied when `amenity` is `HIGH_SPEED_INTERNET`.
+          maxItems: 3
+          items:
+            $ref: '#/components/schemas/VenueAmenityAvCapabilityItem'
+        businessServices:
+          type: array
+          description: |-
+            Business and communications services available at the venue. Not applicable for venue types: Aquarium/Zoo, Arena/Stadium, Banquet Facility, Bar/Club, Corporate Office Space, Entertainment Venue, Gallery/Museum, Golf Course, Movie Theatre, and Special Event Venue.
+
+            Values:
+            - `AUDIOVIDEO_CAPABILITIES` — Audio/Video Capabilities
+            - `BUSINESS_CENTER` — Business Center
+            - `VIDEO_CONFERENCING` — Video Conferencing
+            - `VIP_SERVICES` — VIP Services
+          uniqueItems: true
+          maxItems: 4
+          items:
+            $ref: '#/components/schemas/VenueAmenityBusinessService'
+        transportation:
+          type: array
+          description: |-
+            Transportation options by which the venue is accessible. Not applicable for venue types: Aquarium/Zoo, Arena/Stadium, Banquet Facility, Bar/Club, Corporate Office Space, Entertainment Venue, Gallery/Museum, Golf Course, Movie Theatre, and Special Event Venue.
+
+            Values:
+            - `BUS` — Bus
+            - `SHUTTLE` — Shuttle
+            - `SUBWAY` — Subway
+            - `TAXI` — Taxi
+            - `TRAIN` — Train
+          uniqueItems: true
+          maxItems: 5
+          items:
+            $ref: '#/components/schemas/VenueAmenityTransportation'
+        equipment:
+          type: array
+          description: |-
+            Physical equipment and staging resources available for event use at the venue.
+
+            Values:
+            - `DANCE_FLOORS` — Dance Floors
+            - `LOADING_DOCK_AVAILABLE` — Loading Dock
+            - `PIANO` — Piano
+            - `PORTABLE_HEATERS` — Portable Heaters
+            - `PORTABLE_WALLS` — Portable Walls
+            - `STAGING` — Staging
+          uniqueItems: true
+          maxItems: 6
+          items:
+            $ref: '#/components/schemas/VenueAmenityEquipment'
+        parking:
+          type: array
+          description: Parking options available at or near the venue. Each entry selects a parking type and, where applicable, provides the daily rate. A cost may only be supplied for `PAID_PARKING_AVAILABLE` and `VALET_PARKING_AVAILABLE`.
+          maxItems: 5
+          items:
+            $ref: '#/components/schemas/VenueAmenityParkingItem'
+        facilityInfo:
+          type: array
+          description: |-
+            General facility features and on-site services available at the venue. Applicable only to the following venue types: Boutique Hotel, Conference Center, Convention Center, Exposition Center, Hotel, Luxury Hotel, and Resort (all values below except `BUSINESS_CENTER` and `INTERNET`); Aquarium/Zoo, Arena/Stadium, Banquet Facility, Bar/Club, Corporate Office Space, Educational Facility, Entertainment Venue, Gallery/Museum, Golf Course, Movie Theatre, and Special Event Venue (only `BUSINESS_CENTER`, `CASINO`, `INTERNET`, `RESTAURANT_ON_SITE`, and `WHEELCHAIR_ACCESSIBLE`).
+
+            Values:
+            - `ALL_INCLUSIVE` — All Inclusive
+            - `BUSINESS_CENTER` — Business Center
+            - `CASINO` — Casino
+            - `EXTENDED_STAY` — Extended Stay
+            - `FREE_AIRPORT_SHUTTLE` — Free Airport Shuttle
+            - `GIFT_SHOP_ON_SITE` — Onsite Gift Shop
+            - `INTERNET` — Internet
+            - `ONSITE_CATERING` — Onsite Catering
+            - `OUTSIDE_CATERERS_ALLOWED` — Outside Caterers Allowed
+            - `PETS_WELCOME` — Pet Friendly
+            - `RENTAL_CAR_SERVICES` — Rental Car Services
+            - `RESTAURANT_ON_SITE` — Onsite Restaurant
+            - `SECURITY_STAFF_ONSITE` — Onsite Security
+            - `WHEELCHAIR_ACCESSIBLE` — Wheelchair Accessible
+          uniqueItems: true
+          maxItems: 14
+          items:
+            $ref: '#/components/schemas/VenueAmenityFacilityInfo'
+        facilitySpaceInfo:
+          type: array
+          description: Facility space measurements at the venue. Each entry selects a space type and optionally provides the available event space area, expressed in the venue's configured unit of measurement.
+          maxItems: 3
+          items:
+            $ref: '#/components/schemas/VenueAmenityFacilitySpaceItem'
+        cateringDetails:
+          type: array
+          description: |-
+            Catering options and policies offered at the venue. Applicable only to venue types: Aquarium/Zoo, Arena/Stadium, Banquet Facility, Bar/Club, Corporate Office Space, Entertainment Venue, Gallery/Museum, Golf Course, Movie Theatre, and Special Event Venue.
+
+            Values:
+            - `KITCHEN_ONSITE` — Kitchen Onsite
+            - `ONSITE_CATERING` — Onsite Catering
+            - `OUTSIDE_CATERERS_ALLOWED` — Outside Caterers Allowed
+          uniqueItems: true
+          maxItems: 3
+          items:
+            $ref: '#/components/schemas/VenueAmenityCateringDetail'
+        alcohol:
+          type: array
+          description: |-
+            Alcohol-related policies at the venue. Applicable only to venue types: Aquarium/Zoo, Arena/Stadium, Banquet Facility, Bar/Club, Corporate Office Space, Entertainment Venue, Gallery/Museum, Golf Course, Movie Theatre, and Special Event Venue.
+
+            Values:
+            - `ALCOHOL_ALLOWED` — Alcohol Allowed
+            - `BRING_YOUR_OWN` — Bring Your Own
+            - `PREFERRED_VENDORS_ONLY` — Preferred Vendors Only
+          uniqueItems: true
+          maxItems: 3
+          items:
+            $ref: '#/components/schemas/VenueAmenityAlcohol'
+        audioVisual:
+          type: array
+          description: |-
+            Audio-visual provision policy at the venue. Applicable only to venue types: Aquarium/Zoo, Arena/Stadium, Banquet Facility, Bar/Club, Corporate Office Space, Entertainment Venue, Gallery/Museum, Golf Course, Movie Theatre, and Special Event Venue.
+
+            Values:
+            - `AVAILABLE` — Available
+            - `BRING_YOUR_OWN` — Bring Your Own
+            - `PREFERRED_VENDORS_ONLY` — Preferred Vendors Only
+          uniqueItems: true
+          maxItems: 3
+          items:
+            $ref: '#/components/schemas/VenueAmenityProvisionPolicy'
+        furniture:
+          type: array
+          description: |-
+            Furniture provision policy at the venue. Applicable only to venue types: Aquarium/Zoo, Arena/Stadium, Banquet Facility, Bar/Club, Corporate Office Space, Entertainment Venue, Gallery/Museum, Golf Course, Movie Theatre, and Special Event Venue.
+
+            Values:
+            - `AVAILABLE` — Available
+            - `BRING_YOUR_OWN` — Bring Your Own
+            - `PREFERRED_VENDORS_ONLY` — Preferred Vendors Only
+          uniqueItems: true
+          maxItems: 3
+          items:
+            $ref: '#/components/schemas/VenueAmenityProvisionPolicy'
+        linensAndTableSettings:
+          type: array
+          description: |-
+            Linens and table settings provision policy at the venue. Applicable only to venue types: Aquarium/Zoo, Arena/Stadium, Banquet Facility, Bar/Club, Corporate Office Space, Entertainment Venue, Gallery/Museum, Golf Course, Movie Theatre, and Special Event Venue.
+
+            Values:
+            - `AVAILABLE` — Available
+            - `BRING_YOUR_OWN` — Bring Your Own
+            - `PREFERRED_VENDORS_ONLY` — Preferred Vendors Only
+          uniqueItems: true
+          maxItems: 3
+          items:
+            $ref: '#/components/schemas/VenueAmenityProvisionPolicy'
+        lighting:
+          type: array
+          description: |-
+            Lighting provision policy at the venue. Applicable only to venue types: Aquarium/Zoo, Arena/Stadium, Banquet Facility, Bar/Club, Corporate Office Space, Entertainment Venue, Gallery/Museum, Golf Course, Movie Theatre, and Special Event Venue.
+
+            Values:
+            - `AVAILABLE` — Available
+            - `BRING_YOUR_OWN` — Bring Your Own
+            - `PREFERRED_VENDORS_ONLY` — Preferred Vendors Only
+          uniqueItems: true
+          maxItems: 3
+          items:
+            $ref: '#/components/schemas/VenueAmenityProvisionPolicy'
+        otherDecor:
+          type: array
+          description: |-
+            Other décor provision policy at the venue. Applicable only to venue types: Aquarium/Zoo, Arena/Stadium, Banquet Facility, Bar/Club, Corporate Office Space, Entertainment Venue, Gallery/Museum, Golf Course, Movie Theatre, and Special Event Venue.
+
+            Values:
+            - `AVAILABLE` — Available
+            - `BRING_YOUR_OWN` — Bring Your Own
+            - `PREFERRED_VENDORS_ONLY` — Preferred Vendors Only
+          uniqueItems: true
+          maxItems: 3
+          items:
+            $ref: '#/components/schemas/VenueAmenityProvisionPolicy'
+    VenueAmenityAlcohol:
+      title: Venue Amenity Alcohol
+      description: Alcohol-related policy at a venue.
+      type: string
+      enum:
+        - ALCOHOL_ALLOWED
+        - BRING_YOUR_OWN
+        - PREFERRED_VENDORS_ONLY
+    VenueAmenityAVCapability:
+      title: Venue Amenity AV Capability
+      description: |-
+        Audio-visual capability available at a venue.
+
+        Values:
+        - `AV_EQUIPMENT` — AV Equipment
+        - `HIGH_SPEED_INTERNET` — High Speed Internet
+        - `ONSITE_AV_STAFF` — Onsite AV Staff
+      type: string
+      enum:
+        - AV_EQUIPMENT
+        - HIGH_SPEED_INTERNET
+        - ONSITE_AV_STAFF
+    VenueAmenityAvCapabilityItem:
+      title: VenueAmenityAvCapabilityItem
+      description: An AV capability selection for a venue. An internet speed may be provided when the selected amenity is `HIGH_SPEED_INTERNET`.
+      type: object
+      required:
+        - amenity
+      properties:
+        amenity:
+          $ref: '#/components/schemas/VenueAmenityAVCapability'
+        speed:
+          type: integer
+          description: Internet connection speed in Mbps. Applicable only when `amenity` is `HIGH_SPEED_INTERNET`.
+          minimum: 1
+          maximum: 9999999
+          example: 1000
+    VenueAmenityBusinessService:
+      title: Venue Amenity Business Service
+      description: Business or communications service available at a venue.
+      type: string
+      enum:
+        - AUDIOVIDEO_CAPABILITIES
+        - BUSINESS_CENTER
+        - VIDEO_CONFERENCING
+        - VIP_SERVICES
+    VenueAmenityCateringDetail:
+      title: Venue Amenity Catering Detail
+      description: Catering option or policy offered at a venue.
+      type: string
+      enum:
+        - KITCHEN_ONSITE
+        - ONSITE_CATERING
+        - OUTSIDE_CATERERS_ALLOWED
+    VenueAmenityEquipment:
+      title: Venue Amenity Equipment
+      description: Physical equipment or staging resource available for event use at a venue.
+      type: string
+      enum:
+        - DANCE_FLOORS
+        - LOADING_DOCK_AVAILABLE
+        - PIANO
+        - PORTABLE_HEATERS
+        - PORTABLE_WALLS
+        - STAGING
+    VenueAmenityFacilityInfo:
+      title: Venue Amenity Facility Info
+      description: General facility feature or on-site service available at a venue.
+      type: string
+      enum:
+        - ALL_INCLUSIVE
+        - BUSINESS_CENTER
+        - CASINO
+        - EXTENDED_STAY
+        - FREE_AIRPORT_SHUTTLE
+        - GIFT_SHOP_ON_SITE
+        - INTERNET
+        - ONSITE_CATERING
+        - OUTSIDE_CATERERS_ALLOWED
+        - PETS_WELCOME
+        - RENTAL_CAR_SERVICES
+        - RESTAURANT_ON_SITE
+        - SECURITY_STAFF_ONSITE
+        - WHEELCHAIR_ACCESSIBLE
+    VenueAmenityFacilitySpace:
+      title: Venue Amenity Facility Space
+      description: |-
+        Facility space type available at a venue.
+
+        Values:
+        - `OUTDOOR_SPACE` — Outdoor Space
+        - `PRIVATE_SPACE` — Private Space
+        - `SEMI_PRIVATE_SPACE` — Semi-Private Space
+      type: string
+      enum:
+        - OUTDOOR_SPACE
+        - PRIVATE_SPACE
+        - SEMI_PRIVATE_SPACE
+    VenueAmenityFacilitySpaceItem:
+      title: VenueAmenityFacilitySpaceItem
+      description: A facility space entry for a venue, with an optional area measurement expressed in the venue's configured unit of measurement.
+      type: object
+      required:
+        - amenity
+      properties:
+        amenity:
+          $ref: '#/components/schemas/VenueAmenityFacilitySpace'
+        value:
+          type: integer
+          description: Area of the space in the venue's configured unit of measurement.
+          minimum: 1
+          maximum: 9999999
+          example: 5000
+    VenueAmenityParking:
+      title: Venue Amenity Parking
+      description: |-
+        Parking type available at or near a venue.
+
+        Values:
+        - `BUS_PARKING_AVAILABLE` — Bus Parking
+        - `COMPLIMENTARY_PARKING_PROVIDED` — Complimentary Parking
+        - `PAID_PARKING_AVAILABLE` — Paid Parking
+        - `STREET_PARKING` — Street Parking
+        - `VALET_PARKING_AVAILABLE` — Valet Parking
+      type: string
+      enum:
+        - BUS_PARKING_AVAILABLE
+        - COMPLIMENTARY_PARKING_PROVIDED
+        - PAID_PARKING_AVAILABLE
+        - STREET_PARKING
+        - VALET_PARKING_AVAILABLE
+    VenueAmenityParkingItem:
+      title: VenueAmenityParkingItem
+      description: A parking amenity selection for a venue. An optional daily rate may be provided for paid parking types.
+      type: object
+      required:
+        - amenity
+      properties:
+        amenity:
+          $ref: '#/components/schemas/VenueAmenityParking'
+        cost:
+          type: number
+          description: Daily parking cost per vehicle, in the venue's local currency. Applicable only when `amenity` is `PAID_PARKING_AVAILABLE` or `VALET_PARKING_AVAILABLE`.
+          minimum: 0
+          maximum: 999999999
+          example: 25
+    VenueAmenityProvisionPolicy:
+      title: Venue Amenity Provision Policy
+      description: Provision policy for a venue amenity or service.
+      type: string
+      enum:
+        - AVAILABLE
+        - BRING_YOUR_OWN
+        - PREFERRED_VENDORS_ONLY
+    VenueAmenityRecreationalActivity:
+      title: Venue Amenity Recreational Activity
+      description: Recreational facility or leisure activity available at a venue.
+      type: string
+      enum:
+        - GOLF_ON_GROUNDS
+        - HEALTH_CLUB
+        - INDOOR_POOL
+        - OUTDOOR_POOL
+        - SKIING
+        - SPASALON
+        - TENNIS
+        - WATER_SPORTS
+        - WHIRLPOOL
+    VenueAmenityRoomFeature:
+      title: Venue Amenity Room Feature
+      description: In-room feature or guest service available at a venue.
+      type: string
+      enum:
+        - CONCIERGE_SERVICES
+        - FREE_LOCAL_CALLS
+        - FREE_TOLL_FREE_CALLS
+        - GARDEN_VIEWS
+        - INTERNET
+        - LAUNDRY
+        - LUGGAGE_STORAGE
+        - MOUNTAIN_VIEWS
+        - OCEANWATER_VIEWS
+        - ROOM_SERVICE
+        - URBAN_VIEWS
+        - VOICE_MAIL_BOX
+    VenueAmenityTransportation:
+      title: Venue Amenity Transportation
+      description: Transportation option by which a venue is accessible.
+      type: string
+      enum:
+        - BUS
+        - SHUTTLE
+        - SUBWAY
+        - TAXI
+        - TRAIN
     venueAttraction:
       title: VenueAttraction
       description: An attraction or point of interest located near a venue.
@@ -57373,11 +58614,16 @@ components:
             survey/survey-responses:read: Allows reading the event survey responses
             survey/survey-responses:write: Allows write operations on the event surveys respondent's responses
             survey/surveys:read: Allows the reading of event surveys
+            venue/amenities:read: Allows reading of venue amenity selections.
+            venue/amenities:write: Allows the modification of venue amenity selections.
             venue/availability-settings:read: Allows reading of venue availability settings.
             venue/availability-settings:write: Allows the modification of venue availability settings.
             venue/images:delete: Allows disassociating images from venues.
             venue/images:read: Allows read access for venue images metadata.
             venue/images:write: Allows associating images with venues.
+            venue/lead-catchers-overview:read: Allows read access for overview of lead catchers.
+            venue/lead-catchers:delete: Allows the deletion of lead catchers.
+            venue/lead-catchers:write: Allows the creation and modification of lead catchers.
             venue/meeting-room-images:delete: Allows disassociating images from meeting rooms.
             venue/meeting-room-images:read: Allows retrieving meeting room images.
             venue/meeting-room-images:write: Allows associating images with meeting rooms.
@@ -57634,11 +58880,16 @@ components:
             survey/survey-responses:read: Allows reading the event survey responses
             survey/survey-responses:write: Allows write operations on the event surveys respondent's responses
             survey/surveys:read: Allows the reading of event surveys
+            venue/amenities:read: Allows reading of venue amenity selections.
+            venue/amenities:write: Allows the modification of venue amenity selections.
             venue/availability-settings:read: Allows reading of venue availability settings.
             venue/availability-settings:write: Allows the modification of venue availability settings.
             venue/images:delete: Allows disassociating images from venues.
             venue/images:read: Allows read access for venue images metadata.
             venue/images:write: Allows associating images with venues.
+            venue/lead-catchers-overview:read: Allows read access for overview of lead catchers.
+            venue/lead-catchers:delete: Allows the deletion of lead catchers.
+            venue/lead-catchers:write: Allows the creation and modification of lead catchers.
             venue/meeting-room-images:delete: Allows disassociating images from meeting rooms.
             venue/meeting-room-images:read: Allows retrieving meeting room images.
             venue/meeting-room-images:write: Allows associating images with meeting rooms.
@@ -57833,6 +59084,8 @@ tags:
       * **Reservation Request.** Represents a request to book rooms in the housing event.
       * **RegLink.** A feature that links Passkey events to your registration events, enabling you to sync data between the two events.
       * **Callback.** [Passkey's callback system](https://developers.cvent.com/docs/passkey/REST/callbacks) allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.
+
+      > Passkey Housing APIs only support the NA base URL. Calls to the EU base URL will return an error.
   - name: Housing Hotels
     description: APIs for managing hotel-related operations.
   - name: Leads
@@ -57897,6 +59150,8 @@ tags:
       Manage the date ranges when a venue is available for event bookings.
   - name: Venue Content
     description: Manage images, amenities, and nearby attractions associated with a venue.
+  - name: Venue Leads
+    description: Manage inbound leads submitted to venues through Cvent's sourcing channels.
   - name: Venue Meeting Rooms
     description: Manage meeting rooms for a venue, including creating and updating room details, configuring capacities and amenities, and associating images.
   - name: Venue Profiles

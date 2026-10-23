@@ -1,0 +1,11 @@
+# LeadCatchersOverviewResponse
+
+Paginated overview of lead catchers for a venue.
+
+
+## Fields
+
+| Field                                                                                                                                | Type                                                                                                                                 | Required                                                                                                                             | Description                                                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `paging`                                                                                                                             | [Paging](../../models/components/Paging.md)                                                                                          | :heavy_check_mark:                                                                                                                   | Represents pagination information for a collection of resources.                                                                     |
+| `data`                                                                                                                               | List\<[LeadCatcherOverview](../../models/components/LeadCatcherOverview.md)>                                                         | :heavy_check_mark:                                                                                                                   | Each item is a lightweight, non-PII overview of a lead catcher for the venue, containing only the `id`, `firstName`, and `lastName`. |

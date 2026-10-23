@@ -6,6 +6,8 @@ Manage images, amenities, and nearby attractions associated with a venue.
 
 ### Available Operations
 
+* [getVenueAmenities](#getvenueamenities) - Get Venue Amenities
+* [updateVenueAmenities](#updatevenueamenities) - Update Venue Amenities
 * [listVenueAttractions](#listvenueattractions) - List Venue Attractions
 * [createVenueAttraction](#createvenueattraction) - Create Venue Attraction
 * [getVenueAttraction](#getvenueattraction) - Get Venue Attraction
@@ -20,6 +22,228 @@ Manage images, amenities, and nearby attractions associated with a venue.
 * [getVenueImageMetadata](#getvenueimagemetadata) - Get Venue Image Metadata
 * [associateVenueImage](#associatevenueimage) - Associate Venue Image
 * [disassociateVenueImage](#disassociatevenueimage) - Remove Venue Image
+
+## getVenueAmenities
+
+Returns the current amenity selections for the specified venue.
+
+Not applicable to CVB/DMC or Restaurant venues.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getVenueAmenities" method="get" path="/venues/{venueId}/amenities" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.venueContent.getVenueAmenities({
+    venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { venueContentGetVenueAmenities } from "@cvent/sdk/funcs/venueContentGetVenueAmenities.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await venueContentGetVenueAmenities(cventSDK, {
+    venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("venueContentGetVenueAmenities failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetVenueAmenitiesRequest](../../models/operations/getvenueamenitiesrequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.ExistingVenueAmenities](../../models/components/existingvenueamenities.md)\>**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
+
+## updateVenueAmenities
+
+Updates the amenity selections for the specified venue, replacing all existing selections with those provided in the request body. Sections absent from the request body or submitted as empty arrays will have their selections cleared.
+
+Not applicable to CVB/DMC or Restaurant venues.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="updateVenueAmenities" method="put" path="/venues/{venueId}/amenities" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.venueContent.updateVenueAmenities({
+    venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00",
+    existingVenueAmenities: {
+      avCapabilities: [
+        {
+          amenity: "ONSITE_AV_STAFF",
+          speed: 1000,
+        },
+      ],
+      parking: [
+        {
+          amenity: "BUS_PARKING_AVAILABLE",
+          cost: 25,
+        },
+      ],
+      facilitySpaceInfo: [
+        {
+          amenity: "OUTDOOR_SPACE",
+          value: 5000,
+        },
+      ],
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { venueContentUpdateVenueAmenities } from "@cvent/sdk/funcs/venueContentUpdateVenueAmenities.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await venueContentUpdateVenueAmenities(cventSDK, {
+    venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00",
+    existingVenueAmenities: {
+      avCapabilities: [
+        {
+          amenity: "ONSITE_AV_STAFF",
+          speed: 1000,
+        },
+      ],
+      parking: [
+        {
+          amenity: "BUS_PARKING_AVAILABLE",
+          cost: 25,
+        },
+      ],
+      facilitySpaceInfo: [
+        {
+          amenity: "OUTDOOR_SPACE",
+          value: 5000,
+        },
+      ],
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("venueContentUpdateVenueAmenities failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateVenueAmenitiesRequest](../../models/operations/updatevenueamenitiesrequest.md)                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.ExistingVenueAmenities](../../models/components/existingvenueamenities.md)\>**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listVenueAttractions
 

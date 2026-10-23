@@ -23,7 +23,7 @@ export type GuestRoomOccupancyPerRoomType = {
   /**
    * Guest room type. `ANY`: Room can be any type. `SINGLE`: Room with one bed. `DOUBLE`: Room with two beds. `SUITE`: Room is an entire suite. `STAFF`: Room is for staff.
    */
-  type?: GuestRoomType | undefined;
+  type: GuestRoomType;
 };
 
 /** @internal */
@@ -33,7 +33,7 @@ export const GuestRoomOccupancyPerRoomType$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   occupancy: GuestRoomOccupancy$inboundSchema.optional(),
-  type: GuestRoomType$inboundSchema.optional(),
+  type: GuestRoomType$inboundSchema,
 });
 
 export function guestRoomOccupancyPerRoomTypeFromJSON(

@@ -1016,6 +1016,16 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("survey/surveys:read")] SurveySurveysRead,
 
         /// <summary>
+        /// Allows reading of venue amenity selections.
+        /// </summary>
+        [JsonProperty("venue/amenities:read")] VenueAmenitiesRead,
+
+        /// <summary>
+        /// Allows the modification of venue amenity selections.
+        /// </summary>
+        [JsonProperty("venue/amenities:write")] VenueAmenitiesWrite,
+
+        /// <summary>
         /// Allows reading of venue availability settings.
         /// </summary>
         [JsonProperty("venue/availability-settings:read")] VenueAvailabilitySettingsRead,
@@ -1039,6 +1049,21 @@ namespace Cvent.SDK.Hooks
         /// Allows associating images with venues.
         /// </summary>
         [JsonProperty("venue/images:write")] VenueImagesWrite,
+
+        /// <summary>
+        /// Allows read access for overview of lead catchers.
+        /// </summary>
+        [JsonProperty("venue/lead-catchers-overview:read")] VenueLeadCatchersOverviewRead,
+
+        /// <summary>
+        /// Allows the deletion of lead catchers.
+        /// </summary>
+        [JsonProperty("venue/lead-catchers:delete")] VenueLeadCatchersDelete,
+
+        /// <summary>
+        /// Allows the creation and modification of lead catchers.
+        /// </summary>
+        [JsonProperty("venue/lead-catchers:write")] VenueLeadCatchersWrite,
 
         /// <summary>
         /// Allows disassociating images from meeting rooms.
@@ -2328,6 +2353,16 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("survey/surveys:read")] SurveySurveysRead,
 
         /// <summary>
+        /// Allows reading of venue amenity selections.
+        /// </summary>
+        [JsonProperty("venue/amenities:read")] VenueAmenitiesRead,
+
+        /// <summary>
+        /// Allows the modification of venue amenity selections.
+        /// </summary>
+        [JsonProperty("venue/amenities:write")] VenueAmenitiesWrite,
+
+        /// <summary>
         /// Allows reading of venue availability settings.
         /// </summary>
         [JsonProperty("venue/availability-settings:read")] VenueAvailabilitySettingsRead,
@@ -2351,6 +2386,21 @@ namespace Cvent.SDK.Hooks
         /// Allows associating images with venues.
         /// </summary>
         [JsonProperty("venue/images:write")] VenueImagesWrite,
+
+        /// <summary>
+        /// Allows read access for overview of lead catchers.
+        /// </summary>
+        [JsonProperty("venue/lead-catchers-overview:read")] VenueLeadCatchersOverviewRead,
+
+        /// <summary>
+        /// Allows the deletion of lead catchers.
+        /// </summary>
+        [JsonProperty("venue/lead-catchers:delete")] VenueLeadCatchersDelete,
+
+        /// <summary>
+        /// Allows the creation and modification of lead catchers.
+        /// </summary>
+        [JsonProperty("venue/lead-catchers:write")] VenueLeadCatchersWrite,
 
         /// <summary>
         /// Allows disassociating images from meeting rooms.

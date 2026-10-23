@@ -3,7 +3,7 @@
  */
 package com.cvent.models.callbacks.async;
 
-import com.cvent.models.components.ContactFields2;
+import com.cvent.models.components.ContactFields1;
 import com.cvent.utils.AsyncResponse;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
@@ -36,20 +36,20 @@ public class CreateContactHookContactTransactionCallbackResponse implements Asyn
      * Your server returns this structure on a successful callback with the updated values for contact
      * fields present in your system.
      */
-    private ContactFields2 contactFields;
+    private ContactFields1 contactFields1;
 
     @JsonCreator
     public CreateContactHookContactTransactionCallbackResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<Blob> rawResponse,
-            @Nullable ContactFields2 contactFields) {
+            @Nullable ContactFields1 contactFields1) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
                 .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
-        this.contactFields = contactFields;
+        this.contactFields1 = contactFields1;
     }
 
     public CreateContactHookContactTransactionCallbackResponse(
@@ -82,8 +82,8 @@ public class CreateContactHookContactTransactionCallbackResponse implements Asyn
      * Your server returns this structure on a successful callback with the updated values for contact
      * fields present in your system.
      */
-    public Optional<ContactFields2> contactFields() {
-        return Optional.ofNullable(this.contactFields);
+    public Optional<ContactFields1> contactFields1() {
+        return Optional.ofNullable(this.contactFields1);
     }
 
     public static Builder builder() {
@@ -119,9 +119,9 @@ public class CreateContactHookContactTransactionCallbackResponse implements Asyn
      * Your server returns this structure on a successful callback with the updated values for contact
      * fields present in your system.
      */
-    public CreateContactHookContactTransactionCallbackResponse withContactFields(
-            @Nullable ContactFields2 contactFields) {
-        this.contactFields = contactFields;
+    public CreateContactHookContactTransactionCallbackResponse withContactFields1(
+            @Nullable ContactFields1 contactFields1) {
+        this.contactFields1 = contactFields1;
         return this;
     }
 
@@ -138,12 +138,12 @@ public class CreateContactHookContactTransactionCallbackResponse implements Asyn
         return Utils.enhancedDeepEquals(this.contentType, other.contentType)
                 && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
                 && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
-                && Utils.enhancedDeepEquals(this.contactFields, other.contactFields);
+                && Utils.enhancedDeepEquals(this.contactFields1, other.contactFields1);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(contentType, statusCode, rawResponse, contactFields);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, contactFields1);
     }
 
     @Override
@@ -156,8 +156,8 @@ public class CreateContactHookContactTransactionCallbackResponse implements Asyn
                 statusCode,
                 "rawResponse",
                 rawResponse,
-                "contactFields",
-                contactFields);
+                "contactFields1",
+                contactFields1);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -169,7 +169,7 @@ public class CreateContactHookContactTransactionCallbackResponse implements Asyn
 
         private HttpResponse<Blob> rawResponse;
 
-        private ContactFields2 contactFields;
+        private ContactFields1 contactFields1;
 
         private Builder() {
             // force use of static builder() method
@@ -203,14 +203,14 @@ public class CreateContactHookContactTransactionCallbackResponse implements Asyn
          * Your server returns this structure on a successful callback with the updated values for contact
          * fields present in your system.
          */
-        public Builder contactFields(@Nullable ContactFields2 contactFields) {
-            this.contactFields = contactFields;
+        public Builder contactFields1(@Nullable ContactFields1 contactFields1) {
+            this.contactFields1 = contactFields1;
             return this;
         }
 
         public CreateContactHookContactTransactionCallbackResponse build() {
             return new CreateContactHookContactTransactionCallbackResponse(
-                    contentType, statusCode, rawResponse, contactFields);
+                    contentType, statusCode, rawResponse, contactFields1);
         }
     }
 }

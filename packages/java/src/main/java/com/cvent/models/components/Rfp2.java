@@ -291,9 +291,8 @@ public class Rfp2 {
     private Boolean feeTransparencyEnabled;
 
     /**
-     * DEPRECATED: Use [venueIntegrationPreference](#schema/VenueIntegrationPreference) instead. Venue
-     * integrations the planner prefers when sourcing venues. An empty array or absent field indicates no
-     * preference has been recorded.
+     * DEPRECATED: Use `venueIntegrationPreference` instead. Venue integrations the planner prefers when
+     * sourcing venues. An empty array or absent field indicates no preference has been recorded.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -329,12 +328,9 @@ public class Rfp2 {
     @JsonProperty("status")
     private RfpStatus1 status;
 
-    /**
-     * RFP types based on event requirements.
-     */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private RfpType1 type;
+    private RfpType type;
 
     /**
      * Details of the user who approved the RFP.
@@ -467,7 +463,7 @@ public class Rfp2 {
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("status") @Nullable RfpStatus1 status,
-            @JsonProperty("type") @Nullable RfpType1 type,
+            @JsonProperty("type") @Nullable RfpType type,
             @JsonProperty("approvedBy") @Nullable String approvedBy,
             @JsonProperty("approvedDateTime") @Nullable OffsetDateTime approvedDateTime,
             @JsonProperty("approved") @Nullable Boolean approved,
@@ -863,9 +859,8 @@ public class Rfp2 {
     }
 
     /**
-     * DEPRECATED: Use [venueIntegrationPreference](#schema/VenueIntegrationPreference) instead. Venue
-     * integrations the planner prefers when sourcing venues. An empty array or absent field indicates no
-     * preference has been recorded.
+     * DEPRECATED: Use `venueIntegrationPreference` instead. Venue integrations the planner prefers when
+     * sourcing venues. An empty array or absent field indicates no preference has been recorded.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -902,10 +897,7 @@ public class Rfp2 {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * RFP types based on event requirements.
-     */
-    public Optional<RfpType1> type() {
+    public Optional<RfpType> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -1301,9 +1293,8 @@ public class Rfp2 {
     }
 
     /**
-     * DEPRECATED: Use [venueIntegrationPreference](#schema/VenueIntegrationPreference) instead. Venue
-     * integrations the planner prefers when sourcing venues. An empty array or absent field indicates no
-     * preference has been recorded.
+     * DEPRECATED: Use `venueIntegrationPreference` instead. Venue integrations the planner prefers when
+     * sourcing venues. An empty array or absent field indicates no preference has been recorded.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -1345,10 +1336,7 @@ public class Rfp2 {
         return this;
     }
 
-    /**
-     * RFP types based on event requirements.
-     */
-    public Rfp2 withType(@Nullable RfpType1 type) {
+    public Rfp2 withType(@Nullable RfpType type) {
         this.type = type;
         return this;
     }
@@ -1776,7 +1764,7 @@ public class Rfp2 {
 
         private RfpStatus1 status;
 
-        private RfpType1 type;
+        private RfpType type;
 
         private String approvedBy;
 
@@ -2107,9 +2095,8 @@ public class Rfp2 {
         }
 
         /**
-         * DEPRECATED: Use [venueIntegrationPreference](#schema/VenueIntegrationPreference) instead. Venue
-         * integrations the planner prefers when sourcing venues. An empty array or absent field indicates no
-         * preference has been recorded.
+         * DEPRECATED: Use `venueIntegrationPreference` instead. Venue integrations the planner prefers when
+         * sourcing venues. An empty array or absent field indicates no preference has been recorded.
          *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
@@ -2151,10 +2138,7 @@ public class Rfp2 {
             return this;
         }
 
-        /**
-         * RFP types based on event requirements.
-         */
-        public Builder type(@Nullable RfpType1 type) {
+        public Builder type(@Nullable RfpType type) {
             this.type = type;
             return this;
         }

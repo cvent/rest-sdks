@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * AlternateTravelDetail
  *
- * <p>Details of an alternate travel answer submitted by an attendee who opted out of air or hotel
+ * <p>Details of an alternate travel answer submitted by an attendee who opted out of air, hotel, or train
  * bookings.
  */
 public class AlternateTravelDetail {
@@ -73,7 +73,10 @@ public class AlternateTravelDetail {
     private AlternateTravelDetailRequesterType requesterType;
 
     /**
-     * Type of travel alternate question
+     * Type of travel alternate question. Supported values: AirRequest = attendee requested air travel;
+     * HotelRequest = attendee requested hotel travel; AirActual = actual air travel booked; GroupFlight =
+     * group flight booking; TrainRequest = attendee requested train travel; AirAndTrainRequest = attendee
+     * did not want air or train travel and submitted an alternate response.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("travelType")
@@ -174,7 +177,10 @@ public class AlternateTravelDetail {
     }
 
     /**
-     * Type of travel alternate question
+     * Type of travel alternate question. Supported values: AirRequest = attendee requested air travel;
+     * HotelRequest = attendee requested hotel travel; AirActual = actual air travel booked; GroupFlight =
+     * group flight booking; TrainRequest = attendee requested train travel; AirAndTrainRequest = attendee
+     * did not want air or train travel and submitted an alternate response.
      */
     public Optional<TravelType> travelType() {
         return Optional.ofNullable(this.travelType);
@@ -258,7 +264,10 @@ public class AlternateTravelDetail {
     }
 
     /**
-     * Type of travel alternate question
+     * Type of travel alternate question. Supported values: AirRequest = attendee requested air travel;
+     * HotelRequest = attendee requested hotel travel; AirActual = actual air travel booked; GroupFlight =
+     * group flight booking; TrainRequest = attendee requested train travel; AirAndTrainRequest = attendee
+     * did not want air or train travel and submitted an alternate response.
      */
     public AlternateTravelDetail withTravelType(@Nullable TravelType travelType) {
         this.travelType = travelType;
@@ -430,7 +439,10 @@ public class AlternateTravelDetail {
         }
 
         /**
-         * Type of travel alternate question
+         * Type of travel alternate question. Supported values: AirRequest = attendee requested air travel;
+         * HotelRequest = attendee requested hotel travel; AirActual = actual air travel booked; GroupFlight =
+         * group flight booking; TrainRequest = attendee requested train travel; AirAndTrainRequest = attendee
+         * did not want air or train travel and submitted an alternate response.
          */
         public Builder travelType(@Nullable TravelType travelType) {
             this.travelType = travelType;

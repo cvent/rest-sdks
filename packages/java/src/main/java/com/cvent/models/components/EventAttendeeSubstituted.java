@@ -31,20 +31,20 @@ public class EventAttendeeSubstituted {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("oldContact")
-    private ContactFields1 oldContact;
+    private ContactFields oldContact;
 
     /**
      * Details of a contact.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("newContact")
-    private ContactFields1 newContact;
+    private ContactFields newContact;
 
     @JsonCreator
     public EventAttendeeSubstituted(
             @JsonProperty("event") @Nullable EventAttendeeSubstitutedEvent event,
-            @JsonProperty("oldContact") @Nullable ContactFields1 oldContact,
-            @JsonProperty("newContact") @Nullable ContactFields1 newContact) {
+            @JsonProperty("oldContact") @Nullable ContactFields oldContact,
+            @JsonProperty("newContact") @Nullable ContactFields newContact) {
         this.event = event;
         this.oldContact = oldContact;
         this.newContact = newContact;
@@ -64,14 +64,14 @@ public class EventAttendeeSubstituted {
     /**
      * Details of a contact.
      */
-    public Optional<ContactFields1> oldContact() {
+    public Optional<ContactFields> oldContact() {
         return Optional.ofNullable(this.oldContact);
     }
 
     /**
      * Details of a contact.
      */
-    public Optional<ContactFields1> newContact() {
+    public Optional<ContactFields> newContact() {
         return Optional.ofNullable(this.newContact);
     }
 
@@ -90,7 +90,7 @@ public class EventAttendeeSubstituted {
     /**
      * Details of a contact.
      */
-    public EventAttendeeSubstituted withOldContact(@Nullable ContactFields1 oldContact) {
+    public EventAttendeeSubstituted withOldContact(@Nullable ContactFields oldContact) {
         this.oldContact = oldContact;
         return this;
     }
@@ -98,7 +98,7 @@ public class EventAttendeeSubstituted {
     /**
      * Details of a contact.
      */
-    public EventAttendeeSubstituted withNewContact(@Nullable ContactFields1 newContact) {
+    public EventAttendeeSubstituted withNewContact(@Nullable ContactFields newContact) {
         this.newContact = newContact;
         return this;
     }
@@ -133,9 +133,9 @@ public class EventAttendeeSubstituted {
 
         private EventAttendeeSubstitutedEvent event;
 
-        private ContactFields1 oldContact;
+        private ContactFields oldContact;
 
-        private ContactFields1 newContact;
+        private ContactFields newContact;
 
         private Builder() {
             // force use of static builder() method
@@ -152,7 +152,7 @@ public class EventAttendeeSubstituted {
         /**
          * Details of a contact.
          */
-        public Builder oldContact(@Nullable ContactFields1 oldContact) {
+        public Builder oldContact(@Nullable ContactFields oldContact) {
             this.oldContact = oldContact;
             return this;
         }
@@ -160,7 +160,7 @@ public class EventAttendeeSubstituted {
         /**
          * Details of a contact.
          */
-        public Builder newContact(@Nullable ContactFields1 newContact) {
+        public Builder newContact(@Nullable ContactFields newContact) {
             this.newContact = newContact;
             return this;
         }

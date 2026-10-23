@@ -48,10 +48,7 @@ import {
   BannerLinkTarget,
   BannerLinkTarget$inboundSchema,
 } from "./bannerlinktarget.js";
-import {
-  ContactFields1,
-  ContactFields1$inboundSchema,
-} from "./contactfields1.js";
+import { ContactFields, ContactFields$inboundSchema } from "./contactfields.js";
 import { Exhibitor1, Exhibitor1$inboundSchema } from "./exhibitor1.js";
 import { LeadObject, LeadObject$inboundSchema } from "./leadobject.js";
 import {
@@ -1084,11 +1081,11 @@ export type EventAttendeeSubstituted = {
   /**
    * Details of a contact.
    */
-  oldContact?: ContactFields1 | undefined;
+  oldContact?: ContactFields | undefined;
   /**
    * Details of a contact.
    */
-  newContact?: ContactFields1 | undefined;
+  newContact?: ContactFields | undefined;
 };
 
 /**
@@ -2697,8 +2694,8 @@ export const EventAttendeeSubstituted$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   event: z.lazy(() => EventAttendeeSubstitutedEvent$inboundSchema).optional(),
-  oldContact: ContactFields1$inboundSchema.optional(),
-  newContact: ContactFields1$inboundSchema.optional(),
+  oldContact: ContactFields$inboundSchema.optional(),
+  newContact: ContactFields$inboundSchema.optional(),
 });
 
 export function eventAttendeeSubstitutedFromJSON(

@@ -54,7 +54,7 @@ public class GetHousingEventHotelAvailabilityRequest {
     private String filter;
 
     /**
-     * Limit to this number of search results. Maximum of 50, default of 10.
+     * Limit to this number of search results. Maximum of 200, default of 10.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=limit")
     private Long limit;
@@ -122,7 +122,7 @@ public class GetHousingEventHotelAvailabilityRequest {
     }
 
     /**
-     * Limit to this number of search results. Maximum of 50, default of 10.
+     * Limit to this number of search results. Maximum of 200, default of 10.
      */
     public Optional<Long> limit() {
         return Optional.ofNullable(this.limit);
@@ -185,7 +185,7 @@ public class GetHousingEventHotelAvailabilityRequest {
     }
 
     /**
-     * Limit to this number of search results. Maximum of 50, default of 10.
+     * Limit to this number of search results. Maximum of 200, default of 10.
      */
     public GetHousingEventHotelAvailabilityRequest withLimit(@Nullable Long limit) {
         this.limit = limit;
@@ -300,7 +300,7 @@ public class GetHousingEventHotelAvailabilityRequest {
         }
 
         /**
-         * Limit to this number of search results. Maximum of 50, default of 10.
+         * Limit to this number of search results. Maximum of 200, default of 10.
          */
         public Builder limit(@Nullable Long limit) {
             this.limit = limit;

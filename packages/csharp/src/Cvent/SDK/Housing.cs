@@ -36,7 +36,9 @@ namespace Cvent.SDK
     /// * **Housing Event.** An Passkey event where invitees will be able to register and book rooms.<br/>
     /// * **Reservation Request.** Represents a request to book rooms in the housing event.<br/>
     /// * **RegLink.** A feature that links Passkey events to your registration events, enabling you to sync data between the two events.<br/>
-    /// * **Callback.** <a href="https://developers.cvent.com/docs/passkey/REST/callbacks">Passkey's callback system</a> allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.
+    /// * **Callback.** <a href="https://developers.cvent.com/docs/passkey/REST/callbacks">Passkey's callback system</a> allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.<br/>
+    /// <br/>
+    /// &gt; Passkey Housing APIs only support the NA base URL. Calls to the EU base URL will return an error.
     /// </summary>
     public interface IHousing
     {
@@ -520,7 +522,9 @@ namespace Cvent.SDK
     /// * **Housing Event.** An Passkey event where invitees will be able to register and book rooms.<br/>
     /// * **Reservation Request.** Represents a request to book rooms in the housing event.<br/>
     /// * **RegLink.** A feature that links Passkey events to your registration events, enabling you to sync data between the two events.<br/>
-    /// * **Callback.** <a href="https://developers.cvent.com/docs/passkey/REST/callbacks">Passkey's callback system</a> allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.
+    /// * **Callback.** <a href="https://developers.cvent.com/docs/passkey/REST/callbacks">Passkey's callback system</a> allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.<br/>
+    /// <br/>
+    /// &gt; Passkey Housing APIs only support the NA base URL. Calls to the EU base URL will return an error.
     /// </summary>
     public class Housing : IHousing
     {

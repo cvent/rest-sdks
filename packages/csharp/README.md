@@ -778,6 +778,8 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 
 ### [VenueContent](docs/sdks/venuecontent/README.md)
 
+* [GetVenueAmenities](docs/sdks/venuecontent/README.md#getvenueamenities) - Get Venue Amenities
+* [UpdateVenueAmenities](docs/sdks/venuecontent/README.md#updatevenueamenities) - Update Venue Amenities
 * [ListVenueAttractions](docs/sdks/venuecontent/README.md#listvenueattractions) - List Venue Attractions
 * [CreateVenueAttraction](docs/sdks/venuecontent/README.md#createvenueattraction) - Create Venue Attraction
 * [GetVenueAttraction](docs/sdks/venuecontent/README.md#getvenueattraction) - Get Venue Attraction
@@ -792,6 +794,15 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [GetVenueImageMetadata](docs/sdks/venuecontent/README.md#getvenueimagemetadata) - Get Venue Image Metadata
 * [AssociateVenueImage](docs/sdks/venuecontent/README.md#associatevenueimage) - Associate Venue Image
 * [DisassociateVenueImage](docs/sdks/venuecontent/README.md#disassociatevenueimage) - Remove Venue Image
+
+### [VenueLeads](docs/sdks/venueleads/README.md)
+
+* [CreateLeadCatcher](docs/sdks/venueleads/README.md#createleadcatcher) - Create Lead Catcher
+* [ListLeadCatchersOverview](docs/sdks/venueleads/README.md#listleadcatchersoverview) - List Lead Catchers Overview
+* [UpdateLeadCatcher](docs/sdks/venueleads/README.md#updateleadcatcher) - Update Lead Catcher
+* [PatchLeadCatcher](docs/sdks/venueleads/README.md#patchleadcatcher) - Patch Lead Catcher
+* [DeleteLeadCatcher](docs/sdks/venueleads/README.md#deleteleadcatcher) - Delete Lead Catcher
+* [GetLeadCatcherOverview](docs/sdks/venueleads/README.md#getleadcatcheroverview) - Get Lead Catcher Overview
 
 ### [VenueMeetingRooms](docs/sdks/venuemeetingrooms/README.md)
 
@@ -1058,10 +1069,10 @@ catch (System.Net.Http.HttpRequestException ex)
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs):
-  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 18 of 499 methods.*
-  * [`ErrorResponse17`](./src/Cvent/SDK/Models/Errors/ErrorResponse17.cs): The error response. Applicable to 11 of 499 methods.*
-  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 499 methods.*
-  * [`Oauth2TokenPostResponse0Exception`](./src/Cvent/SDK/Models/Errors/Oauth2TokenPostResponse0Exception.cs): A bad token response. Status code `400`. Applicable to 1 of 499 methods.*
+  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 18 of 507 methods.*
+  * [`ErrorResponse17`](./src/Cvent/SDK/Models/Errors/ErrorResponse17.cs): The error response. Applicable to 11 of 507 methods.*
+  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 507 methods.*
+  * [`Oauth2TokenPostResponse0Exception`](./src/Cvent/SDK/Models/Errors/Oauth2TokenPostResponse0Exception.cs): A bad token response. Status code `400`. Applicable to 1 of 507 methods.*
   * [`ResponseValidationError`](./src/Cvent/SDK/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
 </details>
 

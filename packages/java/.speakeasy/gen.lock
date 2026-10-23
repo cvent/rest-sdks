@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 795b0bc6-b124-44d6-a714-d4fdbc56212b
 management:
-  docChecksum: 1fd9ebcd59841afef8d06776d975d698
+  docChecksum: 983d33abba527021aab132eb1ac91964
   docVersion: ea
   speakeasyVersion: 1.752.0
   generationVersion: 2.859.2
-  releaseVersion: 1.6.5
-  configChecksum: 13c49748b11983b6e3f2a36dbb7526ab
+  releaseVersion: 1.6.6
+  configChecksum: bcc176bcfdd4825226c21c404a5c05ae
   published: true
 persistentEdits:
   generation_id: 6ad3309a-d2a1-4e74-a3ae-065e16d1999e
@@ -48,7 +48,7 @@ trackedFiles:
     pristine_git_object: 3c184430a0dc1eb082258669b43407069bb80acc
   docs/models/callbacks/CreateContactHookContactTransactionCallbackResponse.md:
     id: 86a67b0330fd
-    last_write_checksum: sha1:de343692dc7215ce1d9072068b7eebe184dd5171
+    last_write_checksum: sha1:2e275f3e6c6a1d1d63e9d1e5f809e622606b86f3
     pristine_git_object: 1153e1927834a2ad63c4d8b05aae2000005bbc5a
   ? docs/models/components/AGeneralLedgerCodeUsedToCategorizeFinancialDataWhichHelpsBusinessesAnalyzeAndReportOnTheirFinancialActivity.md
   : last_write_checksum: sha1:73094dcd78ec6dd6f7ca1ecb5d161d4d0ecce0fb
@@ -263,7 +263,7 @@ trackedFiles:
   docs/models/components/AlternateQuestion.md:
     last_write_checksum: sha1:2b90d13aec59ba99cae358afaac2fd009d2ee54c
   docs/models/components/AlternateTravelDetail.md:
-    last_write_checksum: sha1:07f980a382233131a6adc1b18923fdb16c37decb
+    last_write_checksum: sha1:15661d42da0b0992a84d777b828034f129f48ebb
   docs/models/components/AlternateTravelDetailRequesterType.md:
     last_write_checksum: sha1:d59bd8e4748b2845bbdb8ac9f78d560a1d6b4761
   docs/models/components/AlternateTravelPaginatedResponse.md:
@@ -614,7 +614,7 @@ trackedFiles:
     last_write_checksum: sha1:03db47f71fc8fdb6dcb327641505299bdb006a2d
   docs/models/components/AttendeeUpdate.md:
     id: c068d0e3e7d9
-    last_write_checksum: sha1:4cdf5e8ea6aa50609e99e7bf156650f1012d066d
+    last_write_checksum: sha1:35054e0e35ea21b1803a1aae56adfde2eb80cdb7
     pristine_git_object: 49a77cb3abde0eba287e615c65ac0ec8c299b4ba
   docs/models/components/AttendeeUpdateAdministrator.md:
     id: a6879cbc9e1c
@@ -641,7 +641,7 @@ trackedFiles:
     last_write_checksum: sha1:a0bc4a7d0f234144a8c063d9de3b1b415ac57813
     pristine_git_object: bf996c5960627c19abad4b04c1f0360ae76bf250
   docs/models/components/AttendeeUpdateStatus.md:
-    last_write_checksum: sha1:b4ea5aedfc0dc1010ac3c216c3132f0e317d26b8
+    last_write_checksum: sha1:af23e7eaaf4bb102a5a7b4eb371bc915cbfb224d
   docs/models/components/AttendeeVisibility.md:
     last_write_checksum: sha1:c40d82f40f9a01e65b5f2d17c6206bfa481db4bb
   docs/models/components/AttendeeWebLinks.md:
@@ -1220,10 +1220,10 @@ trackedFiles:
     last_write_checksum: sha1:9f930d8b19c3b0264649543802d935e388889456
   docs/models/components/ContactFieldType.md:
     last_write_checksum: sha1:4fe1024d4d1bf817207a74661291aefa3bd7ba9c
+  docs/models/components/ContactFields.md:
+    last_write_checksum: sha1:53282d09e5b34384f3b41310d9e7da581aa71463
   docs/models/components/ContactFields1.md:
-    last_write_checksum: sha1:4aebc3649362ef458fcd3e5f1498bcce73e3c97b
-  docs/models/components/ContactFields2.md:
-    last_write_checksum: sha1:7836506fa2349629a8ab24701b96d1bcf907c7cb
+    last_write_checksum: sha1:def70d65eb6bfff587a246e7b0db5a21bfbaa0fe
   docs/models/components/ContactFile.md:
     id: 5daad8d23ed6
     last_write_checksum: sha1:34c421432bddbdcf8cc356437d085937b6236b7c
@@ -1708,7 +1708,7 @@ trackedFiles:
     pristine_git_object: 00f69e6c04b89e72d3f6204b2c4ccb59139f962a
   docs/models/components/EventAttendeeSubstituted.md:
     id: 467f6db55647
-    last_write_checksum: sha1:cb6b9cb82773762c2610c62b4b71ee6b601948b2
+    last_write_checksum: sha1:724b1c006d8f52ec2be09580b5413889797b3071
     pristine_git_object: 94ed095885194a2a66e283e2f82f14e2a31248a4
   docs/models/components/EventAttendeeSubstitutedEvent.md:
     last_write_checksum: sha1:4696bef5a781addc4ea438fad227fb75efe01572
@@ -2188,6 +2188,10 @@ trackedFiles:
     id: 048645617f7b
     last_write_checksum: sha1:c68787ed67991db4a4b3e9adcc393ca325758fe0
     pristine_git_object: 6f8eb6fecec29c8d93930af6ce145a21e2af1fbc
+  docs/models/components/ExistingLeadCatcher.md:
+    last_write_checksum: sha1:2806a52609dddd1261b4deb11acdc3a17a058ca3
+  docs/models/components/ExistingLeadCatcherInput.md:
+    last_write_checksum: sha1:06a3badfe648595e55183dca29e993f65a800850
   docs/models/components/ExistingMeetingRoom.md:
     last_write_checksum: sha1:97ad8739f64cde397a0a47f75a793d9f961bb96d
   docs/models/components/ExistingMeetingRoomDimensions.md:
@@ -2266,6 +2270,10 @@ trackedFiles:
     id: 4c227c7b4073
     last_write_checksum: sha1:09e2d2c78077885e0be5bb2c864a09853d3fe476
     pristine_git_object: d190a1376d1a9f4516b9893669f84a06288bd926
+  docs/models/components/ExistingVenueAmenities.md:
+    last_write_checksum: sha1:3bc0e46d145e43076687e323e24c3619233d8d6e
+  docs/models/components/ExistingVenueAmenitiesInput.md:
+    last_write_checksum: sha1:474e4302af5bf61c99e1b0dfaf27462005f97fe1
   docs/models/components/ExistingVenueAttraction.md:
     last_write_checksum: sha1:a759b1dd0bf8e083c6d4ec0bd6d8d4f52cc4489a
   docs/models/components/ExistingVenueAvailabilitySettings.md:
@@ -2503,7 +2511,7 @@ trackedFiles:
   docs/models/components/GuestRoomOccupancy.md:
     last_write_checksum: sha1:810b439ea2bf4c0fad3122f85a474f6c61228231
   docs/models/components/GuestRoomOccupancyPerRoomType.md:
-    last_write_checksum: sha1:8e170e6f101df00486354a224f299f31fe8d1968
+    last_write_checksum: sha1:ff3fa71d58e9a57f3a98dee9838d329afa609463
   docs/models/components/GuestRoomType.md:
     last_write_checksum: sha1:a91149eab6fff4c6c6b778d4bdcfbdbf62029656
   docs/models/components/HlsInputWithClips.md:
@@ -2688,6 +2696,30 @@ trackedFiles:
     last_write_checksum: sha1:be7915135de031ad99ab3f6572623549fc6ab7f7
   docs/models/components/Lead2.md:
     last_write_checksum: sha1:2f0955a9a0e98e97c5ddc550514dfeab7ef6a5de
+  docs/models/components/LeadCatcher.md:
+    last_write_checksum: sha1:2d5c608b655747d4d12c2edf2ba6b7945dceac41
+  docs/models/components/LeadCatcherAddress.md:
+    last_write_checksum: sha1:46f2227ef47e8d398b0e0248190f28c3faaa8c28
+  docs/models/components/LeadCatcherAddressCountry.md:
+    last_write_checksum: sha1:8d979f9fa5b69bb2e1ded8894e3d27c6c9d02ba5
+  docs/models/components/LeadCatcherAddressPatch.md:
+    last_write_checksum: sha1:6bbeef695fba7605e97c27bac84a6d95dc0f33eb
+  docs/models/components/LeadCatcherAddressStateProvince.md:
+    last_write_checksum: sha1:dba71beffa3522eb2be33206863c8c7d548f6f45
+  docs/models/components/LeadCatcherConfig.md:
+    last_write_checksum: sha1:0c01817f3d76a4d38c4d129315febd36e71ea792
+  docs/models/components/LeadCatcherConfigPatch.md:
+    last_write_checksum: sha1:1c435b6ed1bb4c5fd39d9e3fd7054093e29b839d
+  docs/models/components/LeadCatcherOverview.md:
+    last_write_checksum: sha1:17af183b5db116519b220659da915d1e04edacdc
+  docs/models/components/LeadCatcherPatch.md:
+    last_write_checksum: sha1:bc8b4c4572dac32697bedc3fd1e619c52a4ed78a
+  docs/models/components/LeadCatcherPatchCountry.md:
+    last_write_checksum: sha1:39bdbbf8d9770ebcf2ca131a2d8f1dd26d8ad451
+  docs/models/components/LeadCatcherPatchStateProvince.md:
+    last_write_checksum: sha1:4296f6f11d6ee7fd11d09ee2c8b373d393901d74
+  docs/models/components/LeadCatchersOverviewResponse.md:
+    last_write_checksum: sha1:a11ad04ef3225904bcb0291720723054e922bfb9
   docs/models/components/LeadInboundCreated.md:
     id: 175878a88e9f
     last_write_checksum: sha1:35a483cdcbbcd155eb164e706dcc8ba0ca58cd23
@@ -2752,6 +2784,8 @@ trackedFiles:
     last_write_checksum: sha1:6dcf7e529876a9c84c40e3468e0d882160fff992
   docs/models/components/LiveStreamStatus.md:
     last_write_checksum: sha1:38169b8d502ec8bce2a0f0f905b18ab96639f5aa
+  docs/models/components/LocaleLanguageVariant.md:
+    last_write_checksum: sha1:32909b286caa8b995bcba4bcd01c585fbca8af39
   docs/models/components/Location1.md:
     last_write_checksum: sha1:5f4e3d94abaf12a14dbed4f34b8c9218dcc99acd
   docs/models/components/Location1Input.md:
@@ -3340,13 +3374,17 @@ trackedFiles:
     last_write_checksum: sha1:4bff7ea5b67a00b00a2f47bb8a265ddfba534045
   docs/models/components/QuestionTypeJson.md:
     last_write_checksum: sha1:534dbcc02a8a10e048f9e75072bfde11f1a31fe6
+  docs/models/components/QuestionWithProgramId.md:
+    last_write_checksum: sha1:9ee56898b87af8ba0bf799d1360096e35826f1f4
+  docs/models/components/QuestionWithProgramIdTravelProgram.md:
+    last_write_checksum: sha1:f7ba5b46c35225d23e8f58b1f1872a2753ca6aa7
   docs/models/components/QuestionsPaginatedResponse.md:
     id: 100d16fb36c0
     last_write_checksum: sha1:f5f0ba4e8785fdd5648363c2df2587140887d8d2
     pristine_git_object: aec6f581339bf0b4b09c055dedec226ccaadf599
   docs/models/components/QuestionsPaginatedResponse1.md:
     id: 0bcad2d6eb9b
-    last_write_checksum: sha1:66658b2b3582fc7eaebbbb50d6062f3bfc347468
+    last_write_checksum: sha1:747dfb226e2a7b1ca94fdf1c85cff6679b66c966
     pristine_git_object: 2b43e0b5cf8ee30688b95da9997087de755d6d54
   docs/models/components/Rate.md:
     id: 86399c41611a
@@ -3567,7 +3605,7 @@ trackedFiles:
   docs/models/components/Rfp1.md:
     last_write_checksum: sha1:4c0baaaad49ea9c767b0276539ded177e84609ba
   docs/models/components/Rfp2.md:
-    last_write_checksum: sha1:61660164d92f82e16bdb39680f81ccc8b62d358b
+    last_write_checksum: sha1:afb4e33b94db93323aeb0827e9716cdea0ee5db1
   docs/models/components/RfpAgendaItem.md:
     last_write_checksum: sha1:26ba09ce5549716a4821e86a08527e05bd5a0a1b
   docs/models/components/RfpAgendaItemSchedule.md:
@@ -3599,7 +3637,7 @@ trackedFiles:
   docs/models/components/RfpPastEvents.md:
     last_write_checksum: sha1:63af947d05b51955320a9f4895d5357606bebedb
   docs/models/components/RfpQuestion.md:
-    last_write_checksum: sha1:baf9035cd00c7b51a489feceba783d29af2200ac
+    last_write_checksum: sha1:56d2ea6c33eead8606943f4864ed07e62210c16e
   docs/models/components/RfpRecipientLogEntry.md:
     last_write_checksum: sha1:d8936632838afcfc12625aefecfff5f2492ab193
   docs/models/components/RfpRecipientLogEntryMessage.md:
@@ -3618,8 +3656,8 @@ trackedFiles:
     last_write_checksum: sha1:15348ef241df079f0c4f3976482a87930a829260
   docs/models/components/RfpSupplierStatus.md:
     last_write_checksum: sha1:0fe1d3eee0400da589f8c6ce6074a98f498841ae
-  docs/models/components/RfpType1.md:
-    last_write_checksum: sha1:e3fa03d4a534b963d489dacdc4f4b4d0e291c3f1
+  docs/models/components/RfpType.md:
+    last_write_checksum: sha1:f3222534906275f559ce32186cddfaae9431e43c
   docs/models/components/RoomAttendeeType.md:
     last_write_checksum: sha1:71916f0d6d257f0467cfb7ef11ac0c19448d1525
   docs/models/components/RoomBedType1.md:
@@ -4366,7 +4404,7 @@ trackedFiles:
     pristine_git_object: e41e031f58aaa620128cd04ed305baadae5a889d
   docs/models/components/TravelProgram.md:
     id: acffaed7143a
-    last_write_checksum: sha1:1ceec9df7d5d001970e1f809da6f7ed374788c4d
+    last_write_checksum: sha1:d9b367cb5292b0efa860a517fc38bf5fe4a94f7e
     pristine_git_object: 2aab5d4dba0b08da2afe7fa0951477889fb7de6e
   docs/models/components/TravelProgramFormatType.md:
     last_write_checksum: sha1:091ee6881c05a94ffd11589afd176ef21a164d53
@@ -4375,11 +4413,7 @@ trackedFiles:
     last_write_checksum: sha1:82f6732d23b243037e527710d1c8991b0bd910b3
     pristine_git_object: b15e32f9ac2a5e7a1ec8033c410b56bf8139d7e3
   docs/models/components/TravelProgramQuestion.md:
-    last_write_checksum: sha1:c2b52a4da09bd3d17ff0ed27c68097b4899290b4
-  docs/models/components/TravelProgramQuestion1.md:
-    last_write_checksum: sha1:d32f9f573c1ea6b164ed05135761458688b6520a
-  docs/models/components/TravelProgramQuestionTravelProgram.md:
-    last_write_checksum: sha1:233b2248c4fe9e9f523b7703fcba5ef55814b256
+    last_write_checksum: sha1:70e5000a2aedd7321057915350ff0bef0eabff6d
   docs/models/components/TravelProgramStatus.md:
     last_write_checksum: sha1:52258367b451115bfd1724f8c00dec4271373c3b
   docs/models/components/TravelProgramStayType.md:
@@ -4445,7 +4479,7 @@ trackedFiles:
   docs/models/components/TravelRequestStatus.md:
     last_write_checksum: sha1:fc5ba2b5872faaf1706227762fe72ea5628b63a2
   docs/models/components/TravelType.md:
-    last_write_checksum: sha1:1af5fe66235b4764463a5dd247666be599c93348
+    last_write_checksum: sha1:9f4c09225a2bae9d74065aabac077f2eb0dc01aa
   docs/models/components/TypeAllOf.md:
     last_write_checksum: sha1:a74ecc880b17573347c4a99dbc6f22962249dede
   docs/models/components/TypeInput.md:
@@ -4532,6 +4566,36 @@ trackedFiles:
     id: cdd69e146983
     last_write_checksum: sha1:a94031d7c05f1c24c4b452fe9f08989e56a1e7a9
     pristine_git_object: e80f41f65752e28de11bca183acd4b9d1fa97e0b
+  docs/models/components/VenueAmenityAVCapability.md:
+    last_write_checksum: sha1:d2e7a341c5f99f54a3b50ae2cf1be02ddcfa04ff
+  docs/models/components/VenueAmenityAlcohol.md:
+    last_write_checksum: sha1:2da0bf5c711d8682136319c97c7b939bd2ce7743
+  docs/models/components/VenueAmenityAvCapabilityItem.md:
+    last_write_checksum: sha1:8c678ea8d3d06233371bfa84cb65e2eb8bdb596e
+  docs/models/components/VenueAmenityBusinessService.md:
+    last_write_checksum: sha1:acf063b89e35fc5d8e6f8751a5a2b65034da679c
+  docs/models/components/VenueAmenityCateringDetail.md:
+    last_write_checksum: sha1:45105ff39907dc38682504e89747fc5aca0895ac
+  docs/models/components/VenueAmenityEquipment.md:
+    last_write_checksum: sha1:98f84f072be8c8131503345641aeb95a502423d3
+  docs/models/components/VenueAmenityFacilityInfo.md:
+    last_write_checksum: sha1:8d2d03c40940e10449297308f866a9ff10496a27
+  docs/models/components/VenueAmenityFacilitySpace.md:
+    last_write_checksum: sha1:5fa25d420c6a42cd505dfa7a2bdc2b9f1c0b2fd9
+  docs/models/components/VenueAmenityFacilitySpaceItem.md:
+    last_write_checksum: sha1:51964c1e07267185d1e838edf3bd28691ab67356
+  docs/models/components/VenueAmenityParking.md:
+    last_write_checksum: sha1:309b294bc75a04db6b10dce7ac443cab0c7c214b
+  docs/models/components/VenueAmenityParkingItem.md:
+    last_write_checksum: sha1:99d2396e0000c090e8ea3182c46b648faed2ca7f
+  docs/models/components/VenueAmenityProvisionPolicy.md:
+    last_write_checksum: sha1:b95a0af7b95d698cdbdd61633844d52ee0d4150d
+  docs/models/components/VenueAmenityRecreationalActivity.md:
+    last_write_checksum: sha1:90d0d661ae01897957c38b1cfc33ece0f6f60e3e
+  docs/models/components/VenueAmenityRoomFeature.md:
+    last_write_checksum: sha1:7a915211129740a532a4c348b04517d501de2e62
+  docs/models/components/VenueAmenityTransportation.md:
+    last_write_checksum: sha1:862e0c22bd14a7599ad15017433a998c69923641
   docs/models/components/VenueAttraction.md:
     last_write_checksum: sha1:f1decf7e675cc491a83db8e714e6ffb4a0c1ce4f
   docs/models/components/VenueAttractionType.md:
@@ -5108,6 +5172,10 @@ trackedFiles:
     id: e7f8b813bb84
     last_write_checksum: sha1:535c982cb8dfc956dcaab8f6a64137b3afcf2536
     pristine_git_object: 2d9473d706966d4aa6abfdc2f725e62e6d5c0436
+  docs/models/operations/CreateLeadCatcherRequest.md:
+    last_write_checksum: sha1:993dceac9f57b5e635ff90fd196690a67594165e
+  docs/models/operations/CreateLeadCatcherResponse.md:
+    last_write_checksum: sha1:af493d2f6ab9b0ee6b97e5b8e3a7a8365a8f975d
   docs/models/operations/CreateMeetingRequestRequest.md:
     id: 9eb9049f75ad
     last_write_checksum: sha1:918dba5202bc7e7c6f388c67408d1c5cd0236130
@@ -5376,6 +5444,10 @@ trackedFiles:
     id: 8be0631c2963
     last_write_checksum: sha1:3db6135dbdca9de48b5684c2743faf7edcaec4a5
     pristine_git_object: 9ec697e0ecc4d20757fe95cc718324d19b310499
+  docs/models/operations/DeleteLeadCatcherRequest.md:
+    last_write_checksum: sha1:cb1ea669a35aa78f0d56aeb324eef015e0d1ef8e
+  docs/models/operations/DeleteLeadCatcherResponse.md:
+    last_write_checksum: sha1:59825bb4e361cd4c7b9b8af140cad96a2f3f7814
   docs/models/operations/DeletePaymentRequest.md:
     id: ff40e1bb5c30
     last_write_checksum: sha1:cb2dc52ac6781604461c986b156bfee15f1baf95
@@ -6178,7 +6250,7 @@ trackedFiles:
     pristine_git_object: 07c41a9f4e3c2fee48757b7cd756a375fe59ca37
   docs/models/operations/GetHousingEventHotelAvailabilityRequest.md:
     id: d72d82a681e8
-    last_write_checksum: sha1:4b94bc4ea1e45f72767dc75ae7d57efb98265595
+    last_write_checksum: sha1:5d8eb02a73265e7954a2269e748168e654591b7d
     pristine_git_object: d1f181330b81efc7a0aa62f999cdbd30590d3ba2
   docs/models/operations/GetHousingEventHotelAvailabilityResponse.md:
     id: 26f273c0695c
@@ -6272,6 +6344,10 @@ trackedFiles:
     id: 14233ad963ad
     last_write_checksum: sha1:89500e5020208e6ce7d2488eb0d1e73f4845e9c5
     pristine_git_object: 410aae8951936194ce97a8cfc52b0c518cb41082
+  docs/models/operations/GetLeadCatcherOverviewRequest.md:
+    last_write_checksum: sha1:230374f4b5c129bd41cf7eb1f0393ee74b5fc669
+  docs/models/operations/GetLeadCatcherOverviewResponse.md:
+    last_write_checksum: sha1:4303f5bf1c83fbfbcf829ebbfdb50224c2fca1ee
   docs/models/operations/GetLeadQualificationAnswersRequest.md:
     id: 2e250b06055d
     last_write_checksum: sha1:dffdeb2929cddcad401e03a5cf59e31d99b7e9bf
@@ -6772,6 +6848,10 @@ trackedFiles:
     id: 73c5093259ee
     last_write_checksum: sha1:eead479ff94d4e98d723f9f966949e5659c4c2d4
     pristine_git_object: 4535e7cd63696b4c2191ad3f28f0d5cba2bfe6f1
+  docs/models/operations/GetVenueAmenitiesRequest.md:
+    last_write_checksum: sha1:d013445df055e3fe97d7353bb79f28d27f47463a
+  docs/models/operations/GetVenueAmenitiesResponse.md:
+    last_write_checksum: sha1:c19f36fd9ddfd203f1b49d1effd123433374c99f
   docs/models/operations/GetVenueAttractionRequest.md:
     last_write_checksum: sha1:2cf7b68c7236ff289b8bea89f536b79f355df3c0
   docs/models/operations/GetVenueAttractionResponse.md:
@@ -6922,7 +7002,7 @@ trackedFiles:
     pristine_git_object: 3dc05a439c99e277d9531c9d0bc5b2475cebd153
   docs/models/operations/ListAttendeesPostFilterRequest.md:
     id: 8696b0965ec5
-    last_write_checksum: sha1:4e9e904b329fcf76a5c49b47220fe8693b8fa69e
+    last_write_checksum: sha1:e8a36eea0b8943695f79f09428b1d9f01f00e286
     pristine_git_object: fcda6832e39d9a8411ecd541ce51d40d5c1c3381
   docs/models/operations/ListAttendeesPostFilterResponse.md:
     id: f71d754774d0
@@ -7188,6 +7268,10 @@ trackedFiles:
     id: 231498e9654e
     last_write_checksum: sha1:df28f5b216e6460480e0fa1a125f051898ebcf35
     pristine_git_object: d83a30029cf343d671c74f4b69d462649f1cff5e
+  docs/models/operations/ListLeadCatchersOverviewRequest.md:
+    last_write_checksum: sha1:ee5fab6ab7867ae32fc63cd17f7a6ef028871bcb
+  docs/models/operations/ListLeadCatchersOverviewResponse.md:
+    last_write_checksum: sha1:5ef3c6d64a6098878afae71e5b80d5ce48926842
   docs/models/operations/ListLocationsRequest.md:
     id: a4a3943c8968
     last_write_checksum: sha1:f53291dd7b5ede6c75e02553fbfb17a28d71b9f6
@@ -7660,6 +7744,10 @@ trackedFiles:
     id: 3584066a7531
     last_write_checksum: sha1:5877d6d07b88316a69e18c7f01f4ea2883839f2a
     pristine_git_object: 79de3fbc2905699c48bb3b90eabca96e1e38a1aa
+  docs/models/operations/PatchLeadCatcherRequest.md:
+    last_write_checksum: sha1:567ee0ac2dec9139f6bb0f98b910912c19d2c6f2
+  docs/models/operations/PatchLeadCatcherResponse.md:
+    last_write_checksum: sha1:9a46fe3fa34caf77f8145fefbfd83a332a5d0d60
   docs/models/operations/PatchMeetingRoomRequest.md:
     last_write_checksum: sha1:c5dab269c13e3e685afa8884f60770436dfefe0e
   docs/models/operations/PatchMeetingRoomResponse.md:
@@ -8120,6 +8208,10 @@ trackedFiles:
     id: a1e640c9df5a
     last_write_checksum: sha1:62e64b86eccd105b26f7e21b2c56b5894beb4269
     pristine_git_object: c81cc1e1e691500cb19dbd716b65b48b502ab34a
+  docs/models/operations/UpdateLeadCatcherRequest.md:
+    last_write_checksum: sha1:f57f99996ae0e747b2bfd7e3eff43448f50a9eef
+  docs/models/operations/UpdateLeadCatcherResponse.md:
+    last_write_checksum: sha1:511c1f5288e4720562af30e7c5cea555f8f0d217
   docs/models/operations/UpdateMeetingRequestRequest.md:
     id: ba1846b789d5
     last_write_checksum: sha1:35e85b23fdd8e3cbcb27a67696acb599b29ca05d
@@ -8252,6 +8344,10 @@ trackedFiles:
     id: 54a64b6a8f40
     last_write_checksum: sha1:bbe2c40368dd78491cd35bfa61a5040a98d40a0c
     pristine_git_object: 003025c20251b8e7ba650af0c1c1989d3d50cec2
+  docs/models/operations/UpdateVenueAmenitiesRequest.md:
+    last_write_checksum: sha1:012ed7d649b12de88cfb58c27a957c236c2f0239
+  docs/models/operations/UpdateVenueAmenitiesResponse.md:
+    last_write_checksum: sha1:5d3ed5b9a5a25d7616b8c0f2e495b33750c72f55
   docs/models/operations/UpdateVenueAttractionRequest.md:
     last_write_checksum: sha1:897ee963f403b5f4cfaaf414779203a8680c4093
   docs/models/operations/UpdateVenueAttractionResponse.md:
@@ -8322,7 +8418,7 @@ trackedFiles:
     pristine_git_object: 704005d199d199defd2dbf54d34ee99a49527bce
   docs/sdks/attendees/README.md:
     id: 99bffbf21091
-    last_write_checksum: sha1:70269810da5de63d1ab96f680589429d674ae6ee
+    last_write_checksum: sha1:531b49eee48084f82ae18b6aa83a1d78d937b19f
     pristine_git_object: 51133187a510f849cafd047132648b314d92466c
   docs/sdks/audiencesegments/README.md:
     id: a2ccf2d6ee02
@@ -8398,7 +8494,7 @@ trackedFiles:
     pristine_git_object: a6f80ee31943c75ef4e9ad93d49f689509712ecb
   docs/sdks/eventtravel/README.md:
     id: d7533cadf8e6
-    last_write_checksum: sha1:067d5fe8788cc75239ca425392af456911ad1f5e
+    last_write_checksum: sha1:0c8afbcde15425a2f0ceb2520d40d2b69ceaa246
     pristine_git_object: eede402a85e1da20c1034fe85358d6075234a769
   docs/sdks/exhibitor/README.md:
     id: cb0578099210
@@ -8422,7 +8518,7 @@ trackedFiles:
     pristine_git_object: 64614977cacbd8d9340bd37af4b21d6e245bfc14
   docs/sdks/housing/README.md:
     id: 23d65d817ab8
-    last_write_checksum: sha1:17605bbb6dfd6822ff244edd844e26056e99695a
+    last_write_checksum: sha1:a6725496f8c01e739f06aa619d3a867a64c4d899
     pristine_git_object: 4211bb0d355200b83a1e58a261371acf7a12452d
   docs/sdks/housinghotels/README.md:
     id: d04ff5412c59
@@ -8503,7 +8599,9 @@ trackedFiles:
   docs/sdks/venueavailability/README.md:
     last_write_checksum: sha1:3d4cb53827800b34f2265953bf7c821270c65673
   docs/sdks/venuecontent/README.md:
-    last_write_checksum: sha1:4e26de1d1608729990e206fc3664f2e13bc6950e
+    last_write_checksum: sha1:330685e5181b7f77f0a1d77f8595403147244a97
+  docs/sdks/venueleads/README.md:
+    last_write_checksum: sha1:969815a18f89ce2469c3fc89b0405e80215a2651
   docs/sdks/venuemeetingrooms/README.md:
     last_write_checksum: sha1:87e99c3b1740e8a98ec1a3a1fc22f7838c50cc7e
   docs/sdks/venueprofiles/README.md:
@@ -8522,7 +8620,7 @@ trackedFiles:
     pristine_git_object: cda742065b0bb30407900c4d39885b8db164b9b4
   gradle.properties:
     id: 2afbb999f001
-    last_write_checksum: sha1:76c6307c00a5545cad6f462e0cc10e5776d938f3
+    last_write_checksum: sha1:69de1cdc41205374f3bbd22f97342cda362ba037
     pristine_git_object: 6da141a8453a679109d12dba513b6d08b9e37fd5
   gradle/wrapper/gradle-wrapper.jar:
     id: ec27dae6e852
@@ -8570,7 +8668,7 @@ trackedFiles:
     pristine_git_object: 991e12fe47e43e8b4cbce15548f62dd4d12bd17d
   src/main/java/com/cvent/AsyncAttendees.java:
     id: 3f3b3c8aa99e
-    last_write_checksum: sha1:641cf1c69c7f56195b0c45ab0bbcc5c08055826f
+    last_write_checksum: sha1:7a3fd690854b23f05f1d963b3fea96caea8fc216
     pristine_git_object: b48101dcb3d415a353dbb1d152850df0ab239aae
   src/main/java/com/cvent/AsyncAudienceSegments.java:
     id: 18b5e976826b
@@ -8618,7 +8716,7 @@ trackedFiles:
     pristine_git_object: d2750f4c1dd063e160ac8b42105e3350a77b9192
   src/main/java/com/cvent/AsyncCventSDK.java:
     id: 3d41ccbb3604
-    last_write_checksum: sha1:ed24a1a8f05efb4f46b61244a0d02867463acaf7
+    last_write_checksum: sha1:5e001efbe8b9404208c0ddeedde16914920129e0
     pristine_git_object: 91ab4b576419398d5dfa7189f6dbf60c8f32176b
   src/main/java/com/cvent/AsyncDiscounts.java:
     id: 0e60d514801e
@@ -8642,7 +8740,7 @@ trackedFiles:
     pristine_git_object: 7c1d735d8a9a61c556bd594e1e4cbbee43525915
   src/main/java/com/cvent/AsyncEventTravel.java:
     id: 9ecc3d90bdf3
-    last_write_checksum: sha1:b553a18396bd088ea03c661a7c3d7bdb3ba64977
+    last_write_checksum: sha1:f2871e6e522511c41b76026d7731d18757ce7076
     pristine_git_object: 16d95816508b654f63c788cf9d926f65d4f51595
   src/main/java/com/cvent/AsyncEvents.java:
     id: f0df984cd544
@@ -8674,7 +8772,7 @@ trackedFiles:
     pristine_git_object: 1463c39f94bb7111b27f69bddd24a287e68fd95b
   src/main/java/com/cvent/AsyncHousing.java:
     id: 4fee93962efc
-    last_write_checksum: sha1:a63845f20989d2970e742802c48d0f0c0fff7117
+    last_write_checksum: sha1:e3e6e7323c724b73d1640c117900abbcd0609ef6
     pristine_git_object: 3075e9758212e8459bb2a1ac2b50ff23841f2238
   src/main/java/com/cvent/AsyncHousingHotels.java:
     id: be2259657666
@@ -8755,7 +8853,9 @@ trackedFiles:
   src/main/java/com/cvent/AsyncVenueAvailability.java:
     last_write_checksum: sha1:f99a3af5bebb908f69ac41f76605c1e830a58e8a
   src/main/java/com/cvent/AsyncVenueContent.java:
-    last_write_checksum: sha1:d7d6600e900f82706f37ee985871ed52327e473b
+    last_write_checksum: sha1:b69878e2294fb3fc267e0196bf5489ca1dde9375
+  src/main/java/com/cvent/AsyncVenueLeads.java:
+    last_write_checksum: sha1:8b786ce1d1215e183b2fffb3d03e3f58ecc6a145
   src/main/java/com/cvent/AsyncVenueMeetingRooms.java:
     last_write_checksum: sha1:5a9f7a3b1fd1b70b1157f01e838dcc0c3261d380
   src/main/java/com/cvent/AsyncVenueProfiles.java:
@@ -8782,7 +8882,7 @@ trackedFiles:
     pristine_git_object: e20b670d734140a4edb347dfddc3dce07925a392
   src/main/java/com/cvent/Attendees.java:
     id: 25510ead034d
-    last_write_checksum: sha1:55b0d7004a72e9dd319f80450be8bf46bdd8361c
+    last_write_checksum: sha1:76c18dc1bb4c6579f9bbe92269bec83bc461453a
     pristine_git_object: 8e4a9c28a4dd1818b6a978745018e004c9dac578
   src/main/java/com/cvent/AudienceSegments.java:
     id: c9106cf1524e
@@ -8830,7 +8930,7 @@ trackedFiles:
     pristine_git_object: fba7bb77908632105cf2fcbe226b002da7001b0e
   src/main/java/com/cvent/CventSDK.java:
     id: 4a420697fa3d
-    last_write_checksum: sha1:f2cd1bb679bab11206ee4920c2ed64ef4e839640
+    last_write_checksum: sha1:dc6cda3775d718131a64a72a62aa94f5909adf29
     pristine_git_object: 80c41313e2060978bc5d97ac0b629a1ec05252db
   src/main/java/com/cvent/Discounts.java:
     id: b320961e983a
@@ -8854,7 +8954,7 @@ trackedFiles:
     pristine_git_object: fa3591f1bbb31f1a5f6d1b6c3dd1b5b37caf4885
   src/main/java/com/cvent/EventTravel.java:
     id: 0591ef6f5e35
-    last_write_checksum: sha1:a4b265b7dc76126e8ba428c4bbfd8961c16b3ca3
+    last_write_checksum: sha1:ed332a970a331ce3cd13356de7f96cea291e979d
     pristine_git_object: 9c4626406e5a8b2354048223d94a1bc35af42648
   src/main/java/com/cvent/Events.java:
     id: a10ccc6cdc25
@@ -8886,7 +8986,7 @@ trackedFiles:
     pristine_git_object: f72e8694025a9793746917b7073f5de375f41d4a
   src/main/java/com/cvent/Housing.java:
     id: c0c7f22683c7
-    last_write_checksum: sha1:556a3c0e9b9ce51375400cb5a8a0d13c1bc0b74f
+    last_write_checksum: sha1:030446d81c470b86b54955b70f67d693e0b6b7f6
     pristine_git_object: 5d5698d83c5f70e796f015731adcbffefff197a6
   src/main/java/com/cvent/HousingHotels.java:
     id: 2c2bb7ca65ec
@@ -8920,7 +9020,7 @@ trackedFiles:
     last_write_checksum: sha1:0396671d6b0de814aaa27700f35eed30523c66ed
   src/main/java/com/cvent/SDKConfiguration.java:
     id: cdb9837839f5
-    last_write_checksum: sha1:978a92830e650d414756fa99244a034134ba5db3
+    last_write_checksum: sha1:ca8d0f00a395ab1d303013ee4bc8e4dfde58469a
     pristine_git_object: 4b98b23f51bc18bad5890089f44055b6187ed9f0
   src/main/java/com/cvent/Seating.java:
     id: 70583b24bb9b
@@ -8975,7 +9075,9 @@ trackedFiles:
   src/main/java/com/cvent/VenueAvailability.java:
     last_write_checksum: sha1:c8a3baed0cefa7fb9122cd1b092ba2fbbac6c1ce
   src/main/java/com/cvent/VenueContent.java:
-    last_write_checksum: sha1:facdb2e125bc1fc4f293b2e6f8e5768169fd5985
+    last_write_checksum: sha1:0c4923650603b3ee171737f6b4c4509a822c1fe5
+  src/main/java/com/cvent/VenueLeads.java:
+    last_write_checksum: sha1:2d7388c6d10003db96e3462fb76ee335b00b0d0d
   src/main/java/com/cvent/VenueMeetingRooms.java:
     last_write_checksum: sha1:34cf5ebd5f4879ea4dce3ad8578491e1fddc819c
   src/main/java/com/cvent/VenueProfiles.java:
@@ -8994,15 +9096,15 @@ trackedFiles:
     pristine_git_object: babc77d8af94b46530cb1522e0d790ed3821cbbf
   src/main/java/com/cvent/hooks/OAuth2Scopes.java:
     id: 796ee1ea9f11
-    last_write_checksum: sha1:505d56d57851a11de0290e5e3b9604973a2086e6
+    last_write_checksum: sha1:fb5eec0d7b6928bd1978d819e8b16970480d3c6d
     pristine_git_object: 5e0d00a270318551de3675f94ccb2e418a47126e
   src/main/java/com/cvent/models/callbacks/CreateContactHookContactTransactionCallbackResponse.java:
     id: 36b27dee8ec2
-    last_write_checksum: sha1:a48630ef95636910f1c26f664cca6000b23d230b
+    last_write_checksum: sha1:1353cd27e69f30026cc54bfc4fb181af55e3da1c
     pristine_git_object: d848cac63cdfcdd7208072510a7b949b96f4c71c
   src/main/java/com/cvent/models/callbacks/async/CreateContactHookContactTransactionCallbackResponse.java:
     id: a961e927a52c
-    last_write_checksum: sha1:6d5e10689fc77571257bb5be7693eede96e38408
+    last_write_checksum: sha1:6faba6707f0a96c3576df09e45b1861c117dbf2d
     pristine_git_object: 73bf3562f321a018a189a312c359eda3e94cd549
   ? src/main/java/com/cvent/models/components/AGeneralLedgerCodeUsedToCategorizeFinancialDataWhichHelpsBusinessesAnalyzeAndReportOnTheirFinancialActivity.java
   : last_write_checksum: sha1:6b9ddcc266c39f69b39cd92362998a0683e71e05
@@ -9217,7 +9319,7 @@ trackedFiles:
   src/main/java/com/cvent/models/components/AlternateQuestion.java:
     last_write_checksum: sha1:65278f95c9fd038b0bc6972744cf720401469175
   src/main/java/com/cvent/models/components/AlternateTravelDetail.java:
-    last_write_checksum: sha1:701ac4993adf507cfce7f3eec68eb2a6a630db74
+    last_write_checksum: sha1:09ecbc3e0babfeac2658f0ab98dffa78c9714822
   src/main/java/com/cvent/models/components/AlternateTravelDetailRequesterType.java:
     last_write_checksum: sha1:7dd410a904979b0b6d94d4ad94e9624419fd886e
   src/main/java/com/cvent/models/components/AlternateTravelPaginatedResponse.java:
@@ -9568,7 +9670,7 @@ trackedFiles:
     last_write_checksum: sha1:6f51d45c9a221a385866423913cd8184fd6918f6
   src/main/java/com/cvent/models/components/AttendeeUpdate.java:
     id: 0e9106bb28fb
-    last_write_checksum: sha1:107d7fd48f1109aa85e8da51b075073c0b4cded4
+    last_write_checksum: sha1:62aafd2ca8982ea379768d179cae530ba5e2ac8f
     pristine_git_object: 70ced5eb915d4078a81a5ee4b5fcb5f7d6c88a90
   src/main/java/com/cvent/models/components/AttendeeUpdateAdministrator.java:
     id: 99e7b68c8120
@@ -9595,7 +9697,7 @@ trackedFiles:
     last_write_checksum: sha1:9a13f595032bf0b55e2c73217b89023af62fc555
     pristine_git_object: ca668f4fa69daf8ee2ff708d29c3d23ac4c2e4a7
   src/main/java/com/cvent/models/components/AttendeeUpdateStatus.java:
-    last_write_checksum: sha1:4a8e1efafcd676ec9839bda4d2ae7f8a0c096af6
+    last_write_checksum: sha1:90cdfa486522fca88723f96318b0a3178458a125
   src/main/java/com/cvent/models/components/AttendeeVisibility.java:
     last_write_checksum: sha1:278e8215a16fc01e4f8d81356e3bfa857f58e66c
   src/main/java/com/cvent/models/components/AttendeeWebLinks.java:
@@ -10174,10 +10276,10 @@ trackedFiles:
     last_write_checksum: sha1:35bda10f47ddcee4728a02577af19f7df22aa354
   src/main/java/com/cvent/models/components/ContactFieldType.java:
     last_write_checksum: sha1:d9c388ac14e5a15097eeaf81124dc8f952ecd38e
+  src/main/java/com/cvent/models/components/ContactFields.java:
+    last_write_checksum: sha1:60bae243363b4168bfbce538149c955c08fc994e
   src/main/java/com/cvent/models/components/ContactFields1.java:
-    last_write_checksum: sha1:04984db5d470b343597c9d4a97e8c4c073d6f2ba
-  src/main/java/com/cvent/models/components/ContactFields2.java:
-    last_write_checksum: sha1:2ca2a5e8cff07d8ccaff2c008f0e789db4b023e8
+    last_write_checksum: sha1:88009702676352a75134f3d1336414d76fd9d207
   src/main/java/com/cvent/models/components/ContactFile.java:
     id: ede1c7688ac4
     last_write_checksum: sha1:162452c6fe861505bd1781e2486968b476233d9c
@@ -10670,7 +10772,7 @@ trackedFiles:
     pristine_git_object: 1e3966efaa9055adf8314e8df7860df81758c0cd
   src/main/java/com/cvent/models/components/EventAttendeeSubstituted.java:
     id: 2600affa50d5
-    last_write_checksum: sha1:d2b7142f30b5a96658a4713471939b7029967626
+    last_write_checksum: sha1:1c29e89d01d8b9f91e91876b0989e3f9ff145f97
     pristine_git_object: 7dc94b1e80c7cc29492e7ffb72a1b5024255a198
   src/main/java/com/cvent/models/components/EventAttendeeSubstitutedEvent.java:
     last_write_checksum: sha1:54a954dfd3242f340703def7a3f578658cef6a76
@@ -11154,6 +11256,10 @@ trackedFiles:
     id: 53ba93218b9b
     last_write_checksum: sha1:7b25543022d0c7ed425c44737831457eee6bcaae
     pristine_git_object: ecb98c89ec98dfa49d658d364c87c505c79fc9f1
+  src/main/java/com/cvent/models/components/ExistingLeadCatcher.java:
+    last_write_checksum: sha1:c60cfedd07f405a5c535a7557910912792e5edc9
+  src/main/java/com/cvent/models/components/ExistingLeadCatcherInput.java:
+    last_write_checksum: sha1:d2c685d5010476a081d33c8d1f2729c8f39a58c9
   src/main/java/com/cvent/models/components/ExistingMeetingRoom.java:
     last_write_checksum: sha1:32f47c7bd731781540fb9ce267b403f5e4a77eaf
   src/main/java/com/cvent/models/components/ExistingMeetingRoomDimensions.java:
@@ -11232,6 +11338,10 @@ trackedFiles:
     id: 5a6175928799
     last_write_checksum: sha1:d79d8f3704d140c916c1d1575d9bd68d9c30952d
     pristine_git_object: f43f941c0e0407da8dbce28b2d46f1cd7dadb70f
+  src/main/java/com/cvent/models/components/ExistingVenueAmenities.java:
+    last_write_checksum: sha1:f64d976ef953a7fd4f66b3bfc4aef34e42ce93c4
+  src/main/java/com/cvent/models/components/ExistingVenueAmenitiesInput.java:
+    last_write_checksum: sha1:8d8761ae6190f9c80d85abaa910786686c0531b3
   src/main/java/com/cvent/models/components/ExistingVenueAttraction.java:
     last_write_checksum: sha1:dde6c828f64a53ec6f71d608ae405a80e250b1d8
   src/main/java/com/cvent/models/components/ExistingVenueAvailabilitySettings.java:
@@ -11469,7 +11579,7 @@ trackedFiles:
   src/main/java/com/cvent/models/components/GuestRoomOccupancy.java:
     last_write_checksum: sha1:e7b6f049d1f7178d4ce7f272cfb68f091efc97bc
   src/main/java/com/cvent/models/components/GuestRoomOccupancyPerRoomType.java:
-    last_write_checksum: sha1:969b10e02a52a61a16f8881ad6828008ee1021c0
+    last_write_checksum: sha1:fbe126439a8edd9ecdc8972b251c78f992ac4932
   src/main/java/com/cvent/models/components/GuestRoomType.java:
     last_write_checksum: sha1:d5f3a9f7f2021feb7fe78695b34512a75d409ecf
   src/main/java/com/cvent/models/components/HlsInputWithClips.java:
@@ -11654,6 +11764,30 @@ trackedFiles:
     last_write_checksum: sha1:e07bf68005a209c2ee5e3bc432e8f99fa6a16833
   src/main/java/com/cvent/models/components/Lead2.java:
     last_write_checksum: sha1:e9bec2f454bffd321c8d4e27531924389769b2c1
+  src/main/java/com/cvent/models/components/LeadCatcher.java:
+    last_write_checksum: sha1:f245debbcd1b15fb35da246f9b486a18c38c76e3
+  src/main/java/com/cvent/models/components/LeadCatcherAddress.java:
+    last_write_checksum: sha1:a0a53e87b71b7d67bf0beb0e0bcab28b6088d1e1
+  src/main/java/com/cvent/models/components/LeadCatcherAddressCountry.java:
+    last_write_checksum: sha1:4cbea54464949c86d8ac6149cb3bf3f85973d86c
+  src/main/java/com/cvent/models/components/LeadCatcherAddressPatch.java:
+    last_write_checksum: sha1:df7963480649f1d48c2b1e4e6a49f844b648ea50
+  src/main/java/com/cvent/models/components/LeadCatcherAddressStateProvince.java:
+    last_write_checksum: sha1:52141c5d5b75317ab2dc1e068fab4d09e6b56e04
+  src/main/java/com/cvent/models/components/LeadCatcherConfig.java:
+    last_write_checksum: sha1:75d5683a5b14038ba1db327e6c3a9b2e3cd20b56
+  src/main/java/com/cvent/models/components/LeadCatcherConfigPatch.java:
+    last_write_checksum: sha1:a27bff202023ad81d6c2c4cc127de4b97645e40a
+  src/main/java/com/cvent/models/components/LeadCatcherOverview.java:
+    last_write_checksum: sha1:aacb0ee5eb617ca0c3b67e7b59d6689904bfab6d
+  src/main/java/com/cvent/models/components/LeadCatcherPatch.java:
+    last_write_checksum: sha1:f623494142328e7be22c81981c2d6e74a4ead27f
+  src/main/java/com/cvent/models/components/LeadCatcherPatchCountry.java:
+    last_write_checksum: sha1:9f76a515912abac39a9a7d0071b6108b7da8c6a2
+  src/main/java/com/cvent/models/components/LeadCatcherPatchStateProvince.java:
+    last_write_checksum: sha1:bfa896b807a5e9c6c426b715f16c03b6a3758db7
+  src/main/java/com/cvent/models/components/LeadCatchersOverviewResponse.java:
+    last_write_checksum: sha1:ac1f08c998b34c3bcd9a8d4058bca3370dd9daf6
   src/main/java/com/cvent/models/components/LeadInboundCreated.java:
     id: ca872581fd0c
     last_write_checksum: sha1:78416b05a414afd0cdaf1ec70d293878ce64b23e
@@ -11718,6 +11852,8 @@ trackedFiles:
     last_write_checksum: sha1:a6564c6a3800e6f41c35dcd3cf05c89eb9db374f
   src/main/java/com/cvent/models/components/LiveStreamStatus.java:
     last_write_checksum: sha1:9002ab2a3c6da056970249f05bb75f24192d8c8b
+  src/main/java/com/cvent/models/components/LocaleLanguageVariant.java:
+    last_write_checksum: sha1:4277e62c107d1975fe56a4d7df86c950bd1b921c
   src/main/java/com/cvent/models/components/Location1.java:
     last_write_checksum: sha1:6ccaac94756a4cdf1bb1723694e09e833952b7ee
   src/main/java/com/cvent/models/components/Location1Input.java:
@@ -12308,13 +12444,17 @@ trackedFiles:
     last_write_checksum: sha1:e4ae9badc6f2b4fe4fd02228615998d5bff5ae15
   src/main/java/com/cvent/models/components/QuestionTypeJson.java:
     last_write_checksum: sha1:2299fa3fdde02eae804f88d73d2fdda6a9628865
+  src/main/java/com/cvent/models/components/QuestionWithProgramId.java:
+    last_write_checksum: sha1:bee87b8615fb6c6eb3f2f88858b8ab84f5dca4b4
+  src/main/java/com/cvent/models/components/QuestionWithProgramIdTravelProgram.java:
+    last_write_checksum: sha1:a90982367adb8d38ab3b3cb7ecc605f653058543
   src/main/java/com/cvent/models/components/QuestionsPaginatedResponse.java:
     id: bf440f2c87c0
     last_write_checksum: sha1:7ac2892c2bd3fdcd7e468f1327f25f8ac1da0cd8
     pristine_git_object: 187d0c26fea51c54c8d5e8758144766cecf3fa2c
   src/main/java/com/cvent/models/components/QuestionsPaginatedResponse1.java:
     id: 6600e640367d
-    last_write_checksum: sha1:fde540d20a9e1fc8019858499d7b0dcb1b076527
+    last_write_checksum: sha1:10a33ae5e67ea92b25aba7d2bdea1e5de55b5efa
     pristine_git_object: b527a49a6c46ee4b774452c85e9fd5d5be094681
   src/main/java/com/cvent/models/components/Rate.java:
     id: d62fc76cb48b
@@ -12535,7 +12675,7 @@ trackedFiles:
   src/main/java/com/cvent/models/components/Rfp1.java:
     last_write_checksum: sha1:6988698e3aaca6336ef1c568cd15ed7cc715ef49
   src/main/java/com/cvent/models/components/Rfp2.java:
-    last_write_checksum: sha1:ea49d21974951013d5589a15b30dd8b73e257c79
+    last_write_checksum: sha1:9d5c2040ea7a8a8331f6895e35629ece9a09141e
   src/main/java/com/cvent/models/components/RfpAgendaItem.java:
     last_write_checksum: sha1:5bd12361628a73a64cef8d493803e66c377302a5
   src/main/java/com/cvent/models/components/RfpAgendaItemSchedule.java:
@@ -12567,7 +12707,7 @@ trackedFiles:
   src/main/java/com/cvent/models/components/RfpPastEvents.java:
     last_write_checksum: sha1:908efb5cf4a51610e205010e37671dbcd4c5411b
   src/main/java/com/cvent/models/components/RfpQuestion.java:
-    last_write_checksum: sha1:6e1ff228dd77091d217595e367900c9f45137581
+    last_write_checksum: sha1:dffe385ef094b67ff2d2edc4afba895d628e780f
   src/main/java/com/cvent/models/components/RfpRecipientLogEntry.java:
     last_write_checksum: sha1:465fdebcae5f69ecd1f98eb0b7a292b9c6e98e18
   src/main/java/com/cvent/models/components/RfpRecipientLogEntryMessage.java:
@@ -12586,8 +12726,8 @@ trackedFiles:
     last_write_checksum: sha1:277d5b5fb7a242406e2c14bc9346504ebf4ad4df
   src/main/java/com/cvent/models/components/RfpSupplierStatus.java:
     last_write_checksum: sha1:e15f8eb0ca88a5fd8112c725089a4bfa5a9fc61c
-  src/main/java/com/cvent/models/components/RfpType1.java:
-    last_write_checksum: sha1:86b871de5d05cba4f6aa735274f15daf0593912a
+  src/main/java/com/cvent/models/components/RfpType.java:
+    last_write_checksum: sha1:bb917f3631f9dc568361cffbd604725e6b455e6d
   src/main/java/com/cvent/models/components/RoomAttendeeType.java:
     last_write_checksum: sha1:973544106591c179789361d7a5df9155958718df
   src/main/java/com/cvent/models/components/RoomBedType1.java:
@@ -13338,7 +13478,7 @@ trackedFiles:
     pristine_git_object: 8bcad17c40fc05532396fcad78c1fda4c08cfcad
   src/main/java/com/cvent/models/components/TravelProgram.java:
     id: fde28c3988da
-    last_write_checksum: sha1:2c84962a9edfc1fc21b27bda86904916ced8177a
+    last_write_checksum: sha1:2270eba092293381e1e851240ea8e59bb72c8e55
     pristine_git_object: bcd4a3775817132efcc1c6867f3c3caf0bc79e71
   src/main/java/com/cvent/models/components/TravelProgramFormatType.java:
     last_write_checksum: sha1:748e9b4fb597178066edac8ec05e9df1915498b1
@@ -13347,11 +13487,7 @@ trackedFiles:
     last_write_checksum: sha1:035c8d22ec7ddb367700dbcc0023c138f3d57458
     pristine_git_object: a2d1f0fc026ea9356b8787f49c2dc4b06f3f5666
   src/main/java/com/cvent/models/components/TravelProgramQuestion.java:
-    last_write_checksum: sha1:e599e170ab530a7a3a1e5a18d5e52702d8d7520f
-  src/main/java/com/cvent/models/components/TravelProgramQuestion1.java:
-    last_write_checksum: sha1:526246f61e5422fbd6b8ed4ba52707d61e118563
-  src/main/java/com/cvent/models/components/TravelProgramQuestionTravelProgram.java:
-    last_write_checksum: sha1:d348d4a91db14603f4438014c99d0fde33adffd0
+    last_write_checksum: sha1:8b1ea45741e71f9cc3e051958346bafafd9fec16
   src/main/java/com/cvent/models/components/TravelProgramStatus.java:
     last_write_checksum: sha1:9760a04942c6affe56d8d382aa6fbd5e905a2668
   src/main/java/com/cvent/models/components/TravelProgramStayType.java:
@@ -13417,7 +13553,7 @@ trackedFiles:
   src/main/java/com/cvent/models/components/TravelRequestStatus.java:
     last_write_checksum: sha1:0110dda8cfecbe5e8b8052145a20ff2a6638895c
   src/main/java/com/cvent/models/components/TravelType.java:
-    last_write_checksum: sha1:8506e2f774802e73b3f2ab494761ef50bcd11a4d
+    last_write_checksum: sha1:9b546c4f651b49596b0bc7569dae8d082267af76
   src/main/java/com/cvent/models/components/TypeAllOf.java:
     last_write_checksum: sha1:99cd2215fe6c2f2913fe4ddc82c27b85a21f1b98
   src/main/java/com/cvent/models/components/TypeInput.java:
@@ -13522,6 +13658,36 @@ trackedFiles:
     id: 10a18ba119bb
     last_write_checksum: sha1:191d2e7e14e2780effba039596a01d6363c5f43d
     pristine_git_object: 4727ccf107053c0937cfe08079056e65f02c9d9e
+  src/main/java/com/cvent/models/components/VenueAmenityAVCapability.java:
+    last_write_checksum: sha1:f30eb6678759c2d0bdaf03c22cd1faf570c6d67f
+  src/main/java/com/cvent/models/components/VenueAmenityAlcohol.java:
+    last_write_checksum: sha1:5ba1de7ff5ba95a3805024c2ca7e7cd5016911cd
+  src/main/java/com/cvent/models/components/VenueAmenityAvCapabilityItem.java:
+    last_write_checksum: sha1:661035ac1e8ee6a6860acba8a1db7bea243d1ce2
+  src/main/java/com/cvent/models/components/VenueAmenityBusinessService.java:
+    last_write_checksum: sha1:2be9a2fa85d8b28cff280ca364fa2335b4f372a3
+  src/main/java/com/cvent/models/components/VenueAmenityCateringDetail.java:
+    last_write_checksum: sha1:1ee7ffb6deafc2fe4553f843f7be99979ef1c58e
+  src/main/java/com/cvent/models/components/VenueAmenityEquipment.java:
+    last_write_checksum: sha1:95fdc6d6fe566f22428b3bb51104732d233e7f3e
+  src/main/java/com/cvent/models/components/VenueAmenityFacilityInfo.java:
+    last_write_checksum: sha1:2b352108e4e985fc6ade4aee7524df42930d59a4
+  src/main/java/com/cvent/models/components/VenueAmenityFacilitySpace.java:
+    last_write_checksum: sha1:ab74b3a5dba138a00266ad4823fbcf3862e7f3df
+  src/main/java/com/cvent/models/components/VenueAmenityFacilitySpaceItem.java:
+    last_write_checksum: sha1:d8199caa873eef88f4973884b5fe4619de930aad
+  src/main/java/com/cvent/models/components/VenueAmenityParking.java:
+    last_write_checksum: sha1:c652e3b8d54361f37ff18f648ae14e185b2b5a68
+  src/main/java/com/cvent/models/components/VenueAmenityParkingItem.java:
+    last_write_checksum: sha1:96fa1d322f15ea0ffc302337ad0030944e568982
+  src/main/java/com/cvent/models/components/VenueAmenityProvisionPolicy.java:
+    last_write_checksum: sha1:7b744887592f90acb201eda7897c345989f0ca41
+  src/main/java/com/cvent/models/components/VenueAmenityRecreationalActivity.java:
+    last_write_checksum: sha1:77824a8de3d1d3c3e2e7e13bfece99b04dd2f560
+  src/main/java/com/cvent/models/components/VenueAmenityRoomFeature.java:
+    last_write_checksum: sha1:f161733b05c8319c9844080a56dbcaef6e4042df
+  src/main/java/com/cvent/models/components/VenueAmenityTransportation.java:
+    last_write_checksum: sha1:71f76a6ad2d1ce5f621620c4f1dc04d4bef6bce7
   src/main/java/com/cvent/models/components/VenueAttraction.java:
     last_write_checksum: sha1:5d596690aef7c72c618dae3a6f1318f10e2f532d
   src/main/java/com/cvent/models/components/VenueAttractionType.java:
@@ -13960,6 +14126,8 @@ trackedFiles:
     id: a6efa3b1ab3e
     last_write_checksum: sha1:97cb33d9134d7263f18f07514f4e7b84b2fd8024
     pristine_git_object: 86d8d253eacfe61c8cc261d82a6a541b725e8796
+  src/main/java/com/cvent/models/operations//async/CreateLeadCatcherRequestBuilder.java:
+    last_write_checksum: sha1:076fafc0443deed68ae83f77144ac3c4f446635c
   src/main/java/com/cvent/models/operations//async/CreateMeetingRequestRequestBuilder.java:
     id: 19e73ab37d2b
     last_write_checksum: sha1:eb7ccd305992f0565256229708ea0dc9f3e1639c
@@ -14112,6 +14280,8 @@ trackedFiles:
     id: 65f5bdfeac05
     last_write_checksum: sha1:921787c0051beecbeb4fec428639d6f1f7ad6008
     pristine_git_object: 9a3b68f5fb564b972757652e126a7546792afe58
+  src/main/java/com/cvent/models/operations//async/DeleteLeadCatcherRequestBuilder.java:
+    last_write_checksum: sha1:e661d5965fc049f5be13e1c3e941fda67140c262
   src/main/java/com/cvent/models/operations//async/DeletePaymentRequestBuilder.java:
     id: a2b66eafcbae
     last_write_checksum: sha1:53ce2ba3a36f6f2da8aa3da6ccfe3f0ca2714cfe
@@ -14562,6 +14732,8 @@ trackedFiles:
     id: db68fb3c2230
     last_write_checksum: sha1:9c62119c65d1874a0e29f229944c47021e768872
     pristine_git_object: 106dd390d7304b634ed760c8d6b1abb45161b5e4
+  src/main/java/com/cvent/models/operations//async/GetLeadCatcherOverviewRequestBuilder.java:
+    last_write_checksum: sha1:0ec67e7f5488745778269e015fe9cbf5aac7c3ab
   src/main/java/com/cvent/models/operations//async/GetLeadQualificationAnswersRequestBuilder.java:
     id: 7e85cc512f28
     last_write_checksum: sha1:d43286d0d3af49ffbe49f40a1e2859114b3e4fca
@@ -14820,6 +14992,8 @@ trackedFiles:
     id: 0380b2f7117a
     last_write_checksum: sha1:eab2e54f96eeb3e367824f792617b01aaefcd56e
     pristine_git_object: eca46358b04b072db40f6f1630db89117374a400
+  src/main/java/com/cvent/models/operations//async/GetVenueAmenitiesRequestBuilder.java:
+    last_write_checksum: sha1:62f5a31d4b6a59f77c3878a5f83cf5fe7552206e
   src/main/java/com/cvent/models/operations//async/GetVenueAttractionRequestBuilder.java:
     last_write_checksum: sha1:dc8e571c615ffdae35ae385e706828d9ea5613ce
   src/main/java/com/cvent/models/operations//async/GetVenueAvailabilitySettingsRequestBuilder.java:
@@ -15028,6 +15202,8 @@ trackedFiles:
     id: 3158ef4f2995
     last_write_checksum: sha1:5a1ce64319cc8cc189cf2cb77685f3a051679ddb
     pristine_git_object: 5fddcf5c368e3e3be4cc1347efab73a75e360046
+  src/main/java/com/cvent/models/operations//async/ListLeadCatchersOverviewRequestBuilder.java:
+    last_write_checksum: sha1:63d7554a8d95f4d77915e562b86c791112ba93fc
   src/main/java/com/cvent/models/operations//async/ListLocationsRequestBuilder.java:
     id: 10b3c9d22efb
     last_write_checksum: sha1:896634b2435b7c0c1f13f0448fa3e9170af6c7c0
@@ -15266,6 +15442,8 @@ trackedFiles:
     id: ccfb0c5a52a9
     last_write_checksum: sha1:f84b5c28e72ba2b1612a1659b9e655ffeee33b4a
     pristine_git_object: dac334b050b9be9010a4ee6c4536fd27885b9066
+  src/main/java/com/cvent/models/operations//async/PatchLeadCatcherRequestBuilder.java:
+    last_write_checksum: sha1:c5b756c1c91167f18d65711adb66df69f8a82957
   src/main/java/com/cvent/models/operations//async/PatchMeetingRoomRequestBuilder.java:
     last_write_checksum: sha1:a1c4527effea4ba06a4a216ec55a55ce3c666e34
   src/main/java/com/cvent/models/operations//async/PatchVenueDetailsRequestBuilder.java:
@@ -15502,6 +15680,8 @@ trackedFiles:
     id: 397764ffb681
     last_write_checksum: sha1:b57757037f9ef86a857f3fc7d471044a07b3d6ab
     pristine_git_object: 671a45f9e02a38b61c4dd4c9bf73a621c7760d12
+  src/main/java/com/cvent/models/operations//async/UpdateLeadCatcherRequestBuilder.java:
+    last_write_checksum: sha1:b519d6acd4a8d4e3fab152063a9d28e20a675c2e
   src/main/java/com/cvent/models/operations//async/UpdateMeetingRequestRequestBuilder.java:
     id: b73824da329b
     last_write_checksum: sha1:8bf4ece97532ec0cf08296e5571d870d1dddce3a
@@ -15568,6 +15748,8 @@ trackedFiles:
     id: 9685f26a473c
     last_write_checksum: sha1:68a09f617f977a3f044860948ebb0441f17aad4b
     pristine_git_object: f2910f9292d1fca2f9d8ffe5c1179f71076b6b0e
+  src/main/java/com/cvent/models/operations//async/UpdateVenueAmenitiesRequestBuilder.java:
+    last_write_checksum: sha1:2822e0f63fdf8423855dd6a9b3bad27c6d9147ec
   src/main/java/com/cvent/models/operations//async/UpdateVenueAttractionRequestBuilder.java:
     last_write_checksum: sha1:c10d76b72d188ebf2a3e3774fb252717b8839db8
   src/main/java/com/cvent/models/operations//async/UpdateVenueAvailabilitySettingsRequestBuilder.java:
@@ -16164,6 +16346,12 @@ trackedFiles:
     id: ba3ed78f30f9
     last_write_checksum: sha1:73a32d4b060fecbc7801e588216ab1d9e969b464
     pristine_git_object: 04c3cc03ebbb15f85c5ebcae01c79ca84276fbfc
+  src/main/java/com/cvent/models/operations/CreateLeadCatcherRequest.java:
+    last_write_checksum: sha1:d151e16fa8a5015b784fd97422aa43a4d5e24d31
+  src/main/java/com/cvent/models/operations/CreateLeadCatcherRequestBuilder.java:
+    last_write_checksum: sha1:2885b70284ac87e01b3fe4d906d99cc71010f907
+  src/main/java/com/cvent/models/operations/CreateLeadCatcherResponse.java:
+    last_write_checksum: sha1:a3430647693dc4b9fe2a495546b7d6bef510511d
   src/main/java/com/cvent/models/operations/CreateMeetingRequestRequest.java:
     id: 634ccc782cac
     last_write_checksum: sha1:4ab5cfba212f17367896f27c54edc7304a6ac59e
@@ -16584,6 +16772,12 @@ trackedFiles:
     id: 9f5b4b4003c9
     last_write_checksum: sha1:6970a4bfa4b391484ccc7a4d89eec0988b3be8ca
     pristine_git_object: f994e457d076c905afd2caafc25da615b9c2a26a
+  src/main/java/com/cvent/models/operations/DeleteLeadCatcherRequest.java:
+    last_write_checksum: sha1:28768fe245ba68043d93be9604e4b1339bf2a0c2
+  src/main/java/com/cvent/models/operations/DeleteLeadCatcherRequestBuilder.java:
+    last_write_checksum: sha1:6a52d424cf31d5701af974f128394befc357f1e7
+  src/main/java/com/cvent/models/operations/DeleteLeadCatcherResponse.java:
+    last_write_checksum: sha1:6ccae580b8919e288bcb17a629f55a80d202df52
   src/main/java/com/cvent/models/operations/DeletePaymentRequest.java:
     id: d28d4b8b304c
     last_write_checksum: sha1:f3df39b98c730341cda807362b8d55faea2a4846
@@ -17788,7 +17982,7 @@ trackedFiles:
     pristine_git_object: 5bc41cb72f87d2ee364084f02a5729a492ee2f97
   src/main/java/com/cvent/models/operations/GetHousingEventHotelAvailabilityRequest.java:
     id: 9c1922ebfc6a
-    last_write_checksum: sha1:d01ceeee2eb77cc9cb3e5c4920ecb54ace99d2b0
+    last_write_checksum: sha1:2756061c2c7e23fa2f11d499786d4bbe0d674d37
     pristine_git_object: 5638cc609032bdd2aed136554cb37e2e5b8f15f5
   src/main/java/com/cvent/models/operations/GetHousingEventHotelAvailabilityRequestBuilder.java:
     id: 8491490ed19b
@@ -17930,6 +18124,12 @@ trackedFiles:
     id: 8ceb6e3a81a4
     last_write_checksum: sha1:b4f4fa20b33fdb2cd61de85a3d631584dafe1394
     pristine_git_object: 4a2a78b01486cb6356ea6ee3a31a631f63810ec5
+  src/main/java/com/cvent/models/operations/GetLeadCatcherOverviewRequest.java:
+    last_write_checksum: sha1:1ad8ffaba2d1b163d197bcf05e6eed66b46cfe0a
+  src/main/java/com/cvent/models/operations/GetLeadCatcherOverviewRequestBuilder.java:
+    last_write_checksum: sha1:759c01dd056506fbd36604266b12f6e83ea92a67
+  src/main/java/com/cvent/models/operations/GetLeadCatcherOverviewResponse.java:
+    last_write_checksum: sha1:89449952345b9509fb743fdce44a1c422a11c5a3
   src/main/java/com/cvent/models/operations/GetLeadQualificationAnswersRequest.java:
     id: 237e8867a420
     last_write_checksum: sha1:1204ee809870a32a085aecf43b12d9419f83aeb8
@@ -18688,6 +18888,12 @@ trackedFiles:
     id: 3d39aef9a1f1
     last_write_checksum: sha1:0878416239ff398b1fe56be50a7c3b43e78fc34a
     pristine_git_object: 41aad1e31abb6db13852df58b502274ca408c95f
+  src/main/java/com/cvent/models/operations/GetVenueAmenitiesRequest.java:
+    last_write_checksum: sha1:7e6dd2e4179740b179b3bc9f8009510f0c17b819
+  src/main/java/com/cvent/models/operations/GetVenueAmenitiesRequestBuilder.java:
+    last_write_checksum: sha1:985450fdbda06daf2ac852af3e3939d1e367a499
+  src/main/java/com/cvent/models/operations/GetVenueAmenitiesResponse.java:
+    last_write_checksum: sha1:ccc51e07487acf643c2219c16947fdae959e04f7
   src/main/java/com/cvent/models/operations/GetVenueAttractionRequest.java:
     last_write_checksum: sha1:d084bd6cf5f94f14e98a0aedadf95f14a2e0d9a9
   src/main/java/com/cvent/models/operations/GetVenueAttractionRequestBuilder.java:
@@ -19312,6 +19518,12 @@ trackedFiles:
     id: 977cb53848b5
     last_write_checksum: sha1:a05793e17460bab35f0cc2fc03aad2fb8e1808ca
     pristine_git_object: 9a489ebdb164310f7127e0d3e0c9d21e3b2fc2d3
+  src/main/java/com/cvent/models/operations/ListLeadCatchersOverviewRequest.java:
+    last_write_checksum: sha1:9a30f889e5447a8ee6bae77568be893f93719636
+  src/main/java/com/cvent/models/operations/ListLeadCatchersOverviewRequestBuilder.java:
+    last_write_checksum: sha1:add35ca4b084aaf9de7dc940ea85007dd7237f24
+  src/main/java/com/cvent/models/operations/ListLeadCatchersOverviewResponse.java:
+    last_write_checksum: sha1:d711f6d00f5824f92c3b82ce074dadb48aee9cc3
   src/main/java/com/cvent/models/operations/ListLocationsRequest.java:
     id: 5d1cf2d5d2c5
     last_write_checksum: sha1:f8dd8ca314ed6b48bb1bb3a576a2784e874e0970
@@ -20022,6 +20234,12 @@ trackedFiles:
     id: d259cc58ae8a
     last_write_checksum: sha1:129cdd970b24559b6314417eb23bf155d8d69569
     pristine_git_object: 6545baa543dc1415fb9b87cea71a9008d41e95a8
+  src/main/java/com/cvent/models/operations/PatchLeadCatcherRequest.java:
+    last_write_checksum: sha1:8dd5976171d0d18ce8aa35ccc71a25782dd1f232
+  src/main/java/com/cvent/models/operations/PatchLeadCatcherRequestBuilder.java:
+    last_write_checksum: sha1:6053ff3d5d226c181b4c299f18dce1ed57100f02
+  src/main/java/com/cvent/models/operations/PatchLeadCatcherResponse.java:
+    last_write_checksum: sha1:213efc4b45593fee8bf148710ab71299ebaddc58
   src/main/java/com/cvent/models/operations/PatchMeetingRoomRequest.java:
     last_write_checksum: sha1:e876727adc71a660e18f88916115bb1d98d82f15
   src/main/java/com/cvent/models/operations/PatchMeetingRoomRequestBuilder.java:
@@ -20718,6 +20936,12 @@ trackedFiles:
     id: 81f0e92d941b
     last_write_checksum: sha1:caa744bf5512479351d12b8a3cf288ac49f185bc
     pristine_git_object: 5f8291fc457437b2a38d335152a1d916b524e144
+  src/main/java/com/cvent/models/operations/UpdateLeadCatcherRequest.java:
+    last_write_checksum: sha1:40bc0cbb039cb46d38fcea047d6afa6eba0faac9
+  src/main/java/com/cvent/models/operations/UpdateLeadCatcherRequestBuilder.java:
+    last_write_checksum: sha1:bf4dcb094f2c77fa69cc5a3bda22753c58a8b7bc
+  src/main/java/com/cvent/models/operations/UpdateLeadCatcherResponse.java:
+    last_write_checksum: sha1:9ae07e1bb86cb00786c5ec944990cd78c89861c8
   src/main/java/com/cvent/models/operations/UpdateMeetingRequestRequest.java:
     id: cf55d6a85173
     last_write_checksum: sha1:1258f414a812a6e94f2570961849b402b7ddb054
@@ -20916,6 +21140,12 @@ trackedFiles:
     id: 9a41629b2910
     last_write_checksum: sha1:3b9af281b4622caf3c29e6823470605337cec0ac
     pristine_git_object: c452b2a53406741d90a24261b086e84970a01349
+  src/main/java/com/cvent/models/operations/UpdateVenueAmenitiesRequest.java:
+    last_write_checksum: sha1:d8f9068601045320a17d296f0ce0e907dacaeb5e
+  src/main/java/com/cvent/models/operations/UpdateVenueAmenitiesRequestBuilder.java:
+    last_write_checksum: sha1:d0829207729c0f44a09dc427c6bd82a8d98fd485
+  src/main/java/com/cvent/models/operations/UpdateVenueAmenitiesResponse.java:
+    last_write_checksum: sha1:8700f37a2614095e2a0a758cd14b1772ee68f00f
   src/main/java/com/cvent/models/operations/UpdateVenueAttractionRequest.java:
     last_write_checksum: sha1:e8855f01df751ae55c95bfba77370513c3f5037a
   src/main/java/com/cvent/models/operations/UpdateVenueAttractionRequestBuilder.java:
@@ -21204,6 +21434,8 @@ trackedFiles:
     id: 1de1ccc3c0db
     last_write_checksum: sha1:074891c6725d7f870ac0d73a1426a7a6a84ed6d8
     pristine_git_object: cee843d2d6489fc762c160eb1153d364c009d0ae
+  src/main/java/com/cvent/models/operations/async/CreateLeadCatcherResponse.java:
+    last_write_checksum: sha1:a3a381a018db2844cb0b5ecc29969e6225c4e0f0
   src/main/java/com/cvent/models/operations/async/CreateMeetingRequestResponse.java:
     id: b2dd6d9e300c
     last_write_checksum: sha1:542440a65d3203f7751d5c78a5de0fe5490de127
@@ -21356,6 +21588,8 @@ trackedFiles:
     id: d2ba12fdb53b
     last_write_checksum: sha1:094a4766ec378075f32ec79d23a89fe2a27c2cf0
     pristine_git_object: f244036c1caa35d36b6b514db3f0ca919ab962c6
+  src/main/java/com/cvent/models/operations/async/DeleteLeadCatcherResponse.java:
+    last_write_checksum: sha1:43ef5dcc6fb35195fdb2669642eaaa0f70ec7edf
   src/main/java/com/cvent/models/operations/async/DeletePaymentResponse.java:
     id: 86f5cf938967
     last_write_checksum: sha1:07790b7ef551616eee4a0332b20ff939848e53c5
@@ -21806,6 +22040,8 @@ trackedFiles:
     id: 9a177ae161eb
     last_write_checksum: sha1:51d252bed07010fc0a0d7947ce90e92e3df3df9c
     pristine_git_object: 816d3592d3c46c093df273d497249ee926fe9c63
+  src/main/java/com/cvent/models/operations/async/GetLeadCatcherOverviewResponse.java:
+    last_write_checksum: sha1:b0e1650ae8fa64f867339f29a1590d081aa5050e
   src/main/java/com/cvent/models/operations/async/GetLeadQualificationAnswersResponse.java:
     id: 9f544462e338
     last_write_checksum: sha1:cc846ecbb9df5bb60b592f7051e87e853726dca9
@@ -22064,6 +22300,8 @@ trackedFiles:
     id: e70f6b9e6490
     last_write_checksum: sha1:3980cc4cf2424b5ce687b09db59618e873f9ed2b
     pristine_git_object: da9dee01303bef44034f30ce2c3ee38ae52e7121
+  src/main/java/com/cvent/models/operations/async/GetVenueAmenitiesResponse.java:
+    last_write_checksum: sha1:f5b728b8ad4afdd140805eec8d419e1bbcd16b47
   src/main/java/com/cvent/models/operations/async/GetVenueAttractionResponse.java:
     last_write_checksum: sha1:e01a30d267fe6caeaa963164b5550934ade1eee5
   src/main/java/com/cvent/models/operations/async/GetVenueAvailabilitySettingsResponse.java:
@@ -22272,6 +22510,8 @@ trackedFiles:
     id: 8c8180c69406
     last_write_checksum: sha1:dff30cfc0dfb94e5007e7232fe78553bed42d3ec
     pristine_git_object: ff7ab55dfe47904b0422d528f310d67d7cb7b4b9
+  src/main/java/com/cvent/models/operations/async/ListLeadCatchersOverviewResponse.java:
+    last_write_checksum: sha1:7a0b1cf3e89c0dba6dc670fe0fa6ddb466c34f16
   src/main/java/com/cvent/models/operations/async/ListLocationsResponse.java:
     id: 20095caf485b
     last_write_checksum: sha1:9ba5aba4ec1e06aa564a6bb9769b1d91c4867084
@@ -22510,6 +22750,8 @@ trackedFiles:
     id: abd67c0dd8bd
     last_write_checksum: sha1:024e675be695760cfb075b8659221d31fda3c0fe
     pristine_git_object: e034808c426c0a8ab7647b7fc5191c2e9326b098
+  src/main/java/com/cvent/models/operations/async/PatchLeadCatcherResponse.java:
+    last_write_checksum: sha1:ec9e4786d3e12cdc0d66c18f48a474d93dd2592b
   src/main/java/com/cvent/models/operations/async/PatchMeetingRoomResponse.java:
     last_write_checksum: sha1:b5e02a90e3ad4507c19c03d83b952a9953fbcaf8
   src/main/java/com/cvent/models/operations/async/PatchVenueDetailsResponse.java:
@@ -22746,6 +22988,8 @@ trackedFiles:
     id: de0cb8d04d75
     last_write_checksum: sha1:258a8ea3405e398f144dbb4e347a32332938a0ff
     pristine_git_object: 62f5ce10d6fab05609fba689856728078651dd1e
+  src/main/java/com/cvent/models/operations/async/UpdateLeadCatcherResponse.java:
+    last_write_checksum: sha1:b7db8c71b2872ef1accb8282418f9a2c8a360ef8
   src/main/java/com/cvent/models/operations/async/UpdateMeetingRequestResponse.java:
     id: 823609a71e96
     last_write_checksum: sha1:3c5bad1d0afd2b5cdf033aec81b79ed2aecf227f
@@ -22812,6 +23056,8 @@ trackedFiles:
     id: e1b6e988e581
     last_write_checksum: sha1:33a48a0bfa8757d6398d3bb62a2f7bc8dd2c2a64
     pristine_git_object: 86039089680de2a76bf8887c99fc42132adbf1fc
+  src/main/java/com/cvent/models/operations/async/UpdateVenueAmenitiesResponse.java:
+    last_write_checksum: sha1:6ba4aa9d7b34a0788445c8a1b13ef53fe5887ac4
   src/main/java/com/cvent/models/operations/async/UpdateVenueAttractionResponse.java:
     last_write_checksum: sha1:5fecd91a5b163f01c38c1bb3161ce474998aed4f
   src/main/java/com/cvent/models/operations/async/UpdateVenueAvailabilitySettingsResponse.java:
@@ -23048,6 +23294,8 @@ trackedFiles:
     id: e1827cbcf62f
     last_write_checksum: sha1:7a3feec56cc023a6b3b3048e15e18e9799de7af7
     pristine_git_object: 29611f8dc48d465cc053699e9403e68f3a230aaf
+  src/main/java/com/cvent/operations/CreateLeadCatcher.java:
+    last_write_checksum: sha1:914247cdabc33d10ca7169ea4b61311f0d9411bc
   src/main/java/com/cvent/operations/CreateMeetingRequest.java:
     id: 198f5547bc45
     last_write_checksum: sha1:0a6c70d70c374517e9cefcecc2023eedbddcf77e
@@ -23200,6 +23448,8 @@ trackedFiles:
     id: 9e9d1ae274db
     last_write_checksum: sha1:ad7dde1a47d226c159fcac756778161c379ceabd
     pristine_git_object: 09327af29f03040f24cdfe8da8c06accdef58824
+  src/main/java/com/cvent/operations/DeleteLeadCatcher.java:
+    last_write_checksum: sha1:f1586d91df2e561c91a380c97c63752c607053e7
   src/main/java/com/cvent/operations/DeletePayment.java:
     id: ce813e36ba52
     last_write_checksum: sha1:edc3157e546a57a43eedd48888c5b0b644f67cb8
@@ -23650,6 +23900,8 @@ trackedFiles:
     id: e20198d556ad
     last_write_checksum: sha1:d311a6e3555f3bf4d3b9f87182160812c47a7de9
     pristine_git_object: 7c78d01546b925ca3ba580227794c5925e2fa97c
+  src/main/java/com/cvent/operations/GetLeadCatcherOverview.java:
+    last_write_checksum: sha1:917832a898db658401d0f50ba3317ad9d09ecfd0
   src/main/java/com/cvent/operations/GetLeadQualificationAnswers.java:
     id: 8b3e154dad55
     last_write_checksum: sha1:4f1d6024e70a1f85b225a949ead17b4063485451
@@ -23908,6 +24160,8 @@ trackedFiles:
     id: 642c9ddeba82
     last_write_checksum: sha1:819eba848d414dcd8737fa0f6fcf7f89976ce318
     pristine_git_object: f94d9973b34828b8f374a36636562d1b61bf87da
+  src/main/java/com/cvent/operations/GetVenueAmenities.java:
+    last_write_checksum: sha1:47b1a7f0662fc6636dcfdd1c10cbe32f541b0fe6
   src/main/java/com/cvent/operations/GetVenueAttraction.java:
     last_write_checksum: sha1:a56b1b2d288de62a13f1c792286bce552d758e07
   src/main/java/com/cvent/operations/GetVenueAvailabilitySettings.java:
@@ -24116,6 +24370,8 @@ trackedFiles:
     id: 0be09ca2617f
     last_write_checksum: sha1:599b613782c0c40ffa44cf9034d031c6d1ad7911
     pristine_git_object: 152f9d7dafefda26ac3d4b9f77d009a3f492b82f
+  src/main/java/com/cvent/operations/ListLeadCatchersOverview.java:
+    last_write_checksum: sha1:a81742fd41159eec662a71cc0028bd1e0286aecb
   src/main/java/com/cvent/operations/ListLocations.java:
     id: 49d28ca80e2b
     last_write_checksum: sha1:eae98f69360c06c82cb8b0b95f50db28c8bcb7b6
@@ -24358,6 +24614,8 @@ trackedFiles:
     id: fb82af4da6b3
     last_write_checksum: sha1:66f9908bf0822fd0a7943f5d9cdebc6f9749cc53
     pristine_git_object: 06a35bcd4caadf5288015c782b28ef2e51583bc4
+  src/main/java/com/cvent/operations/PatchLeadCatcher.java:
+    last_write_checksum: sha1:7aee19b35f77a334f7a771010c9751da85d1f132
   src/main/java/com/cvent/operations/PatchMeetingRoom.java:
     last_write_checksum: sha1:7ff0ee101912852c32326f2d0e3a3bf5ddf3e346
   src/main/java/com/cvent/operations/PatchVenueDetails.java:
@@ -24594,6 +24852,8 @@ trackedFiles:
     id: f4bd66b3c7e3
     last_write_checksum: sha1:e33c1ecf1a87523101c9c10a3e4f8614f4d3a1c8
     pristine_git_object: e449882cde7274841e04c6ce079d8451b3ceb4d9
+  src/main/java/com/cvent/operations/UpdateLeadCatcher.java:
+    last_write_checksum: sha1:c07bd90c135219c7b5761b0bbd87afc06b21c6e8
   src/main/java/com/cvent/operations/UpdateMeetingRequest.java:
     id: "866923326826"
     last_write_checksum: sha1:445b2f0a25b81469e18ad7d89269c466f1dc2977
@@ -24660,6 +24920,8 @@ trackedFiles:
     id: e4341afd373a
     last_write_checksum: sha1:5b1119fbfbd305462c281528c750d9882103171a
     pristine_git_object: aee46a839ea9098a2e95de42e7ea8481c18872cd
+  src/main/java/com/cvent/operations/UpdateVenueAmenities.java:
+    last_write_checksum: sha1:dc7edd878c8d735b640d783516b10b78664a4713
   src/main/java/com/cvent/operations/UpdateVenueAttraction.java:
     last_write_checksum: sha1:69727b4e499ca5fbadcff950cef982a7613b15be
   src/main/java/com/cvent/operations/UpdateVenueAvailabilitySettings.java:
@@ -30339,7 +30601,7 @@ examples:
           token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
       responses:
         "200":
-          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?", "htmlText": "Question Html", "code": "4l6x", "type": "SingleChoice", "choices": [{"text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?", "label": "Choice A"}], "categories": [{"text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?", "required": true}], "subCategories": [{"text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?"}], "notApplicableAnswer": {"text": "Dietary Restriction - Other", "shortText": "Dietary Preference - Other Allergies"}, "otherAnswer": {"text": "Dietary Restriction - Other", "shortText": "Dietary Preference - Other Allergies"}, "comments": "Comments Text", "required": true, "fields": [{"text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?", "choices": [{"text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?", "label": "Choice A"}], "notApplicableAnswer": {"text": "Dietary Restriction - Other", "shortText": "Dietary Preference - Other Allergies"}, "otherAnswer": {"text": "Dietary Restriction - Other", "shortText": "Dietary Preference - Other Allergies"}, "required": true}], "maxScore": 20, "totalSum": 45, "minSelection": 1, "maxSelection": 3, "minDate": "2020-01-01", "maxDate": "2020-12-31", "showDateSelector": true, "showCurrentDate": true, "dateAnswerFormat": "DateTime", "unitLabel": "miles", "minLength": 5, "maxLength": 100, "customAnswerFormat": {"id": 104}, "supplierTypes": ["CVB", "HOTEL"], "order": 1, "standardQuestion": {"id": "50dc08af-24a9-4d01-84be-3d43133dc945"}, "aiQuestionGenerationSource": "MCP-Visual Studio Code/1.107.1"}]}
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?", "htmlText": "Question Html", "code": "4l6x", "type": "SingleChoice", "choices": [{"text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?", "label": "Choice A"}], "categories": [{"text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?", "required": true}], "subCategories": [{"text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?"}], "notApplicableAnswer": {"text": "Dietary Restriction - Other", "shortText": "Dietary Preference - Other Allergies"}, "otherAnswer": {"text": "Dietary Restriction - Other", "shortText": "Dietary Preference - Other Allergies"}, "comments": "Comments Text", "required": true, "fields": [{"text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?", "choices": [{"text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?", "label": "Choice A"}], "notApplicableAnswer": {"text": "Dietary Restriction - Other", "shortText": "Dietary Preference - Other Allergies"}, "otherAnswer": {"text": "Dietary Restriction - Other", "shortText": "Dietary Preference - Other Allergies"}, "required": true}], "maxScore": 20, "totalSum": 45, "minSelection": 1, "maxSelection": 3, "minDate": "2020-01-01", "maxDate": "2020-12-31", "showDateSelector": true, "showCurrentDate": true, "dateAnswerFormat": "DateTime", "unitLabel": "miles", "minLength": 5, "maxLength": 100, "customAnswerFormat": {"id": 104}, "supplierTypes": ["CVB", "HOTEL"], "classificationType": "MEETING_ROOM", "order": 1, "standardQuestion": {"id": "50dc08af-24a9-4d01-84be-3d43133dc945"}, "aiQuestionGenerationSource": "MCP-Visual Studio Code/1.107.1"}]}
         "400":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
   listRfpPastEvents:
@@ -31144,6 +31406,99 @@ examples:
           application/json: {"id": "501fbc6a-cfd4-468f-a2f7-14e521d33c71", "platformUserId": "00ad83olslLwIeKcW1m8", "username": "jsmith@example.com", "federatedSsoLoginName": "jsmith@example.com", "contact": {"honorificPrefix": "Mr.", "firstName": "Jack", "middleName": "John", "lastName": "Tripper", "title": "Senior Software Engineer", "organization": "Cvent", "email": "jack.tripper@example.com", "homePhone": "+17035551234", "homeFax": "+17035551234", "mobilePhone": "+17035551234", "workPhone": "+17035551234", "workFax": "+17035551234", "pager": "+17035551234", "address": {"address1": "1765 Greensboro Station Pl", "address2": "7th Floor", "address3": "", "city": "McLean", "countryCode": "US", "regionCode": "VA", "postalCode": "22102"}}, "locale": "en-US", "timezone": "America/New_York", "active": false, "usernameVerified": true, "emailVerified": "VERIFIED", "lockedOut": false, "termsOfUseAccepted": true, "failedLoginCount": 1, "markDocumentsAsInternal": false, "visibilityAccess": [], "audit": {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "lockedOutDate": "2017-01-02T02:00:00Z", "termsOfUseAcceptedDate": "2017-01-02T02:00:00Z", "lastLoginDate": "2017-01-02T02:00:00Z", "passwordLastModifiedDate": "2017-01-02T02:00:00Z"}, "customFields": [{"id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890", "name": "What is your favorite color?", "type": "Choice - Multiple Answers", "values": ["Choice C", "Choice A"], "order": 1}], "role": {"id": "946505f6-6b29-421a-bda2-0815fcdea73c"}}
         "401":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getVenueAmenities:
+    speakeasy-default-get-venue-amenities:
+      parameters:
+        path:
+          venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00"
+      responses:
+        "200":
+          application/json: {"avCapabilities": [{"amenity": "ONSITE_AV_STAFF", "speed": 1000}], "parking": [{"amenity": "COMPLIMENTARY_PARKING_PROVIDED", "cost": 25}], "facilitySpaceInfo": [{"amenity": "OUTDOOR_SPACE", "value": 5000}], "id": "6bb0e2db-861f-46e3-a923-eb4d959ffa00", "name": "Harbor View Convention Center"}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  updateVenueAmenities:
+    speakeasy-default-update-venue-amenities:
+      parameters:
+        path:
+          venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00"
+      requestBody:
+        application/json: {"avCapabilities": [{"amenity": "ONSITE_AV_STAFF", "speed": 1000}], "parking": [{"amenity": "BUS_PARKING_AVAILABLE", "cost": 25}], "facilitySpaceInfo": [{"amenity": "OUTDOOR_SPACE", "value": 5000}]}
+      responses:
+        "200":
+          application/json: {"avCapabilities": [{"amenity": "ONSITE_AV_STAFF", "speed": 1000}], "parking": [{"amenity": "BUS_PARKING_AVAILABLE", "cost": 25}], "facilitySpaceInfo": [{"amenity": "OUTDOOR_SPACE", "value": 5000}], "id": "6bb0e2db-861f-46e3-a923-eb4d959ffa00", "name": "Harbor View Convention Center"}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  createLeadCatcher:
+    speakeasy-default-create-lead-catcher:
+      parameters:
+        path:
+          venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00"
+      requestBody:
+        application/json: {"firstName": "Jane", "lastName": "Smith", "title": "Director of Sales", "email": "jane.smith@example.com", "phone": "+1-555-555-0101", "fax": "+1-555-555-0101", "address": {"streetAddress1": "1234 Trap Road", "streetAddress2": "Suite 100", "city": "Vienna", "zipPostalCode": "22182"}, "locale": "en-US", "config": {"rfpEmailEnabled": true, "pdfLinkEnabled": true, "supplierContactRole": "Sales Manager"}, "additionalInfo": "Preferred contact for APAC venues."}
+      responses:
+        "201":
+          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "firstName": "Jane", "lastName": "Smith", "title": "Director of Sales", "email": "jane.smith@example.com", "phone": "+1-555-555-0101", "fax": "+1-555-555-0101", "address": {"streetAddress1": "1234 Trap Road", "streetAddress2": "Suite 100", "city": "Vienna", "zipPostalCode": "22182"}, "locale": "en-US", "config": {"rfpEmailEnabled": true, "pdfLinkEnabled": true, "supplierContactRole": "Sales Manager"}, "additionalInfo": "Preferred contact for APAC venues.", "id": "7e5c2c23-b2bb-461a-adc9-025184988519"}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  listLeadCatchersOverview:
+    speakeasy-default-list-lead-catchers-overview:
+      parameters:
+        path:
+          venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00"
+        query:
+          limit: 100
+          token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"id": "7e5c2c23-b2bb-461a-adc9-025184988519", "firstName": "Jane", "lastName": "Smith"}]}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  updateLeadCatcher:
+    speakeasy-default-update-lead-catcher:
+      parameters:
+        path:
+          venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00"
+          leadCatcherId: "6e7d0d64-13f7-4472-8308-fa7067dba173"
+      requestBody:
+        application/json: {"firstName": "Jane", "lastName": "Smith", "title": "Director of Sales", "email": "jane.smith@example.com", "phone": "+1-555-555-0101", "fax": "+1-555-555-0101", "address": {"streetAddress1": "1234 Trap Road", "streetAddress2": "Suite 100", "city": "Vienna", "zipPostalCode": "22182"}, "locale": "en-US", "config": {"rfpEmailEnabled": true, "pdfLinkEnabled": true, "supplierContactRole": "Sales Manager"}, "additionalInfo": "Preferred contact for APAC venues."}
+      responses:
+        "200":
+          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "firstName": "Jane", "lastName": "Smith", "title": "Director of Sales", "email": "jane.smith@example.com", "phone": "+1-555-555-0101", "fax": "+1-555-555-0101", "address": {"streetAddress1": "1234 Trap Road", "streetAddress2": "Suite 100", "city": "Vienna", "zipPostalCode": "22182"}, "locale": "en-US", "config": {"rfpEmailEnabled": true, "pdfLinkEnabled": true, "supplierContactRole": "Sales Manager"}, "additionalInfo": "Preferred contact for APAC venues.", "id": "7e5c2c23-b2bb-461a-adc9-025184988519"}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  patchLeadCatcher:
+    speakeasy-default-patch-lead-catcher:
+      parameters:
+        path:
+          venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00"
+          leadCatcherId: "f72c984a-4f55-4563-90e5-7e34a3be1552"
+      requestBody:
+        application/merge-patch+json: {"firstName": "Jane", "lastName": "Smith", "title": "Director of Sales", "email": "jane.smith@example.com", "phone": "+1-555-0100", "fax": "+1-555-0101", "address": {"streetAddress1": "1234 Trap Road", "streetAddress2": "Suite 100", "city": "Vienna", "zipPostalCode": "22182"}, "locale": "en-US", "config": {"rfpEmailEnabled": true, "pdfLinkEnabled": true, "supplierContactRole": "roleName"}, "additionalInfo": "Preferred contact for APAC venues."}
+      responses:
+        "200":
+          application/json: {"firstName": "Jane", "lastName": "Smith", "title": "Director of Sales", "email": "jane.smith@example.com", "phone": "+1-555-0100", "fax": "+1-555-0101", "address": {"streetAddress1": "1234 Trap Road", "streetAddress2": "Suite 100", "city": "Vienna", "zipPostalCode": "22182"}, "locale": "en-US", "config": {"rfpEmailEnabled": true, "pdfLinkEnabled": true, "supplierContactRole": "roleName"}, "additionalInfo": "Preferred contact for APAC venues."}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  deleteLeadCatcher:
+    speakeasy-default-delete-lead-catcher:
+      parameters:
+        path:
+          venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00"
+          leadCatcherId: "d7aa3fa0-4c8f-4353-9810-3984886b6a9d"
+      responses:
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getLeadCatcherOverview:
+    speakeasy-default-get-lead-catcher-overview:
+      parameters:
+        path:
+          venueId: "6bb0e2db-861f-46e3-a923-eb4d959ffa00"
+          leadCatcherId: "7de41b14-8083-46d4-91b6-5a3239d59277"
+      responses:
+        "200":
+          application/json: {"id": "7e5c2c23-b2bb-461a-adc9-025184988519", "firstName": "Jane", "lastName": "Smith"}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
 examplesVersion: 1.0.2
 generatedTests:
   getAccountUserGroups: "2025-12-09T16:04:38-06:00"
@@ -31585,3 +31940,10 @@ generatedTests:
   listAccountUsers-combined: "2026-10-15T14:36:51-04:00"
   listAccountUsers: "2026-10-15T14:36:51-04:00"
   getAccountUser: "2026-10-15T14:36:51-04:00"
+  getVenueAmenities: "2026-10-23T14:14:15-04:00"
+  updateVenueAmenities: "2026-10-23T14:14:15-04:00"
+  createLeadCatcher: "2026-10-23T14:14:15-04:00"
+  listLeadCatchersOverview: "2026-10-23T14:14:15-04:00"
+  updateLeadCatcher: "2026-10-23T14:14:15-04:00"
+  patchLeadCatcher: "2026-10-23T14:14:15-04:00"
+  getLeadCatcherOverview: "2026-10-23T14:14:15-04:00"

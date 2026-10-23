@@ -10,10 +10,12 @@ import { venueContentDeleteVenueAttraction } from "../funcs/venueContentDeleteVe
 import { venueContentDisassociateAttractionImage } from "../funcs/venueContentDisassociateAttractionImage.js";
 import { venueContentDisassociateVenueImage } from "../funcs/venueContentDisassociateVenueImage.js";
 import { venueContentGetAttractionImages } from "../funcs/venueContentGetAttractionImages.js";
+import { venueContentGetVenueAmenities } from "../funcs/venueContentGetVenueAmenities.js";
 import { venueContentGetVenueAttraction } from "../funcs/venueContentGetVenueAttraction.js";
 import { venueContentGetVenueImageMetadata } from "../funcs/venueContentGetVenueImageMetadata.js";
 import { venueContentListVenueAttractions } from "../funcs/venueContentListVenueAttractions.js";
 import { venueContentListVenueImagesMetadata } from "../funcs/venueContentListVenueImagesMetadata.js";
+import { venueContentUpdateVenueAmenities } from "../funcs/venueContentUpdateVenueAmenities.js";
 import { venueContentUpdateVenueAttraction } from "../funcs/venueContentUpdateVenueAttraction.js";
 import { venueContentUpdateVenueImageMetadata } from "../funcs/venueContentUpdateVenueImageMetadata.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
@@ -23,6 +25,44 @@ import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class VenueContent extends ClientSDK {
+  /**
+   * Get Venue Amenities
+   *
+   * @remarks
+   * Returns the current amenity selections for the specified venue.
+   *
+   * Not applicable to CVB/DMC or Restaurant venues.
+   */
+  async getVenueAmenities(
+    request: operations.GetVenueAmenitiesRequest,
+    options?: RequestOptions,
+  ): Promise<components.ExistingVenueAmenities> {
+    return unwrapAsync(venueContentGetVenueAmenities(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Venue Amenities
+   *
+   * @remarks
+   * Updates the amenity selections for the specified venue, replacing all existing selections with those provided in the request body. Sections absent from the request body or submitted as empty arrays will have their selections cleared.
+   *
+   * Not applicable to CVB/DMC or Restaurant venues.
+   */
+  async updateVenueAmenities(
+    request: operations.UpdateVenueAmenitiesRequest,
+    options?: RequestOptions,
+  ): Promise<components.ExistingVenueAmenities> {
+    return unwrapAsync(venueContentUpdateVenueAmenities(
+      this,
+      request,
+      options,
+    ));
+  }
+
   /**
    * List Venue Attractions
    *

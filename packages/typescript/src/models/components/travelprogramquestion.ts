@@ -7,101 +7,31 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  QuestionResponseDataType,
-  QuestionResponseDataType$inboundSchema,
-} from "./questionresponsedatatype.js";
-import {
-  QuestionResponseFormat,
-  QuestionResponseFormat$inboundSchema,
-} from "./questionresponseformat.js";
-import {
-  QuestionResponseType,
-  QuestionResponseType$inboundSchema,
-} from "./questionresponsetype.js";
+  QuestionSection,
+  QuestionSection$inboundSchema,
+} from "./questionsection.js";
 
 /**
- * Travel program that the question belongs to.
- */
-export type TravelProgramQuestionTravelProgram = {
-  /**
-   * The unique ID of the travel program.
-   */
-  id?: string | undefined;
-};
-
-/**
- * A question, defined by the program, for the supplier to answer as part of their proposal.
+ * A question, defined by the account, for the supplier to answer as part of their proposal.
  */
 export type TravelProgramQuestion = {
   /**
-   * The ISO 8601 zoned date time when this record was created.
+   * The unique ID of the custom question.
    */
-  created?: Date | undefined;
+  questionId?: string | undefined;
   /**
-   * The identifier of the user that created this record.
+   * Code representing the section where the question belongs. Currently, program_client (client specific) and program_g_and_m (group and meeting) are supported.
    */
-  createdBy?: string | undefined;
+  section?: QuestionSection | undefined;
   /**
-   * The ISO 8601 zoned date time when this record was updated.
-   */
-  lastModified?: Date | undefined;
-  /**
-   * The identifier of the user that last updated this record.
-   */
-  lastModifiedBy?: string | undefined;
-  /**
-   * Travel program that the question belongs to.
-   */
-  travelProgram?: TravelProgramQuestionTravelProgram | undefined;
-  /**
-   * The unique ID of the question.
-   */
-  id?: string | undefined;
-  /**
-   * The text of the question.
-   */
-  text?: string | undefined;
-  /**
-   * Is this question required by default?
+   * Is it required for suppliers to answer this question in their proposal?
    */
   required?: boolean | undefined;
   /**
-   * Code representing the type of response supported.  Single represents a simple single value response, and choice means the user will be given a set of options for selection.
+   * The sequence number of the question within the proposal.
    */
-  responseType?: QuestionResponseType | undefined;
-  /**
-   * Code representing the expected data type of the question response.
-   */
-  responseDataType?: QuestionResponseDataType | undefined;
-  /**
-   * Code representing the format the text of the response will be in.
-   */
-  responseFormat?: QuestionResponseFormat | undefined;
-  /**
-   * A list of options for the question.  This only applies when responseType is 'choice'
-   */
-  responseChoices?: Array<string> | undefined;
+  sequence?: number | undefined;
 };
-
-/** @internal */
-export const TravelProgramQuestionTravelProgram$inboundSchema: z.ZodType<
-  TravelProgramQuestionTravelProgram,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string().optional(),
-});
-
-export function travelProgramQuestionTravelProgramFromJSON(
-  jsonString: string,
-): SafeParseResult<TravelProgramQuestionTravelProgram, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      TravelProgramQuestionTravelProgram$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TravelProgramQuestionTravelProgram' from JSON`,
-  );
-}
 
 /** @internal */
 export const TravelProgramQuestion$inboundSchema: z.ZodType<
@@ -109,22 +39,10 @@ export const TravelProgramQuestion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  created: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  createdBy: z.string().optional(),
-  lastModified: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
-  ).optional(),
-  lastModifiedBy: z.string().optional(),
-  travelProgram: z.lazy(() => TravelProgramQuestionTravelProgram$inboundSchema)
-    .optional(),
-  id: z.string().optional(),
-  text: z.string().optional(),
+  questionId: z.string().optional(),
+  section: QuestionSection$inboundSchema.optional(),
   required: z.boolean().optional(),
-  responseType: QuestionResponseType$inboundSchema.optional(),
-  responseDataType: QuestionResponseDataType$inboundSchema.optional(),
-  responseFormat: QuestionResponseFormat$inboundSchema.optional(),
-  responseChoices: z.array(z.string()).optional(),
+  sequence: z.number().int().optional(),
 });
 
 export function travelProgramQuestionFromJSON(

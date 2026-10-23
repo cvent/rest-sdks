@@ -2,8 +2,8 @@ speakeasyVersion: 1.752.0
 sources:
     Public:
         sourceNamespace: public
-        sourceRevisionDigest: sha256:c3066b6cb34f4bf1759028b9a9fc8791a7f772ed44519cd394492562ef9091ba
-        sourceBlobDigest: sha256:8af95d5807621381ac3c0aa4523b063a72a9102123695f791c56a681bec17e49
+        sourceRevisionDigest: sha256:e48550184ebea2ef5cedb5e6ace3c6a2a98867121cf608fee24914d7137a8b4c
+        sourceBlobDigest: sha256:637bb7cc9d0334b90c4c1b2514215d09a3953ed8210c4b2dc047c59d4d9a578e
         tags:
             - latest
             - ea
@@ -11,18 +11,18 @@ targets:
     public-csharp:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:c3066b6cb34f4bf1759028b9a9fc8791a7f772ed44519cd394492562ef9091ba
-        sourceBlobDigest: sha256:8af95d5807621381ac3c0aa4523b063a72a9102123695f791c56a681bec17e49
+        sourceRevisionDigest: sha256:e48550184ebea2ef5cedb5e6ace3c6a2a98867121cf608fee24914d7137a8b4c
+        sourceBlobDigest: sha256:637bb7cc9d0334b90c4c1b2514215d09a3953ed8210c4b2dc047c59d4d9a578e
     public-java:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:c3066b6cb34f4bf1759028b9a9fc8791a7f772ed44519cd394492562ef9091ba
-        sourceBlobDigest: sha256:8af95d5807621381ac3c0aa4523b063a72a9102123695f791c56a681bec17e49
+        sourceRevisionDigest: sha256:e48550184ebea2ef5cedb5e6ace3c6a2a98867121cf608fee24914d7137a8b4c
+        sourceBlobDigest: sha256:637bb7cc9d0334b90c4c1b2514215d09a3953ed8210c4b2dc047c59d4d9a578e
     public-typescript:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:c3066b6cb34f4bf1759028b9a9fc8791a7f772ed44519cd394492562ef9091ba
-        sourceBlobDigest: sha256:8af95d5807621381ac3c0aa4523b063a72a9102123695f791c56a681bec17e49
+        sourceRevisionDigest: sha256:e48550184ebea2ef5cedb5e6ace3c6a2a98867121cf608fee24914d7137a8b4c
+        sourceBlobDigest: sha256:637bb7cc9d0334b90c4c1b2514215d09a3953ed8210c4b2dc047c59d4d9a578e
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: 1.752.0

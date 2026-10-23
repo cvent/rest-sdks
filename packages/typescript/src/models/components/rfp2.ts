@@ -4,6 +4,7 @@
 
 import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -40,7 +41,6 @@ import {
 import { RecipientInfo, RecipientInfo$inboundSchema } from "./recipientinfo.js";
 import { RfpEvent, RfpEvent$inboundSchema } from "./rfpevent.js";
 import { RfpStatus1, RfpStatus1$inboundSchema } from "./rfpstatus1.js";
-import { RfpType1, RfpType1$inboundSchema } from "./rfptype1.js";
 import {
   VenueIntegrationPreference,
   VenueIntegrationPreference$inboundSchema,
@@ -53,6 +53,21 @@ import {
   WeddingDetails1,
   WeddingDetails1$inboundSchema,
 } from "./weddingdetails1.js";
+
+/**
+ * RFP types based on event requirements.
+ */
+export const RfpType = {
+  MeetingSpaceAndGuestRooms: "MEETING_SPACE_AND_GUEST_ROOMS",
+  MeetingSpaceOnly: "MEETING_SPACE_ONLY",
+  GuestRoomsOnly: "GUEST_ROOMS_ONLY",
+  RestaurantRfp: "RESTAURANT_RFP",
+  ServiceProvider: "SERVICE_PROVIDER",
+} as const;
+/**
+ * RFP types based on event requirements.
+ */
+export type RfpType = ClosedEnum<typeof RfpType>;
 
 /**
  * Basic RFP details
@@ -209,7 +224,7 @@ export type Rfp2 = {
    */
   feeTransparencyEnabled: boolean;
   /**
-   * DEPRECATED: Use [venueIntegrationPreference](#schema/VenueIntegrationPreference) instead. Venue integrations the planner prefers when sourcing venues. An empty array or absent field indicates no preference has been recorded.
+   * DEPRECATED: Use `venueIntegrationPreference` instead. Venue integrations the planner prefers when sourcing venues. An empty array or absent field indicates no preference has been recorded.
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
@@ -230,10 +245,7 @@ export type Rfp2 = {
    * Represents state of the RFP.
    */
   status?: RfpStatus1 | undefined;
-  /**
-   * RFP types based on event requirements.
-   */
-  type?: RfpType1 | undefined;
+  type?: RfpType | undefined;
   /**
    * Details of the user who approved the RFP.
    */
@@ -283,6 +295,10 @@ export type Rfp2 = {
    */
   aiRfpGenerationSource?: string | undefined;
 };
+
+/** @internal */
+export const RfpType$inboundSchema: z.ZodNativeEnum<typeof RfpType> = z
+  .nativeEnum(RfpType);
 
 /** @internal */
 export const Rfp2$inboundSchema: z.ZodType<Rfp2, z.ZodTypeDef, unknown> = z
@@ -335,7 +351,7 @@ export const Rfp2$inboundSchema: z.ZodType<Rfp2, z.ZodTypeDef, unknown> = z
     id: z.string(),
     code: z.string().optional(),
     status: RfpStatus1$inboundSchema.optional(),
-    type: RfpType1$inboundSchema.optional(),
+    type: RfpType$inboundSchema.optional(),
     approvedBy: z.string().optional(),
     approvedDateTime: z.string().datetime({ offset: true }).transform(v =>
       new Date(v)

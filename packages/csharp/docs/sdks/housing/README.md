@@ -17,6 +17,8 @@ If you need authentication credentials or have any questions regarding the RegLi
 * **RegLink.** A feature that links Passkey events to your registration events, enabling you to sync data between the two events.
 * **Callback.** [Passkey's callback system](https://developers.cvent.com/docs/passkey/REST/callbacks) allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.
 
+> Passkey Housing APIs only support the NA base URL. Calls to the EU base URL will return an error.
+
 
 ### Available Operations
 

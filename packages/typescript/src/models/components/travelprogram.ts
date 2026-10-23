@@ -12,9 +12,9 @@ import {
   TravelProgramFormatType$inboundSchema,
 } from "./travelprogramformattype.js";
 import {
-  TravelProgramQuestion1,
-  TravelProgramQuestion1$inboundSchema,
-} from "./travelprogramquestion1.js";
+  TravelProgramQuestion,
+  TravelProgramQuestion$inboundSchema,
+} from "./travelprogramquestion.js";
 import {
   TravelProgramStatus,
   TravelProgramStatus$inboundSchema,
@@ -109,7 +109,7 @@ export type TravelProgram = {
   /**
    * A list of program specific questions for the supplier to answer as part of their proposal.
    */
-  questions?: Array<TravelProgramQuestion1> | undefined;
+  questions?: Array<TravelProgramQuestion> | undefined;
 };
 
 /** @internal */
@@ -157,7 +157,7 @@ export const TravelProgram$inboundSchema: z.ZodType<
   endDate: z.string().transform(v => new RFCDate(v)).optional(),
   dueDate: z.string().transform(v => new RFCDate(v)).optional(),
   closeoutDate: z.string().transform(v => new RFCDate(v)).optional(),
-  questions: z.array(TravelProgramQuestion1$inboundSchema).optional(),
+  questions: z.array(TravelProgramQuestion$inboundSchema).optional(),
 });
 
 export function travelProgramFromJSON(

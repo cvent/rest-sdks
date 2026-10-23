@@ -28,12 +28,12 @@ namespace Cvent.SDK.Models.Components
         /// Details of a contact.
         /// </summary>
         [JsonProperty("oldContact")]
-        public ContactFields1? OldContact { get; set; }
+        public ContactFields? OldContact { get; set; }
 
         /// <summary>
         /// Details of a contact.
         /// </summary>
         [JsonProperty("newContact")]
-        public ContactFields1? NewContact { get; set; }
+        public ContactFields? NewContact { get; set; }
     }
 }
