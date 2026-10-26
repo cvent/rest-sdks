@@ -54,7 +54,7 @@ export class EventTravel extends ClientSDK {
    * Get Alternate Travel Answers
    *
    * @remarks
-   * Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an event.
+   * Get alternate travel answers submitted by attendees who opt out of air, hotel, or train bookings for an event.
    */
   async getAlternateTravelAnswers(
     request: operations.GetAlternateTravelAnswersRequest,

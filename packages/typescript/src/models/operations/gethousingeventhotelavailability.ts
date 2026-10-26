@@ -39,7 +39,7 @@ export type GetHousingEventHotelAvailabilityRequest = {
    */
   filter?: string | undefined;
   /**
-   * Limit to this number of search results. Maximum of 50, default of 10.
+   * Limit to this number of search results. Maximum of 200, default of 10.
    */
   limit?: number | undefined;
   /**

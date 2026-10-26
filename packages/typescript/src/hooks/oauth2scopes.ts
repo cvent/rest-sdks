@@ -806,6 +806,14 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "survey/surveys:read"
   /**
+   * Allows reading of venue amenity selections.
+   */
+  | "venue/amenities:read"
+  /**
+   * Allows the modification of venue amenity selections.
+   */
+  | "venue/amenities:write"
+  /**
    * Allows reading of venue availability settings.
    */
   | "venue/availability-settings:read"
@@ -825,6 +833,18 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    * Allows associating images with venues.
    */
   | "venue/images:write"
+  /**
+   * Allows read access for overview of lead catchers.
+   */
+  | "venue/lead-catchers-overview:read"
+  /**
+   * Allows the deletion of lead catchers.
+   */
+  | "venue/lead-catchers:delete"
+  /**
+   * Allows the creation and modification of lead catchers.
+   */
+  | "venue/lead-catchers:write"
   /**
    * Allows disassociating images from meeting rooms.
    */
@@ -1830,6 +1850,14 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    */
   | "survey/surveys:read"
   /**
+   * Allows reading of venue amenity selections.
+   */
+  | "venue/amenities:read"
+  /**
+   * Allows the modification of venue amenity selections.
+   */
+  | "venue/amenities:write"
+  /**
    * Allows reading of venue availability settings.
    */
   | "venue/availability-settings:read"
@@ -1849,6 +1877,18 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    * Allows associating images with venues.
    */
   | "venue/images:write"
+  /**
+   * Allows read access for overview of lead catchers.
+   */
+  | "venue/lead-catchers-overview:read"
+  /**
+   * Allows the deletion of lead catchers.
+   */
+  | "venue/lead-catchers:delete"
+  /**
+   * Allows the creation and modification of lead catchers.
+   */
+  | "venue/lead-catchers:write"
   /**
    * Allows disassociating images from meeting rooms.
    */

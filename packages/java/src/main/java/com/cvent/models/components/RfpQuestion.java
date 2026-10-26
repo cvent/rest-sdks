@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
+import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
 import java.lang.Double;
@@ -303,7 +304,6 @@ public class RfpQuestion {
     /**
      * List of supplier types that can view the question on the RFP.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("supplierTypes")
     private List<SupplierType> supplierTypes;
 
@@ -314,7 +314,6 @@ public class RfpQuestion {
      *
      * <p>`ALL_RFPS`:  All RFPs can be assigned this custom question.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("classificationType")
     private QuestionClassificationType classificationType;
 
@@ -379,8 +378,8 @@ public class RfpQuestion {
             @JsonProperty("maxLength") @Nullable Long maxLength,
             @JsonProperty("textAnswerFormat") @Nullable TextAnswerFormat textAnswerFormat,
             @JsonProperty("customAnswerFormat") @Nullable CustomAnswerFormat customAnswerFormat,
-            @JsonProperty("supplierTypes") @Nullable List<SupplierType> supplierTypes,
-            @JsonProperty("classificationType") @Nullable QuestionClassificationType classificationType,
+            @JsonProperty("supplierTypes") @Nonnull List<SupplierType> supplierTypes,
+            @JsonProperty("classificationType") @Nonnull QuestionClassificationType classificationType,
             @JsonProperty("order") @Nullable Long order,
             @JsonProperty("standardQuestion") @Nullable StandardQuestion standardQuestion,
             @JsonProperty("aiQuestionGenerationSource") @Nullable String aiQuestionGenerationSource) {
@@ -421,14 +420,17 @@ public class RfpQuestion {
         this.maxLength = Optional.ofNullable(maxLength).orElse(Builder._SINGLETON_VALUE_MaxLength.value());
         this.textAnswerFormat = textAnswerFormat;
         this.customAnswerFormat = customAnswerFormat;
-        this.supplierTypes = supplierTypes;
-        this.classificationType = classificationType;
+        this.supplierTypes = Optional.ofNullable(supplierTypes)
+                .orElseThrow(() -> new IllegalArgumentException("supplierTypes cannot be null"));
+        this.classificationType = Optional.ofNullable(classificationType)
+                .orElseThrow(() -> new IllegalArgumentException("classificationType cannot be null"));
         this.order = order;
         this.standardQuestion = standardQuestion;
         this.aiQuestionGenerationSource = aiQuestionGenerationSource;
     }
 
-    public RfpQuestion() {
+    public RfpQuestion(
+            @Nonnull List<SupplierType> supplierTypes, @Nonnull QuestionClassificationType classificationType) {
         this(
                 null,
                 null,
@@ -466,8 +468,8 @@ public class RfpQuestion {
                 null,
                 null,
                 null,
-                null,
-                null,
+                supplierTypes,
+                classificationType,
                 null,
                 null,
                 null);
@@ -749,8 +751,8 @@ public class RfpQuestion {
     /**
      * List of supplier types that can view the question on the RFP.
      */
-    public Optional<List<SupplierType>> supplierTypes() {
-        return Optional.ofNullable(this.supplierTypes);
+    public List<SupplierType> supplierTypes() {
+        return this.supplierTypes;
     }
 
     /**
@@ -760,8 +762,8 @@ public class RfpQuestion {
      *
      * <p>`ALL_RFPS`:  All RFPs can be assigned this custom question.
      */
-    public Optional<QuestionClassificationType> classificationType() {
-        return Optional.ofNullable(this.classificationType);
+    public QuestionClassificationType classificationType() {
+        return this.classificationType;
     }
 
     /**
@@ -1103,8 +1105,8 @@ public class RfpQuestion {
     /**
      * List of supplier types that can view the question on the RFP.
      */
-    public RfpQuestion withSupplierTypes(@Nullable List<SupplierType> supplierTypes) {
-        this.supplierTypes = supplierTypes;
+    public RfpQuestion withSupplierTypes(@Nonnull List<SupplierType> supplierTypes) {
+        this.supplierTypes = Utils.checkNotNull(supplierTypes, "supplierTypes");
         return this;
     }
 
@@ -1115,8 +1117,8 @@ public class RfpQuestion {
      *
      * <p>`ALL_RFPS`:  All RFPs can be assigned this custom question.
      */
-    public RfpQuestion withClassificationType(@Nullable QuestionClassificationType classificationType) {
-        this.classificationType = classificationType;
+    public RfpQuestion withClassificationType(@Nonnull QuestionClassificationType classificationType) {
+        this.classificationType = Utils.checkNotNull(classificationType, "classificationType");
         return this;
     }
 
@@ -1733,8 +1735,8 @@ public class RfpQuestion {
         /**
          * List of supplier types that can view the question on the RFP.
          */
-        public Builder supplierTypes(@Nullable List<SupplierType> supplierTypes) {
-            this.supplierTypes = supplierTypes;
+        public Builder supplierTypes(@Nonnull List<SupplierType> supplierTypes) {
+            this.supplierTypes = Utils.checkNotNull(supplierTypes, "supplierTypes");
             return this;
         }
 
@@ -1745,8 +1747,8 @@ public class RfpQuestion {
          *
          * <p>`ALL_RFPS`:  All RFPs can be assigned this custom question.
          */
-        public Builder classificationType(@Nullable QuestionClassificationType classificationType) {
-            this.classificationType = classificationType;
+        public Builder classificationType(@Nonnull QuestionClassificationType classificationType) {
+            this.classificationType = Utils.checkNotNull(classificationType, "classificationType");
             return this;
         }
 

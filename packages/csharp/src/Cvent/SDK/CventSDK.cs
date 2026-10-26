@@ -157,7 +157,9 @@ namespace Cvent.SDK
         /// * **Housing Event.** An Passkey event where invitees will be able to register and book rooms.<br/>
         /// * **Reservation Request.** Represents a request to book rooms in the housing event.<br/>
         /// * **RegLink.** A feature that links Passkey events to your registration events, enabling you to sync data between the two events.<br/>
-        /// * **Callback.** <a href="https://developers.cvent.com/docs/passkey/REST/callbacks">Passkey's callback system</a> allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.
+        /// * **Callback.** <a href="https://developers.cvent.com/docs/passkey/REST/callbacks">Passkey's callback system</a> allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.<br/>
+        /// <br/>
+        /// &gt; Passkey Housing APIs only support the NA base URL. Calls to the EU base URL will return an error.
         /// </summary>
         public IHousing Housing { get; }
 
@@ -405,6 +407,11 @@ namespace Cvent.SDK
         /// Manage venue profile details including type, contact information, address, and other venue properties.
         /// </summary>
         public IVenueProfiles VenueProfiles { get; }
+
+        /// <summary>
+        /// Manage inbound leads submitted to venues through Cvent's sourcing channels.
+        /// </summary>
+        public IVenueLeads VenueLeads { get; }
 
         /// <summary>
         /// Manage meeting rooms for a venue, including creating and updating room details, configuring capacities and amenities, and associating images.
@@ -655,6 +662,10 @@ namespace Cvent.SDK
         /// </summary>
         public IVenueProfiles VenueProfiles { get; private set; }
         /// <summary>
+        /// The VenueLeads sub-SDK.
+        /// </summary>
+        public IVenueLeads VenueLeads { get; private set; }
+        /// <summary>
         /// The VenueMeetingRooms sub-SDK.
         /// </summary>
         public IVenueMeetingRooms VenueMeetingRooms { get; private set; }
@@ -785,6 +796,8 @@ namespace Cvent.SDK
             VenueAvailability = new VenueAvailability(SDKConfiguration);
 
             VenueProfiles = new VenueProfiles(SDKConfiguration);
+
+            VenueLeads = new VenueLeads(SDKConfiguration);
 
             VenueMeetingRooms = new VenueMeetingRooms(SDKConfiguration);
 
@@ -958,6 +971,8 @@ namespace Cvent.SDK
             VenueAvailability = new VenueAvailability(SDKConfiguration);
 
             VenueProfiles = new VenueProfiles(SDKConfiguration);
+
+            VenueLeads = new VenueLeads(SDKConfiguration);
 
             VenueMeetingRooms = new VenueMeetingRooms(SDKConfiguration);
 

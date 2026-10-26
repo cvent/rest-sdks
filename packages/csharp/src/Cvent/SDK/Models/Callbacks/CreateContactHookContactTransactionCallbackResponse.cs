@@ -21,6 +21,6 @@ namespace Cvent.SDK.Models.Callbacks
         /// <summary>
         /// Your server returns this structure on a successful callback with the updated values for contact fields present in your system.
         /// </summary>
-        public ContactFields2? ContactFields { get; set; }
+        public ContactFields1? ContactFields1 { get; set; }
     }
 }

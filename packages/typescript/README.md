@@ -801,6 +801,8 @@ run();
 
 ### [VenueContent](docs/sdks/venuecontent/README.md)
 
+* [getVenueAmenities](docs/sdks/venuecontent/README.md#getvenueamenities) - Get Venue Amenities
+* [updateVenueAmenities](docs/sdks/venuecontent/README.md#updatevenueamenities) - Update Venue Amenities
 * [listVenueAttractions](docs/sdks/venuecontent/README.md#listvenueattractions) - List Venue Attractions
 * [createVenueAttraction](docs/sdks/venuecontent/README.md#createvenueattraction) - Create Venue Attraction
 * [getVenueAttraction](docs/sdks/venuecontent/README.md#getvenueattraction) - Get Venue Attraction
@@ -815,6 +817,15 @@ run();
 * [getVenueImageMetadata](docs/sdks/venuecontent/README.md#getvenueimagemetadata) - Get Venue Image Metadata
 * [associateVenueImage](docs/sdks/venuecontent/README.md#associatevenueimage) - Associate Venue Image
 * [disassociateVenueImage](docs/sdks/venuecontent/README.md#disassociatevenueimage) - Remove Venue Image
+
+### [VenueLeads](docs/sdks/venueleads/README.md)
+
+* [createLeadCatcher](docs/sdks/venueleads/README.md#createleadcatcher) - Create Lead Catcher
+* [listLeadCatchersOverview](docs/sdks/venueleads/README.md#listleadcatchersoverview) - List Lead Catchers Overview
+* [updateLeadCatcher](docs/sdks/venueleads/README.md#updateleadcatcher) - Update Lead Catcher
+* [patchLeadCatcher](docs/sdks/venueleads/README.md#patchleadcatcher) - Patch Lead Catcher
+* [deleteLeadCatcher](docs/sdks/venueleads/README.md#deleteleadcatcher) - Delete Lead Catcher
+* [getLeadCatcherOverview](docs/sdks/venueleads/README.md#getleadcatcheroverview) - Get Lead Catcher Overview
 
 ### [VenueMeetingRooms](docs/sdks/venuemeetingrooms/README.md)
 
@@ -1340,12 +1351,20 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`venueContentDisassociateAttractionImage`](docs/sdks/venuecontent/README.md#disassociateattractionimage) - Remove Attraction Image
 - [`venueContentDisassociateVenueImage`](docs/sdks/venuecontent/README.md#disassociatevenueimage) - Remove Venue Image
 - [`venueContentGetAttractionImages`](docs/sdks/venuecontent/README.md#getattractionimages) - Get Attraction Images
+- [`venueContentGetVenueAmenities`](docs/sdks/venuecontent/README.md#getvenueamenities) - Get Venue Amenities
 - [`venueContentGetVenueAttraction`](docs/sdks/venuecontent/README.md#getvenueattraction) - Get Venue Attraction
 - [`venueContentGetVenueImageMetadata`](docs/sdks/venuecontent/README.md#getvenueimagemetadata) - Get Venue Image Metadata
 - [`venueContentListVenueAttractions`](docs/sdks/venuecontent/README.md#listvenueattractions) - List Venue Attractions
 - [`venueContentListVenueImagesMetadata`](docs/sdks/venuecontent/README.md#listvenueimagesmetadata) - List Venue Images Metadata
+- [`venueContentUpdateVenueAmenities`](docs/sdks/venuecontent/README.md#updatevenueamenities) - Update Venue Amenities
 - [`venueContentUpdateVenueAttraction`](docs/sdks/venuecontent/README.md#updatevenueattraction) - Update Venue Attraction
 - [`venueContentUpdateVenueImageMetadata`](docs/sdks/venuecontent/README.md#updatevenueimagemetadata) - Update Venue Image Metadata
+- [`venueLeadsCreateLeadCatcher`](docs/sdks/venueleads/README.md#createleadcatcher) - Create Lead Catcher
+- [`venueLeadsDeleteLeadCatcher`](docs/sdks/venueleads/README.md#deleteleadcatcher) - Delete Lead Catcher
+- [`venueLeadsGetLeadCatcherOverview`](docs/sdks/venueleads/README.md#getleadcatcheroverview) - Get Lead Catcher Overview
+- [`venueLeadsListLeadCatchersOverview`](docs/sdks/venueleads/README.md#listleadcatchersoverview) - List Lead Catchers Overview
+- [`venueLeadsPatchLeadCatcher`](docs/sdks/venueleads/README.md#patchleadcatcher) - Patch Lead Catcher
+- [`venueLeadsUpdateLeadCatcher`](docs/sdks/venueleads/README.md#updateleadcatcher) - Update Lead Catcher
 - [`venueMeetingRoomsAssociateMeetingRoomImage`](docs/sdks/venuemeetingrooms/README.md#associatemeetingroomimage) - Associate Meeting Room Image
 - [`venueMeetingRoomsCreateMeetingRoom`](docs/sdks/venuemeetingrooms/README.md#createmeetingroom) - Create Meeting Room
 - [`venueMeetingRoomsDisassociateMeetingRoomImage`](docs/sdks/venuemeetingrooms/README.md#disassociatemeetingroomimage) - Remove Meeting Room Image
@@ -1638,10 +1657,10 @@ run();
 
 
 **Inherit from [`CventSDKError`](./src/models/errors/cventsdkerror.ts)**:
-* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 499 methods.*
-* [`ErrorResponse17`](./src/models/errors/errorresponse17.ts): The error response. Applicable to 11 of 499 methods.*
-* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 499 methods.*
-* [`Oauth2TokenPostResponse0Error`](./src/models/errors/oauth2tokenpostresponse0error.ts): A bad token response. Status code `400`. Applicable to 1 of 499 methods.*
+* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 507 methods.*
+* [`ErrorResponse17`](./src/models/errors/errorresponse17.ts): The error response. Applicable to 11 of 507 methods.*
+* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 507 methods.*
+* [`Oauth2TokenPostResponse0Error`](./src/models/errors/oauth2tokenpostresponse0error.ts): A bad token response. Status code `400`. Applicable to 1 of 507 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

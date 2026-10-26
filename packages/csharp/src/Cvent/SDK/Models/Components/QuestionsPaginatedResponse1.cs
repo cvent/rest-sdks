@@ -29,6 +29,6 @@ namespace Cvent.SDK.Models.Components
         /// Collection of Questions.
         /// </summary>
         [JsonProperty("data")]
-        public List<TravelProgramQuestion>? Data { get; set; }
+        public List<QuestionWithProgramId>? Data { get; set; }
     }
 }

@@ -6,27 +6,21 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  ContactField,
+  ContactField$inboundSchema,
+  ContactField$Outbound,
+  ContactField$outboundSchema,
+} from "./contactfieldinput.js";
 
 /**
- * Details of a contact.
+ * An array of standard contact fields supported by Cvent.
  */
 export type ContactFields1 = {
   /**
-   * Contact ID
+   * Collection of standard contact fields.
    */
-  id?: string | undefined;
-  /**
-   * The first name of the contact.
-   */
-  firstName?: string | undefined;
-  /**
-   * The last name of the contact.
-   */
-  lastName?: string | undefined;
-  /**
-   * The email address of the contact.
-   */
-  email?: string | undefined;
+  data: Array<ContactField>;
 };
 
 /** @internal */
@@ -35,12 +29,25 @@ export const ContactFields1$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  firstName: z.string().optional(),
-  lastName: z.string().optional(),
-  email: z.string().optional(),
+  data: z.array(ContactField$inboundSchema),
+});
+/** @internal */
+export type ContactFields1$Outbound = {
+  data: Array<ContactField$Outbound>;
+};
+
+/** @internal */
+export const ContactFields1$outboundSchema: z.ZodType<
+  ContactFields1$Outbound,
+  z.ZodTypeDef,
+  ContactFields1
+> = z.object({
+  data: z.array(ContactField$outboundSchema),
 });
 
+export function contactFields1ToJSON(contactFields1: ContactFields1): string {
+  return JSON.stringify(ContactFields1$outboundSchema.parse(contactFields1));
+}
 export function contactFields1FromJSON(
   jsonString: string,
 ): SafeParseResult<ContactFields1, SDKValidationError> {

@@ -1,6 +1,6 @@
 # ContactFields1
 
-Details of a contact.
+An array of standard contact fields supported by Cvent.
 
 ## Example Usage
 
@@ -8,17 +8,12 @@ Details of a contact.
 import { ContactFields1 } from "@cvent/sdk/models/components";
 
 let value: ContactFields1 = {
-  firstName: "Henry",
-  lastName: "Potterfield",
-  email: "h.potterfield@test.com",
+  data: [],
 };
 ```
 
 ## Fields
 
-| Field                             | Type                              | Required                          | Description                       | Example                           |
-| --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- |
-| `id`                              | *string*                          | :heavy_minus_sign:                | Contact ID                        |                                   |
-| `firstName`                       | *string*                          | :heavy_minus_sign:                | The first name of the contact.    | Henry                             |
-| `lastName`                        | *string*                          | :heavy_minus_sign:                | The last name of the contact.     | Potterfield                       |
-| `email`                           | *string*                          | :heavy_minus_sign:                | The email address of the contact. | h.potterfield@test.com            |
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `data`                                                               | [components.ContactField](../../models/components/contactfield.md)[] | :heavy_check_mark:                                                   | Collection of standard contact fields.                               |

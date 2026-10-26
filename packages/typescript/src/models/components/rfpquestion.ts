@@ -205,11 +205,11 @@ export type RfpQuestion = {
   /**
    * List of supplier types that can view the question on the RFP.
    */
-  supplierTypes?: Array<SupplierType> | undefined;
+  supplierTypes: Array<SupplierType>;
   /**
    * Indicates the types of RFP that can be assigned this custom question. `MEETING_ROOM`: Meeting room type RFPs can be assigned this custom question. `GUEST_ROOM`: Guest room type RFPs can be assigned this custom question. `ALL_RFPS`:  All RFPs can be assigned this custom question.
    */
-  classificationType?: QuestionClassificationType | undefined;
+  classificationType: QuestionClassificationType;
   /**
    * Determines the display order for questions on the RFP. Questions with smaller values appear first.
    */
@@ -288,8 +288,8 @@ export const RfpQuestion$inboundSchema: z.ZodType<
   maxLength: z.number().int().default(500),
   textAnswerFormat: TextAnswerFormat$inboundSchema.optional(),
   customAnswerFormat: z.lazy(() => CustomAnswerFormat$inboundSchema).optional(),
-  supplierTypes: z.array(SupplierType$inboundSchema).optional(),
-  classificationType: QuestionClassificationType$inboundSchema.optional(),
+  supplierTypes: z.array(SupplierType$inboundSchema),
+  classificationType: QuestionClassificationType$inboundSchema,
   order: z.number().int().optional(),
   standardQuestion: StandardQuestion$inboundSchema.optional(),
   aiQuestionGenerationSource: z.string().optional(),

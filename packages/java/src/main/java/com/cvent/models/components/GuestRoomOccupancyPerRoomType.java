@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
@@ -33,20 +34,19 @@ public class GuestRoomOccupancyPerRoomType {
      *
      * <p>`DOUBLE`: Room with two beds. `SUITE`: Room is an entire suite. `STAFF`: Room is for staff.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
     private GuestRoomType type;
 
     @JsonCreator
     public GuestRoomOccupancyPerRoomType(
             @JsonProperty("occupancy") @Nullable GuestRoomOccupancy occupancy,
-            @JsonProperty("type") @Nullable GuestRoomType type) {
+            @JsonProperty("type") @Nonnull GuestRoomType type) {
         this.occupancy = occupancy;
-        this.type = type;
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
     }
 
-    public GuestRoomOccupancyPerRoomType() {
-        this(null, null);
+    public GuestRoomOccupancyPerRoomType(@Nonnull GuestRoomType type) {
+        this(null, type);
     }
 
     /**
@@ -63,8 +63,8 @@ public class GuestRoomOccupancyPerRoomType {
      *
      * <p>`DOUBLE`: Room with two beds. `SUITE`: Room is an entire suite. `STAFF`: Room is for staff.
      */
-    public Optional<GuestRoomType> type() {
-        return Optional.ofNullable(this.type);
+    public GuestRoomType type() {
+        return this.type;
     }
 
     public static Builder builder() {
@@ -86,8 +86,8 @@ public class GuestRoomOccupancyPerRoomType {
      *
      * <p>`DOUBLE`: Room with two beds. `SUITE`: Room is an entire suite. `STAFF`: Room is for staff.
      */
-    public GuestRoomOccupancyPerRoomType withType(@Nullable GuestRoomType type) {
-        this.type = type;
+    public GuestRoomOccupancyPerRoomType withType(@Nonnull GuestRoomType type) {
+        this.type = Utils.checkNotNull(type, "type");
         return this;
     }
 
@@ -139,8 +139,8 @@ public class GuestRoomOccupancyPerRoomType {
          *
          * <p>`DOUBLE`: Room with two beds. `SUITE`: Room is an entire suite. `STAFF`: Room is for staff.
          */
-        public Builder type(@Nullable GuestRoomType type) {
-            this.type = type;
+        public Builder type(@Nonnull GuestRoomType type) {
+            this.type = Utils.checkNotNull(type, "type");
             return this;
         }
 

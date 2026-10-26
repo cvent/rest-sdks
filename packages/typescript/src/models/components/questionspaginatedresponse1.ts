@@ -8,9 +8,9 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Paging, Paging$inboundSchema } from "./paging.js";
 import {
-  TravelProgramQuestion,
-  TravelProgramQuestion$inboundSchema,
-} from "./travelprogramquestion.js";
+  QuestionWithProgramId,
+  QuestionWithProgramId$inboundSchema,
+} from "./questionwithprogramid.js";
 
 /**
  * A paginated list of Questions.
@@ -23,7 +23,7 @@ export type QuestionsPaginatedResponse1 = {
   /**
    * Collection of Questions.
    */
-  data?: Array<TravelProgramQuestion> | undefined;
+  data?: Array<QuestionWithProgramId> | undefined;
 };
 
 /** @internal */
@@ -33,7 +33,7 @@ export const QuestionsPaginatedResponse1$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   paging: Paging$inboundSchema.optional(),
-  data: z.array(TravelProgramQuestion$inboundSchema).optional(),
+  data: z.array(QuestionWithProgramId$inboundSchema).optional(),
 });
 
 export function questionsPaginatedResponse1FromJSON(

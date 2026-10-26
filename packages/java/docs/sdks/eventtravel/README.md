@@ -160,7 +160,7 @@ public class Application {
 
 ## getAlternateTravelAnswers
 
-Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an event.
+Get alternate travel answers submitted by attendees who opt out of air, hotel, or train bookings for an event.
 
 ### Example Usage
 

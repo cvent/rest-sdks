@@ -6,6 +6,8 @@ Manage images, amenities, and nearby attractions associated with a venue.
 
 ### Available Operations
 
+* [getVenueAmenities](#getvenueamenities) - Get Venue Amenities
+* [updateVenueAmenities](#updatevenueamenities) - Update Venue Amenities
 * [listVenueAttractions](#listvenueattractions) - List Venue Attractions
 * [createVenueAttraction](#createvenueattraction) - Create Venue Attraction
 * [getVenueAttraction](#getvenueattraction) - Get Venue Attraction
@@ -20,6 +22,160 @@ Manage images, amenities, and nearby attractions associated with a venue.
 * [getVenueImageMetadata](#getvenueimagemetadata) - Get Venue Image Metadata
 * [associateVenueImage](#associatevenueimage) - Associate Venue Image
 * [disassociateVenueImage](#disassociatevenueimage) - Remove Venue Image
+
+## getVenueAmenities
+
+Returns the current amenity selections for the specified venue.
+
+Not applicable to CVB/DMC or Restaurant venues.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="getVenueAmenities" method="get" path="/venues/{venueId}/amenities" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse12;
+import com.cvent.models.operations.GetVenueAmenitiesRequest;
+import com.cvent.models.operations.GetVenueAmenitiesResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse12, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        GetVenueAmenitiesRequest req = GetVenueAmenitiesRequest.builder()
+                .venueId("6bb0e2db-861f-46e3-a923-eb4d959ffa00")
+                .build();
+
+        GetVenueAmenitiesResponse res = sdk.venueContent().getVenueAmenities()
+                .request(req)
+                .call();
+
+        if (res.existingVenueAmenities().isPresent()) {
+            System.out.println(res.existingVenueAmenities().get());
+        }
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [GetVenueAmenitiesRequest](../../models/operations/GetVenueAmenitiesRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+
+### Response
+
+**[GetVenueAmenitiesResponse](../../models/operations/GetVenueAmenitiesResponse.md)**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
+
+## updateVenueAmenities
+
+Updates the amenity selections for the specified venue, replacing all existing selections with those provided in the request body. Sections absent from the request body or submitted as empty arrays will have their selections cleared.
+
+Not applicable to CVB/DMC or Restaurant venues.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="updateVenueAmenities" method="put" path="/venues/{venueId}/amenities" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.*;
+import com.cvent.models.errors.ErrorResponse12;
+import com.cvent.models.operations.UpdateVenueAmenitiesRequest;
+import com.cvent.models.operations.UpdateVenueAmenitiesResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse12, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        UpdateVenueAmenitiesRequest req = UpdateVenueAmenitiesRequest.builder()
+                .venueId("6bb0e2db-861f-46e3-a923-eb4d959ffa00")
+                .existingVenueAmenities(ExistingVenueAmenitiesInput.builder()
+                    .avCapabilities(List.of(
+                        VenueAmenityAvCapabilityItem.builder()
+                            .amenity(VenueAmenityAVCapability.ONSITE_AV_STAFF)
+                            .speed(1000L)
+                            .build()))
+                    .parking(List.of(
+                        VenueAmenityParkingItem.builder()
+                            .amenity(VenueAmenityParking.BUS_PARKING_AVAILABLE)
+                            .cost(25d)
+                            .build()))
+                    .facilitySpaceInfo(List.of(
+                        VenueAmenityFacilitySpaceItem.builder()
+                            .amenity(VenueAmenityFacilitySpace.OUTDOOR_SPACE)
+                            .value(5000L)
+                            .build()))
+                    .build())
+                .build();
+
+        UpdateVenueAmenitiesResponse res = sdk.venueContent().updateVenueAmenities()
+                .request(req)
+                .call();
+
+        if (res.existingVenueAmenities().isPresent()) {
+            System.out.println(res.existingVenueAmenities().get());
+        }
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [UpdateVenueAmenitiesRequest](../../models/operations/UpdateVenueAmenitiesRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+
+### Response
+
+**[UpdateVenueAmenitiesResponse](../../models/operations/UpdateVenueAmenitiesResponse.md)**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## listVenueAttractions
 

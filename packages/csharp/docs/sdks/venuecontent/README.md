@@ -6,6 +6,8 @@ Manage images, amenities, and nearby attractions associated with a venue.
 
 ### Available Operations
 
+* [GetVenueAmenities](#getvenueamenities) - Get Venue Amenities
+* [UpdateVenueAmenities](#updatevenueamenities) - Update Venue Amenities
 * [ListVenueAttractions](#listvenueattractions) - List Venue Attractions
 * [CreateVenueAttraction](#createvenueattraction) - Create Venue Attraction
 * [GetVenueAttraction](#getvenueattraction) - Get Venue Attraction
@@ -20,6 +22,127 @@ Manage images, amenities, and nearby attractions associated with a venue.
 * [GetVenueImageMetadata](#getvenueimagemetadata) - Get Venue Image Metadata
 * [AssociateVenueImage](#associatevenueimage) - Associate Venue Image
 * [DisassociateVenueImage](#disassociatevenueimage) - Remove Venue Image
+
+## GetVenueAmenities
+
+Returns the current amenity selections for the specified venue.
+
+Not applicable to CVB/DMC or Restaurant venues.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="getVenueAmenities" method="get" path="/venues/{venueId}/amenities" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+GetVenueAmenitiesRequest req = new GetVenueAmenitiesRequest() {
+    VenueId = "6bb0e2db-861f-46e3-a923-eb4d959ffa00",
+};
+
+var res = await sdk.VenueContent.GetVenueAmenitiesAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `request`                                                                     | [GetVenueAmenitiesRequest](../../Models/Requests/GetVenueAmenitiesRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+
+### Response
+
+**[GetVenueAmenitiesResponse](../../Models/Requests/GetVenueAmenitiesResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## UpdateVenueAmenities
+
+Updates the amenity selections for the specified venue, replacing all existing selections with those provided in the request body. Sections absent from the request body or submitted as empty arrays will have their selections cleared.
+
+Not applicable to CVB/DMC or Restaurant venues.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="updateVenueAmenities" method="put" path="/venues/{venueId}/amenities" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System.Collections.Generic;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+UpdateVenueAmenitiesRequest req = new UpdateVenueAmenitiesRequest() {
+    VenueId = "6bb0e2db-861f-46e3-a923-eb4d959ffa00",
+    ExistingVenueAmenities = new ExistingVenueAmenitiesInput() {
+        AvCapabilities = new List<VenueAmenityAvCapabilityItem>() {
+            new VenueAmenityAvCapabilityItem() {
+                Amenity = VenueAmenityAVCapability.OnsiteAvStaff,
+                Speed = 1000,
+            },
+        },
+        Parking = new List<VenueAmenityParkingItem>() {
+            new VenueAmenityParkingItem() {
+                Amenity = VenueAmenityParking.BusParkingAvailable,
+                Cost = 25D,
+            },
+        },
+        FacilitySpaceInfo = new List<VenueAmenityFacilitySpaceItem>() {
+            new VenueAmenityFacilitySpaceItem() {
+                Amenity = VenueAmenityFacilitySpace.OutdoorSpace,
+                Value = 5000,
+            },
+        },
+    },
+};
+
+var res = await sdk.VenueContent.UpdateVenueAmenitiesAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [UpdateVenueAmenitiesRequest](../../Models/Requests/UpdateVenueAmenitiesRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+
+### Response
+
+**[UpdateVenueAmenitiesResponse](../../Models/Requests/UpdateVenueAmenitiesResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListVenueAttractions
 

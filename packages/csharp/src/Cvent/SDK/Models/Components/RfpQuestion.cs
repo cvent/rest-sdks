@@ -240,13 +240,13 @@ namespace Cvent.SDK.Models.Components
         /// List of supplier types that can view the question on the RFP.
         /// </summary>
         [JsonProperty("supplierTypes")]
-        public List<SupplierType>? SupplierTypes { get; set; }
+        public List<SupplierType> SupplierTypes { get; set; } = default!;
 
         /// <summary>
         /// Indicates the types of RFP that can be assigned this custom question. `MEETING_ROOM`: Meeting room type RFPs can be assigned this custom question. `GUEST_ROOM`: Guest room type RFPs can be assigned this custom question. `ALL_RFPS`:  All RFPs can be assigned this custom question.
         /// </summary>
         [JsonProperty("classificationType")]
-        public QuestionClassificationType? ClassificationType { get; set; }
+        public QuestionClassificationType ClassificationType { get; set; } = default!;
 
         /// <summary>
         /// Determines the display order for questions on the RFP. Questions with smaller values appear first.

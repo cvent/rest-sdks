@@ -71,7 +71,7 @@ namespace Cvent.SDK
         /// Get Alternate Travel Answers.
         /// </summary>
         /// <remarks>
-        /// Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an event.
+        /// Get alternate travel answers submitted by attendees who opt out of air, hotel, or train bookings for an event.
         /// </remarks>
         /// <param name="request">A <see cref="GetAlternateTravelAnswersRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -545,7 +545,7 @@ namespace Cvent.SDK
         /// Get Alternate Travel Answers.
         /// </summary>
         /// <remarks>
-        /// Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an event.
+        /// Get alternate travel answers submitted by attendees who opt out of air, hotel, or train bookings for an event.
         /// </remarks>
         /// <param name="request">A <see cref="GetAlternateTravelAnswersRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

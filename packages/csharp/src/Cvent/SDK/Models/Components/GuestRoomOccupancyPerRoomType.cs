@@ -28,6 +28,6 @@ namespace Cvent.SDK.Models.Components
         /// Guest room type. `ANY`: Room can be any type. `SINGLE`: Room with one bed. `DOUBLE`: Room with two beds. `SUITE`: Room is an entire suite. `STAFF`: Room is for staff.
         /// </summary>
         [JsonProperty("type")]
-        public GuestRoomType? Type { get; set; }
+        public GuestRoomType Type { get; set; } = default!;
     }
 }

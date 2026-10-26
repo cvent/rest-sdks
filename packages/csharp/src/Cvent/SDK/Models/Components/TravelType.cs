@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Type of travel alternate question.
+    /// Type of travel alternate question. Supported values: AirRequest = attendee requested air travel; HotelRequest = attendee requested hotel travel; AirActual = actual air travel booked; GroupFlight = group flight booking; TrainRequest = attendee requested train travel; AirAndTrainRequest = attendee did not want air or train travel and submitted an alternate response.
     /// </summary>
     public enum TravelType
     {
@@ -22,6 +22,8 @@ namespace Cvent.SDK.Models.Components
         [JsonProperty("HotelRequest")] HotelRequest,
         [JsonProperty("AirActual")] AirActual,
         [JsonProperty("GroupFlight")] GroupFlight,
+        [JsonProperty("TrainRequest")] TrainRequest,
+        [JsonProperty("AirAndTrainRequest")] AirAndTrainRequest,
     }
 
     public static class TravelTypeExtension

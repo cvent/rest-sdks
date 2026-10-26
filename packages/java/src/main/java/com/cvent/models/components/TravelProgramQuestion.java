@@ -10,218 +10,89 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
+import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
-import java.time.OffsetDateTime;
-import java.util.List;
 import java.util.Optional;
 
 /**
  * TravelProgramQuestion
  *
- * <p>A question, defined by the program, for the supplier to answer as part of their proposal.
+ * <p>A question, defined by the account, for the supplier to answer as part of their proposal.
  */
 public class TravelProgramQuestion {
     /**
-     * The ISO 8601 zoned date time when this record was created.
+     * The unique ID of the custom question.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("created")
-    private OffsetDateTime created;
+    @JsonProperty("questionId")
+    private String questionId;
 
     /**
-     * The identifier of the user that created this record.
+     * Code representing the section where the question belongs. Currently, program_client (client
+     * specific) and program_g_and_m (group and meeting) are supported.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("createdBy")
-    private String createdBy;
+    @JsonProperty("section")
+    private QuestionSection section;
 
     /**
-     * The ISO 8601 zoned date time when this record was updated.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("lastModified")
-    private OffsetDateTime lastModified;
-
-    /**
-     * The identifier of the user that last updated this record.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("lastModifiedBy")
-    private String lastModifiedBy;
-
-    /**
-     * Travel program that the question belongs to.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("travelProgram")
-    private TravelProgramQuestionTravelProgram travelProgram;
-
-    /**
-     * The unique ID of the question.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("id")
-    private String id;
-
-    /**
-     * The text of the question.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("text")
-    private String text;
-
-    /**
-     * Is this question required by default?
+     * Is it required for suppliers to answer this question in their proposal?
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("required")
     private Boolean required;
 
     /**
-     * Code representing the type of response supported. Single represents a simple single value response,
-     * and choice means the user will be given a set of options for selection.
+     * The sequence number of the question within the proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("responseType")
-    private QuestionResponseType responseType;
-
-    /**
-     * Code representing the expected data type of the question response.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("responseDataType")
-    private QuestionResponseDataType responseDataType;
-
-    /**
-     * Code representing the format the text of the response will be in.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("responseFormat")
-    private QuestionResponseFormat responseFormat;
-
-    /**
-     * A list of options for the question. This only applies when responseType is 'choice'
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("responseChoices")
-    private List<String> responseChoices;
+    @JsonProperty("sequence")
+    private Long sequence;
 
     @JsonCreator
     public TravelProgramQuestion(
-            @JsonProperty("created") @Nullable OffsetDateTime created,
-            @JsonProperty("createdBy") @Nullable String createdBy,
-            @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
-            @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("travelProgram") @Nullable TravelProgramQuestionTravelProgram travelProgram,
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("text") @Nullable String text,
+            @JsonProperty("questionId") @Nullable String questionId,
+            @JsonProperty("section") @Nullable QuestionSection section,
             @JsonProperty("required") @Nullable Boolean required,
-            @JsonProperty("responseType") @Nullable QuestionResponseType responseType,
-            @JsonProperty("responseDataType") @Nullable QuestionResponseDataType responseDataType,
-            @JsonProperty("responseFormat") @Nullable QuestionResponseFormat responseFormat,
-            @JsonProperty("responseChoices") @Nullable List<String> responseChoices) {
-        this.created = created;
-        this.createdBy = createdBy;
-        this.lastModified = lastModified;
-        this.lastModifiedBy = lastModifiedBy;
-        this.travelProgram = travelProgram;
-        this.id = id;
-        this.text = text;
+            @JsonProperty("sequence") @Nullable Long sequence) {
+        this.questionId = questionId;
+        this.section = section;
         this.required = required;
-        this.responseType = responseType;
-        this.responseDataType = responseDataType;
-        this.responseFormat = responseFormat;
-        this.responseChoices = responseChoices;
+        this.sequence = sequence;
     }
 
     public TravelProgramQuestion() {
-        this(null, null, null, null, null, null, null, null, null, null, null, null);
+        this(null, null, null, null);
     }
 
     /**
-     * The ISO 8601 zoned date time when this record was created.
+     * The unique ID of the custom question.
      */
-    public Optional<OffsetDateTime> created() {
-        return Optional.ofNullable(this.created);
+    public Optional<String> questionId() {
+        return Optional.ofNullable(this.questionId);
     }
 
     /**
-     * The identifier of the user that created this record.
+     * Code representing the section where the question belongs. Currently, program_client (client
+     * specific) and program_g_and_m (group and meeting) are supported.
      */
-    public Optional<String> createdBy() {
-        return Optional.ofNullable(this.createdBy);
+    public Optional<QuestionSection> section() {
+        return Optional.ofNullable(this.section);
     }
 
     /**
-     * The ISO 8601 zoned date time when this record was updated.
-     */
-    public Optional<OffsetDateTime> lastModified() {
-        return Optional.ofNullable(this.lastModified);
-    }
-
-    /**
-     * The identifier of the user that last updated this record.
-     */
-    public Optional<String> lastModifiedBy() {
-        return Optional.ofNullable(this.lastModifiedBy);
-    }
-
-    /**
-     * Travel program that the question belongs to.
-     */
-    public Optional<TravelProgramQuestionTravelProgram> travelProgram() {
-        return Optional.ofNullable(this.travelProgram);
-    }
-
-    /**
-     * The unique ID of the question.
-     */
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
-    }
-
-    /**
-     * The text of the question.
-     */
-    public Optional<String> text() {
-        return Optional.ofNullable(this.text);
-    }
-
-    /**
-     * Is this question required by default?
+     * Is it required for suppliers to answer this question in their proposal?
      */
     public Optional<Boolean> required() {
         return Optional.ofNullable(this.required);
     }
 
     /**
-     * Code representing the type of response supported. Single represents a simple single value response,
-     * and choice means the user will be given a set of options for selection.
+     * The sequence number of the question within the proposal.
      */
-    public Optional<QuestionResponseType> responseType() {
-        return Optional.ofNullable(this.responseType);
-    }
-
-    /**
-     * Code representing the expected data type of the question response.
-     */
-    public Optional<QuestionResponseDataType> responseDataType() {
-        return Optional.ofNullable(this.responseDataType);
-    }
-
-    /**
-     * Code representing the format the text of the response will be in.
-     */
-    public Optional<QuestionResponseFormat> responseFormat() {
-        return Optional.ofNullable(this.responseFormat);
-    }
-
-    /**
-     * A list of options for the question. This only applies when responseType is 'choice'
-     */
-    public Optional<List<String>> responseChoices() {
-        return Optional.ofNullable(this.responseChoices);
+    public Optional<Long> sequence() {
+        return Optional.ofNullable(this.sequence);
     }
 
     public static Builder builder() {
@@ -229,63 +100,24 @@ public class TravelProgramQuestion {
     }
 
     /**
-     * The ISO 8601 zoned date time when this record was created.
+     * The unique ID of the custom question.
      */
-    public TravelProgramQuestion withCreated(@Nullable OffsetDateTime created) {
-        this.created = created;
+    public TravelProgramQuestion withQuestionId(@Nullable String questionId) {
+        this.questionId = questionId;
         return this;
     }
 
     /**
-     * The identifier of the user that created this record.
+     * Code representing the section where the question belongs. Currently, program_client (client
+     * specific) and program_g_and_m (group and meeting) are supported.
      */
-    public TravelProgramQuestion withCreatedBy(@Nullable String createdBy) {
-        this.createdBy = createdBy;
+    public TravelProgramQuestion withSection(@Nullable QuestionSection section) {
+        this.section = section;
         return this;
     }
 
     /**
-     * The ISO 8601 zoned date time when this record was updated.
-     */
-    public TravelProgramQuestion withLastModified(@Nullable OffsetDateTime lastModified) {
-        this.lastModified = lastModified;
-        return this;
-    }
-
-    /**
-     * The identifier of the user that last updated this record.
-     */
-    public TravelProgramQuestion withLastModifiedBy(@Nullable String lastModifiedBy) {
-        this.lastModifiedBy = lastModifiedBy;
-        return this;
-    }
-
-    /**
-     * Travel program that the question belongs to.
-     */
-    public TravelProgramQuestion withTravelProgram(@Nullable TravelProgramQuestionTravelProgram travelProgram) {
-        this.travelProgram = travelProgram;
-        return this;
-    }
-
-    /**
-     * The unique ID of the question.
-     */
-    public TravelProgramQuestion withId(@Nullable String id) {
-        this.id = id;
-        return this;
-    }
-
-    /**
-     * The text of the question.
-     */
-    public TravelProgramQuestion withText(@Nullable String text) {
-        this.text = text;
-        return this;
-    }
-
-    /**
-     * Is this question required by default?
+     * Is it required for suppliers to answer this question in their proposal?
      */
     public TravelProgramQuestion withRequired(@Nullable Boolean required) {
         this.required = required;
@@ -293,35 +125,10 @@ public class TravelProgramQuestion {
     }
 
     /**
-     * Code representing the type of response supported. Single represents a simple single value response,
-     * and choice means the user will be given a set of options for selection.
+     * The sequence number of the question within the proposal.
      */
-    public TravelProgramQuestion withResponseType(@Nullable QuestionResponseType responseType) {
-        this.responseType = responseType;
-        return this;
-    }
-
-    /**
-     * Code representing the expected data type of the question response.
-     */
-    public TravelProgramQuestion withResponseDataType(@Nullable QuestionResponseDataType responseDataType) {
-        this.responseDataType = responseDataType;
-        return this;
-    }
-
-    /**
-     * Code representing the format the text of the response will be in.
-     */
-    public TravelProgramQuestion withResponseFormat(@Nullable QuestionResponseFormat responseFormat) {
-        this.responseFormat = responseFormat;
-        return this;
-    }
-
-    /**
-     * A list of options for the question. This only applies when responseType is 'choice'
-     */
-    public TravelProgramQuestion withResponseChoices(@Nullable List<String> responseChoices) {
-        this.responseChoices = responseChoices;
+    public TravelProgramQuestion withSequence(@Nullable Long sequence) {
+        this.sequence = sequence;
         return this;
     }
 
@@ -334,156 +141,65 @@ public class TravelProgramQuestion {
             return false;
         }
         TravelProgramQuestion other = (TravelProgramQuestion) o;
-        return Utils.enhancedDeepEquals(this.created, other.created)
-                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
-                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
-                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
-                && Utils.enhancedDeepEquals(this.travelProgram, other.travelProgram)
-                && Utils.enhancedDeepEquals(this.id, other.id)
-                && Utils.enhancedDeepEquals(this.text, other.text)
+        return Utils.enhancedDeepEquals(this.questionId, other.questionId)
+                && Utils.enhancedDeepEquals(this.section, other.section)
                 && Utils.enhancedDeepEquals(this.required, other.required)
-                && Utils.enhancedDeepEquals(this.responseType, other.responseType)
-                && Utils.enhancedDeepEquals(this.responseDataType, other.responseDataType)
-                && Utils.enhancedDeepEquals(this.responseFormat, other.responseFormat)
-                && Utils.enhancedDeepEquals(this.responseChoices, other.responseChoices);
+                && Utils.enhancedDeepEquals(this.sequence, other.sequence);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-                created,
-                createdBy,
-                lastModified,
-                lastModifiedBy,
-                travelProgram,
-                id,
-                text,
-                required,
-                responseType,
-                responseDataType,
-                responseFormat,
-                responseChoices);
+        return Utils.enhancedHash(questionId, section, required, sequence);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
                 TravelProgramQuestion.class,
-                "created",
-                created,
-                "createdBy",
-                createdBy,
-                "lastModified",
-                lastModified,
-                "lastModifiedBy",
-                lastModifiedBy,
-                "travelProgram",
-                travelProgram,
-                "id",
-                id,
-                "text",
-                text,
+                "questionId",
+                questionId,
+                "section",
+                section,
                 "required",
                 required,
-                "responseType",
-                responseType,
-                "responseDataType",
-                responseDataType,
-                "responseFormat",
-                responseFormat,
-                "responseChoices",
-                responseChoices);
+                "sequence",
+                sequence);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private OffsetDateTime created;
+        private String questionId;
 
-        private String createdBy;
-
-        private OffsetDateTime lastModified;
-
-        private String lastModifiedBy;
-
-        private TravelProgramQuestionTravelProgram travelProgram;
-
-        private String id;
-
-        private String text;
+        private QuestionSection section;
 
         private Boolean required;
 
-        private QuestionResponseType responseType;
-
-        private QuestionResponseDataType responseDataType;
-
-        private QuestionResponseFormat responseFormat;
-
-        private List<String> responseChoices;
+        private Long sequence;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The ISO 8601 zoned date time when this record was created.
+         * The unique ID of the custom question.
          */
-        public Builder created(@Nullable OffsetDateTime created) {
-            this.created = created;
+        public Builder questionId(@Nullable String questionId) {
+            this.questionId = questionId;
             return this;
         }
 
         /**
-         * The identifier of the user that created this record.
+         * Code representing the section where the question belongs. Currently, program_client (client
+         * specific) and program_g_and_m (group and meeting) are supported.
          */
-        public Builder createdBy(@Nullable String createdBy) {
-            this.createdBy = createdBy;
+        public Builder section(@Nullable QuestionSection section) {
+            this.section = section;
             return this;
         }
 
         /**
-         * The ISO 8601 zoned date time when this record was updated.
-         */
-        public Builder lastModified(@Nullable OffsetDateTime lastModified) {
-            this.lastModified = lastModified;
-            return this;
-        }
-
-        /**
-         * The identifier of the user that last updated this record.
-         */
-        public Builder lastModifiedBy(@Nullable String lastModifiedBy) {
-            this.lastModifiedBy = lastModifiedBy;
-            return this;
-        }
-
-        /**
-         * Travel program that the question belongs to.
-         */
-        public Builder travelProgram(@Nullable TravelProgramQuestionTravelProgram travelProgram) {
-            this.travelProgram = travelProgram;
-            return this;
-        }
-
-        /**
-         * The unique ID of the question.
-         */
-        public Builder id(@Nullable String id) {
-            this.id = id;
-            return this;
-        }
-
-        /**
-         * The text of the question.
-         */
-        public Builder text(@Nullable String text) {
-            this.text = text;
-            return this;
-        }
-
-        /**
-         * Is this question required by default?
+         * Is it required for suppliers to answer this question in their proposal?
          */
         public Builder required(@Nullable Boolean required) {
             this.required = required;
@@ -491,52 +207,15 @@ public class TravelProgramQuestion {
         }
 
         /**
-         * Code representing the type of response supported. Single represents a simple single value response,
-         * and choice means the user will be given a set of options for selection.
+         * The sequence number of the question within the proposal.
          */
-        public Builder responseType(@Nullable QuestionResponseType responseType) {
-            this.responseType = responseType;
-            return this;
-        }
-
-        /**
-         * Code representing the expected data type of the question response.
-         */
-        public Builder responseDataType(@Nullable QuestionResponseDataType responseDataType) {
-            this.responseDataType = responseDataType;
-            return this;
-        }
-
-        /**
-         * Code representing the format the text of the response will be in.
-         */
-        public Builder responseFormat(@Nullable QuestionResponseFormat responseFormat) {
-            this.responseFormat = responseFormat;
-            return this;
-        }
-
-        /**
-         * A list of options for the question. This only applies when responseType is 'choice'
-         */
-        public Builder responseChoices(@Nullable List<String> responseChoices) {
-            this.responseChoices = responseChoices;
+        public Builder sequence(@Nullable Long sequence) {
+            this.sequence = sequence;
             return this;
         }
 
         public TravelProgramQuestion build() {
-            return new TravelProgramQuestion(
-                    created,
-                    createdBy,
-                    lastModified,
-                    lastModifiedBy,
-                    travelProgram,
-                    id,
-                    text,
-                    required,
-                    responseType,
-                    responseDataType,
-                    responseFormat,
-                    responseChoices);
+            return new TravelProgramQuestion(questionId, section, required, sequence);
         }
     }
 }

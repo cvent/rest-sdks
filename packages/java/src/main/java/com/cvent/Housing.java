@@ -121,6 +121,9 @@ import jakarta.annotation.Nullable;
  * * **Callback.** [Passkey's callback
  * system](https://developers.cvent.com/docs/passkey/REST/callbacks) allows for a push notification to
  * be sent to your system when a reservation is created, modified or cancelled.
+ *
+ * <p>&gt; Passkey Housing APIs only support the NA base URL. Calls to the EU base URL will return an
+ * error.
  */
 public class Housing {
     private static final Headers _headers = Headers.EMPTY;

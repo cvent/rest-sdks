@@ -1,13 +1,10 @@
 # ContactFields1
 
-Details of a contact.
+An array of standard contact fields supported by Cvent.
 
 
 ## Fields
 
-| Field                             | Type                              | Required                          | Description                       | Example                           |
-| --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- |
-| `id`                              | *Optional\<String>*               | :heavy_minus_sign:                | Contact ID                        |                                   |
-| `firstName`                       | *Optional\<String>*               | :heavy_minus_sign:                | The first name of the contact.    | Henry                             |
-| `lastName`                        | *Optional\<String>*               | :heavy_minus_sign:                | The last name of the contact.     | Potterfield                       |
-| `email`                           | *Optional\<String>*               | :heavy_minus_sign:                | The email address of the contact. | h.potterfield@test.com            |
+| Field                                                          | Type                                                           | Required                                                       | Description                                                    |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `data`                                                         | List\<[ContactField](../../models/components/ContactField.md)> | :heavy_check_mark:                                             | Collection of standard contact fields.                         |

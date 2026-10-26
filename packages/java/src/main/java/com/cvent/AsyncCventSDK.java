@@ -193,6 +193,9 @@ public class AsyncCventSDK {
      * * **Callback.** [Passkey's callback
      * system](https://developers.cvent.com/docs/passkey/REST/callbacks) allows for a push notification to
      * be sent to your system when a reservation is created, modified or cancelled.
+     *
+     * <p>&gt; Passkey Housing APIs only support the NA base URL. Calls to the EU base URL will return an
+     * error.
      */
     private final AsyncHousing housing;
     /**
@@ -460,6 +463,10 @@ public class AsyncCventSDK {
      */
     private final AsyncVenueProfiles venueProfiles;
     /**
+     * Manage inbound leads submitted to venues through Cvent's sourcing channels.
+     */
+    private final AsyncVenueLeads venueLeads;
+    /**
      * Manage meeting rooms for a venue, including creating and updating room details, configuring
      * capacities and amenities, and associating images.
      */
@@ -683,6 +690,9 @@ public class AsyncCventSDK {
      * * **Callback.** [Passkey's callback
      * system](https://developers.cvent.com/docs/passkey/REST/callbacks) allows for a push notification to
      * be sent to your system when a reservation is created, modified or cancelled.
+     *
+     * <p>&gt; Passkey Housing APIs only support the NA base URL. Calls to the EU base URL will return an
+     * error.
      */
     public AsyncHousing housing() {
         return housing;
@@ -1034,6 +1044,12 @@ public class AsyncCventSDK {
         return venueProfiles;
     }
     /**
+     * Manage inbound leads submitted to venues through Cvent's sourcing channels.
+     */
+    public AsyncVenueLeads venueLeads() {
+        return venueLeads;
+    }
+    /**
      * Manage meeting rooms for a venue, including creating and updating room details, configuring
      * capacities and amenities, and associating images.
      */
@@ -1121,6 +1137,7 @@ public class AsyncCventSDK {
         this.venueContent = new AsyncVenueContent(syncSDK.venueContent(), sdkConfiguration);
         this.venueAvailability = new AsyncVenueAvailability(syncSDK.venueAvailability(), sdkConfiguration);
         this.venueProfiles = new AsyncVenueProfiles(syncSDK.venueProfiles(), sdkConfiguration);
+        this.venueLeads = new AsyncVenueLeads(syncSDK.venueLeads(), sdkConfiguration);
         this.venueMeetingRooms = new AsyncVenueMeetingRooms(syncSDK.venueMeetingRooms(), sdkConfiguration);
         this.video = new AsyncVideo(syncSDK.video(), sdkConfiguration);
         this.webcasts = new AsyncWebcasts(syncSDK.webcasts(), sdkConfiguration);

@@ -13,10 +13,12 @@ import com.cvent.models.operations.DeleteVenueAttractionRequest;
 import com.cvent.models.operations.DisassociateAttractionImageRequest;
 import com.cvent.models.operations.DisassociateVenueImageRequest;
 import com.cvent.models.operations.GetAttractionImagesRequest;
+import com.cvent.models.operations.GetVenueAmenitiesRequest;
 import com.cvent.models.operations.GetVenueAttractionRequest;
 import com.cvent.models.operations.GetVenueImageMetadataRequest;
 import com.cvent.models.operations.ListVenueAttractionsRequest;
 import com.cvent.models.operations.ListVenueImagesMetadataRequest;
+import com.cvent.models.operations.UpdateVenueAmenitiesRequest;
 import com.cvent.models.operations.UpdateVenueAttractionRequest;
 import com.cvent.models.operations.UpdateVenueImageMetadataRequest;
 import com.cvent.models.operations.async.AssociateAttractionImageRequestBuilder;
@@ -35,6 +37,8 @@ import com.cvent.models.operations.async.DisassociateVenueImageRequestBuilder;
 import com.cvent.models.operations.async.DisassociateVenueImageResponse;
 import com.cvent.models.operations.async.GetAttractionImagesRequestBuilder;
 import com.cvent.models.operations.async.GetAttractionImagesResponse;
+import com.cvent.models.operations.async.GetVenueAmenitiesRequestBuilder;
+import com.cvent.models.operations.async.GetVenueAmenitiesResponse;
 import com.cvent.models.operations.async.GetVenueAttractionRequestBuilder;
 import com.cvent.models.operations.async.GetVenueAttractionResponse;
 import com.cvent.models.operations.async.GetVenueImageMetadataRequestBuilder;
@@ -43,6 +47,8 @@ import com.cvent.models.operations.async.ListVenueAttractionsRequestBuilder;
 import com.cvent.models.operations.async.ListVenueAttractionsResponse;
 import com.cvent.models.operations.async.ListVenueImagesMetadataRequestBuilder;
 import com.cvent.models.operations.async.ListVenueImagesMetadataResponse;
+import com.cvent.models.operations.async.UpdateVenueAmenitiesRequestBuilder;
+import com.cvent.models.operations.async.UpdateVenueAmenitiesResponse;
 import com.cvent.models.operations.async.UpdateVenueAttractionRequestBuilder;
 import com.cvent.models.operations.async.UpdateVenueAttractionResponse;
 import com.cvent.models.operations.async.UpdateVenueImageMetadataRequestBuilder;
@@ -55,10 +61,12 @@ import com.cvent.operations.DeleteVenueAttraction;
 import com.cvent.operations.DisassociateAttractionImage;
 import com.cvent.operations.DisassociateVenueImage;
 import com.cvent.operations.GetAttractionImages;
+import com.cvent.operations.GetVenueAmenities;
 import com.cvent.operations.GetVenueAttraction;
 import com.cvent.operations.GetVenueImageMetadata;
 import com.cvent.operations.ListVenueAttractions;
 import com.cvent.operations.ListVenueImagesMetadata;
+import com.cvent.operations.UpdateVenueAmenities;
 import com.cvent.operations.UpdateVenueAttraction;
 import com.cvent.operations.UpdateVenueImageMetadata;
 import com.cvent.utils.Headers;
@@ -87,6 +95,103 @@ public class AsyncVenueContent {
      */
     public VenueContent sync() {
         return syncSDK;
+    }
+
+    /**
+     * Get Venue Amenities
+     *
+     * <p>Returns the current amenity selections for the specified venue.
+     *
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
+     *
+     * @return The async call builder
+     */
+    public GetVenueAmenitiesRequestBuilder getVenueAmenities() {
+        return new GetVenueAmenitiesRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get Venue Amenities
+     *
+     * <p>Returns the current amenity selections for the specified venue.
+     *
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<GetVenueAmenitiesResponse>} - The async response
+     */
+    public CompletableFuture<GetVenueAmenitiesResponse> getVenueAmenities(@Nonnull GetVenueAmenitiesRequest request) {
+        return getVenueAmenities(request, null);
+    }
+
+    /**
+     * Get Venue Amenities
+     *
+     * <p>Returns the current amenity selections for the specified venue.
+     *
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetVenueAmenitiesResponse>} - The async response
+     */
+    public CompletableFuture<GetVenueAmenitiesResponse> getVenueAmenities(
+            @Nonnull GetVenueAmenitiesRequest request, @Nullable Options options) {
+        AsyncRequestOperation<GetVenueAmenitiesRequest, GetVenueAmenitiesResponse> operation =
+                new GetVenueAmenities.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Update Venue Amenities
+     *
+     * <p>Updates the amenity selections for the specified venue, replacing all existing selections with those
+     * provided in the request body. Sections absent from the request body or submitted as empty arrays
+     * will have their selections cleared.
+     *
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
+     *
+     * @return The async call builder
+     */
+    public UpdateVenueAmenitiesRequestBuilder updateVenueAmenities() {
+        return new UpdateVenueAmenitiesRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update Venue Amenities
+     *
+     * <p>Updates the amenity selections for the specified venue, replacing all existing selections with those
+     * provided in the request body. Sections absent from the request body or submitted as empty arrays
+     * will have their selections cleared.
+     *
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<UpdateVenueAmenitiesResponse>} - The async response
+     */
+    public CompletableFuture<UpdateVenueAmenitiesResponse> updateVenueAmenities(
+            @Nonnull UpdateVenueAmenitiesRequest request) {
+        return updateVenueAmenities(request, null);
+    }
+
+    /**
+     * Update Venue Amenities
+     *
+     * <p>Updates the amenity selections for the specified venue, replacing all existing selections with those
+     * provided in the request body. Sections absent from the request body or submitted as empty arrays
+     * will have their selections cleared.
+     *
+     * <p>Not applicable to CVB/DMC or Restaurant venues.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateVenueAmenitiesResponse>} - The async response
+     */
+    public CompletableFuture<UpdateVenueAmenitiesResponse> updateVenueAmenities(
+            @Nonnull UpdateVenueAmenitiesRequest request, @Nullable Options options) {
+        AsyncRequestOperation<UpdateVenueAmenitiesRequest, UpdateVenueAmenitiesResponse> operation =
+                new UpdateVenueAmenities.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
     /**

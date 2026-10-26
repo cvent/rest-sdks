@@ -111,7 +111,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a paginated list of attendees by sending a filter in the body of the request. This method will return the same data as  <a href="#operation/listAttendees">GET List Attendees</a> but allows for longer filters.
+        /// Gets a paginated list of attendees by sending a filter in the body of the request. This method will return the same data as <a href="#operation/listAttendees">GET List Attendees</a> but allows for longer filters.
         /// </remarks>
         /// <param name="request">A <see cref="ListAttendeesPostFilterRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -904,7 +904,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a paginated list of attendees by sending a filter in the body of the request. This method will return the same data as  <a href="#operation/listAttendees">GET List Attendees</a> but allows for longer filters.
+        /// Gets a paginated list of attendees by sending a filter in the body of the request. This method will return the same data as <a href="#operation/listAttendees">GET List Attendees</a> but allows for longer filters.
         /// </remarks>
         /// <param name="request">A <see cref="ListAttendeesPostFilterRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

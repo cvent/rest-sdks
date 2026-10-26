@@ -142,8 +142,8 @@ public class EventTravel {
     /**
      * Get Alternate Travel Answers
      *
-     * <p>Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an
-     * event.
+     * <p>Get alternate travel answers submitted by attendees who opt out of air, hotel, or train bookings for
+     * an event.
      *
      * @return The call builder
      */
@@ -154,8 +154,8 @@ public class EventTravel {
     /**
      * Get Alternate Travel Answers
      *
-     * <p>Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an
-     * event.
+     * <p>Get alternate travel answers submitted by attendees who opt out of air, hotel, or train bookings for
+     * an event.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -169,8 +169,8 @@ public class EventTravel {
     /**
      * Get Alternate Travel Answers
      *
-     * <p>Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an
-     * event.
+     * <p>Get alternate travel answers submitted by attendees who opt out of air, hotel, or train bookings for
+     * an event.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options

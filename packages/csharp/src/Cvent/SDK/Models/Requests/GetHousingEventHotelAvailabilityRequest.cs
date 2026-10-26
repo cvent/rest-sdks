@@ -51,7 +51,7 @@ namespace Cvent.SDK.Models.Requests
         public string? Filter { get; set; }
 
         /// <summary>
-        /// Limit to this number of search results. Maximum of 50, default of 10.
+        /// Limit to this number of search results. Maximum of 200, default of 10.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=limit")]
         public long? Limit { get; set; } = 10;

@@ -12,84 +12,34 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    using System;
-    using System.Collections.Generic;
 
     /// <summary>
-    /// A question, defined by the program, for the supplier to answer as part of their proposal.
+    /// A question, defined by the account, for the supplier to answer as part of their proposal.
     /// </summary>
     public class TravelProgramQuestion
     {
         /// <summary>
-        /// The ISO 8601 zoned date time when this record was created.
+        /// The unique ID of the custom question.
         /// </summary>
-        [JsonProperty("created")]
-        public DateTime? Created { get; set; }
+        [JsonProperty("questionId")]
+        public string? QuestionId { get; set; }
 
         /// <summary>
-        /// The identifier of the user that created this record.
+        /// Code representing the section where the question belongs. Currently, program_client (client specific) and program_g_and_m (group and meeting) are supported.
         /// </summary>
-        [JsonProperty("createdBy")]
-        public string? CreatedBy { get; set; }
+        [JsonProperty("section")]
+        public QuestionSection? Section { get; set; }
 
         /// <summary>
-        /// The ISO 8601 zoned date time when this record was updated.
-        /// </summary>
-        [JsonProperty("lastModified")]
-        public DateTime? LastModified { get; set; }
-
-        /// <summary>
-        /// The identifier of the user that last updated this record.
-        /// </summary>
-        [JsonProperty("lastModifiedBy")]
-        public string? LastModifiedBy { get; set; }
-
-        /// <summary>
-        /// Travel program that the question belongs to.
-        /// </summary>
-        [JsonProperty("travelProgram")]
-        public TravelProgramQuestionTravelProgram? TravelProgram { get; set; }
-
-        /// <summary>
-        /// The unique ID of the question.
-        /// </summary>
-        [JsonProperty("id")]
-        public string? Id { get; set; }
-
-        /// <summary>
-        /// The text of the question.
-        /// </summary>
-        [JsonProperty("text")]
-        public string? Text { get; set; }
-
-        /// <summary>
-        /// Is this question required by default?
+        /// Is it required for suppliers to answer this question in their proposal?
         /// </summary>
         [JsonProperty("required")]
         public bool? Required { get; set; }
 
         /// <summary>
-        /// Code representing the type of response supported.  Single represents a simple single value response, and choice means the user will be given a set of options for selection.
+        /// The sequence number of the question within the proposal.
         /// </summary>
-        [JsonProperty("responseType")]
-        public QuestionResponseType? ResponseType { get; set; }
-
-        /// <summary>
-        /// Code representing the expected data type of the question response.
-        /// </summary>
-        [JsonProperty("responseDataType")]
-        public QuestionResponseDataType? ResponseDataType { get; set; }
-
-        /// <summary>
-        /// Code representing the format the text of the response will be in.
-        /// </summary>
-        [JsonProperty("responseFormat")]
-        public QuestionResponseFormat? ResponseFormat { get; set; }
-
-        /// <summary>
-        /// A list of options for the question.  This only applies when responseType is 'choice'
-        /// </summary>
-        [JsonProperty("responseChoices")]
-        public List<string>? ResponseChoices { get; set; }
+        [JsonProperty("sequence")]
+        public long? Sequence { get; set; }
     }
 }

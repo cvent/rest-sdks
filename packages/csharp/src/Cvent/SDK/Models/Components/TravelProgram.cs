@@ -120,6 +120,6 @@ namespace Cvent.SDK.Models.Components
         /// A list of program specific questions for the supplier to answer as part of their proposal.
         /// </summary>
         [JsonProperty("questions")]
-        public List<TravelProgramQuestion1>? Questions { get; set; }
+        public List<TravelProgramQuestion>? Questions { get; set; }
     }
 }

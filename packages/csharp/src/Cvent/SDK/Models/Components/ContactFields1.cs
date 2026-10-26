@@ -9,36 +9,20 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
+    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
+    using System.Collections.Generic;
 
     /// <summary>
-    /// Details of a contact.
+    /// An array of standard contact fields supported by Cvent.
     /// </summary>
     public class ContactFields1
     {
         /// <summary>
-        /// Contact ID.
+        /// Collection of standard contact fields.
         /// </summary>
-        [JsonProperty("id")]
-        public string? Id { get; set; }
-
-        /// <summary>
-        /// The first name of the contact.
-        /// </summary>
-        [JsonProperty("firstName")]
-        public string? FirstName { get; set; }
-
-        /// <summary>
-        /// The last name of the contact.
-        /// </summary>
-        [JsonProperty("lastName")]
-        public string? LastName { get; set; }
-
-        /// <summary>
-        /// The email address of the contact.
-        /// </summary>
-        [JsonProperty("email")]
-        public string? Email { get; set; }
+        [JsonProperty("data")]
+        public List<ContactField> Data { get; set; } = default!;
     }
 }

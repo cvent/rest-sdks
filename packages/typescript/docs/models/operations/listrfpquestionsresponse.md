@@ -113,6 +113,7 @@ let value: ListRfpQuestionsResponse = {
           "CVB",
           "HOTEL",
         ],
+        classificationType: "ALL_RFPS",
         order: 1,
         standardQuestion: {
           id: "50dc08af-24a9-4d01-84be-3d43133dc945",

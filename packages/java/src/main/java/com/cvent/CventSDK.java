@@ -221,6 +221,9 @@ public class CventSDK {
      * * **Callback.** [Passkey's callback
      * system](https://developers.cvent.com/docs/passkey/REST/callbacks) allows for a push notification to
      * be sent to your system when a reservation is created, modified or cancelled.
+     *
+     * <p>&gt; Passkey Housing APIs only support the NA base URL. Calls to the EU base URL will return an
+     * error.
      */
     private final Housing housing;
 
@@ -530,6 +533,11 @@ public class CventSDK {
     private final VenueProfiles venueProfiles;
 
     /**
+     * Manage inbound leads submitted to venues through Cvent's sourcing channels.
+     */
+    private final VenueLeads venueLeads;
+
+    /**
      * Manage meeting rooms for a venue, including creating and updating room details, configuring
      * capacities and amenities, and associating images.
      */
@@ -769,6 +777,9 @@ public class CventSDK {
      * * **Callback.** [Passkey's callback
      * system](https://developers.cvent.com/docs/passkey/REST/callbacks) allows for a push notification to
      * be sent to your system when a reservation is created, modified or cancelled.
+     *
+     * <p>&gt; Passkey Housing APIs only support the NA base URL. Calls to the EU base URL will return an
+     * error.
      */
     public Housing housing() {
         return housing;
@@ -1162,6 +1173,13 @@ public class CventSDK {
     }
 
     /**
+     * Manage inbound leads submitted to venues through Cvent's sourcing channels.
+     */
+    public VenueLeads venueLeads() {
+        return venueLeads;
+    }
+
+    /**
      * Manage meeting rooms for a venue, including creating and updating room details, configuring
      * capacities and amenities, and associating images.
      */
@@ -1392,6 +1410,7 @@ public class CventSDK {
         this.venueContent = new VenueContent(sdkConfiguration);
         this.venueAvailability = new VenueAvailability(sdkConfiguration);
         this.venueProfiles = new VenueProfiles(sdkConfiguration);
+        this.venueLeads = new VenueLeads(sdkConfiguration);
         this.venueMeetingRooms = new VenueMeetingRooms(sdkConfiguration);
         this.video = new Video(sdkConfiguration);
         this.webcasts = new Webcasts(sdkConfiguration);

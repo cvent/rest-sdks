@@ -32,21 +32,23 @@ export type AlternateTravelDetailRequesterType = ClosedEnum<
 >;
 
 /**
- * Type of travel alternate question
+ * Type of travel alternate question. Supported values: AirRequest = attendee requested air travel; HotelRequest = attendee requested hotel travel; AirActual = actual air travel booked; GroupFlight = group flight booking; TrainRequest = attendee requested train travel; AirAndTrainRequest = attendee did not want air or train travel and submitted an alternate response.
  */
 export const TravelType = {
   AirRequest: "AirRequest",
   HotelRequest: "HotelRequest",
   AirActual: "AirActual",
   GroupFlight: "GroupFlight",
+  TrainRequest: "TrainRequest",
+  AirAndTrainRequest: "AirAndTrainRequest",
 } as const;
 /**
- * Type of travel alternate question
+ * Type of travel alternate question. Supported values: AirRequest = attendee requested air travel; HotelRequest = attendee requested hotel travel; AirActual = actual air travel booked; GroupFlight = group flight booking; TrainRequest = attendee requested train travel; AirAndTrainRequest = attendee did not want air or train travel and submitted an alternate response.
  */
 export type TravelType = ClosedEnum<typeof TravelType>;
 
 /**
- * Details of an alternate travel answer submitted by an attendee who opted out of air or hotel bookings.
+ * Details of an alternate travel answer submitted by an attendee who opted out of air, hotel, or train bookings.
  */
 export type AlternateTravelDetail = {
   /**
@@ -78,7 +80,7 @@ export type AlternateTravelDetail = {
    */
   requesterType?: AlternateTravelDetailRequesterType | undefined;
   /**
-   * Type of travel alternate question
+   * Type of travel alternate question. Supported values: AirRequest = attendee requested air travel; HotelRequest = attendee requested hotel travel; AirActual = actual air travel booked; GroupFlight = group flight booking; TrainRequest = attendee requested train travel; AirAndTrainRequest = attendee did not want air or train travel and submitted an alternate response.
    */
   travelType?: TravelType | undefined;
   /**

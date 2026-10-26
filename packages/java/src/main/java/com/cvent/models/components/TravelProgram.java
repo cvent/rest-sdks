@@ -141,7 +141,7 @@ public class TravelProgram {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("questions")
-    private List<TravelProgramQuestion1> questions;
+    private List<TravelProgramQuestion> questions;
 
     @JsonCreator
     public TravelProgram(
@@ -161,7 +161,7 @@ public class TravelProgram {
             @JsonProperty("endDate") @Nullable LocalDate endDate,
             @JsonProperty("dueDate") @Nullable LocalDate dueDate,
             @JsonProperty("closeoutDate") @Nullable LocalDate closeoutDate,
-            @JsonProperty("questions") @Nullable List<TravelProgramQuestion1> questions) {
+            @JsonProperty("questions") @Nullable List<TravelProgramQuestion> questions) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -301,7 +301,7 @@ public class TravelProgram {
     /**
      * A list of program specific questions for the supplier to answer as part of their proposal.
      */
-    public Optional<List<TravelProgramQuestion1>> questions() {
+    public Optional<List<TravelProgramQuestion>> questions() {
         return Optional.ofNullable(this.questions);
     }
 
@@ -441,7 +441,7 @@ public class TravelProgram {
     /**
      * A list of program specific questions for the supplier to answer as part of their proposal.
      */
-    public TravelProgram withQuestions(@Nullable List<TravelProgramQuestion1> questions) {
+    public TravelProgram withQuestions(@Nullable List<TravelProgramQuestion> questions) {
         this.questions = questions;
         return this;
     }
@@ -571,7 +571,7 @@ public class TravelProgram {
 
         private LocalDate closeoutDate;
 
-        private List<TravelProgramQuestion1> questions;
+        private List<TravelProgramQuestion> questions;
 
         private Builder() {
             // force use of static builder() method
@@ -709,7 +709,7 @@ public class TravelProgram {
         /**
          * A list of program specific questions for the supplier to answer as part of their proposal.
          */
-        public Builder questions(@Nullable List<TravelProgramQuestion1> questions) {
+        public Builder questions(@Nullable List<TravelProgramQuestion> questions) {
             this.questions = questions;
             return this;
         }

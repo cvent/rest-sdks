@@ -270,7 +270,7 @@ public class Application {
 
 ## listAttendeesPostFilter
 
-Gets a paginated list of attendees by sending a filter in the body of the request. This method will return the same data as  [GET List Attendees](#operation/listAttendees) but allows for longer filters.
+Gets a paginated list of attendees by sending a filter in the body of the request. This method will return the same data as [GET List Attendees](#operation/listAttendees) but allows for longer filters.
 
 
 More about OAuth2 authorization code support for administrators

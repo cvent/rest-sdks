@@ -241,7 +241,7 @@ namespace Cvent.SDK.Models.Components
         public bool? FeeTransparencyEnabled { get; set; } = false;
 
         /// <summary>
-        /// DEPRECATED: Use <a href="#schema/VenueIntegrationPreference">venueIntegrationPreference</a> instead. Venue integrations the planner prefers when sourcing venues. An empty array or absent field indicates no preference has been recorded.
+        /// DEPRECATED: Use `venueIntegrationPreference` instead. Venue integrations the planner prefers when sourcing venues. An empty array or absent field indicates no preference has been recorded.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("preferredVenueIntegrations")]
@@ -271,11 +271,8 @@ namespace Cvent.SDK.Models.Components
         [JsonProperty("status")]
         public RfpStatus1? Status { get; set; }
 
-        /// <summary>
-        /// RFP types based on event requirements.
-        /// </summary>
         [JsonProperty("type")]
-        public RfpType1? Type { get; set; }
+        public RfpType? Type { get; set; }
 
         /// <summary>
         /// Details of the user who approved the RFP.

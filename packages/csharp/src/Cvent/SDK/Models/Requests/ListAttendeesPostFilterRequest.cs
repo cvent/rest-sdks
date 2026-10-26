@@ -88,7 +88,7 @@ namespace Cvent.SDK.Models.Requests
         public bool? IncludeDeletedGuests { get; set; } = false;
 
         /// <summary>
-        /// The request body accepts filters to refine the data returned.  Refer to available filter details in <a href="#operation/listAttendees">GET List Attendees</a>.
+        /// The request body accepts filters to refine the data returned. Refer to available filter details in <a href="#operation/listAttendees">GET List Attendees</a>.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Filter? Filter { get; set; }
