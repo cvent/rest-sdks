@@ -11,11 +11,11 @@ import java.util.Optional;
 /**
  * ExhibitorAnswerFormat
  *
- * <p>Specifies the format for displaying answers based on the question type. For SingleChoice questions,
- * choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General',
- * 'EmailAddress', or 'PhoneNumber'.
+ * <p>Display format of the answers to the question. The valid formats depend on the question type. A
+ * `SingleChoice` question uses `Dropdown` or `RadioButton`.
  *
- * <p>For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
+ * <p>An `OpenEndedTextOneLine` question uses `General`, `EmailAddress`, or `PhoneNumber`. An
+ * `OpenEndedDateTime` question uses `DateAndTime` or `Date`.
  */
 public enum ExhibitorAnswerFormat {
     DATE("Date"),

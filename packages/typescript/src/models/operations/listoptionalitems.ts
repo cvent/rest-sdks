@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListOptionalItemsRequest = {
   /**
-   * The unique ID of an attendee.
+   * Attendee ID.
    */
   id: string;
   /**

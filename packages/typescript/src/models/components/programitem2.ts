@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type ProgramItem2 = {
   /**
-   * The unique identifier for a program item
+   * The unique ID of a program item.
    */
   id: string;
 };

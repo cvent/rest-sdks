@@ -33,7 +33,7 @@ public class UpdateExhibitorWeblinkResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully updated exhibitor content.
+     * Successfully updated the exhibitor weblink.
      */
     private ExistingWeblink existingWeblink;
 
@@ -78,7 +78,7 @@ public class UpdateExhibitorWeblinkResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully updated exhibitor content.
+     * Successfully updated the exhibitor weblink.
      */
     public Optional<ExistingWeblink> existingWeblink() {
         return Optional.ofNullable(this.existingWeblink);
@@ -113,7 +113,7 @@ public class UpdateExhibitorWeblinkResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully updated exhibitor content.
+     * Successfully updated the exhibitor weblink.
      */
     public UpdateExhibitorWeblinkResponse withExistingWeblink(@Nullable ExistingWeblink existingWeblink) {
         this.existingWeblink = existingWeblink;
@@ -194,7 +194,7 @@ public class UpdateExhibitorWeblinkResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully updated exhibitor content.
+         * Successfully updated the exhibitor weblink.
          */
         public Builder existingWeblink(@Nullable ExistingWeblink existingWeblink) {
             this.existingWeblink = existingWeblink;

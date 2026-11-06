@@ -40,7 +40,7 @@ namespace Cvent.SDK
         /// <remarks>
         /// **Deprecated.** The E-literature Requests feature has been sunset.<br/>
         /// <br/>
-        /// Gets a paginated list of eliterature requests data.
+        /// Retrieves a paginated list of e-literature requests.
         /// </remarks>
         /// <param name="request">A <see cref="GetEliteratureRequestsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -60,7 +60,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a list of answers to lead qualification questions for a given lead id.
+        /// Retrieves a list of the answers of a lead to the lead qualification questions.
         /// </remarks>
         /// <param name="request">A <see cref="GetLeadQualificationAnswersRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -80,7 +80,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a paginated list of leads.
+        /// Retrieves a paginated list of leads.
         /// </remarks>
         /// <param name="request">A <see cref="GetLeadsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -96,7 +96,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a paginated list of leads.
+        /// Retrieves a paginated list of leads.
         /// </remarks>
         /// <param name="request">A <see cref="GetLeadsPostFiltersDataRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -138,7 +138,7 @@ namespace Cvent.SDK
         /// <remarks>
         /// **Deprecated.** The E-literature Requests feature has been sunset.<br/>
         /// <br/>
-        /// Gets a paginated list of eliterature requests data.
+        /// Retrieves a paginated list of e-literature requests.
         /// </remarks>
         /// <param name="request">A <see cref="GetEliteratureRequestsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -334,7 +334,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a list of answers to lead qualification questions for a given lead id.
+        /// Retrieves a list of the answers of a lead to the lead qualification questions.
         /// </remarks>
         /// <param name="request">A <see cref="GetLeadQualificationAnswersRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -501,7 +501,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a paginated list of leads.
+        /// Retrieves a paginated list of leads.
         /// </remarks>
         /// <param name="request">A <see cref="GetLeadsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -696,7 +696,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a paginated list of leads.
+        /// Retrieves a paginated list of leads.
         /// </remarks>
         /// <param name="request">A <see cref="GetLeadsPostFiltersDataRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

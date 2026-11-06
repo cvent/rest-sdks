@@ -15,7 +15,7 @@ export type SessionFileFile = {
 };
 
 /**
- * Used to denote a session files attributes.
+ * Metadata for a file associated with a session.
  */
 export type SessionFile = {
   file: SessionFileFile;
@@ -36,7 +36,7 @@ export type SessionFile = {
    */
   size?: number | undefined;
   /**
-   * Display this file to the public
+   * True indicates the file is displayed publicly.
    */
   displayEnabled?: boolean | undefined;
 };

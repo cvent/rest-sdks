@@ -16,18 +16,18 @@ import java.util.Optional;
 /**
  * Device
  *
- * <p>A JSON object representing an electronic device used to capture leads.
+ * <p>Device that captured the lead.
  */
 public class Device {
     /**
-     * The id of device used to capture lead
+     * ID of the device.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * The name of device used to capture lead
+     * Name of the device.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("name")
@@ -44,14 +44,14 @@ public class Device {
     }
 
     /**
-     * The id of device used to capture lead
+     * ID of the device.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * The name of device used to capture lead
+     * Name of the device.
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
@@ -62,7 +62,7 @@ public class Device {
     }
 
     /**
-     * The id of device used to capture lead
+     * ID of the device.
      */
     public Device withId(@Nullable String id) {
         this.id = id;
@@ -70,7 +70,7 @@ public class Device {
     }
 
     /**
-     * The name of device used to capture lead
+     * Name of the device.
      */
     public Device withName(@Nullable String name) {
         this.name = name;
@@ -111,7 +111,7 @@ public class Device {
         }
 
         /**
-         * The id of device used to capture lead
+         * ID of the device.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -119,7 +119,7 @@ public class Device {
         }
 
         /**
-         * The name of device used to capture lead
+         * Name of the device.
          */
         public Builder name(@Nullable String name) {
             this.name = name;

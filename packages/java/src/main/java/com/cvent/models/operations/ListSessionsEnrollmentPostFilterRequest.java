@@ -18,15 +18,14 @@ import java.util.Optional;
 
 public class ListSessionsEnrollmentPostFilterRequest {
     /**
-     * Used to query records that have been added or updated on or after this time point. Defaults to the
+     * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=after")
     private OffsetDateTime after;
 
     /**
-     * Used to query records that have been added or updated on or before this time point. The date and
-     * time should be in ISO 8601 format.
+     * Used to query records that have been added or updated before this time point.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=before")
     private OffsetDateTime before;
@@ -70,7 +69,7 @@ public class ListSessionsEnrollmentPostFilterRequest {
     }
 
     /**
-     * Used to query records that have been added or updated on or after this time point. Defaults to the
+     * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
      */
     public Optional<OffsetDateTime> after() {
@@ -78,8 +77,7 @@ public class ListSessionsEnrollmentPostFilterRequest {
     }
 
     /**
-     * Used to query records that have been added or updated on or before this time point. The date and
-     * time should be in ISO 8601 format.
+     * Used to query records that have been added or updated before this time point.
      */
     public Optional<OffsetDateTime> before() {
         return Optional.ofNullable(this.before);
@@ -113,7 +111,7 @@ public class ListSessionsEnrollmentPostFilterRequest {
     }
 
     /**
-     * Used to query records that have been added or updated on or after this time point. Defaults to the
+     * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
      */
     public ListSessionsEnrollmentPostFilterRequest withAfter(@Nullable OffsetDateTime after) {
@@ -122,8 +120,7 @@ public class ListSessionsEnrollmentPostFilterRequest {
     }
 
     /**
-     * Used to query records that have been added or updated on or before this time point. The date and
-     * time should be in ISO 8601 format.
+     * Used to query records that have been added or updated before this time point.
      */
     public ListSessionsEnrollmentPostFilterRequest withBefore(@Nullable OffsetDateTime before) {
         this.before = before;
@@ -211,7 +208,7 @@ public class ListSessionsEnrollmentPostFilterRequest {
         }
 
         /**
-         * Used to query records that have been added or updated on or after this time point. Defaults to the
+         * Used to query records that have been added or updated after this time point. Default to the
          * beginning of time of the data store.
          */
         public Builder after(@Nullable OffsetDateTime after) {
@@ -220,8 +217,7 @@ public class ListSessionsEnrollmentPostFilterRequest {
         }
 
         /**
-         * Used to query records that have been added or updated on or before this time point. The date and
-         * time should be in ISO 8601 format.
+         * Used to query records that have been added or updated before this time point.
          */
         public Builder before(@Nullable OffsetDateTime before) {
             this.before = before;

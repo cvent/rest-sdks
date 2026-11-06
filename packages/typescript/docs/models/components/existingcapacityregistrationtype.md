@@ -1,6 +1,6 @@
 # ExistingCapacityRegistrationType
 
-Registration type information
+Registration type of the capacity.
 
 ## Example Usage
 
@@ -16,4 +16,4 @@ let value: ExistingCapacityRegistrationType = {
 
 | Field                                | Type                                 | Required                             | Description                          | Example                              |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *string*                             | :heavy_check_mark:                   | Registration type id                 | 923d5629-3cac-40c2-8237-34937dd93475 |
+| `id`                                 | *string*                             | :heavy_check_mark:                   | Registration type ID.                | 923d5629-3cac-40c2-8237-34937dd93475 |

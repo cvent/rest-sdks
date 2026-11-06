@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Create Registration Pack
  *
  * @remarks
- * Create registration pack for an exhibitor
+ * Creates a registration pack for an exhibitor.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

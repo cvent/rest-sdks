@@ -15,13 +15,13 @@ import java.util.Optional;
 
 public class AddSpeakerToSessionRequest {
     /**
-     * Unique Id of a session
+     * Unique ID of a session
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
     /**
-     * Unique Id of a speaker
+     * Unique ID of a speaker
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=speakerId")
     private String speakerId;
@@ -51,14 +51,14 @@ public class AddSpeakerToSessionRequest {
     }
 
     /**
-     * Unique Id of a session
+     * Unique ID of a session
      */
     public String id() {
         return this.id;
     }
 
     /**
-     * Unique Id of a speaker
+     * Unique ID of a speaker
      */
     public String speakerId() {
         return this.speakerId;
@@ -79,7 +79,7 @@ public class AddSpeakerToSessionRequest {
     }
 
     /**
-     * Unique Id of a session
+     * Unique ID of a session
      */
     public AddSpeakerToSessionRequest withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -87,7 +87,7 @@ public class AddSpeakerToSessionRequest {
     }
 
     /**
-     * Unique Id of a speaker
+     * Unique ID of a speaker
      */
     public AddSpeakerToSessionRequest withSpeakerId(@Nonnull String speakerId) {
         this.speakerId = Utils.checkNotNull(speakerId, "speakerId");
@@ -151,7 +151,7 @@ public class AddSpeakerToSessionRequest {
         }
 
         /**
-         * Unique Id of a session
+         * Unique ID of a session
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -159,7 +159,7 @@ public class AddSpeakerToSessionRequest {
         }
 
         /**
-         * Unique Id of a speaker
+         * Unique ID of a speaker
          */
         public Builder speakerId(@Nonnull String speakerId) {
             this.speakerId = Utils.checkNotNull(speakerId, "speakerId");

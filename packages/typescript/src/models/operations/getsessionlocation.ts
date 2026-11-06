@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetSessionLocationRequest = {
   /**
-   * Unique Id of Event
+   * Unique ID of Event
    */
   id: string;
   /**

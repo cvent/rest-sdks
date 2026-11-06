@@ -14,11 +14,11 @@ import java.util.Optional;
 /**
  * Exhibitor
  *
- * <p>The Associated Exhibitor.
+ * <p>Associated exhibitor.
  */
 public class Exhibitor {
     /**
-     * Exhibitor id
+     * Exhibitor ID.
      */
     @JsonProperty("id")
     private String id;
@@ -29,7 +29,7 @@ public class Exhibitor {
     }
 
     /**
-     * Exhibitor id
+     * Exhibitor ID.
      */
     public String id() {
         return this.id;
@@ -40,7 +40,7 @@ public class Exhibitor {
     }
 
     /**
-     * Exhibitor id
+     * Exhibitor ID.
      */
     public Exhibitor withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -79,7 +79,7 @@ public class Exhibitor {
         }
 
         /**
-         * Exhibitor id
+         * Exhibitor ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

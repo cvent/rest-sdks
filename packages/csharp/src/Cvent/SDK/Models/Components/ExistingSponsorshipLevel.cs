@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Existing sponsorship level model.
+    /// Sponsorship level with an ID.
     /// </summary>
     public class ExistingSponsorshipLevel
     {
@@ -44,7 +44,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// The Associated Event.
+        /// Associated event.
         /// </summary>
         [JsonProperty("event")]
         public Event4 Event { get; set; } = default!;
@@ -56,13 +56,13 @@ namespace Cvent.SDK.Models.Components
         public string Name { get; set; } = default!;
 
         /// <summary>
-        /// ID of event sponsorship level.
+        /// Sponsorship level ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Represents the order sponsors appear in a list.
+        /// Order in which the sponsors appear in a list.
         /// </summary>
         [JsonProperty("rank")]
         public long? Rank { get; set; }

@@ -14,13 +14,13 @@ import java.util.Optional;
 
 public class UpdateSessionCustomFieldAnswersRequest {
     /**
-     * Unique Id of a session
+     * Unique ID of a session
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
     /**
-     * Unique Id of a custom field
+     * Unique ID of a custom field
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=customFieldId")
     private String customFieldId;
@@ -42,14 +42,14 @@ public class UpdateSessionCustomFieldAnswersRequest {
     }
 
     /**
-     * Unique Id of a session
+     * Unique ID of a session
      */
     public String id() {
         return this.id;
     }
 
     /**
-     * Unique Id of a custom field
+     * Unique ID of a custom field
      */
     public String customFieldId() {
         return this.customFieldId;
@@ -67,7 +67,7 @@ public class UpdateSessionCustomFieldAnswersRequest {
     }
 
     /**
-     * Unique Id of a session
+     * Unique ID of a session
      */
     public UpdateSessionCustomFieldAnswersRequest withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -75,7 +75,7 @@ public class UpdateSessionCustomFieldAnswersRequest {
     }
 
     /**
-     * Unique Id of a custom field
+     * Unique ID of a custom field
      */
     public UpdateSessionCustomFieldAnswersRequest withCustomFieldId(@Nonnull String customFieldId) {
         this.customFieldId = Utils.checkNotNull(customFieldId, "customFieldId");
@@ -135,7 +135,7 @@ public class UpdateSessionCustomFieldAnswersRequest {
         }
 
         /**
-         * Unique Id of a session
+         * Unique ID of a session
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -143,7 +143,7 @@ public class UpdateSessionCustomFieldAnswersRequest {
         }
 
         /**
-         * Unique Id of a custom field
+         * Unique ID of a custom field
          */
         public Builder customFieldId(@Nonnull String customFieldId) {
             this.customFieldId = Utils.checkNotNull(customFieldId, "customFieldId");

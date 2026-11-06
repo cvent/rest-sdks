@@ -1,6 +1,6 @@
 # LeadQualificationQuestionType
 
-Type of question
+Type of the question.
 
 ## Example Usage
 

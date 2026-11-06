@@ -25,7 +25,10 @@ import {
   EventOrganization1,
   EventOrganization1$inboundSchema,
 } from "./eventorganization1.js";
-import { LeadSource, LeadSource$inboundSchema } from "./leadsource.js";
+import {
+  LeadSourceSection,
+  LeadSourceSection$inboundSchema,
+} from "./leadsourcesection.js";
 import {
   MeasurementUnit,
   MeasurementUnit$inboundSchema,
@@ -53,6 +56,20 @@ import {
   WeddingDetails1,
   WeddingDetails1$inboundSchema,
 } from "./weddingdetails1.js";
+
+/**
+ * If you omit `leadSource`, Cvent sets the default lead source. A caller can send only the default lead source. Any other `leadSource.id` or `leadSource.section.id` returns 400.
+ */
+export type RfpLeadSource1 = {
+  /**
+   * Unique identifier for source generating the RFP. Details about this lead source can be fetched using <a href="#tag/RFP-Management/operation/getRfpLeadSource">lead source API.</a>
+   */
+  id?: string | undefined;
+  /**
+   * Represents lead source section details, which is a sub area of source generating the RFP.
+   */
+  section?: LeadSourceSection | undefined;
+};
 
 /**
  * RFP types based on event requirements.
@@ -104,11 +121,11 @@ export type Rfp2 = {
   /**
    * Date requirements for the event.
    */
-  dateRequirements?: DateRequirements1 | undefined;
+  dateRequirements: DateRequirements1;
   /**
    * RFP event details.
    */
-  rfpEvent?: RfpEvent | undefined;
+  rfpEvent: RfpEvent;
   /**
    * The ISO 8601 date representing the start date of agenda.
    */
@@ -188,9 +205,9 @@ export type Rfp2 = {
    */
   shareAwardDetails?: boolean | undefined;
   /**
-   * Lead source details.
+   * If you omit `leadSource`, Cvent sets the default lead source. A caller can send only the default lead source. Any other `leadSource.id` or `leadSource.section.id` returns 400.
    */
-  leadSource?: LeadSource | undefined;
+  leadSource?: RfpLeadSource1 | undefined;
   /**
    * Unique identifier for RFPs originating from outside Cvent network provided by source system where RFP was created.
    */
@@ -297,6 +314,26 @@ export type Rfp2 = {
 };
 
 /** @internal */
+export const RfpLeadSource1$inboundSchema: z.ZodType<
+  RfpLeadSource1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string().optional(),
+  section: LeadSourceSection$inboundSchema.optional(),
+});
+
+export function rfpLeadSource1FromJSON(
+  jsonString: string,
+): SafeParseResult<RfpLeadSource1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RfpLeadSource1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RfpLeadSource1' from JSON`,
+  );
+}
+
+/** @internal */
 export const RfpType$inboundSchema: z.ZodNativeEnum<typeof RfpType> = z
   .nativeEnum(RfpType);
 
@@ -313,8 +350,8 @@ export const Rfp2$inboundSchema: z.ZodType<Rfp2, z.ZodTypeDef, unknown> = z
     needsMeetingSpace: z.boolean(),
     needsGuestRooms: z.boolean(),
     description: z.string().optional(),
-    dateRequirements: DateRequirements1$inboundSchema.optional(),
-    rfpEvent: RfpEvent$inboundSchema.optional(),
+    dateRequirements: DateRequirements1$inboundSchema,
+    rfpEvent: RfpEvent$inboundSchema,
     agendaStartDate: z.string().transform(v => new RFCDate(v)).optional(),
     contact: Contact1$inboundSchema.optional(),
     rfpEventOrganization: EventOrganization1$inboundSchema.optional(),
@@ -333,7 +370,7 @@ export const Rfp2$inboundSchema: z.ZodType<Rfp2, z.ZodTypeDef, unknown> = z
     allowEmailNotifications: z.boolean().optional(),
     notificationRecipients: z.array(RecipientInfo$inboundSchema).optional(),
     shareAwardDetails: z.boolean().optional(),
-    leadSource: LeadSource$inboundSchema.optional(),
+    leadSource: z.lazy(() => RfpLeadSource1$inboundSchema).optional(),
     sourceId: z.string().optional(),
     showcaseEnabled: z.boolean().optional(),
     autoAddToShowcaseEnabled: z.boolean().optional(),

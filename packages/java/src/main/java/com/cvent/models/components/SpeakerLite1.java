@@ -14,11 +14,11 @@ import java.util.Optional;
 /**
  * SpeakerLite1
  *
- * <p>The unique identifier of a speaker.
+ * <p>A reference to a speaker by its ID.
  */
 public class SpeakerLite1 {
     /**
-     * The unique identifier for a speaker.
+     * The unique ID of a speaker.
      */
     @JsonProperty("id")
     private String id;
@@ -29,7 +29,7 @@ public class SpeakerLite1 {
     }
 
     /**
-     * The unique identifier for a speaker.
+     * The unique ID of a speaker.
      */
     public String id() {
         return this.id;
@@ -40,7 +40,7 @@ public class SpeakerLite1 {
     }
 
     /**
-     * The unique identifier for a speaker.
+     * The unique ID of a speaker.
      */
     public SpeakerLite1 withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -79,7 +79,7 @@ public class SpeakerLite1 {
         }
 
         /**
-         * The unique identifier for a speaker.
+         * The unique ID of a speaker.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

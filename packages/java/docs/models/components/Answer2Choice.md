@@ -1,10 +1,10 @@
 # Answer2Choice
 
-The choice that was selected.
+Selected choice.
 
 
 ## Fields
 
-| Field                                   | Type                                    | Required                                | Description                             |
-| --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| `id`                                    | *Optional\<String>*                     | :heavy_minus_sign:                      | The ID of the choice that was selected. |
+| Field                      | Type                       | Required                   | Description                |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| `id`                       | *Optional\<String>*        | :heavy_minus_sign:         | ID of the selected choice. |

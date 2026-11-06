@@ -1,6 +1,6 @@
 # ExhibitorQuestionType
 
-Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice': Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single option from a list, often displayed as a dropdown or radio button. 'OpenEndedTextOneLine': brief text responses, such as names or short answers. 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime': captures date and time information from respondents.
+Type of data that an exhibitor question collects. `MultiChoice`: the respondent selects multiple options from a list. `SingleChoice`: the respondent selects one option from a list, such as a dropdown or radio buttons. `OpenEndedTextOneLine`: the respondent enters a short text answer, such as a name. `OpenEndedTextCommentBox`: the respondent enters a long text answer. `OpenEndedDateTime`: the respondent enters a date and time.
 
 ## Example Usage
 

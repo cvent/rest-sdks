@@ -13,9 +13,9 @@ import {
   CustomFieldCategory$outboundSchema,
 } from "./customfieldcategory.js";
 import {
-  CustomFieldType2,
-  CustomFieldType2$outboundSchema,
-} from "./customfieldtype2.js";
+  CustomFieldType3,
+  CustomFieldType3$outboundSchema,
+} from "./customfieldtype3.js";
 import {
   DisplayInDataTag,
   DisplayInDataTag$outboundSchema,
@@ -73,7 +73,7 @@ export type ExistingCustomFieldInput = {
   /**
    * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
    */
-  type: CustomFieldType2;
+  type: CustomFieldType3;
   /**
    * Type-specific details of the custom-field.
    */
@@ -179,7 +179,7 @@ export const ExistingCustomFieldInput$outboundSchema: z.ZodType<
   name: z.string(),
   code: z.string(),
   required: z.boolean().default(true),
-  type: CustomFieldType2$outboundSchema,
+  type: CustomFieldType3$outboundSchema,
   details: z.union([
     OpenEndedOneLine$outboundSchema,
     OpenEndedDateTime1$outboundSchema,

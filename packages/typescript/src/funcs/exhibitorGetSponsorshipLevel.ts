@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Get Sponsorship Level
  *
  * @remarks
- * Retrieves associated sponsorship level data for a single sponsorship level ID.
+ * Retrieves a sponsorship level of an event.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

@@ -1,6 +1,6 @@
 # AttendeeAddContact
 
-The ID of the address book contact associated with the attendee.
+The address book contact associated with the attendee.
 
 
 ## Fields

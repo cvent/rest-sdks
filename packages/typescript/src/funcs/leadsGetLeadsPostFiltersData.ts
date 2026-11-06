@@ -36,7 +36,7 @@ import {
  * List Leads
  *
  * @remarks
- * Gets a paginated list of leads
+ * Retrieves a paginated list of leads.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

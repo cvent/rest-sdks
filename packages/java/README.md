@@ -44,7 +44,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cvent:sdk:1.6.6'
+implementation 'com.cvent:sdk:1.6.7'
 ```
 
 Maven:
@@ -52,7 +52,7 @@ Maven:
 <dependency>
     <groupId>com.cvent</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.6.6</version>
+    <version>1.6.7</version>
 </dependency>
 ```
 
@@ -399,8 +399,8 @@ public class Application {
 * [updateInternalInfoAnswers](docs/sdks/attendees/README.md#updateinternalinfoanswers) - Update Internal Information
 * [listOptionalItems](docs/sdks/attendees/README.md#listoptionalitems) - List Attendee Optional Items
 * [postBadge](docs/sdks/attendees/README.md#postbadge) - Create Badge
-* [getBadge](docs/sdks/attendees/README.md#getbadge) - Get Badge
-* [getBadgesPostFilters](docs/sdks/attendees/README.md#getbadgespostfilters) - Get Badges
+* [getBadge](docs/sdks/attendees/README.md#getbadge) - List Badges
+* [getBadgesPostFilters](docs/sdks/attendees/README.md#getbadgespostfilters) - List Badges
 * [updateBadge](docs/sdks/attendees/README.md#updatebadge) - Update Badge
 
 ### [AudienceSegments](docs/sdks/audiencesegments/README.md)
@@ -563,6 +563,8 @@ public class Application {
 ### [EventRole](docs/sdks/eventrole/README.md)
 
 * [listEventRoleAssignment](docs/sdks/eventrole/README.md#listeventroleassignment) - List Event Role Assignments
+* [createEventRoleAssignment](docs/sdks/eventrole/README.md#createeventroleassignment) - Assign Event Role
+* [deleteEventRoleAssignment](docs/sdks/eventrole/README.md#deleteeventroleassignment) - Unassign Event Role
 
 ### [EventTravel](docs/sdks/eventtravel/README.md)
 
@@ -658,7 +660,7 @@ public class Application {
 * [deleteExhibitorLogo](docs/sdks/exhibitor/README.md#deleteexhibitorlogo) - Delete Exhibitor Logo Image
 * [getLeadQualificationQuestions](docs/sdks/exhibitor/README.md#getleadqualificationquestions) - List Qualification Questions
 * [postRegistrationPack](docs/sdks/exhibitor/README.md#postregistrationpack) - Create Registration Pack
-* [getExhibitorRegistrationPacks](docs/sdks/exhibitor/README.md#getexhibitorregistrationpacks) - List Registration Pack
+* [getExhibitorRegistrationPacks](docs/sdks/exhibitor/README.md#getexhibitorregistrationpacks) - List Registration Packs
 * [getRegistrationPack](docs/sdks/exhibitor/README.md#getregistrationpack) - Get Registration Pack
 * [updateRegistrationPack](docs/sdks/exhibitor/README.md#updateregistrationpack) - Update Registration Pack
 * [deleteRegistrationPack](docs/sdks/exhibitor/README.md#deleteregistrationpack) - Delete Registration Pack
@@ -685,8 +687,8 @@ public class Application {
 * [updateExhibitorAdmin](docs/sdks/exhibitorteam/README.md#updateexhibitoradmin) - Update Exhibitor Admin
 * [listBoothStaff](docs/sdks/exhibitorteam/README.md#listboothstaff) - List Booth Staff
 * [associateBoothStaff](docs/sdks/exhibitorteam/README.md#associateboothstaff) - Create Booth Staff
-* [getBoothStaff](docs/sdks/exhibitorteam/README.md#getboothstaff) - Get Booth Staff member
-* [deleteBoothStaff](docs/sdks/exhibitorteam/README.md#deleteboothstaff) - Delete Booth Staff member
+* [getBoothStaff](docs/sdks/exhibitorteam/README.md#getboothstaff) - Get Booth Staff Member
+* [deleteBoothStaff](docs/sdks/exhibitorteam/README.md#deleteboothstaff) - Delete Booth Staff Member
 
 ### [File](docs/sdks/file/README.md)
 
@@ -812,7 +814,7 @@ public class Application {
 * [getProgramItemSessionDocument](docs/sdks/sessions/README.md#getprogramitemsessiondocument) - Get Program Item Document
 * [deleteProgramItemSessionDocument](docs/sdks/sessions/README.md#deleteprogramitemsessiondocument) - Delete Program Item Document
 * [listSessionsCategories](docs/sdks/sessions/README.md#listsessionscategories) - List Session Categories
-* [createSessionCategory](docs/sdks/sessions/README.md#createsessioncategory) - Create Session Categories
+* [createSessionCategory](docs/sdks/sessions/README.md#createsessioncategory) - Create Session Category
 * [getSessionSegments](docs/sdks/sessions/README.md#getsessionsegments) - Get Session Segments
 * [listSessions](docs/sdks/sessions/README.md#listsessions) - List Sessions
 * [createSession](docs/sdks/sessions/README.md#createsession) - Create Session
@@ -951,7 +953,9 @@ public class Application {
 * [addUserToAccountUserGroup](docs/sdks/users/README.md#addusertoaccountusergroup) - Associate User to Group
 * [deleteUserFromAccountUserGroup](docs/sdks/users/README.md#deleteuserfromaccountusergroup) - Delete User from Group
 * [listAccountUsers](docs/sdks/users/README.md#listaccountusers) - List Account Users
+* [listAccountUsersFilter](docs/sdks/users/README.md#listaccountusersfilter) - List Account Users
 * [getAccountUser](docs/sdks/users/README.md#getaccountuser) - Get Account User
+* [updateAccountUserCustomFieldAnswer](docs/sdks/users/README.md#updateaccountusercustomfieldanswer) - Update Custom Field Answer
 
 ### [VenueAvailability](docs/sdks/venueavailability/README.md)
 
@@ -982,14 +986,14 @@ public class Application {
 * [associateVenueImage](docs/sdks/venuecontent/README.md#associatevenueimage) - Associate Venue Image
 * [disassociateVenueImage](docs/sdks/venuecontent/README.md#disassociatevenueimage) - Remove Venue Image
 
-### [VenueLeads](docs/sdks/venueleads/README.md)
+### [VenueLeadCatchers](docs/sdks/venueleadcatchers/README.md)
 
-* [createLeadCatcher](docs/sdks/venueleads/README.md#createleadcatcher) - Create Lead Catcher
-* [listLeadCatchersOverview](docs/sdks/venueleads/README.md#listleadcatchersoverview) - List Lead Catchers Overview
-* [updateLeadCatcher](docs/sdks/venueleads/README.md#updateleadcatcher) - Update Lead Catcher
-* [patchLeadCatcher](docs/sdks/venueleads/README.md#patchleadcatcher) - Patch Lead Catcher
-* [deleteLeadCatcher](docs/sdks/venueleads/README.md#deleteleadcatcher) - Delete Lead Catcher
-* [getLeadCatcherOverview](docs/sdks/venueleads/README.md#getleadcatcheroverview) - Get Lead Catcher Overview
+* [createLeadCatcher](docs/sdks/venueleadcatchers/README.md#createleadcatcher) - Create Lead Catcher
+* [listLeadCatchersOverview](docs/sdks/venueleadcatchers/README.md#listleadcatchersoverview) - List Lead Catchers Overview
+* [updateLeadCatcher](docs/sdks/venueleadcatchers/README.md#updateleadcatcher) - Update Lead Catcher
+* [patchLeadCatcher](docs/sdks/venueleadcatchers/README.md#patchleadcatcher) - Patch Lead Catcher
+* [deleteLeadCatcher](docs/sdks/venueleadcatchers/README.md#deleteleadcatcher) - Delete Lead Catcher
+* [getLeadCatcherOverview](docs/sdks/venueleadcatchers/README.md#getleadcatcheroverview) - Get Lead Catcher Overview
 
 ### [VenueMeetingRooms](docs/sdks/venuemeetingrooms/README.md)
 
@@ -1371,7 +1375,7 @@ public class Application {
 * [`CventSDKError`](./src/main/java/models/errors/CventSDKError.java): The base class for HTTP error responses.
   * [`com.cvent.models.errors.ErrorResponse12`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse12.java): Represents an error response with additional details of cascading error messages. *
 
-<details><summary>Less common errors (10)</summary>
+<details><summary>Less common errors (11)</summary>
 
 <br />
 
@@ -1381,10 +1385,11 @@ public class Application {
 many more subclasses in the JDK platform).
 
 **Inherit from [`CventSDKError`](./src/main/java/models/errors/CventSDKError.java)**:
-* [`com.cvent.models.errors.ErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse.java): Represents an error response with additional details of cascading error messages. Applicable to 18 of 507 methods.*
-* [`com.cvent.models.errors.ErrorResponse17`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse17.java): The error response. Applicable to 11 of 507 methods.*
-* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 507 methods.*
-* [`com.cvent.models.errors.Oauth2TokenPostResponse0Exception`](./src/main/java/models/errors/com.cvent.models.errors.Oauth2TokenPostResponse0Exception.java): A bad token response. Status code `400`. Applicable to 1 of 507 methods.*
+* [`com.cvent.models.errors.ErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse.java): Represents an error response with additional details of cascading error messages. Applicable to 18 of 511 methods.*
+* [`com.cvent.models.errors.ErrorResponse17`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse17.java): The error response. Applicable to 11 of 511 methods.*
+* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 511 methods.*
+* [`com.cvent.models.errors.Oauth2TokenPostResponse0Exception`](./src/main/java/models/errors/com.cvent.models.errors.Oauth2TokenPostResponse0Exception.java): A bad token response. Status code `400`. Applicable to 1 of 511 methods.*
+* [`com.cvent.models.errors.EventRoleAssignmentNotificationFailureResponseException`](./src/main/java/models/errors/com.cvent.models.errors.EventRoleAssignmentNotificationFailureResponseException.java): Standard error response for a notification failure while creating an event-role assignment. The top-level code and details[].code are the integer HTTP status code (503). Status code `503`. Applicable to 1 of 511 methods.*
 
 
 </details>

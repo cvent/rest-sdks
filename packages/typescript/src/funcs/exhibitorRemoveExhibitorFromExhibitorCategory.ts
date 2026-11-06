@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Delete Exhibitor from Category
  *
  * @remarks
- * delete an exhibitor from an exhibitor-category
+ * Removes an exhibitor from an exhibitor category.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

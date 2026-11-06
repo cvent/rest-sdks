@@ -16,46 +16,46 @@ import java.util.Optional;
 /**
  * Address5
  *
- * <p>An object representing an address with various properties.
+ * <p>Address of the exhibitor.
  */
 public class Address5 {
     /**
-     * The first line of an address
+     * First line of the address.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address1")
     private String address1;
 
     /**
-     * The second line of an address
+     * Second line of the address.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address2")
     private String address2;
 
     /**
-     * The name of the city.
+     * Name of the city.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("city")
     private String city;
 
     /**
-     * The name of the state/province/region of the address.
+     * Name of the state, province, or region.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("region")
     private String region;
 
     /**
-     * postal code (also known as zipcode) of the address
+     * Postal code or ZIP code of the address.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("postalCode")
     private String postalCode;
 
     /**
-     * Name of the country for example, 'United States'
+     * Name of the country.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("country")
@@ -82,42 +82,42 @@ public class Address5 {
     }
 
     /**
-     * The first line of an address
+     * First line of the address.
      */
     public Optional<String> address1() {
         return Optional.ofNullable(this.address1);
     }
 
     /**
-     * The second line of an address
+     * Second line of the address.
      */
     public Optional<String> address2() {
         return Optional.ofNullable(this.address2);
     }
 
     /**
-     * The name of the city.
+     * Name of the city.
      */
     public Optional<String> city() {
         return Optional.ofNullable(this.city);
     }
 
     /**
-     * The name of the state/province/region of the address.
+     * Name of the state, province, or region.
      */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
     /**
-     * postal code (also known as zipcode) of the address
+     * Postal code or ZIP code of the address.
      */
     public Optional<String> postalCode() {
         return Optional.ofNullable(this.postalCode);
     }
 
     /**
-     * Name of the country for example, 'United States'
+     * Name of the country.
      */
     public Optional<String> country() {
         return Optional.ofNullable(this.country);
@@ -128,7 +128,7 @@ public class Address5 {
     }
 
     /**
-     * The first line of an address
+     * First line of the address.
      */
     public Address5 withAddress1(@Nullable String address1) {
         this.address1 = address1;
@@ -136,7 +136,7 @@ public class Address5 {
     }
 
     /**
-     * The second line of an address
+     * Second line of the address.
      */
     public Address5 withAddress2(@Nullable String address2) {
         this.address2 = address2;
@@ -144,7 +144,7 @@ public class Address5 {
     }
 
     /**
-     * The name of the city.
+     * Name of the city.
      */
     public Address5 withCity(@Nullable String city) {
         this.city = city;
@@ -152,7 +152,7 @@ public class Address5 {
     }
 
     /**
-     * The name of the state/province/region of the address.
+     * Name of the state, province, or region.
      */
     public Address5 withRegion(@Nullable String region) {
         this.region = region;
@@ -160,7 +160,7 @@ public class Address5 {
     }
 
     /**
-     * postal code (also known as zipcode) of the address
+     * Postal code or ZIP code of the address.
      */
     public Address5 withPostalCode(@Nullable String postalCode) {
         this.postalCode = postalCode;
@@ -168,7 +168,7 @@ public class Address5 {
     }
 
     /**
-     * Name of the country for example, 'United States'
+     * Name of the country.
      */
     public Address5 withCountry(@Nullable String country) {
         this.country = country;
@@ -235,7 +235,7 @@ public class Address5 {
         }
 
         /**
-         * The first line of an address
+         * First line of the address.
          */
         public Builder address1(@Nullable String address1) {
             this.address1 = address1;
@@ -243,7 +243,7 @@ public class Address5 {
         }
 
         /**
-         * The second line of an address
+         * Second line of the address.
          */
         public Builder address2(@Nullable String address2) {
             this.address2 = address2;
@@ -251,7 +251,7 @@ public class Address5 {
         }
 
         /**
-         * The name of the city.
+         * Name of the city.
          */
         public Builder city(@Nullable String city) {
             this.city = city;
@@ -259,7 +259,7 @@ public class Address5 {
         }
 
         /**
-         * The name of the state/province/region of the address.
+         * Name of the state, province, or region.
          */
         public Builder region(@Nullable String region) {
             this.region = region;
@@ -267,7 +267,7 @@ public class Address5 {
         }
 
         /**
-         * postal code (also known as zipcode) of the address
+         * Postal code or ZIP code of the address.
          */
         public Builder postalCode(@Nullable String postalCode) {
             this.postalCode = postalCode;
@@ -275,7 +275,7 @@ public class Address5 {
         }
 
         /**
-         * Name of the country for example, 'United States'
+         * Name of the country.
          */
         public Builder country(@Nullable String country) {
             this.country = country;

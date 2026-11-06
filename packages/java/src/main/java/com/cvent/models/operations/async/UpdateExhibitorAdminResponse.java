@@ -33,7 +33,7 @@ public class UpdateExhibitorAdminResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully updated the Exhibitor Admin.
+     * Successfully updated the exhibitor admin.
      */
     private ExhibitorAdminResponse exhibitorAdminResponse;
 
@@ -78,7 +78,7 @@ public class UpdateExhibitorAdminResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully updated the Exhibitor Admin.
+     * Successfully updated the exhibitor admin.
      */
     public Optional<ExhibitorAdminResponse> exhibitorAdminResponse() {
         return Optional.ofNullable(this.exhibitorAdminResponse);
@@ -113,7 +113,7 @@ public class UpdateExhibitorAdminResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully updated the Exhibitor Admin.
+     * Successfully updated the exhibitor admin.
      */
     public UpdateExhibitorAdminResponse withExhibitorAdminResponse(
             @Nullable ExhibitorAdminResponse exhibitorAdminResponse) {
@@ -195,7 +195,7 @@ public class UpdateExhibitorAdminResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully updated the Exhibitor Admin.
+         * Successfully updated the exhibitor admin.
          */
         public Builder exhibitorAdminResponse(@Nullable ExhibitorAdminResponse exhibitorAdminResponse) {
             this.exhibitorAdminResponse = exhibitorAdminResponse;

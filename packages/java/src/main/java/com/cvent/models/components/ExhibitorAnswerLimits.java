@@ -19,35 +19,35 @@ import java.util.Optional;
 /**
  * ExhibitorAnswerLimits
  *
- * <p>Defines the limits for answers to exhibitor questions.
+ * <p>Limits of the answers to an exhibitor question.
  */
 public class ExhibitorAnswerLimits {
     /**
-     * Minimum length of the answer for OpenEndedTextCommentBox questions. It must be less than or equal to
-     * maxLength.
+     * Minimum length of the answer to an `OpenEndedTextCommentBox` question. The value is less than or
+     * equal to `maxLength`.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("minLength")
     private Long minLength;
 
     /**
-     * Maximum length of the answer for OpenEndedTextCommentBox questions.
+     * Maximum length of the answer to an `OpenEndedTextCommentBox` question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("maxLength")
     private Long maxLength;
 
     /**
-     * Minimum number of choices required for MultiChoice questions. It must be less than or equal to
-     * maxSelections.
+     * Minimum number of selected choices for a `MultiChoice` question. The value is less than or equal to
+     * `maxSelections`.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("minSelections")
     private Long minSelections;
 
     /**
-     * Maximum number of choices allowed for MultiChoice questions. It cannot exceed the total number of
-     * available choices.
+     * Maximum number of selected choices for a `MultiChoice` question. The value is less than or equal to
+     * the number of choices.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("maxSelections")
@@ -70,31 +70,31 @@ public class ExhibitorAnswerLimits {
     }
 
     /**
-     * Minimum length of the answer for OpenEndedTextCommentBox questions. It must be less than or equal to
-     * maxLength.
+     * Minimum length of the answer to an `OpenEndedTextCommentBox` question. The value is less than or
+     * equal to `maxLength`.
      */
     public Optional<Long> minLength() {
         return Optional.ofNullable(this.minLength);
     }
 
     /**
-     * Maximum length of the answer for OpenEndedTextCommentBox questions.
+     * Maximum length of the answer to an `OpenEndedTextCommentBox` question.
      */
     public Optional<Long> maxLength() {
         return Optional.ofNullable(this.maxLength);
     }
 
     /**
-     * Minimum number of choices required for MultiChoice questions. It must be less than or equal to
-     * maxSelections.
+     * Minimum number of selected choices for a `MultiChoice` question. The value is less than or equal to
+     * `maxSelections`.
      */
     public Optional<Long> minSelections() {
         return Optional.ofNullable(this.minSelections);
     }
 
     /**
-     * Maximum number of choices allowed for MultiChoice questions. It cannot exceed the total number of
-     * available choices.
+     * Maximum number of selected choices for a `MultiChoice` question. The value is less than or equal to
+     * the number of choices.
      */
     public Optional<Long> maxSelections() {
         return Optional.ofNullable(this.maxSelections);
@@ -105,8 +105,8 @@ public class ExhibitorAnswerLimits {
     }
 
     /**
-     * Minimum length of the answer for OpenEndedTextCommentBox questions. It must be less than or equal to
-     * maxLength.
+     * Minimum length of the answer to an `OpenEndedTextCommentBox` question. The value is less than or
+     * equal to `maxLength`.
      */
     public ExhibitorAnswerLimits withMinLength(@Nullable Long minLength) {
         this.minLength = minLength;
@@ -114,7 +114,7 @@ public class ExhibitorAnswerLimits {
     }
 
     /**
-     * Maximum length of the answer for OpenEndedTextCommentBox questions.
+     * Maximum length of the answer to an `OpenEndedTextCommentBox` question.
      */
     public ExhibitorAnswerLimits withMaxLength(@Nullable Long maxLength) {
         this.maxLength = maxLength;
@@ -122,8 +122,8 @@ public class ExhibitorAnswerLimits {
     }
 
     /**
-     * Minimum number of choices required for MultiChoice questions. It must be less than or equal to
-     * maxSelections.
+     * Minimum number of selected choices for a `MultiChoice` question. The value is less than or equal to
+     * `maxSelections`.
      */
     public ExhibitorAnswerLimits withMinSelections(@Nullable Long minSelections) {
         this.minSelections = minSelections;
@@ -131,8 +131,8 @@ public class ExhibitorAnswerLimits {
     }
 
     /**
-     * Maximum number of choices allowed for MultiChoice questions. It cannot exceed the total number of
-     * available choices.
+     * Maximum number of selected choices for a `MultiChoice` question. The value is less than or equal to
+     * the number of choices.
      */
     public ExhibitorAnswerLimits withMaxSelections(@Nullable Long maxSelections) {
         this.maxSelections = maxSelections;
@@ -189,8 +189,8 @@ public class ExhibitorAnswerLimits {
         }
 
         /**
-         * Minimum length of the answer for OpenEndedTextCommentBox questions. It must be less than or equal to
-         * maxLength.
+         * Minimum length of the answer to an `OpenEndedTextCommentBox` question. The value is less than or
+         * equal to `maxLength`.
          */
         public Builder minLength(@Nullable Long minLength) {
             this.minLength = minLength;
@@ -198,7 +198,7 @@ public class ExhibitorAnswerLimits {
         }
 
         /**
-         * Maximum length of the answer for OpenEndedTextCommentBox questions.
+         * Maximum length of the answer to an `OpenEndedTextCommentBox` question.
          */
         public Builder maxLength(@Nullable Long maxLength) {
             this.maxLength = maxLength;
@@ -206,8 +206,8 @@ public class ExhibitorAnswerLimits {
         }
 
         /**
-         * Minimum number of choices required for MultiChoice questions. It must be less than or equal to
-         * maxSelections.
+         * Minimum number of selected choices for a `MultiChoice` question. The value is less than or equal to
+         * `maxSelections`.
          */
         public Builder minSelections(@Nullable Long minSelections) {
             this.minSelections = minSelections;
@@ -215,8 +215,8 @@ public class ExhibitorAnswerLimits {
         }
 
         /**
-         * Maximum number of choices allowed for MultiChoice questions. It cannot exceed the total number of
-         * available choices.
+         * Maximum number of selected choices for a `MultiChoice` question. The value is less than or equal to
+         * the number of choices.
          */
         public Builder maxSelections(@Nullable Long maxSelections) {
             this.maxSelections = maxSelections;

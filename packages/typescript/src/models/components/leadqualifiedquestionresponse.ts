@@ -10,7 +10,7 @@ import {
   LeadQualifiedAnswer,
   LeadQualifiedAnswer$inboundSchema,
 } from "./leadqualifiedanswer.js";
-import { Question2, Question2$inboundSchema } from "./question2.js";
+import { Question3, Question3$inboundSchema } from "./question3.js";
 
 /**
  * A Question response.
@@ -19,7 +19,7 @@ export type LeadQualifiedQuestionResponse = {
   /**
    * The question that was answered.
    */
-  question?: Question2 | undefined;
+  question?: Question3 | undefined;
   /**
    * List of answers.
    */
@@ -32,7 +32,7 @@ export const LeadQualifiedQuestionResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  question: Question2$inboundSchema.optional(),
+  question: Question3$inboundSchema.optional(),
   answers: z.array(LeadQualifiedAnswer$inboundSchema).optional(),
 });
 

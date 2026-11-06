@@ -25,7 +25,7 @@ let value: PatchLeadCatcherRequest = {
     config: {
       rfpEmailEnabled: true,
       pdfLinkEnabled: true,
-      supplierContactRole: "roleName",
+      supplierContactRole: "Sales Manager",
     },
     additionalInfo: "Preferred contact for APAC venues.",
   },

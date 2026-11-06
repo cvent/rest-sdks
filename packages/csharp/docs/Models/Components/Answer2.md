@@ -1,0 +1,12 @@
+# Answer2
+
+Answer to an exhibitor question.
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                | Example                                                                                    |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `Type`                                                                                     | [AnswerType11](../../Models/Components/AnswerType11.md)                                    | :heavy_check_mark:                                                                         | Type of the answer.                                                                        | Choice                                                                                     |
+| `Value`                                                                                    | *string*                                                                                   | :heavy_minus_sign:                                                                         | Value of the answer, such as the text of a choice or the text that the respondent entered. | Choice A                                                                                   |
+| `Choice`                                                                                   | [Answer2Choice](../../Models/Components/Answer2Choice.md)                                  | :heavy_minus_sign:                                                                         | Selected choice.                                                                           |                                                                                            |

@@ -11,15 +11,15 @@ import {
 } from "./exhibitor.js";
 
 /**
- * Content of exhibitor weblink.
+ * Weblink of an exhibitor.
  */
 export type Weblink = {
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * The Associated Exhibitor.
+   * Associated exhibitor.
    */
   exhibitor: Exhibitor;
   /**
@@ -27,7 +27,7 @@ export type Weblink = {
    */
   name: string;
   /**
-   * The URL of the weblink.
+   * URL of the weblink.
    */
   url: string;
   /**
@@ -35,7 +35,7 @@ export type Weblink = {
    */
   hidden?: boolean | undefined;
   /**
-   * Display order for exhibitor weblink content.
+   * Display order of the weblink.
    */
   order: number;
 };

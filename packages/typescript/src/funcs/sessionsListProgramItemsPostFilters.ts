@@ -36,7 +36,7 @@ import {
  * List Program Items
  *
  * @remarks
- * Gets a paginated list of session program items by sending a filter in the body of the request. This method will return the same data as <a href="#operation/listProgramItems">GET List Program Items</a> but allows for longer filters.
+ * Gets a paginated list of session program items by sending a filter in the body of the request. This method will return the same data as [GET List Program Items](#operation/listProgramItems) but allows for longer filters.
  */
 export function sessionsListProgramItemsPostFilters(
   client: CventSDKCore,

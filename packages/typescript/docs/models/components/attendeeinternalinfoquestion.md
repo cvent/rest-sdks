@@ -1,6 +1,6 @@
 # AttendeeInternalInfoQuestion
 
-The registration question. Use either question ID or code to identify the question. If both are provided, they must match the same question.
+The registration question identified by its ID or code. If both fields are present, they must identify the same question.
 
 ## Example Usage
 

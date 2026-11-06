@@ -6,8 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
-import { SurveyJson, SurveyJson$inboundSchema } from "./surveyjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
+import { Survey, Survey$inboundSchema } from "./survey.js";
 
 /**
  * The response from a request to get the list of surveys. This includes the paging object as well as the collection of surveys.
@@ -16,11 +16,11 @@ export type SurveysPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of surveys.
    */
-  data: Array<SurveyJson>;
+  data: Array<Survey>;
 };
 
 /** @internal */
@@ -29,8 +29,8 @@ export const SurveysPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(SurveyJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(Survey$inboundSchema),
 });
 
 export function surveysPaginatedResponseFromJSON(

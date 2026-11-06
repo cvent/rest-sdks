@@ -1,6 +1,6 @@
 # BadgeStatus
 
-Badge status
+Status of the badge.
 
 ## Example Usage
 

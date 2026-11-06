@@ -13,7 +13,7 @@ import {
 import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
- * Represents the booth staff list response, with paging information and a list of booth staff.
+ * Paginated list of booth staff members.
  */
 export type BoothStaffListResponse = {
   /**
@@ -21,7 +21,7 @@ export type BoothStaffListResponse = {
    */
   paging?: Paging | undefined;
   /**
-   * List of booth staff.
+   * List of booth staff members.
    */
   data?: Array<BoothStaffResponse> | undefined;
 };

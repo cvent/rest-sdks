@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved a list of Lead Qualification Questions.
+        /// Successfully retrieved a list of lead qualification questions.
         /// </summary>
         public LeadQualificationQuestionsListResponse? LeadQualificationQuestionsListResponse { get; set; }
     }

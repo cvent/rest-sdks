@@ -105,7 +105,7 @@ public class EventQuestion {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private QuestionType2 type;
+    private QuestionType3 type;
 
     /**
      * Optional description to provide additional context of the question.
@@ -127,7 +127,7 @@ public class EventQuestion {
             @JsonProperty("tag") @Nullable String tag,
             @JsonProperty("session") @Nullable EventQuestionSession session,
             @JsonProperty("admissionItem") @Nullable EventQuestionAdmissionItem admissionItem,
-            @JsonProperty("type") @Nullable QuestionType2 type,
+            @JsonProperty("type") @Nullable QuestionType3 type,
             @JsonProperty("internalNote") @Nullable String internalNote) {
         this.created = created;
         this.createdBy = createdBy;
@@ -231,7 +231,7 @@ public class EventQuestion {
     /**
      * This object represents the type of a question
      */
-    public Optional<QuestionType2> type() {
+    public Optional<QuestionType3> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -340,7 +340,7 @@ public class EventQuestion {
     /**
      * This object represents the type of a question
      */
-    public EventQuestion withType(@Nullable QuestionType2 type) {
+    public EventQuestion withType(@Nullable QuestionType3 type) {
         this.type = type;
         return this;
     }
@@ -452,7 +452,7 @@ public class EventQuestion {
 
         private EventQuestionAdmissionItem admissionItem;
 
-        private QuestionType2 type;
+        private QuestionType3 type;
 
         private String internalNote;
 
@@ -554,7 +554,7 @@ public class EventQuestion {
         /**
          * This object represents the type of a question
          */
-        public Builder type(@Nullable QuestionType2 type) {
+        public Builder type(@Nullable QuestionType3 type) {
             this.type = type;
             return this;
         }

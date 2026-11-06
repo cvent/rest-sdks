@@ -64,7 +64,7 @@ export class Exhibitor extends ClientSDK {
    * Create Exhibitor Category
    *
    * @remarks
-   * Creates a single exhibitor category entity for an event.
+   * Creates an exhibitor category for an event.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -83,7 +83,7 @@ export class Exhibitor extends ClientSDK {
    * Update Exhibitor Category
    *
    * @remarks
-   * Updates data for a single exhibitor category entity.
+   * Updates an exhibitor category.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -102,7 +102,7 @@ export class Exhibitor extends ClientSDK {
    * Delete Exhibitor Category
    *
    * @remarks
-   * Deletes a single exhibitor Category entity.
+   * Deletes an exhibitor category.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -121,9 +121,9 @@ export class Exhibitor extends ClientSDK {
    * Assign Banner to Category
    *
    * @remarks
-   * Assign a banner image to an exhibitor category with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if one is assigned.
+   * Assigns a banner image to an exhibitor category. The file ID comes from the [file upload](#operation/uploadFile) operation. The new image replaces the current banner image.
    *
-   * **Note:** For category banner images we recommend images that are 900x300 pixels and 5MiB or smaller. File types supported are : JPEG, JPG, PNG, GIF.
+   * **Note:** The recommended category banner image is 900x300 pixels and 5 MiB or smaller. The supported file types are JPEG, JPG, PNG, and GIF.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -142,7 +142,7 @@ export class Exhibitor extends ClientSDK {
    * Delete Banner from Category
    *
    * @remarks
-   * Deletes an exhibitor Category banner image.
+   * Deletes the banner image of an exhibitor category.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -161,7 +161,7 @@ export class Exhibitor extends ClientSDK {
    * List Category's Exhibitors
    *
    * @remarks
-   * Get a paginated list of exhibitors assigned to the provided exhibitor-category Id.
+   * Retrieves a paginated list of the exhibitors in an exhibitor category.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -182,7 +182,7 @@ export class Exhibitor extends ClientSDK {
    * Assign Exhibitor to Category
    *
    * @remarks
-   * Assign an exhibitor ID to an exhibitor-category Id.
+   * Assigns an exhibitor to an exhibitor category.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -201,7 +201,7 @@ export class Exhibitor extends ClientSDK {
    * Delete Exhibitor from Category
    *
    * @remarks
-   * delete an exhibitor from an exhibitor-category
+   * Removes an exhibitor from an exhibitor category.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -220,7 +220,7 @@ export class Exhibitor extends ClientSDK {
    * List Exhibitor Questions
    *
    * @remarks
-   * Gets a list of exhibitor questions for a given event id.
+   * Retrieves a list of the exhibitor questions of an event.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -279,7 +279,7 @@ export class Exhibitor extends ClientSDK {
    * Get Exhibitor
    *
    * @remarks
-   * Retrieves a single exhibitor entity for an event.
+   * Retrieves an exhibitor of an event.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -298,7 +298,7 @@ export class Exhibitor extends ClientSDK {
    * Update Exhibitor
    *
    * @remarks
-   * Updates data for a single exhibitor entity.
+   * Updates an exhibitor.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -317,7 +317,7 @@ export class Exhibitor extends ClientSDK {
    * Delete Exhibitor
    *
    * @remarks
-   * Deletes a single exhibitor entity. To be deleted, exhibitors must have no tasks, registrations, or LeadCapture licenses assigned and must not be a sponsored or featured exhibitor.
+   * Deletes an exhibitor. An exhibitor with an assigned task, registration, or LeadCapture license cannot be deleted. A sponsored or featured exhibitor cannot be deleted.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -336,9 +336,9 @@ export class Exhibitor extends ClientSDK {
    * Assign Exhibitor Banner Image
    *
    * @remarks
-   * Assign a banner image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if one is assigned.
+   * Assigns a banner image to an exhibitor. The file ID comes from the [file upload](#operation/uploadFile) operation. The new image replaces the current banner image.
    *
-   * **Note:** For exhibitor profile banner images, we recommend images that are 1872x320 pixels or smaller images that have an aspect ratio of 5.85:1. File extensions supported: JPEG, JPG, PNG, GIF
+   * **Note:** The recommended size of an exhibitor profile banner image is 1872x320 pixels or smaller, with an aspect ratio of 5.85:1. The supported file types are JPEG, JPG, PNG, and GIF.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -357,7 +357,7 @@ export class Exhibitor extends ClientSDK {
    * Delete Exhibitor Banner Image
    *
    * @remarks
-   * Deletes exhibitor banner image data
+   * Deletes the banner image of an exhibitor.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -376,7 +376,7 @@ export class Exhibitor extends ClientSDK {
    * List Exhibitor Answers
    *
    * @remarks
-   * Gets a list of answers to exhibitor questions for a given exhibitor id.
+   * Retrieves a list of the answers of an exhibitor to the exhibitor questions.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -395,7 +395,7 @@ export class Exhibitor extends ClientSDK {
    * Update Exhibitor Answers
    *
    * @remarks
-   * Updates answers to exhibitor questions for a given exhibitor id. The Planner can skip answering the questions marked as required for exhibitor admins.
+   * Updates the answers of an exhibitor to the exhibitor questions. A planner can skip a question that is required for exhibitor admins.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -414,7 +414,7 @@ export class Exhibitor extends ClientSDK {
    * List Exhibitor's Categories
    *
    * @remarks
-   * Get a paginated list of exhibitor-categories assigned to the provided exhibitor Id.
+   * Retrieves a paginated list of the exhibitor categories of an exhibitor.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -435,9 +435,9 @@ export class Exhibitor extends ClientSDK {
    * Assign Exhibitor Logo Image
    *
    * @remarks
-   * Assign a logo image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current logo image if one is assigned.
+   * Assigns a logo image to an exhibitor. The file ID comes from the [file upload](#operation/uploadFile) operation. The new image replaces the current logo image.
    *
-   * **Note:**  For exhibitor profile logo images we recommend square images larger than 300x300 pixels. The file types supported are : JPEG, JPG, PNG, GIF
+   * **Note:** The recommended exhibitor profile logo image is a square image larger than 300x300 pixels. The supported file types are JPEG, JPG, PNG, and GIF.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -456,7 +456,7 @@ export class Exhibitor extends ClientSDK {
    * Delete Exhibitor Logo Image
    *
    * @remarks
-   * Deletes exhibitor logo image data
+   * Deletes the logo image of an exhibitor.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -475,7 +475,7 @@ export class Exhibitor extends ClientSDK {
    * List Qualification Questions
    *
    * @remarks
-   * Retrieves a list of lead qualification questions associated with a single exhibitor at the given event.
+   * Retrieves a list of the lead qualification questions of an exhibitor.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -494,7 +494,7 @@ export class Exhibitor extends ClientSDK {
    * Create Registration Pack
    *
    * @remarks
-   * Create registration pack for an exhibitor
+   * Creates a registration pack for an exhibitor.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -510,7 +510,7 @@ export class Exhibitor extends ClientSDK {
   }
 
   /**
-   * List Registration Pack
+   * List Registration Packs
    *
    * @remarks
    * Retrieves the registration pack associated with an exhibitor. Each exhibitor has one registration pack per event
@@ -533,7 +533,7 @@ export class Exhibitor extends ClientSDK {
    * Get Registration Pack
    *
    * @remarks
-   * Retrieves registration types allocated to an exhibitor, along with the count of registrations utilized.
+   * Retrieves the registration types that are allocated to an exhibitor, with the count of used registrations.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -552,7 +552,7 @@ export class Exhibitor extends ClientSDK {
    * Update Registration Pack
    *
    * @remarks
-   * Update registration pack for an exhibitor
+   * Updates the registration pack of an exhibitor.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -571,7 +571,7 @@ export class Exhibitor extends ClientSDK {
    * Delete Registration Pack
    *
    * @remarks
-   * Delete registration pack for an exhibitor
+   * Deletes the registration pack of an exhibitor.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -590,7 +590,7 @@ export class Exhibitor extends ClientSDK {
    * List Sponsorship Levels
    *
    * @remarks
-   * Gets a list of associated sponsorship levels for a single event.
+   * Retrieves a list of the sponsorship levels of an event.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -609,7 +609,7 @@ export class Exhibitor extends ClientSDK {
    * Get Sponsorship Level
    *
    * @remarks
-   * Retrieves associated sponsorship level data for a single sponsorship level ID.
+   * Retrieves a sponsorship level of an event.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */

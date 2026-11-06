@@ -22,13 +22,13 @@ namespace Cvent.SDK.Models.Components
         /// Survey of response.
         /// </summary>
         [JsonProperty("survey")]
-        public Survey? Survey { get; set; }
+        public StandardSurveySendEmailResponseSurvey? Survey { get; set; }
 
         /// <summary>
         /// Respondent of response.
         /// </summary>
         [JsonProperty("respondent")]
-        public Respondent? Respondent { get; set; }
+        public StandardSurveySendEmailResponseRespondent? Respondent { get; set; }
 
         /// <summary>
         /// Email template used.

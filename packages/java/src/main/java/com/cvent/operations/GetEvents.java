@@ -154,7 +154,8 @@ public class GetEvents {
                         }
                         try {
                             HttpResponse<InputStream> httpRes = client.send(r);
-                            if (Utils.statusCodeMatches(httpRes.statusCode(), "400", "401", "403", "429", "4XX", "5XX")) {
+                            if (Utils.statusCodeMatches(
+                                    httpRes.statusCode(), "400", "401", "403", "429", "4XX", "503", "504", "5XX")) {
                                 return onError(httpRes, null);
                             }
                             return httpRes;
@@ -187,6 +188,13 @@ public class GetEvents {
                 }
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
+                if (Utils.contentTypeMatches(contentType, "application/json")) {
+                    throw ErrorResponse12.from(response);
+                } else {
+                    throw APIException.from("Unexpected content-type received: " + contentType, response);
+                }
+            }
+            if (Utils.statusCodeMatches(response.statusCode(), "503", "504")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     throw ErrorResponse12.from(response);
                 } else {
@@ -245,7 +253,8 @@ public class GetEvents {
                         if (err != null) {
                             return onError(null, err);
                         }
-                        if (Utils.statusCodeMatches(resp.statusCode(), "400", "401", "403", "429", "4XX", "5XX")) {
+                        if (Utils.statusCodeMatches(
+                                resp.statusCode(), "400", "401", "403", "429", "4XX", "503", "504", "5XX")) {
                             return onError(resp, null);
                         }
                         return CompletableFuture.completedFuture(resp);
@@ -275,6 +284,13 @@ public class GetEvents {
                 }
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
+                if (Utils.contentTypeMatches(contentType, "application/json")) {
+                    return ErrorResponse12.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                } else {
+                    return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
+                }
+            }
+            if (Utils.statusCodeMatches(response.statusCode(), "503", "504")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return ErrorResponse12.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {

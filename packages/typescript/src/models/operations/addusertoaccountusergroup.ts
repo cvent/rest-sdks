@@ -12,7 +12,7 @@ export type AddUserToAccountUserGroupRequest = {
    */
   userGroupId: string;
   /**
-   * The Account User's Id.
+   * The account user's ID.
    *
    * @remarks
    */

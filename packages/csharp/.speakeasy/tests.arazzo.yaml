@@ -225,6 +225,10 @@ workflows:
           - name: filter
             in: query
             value: status eq 'Accepted' or status eq 'Pending' and (id eq 'abc' or id eq 'def')
+          - name: expand
+            in: query
+            value:
+              - image
         successCriteria:
           - condition: $statusCode == 200
           - condition: $response.header.Content-Type == application/json
@@ -371,6 +375,10 @@ workflows:
           - name: sort
             in: query
             value: start:DESC
+          - name: expand
+            in: query
+            value:
+              - image
         requestBody:
           contentType: application/json
           payload:
@@ -392,12 +400,16 @@ workflows:
           - name: id
             in: path
             value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: expand
+            in: query
+            value:
+              - image
         successCriteria:
           - condition: $statusCode == 200
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"id":"9463c74e-18c6-401a-a710-ae0f485bf059","title":"Cvent Connect 2020","code":"R5NP4NJYB3D","format":"Virtual","description":"Cvent annual user conference.","start":"2020-02-03T13:00:00.000Z","end":"2020-02-07T17:00:00.000Z","closeAfter":"2020-02-01T23:59:00.000Z","archiveAfter":"2020-05-07T12:00:00.000Z","launchAfter":"2020-01-07T12:00:00.000Z","timezone":"America/New_York","venues":[{"name":"Capital Convention Center","address":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","address3":"PO Box 123","city":"Austin","countryCode":"US","postalCode":"78727","region":"Texas","regionCode":"TX","country":"United States of America","latitude":30.42501,"longitude":-97.71518}}],"phone":"555-555-5555","note":"This event will need some coordination with external systems.","defaultLocale":"en-US","languages":["en-US"],"currency":"USD","registrationSecurityLevel":"Private","status":"Pending","eventStatus":"Upcoming","planningStatus":"Submitted","testMode":false,"capacity":50,"planners":[{"prefix":"Dr.","firstName":"Henry","lastName":"Smith","company":"Cvent Inc","title":"Event Planner","email":"hsmith@example.com","deleted":false}],"stakeholders":[{"firstName":"Henry","lastName":"Potterfield","company":"Cvent Inc","title":"Event stakeholder","email":"stakeholderemail@test.com","workPhone":"555-555-5555","homePhone":"555-555-5555","mobilePhone":"555-555-5555","deleted":false}],"customFields":[{"id":"564415c7-4a92-4fe3-93a5-2efd5224d03b","name":"What is a your favorite color?","value":["Choice C","Choice A"],"order":1,"type":"General"}],"type":"Conference","_links":{"invitation":{"href":"https://cvent.com"},"agenda":{"href":"https://cvent.com"},"summary":{"href":"https://cvent.com"},"registration":{"href":"https://cvent.com"}},"created":"2017-01-02T02:00:00Z","lastModified":"2019-02-12T03:00:00Z","meetingRequestId":"b566c24e-12a8-452d-c490-ad0e796be093","createdBy":"John Doe","lastModifiedBy":"Jane Doe"}
+              {"id":"9463c74e-18c6-401a-a710-ae0f485bf059","title":"Cvent Connect 2020","code":"R5NP4NJYB3D","format":"Virtual","description":"Cvent annual user conference.","start":"2020-02-03T13:00:00.000Z","end":"2020-02-07T17:00:00.000Z","closeAfter":"2020-02-01T23:59:00.000Z","archiveAfter":"2020-05-07T12:00:00.000Z","launchAfter":"2020-01-07T12:00:00.000Z","timezone":"America/New_York","venues":[{"name":"Capital Convention Center","address":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","address3":"PO Box 123","city":"Austin","countryCode":"US","postalCode":"78727","region":"Texas","regionCode":"TX","country":"United States of America","latitude":30.42501,"longitude":-97.71518}}],"phone":"555-555-5555","note":"This event will need some coordination with external systems.","defaultLocale":"en-US","languages":["en-US"],"currency":"USD","registrationSecurityLevel":"Private","status":"Pending","eventStatus":"Upcoming","planningStatus":"Submitted","testMode":false,"capacity":50,"planners":[{"prefix":"Dr.","firstName":"Henry","lastName":"Smith","company":"Cvent Inc","title":"Event Planner","email":"hsmith@example.com","deleted":false}],"stakeholders":[{"firstName":"Henry","lastName":"Potterfield","company":"Cvent Inc","title":"Event stakeholder","email":"stakeholderemail@test.com","workPhone":"555-555-5555","homePhone":"555-555-5555","mobilePhone":"555-555-5555","deleted":false}],"customFields":[{"id":"564415c7-4a92-4fe3-93a5-2efd5224d03b","name":"What is a your favorite color?","value":["Choice C","Choice A"],"order":1,"type":"General"}],"type":"Conference","image":{"name":"summit-banner.jpg","url":"https://images.example.com/events/summit-banner.jpg"},"_links":{"invitation":{"href":"https://cvent.com"},"agenda":{"href":"https://cvent.com"},"summary":{"href":"https://cvent.com"},"registration":{"href":"https://cvent.com"}},"created":"2017-01-02T02:00:00Z","lastModified":"2019-02-12T03:00:00Z","meetingRequestId":"b566c24e-12a8-452d-c490-ad0e796be093","createdBy":"John Doe","lastModifiedBy":"Jane Doe"}
             type: simple
     x-speakeasy-test-group: Events
     x-speakeasy-test-rebuild: true
@@ -441,7 +453,7 @@ workflows:
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"id":"9463c74e-18c6-401a-a710-ae0f485bf059","title":"Cvent Connect 2020","code":"R5NP4NJYB3D","format":"Virtual","description":"Cvent annual user conference.","start":"2020-02-03T13:00:00.000Z","end":"2020-02-07T17:00:00.000Z","closeAfter":"2020-02-01T23:59:00.000Z","archiveAfter":"2020-05-07T12:00:00.000Z","launchAfter":"2020-01-07T12:00:00.000Z","timezone":"America/New_York","venues":[{"name":"Capital Convention Center","address":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","address3":"PO Box 123","city":"Austin","countryCode":"US","postalCode":"78727","region":"Texas","regionCode":"TX","country":"United States of America","latitude":30.42501,"longitude":-97.71518}}],"phone":"555-555-5555","note":"This event will need some coordination with external systems.","defaultLocale":"en-US","languages":["en-US"],"currency":"USD","registrationSecurityLevel":"Private","status":"Pending","eventStatus":"Upcoming","planningStatus":"Submitted","testMode":false,"capacity":50,"planners":[{"prefix":"Dr.","firstName":"Henry","lastName":"Smith","company":"Cvent Inc","title":"Event Planner","email":"hsmith@example.com","deleted":false}],"stakeholders":[{"firstName":"Henry","lastName":"Potterfield","company":"Cvent Inc","title":"Event stakeholder","email":"stakeholderemail@test.com","workPhone":"555-555-5555","homePhone":"555-555-5555","mobilePhone":"555-555-5555","deleted":false}],"customFields":[{"id":"46d6c042-b23f-477c-a34a-0d801a8dbd63","name":"What is a your favorite color?","value":["Choice C","Choice A"],"order":1,"type":"General"}],"type":"Conference","_links":{"invitation":{"href":"https://cvent.com"},"agenda":{"href":"https://cvent.com"},"summary":{"href":"https://cvent.com"},"registration":{"href":"https://cvent.com"}},"created":"2017-01-02T02:00:00Z","lastModified":"2019-02-12T03:00:00Z","meetingRequestId":"b566c24e-12a8-452d-c490-ad0e796be093","createdBy":"John Doe","lastModifiedBy":"Jane Doe"}
+              {"id":"9463c74e-18c6-401a-a710-ae0f485bf059","title":"Cvent Connect 2020","code":"R5NP4NJYB3D","format":"Virtual","description":"Cvent annual user conference.","start":"2020-02-03T13:00:00.000Z","end":"2020-02-07T17:00:00.000Z","closeAfter":"2020-02-01T23:59:00.000Z","archiveAfter":"2020-05-07T12:00:00.000Z","launchAfter":"2020-01-07T12:00:00.000Z","timezone":"America/New_York","venues":[{"name":"Capital Convention Center","address":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","address3":"PO Box 123","city":"Austin","countryCode":"US","postalCode":"78727","region":"Texas","regionCode":"TX","country":"United States of America","latitude":30.42501,"longitude":-97.71518}}],"phone":"555-555-5555","note":"This event will need some coordination with external systems.","defaultLocale":"en-US","languages":["en-US"],"currency":"USD","registrationSecurityLevel":"Private","status":"Pending","eventStatus":"Upcoming","planningStatus":"Submitted","testMode":false,"capacity":50,"planners":[{"prefix":"Dr.","firstName":"Henry","lastName":"Smith","company":"Cvent Inc","title":"Event Planner","email":"hsmith@example.com","deleted":false}],"stakeholders":[{"firstName":"Henry","lastName":"Potterfield","company":"Cvent Inc","title":"Event stakeholder","email":"stakeholderemail@test.com","workPhone":"555-555-5555","homePhone":"555-555-5555","mobilePhone":"555-555-5555","deleted":false}],"customFields":[{"id":"46d6c042-b23f-477c-a34a-0d801a8dbd63","name":"What is a your favorite color?","value":["Choice C","Choice A"],"order":1,"type":"General"}],"type":"Conference","image":{"name":"summit-banner.jpg","url":"https://images.example.com/events/summit-banner.jpg"},"_links":{"invitation":{"href":"https://cvent.com"},"agenda":{"href":"https://cvent.com"},"summary":{"href":"https://cvent.com"},"registration":{"href":"https://cvent.com"}},"created":"2017-01-02T02:00:00Z","lastModified":"2019-02-12T03:00:00Z","meetingRequestId":"b566c24e-12a8-452d-c490-ad0e796be093","createdBy":"John Doe","lastModifiedBy":"Jane Doe"}
             type: simple
     x-speakeasy-test-group: Events
     x-speakeasy-test-rebuild: true
@@ -6319,7 +6331,7 @@ workflows:
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","event":{"id":"3db28cfc-db22-11eb-8d19-0242ac130003"},"name":"Potterfield Harry","description":"A man who sells relatively good hotdogs","code":"abc123","sourceId":"software","location":"Taj Mahal","address":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","city":"Austin","region":"Texas","postalCode":"78727","country":"United States of America"},"email":"h.potterfield@test.com","mobilePhone":"555-555-5555","workPhone":"555-555-5555","otherPhone":"555-555-5555","website":"www.superhappyfuntime.com","contactLinks":{"twitterUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"facebookUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"linkedInUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"instagramUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}},"deleted":false,"hidden":false,"eventSponsor":false,"featured":false,"sponsorshipLevel":{"id":"3db28cfc-db22-11eb-8d19-0242ac130003"},"id":"4888db54-db22-11eb-8d19-0242ac130003","profileLogoId":"31bd3ae1-0dc3-487b-953e-41d6bbade7d2","profileLogoUrl":"https://images.cvent.com/pt/fileLocation/url_123","bannerId":"12ca3ae2-0dc3-487b-953e-86d6acadf7d5","bannerUrl":"https://images.cvent.com/pt/fileLocation/url_456"}]}
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","event":{"id":"3db28cfc-db22-11eb-8d19-0242ac130003"},"name":"Potterfield Harry","description":"A man who sells relatively good hotdogs","code":"abc123","sourceId":"software","location":"Taj Mahal","address":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","city":"Austin","region":"Texas","postalCode":"78727","country":"United States of America"},"email":"h.potterfield@test.com","mobilePhone":"555-555-5555","workPhone":"555-555-5555","otherPhone":"555-555-5555","website":"www.superhappyfuntime.com","contactLinks":{"twitterUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"facebookUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"linkedInUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"instagramUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}},"deleted":false,"hidden":false,"eventSponsor":false,"featured":false,"sponsorOnlyExhibitor":false,"hiddenFromRegistration":false,"sponsorshipLevel":{"id":"3db28cfc-db22-11eb-8d19-0242ac130003"},"id":"4888db54-db22-11eb-8d19-0242ac130003","profileLogoId":"31bd3ae1-0dc3-487b-953e-41d6bbade7d2","profileLogoUrl":"https://images.cvent.com/pt/fileLocation/url_123","bannerId":"12ca3ae2-0dc3-487b-953e-86d6acadf7d5","bannerUrl":"https://images.cvent.com/pt/fileLocation/url_456"}]}
             type: simple
     x-speakeasy-test-group: Exhibitor
     x-speakeasy-test-rebuild: true
@@ -6359,11 +6371,13 @@ workflows:
             eventSponsor: false
             featured: false
             hidden: false
+            hiddenFromRegistration: false
             location: Taj Mahal
             mobilePhone: 555-555-5555
             name: Potterfield Harry
             otherPhone: 555-555-5555
             sourceId: software
+            sponsorOnlyExhibitor: false
             sponsorshipLevel:
               id: 3db28cfc-db22-11eb-8d19-0242ac130003
             website: www.superhappyfuntime.com
@@ -6373,7 +6387,7 @@ workflows:
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","event":{"id":"3db28cfc-db22-11eb-8d19-0242ac130003"},"name":"Potterfield Harry","description":"A man who sells relatively good hotdogs","code":"abc123","sourceId":"software","location":"Taj Mahal","address":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","city":"Austin","region":"Texas","postalCode":"78727","country":"United States of America"},"email":"h.potterfield@test.com","mobilePhone":"555-555-5555","workPhone":"555-555-5555","otherPhone":"555-555-5555","website":"www.superhappyfuntime.com","contactLinks":{"twitterUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"facebookUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"linkedInUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"instagramUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}},"deleted":false,"hidden":false,"eventSponsor":false,"featured":false,"sponsorshipLevel":{"id":"3db28cfc-db22-11eb-8d19-0242ac130003"},"id":"4888db54-db22-11eb-8d19-0242ac130003","profileLogoId":"31bd3ae1-0dc3-487b-953e-41d6bbade7d2","profileLogoUrl":"https://images.cvent.com/pt/fileLocation/url_123","bannerId":"12ca3ae2-0dc3-487b-953e-86d6acadf7d5","bannerUrl":"https://images.cvent.com/pt/fileLocation/url_456","approvalStatus":"PENDING"}
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","event":{"id":"3db28cfc-db22-11eb-8d19-0242ac130003"},"name":"Potterfield Harry","description":"A man who sells relatively good hotdogs","code":"abc123","sourceId":"software","location":"Taj Mahal","address":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","city":"Austin","region":"Texas","postalCode":"78727","country":"United States of America"},"email":"h.potterfield@test.com","mobilePhone":"555-555-5555","workPhone":"555-555-5555","otherPhone":"555-555-5555","website":"www.superhappyfuntime.com","contactLinks":{"twitterUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"facebookUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"linkedInUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"instagramUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}},"deleted":false,"hidden":false,"eventSponsor":false,"featured":false,"sponsorOnlyExhibitor":false,"hiddenFromRegistration":false,"sponsorshipLevel":{"id":"3db28cfc-db22-11eb-8d19-0242ac130003"},"id":"4888db54-db22-11eb-8d19-0242ac130003","profileLogoId":"31bd3ae1-0dc3-487b-953e-41d6bbade7d2","profileLogoUrl":"https://images.cvent.com/pt/fileLocation/url_123","bannerId":"12ca3ae2-0dc3-487b-953e-86d6acadf7d5","bannerUrl":"https://images.cvent.com/pt/fileLocation/url_456","approvalStatus":"PENDING"}
             type: simple
     x-speakeasy-test-group: Exhibitor
     x-speakeasy-test-rebuild: true
@@ -6393,7 +6407,7 @@ workflows:
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","event":{"id":"3db28cfc-db22-11eb-8d19-0242ac130003"},"name":"Potterfield Harry","description":"A man who sells relatively good hotdogs","code":"abc123","sourceId":"software","location":"Taj Mahal","address":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","city":"Austin","region":"Texas","postalCode":"78727","country":"United States of America"},"email":"h.potterfield@test.com","mobilePhone":"555-555-5555","workPhone":"555-555-5555","otherPhone":"555-555-5555","website":"www.superhappyfuntime.com","contactLinks":{"twitterUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"facebookUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"linkedInUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"instagramUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}},"deleted":false,"hidden":false,"eventSponsor":false,"featured":false,"sponsorshipLevel":{"id":"3db28cfc-db22-11eb-8d19-0242ac130003"},"id":"4888db54-db22-11eb-8d19-0242ac130003","profileLogoId":"31bd3ae1-0dc3-487b-953e-41d6bbade7d2","profileLogoUrl":"https://images.cvent.com/pt/fileLocation/url_123","bannerId":"12ca3ae2-0dc3-487b-953e-86d6acadf7d5","bannerUrl":"https://images.cvent.com/pt/fileLocation/url_456","approvalStatus":"PENDING"}
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","event":{"id":"3db28cfc-db22-11eb-8d19-0242ac130003"},"name":"Potterfield Harry","description":"A man who sells relatively good hotdogs","code":"abc123","sourceId":"software","location":"Taj Mahal","address":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","city":"Austin","region":"Texas","postalCode":"78727","country":"United States of America"},"email":"h.potterfield@test.com","mobilePhone":"555-555-5555","workPhone":"555-555-5555","otherPhone":"555-555-5555","website":"www.superhappyfuntime.com","contactLinks":{"twitterUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"facebookUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"linkedInUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"instagramUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}},"deleted":false,"hidden":false,"eventSponsor":false,"featured":false,"sponsorOnlyExhibitor":false,"hiddenFromRegistration":false,"sponsorshipLevel":{"id":"3db28cfc-db22-11eb-8d19-0242ac130003"},"id":"4888db54-db22-11eb-8d19-0242ac130003","profileLogoId":"31bd3ae1-0dc3-487b-953e-41d6bbade7d2","profileLogoUrl":"https://images.cvent.com/pt/fileLocation/url_123","bannerId":"12ca3ae2-0dc3-487b-953e-86d6acadf7d5","bannerUrl":"https://images.cvent.com/pt/fileLocation/url_456","approvalStatus":"PENDING"}
             type: simple
     x-speakeasy-test-group: Exhibitor
     x-speakeasy-test-rebuild: true
@@ -6436,11 +6450,13 @@ workflows:
             eventSponsor: false
             featured: false
             hidden: false
+            hiddenFromRegistration: false
             location: Taj Mahal
             mobilePhone: 555-555-5555
             name: Potterfield Harry
             otherPhone: 555-555-5555
             sourceId: software
+            sponsorOnlyExhibitor: false
             sponsorshipLevel:
               id: 3db28cfc-db22-11eb-8d19-0242ac130003
             website: www.superhappyfuntime.com
@@ -6450,7 +6466,7 @@ workflows:
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","event":{"id":"3db28cfc-db22-11eb-8d19-0242ac130003"},"name":"Potterfield Harry","description":"A man who sells relatively good hotdogs","code":"abc123","sourceId":"software","location":"Taj Mahal","address":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","city":"Austin","region":"Texas","postalCode":"78727","country":"United States of America"},"email":"h.potterfield@test.com","mobilePhone":"555-555-5555","workPhone":"555-555-5555","otherPhone":"555-555-5555","website":"www.superhappyfuntime.com","contactLinks":{"twitterUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"facebookUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"linkedInUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"instagramUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}},"deleted":false,"hidden":false,"eventSponsor":false,"featured":false,"sponsorshipLevel":{"id":"3db28cfc-db22-11eb-8d19-0242ac130003"},"id":"4888db54-db22-11eb-8d19-0242ac130003","profileLogoId":"31bd3ae1-0dc3-487b-953e-41d6bbade7d2","profileLogoUrl":"https://images.cvent.com/pt/fileLocation/url_123","bannerId":"12ca3ae2-0dc3-487b-953e-86d6acadf7d5","bannerUrl":"https://images.cvent.com/pt/fileLocation/url_456","approvalStatus":"PENDING"}
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","event":{"id":"3db28cfc-db22-11eb-8d19-0242ac130003"},"name":"Potterfield Harry","description":"A man who sells relatively good hotdogs","code":"abc123","sourceId":"software","location":"Taj Mahal","address":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","city":"Austin","region":"Texas","postalCode":"78727","country":"United States of America"},"email":"h.potterfield@test.com","mobilePhone":"555-555-5555","workPhone":"555-555-5555","otherPhone":"555-555-5555","website":"www.superhappyfuntime.com","contactLinks":{"twitterUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"facebookUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"linkedInUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"instagramUrl":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}},"deleted":false,"hidden":false,"eventSponsor":false,"featured":false,"sponsorOnlyExhibitor":false,"hiddenFromRegistration":false,"sponsorshipLevel":{"id":"3db28cfc-db22-11eb-8d19-0242ac130003"},"id":"4888db54-db22-11eb-8d19-0242ac130003","profileLogoId":"31bd3ae1-0dc3-487b-953e-41d6bbade7d2","profileLogoUrl":"https://images.cvent.com/pt/fileLocation/url_123","bannerId":"12ca3ae2-0dc3-487b-953e-86d6acadf7d5","bannerUrl":"https://images.cvent.com/pt/fileLocation/url_456","approvalStatus":"PENDING"}
             type: simple
     x-speakeasy-test-group: Exhibitor
     x-speakeasy-test-rebuild: true
@@ -10403,7 +10419,7 @@ workflows:
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","needsMeetingSpace":true,"needsGuestRooms":true,"description":"Planning to host company's annual event in an outdoor location.","dateRequirements":{"mode":"DATE_PATTERN","alternateDates":[{"preferred":true,"id":"50dc08af-24a9-4d01-84be-3d43133dc945","endDate":"2016-10-13","startDate":"2016-10-15","note":"Flexible dates"}],"pattern":{"note":"Flexible dates on weekends.","endDate":"2016-10-15","startDate":"2016-10-13","durationDays":3,"startDays":[],"generatedDates":[{"preferred":true,"id":"50dc08af-24a9-4d01-84be-3d43133dc945","endDate":"2016-10-13","startDate":"2016-10-15","note":"Flexible dates"}]},"availabilityRangeRequired":false},"rfpEvent":{"event":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"name":"friday event","contractSignatureLocation":"Atlanta","destinationsUnderConsideration":"New York","externalMeetingRequest":true,"audioVisualNeeds":"Need a projector in each meeting room.","peakMeetingRooms":14,"repeat":true,"attendeesPerDay":500,"referenceNumber":"XVYMP8970S","meetingRequestId":"50dc08af-24a9-4d01-84be-3d43133dc945","virtualAttendeesPerDay":2000,"budget":10000,"roomRateBudget":200,"foodBeverageBudget":1000},"agendaStartDate":"2025-10-13","contact":{"firstName":"James","lastName":"West","email":"jwest@example.com","address":{"countryCode":"US","city":"Austin","regionCode":"US-AL"},"commissionRate":10.75,"phone":"555-555-5555","organizationName":"Five Star Planners Inc.","preferredContactMethods":["CVENT"]},"rfpEventOrganization":{"organization":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"name":"Cvent Inc.","type":"OTHER","address":{"countryCode":"US","city":"Austin","regionCode":"US-AL"},"eventsPerYear":450},"decisionFactors":"Price, location, and quality of service.","responseDueDate":"2016-10-13","decisionDate":"2016-10-13","billingDetails":{"additionalInformation":"Guest rooms will be a mix of IPO and RM&TX to master. Will submit rooming list with billing specified. Credit card will be provided as guarantee.","concessionsContractualInfo":"Request use of LOI or Express Agreement.","acceptingRebatesAndIncentives":true,"rebateValue":10},"internalNote":"Don't award this RFP to the same venue as last year.","currencyCode":"USD","requiredCostItems":["BREAK_AM","BREAK_PM"],"hiddenCostItems":["BREAK_DRINKS_ONLY","BREAK_SNACKS_AND_DRINKS"],"cvbForwardLimit":5,"notificationRecipients":[{"order":1,"type":"EMAIL","value":"johnDoe@example.com"}, {"order":2,"type":"ACCOUNT_USER","value":"50dc08af-24a9-4d01-84be-3d43133dc945"}, {"order":3,"type":"ACCOUNT_USER_GROUP","value":"70de07af-24a9-4d01-84be-3d43133dc932"}],"leadSource":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945","section":{"id":"40dc08af-24a9-4d01-84be-3d43133dc945"}},"sourceId":"123456","weddingDetails":{"firstPartner":{"name":"John Doe"},"secondPartner":{"name":"John Doe"}},"needsCatering":false,"packagePricingPreference":"OPTIONAL","feeTransparencyEnabled":false,"venueIntegrationPreference":{"type":"PASSKEY","optIn":true},"id":"50dc08af-24a9-4d01-84be-3d43133dc945","code":"JBNJN7BGJ5J","approvedBy":"approver@example.com","approvedDateTime":"2021-01-13T14:06:20.080Z","approved":true,"cancellationDetails":{"dateTime":"2021-01-13T14:06:20.080Z","comments":"I am cancelling my event, postponing to Q4."},"lastSentDateTime":"2021-01-13T14:06:20.080Z","originalSentDateTime":"2021-01-13T14:06:20.080Z","sentVenueCount":5,"archived":false,"archivalDate":"2021-01-13T14:06:20.080Z","awardedExternally":false,"finishedAwarding":false,"aiRfpGenerationSource":"MCP-Visual Studio Code/1.107.1"}
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","needsMeetingSpace":true,"needsGuestRooms":true,"description":"Planning to host company's annual event in an outdoor location.","dateRequirements":{"mode":"DATE_PATTERN","alternateDates":[{"preferred":true,"id":"50dc08af-24a9-4d01-84be-3d43133dc945","endDate":"2016-10-13","startDate":"2016-10-15","note":"Flexible dates"}],"pattern":{"note":"Flexible dates on weekends.","endDate":"2016-10-15","startDate":"2016-10-13","durationDays":3,"startDays":[],"generatedDates":[{"preferred":true,"id":"50dc08af-24a9-4d01-84be-3d43133dc945","endDate":"2016-10-13","startDate":"2016-10-15","note":"Flexible dates"}]},"availabilityRangeRequired":false},"rfpEvent":{"event":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"name":"friday event","contractSignatureLocation":"Atlanta","destinationsUnderConsideration":"New York","externalMeetingRequest":true,"audioVisualNeeds":"Need a projector in each meeting room.","peakMeetingRooms":14,"repeat":true,"attendeesPerDay":500,"referenceNumber":"XVYMP8970S","meetingRequestId":"50dc08af-24a9-4d01-84be-3d43133dc945","formatType":"HYBRID","virtualAttendeesPerDay":2000,"budget":10000,"roomRateBudget":200,"foodBeverageBudget":1000},"agendaStartDate":"2025-10-13","contact":{"firstName":"James","lastName":"West","email":"jwest@example.com","address":{"countryCode":"US","city":"Austin","regionCode":"US-AL"},"commissionRate":10.75,"phone":"555-555-5555","organizationName":"Five Star Planners Inc.","preferredContactMethods":["CVENT"]},"rfpEventOrganization":{"organization":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"name":"Cvent Inc.","type":"OTHER","address":{"countryCode":"US","city":"Austin","regionCode":"US-AL"},"eventsPerYear":450},"decisionFactors":"Price, location, and quality of service.","responseDueDate":"2016-10-13","decisionDate":"2016-10-13","billingDetails":{"additionalInformation":"Guest rooms will be a mix of IPO and RM&TX to master. Will submit rooming list with billing specified. Credit card will be provided as guarantee.","concessionsContractualInfo":"Request use of LOI or Express Agreement.","acceptingRebatesAndIncentives":true,"rebateValue":10},"internalNote":"Don't award this RFP to the same venue as last year.","currencyCode":"USD","requiredCostItems":["BREAK_AM","BREAK_PM"],"hiddenCostItems":["BREAK_DRINKS_ONLY","BREAK_SNACKS_AND_DRINKS"],"cvbForwardLimit":5,"notificationRecipients":[{"order":1,"type":"EMAIL","value":"johnDoe@example.com"}, {"order":2,"type":"ACCOUNT_USER","value":"50dc08af-24a9-4d01-84be-3d43133dc945"}, {"order":3,"type":"ACCOUNT_USER_GROUP","value":"70de07af-24a9-4d01-84be-3d43133dc932"}],"leadSource":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945","section":{"id":"40dc08af-24a9-4d01-84be-3d43133dc945"}},"sourceId":"123456","weddingDetails":{"firstPartner":{"name":"John Doe"},"secondPartner":{"name":"John Doe"}},"needsCatering":false,"packagePricingPreference":"OPTIONAL","feeTransparencyEnabled":false,"venueIntegrationPreference":{"type":"PASSKEY","optIn":true},"id":"50dc08af-24a9-4d01-84be-3d43133dc945","code":"JBNJN7BGJ5J","approvedBy":"approver@example.com","approvedDateTime":"2021-01-13T14:06:20.080Z","approved":true,"cancellationDetails":{"dateTime":"2021-01-13T14:06:20.080Z","comments":"I am cancelling my event, postponing to Q4."},"lastSentDateTime":"2021-01-13T14:06:20.080Z","originalSentDateTime":"2021-01-13T14:06:20.080Z","sentVenueCount":5,"archived":false,"archivalDate":"2021-01-13T14:06:20.080Z","awardedExternally":false,"finishedAwarding":false,"aiRfpGenerationSource":"MCP-Visual Studio Code/1.107.1"}
             type: simple
     x-speakeasy-test-group: RFP Management
     x-speakeasy-test-rebuild: true
@@ -12286,7 +12302,7 @@ workflows:
             condition: |
               {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","firstName":"Jane","lastName":"Smith","title":"Director of Sales","email":"jane.smith@example.com","phone":"+1-555-555-0101","fax":"+1-555-555-0101","address":{"streetAddress1":"1234 Trap Road","streetAddress2":"Suite 100","city":"Vienna","zipPostalCode":"22182"},"locale":"en-US","config":{"rfpEmailEnabled":true,"pdfLinkEnabled":true,"supplierContactRole":"Sales Manager"},"additionalInfo":"Preferred contact for APAC venues.","id":"7e5c2c23-b2bb-461a-adc9-025184988519"}
             type: simple
-    x-speakeasy-test-group: Venue Leads
+    x-speakeasy-test-group: Venue Lead Catchers
     x-speakeasy-test-rebuild: true
   - workflowId: listLeadCatchersOverview
     steps:
@@ -12309,7 +12325,7 @@ workflows:
             condition: |
               {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"id":"7e5c2c23-b2bb-461a-adc9-025184988519","firstName":"Jane","lastName":"Smith"}]}
             type: simple
-    x-speakeasy-test-group: Venue Leads
+    x-speakeasy-test-group: Venue Lead Catchers
     x-speakeasy-test-rebuild: true
   - workflowId: updateLeadCatcher
     steps:
@@ -12349,7 +12365,7 @@ workflows:
             condition: |
               {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","firstName":"Jane","lastName":"Smith","title":"Director of Sales","email":"jane.smith@example.com","phone":"+1-555-555-0101","fax":"+1-555-555-0101","address":{"streetAddress1":"1234 Trap Road","streetAddress2":"Suite 100","city":"Vienna","zipPostalCode":"22182"},"locale":"en-US","config":{"rfpEmailEnabled":true,"pdfLinkEnabled":true,"supplierContactRole":"Sales Manager"},"additionalInfo":"Preferred contact for APAC venues.","id":"7e5c2c23-b2bb-461a-adc9-025184988519"}
             type: simple
-    x-speakeasy-test-group: Venue Leads
+    x-speakeasy-test-group: Venue Lead Catchers
     x-speakeasy-test-rebuild: true
   - workflowId: patchLeadCatcher
     steps:
@@ -12389,7 +12405,7 @@ workflows:
             condition: |
               {"firstName":"Jane","lastName":"Smith","title":"Director of Sales","email":"jane.smith@example.com","phone":"+1-555-0100","fax":"+1-555-0101","address":{"streetAddress1":"1234 Trap Road","streetAddress2":"Suite 100","city":"Vienna","zipPostalCode":"22182"},"locale":"en-US","config":{"rfpEmailEnabled":true,"pdfLinkEnabled":true,"supplierContactRole":"roleName"},"additionalInfo":"Preferred contact for APAC venues."}
             type: simple
-    x-speakeasy-test-group: Venue Leads
+    x-speakeasy-test-group: Venue Lead Catchers
     x-speakeasy-test-rebuild: true
   - workflowId: getLeadCatcherOverview
     steps:
@@ -12409,5 +12425,291 @@ workflows:
             condition: |
               {"id":"7e5c2c23-b2bb-461a-adc9-025184988519","firstName":"Jane","lastName":"Smith"}
             type: simple
-    x-speakeasy-test-group: Venue Leads
+    x-speakeasy-test-group: Venue Lead Catchers
+    x-speakeasy-test-rebuild: true
+  - workflowId: listAccountUsersFilter-email
+    steps:
+      - stepId: test
+        operationId: listAccountUsersFilter
+        parameters:
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 1a2b3c4d5e6f7g8h9i10j11k
+          - name: sort
+            in: query
+            value: username DESC
+        requestBody:
+          contentType: application/json
+          payload:
+            filter: contact.email sw 'jsmith'
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"id":"501fbc6a-cfd4-468f-a2f7-14e521d33c71","platformUserId":"00ad83olslLwIeKcW1m8","username":"jsmith@example.com","federatedSsoLoginName":"jsmith@example.com","contact":{"honorificPrefix":"Mr.","firstName":"Jack","middleName":"John","lastName":"Tripper","title":"Senior Software Engineer","organization":"Cvent","email":"jack.tripper@example.com","homePhone":"+17035551234","homeFax":"+17035551234","mobilePhone":"+17035551234","workPhone":"+17035551234","workFax":"+17035551234","pager":"+17035551234","address":{"address1":"1765 Greensboro Station Pl","address2":"7th Floor","address3":"","city":"McLean","countryCode":"US","regionCode":"VA","postalCode":"22102"}},"locale":"en-US","timezone":"America/New_York","active":false,"usernameVerified":true,"emailVerified":"VERIFIED","lockedOut":false,"termsOfUseAccepted":true,"failedLoginCount":1,"markDocumentsAsInternal":false,"visibilityAccess":["EVENT"],"audit":{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","lockedOutDate":"2017-01-02T02:00:00Z","termsOfUseAcceptedDate":"2017-01-02T02:00:00Z","lastLoginDate":"2017-01-02T02:00:00Z","passwordLastModifiedDate":"2017-01-02T02:00:00Z"},"customFields":[{"id":"a1b2c3d4-e5f6-7890-abcd-ef1234567890","name":"What is your favorite color?","type":"Choice - Multiple Answers","values":["Choice C","Choice A"],"order":1}],"role":{"id":"946505f6-6b29-421a-bda2-0815fcdea73c"}}]}
+            type: simple
+    x-speakeasy-test-group: Users
+    x-speakeasy-test-rebuild: true
+  - workflowId: listAccountUsersFilter-username
+    steps:
+      - stepId: test
+        operationId: listAccountUsersFilter
+        parameters:
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 1a2b3c4d5e6f7g8h9i10j11k
+          - name: sort
+            in: query
+            value: username DESC
+        requestBody:
+          contentType: application/json
+          payload:
+            filter: username contains 'example'
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"id":"501fbc6a-cfd4-468f-a2f7-14e521d33c71","platformUserId":"00ad83olslLwIeKcW1m8","username":"jsmith@example.com","federatedSsoLoginName":"jsmith@example.com","contact":{"honorificPrefix":"Mr.","firstName":"Jack","middleName":"John","lastName":"Tripper","title":"Senior Software Engineer","organization":"Cvent","email":"jack.tripper@example.com","homePhone":"+17035551234","homeFax":"+17035551234","mobilePhone":"+17035551234","workPhone":"+17035551234","workFax":"+17035551234","pager":"+17035551234","address":{"address1":"1765 Greensboro Station Pl","address2":"7th Floor","address3":"","city":"McLean","countryCode":"US","regionCode":"VA","postalCode":"22102"}},"locale":"en-US","timezone":"America/New_York","active":false,"usernameVerified":true,"emailVerified":"VERIFIED","lockedOut":false,"termsOfUseAccepted":true,"failedLoginCount":1,"markDocumentsAsInternal":false,"visibilityAccess":["EVENT"],"audit":{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","lockedOutDate":"2017-01-02T02:00:00Z","termsOfUseAcceptedDate":"2017-01-02T02:00:00Z","lastLoginDate":"2017-01-02T02:00:00Z","passwordLastModifiedDate":"2017-01-02T02:00:00Z"},"customFields":[{"id":"a1b2c3d4-e5f6-7890-abcd-ef1234567890","name":"What is your favorite color?","type":"Choice - Multiple Answers","values":["Choice C","Choice A"],"order":1}],"role":{"id":"946505f6-6b29-421a-bda2-0815fcdea73c"}}]}
+            type: simple
+    x-speakeasy-test-group: Users
+    x-speakeasy-test-rebuild: true
+  - workflowId: listAccountUsersFilter-combined
+    steps:
+      - stepId: test
+        operationId: listAccountUsersFilter
+        parameters:
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 1a2b3c4d5e6f7g8h9i10j11k
+          - name: sort
+            in: query
+            value: username DESC
+        requestBody:
+          contentType: application/json
+          payload:
+            filter: active eq 'true' and (contact.lastName eq 'Smith' or contact.email sw 'jsmith')
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"id":"501fbc6a-cfd4-468f-a2f7-14e521d33c71","platformUserId":"00ad83olslLwIeKcW1m8","username":"jsmith@example.com","federatedSsoLoginName":"jsmith@example.com","contact":{"honorificPrefix":"Mr.","firstName":"Jack","middleName":"John","lastName":"Tripper","title":"Senior Software Engineer","organization":"Cvent","email":"jack.tripper@example.com","homePhone":"+17035551234","homeFax":"+17035551234","mobilePhone":"+17035551234","workPhone":"+17035551234","workFax":"+17035551234","pager":"+17035551234","address":{"address1":"1765 Greensboro Station Pl","address2":"7th Floor","address3":"","city":"McLean","countryCode":"US","regionCode":"VA","postalCode":"22102"}},"locale":"en-US","timezone":"America/New_York","active":false,"usernameVerified":true,"emailVerified":"VERIFIED","lockedOut":false,"termsOfUseAccepted":true,"failedLoginCount":1,"markDocumentsAsInternal":false,"visibilityAccess":["EVENT"],"audit":{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","lockedOutDate":"2017-01-02T02:00:00Z","termsOfUseAcceptedDate":"2017-01-02T02:00:00Z","lastLoginDate":"2017-01-02T02:00:00Z","passwordLastModifiedDate":"2017-01-02T02:00:00Z"},"customFields":[{"id":"a1b2c3d4-e5f6-7890-abcd-ef1234567890","name":"What is your favorite color?","type":"Choice - Multiple Answers","values":["Choice C","Choice A"],"order":1}],"role":{"id":"946505f6-6b29-421a-bda2-0815fcdea73c"}}]}
+            type: simple
+    x-speakeasy-test-group: Users
+    x-speakeasy-test-rebuild: true
+  - workflowId: listAccountUsersFilter-customFields
+    steps:
+      - stepId: test
+        operationId: listAccountUsersFilter
+        parameters:
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 1a2b3c4d5e6f7g8h9i10j11k
+          - name: sort
+            in: query
+            value: username DESC
+        requestBody:
+          contentType: application/json
+          payload:
+            filter: customFields.6839fbc1-ad25-48ec-a3a0-fc051b853c8a.values contains ('Example')
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"id":"501fbc6a-cfd4-468f-a2f7-14e521d33c71","platformUserId":"00ad83olslLwIeKcW1m8","username":"jsmith@example.com","federatedSsoLoginName":"jsmith@example.com","contact":{"honorificPrefix":"Mr.","firstName":"Jack","middleName":"John","lastName":"Tripper","title":"Senior Software Engineer","organization":"Cvent","email":"jack.tripper@example.com","homePhone":"+17035551234","homeFax":"+17035551234","mobilePhone":"+17035551234","workPhone":"+17035551234","workFax":"+17035551234","pager":"+17035551234","address":{"address1":"1765 Greensboro Station Pl","address2":"7th Floor","address3":"","city":"McLean","countryCode":"US","regionCode":"VA","postalCode":"22102"}},"locale":"en-US","timezone":"America/New_York","active":false,"usernameVerified":true,"emailVerified":"VERIFIED","lockedOut":false,"termsOfUseAccepted":true,"failedLoginCount":1,"markDocumentsAsInternal":false,"visibilityAccess":["EVENT"],"audit":{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","lockedOutDate":"2017-01-02T02:00:00Z","termsOfUseAcceptedDate":"2017-01-02T02:00:00Z","lastLoginDate":"2017-01-02T02:00:00Z","passwordLastModifiedDate":"2017-01-02T02:00:00Z"},"customFields":[{"id":"a1b2c3d4-e5f6-7890-abcd-ef1234567890","name":"What is your favorite color?","type":"Choice - Multiple Answers","values":["Choice C","Choice A"],"order":1}],"role":{"id":"946505f6-6b29-421a-bda2-0815fcdea73c"}}]}
+            type: simple
+    x-speakeasy-test-group: Users
+    x-speakeasy-test-rebuild: true
+  - workflowId: listAccountUsersFilter
+    steps:
+      - stepId: test
+        operationId: listAccountUsersFilter
+        parameters:
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 1a2b3c4d5e6f7g8h9i10j11k
+          - name: sort
+            in: query
+            value: username DESC
+        requestBody:
+          contentType: application/json
+          payload:
+            filter: contact.email eq 'jsmith@example.com'
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"id":"501fbc6a-cfd4-468f-a2f7-14e521d33c71","platformUserId":"00ad83olslLwIeKcW1m8","username":"jsmith@example.com","federatedSsoLoginName":"jsmith@example.com","contact":{"honorificPrefix":"Mr.","firstName":"Jack","middleName":"John","lastName":"Tripper","title":"Senior Software Engineer","organization":"Cvent","email":"jack.tripper@example.com","homePhone":"+17035551234","homeFax":"+17035551234","mobilePhone":"+17035551234","workPhone":"+17035551234","workFax":"+17035551234","pager":"+17035551234","address":{"address1":"1765 Greensboro Station Pl","address2":"7th Floor","address3":"","city":"McLean","countryCode":"US","regionCode":"VA","postalCode":"22102"}},"locale":"en-US","timezone":"America/New_York","active":false,"usernameVerified":true,"emailVerified":"VERIFIED","lockedOut":false,"termsOfUseAccepted":true,"failedLoginCount":1,"markDocumentsAsInternal":false,"visibilityAccess":["EVENT"],"audit":{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","lockedOutDate":"2017-01-02T02:00:00Z","termsOfUseAcceptedDate":"2017-01-02T02:00:00Z","lastLoginDate":"2017-01-02T02:00:00Z","passwordLastModifiedDate":"2017-01-02T02:00:00Z"},"customFields":[{"id":"a1b2c3d4-e5f6-7890-abcd-ef1234567890","name":"What is your favorite color?","type":"Choice - Multiple Answers","values":["Choice C","Choice A"],"order":1}],"role":{"id":"946505f6-6b29-421a-bda2-0815fcdea73c"}}]}
+            type: simple
+    x-speakeasy-test-group: Users
+    x-speakeasy-test-rebuild: true
+  - workflowId: updateAccountUserCustomFieldAnswer
+    steps:
+      - stepId: test
+        operationId: updateAccountUserCustomFieldAnswer
+        parameters:
+          - name: userId
+            in: path
+            value: ff8af134-3505-4d67-aaea-1975d8e1327c
+          - name: customFieldId
+            in: path
+            value: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+        requestBody:
+          contentType: application/json
+          payload:
+            id: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+            values:
+              - Choice C
+              - Choice A
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"id":"a1b2c3d4-e5f6-7890-abcd-ef1234567890","name":"What is your favorite color?","type":"Choice - Single Answer","values":["Choice C","Choice A"],"order":1}
+            type: simple
+    x-speakeasy-test-group: Users
+    x-speakeasy-test-rebuild: true
+  - workflowId: createEventRoleAssignment-accountUserWithNotification
+    steps:
+      - stepId: test
+        operationId: createEventRoleAssignment
+        requestBody:
+          contentType: application/json
+          payload:
+            event:
+              id: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+            eventRole:
+              id: 2b1a3bba-84b2-46f4-bddb-4b4a44442dcc
+            notification:
+              sendNotification: true
+            user:
+              id: 7c9e6679-7425-40de-944b-e07fc1f90ae7
+              type: ACCOUNT_USER
+        successCriteria:
+          - condition: $statusCode == 201
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3::2b1a3bba-84b2-46f4-bddb-4b4a44442dcc::6807e044-993b-428c-aec8-7316f13c1b95","event":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"},"user":{"id":"6807e044-993b-428c-aec8-7316f13c1b95","type":"ACCOUNT_USER"},"eventRole":{"id":"2b1a3bba-84b2-46f4-bddb-4b4a44442dcc"},"assigned":"2017-01-02T02:00:00Z","assignedBy":"mlopez"}
+            type: simple
+    x-speakeasy-test-group: Event Role
+    x-speakeasy-test-rebuild: true
+  - workflowId: createEventRoleAssignment-accountUserWithoutNotification
+    steps:
+      - stepId: test
+        operationId: createEventRoleAssignment
+        requestBody:
+          contentType: application/json
+          payload:
+            event:
+              id: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+            eventRole:
+              id: 2b1a3bba-84b2-46f4-bddb-4b4a44442dcc
+            notification:
+              sendNotification: false
+            user:
+              id: 7c9e6679-7425-40de-944b-e07fc1f90ae7
+              type: ACCOUNT_USER
+        successCriteria:
+          - condition: $statusCode == 201
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3::2b1a3bba-84b2-46f4-bddb-4b4a44442dcc::6807e044-993b-428c-aec8-7316f13c1b95","event":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"},"user":{"id":"6807e044-993b-428c-aec8-7316f13c1b95","type":"ACCOUNT_USER"},"eventRole":{"id":"2b1a3bba-84b2-46f4-bddb-4b4a44442dcc"},"assigned":"2017-01-02T02:00:00Z","assignedBy":"mlopez"}
+            type: simple
+    x-speakeasy-test-group: Event Role
+    x-speakeasy-test-rebuild: true
+  - workflowId: createEventRoleAssignment-noLoginUserByEmail
+    steps:
+      - stepId: test
+        operationId: createEventRoleAssignment
+        requestBody:
+          contentType: application/json
+          payload:
+            event:
+              id: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+            eventRole:
+              id: 2b1a3bba-84b2-46f4-bddb-4b4a44442dcc
+            user:
+              email: reviewer@example.com
+              type: NO_LOGIN_USER
+        successCriteria:
+          - condition: $statusCode == 201
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3::2b1a3bba-84b2-46f4-bddb-4b4a44442dcc::6807e044-993b-428c-aec8-7316f13c1b95","event":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"},"user":{"id":"6807e044-993b-428c-aec8-7316f13c1b95","type":"ACCOUNT_USER"},"eventRole":{"id":"2b1a3bba-84b2-46f4-bddb-4b4a44442dcc"},"assigned":"2017-01-02T02:00:00Z","assignedBy":"mlopez"}
+            type: simple
+    x-speakeasy-test-group: Event Role
+    x-speakeasy-test-rebuild: true
+  - workflowId: createEventRoleAssignment-noLoginUserByIdWithNotification
+    steps:
+      - stepId: test
+        operationId: createEventRoleAssignment
+        requestBody:
+          contentType: application/json
+          payload:
+            event:
+              id: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+            eventRole:
+              id: 2b1a3bba-84b2-46f4-bddb-4b4a44442dcc
+            notification:
+              sendNotification: true
+            user:
+              email: reviewer@example.com
+              id: 9f1b2c3d-4e5f-4a6b-8c7d-0e1f2a3b4c5d
+              type: NO_LOGIN_USER
+        successCriteria:
+          - condition: $statusCode == 201
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3::2b1a3bba-84b2-46f4-bddb-4b4a44442dcc::6807e044-993b-428c-aec8-7316f13c1b95","event":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"},"user":{"id":"6807e044-993b-428c-aec8-7316f13c1b95","type":"ACCOUNT_USER"},"eventRole":{"id":"2b1a3bba-84b2-46f4-bddb-4b4a44442dcc"},"assigned":"2017-01-02T02:00:00Z","assignedBy":"mlopez"}
+            type: simple
+    x-speakeasy-test-group: Event Role
+    x-speakeasy-test-rebuild: true
+  - workflowId: createEventRoleAssignment
+    steps:
+      - stepId: test
+        operationId: createEventRoleAssignment
+        requestBody:
+          contentType: application/json
+          payload:
+            event:
+              id: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+            eventRole:
+              id: 2b1a3bba-84b2-46f4-bddb-4b4a44442dcc
+            notification:
+              sendNotification: true
+            user:
+              id: 7c9e6679-7425-40de-944b-e07fc1f90ae7
+              type: ACCOUNT_USER
+        successCriteria:
+          - condition: $statusCode == 201
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3::2b1a3bba-84b2-46f4-bddb-4b4a44442dcc::6807e044-993b-428c-aec8-7316f13c1b95","event":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"},"user":{"id":"6807e044-993b-428c-aec8-7316f13c1b95","type":"ACCOUNT_USER"},"eventRole":{"id":"2b1a3bba-84b2-46f4-bddb-4b4a44442dcc"},"assigned":"2017-01-02T02:00:00Z","assignedBy":"mlopez"}
+            type: simple
+    x-speakeasy-test-group: Event Role
     x-speakeasy-test-rebuild: true

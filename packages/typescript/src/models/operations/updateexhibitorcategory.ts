@@ -16,7 +16,7 @@ export type UpdateExhibitorCategoryRequest = {
    */
   exhibitorCategoryId: string;
   /**
-   * Exhibitor Category details
+   * Exhibitor category details.
    */
   exhibitorCategoryRequest: components.ExhibitorCategoryRequest;
 };

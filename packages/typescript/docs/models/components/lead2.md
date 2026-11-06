@@ -1,6 +1,6 @@
 # Lead2
 
-JSON schema for the Lead object
+Associated lead.
 
 ## Example Usage
 
@@ -16,4 +16,4 @@ let value: Lead2 = {
 
 | Field                                | Type                                 | Required                             | Description                          | Example                              |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *string*                             | :heavy_check_mark:                   | Lead id                              | 4e74f930-db22-11eb-8d19-0242ac130003 |
+| `id`                                 | *string*                             | :heavy_check_mark:                   | Lead ID.                             | 4e74f930-db22-11eb-8d19-0242ac130003 |

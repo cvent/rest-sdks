@@ -106,6 +106,10 @@ let value: GetEventsResponse = {
           },
         ],
         type: "Conference",
+        image: {
+          name: "summit-banner.jpg",
+          url: "https://images.example.com/events/summit-banner.jpg",
+        },
         links: {
           invitation: {
             href: "https://cvent.com",

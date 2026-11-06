@@ -9,37 +9,287 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
+import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Optional;
 
 /**
  * Survey
  *
- * <p>Survey of response.
+ * <p>Parent survey detail object. It can be of two types namely: 'Event' and 'Standalone'
  */
 public class Survey {
     /**
-     * Id of the the survey
+     * The ISO 8601 zoned date time when this record was created.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("created")
+    private OffsetDateTime created;
+
+    /**
+     * The identifier of the user that created this record.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("createdBy")
+    private String createdBy;
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("lastModified")
+    private OffsetDateTime lastModified;
+
+    /**
+     * The identifier of the user that last updated this record.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("lastModifiedBy")
+    private String lastModifiedBy;
+
+    /**
+     * Id of the survey or Id of the chapter in case of event survey
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
+    /**
+     * Title of the survey or Title of the chapter in case of event survey
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("title")
+    private String title;
+
+    /**
+     * Survey Code or Chapter Code in case of event survey
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("code")
+    private String code;
+
+    /**
+     * Timezone of the survey
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("timezone")
+    private String timezone;
+
+    /**
+     * Author of the survey
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("author")
+    private SurveyAuthor author;
+
+    /**
+     * Survey description
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("description")
+    private String description;
+
+    /**
+     * The survey will be closed after this ISO 8601 formatted date and time.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("closeAfter")
+    private OffsetDateTime closeAfter;
+
+    /**
+     * Count of responses.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("responseCount")
+    private Long responseCount;
+
+    /**
+     * Survey Status
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("status")
+    private SurveyStatus status;
+
+    /**
+     * Describes the survey's type. `Standalone` indicates the survey exists independent of an event.
+     * `Event` indicates the survey is an event or session feedback survey.
+     *
+     * <p>`Assessment` indicates the survey is associated with an event and is for assessing attendees.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("type")
+    private SurveyType type;
+
+    /**
+     * The survey will be activated on this ISO 8601 formatted date and time.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("activateDate")
+    private OffsetDateTime activateDate;
+
+    /**
+     * List of events with which this survey is linked.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("events")
+    private List<Event5> events;
+
     @JsonCreator
-    public Survey(@JsonProperty("id") @Nullable String id) {
+    public Survey(
+            @JsonProperty("created") @Nullable OffsetDateTime created,
+            @JsonProperty("createdBy") @Nullable String createdBy,
+            @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
+            @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
+            @JsonProperty("id") @Nullable String id,
+            @JsonProperty("title") @Nullable String title,
+            @JsonProperty("code") @Nullable String code,
+            @JsonProperty("timezone") @Nullable String timezone,
+            @JsonProperty("author") @Nullable SurveyAuthor author,
+            @JsonProperty("description") @Nullable String description,
+            @JsonProperty("closeAfter") @Nullable OffsetDateTime closeAfter,
+            @JsonProperty("responseCount") @Nullable Long responseCount,
+            @JsonProperty("status") @Nullable SurveyStatus status,
+            @JsonProperty("type") @Nullable SurveyType type,
+            @JsonProperty("activateDate") @Nullable OffsetDateTime activateDate,
+            @JsonProperty("events") @Nullable List<Event5> events) {
+        this.created = created;
+        this.createdBy = createdBy;
+        this.lastModified = lastModified;
+        this.lastModifiedBy = lastModifiedBy;
         this.id = id;
+        this.title = title;
+        this.code = code;
+        this.timezone = timezone;
+        this.author = author;
+        this.description = description;
+        this.closeAfter = closeAfter;
+        this.responseCount = responseCount;
+        this.status = status;
+        this.type = type;
+        this.activateDate = activateDate;
+        this.events = events;
     }
 
     public Survey() {
-        this(null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
-     * Id of the the survey
+     * The ISO 8601 zoned date time when this record was created.
+     */
+    public Optional<OffsetDateTime> created() {
+        return Optional.ofNullable(this.created);
+    }
+
+    /**
+     * The identifier of the user that created this record.
+     */
+    public Optional<String> createdBy() {
+        return Optional.ofNullable(this.createdBy);
+    }
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    public Optional<OffsetDateTime> lastModified() {
+        return Optional.ofNullable(this.lastModified);
+    }
+
+    /**
+     * The identifier of the user that last updated this record.
+     */
+    public Optional<String> lastModifiedBy() {
+        return Optional.ofNullable(this.lastModifiedBy);
+    }
+
+    /**
+     * Id of the survey or Id of the chapter in case of event survey
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
+    }
+
+    /**
+     * Title of the survey or Title of the chapter in case of event survey
+     */
+    public Optional<String> title() {
+        return Optional.ofNullable(this.title);
+    }
+
+    /**
+     * Survey Code or Chapter Code in case of event survey
+     */
+    public Optional<String> code() {
+        return Optional.ofNullable(this.code);
+    }
+
+    /**
+     * Timezone of the survey
+     */
+    public Optional<String> timezone() {
+        return Optional.ofNullable(this.timezone);
+    }
+
+    /**
+     * Author of the survey
+     */
+    public Optional<SurveyAuthor> author() {
+        return Optional.ofNullable(this.author);
+    }
+
+    /**
+     * Survey description
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * The survey will be closed after this ISO 8601 formatted date and time.
+     */
+    public Optional<OffsetDateTime> closeAfter() {
+        return Optional.ofNullable(this.closeAfter);
+    }
+
+    /**
+     * Count of responses.
+     */
+    public Optional<Long> responseCount() {
+        return Optional.ofNullable(this.responseCount);
+    }
+
+    /**
+     * Survey Status
+     */
+    public Optional<SurveyStatus> status() {
+        return Optional.ofNullable(this.status);
+    }
+
+    /**
+     * Describes the survey's type. `Standalone` indicates the survey exists independent of an event.
+     * `Event` indicates the survey is an event or session feedback survey.
+     *
+     * <p>`Assessment` indicates the survey is associated with an event and is for assessing attendees.
+     */
+    public Optional<SurveyType> type() {
+        return Optional.ofNullable(this.type);
+    }
+
+    /**
+     * The survey will be activated on this ISO 8601 formatted date and time.
+     */
+    public Optional<OffsetDateTime> activateDate() {
+        return Optional.ofNullable(this.activateDate);
+    }
+
+    /**
+     * List of events with which this survey is linked.
+     */
+    public Optional<List<Event5>> events() {
+        return Optional.ofNullable(this.events);
     }
 
     public static Builder builder() {
@@ -47,10 +297,133 @@ public class Survey {
     }
 
     /**
-     * Id of the the survey
+     * The ISO 8601 zoned date time when this record was created.
+     */
+    public Survey withCreated(@Nullable OffsetDateTime created) {
+        this.created = created;
+        return this;
+    }
+
+    /**
+     * The identifier of the user that created this record.
+     */
+    public Survey withCreatedBy(@Nullable String createdBy) {
+        this.createdBy = createdBy;
+        return this;
+    }
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    public Survey withLastModified(@Nullable OffsetDateTime lastModified) {
+        this.lastModified = lastModified;
+        return this;
+    }
+
+    /**
+     * The identifier of the user that last updated this record.
+     */
+    public Survey withLastModifiedBy(@Nullable String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
+        return this;
+    }
+
+    /**
+     * Id of the survey or Id of the chapter in case of event survey
      */
     public Survey withId(@Nullable String id) {
         this.id = id;
+        return this;
+    }
+
+    /**
+     * Title of the survey or Title of the chapter in case of event survey
+     */
+    public Survey withTitle(@Nullable String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * Survey Code or Chapter Code in case of event survey
+     */
+    public Survey withCode(@Nullable String code) {
+        this.code = code;
+        return this;
+    }
+
+    /**
+     * Timezone of the survey
+     */
+    public Survey withTimezone(@Nullable String timezone) {
+        this.timezone = timezone;
+        return this;
+    }
+
+    /**
+     * Author of the survey
+     */
+    public Survey withAuthor(@Nullable SurveyAuthor author) {
+        this.author = author;
+        return this;
+    }
+
+    /**
+     * Survey description
+     */
+    public Survey withDescription(@Nullable String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * The survey will be closed after this ISO 8601 formatted date and time.
+     */
+    public Survey withCloseAfter(@Nullable OffsetDateTime closeAfter) {
+        this.closeAfter = closeAfter;
+        return this;
+    }
+
+    /**
+     * Count of responses.
+     */
+    public Survey withResponseCount(@Nullable Long responseCount) {
+        this.responseCount = responseCount;
+        return this;
+    }
+
+    /**
+     * Survey Status
+     */
+    public Survey withStatus(@Nullable SurveyStatus status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Describes the survey's type. `Standalone` indicates the survey exists independent of an event.
+     * `Event` indicates the survey is an event or session feedback survey.
+     *
+     * <p>`Assessment` indicates the survey is associated with an event and is for assessing attendees.
+     */
+    public Survey withType(@Nullable SurveyType type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * The survey will be activated on this ISO 8601 formatted date and time.
+     */
+    public Survey withActivateDate(@Nullable OffsetDateTime activateDate) {
+        this.activateDate = activateDate;
+        return this;
+    }
+
+    /**
+     * List of events with which this survey is linked.
+     */
+    public Survey withEvents(@Nullable List<Event5> events) {
+        this.events = events;
         return this;
     }
 
@@ -63,38 +436,271 @@ public class Survey {
             return false;
         }
         Survey other = (Survey) o;
-        return Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.timezone, other.timezone)
+                && Utils.enhancedDeepEquals(this.author, other.author)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.closeAfter, other.closeAfter)
+                && Utils.enhancedDeepEquals(this.responseCount, other.responseCount)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.activateDate, other.activateDate)
+                && Utils.enhancedDeepEquals(this.events, other.events);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id);
+        return Utils.enhancedHash(
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                title,
+                code,
+                timezone,
+                author,
+                description,
+                closeAfter,
+                responseCount,
+                status,
+                type,
+                activateDate,
+                events);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(Survey.class, "id", id);
+        return Utils.toString(
+                Survey.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "title",
+                title,
+                "code",
+                code,
+                "timezone",
+                timezone,
+                "author",
+                author,
+                "description",
+                description,
+                "closeAfter",
+                closeAfter,
+                "responseCount",
+                responseCount,
+                "status",
+                status,
+                "type",
+                type,
+                "activateDate",
+                activateDate,
+                "events",
+                events);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
+        private OffsetDateTime created;
+
+        private String createdBy;
+
+        private OffsetDateTime lastModified;
+
+        private String lastModifiedBy;
+
         private String id;
+
+        private String title;
+
+        private String code;
+
+        private String timezone;
+
+        private SurveyAuthor author;
+
+        private String description;
+
+        private OffsetDateTime closeAfter;
+
+        private Long responseCount;
+
+        private SurveyStatus status;
+
+        private SurveyType type;
+
+        private OffsetDateTime activateDate;
+
+        private List<Event5> events;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * Id of the the survey
+         * The ISO 8601 zoned date time when this record was created.
+         */
+        public Builder created(@Nullable OffsetDateTime created) {
+            this.created = created;
+            return this;
+        }
+
+        /**
+         * The identifier of the user that created this record.
+         */
+        public Builder createdBy(@Nullable String createdBy) {
+            this.createdBy = createdBy;
+            return this;
+        }
+
+        /**
+         * The ISO 8601 zoned date time when this record was updated.
+         */
+        public Builder lastModified(@Nullable OffsetDateTime lastModified) {
+            this.lastModified = lastModified;
+            return this;
+        }
+
+        /**
+         * The identifier of the user that last updated this record.
+         */
+        public Builder lastModifiedBy(@Nullable String lastModifiedBy) {
+            this.lastModifiedBy = lastModifiedBy;
+            return this;
+        }
+
+        /**
+         * Id of the survey or Id of the chapter in case of event survey
          */
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
 
+        /**
+         * Title of the survey or Title of the chapter in case of event survey
+         */
+        public Builder title(@Nullable String title) {
+            this.title = title;
+            return this;
+        }
+
+        /**
+         * Survey Code or Chapter Code in case of event survey
+         */
+        public Builder code(@Nullable String code) {
+            this.code = code;
+            return this;
+        }
+
+        /**
+         * Timezone of the survey
+         */
+        public Builder timezone(@Nullable String timezone) {
+            this.timezone = timezone;
+            return this;
+        }
+
+        /**
+         * Author of the survey
+         */
+        public Builder author(@Nullable SurveyAuthor author) {
+            this.author = author;
+            return this;
+        }
+
+        /**
+         * Survey description
+         */
+        public Builder description(@Nullable String description) {
+            this.description = description;
+            return this;
+        }
+
+        /**
+         * The survey will be closed after this ISO 8601 formatted date and time.
+         */
+        public Builder closeAfter(@Nullable OffsetDateTime closeAfter) {
+            this.closeAfter = closeAfter;
+            return this;
+        }
+
+        /**
+         * Count of responses.
+         */
+        public Builder responseCount(@Nullable Long responseCount) {
+            this.responseCount = responseCount;
+            return this;
+        }
+
+        /**
+         * Survey Status
+         */
+        public Builder status(@Nullable SurveyStatus status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Describes the survey's type. `Standalone` indicates the survey exists independent of an event.
+         * `Event` indicates the survey is an event or session feedback survey.
+         *
+         * <p>`Assessment` indicates the survey is associated with an event and is for assessing attendees.
+         */
+        public Builder type(@Nullable SurveyType type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * The survey will be activated on this ISO 8601 formatted date and time.
+         */
+        public Builder activateDate(@Nullable OffsetDateTime activateDate) {
+            this.activateDate = activateDate;
+            return this;
+        }
+
+        /**
+         * List of events with which this survey is linked.
+         */
+        public Builder events(@Nullable List<Event5> events) {
+            this.events = events;
+            return this;
+        }
+
         public Survey build() {
-            return new Survey(id);
+            return new Survey(
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    title,
+                    code,
+                    timezone,
+                    author,
+                    description,
+                    closeAfter,
+                    responseCount,
+                    status,
+                    type,
+                    activateDate,
+                    events);
         }
     }
 }

@@ -20,7 +20,7 @@ public class PostBadgeRequest {
     private String id;
 
     /**
-     * Badge details
+     * Badge details.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private BadgeInput badge;
@@ -39,7 +39,7 @@ public class PostBadgeRequest {
     }
 
     /**
-     * Badge details
+     * Badge details.
      */
     public BadgeInput badge() {
         return this.badge;
@@ -58,7 +58,7 @@ public class PostBadgeRequest {
     }
 
     /**
-     * Badge details
+     * Badge details.
      */
     public PostBadgeRequest withBadge(@Nonnull BadgeInput badge) {
         this.badge = Utils.checkNotNull(badge, "badge");
@@ -107,7 +107,7 @@ public class PostBadgeRequest {
         }
 
         /**
-         * Badge details
+         * Badge details.
          */
         public Builder badge(@Nonnull BadgeInput badge) {
             this.badge = Utils.checkNotNull(badge, "badge");

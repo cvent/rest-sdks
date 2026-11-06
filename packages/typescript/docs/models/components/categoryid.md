@@ -1,6 +1,6 @@
 # CategoryId
 
-An object that holds the id for a category
+A reference to a category by its ID.
 
 ## Example Usage
 

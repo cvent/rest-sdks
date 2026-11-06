@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Booth staff with an associated ID.
+    /// Booth staff member with an ID.
     /// </summary>
     public class BoothStaffResponse
     {
@@ -44,25 +44,25 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// The associated Attendee.
+        /// Associated attendee.
         /// </summary>
         [JsonProperty("attendee")]
         public Attendee12 Attendee { get; set; } = default!;
 
         /// <summary>
-        /// The Associated Event.
+        /// Associated event.
         /// </summary>
         [JsonProperty("event")]
         public Event4 Event { get; set; } = default!;
 
         /// <summary>
-        /// The Associated Exhibitor.
+        /// Associated exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
         public Models.Components.Exhibitor Exhibitor { get; set; } = default!;
 
         /// <summary>
-        /// ID of an exhibitor booth staff member.
+        /// Booth staff member ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * List Qualification Questions
  *
  * @remarks
- * Retrieves a list of lead qualification questions associated with a single exhibitor at the given event.
+ * Retrieves a list of the lead qualification questions of an exhibitor.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

@@ -82,7 +82,7 @@ namespace Cvent.SDK.Models.Components
         /// - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is deprecated.
         /// </summary>
         [JsonProperty("respondedThrough")]
-        public RespondedThroughJson? RespondedThrough { get; set; }
+        public RespondedThrough? RespondedThrough { get; set; }
 
         /// <summary>
         /// Reference ids are used to track where response is coming from. Survey Author can create multiple weblinks with different values of referenceId query param in them.
@@ -124,7 +124,7 @@ namespace Cvent.SDK.Models.Components
         /// Detail object of an event which is associated to a survey.
         /// </summary>
         [JsonProperty("event")]
-        public EventJson1? Event { get; set; }
+        public Event5? Event { get; set; }
 
         /// <summary>
         /// Associated attendee.
@@ -142,6 +142,6 @@ namespace Cvent.SDK.Models.Components
         /// List of associated surveys.
         /// </summary>
         [JsonProperty("surveys")]
-        public List<RespondentEventSurveyReferenceJson>? Surveys { get; set; }
+        public List<RespondentEventSurveyReference>? Surveys { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Type of question.
+    /// Type of the question.
     /// </summary>
     public enum LeadQualificationQuestionType
     {

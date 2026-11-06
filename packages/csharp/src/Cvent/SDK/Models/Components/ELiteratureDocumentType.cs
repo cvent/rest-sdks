@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Type of eliterature document.
+    /// Type of the e-literature document.
     /// </summary>
     public enum ELiteratureDocumentType
     {

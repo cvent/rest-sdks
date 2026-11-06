@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Used to denote a sessions location.
+ * A location associated with a session, with a code and name. The response may include its read-only ID.
  */
 export type SessionLocation = {
   /**
-   * A string that represents a specified location.
+   * The ID of the session location.
    */
   id?: string | undefined;
   /**

@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// A JSON Schema for Badge object.
+    /// Badge of an attendee.
     /// </summary>
     public class Badge
     {
@@ -44,31 +44,31 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Id of a badge.
+        /// Badge ID.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Badge status.
+        /// Status of the badge.
         /// </summary>
         [JsonProperty("status")]
         public BadgeStatus Status { get; set; } = default!;
 
         /// <summary>
-        /// Badge type.
+        /// Type of the badge.
         /// </summary>
         [JsonProperty("type")]
         public BadgeType Type { get; set; } = default!;
 
         /// <summary>
-        /// The associated Attendee.
+        /// Associated attendee.
         /// </summary>
         [JsonProperty("attendee")]
         public Attendee12 Attendee { get; set; } = default!;
 
         /// <summary>
-        /// The Associated Event.
+        /// Associated event.
         /// </summary>
         [JsonProperty("event")]
         public Event4 Event { get; set; } = default!;

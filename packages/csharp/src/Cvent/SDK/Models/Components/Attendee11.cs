@@ -45,7 +45,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// The ID of attendee in the given event.
+        /// Attendee ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -75,7 +75,7 @@ namespace Cvent.SDK.Models.Components
         public bool? CheckedIn { get; set; }
 
         /// <summary>
-        /// The date time when attendee was checked in to an event. Note: this field is deprecated. Please use the `checkIn` field instead.
+        /// DEPRECATED: The ISO 8601 zoned date time when the attendee was checked in to an event. Use the `checkIn` field instead.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("checkin")]
@@ -124,13 +124,13 @@ namespace Cvent.SDK.Models.Components
         public Lookup? RegistrationType { get; set; }
 
         /// <summary>
-        /// The reference ID of an attendee. A planner determined string used to track which link attendee's used to reach the event registration.
+        /// Reference ID. A planner-defined string that tracks the link that the attendee used to reach the event registration.
         /// </summary>
         [JsonProperty("referenceId")]
         public string? ReferenceId { get; set; }
 
         /// <summary>
-        /// The details of an attendee in an external systems.
+        /// References to the attendee in external systems.
         /// </summary>
         [JsonProperty("externalReferences")]
         public List<ExternalReference>? ExternalReferences { get; set; }
@@ -154,7 +154,7 @@ namespace Cvent.SDK.Models.Components
         public bool? DeletedGuest { get; set; }
 
         /// <summary>
-        /// The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this attendee is a guest.
+        /// Primary attendee ID. Applies only when this attendee is a guest.
         /// </summary>
         [JsonProperty("primaryId")]
         public string? PrimaryId { get; set; }
@@ -263,7 +263,7 @@ namespace Cvent.SDK.Models.Components
         public string? Bio { get; set; }
 
         /// <summary>
-        /// Notification setting in the Attendee Hub app or website. Note: This field is deprecated. Use `allowPushNotification` field instead.
+        /// DEPRECATED: Notification setting in the Attendee Hub app or website. Use `allowPushNotifications` instead.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("showPopupNotification")]
@@ -276,13 +276,13 @@ namespace Cvent.SDK.Models.Components
         public string? WebsiteUrl { get; set; }
 
         /// <summary>
-        /// True indicates attendee will recieve push notifications for session-schedule changes, promotions and other event activities in the Attendee Hub app.
+        /// True indicates that the attendee receives push notifications for session schedule changes, promotions, and other event activities in the Attendee Hub app.
         /// </summary>
         [JsonProperty("allowPushNotifications")]
         public bool? AllowPushNotifications { get; set; }
 
         /// <summary>
-        /// True indicaites attendee will recieve push notifications for appointments related activities in the Attendee Hub app.
+        /// True indicates that the attendee receives push notifications for appointment-related activities in the Attendee Hub app.
         /// </summary>
         [JsonProperty("allowAppointmentPushNotifications")]
         public bool? AllowAppointmentPushNotifications { get; set; }

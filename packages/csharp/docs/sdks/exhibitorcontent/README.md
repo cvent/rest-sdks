@@ -70,7 +70,7 @@ var res = await sdk.ExhibitorContent.ListExhibitorFilesAsync(req);
 
 ## GetExhibitorFile
 
-Get a single file for an exhibitor.
+Retrieves a file of an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -122,7 +122,7 @@ var res = await sdk.ExhibitorContent.GetExhibitorFileAsync(req);
 
 ## UpdateExhibitorFile
 
-Associate a file to an exhibitor using a file ID taken from the <a href="#operation/uploadFile">file upload</a> endpoint.
+Associates a file with an exhibitor. The file ID comes from the [file upload](#operation/uploadFile) operation.
 
 
 More about OAuth2 authorization code support for administrators
@@ -186,7 +186,7 @@ var res = await sdk.ExhibitorContent.UpdateExhibitorFileAsync(req);
 
 ## DisassociateExhibitorFile
 
-Disassociate a single file from an exhibitor.
+Disassociates a file from an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -404,7 +404,7 @@ var res = await sdk.ExhibitorContent.GetExhibitorWeblinkAsync(req);
 
 ## UpdateExhibitorWeblink
 
-Updates content weblink data in an event for a given exhibitor ID.
+Updates a content weblink of an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>

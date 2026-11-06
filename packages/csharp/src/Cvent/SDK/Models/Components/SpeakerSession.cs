@@ -25,7 +25,7 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// The unique identifier of a speaker.
+        /// A reference to a speaker by its ID.
         /// </summary>
         [JsonProperty("speaker")]
         public SpeakerLite1? Speaker { get; set; }

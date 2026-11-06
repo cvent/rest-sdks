@@ -12,7 +12,7 @@ import { BadgeType, BadgeType$inboundSchema } from "./badgetype.js";
 import { Event4, Event4$inboundSchema } from "./event4.js";
 
 /**
- * A JSON Schema for Badge object.
+ * Badge of an attendee.
  */
 export type Badge = {
   /**
@@ -32,23 +32,23 @@ export type Badge = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * Id of a badge
+   * Badge ID.
    */
   id: string;
   /**
-   * Badge status
+   * Status of the badge.
    */
   status: BadgeStatus;
   /**
-   * Badge type
+   * Type of the badge.
    */
   type: BadgeType;
   /**
-   * The associated Attendee.
+   * Associated attendee.
    */
   attendee: Attendee12;
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
 };

@@ -32,7 +32,7 @@ public class UpdateExhibitorLogoResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully added the exhibitor logo image.
+     * Successfully assigned the exhibitor logo image.
      */
     private ExhibitorBannerLogoFile exhibitorBannerLogoFile;
 
@@ -77,7 +77,7 @@ public class UpdateExhibitorLogoResponse implements Response {
     }
 
     /**
-     * Successfully added the exhibitor logo image.
+     * Successfully assigned the exhibitor logo image.
      */
     public Optional<ExhibitorBannerLogoFile> exhibitorBannerLogoFile() {
         return Optional.ofNullable(this.exhibitorBannerLogoFile);
@@ -112,7 +112,7 @@ public class UpdateExhibitorLogoResponse implements Response {
     }
 
     /**
-     * Successfully added the exhibitor logo image.
+     * Successfully assigned the exhibitor logo image.
      */
     public UpdateExhibitorLogoResponse withExhibitorBannerLogoFile(
             @Nullable ExhibitorBannerLogoFile exhibitorBannerLogoFile) {
@@ -194,7 +194,7 @@ public class UpdateExhibitorLogoResponse implements Response {
         }
 
         /**
-         * Successfully added the exhibitor logo image.
+         * Successfully assigned the exhibitor logo image.
          */
         public Builder exhibitorBannerLogoFile(@Nullable ExhibitorBannerLogoFile exhibitorBannerLogoFile) {
             this.exhibitorBannerLogoFile = exhibitorBannerLogoFile;

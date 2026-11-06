@@ -20,7 +20,7 @@ export type UpdateRegistrationPackRequest = {
    */
   registrationPackId: string;
   /**
-   * Registration pack details
+   * Registration pack details.
    */
   registrationPackRequest: components.RegistrationPackRequest;
 };

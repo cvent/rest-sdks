@@ -54,7 +54,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Add a session location to the specified event.
+        /// Adds a session location to the specified event based on the details provided in the request body.
         /// </remarks>
         /// <param name="request">A <see cref="AddSessionLocationRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -184,8 +184,7 @@ namespace Cvent.SDK
         /// Get Program Item Documents.
         /// </summary>
         /// <remarks>
-        /// Returns a list of session documents for the specified program item ID.<br/>
-        /// **Note:** This endpoint is deprecated. use <a href="#operation/filterProgramItemDocuments">Filter Program Item Documents</a>
+        /// DEPRECATED: Use <a href="#tag/Sessions/operation/filterProgramItemDocuments">Filter Program Item Documents</a> instead. Returns a list of session documents for the specified program item ID.
         /// </remarks>
         /// <param name="request">A <see cref="GetProgramItemDocumentsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -279,11 +278,11 @@ namespace Cvent.SDK
         );
 
         /// <summary>
-        /// Create Session Categories<br/>
+        /// Create Session Category<br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Create a session category.
+        /// Creates a session category based on the details provided in the request body.
         /// </remarks>
         /// <param name="request">Contains the details of the session category you're creating.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -812,7 +811,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Add a session location to the specified event.
+        /// Adds a session location to the specified event based on the details provided in the request body.
         /// </remarks>
         /// <param name="request">A <see cref="AddSessionLocationRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2073,8 +2072,7 @@ namespace Cvent.SDK
         /// Get Program Item Documents.
         /// </summary>
         /// <remarks>
-        /// Returns a list of session documents for the specified program item ID.<br/>
-        /// **Note:** This endpoint is deprecated. use <a href="#operation/filterProgramItemDocuments">Filter Program Item Documents</a>
+        /// DEPRECATED: Use <a href="#tag/Sessions/operation/filterProgramItemDocuments">Filter Program Item Documents</a> instead. Returns a list of session documents for the specified program item ID.
         /// </remarks>
         /// <param name="request">A <see cref="GetProgramItemDocumentsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2933,11 +2931,11 @@ namespace Cvent.SDK
         }
 
         /// <summary>
-        /// Create Session Categories<br/>
+        /// Create Session Category<br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Create a session category.
+        /// Creates a session category based on the details provided in the request body.
         /// </remarks>
         /// <param name="request">Contains the details of the session category you're creating.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

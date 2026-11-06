@@ -1,6 +1,6 @@
 # AdditionalBadgekitFields
 
-Map containing extra properties from badgekit provider
+Map of the additional properties from the badgekit provider.
 
 
 ## Fields

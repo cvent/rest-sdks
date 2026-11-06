@@ -41,7 +41,7 @@ namespace Cvent.SDK.Models.Requests
         public DateTime? After { get; set; }
 
         /// <summary>
-        /// See the filter query parameter of <a href="#operation/getLeads">GET  Gets a paginated list of leads</a> for full filtering information.
+        /// Filter of the lead list. The syntax is the same as the `filter` query parameter of <a href="#operation/getLeads">List Leads</a>.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Filter? Filter { get; set; }

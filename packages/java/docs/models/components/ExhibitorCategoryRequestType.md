@@ -1,6 +1,6 @@
 # ExhibitorCategoryRequestType
 
-Type of exhibitor category
+Type of the exhibitor category.
 
 ## Example Usage
 

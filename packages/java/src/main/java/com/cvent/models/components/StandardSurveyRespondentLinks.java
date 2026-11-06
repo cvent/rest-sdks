@@ -24,10 +24,10 @@ public class StandardSurveyRespondentLinks {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("surveyUrl")
-    private LinkJson surveyUrl;
+    private Link surveyUrl;
 
     @JsonCreator
-    public StandardSurveyRespondentLinks(@JsonProperty("surveyUrl") @Nullable LinkJson surveyUrl) {
+    public StandardSurveyRespondentLinks(@JsonProperty("surveyUrl") @Nullable Link surveyUrl) {
         this.surveyUrl = surveyUrl;
     }
 
@@ -38,7 +38,7 @@ public class StandardSurveyRespondentLinks {
     /**
      * Represents a link to a related resource.
      */
-    public Optional<LinkJson> surveyUrl() {
+    public Optional<Link> surveyUrl() {
         return Optional.ofNullable(this.surveyUrl);
     }
 
@@ -49,7 +49,7 @@ public class StandardSurveyRespondentLinks {
     /**
      * Represents a link to a related resource.
      */
-    public StandardSurveyRespondentLinks withSurveyUrl(@Nullable LinkJson surveyUrl) {
+    public StandardSurveyRespondentLinks withSurveyUrl(@Nullable Link surveyUrl) {
         this.surveyUrl = surveyUrl;
         return this;
     }
@@ -79,7 +79,7 @@ public class StandardSurveyRespondentLinks {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private LinkJson surveyUrl;
+        private Link surveyUrl;
 
         private Builder() {
             // force use of static builder() method
@@ -88,7 +88,7 @@ public class StandardSurveyRespondentLinks {
         /**
          * Represents a link to a related resource.
          */
-        public Builder surveyUrl(@Nullable LinkJson surveyUrl) {
+        public Builder surveyUrl(@Nullable Link surveyUrl) {
             this.surveyUrl = surveyUrl;
             return this;
         }

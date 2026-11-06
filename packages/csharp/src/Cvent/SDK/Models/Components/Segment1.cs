@@ -18,7 +18,7 @@ namespace Cvent.SDK.Models.Components
     public class Segment1
     {
         /// <summary>
-        /// The unique identifier for an audience segment.
+        /// The unique ID of an audience segment.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

@@ -16,18 +16,18 @@ import java.util.Optional;
 /**
  * ExhibitorBannerLogoFile
  *
- * <p>JSON Schema for Exhibitor Banner/Logo File
+ * <p>Banner or logo image file of an exhibitor.
  */
 public class ExhibitorBannerLogoFile {
     /**
-     * File object containing UUID
+     * File of the image, with the file ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("file")
     private ExhibitorBannerLogoFileFile file;
 
     /**
-     * URL of a exhibitor banner/logo image
+     * URL of the banner or logo image.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("href")
@@ -46,14 +46,14 @@ public class ExhibitorBannerLogoFile {
     }
 
     /**
-     * File object containing UUID
+     * File of the image, with the file ID.
      */
     public Optional<ExhibitorBannerLogoFileFile> file() {
         return Optional.ofNullable(this.file);
     }
 
     /**
-     * URL of a exhibitor banner/logo image
+     * URL of the banner or logo image.
      */
     public Optional<String> href() {
         return Optional.ofNullable(this.href);
@@ -64,7 +64,7 @@ public class ExhibitorBannerLogoFile {
     }
 
     /**
-     * File object containing UUID
+     * File of the image, with the file ID.
      */
     public ExhibitorBannerLogoFile withFile(@Nullable ExhibitorBannerLogoFileFile file) {
         this.file = file;
@@ -72,7 +72,7 @@ public class ExhibitorBannerLogoFile {
     }
 
     /**
-     * URL of a exhibitor banner/logo image
+     * URL of the banner or logo image.
      */
     public ExhibitorBannerLogoFile withHref(@Nullable String href) {
         this.href = href;
@@ -113,7 +113,7 @@ public class ExhibitorBannerLogoFile {
         }
 
         /**
-         * File object containing UUID
+         * File of the image, with the file ID.
          */
         public Builder file(@Nullable ExhibitorBannerLogoFileFile file) {
             this.file = file;
@@ -121,7 +121,7 @@ public class ExhibitorBannerLogoFile {
         }
 
         /**
-         * URL of a exhibitor banner/logo image
+         * URL of the banner or logo image.
          */
         public Builder href(@Nullable String href) {
             this.href = href;

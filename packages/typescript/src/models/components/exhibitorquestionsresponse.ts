@@ -12,11 +12,11 @@ import {
 } from "./existingexhibitorquestion.js";
 
 /**
- * A response containing a list of all questions for exhibitors.
+ * List of exhibitor questions.
  */
 export type ExhibitorQuestionsResponse = {
   /**
-   * List of all questions for exhibitors.
+   * List of exhibitor questions.
    */
   data?: Array<ExistingExhibitorQuestion> | undefined;
 };

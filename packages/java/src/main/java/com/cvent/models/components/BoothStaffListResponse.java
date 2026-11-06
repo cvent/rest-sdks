@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * BoothStaffListResponse
  *
- * <p>Represents the booth staff list response, with paging information and a list of booth staff.
+ * <p>Paginated list of booth staff members.
  */
 public class BoothStaffListResponse {
     /**
@@ -28,7 +28,7 @@ public class BoothStaffListResponse {
     private Paging paging;
 
     /**
-     * List of booth staff.
+     * List of booth staff members.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
@@ -54,7 +54,7 @@ public class BoothStaffListResponse {
     }
 
     /**
-     * List of booth staff.
+     * List of booth staff members.
      */
     public Optional<List<BoothStaffResponse>> data() {
         return Optional.ofNullable(this.data);
@@ -73,7 +73,7 @@ public class BoothStaffListResponse {
     }
 
     /**
-     * List of booth staff.
+     * List of booth staff members.
      */
     public BoothStaffListResponse withData(@Nullable List<BoothStaffResponse> data) {
         this.data = data;
@@ -122,7 +122,7 @@ public class BoothStaffListResponse {
         }
 
         /**
-         * List of booth staff.
+         * List of booth staff members.
          */
         public Builder data(@Nullable List<BoothStaffResponse> data) {
             this.data = data;

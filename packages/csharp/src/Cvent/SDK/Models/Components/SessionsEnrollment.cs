@@ -68,7 +68,7 @@ namespace Cvent.SDK.Models.Components
         public Uuid? Attendee { get; set; }
 
         /// <summary>
-        /// True indicates the attendee is registered for the session.
+        /// True indicates the registration was cancelled. False indicates the attendee is registered for the session.
         /// </summary>
         [JsonProperty("deleted")]
         public bool? Deleted { get; set; }

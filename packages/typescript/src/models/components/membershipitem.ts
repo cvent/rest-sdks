@@ -26,7 +26,7 @@ export type MembershipItemEvent = {
  */
 export type MembershipItem = {
   /**
-   * The unique ID representing the optional item.
+   * Optional item ID.
    */
   id?: string | undefined;
   /**

@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Add Attendees
  *
  * @remarks
- * Adds given contacts to an event as attendees, either inviting them or registering them directly.
+ * Adds contacts to an event as attendees using the details in the request body, either inviting them or registering them directly.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

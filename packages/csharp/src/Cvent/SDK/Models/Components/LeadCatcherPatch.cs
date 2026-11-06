@@ -37,7 +37,7 @@ namespace Cvent.SDK.Models.Components
         public string? Title { get; set; } = null;
 
         /// <summary>
-        /// Email address of the lead catcher contact. RFP notifications are sent to this address.
+        /// Email address of the lead catcher contact. RFP notifications are sent to this address. Maximum 80 characters in total, with no more than 64 characters before the `@`.
         /// </summary>
         [JsonProperty("email")]
         public string? Email { get; set; } = null;

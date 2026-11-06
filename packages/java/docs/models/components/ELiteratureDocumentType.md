@@ -1,6 +1,6 @@
 # ELiteratureDocumentType
 
-Type of eliterature document
+Type of the e-literature document.
 
 ## Example Usage
 

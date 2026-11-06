@@ -28,7 +28,7 @@ namespace Cvent.SDK.Models.Components
         /// Name of the event linked with the RFP.
         /// </summary>
         [JsonProperty("name")]
-        public string? Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Location where the contract will be signed.
@@ -112,7 +112,7 @@ namespace Cvent.SDK.Models.Components
         /// Event format type.
         /// </summary>
         [JsonProperty("formatType")]
-        public EventFormatType? FormatType { get; set; }
+        public EventFormatType FormatType { get; set; } = default!;
 
         /// <summary>
         /// Number of virtual attendees per day.

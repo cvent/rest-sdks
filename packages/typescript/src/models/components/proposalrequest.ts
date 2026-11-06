@@ -56,10 +56,10 @@ import {
   RfpSummary$outboundSchema,
 } from "./rfpsummary.js";
 import {
-  SleepingRoom1,
-  SleepingRoom1$Outbound,
-  SleepingRoom1$outboundSchema,
-} from "./sleepingroom1.js";
+  SleepingRoom2,
+  SleepingRoom2$Outbound,
+  SleepingRoom2$outboundSchema,
+} from "./sleepingroom2.js";
 import {
   StatusSummary,
   StatusSummary$Outbound,
@@ -136,7 +136,7 @@ export type ProposalRequest = {
   /**
    * List of all sleeping rooms offered in the proposal.
    */
-  sleepingRooms?: Array<SleepingRoom1> | undefined;
+  sleepingRooms?: Array<SleepingRoom2> | undefined;
   /**
    * Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by vendors, and the vendor marketplace is sunset.
    *
@@ -189,7 +189,7 @@ export type ProposalRequest$Outbound = {
   name?: string | undefined;
   blockCode?: string | undefined;
   proposalDates?: Array<ProposalDate$Outbound> | undefined;
-  sleepingRooms?: Array<SleepingRoom1$Outbound> | undefined;
+  sleepingRooms?: Array<SleepingRoom2$Outbound> | undefined;
   categoryItemsCost?: CategoryItemsCost$Outbound | undefined;
   aggregatedCost?: AggregatedCost$Outbound | undefined;
   estimatedCost?: EstimatedCost$Outbound | undefined;
@@ -220,7 +220,7 @@ export const ProposalRequest$outboundSchema: z.ZodType<
   name: z.string().optional(),
   blockCode: z.string().optional(),
   proposalDates: z.array(ProposalDate$outboundSchema).optional(),
-  sleepingRooms: z.array(SleepingRoom1$outboundSchema).optional(),
+  sleepingRooms: z.array(SleepingRoom2$outboundSchema).optional(),
   categoryItemsCost: CategoryItemsCost$outboundSchema.optional(),
   aggregatedCost: AggregatedCost$outboundSchema.optional(),
   estimatedCost: EstimatedCost$outboundSchema.optional(),

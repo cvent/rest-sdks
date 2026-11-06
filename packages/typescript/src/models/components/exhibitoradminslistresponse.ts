@@ -13,7 +13,7 @@ import {
 import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
- * Exhibitor Admins List Response schema
+ * Paginated list of exhibitor admins.
  */
 export type ExhibitorAdminsListResponse = {
   /**

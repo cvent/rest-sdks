@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Requests
     public class AddSessionLocationRequest
     {
         /// <summary>
-        /// Unique Id of Event.
+        /// Unique ID of Event.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;

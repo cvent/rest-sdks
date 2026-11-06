@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
 
     public enum Expand1
     {
-        [JsonProperty("creditType")] CreditType,
+        [JsonProperty("image")] Image,
     }
 
     public static class Expand1Extension

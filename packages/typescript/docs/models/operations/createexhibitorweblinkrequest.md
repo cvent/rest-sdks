@@ -16,7 +16,7 @@ let value: CreateExhibitorWeblinkRequest = {
       id: "4888db54-db22-11eb-8d19-0242ac130003",
     },
     name: "Marketing Page",
-    url: "http://www.example.com",
+    url: "https://www.example.com",
     order: 3,
   },
 };

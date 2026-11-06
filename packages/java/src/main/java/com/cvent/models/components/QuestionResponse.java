@@ -25,19 +25,19 @@ public class QuestionResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("question")
-    private Question2 question;
+    private Question3 question;
 
     /**
      * List of answers.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("answers")
-    private List<Answer21> answers;
+    private List<Answer3> answers;
 
     @JsonCreator
     public QuestionResponse(
-            @JsonProperty("question") @Nullable Question2 question,
-            @JsonProperty("answers") @Nullable List<Answer21> answers) {
+            @JsonProperty("question") @Nullable Question3 question,
+            @JsonProperty("answers") @Nullable List<Answer3> answers) {
         this.question = question;
         this.answers = answers;
     }
@@ -49,14 +49,14 @@ public class QuestionResponse {
     /**
      * The question that was answered.
      */
-    public Optional<Question2> question() {
+    public Optional<Question3> question() {
         return Optional.ofNullable(this.question);
     }
 
     /**
      * List of answers.
      */
-    public Optional<List<Answer21>> answers() {
+    public Optional<List<Answer3>> answers() {
         return Optional.ofNullable(this.answers);
     }
 
@@ -67,7 +67,7 @@ public class QuestionResponse {
     /**
      * The question that was answered.
      */
-    public QuestionResponse withQuestion(@Nullable Question2 question) {
+    public QuestionResponse withQuestion(@Nullable Question3 question) {
         this.question = question;
         return this;
     }
@@ -75,7 +75,7 @@ public class QuestionResponse {
     /**
      * List of answers.
      */
-    public QuestionResponse withAnswers(@Nullable List<Answer21> answers) {
+    public QuestionResponse withAnswers(@Nullable List<Answer3> answers) {
         this.answers = answers;
         return this;
     }
@@ -106,9 +106,9 @@ public class QuestionResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private Question2 question;
+        private Question3 question;
 
-        private List<Answer21> answers;
+        private List<Answer3> answers;
 
         private Builder() {
             // force use of static builder() method
@@ -117,7 +117,7 @@ public class QuestionResponse {
         /**
          * The question that was answered.
          */
-        public Builder question(@Nullable Question2 question) {
+        public Builder question(@Nullable Question3 question) {
             this.question = question;
             return this;
         }
@@ -125,7 +125,7 @@ public class QuestionResponse {
         /**
          * List of answers.
          */
-        public Builder answers(@Nullable List<Answer21> answers) {
+        public Builder answers(@Nullable List<Answer3> answers) {
             this.answers = answers;
             return this;
         }

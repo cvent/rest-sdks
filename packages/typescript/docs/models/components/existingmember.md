@@ -1,6 +1,6 @@
 # ExistingMember
 
-An existing member.
+An Events+ hub member with an ID and profile details.
 
 ## Example Usage
 

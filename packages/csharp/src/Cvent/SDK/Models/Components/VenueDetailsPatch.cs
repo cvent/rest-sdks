@@ -139,6 +139,6 @@ namespace Cvent.SDK.Models.Components
         /// Venue address information.
         /// </summary>
         [JsonProperty("address")]
-        public VenueDetailsPatchAddress? Address { get; set; } = null;
+        public VenueDetailsAddressPatch? Address { get; set; } = null;
     }
 }

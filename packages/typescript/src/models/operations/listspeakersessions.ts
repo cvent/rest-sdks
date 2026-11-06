@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListSpeakerSessionsRequest = {
   /**
-   * Unique Id of a speaker
+   * Unique ID of a speaker
    */
   id: string;
   /**

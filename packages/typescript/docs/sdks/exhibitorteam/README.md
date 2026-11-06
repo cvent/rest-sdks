@@ -15,12 +15,12 @@
 * [updateExhibitorAdmin](#updateexhibitoradmin) - Update Exhibitor Admin
 * [listBoothStaff](#listboothstaff) - List Booth Staff
 * [associateBoothStaff](#associateboothstaff) - Create Booth Staff
-* [getBoothStaff](#getboothstaff) - Get Booth Staff member
-* [deleteBoothStaff](#deleteboothstaff) - Delete Booth Staff member
+* [getBoothStaff](#getboothstaff) - Get Booth Staff Member
+* [deleteBoothStaff](#deleteboothstaff) - Delete Booth Staff Member
 
 ## listExhibitorAdmins
 
-Retrieves a paginated list of exhibitor admins for an exhibitor within an event.
+Retrieves a paginated list of the admins of an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -119,7 +119,7 @@ run();
 
 ## postExhibitorAdmin
 
-Creates an exhibitor admin for the given exhibitor.
+Creates an admin for an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -228,7 +228,7 @@ run();
 
 ## getExhibitorAdmin
 
-Gets the details of a single exhibitor admin, such as name or contact email.
+Retrieves the details of an exhibitor admin, such as the name and the email address.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -323,7 +323,7 @@ run();
 
 ## updateExhibitorAdmin
 
-Updates a single exhibitor admin.
+Updates an exhibitor admin.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -434,7 +434,7 @@ run();
 
 ## listBoothStaff
 
-Gets a list of booth staff members for a given event and exhibitor id.
+Retrieves a list of the booth staff members of an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -533,7 +533,7 @@ run();
 
 ## associateBoothStaff
 
-Associates a registered attendee as a booth staff to a specific exhibitor id within an event.
+Associates a registered attendee with an exhibitor as a booth staff member.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -648,7 +648,7 @@ run();
 
 ## getBoothStaff
 
-Retrieves the attendee id associated with an exhibitor booth staff member.
+Retrieves the attendee ID of a booth staff member of an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -743,7 +743,7 @@ run();
 
 ## deleteBoothStaff
 
-Disassociate a single booth staff member from a single exhibitor.
+Disassociates a booth staff member from an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>

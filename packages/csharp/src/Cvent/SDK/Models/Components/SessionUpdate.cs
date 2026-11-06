@@ -16,7 +16,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Used to update a session.
+    /// The session fields used in an update request.
     /// </summary>
     public class SessionUpdate
     {
@@ -48,7 +48,7 @@ namespace Cvent.SDK.Models.Components
         public SessionUpdateLookup? Type { get; set; }
 
         /// <summary>
-        /// Used to denote a locations name and abbreviation.
+        /// A location identified by its ID, code, and name.
         /// </summary>
         [JsonProperty("location")]
         public Location1Input? Location { get; set; }
@@ -163,7 +163,7 @@ namespace Cvent.SDK.Models.Components
         public SessionUpdateGroup? Group { get; set; }
 
         /// <summary>
-        /// The ids of the admission items, if the session is included with any.
+        /// IDs of admission items associated with the session, if any.
         /// </summary>
         [JsonProperty("admissionItems")]
         public List<string>? AdmissionItems { get; set; }
@@ -181,7 +181,7 @@ namespace Cvent.SDK.Models.Components
         public bool? OpenForAttendeeHub { get; set; }
 
         /// <summary>
-        /// Contains unique identifiers for registration types associated with this session.
+        /// Registration type IDs associated with this session.
         /// </summary>
         [JsonProperty("registrationTypes")]
         public List<string>? RegistrationTypes { get; set; }

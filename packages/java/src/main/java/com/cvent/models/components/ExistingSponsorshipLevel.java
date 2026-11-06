@@ -19,7 +19,7 @@ import java.util.Optional;
 /**
  * ExistingSponsorshipLevel
  *
- * <p>Existing sponsorship level model
+ * <p>Sponsorship level with an ID.
  */
 public class ExistingSponsorshipLevel {
     /**
@@ -51,26 +51,26 @@ public class ExistingSponsorshipLevel {
     private String lastModifiedBy;
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * Name of the sponsorship level
+     * Name of the sponsorship level.
      */
     @JsonProperty("name")
     private String name;
 
     /**
-     * ID of event sponsorship level.
+     * Sponsorship level ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * Represents the order sponsors appear in a list.
+     * Order in which the sponsors appear in a list.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rank")
@@ -129,28 +129,28 @@ public class ExistingSponsorshipLevel {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Event4 event() {
         return this.event;
     }
 
     /**
-     * Name of the sponsorship level
+     * Name of the sponsorship level.
      */
     public String name() {
         return this.name;
     }
 
     /**
-     * ID of event sponsorship level.
+     * Sponsorship level ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * Represents the order sponsors appear in a list.
+     * Order in which the sponsors appear in a list.
      */
     public Optional<Long> rank() {
         return Optional.ofNullable(this.rank);
@@ -193,7 +193,7 @@ public class ExistingSponsorshipLevel {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public ExistingSponsorshipLevel withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -201,7 +201,7 @@ public class ExistingSponsorshipLevel {
     }
 
     /**
-     * Name of the sponsorship level
+     * Name of the sponsorship level.
      */
     public ExistingSponsorshipLevel withName(@Nonnull String name) {
         this.name = Utils.checkNotNull(name, "name");
@@ -209,7 +209,7 @@ public class ExistingSponsorshipLevel {
     }
 
     /**
-     * ID of event sponsorship level.
+     * Sponsorship level ID.
      */
     public ExistingSponsorshipLevel withId(@Nullable String id) {
         this.id = id;
@@ -217,7 +217,7 @@ public class ExistingSponsorshipLevel {
     }
 
     /**
-     * Represents the order sponsors appear in a list.
+     * Order in which the sponsors appear in a list.
      */
     public ExistingSponsorshipLevel withRank(@Nullable Long rank) {
         this.rank = rank;
@@ -326,7 +326,7 @@ public class ExistingSponsorshipLevel {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -334,7 +334,7 @@ public class ExistingSponsorshipLevel {
         }
 
         /**
-         * Name of the sponsorship level
+         * Name of the sponsorship level.
          */
         public Builder name(@Nonnull String name) {
             this.name = Utils.checkNotNull(name, "name");
@@ -342,7 +342,7 @@ public class ExistingSponsorshipLevel {
         }
 
         /**
-         * ID of event sponsorship level.
+         * Sponsorship level ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -350,7 +350,7 @@ public class ExistingSponsorshipLevel {
         }
 
         /**
-         * Represents the order sponsors appear in a list.
+         * Order in which the sponsors appear in a list.
          */
         public Builder rank(@Nullable Long rank) {
             this.rank = rank;

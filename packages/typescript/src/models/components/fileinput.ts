@@ -11,15 +11,15 @@ import {
 } from "./exhibitor.js";
 
 /**
- * Content of exhibitor file.
+ * File of an exhibitor.
  */
 export type FileInput = {
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * The Associated Exhibitor.
+   * Associated exhibitor.
    */
   exhibitor: Exhibitor;
   /**
@@ -31,7 +31,7 @@ export type FileInput = {
    */
   hidden?: boolean | undefined;
   /**
-   * Display order for exhibitor file content.
+   * Display order of the file.
    */
   order: number;
 };

@@ -1,6 +1,6 @@
 # ExhibitorQuestionsResponse
 
-A response containing a list of all questions for exhibitors.
+List of exhibitor questions.
 
 ## Example Usage
 
@@ -48,4 +48,4 @@ let value: ExhibitorQuestionsResponse = {
 
 | Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
 | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `data`                                                                                         | [components.ExistingExhibitorQuestion](../../models/components/existingexhibitorquestion.md)[] | :heavy_minus_sign:                                                                             | List of all questions for exhibitors.                                                          |
+| `data`                                                                                         | [components.ExistingExhibitorQuestion](../../models/components/existingexhibitorquestion.md)[] | :heavy_minus_sign:                                                                             | List of exhibitor questions.                                                                   |

@@ -1,6 +1,6 @@
 # Source
 
-The source of entry for the lead
+Source of the lead entry.
 
 ## Example Usage
 

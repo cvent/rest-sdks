@@ -16,7 +16,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// A JSON Schema for an existing e-literature request data for a lead.
+    /// E-literature request of a lead, with an ID.
     /// </summary>
     public class ExistingELiteratureRequestDataForLead
     {
@@ -45,31 +45,31 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// The Associated Event.
+        /// Associated event.
         /// </summary>
         [JsonProperty("event")]
         public Event4 Event { get; set; } = default!;
 
         /// <summary>
-        /// The Associated Exhibitor.
+        /// Associated exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
         public Models.Components.Exhibitor Exhibitor { get; set; } = default!;
 
         /// <summary>
-        /// JSON schema for the Lead object.
+        /// Associated lead.
         /// </summary>
         [JsonProperty("lead")]
         public Lead2 Lead { get; set; } = default!;
 
         /// <summary>
-        /// Collection of E-literature documents sent to lead.
+        /// List of the e-literature documents that were sent to the lead.
         /// </summary>
         [JsonProperty("documents")]
         public List<ELiteratureDocument> Documents { get; set; } = default!;
 
         /// <summary>
-        /// Request identifier.
+        /// E-literature request ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

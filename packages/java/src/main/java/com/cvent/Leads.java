@@ -60,7 +60,7 @@ public class Leads {
      *
      * <p>**Deprecated.** The E-literature Requests feature has been sunset.
      *
-     * <p>Gets a paginated list of eliterature requests data
+     * <p>Retrieves a paginated list of e-literature requests.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -77,7 +77,7 @@ public class Leads {
      *
      * <p>**Deprecated.** The E-literature Requests feature has been sunset.
      *
-     * <p>Gets a paginated list of eliterature requests data
+     * <p>Retrieves a paginated list of e-literature requests.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -96,7 +96,7 @@ public class Leads {
      *
      * <p>**Deprecated.** The E-literature Requests feature has been sunset.
      *
-     * <p>Gets a paginated list of eliterature requests data
+     * <p>Retrieves a paginated list of e-literature requests.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -117,7 +117,7 @@ public class Leads {
     /**
      * List Qualification Answers
      *
-     * <p>Gets a list of answers to lead qualification questions for a given lead id.
+     * <p>Retrieves a list of the answers of a lead to the lead qualification questions.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -130,7 +130,7 @@ public class Leads {
     /**
      * List Qualification Answers
      *
-     * <p>Gets a list of answers to lead qualification questions for a given lead id.
+     * <p>Retrieves a list of the answers of a lead to the lead qualification questions.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -146,7 +146,7 @@ public class Leads {
     /**
      * List Qualification Answers
      *
-     * <p>Gets a list of answers to lead qualification questions for a given lead id.
+     * <p>Retrieves a list of the answers of a lead to the lead qualification questions.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -165,7 +165,7 @@ public class Leads {
     /**
      * List Leads
      *
-     * <p>Gets a paginated list of leads
+     * <p>Retrieves a paginated list of leads.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -178,7 +178,7 @@ public class Leads {
     /**
      * List Leads
      *
-     * <p>Gets a paginated list of leads
+     * <p>Retrieves a paginated list of leads.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -193,7 +193,7 @@ public class Leads {
     /**
      * List Leads
      *
-     * <p>Gets a paginated list of leads
+     * <p>Retrieves a paginated list of leads.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -211,7 +211,7 @@ public class Leads {
     /**
      * List Leads
      *
-     * <p>Gets a paginated list of leads
+     * <p>Retrieves a paginated list of leads.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -224,7 +224,7 @@ public class Leads {
     /**
      * List Leads
      *
-     * <p>Gets a paginated list of leads
+     * <p>Retrieves a paginated list of leads.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -239,7 +239,7 @@ public class Leads {
     /**
      * List Leads
      *
-     * <p>Gets a paginated list of leads
+     * <p>Retrieves a paginated list of leads.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *

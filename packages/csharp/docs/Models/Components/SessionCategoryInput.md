@@ -1,6 +1,6 @@
 # SessionCategoryInput
 
-This is used to denote the category of a session.
+A session category with a name and an optional description.
 
 
 ## Fields

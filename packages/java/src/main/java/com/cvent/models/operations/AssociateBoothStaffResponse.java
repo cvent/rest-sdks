@@ -32,7 +32,7 @@ public class AssociateBoothStaffResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully associated booth staff
+     * Successfully associated the booth staff member.
      */
     private BoothStaffResponse boothStaffResponse;
 
@@ -77,7 +77,7 @@ public class AssociateBoothStaffResponse implements Response {
     }
 
     /**
-     * Successfully associated booth staff
+     * Successfully associated the booth staff member.
      */
     public Optional<BoothStaffResponse> boothStaffResponse() {
         return Optional.ofNullable(this.boothStaffResponse);
@@ -112,7 +112,7 @@ public class AssociateBoothStaffResponse implements Response {
     }
 
     /**
-     * Successfully associated booth staff
+     * Successfully associated the booth staff member.
      */
     public AssociateBoothStaffResponse withBoothStaffResponse(@Nullable BoothStaffResponse boothStaffResponse) {
         this.boothStaffResponse = boothStaffResponse;
@@ -193,7 +193,7 @@ public class AssociateBoothStaffResponse implements Response {
         }
 
         /**
-         * Successfully associated booth staff
+         * Successfully associated the booth staff member.
          */
         public Builder boothStaffResponse(@Nullable BoothStaffResponse boothStaffResponse) {
             this.boothStaffResponse = boothStaffResponse;

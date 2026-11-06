@@ -12,11 +12,11 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type HubFonts = {
   /**
-   * The id of the font used in this Events+ hub's heading. Custom fonts are previously uploaded in the account.
+   * The ID of the font used in this Events+ hub's heading. Custom fonts are uploaded to the account before use.
    */
   headingId?: string | undefined;
   /**
-   * The id of the font used in this Events+ hub's body text. Custom fonts are previously uploaded in account.
+   * The ID of the font used in this Events+ hub's body text. Custom fonts are uploaded to the account before use.
    */
   bodyId?: string | undefined;
 };

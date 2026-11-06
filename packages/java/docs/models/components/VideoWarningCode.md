@@ -13,6 +13,7 @@ VideoWarningCode value = VideoWarningCode.SEVEN_HUNDRED;
 
 ## Values
 
-| Name            | Value           |
-| --------------- | --------------- |
-| `SEVEN_HUNDRED` | 700             |
+| Name                    | Value                   |
+| ----------------------- | ----------------------- |
+| `SEVEN_HUNDRED`         | 700                     |
+| `SEVEN_HUNDRED_AND_ONE` | 701                     |

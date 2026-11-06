@@ -30,7 +30,7 @@ export type GetLeadsPostFiltersDataRequest = {
    */
   after?: Date | undefined;
   /**
-   * See the filter query parameter of <a href="#operation/getLeads">GET  Gets a paginated list of leads</a> for full filtering information
+   * Filter of the lead list. The syntax is the same as the `filter` query parameter of [List Leads](#operation/getLeads).
    */
   filter?: components.Filter | undefined;
 };

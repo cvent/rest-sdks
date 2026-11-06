@@ -1,6 +1,6 @@
 # WeblinkListResponse
 
-A response object containing a list of weblinks associated with an exhibitor.
+List of the weblinks of an exhibitor.
 
 
 ## Fields

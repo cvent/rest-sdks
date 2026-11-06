@@ -1,6 +1,6 @@
 # ExhibitorIdListResponse
 
-Exhibitor Id Paginated Response schema
+Paginated list of exhibitor IDs.
 
 ## Example Usage
 
@@ -39,4 +39,4 @@ let value: ExhibitorIdListResponse = {
 | Field                                                              | Type                                                               | Required                                                           | Description                                                        |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
 | `paging`                                                           | [components.Paging](../../models/components/paging.md)             | :heavy_minus_sign:                                                 | Represents pagination information for a collection of resources.   |
-| `data`                                                             | [components.ExhibitorId](../../models/components/exhibitorid.md)[] | :heavy_minus_sign:                                                 | Paginated list of exhibitor Ids for an exhibitor category.         |
+| `data`                                                             | [components.ExhibitorId](../../models/components/exhibitorid.md)[] | :heavy_minus_sign:                                                 | Paginated list of the exhibitor IDs of an exhibitor category.      |

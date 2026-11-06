@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// An existing member.
+    /// An Events+ hub member with an ID and profile details.
     /// </summary>
     public class ExistingMember
     {

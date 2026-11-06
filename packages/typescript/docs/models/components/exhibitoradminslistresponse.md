@@ -1,6 +1,6 @@
 # ExhibitorAdminsListResponse
 
-Exhibitor Admins List Response schema
+Paginated list of exhibitor admins.
 
 ## Example Usage
 
@@ -36,7 +36,7 @@ let value: ExhibitorAdminsListResponse = {
       },
       firstName: "John",
       lastName: "Eddy",
-      email: "john.eddy@test.com",
+      email: "john.eddy@example.com",
       id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     },
   ],

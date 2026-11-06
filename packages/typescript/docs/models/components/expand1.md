@@ -5,11 +5,11 @@
 ```typescript
 import { Expand1 } from "@cvent/sdk/models/components";
 
-let value: Expand1 = "creditType";
+let value: Expand1 = "image";
 ```
 
 ## Values
 
 ```typescript
-"creditType"
+"image"
 ```

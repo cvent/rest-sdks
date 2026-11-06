@@ -16,7 +16,7 @@ export type UpdateExhibitorAnswersRequest = {
    */
   exhibitorId: string;
   /**
-   * Exhibitor answers to be updated
+   * Exhibitor answers to update.
    */
   exhibitorAnswersRequest: components.ExhibitorAnswersRequest;
 };

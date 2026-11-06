@@ -6,13 +6,13 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Answer22, Answer22$inboundSchema } from "./answer22.js";
+import { Answer2, Answer2$inboundSchema } from "./answer2.js";
 import { Event4, Event4$inboundSchema } from "./event4.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 import { Uuid, Uuid$inboundSchema } from "./uuid.js";
 
 /**
- * Existing Exhibitor Answer schema
+ * Exhibitor answer with an ID.
  */
 export type ExistingExhibitorAnswer = {
   /**
@@ -36,19 +36,19 @@ export type ExistingExhibitorAnswer = {
    */
   question: Uuid;
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * The Associated Exhibitor.
+   * Associated exhibitor.
    */
   exhibitor: Exhibitor;
   /**
-   * List of answers
+   * List of answers.
    */
-  answers: Array<Answer22>;
+  answers: Array<Answer2>;
   /**
-   * Exhibitor Answer id
+   * Exhibitor answer ID.
    */
   id: string;
 };
@@ -69,7 +69,7 @@ export const ExistingExhibitorAnswer$inboundSchema: z.ZodType<
   question: Uuid$inboundSchema,
   event: Event4$inboundSchema,
   exhibitor: Exhibitor$inboundSchema,
-  answers: z.array(Answer22$inboundSchema),
+  answers: z.array(Answer2$inboundSchema),
   id: z.string(),
 });
 

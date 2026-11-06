@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Get Exhibitor
  *
  * @remarks
- * Retrieves a single exhibitor entity for an event.
+ * Retrieves an exhibitor of an event.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

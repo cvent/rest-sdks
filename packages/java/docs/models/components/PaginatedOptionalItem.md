@@ -1,6 +1,6 @@
 # PaginatedOptionalItem
 
-Optional Item fetch results.
+A paginated collection of optional items selected by an attendee during event registration.
 
 
 ## Fields

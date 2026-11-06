@@ -19,7 +19,7 @@ import java.util.Optional;
 /**
  * SessionFile
  *
- * <p>Used to denote a session files attributes.
+ * <p>Metadata for a file associated with a session.
  */
 public class SessionFile {
 
@@ -54,7 +54,7 @@ public class SessionFile {
     private Long size;
 
     /**
-     * Display this file to the public
+     * True indicates the file is displayed publicly.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("displayEnabled")
@@ -113,7 +113,7 @@ public class SessionFile {
     }
 
     /**
-     * Display this file to the public
+     * True indicates the file is displayed publicly.
      */
     public Optional<Boolean> displayEnabled() {
         return Optional.ofNullable(this.displayEnabled);
@@ -161,7 +161,7 @@ public class SessionFile {
     }
 
     /**
-     * Display this file to the public
+     * True indicates the file is displayed publicly.
      */
     public SessionFile withDisplayEnabled(@Nullable Boolean displayEnabled) {
         this.displayEnabled = displayEnabled;
@@ -265,7 +265,7 @@ public class SessionFile {
         }
 
         /**
-         * Display this file to the public
+         * True indicates the file is displayed publicly.
          */
         public Builder displayEnabled(@Nullable Boolean displayEnabled) {
             this.displayEnabled = displayEnabled;

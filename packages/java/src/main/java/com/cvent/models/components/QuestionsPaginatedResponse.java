@@ -22,18 +22,17 @@ public class QuestionsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of questions for surveys.
      */
     @JsonProperty("data")
-    private List<QuestionJson1> data;
+    private List<Question2> data;
 
     @JsonCreator
     public QuestionsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<QuestionJson1> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<Question2> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +41,14 @@ public class QuestionsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of questions for surveys.
      */
-    public List<QuestionJson1> data() {
+    public List<Question2> data() {
         return this.data;
     }
 
@@ -60,7 +59,7 @@ public class QuestionsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public QuestionsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public QuestionsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +67,7 @@ public class QuestionsPaginatedResponse {
     /**
      * Collection of questions for surveys.
      */
-    public QuestionsPaginatedResponse withData(@Nonnull List<QuestionJson1> data) {
+    public QuestionsPaginatedResponse withData(@Nonnull List<Question2> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +97,9 @@ public class QuestionsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<QuestionJson1> data;
+        private List<Question2> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +108,7 @@ public class QuestionsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +116,7 @@ public class QuestionsPaginatedResponse {
         /**
          * Collection of questions for surveys.
          */
-        public Builder data(@Nonnull List<QuestionJson1> data) {
+        public Builder data(@Nonnull List<Question2> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

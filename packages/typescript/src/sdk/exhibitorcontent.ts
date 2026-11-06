@@ -40,7 +40,7 @@ export class ExhibitorContent extends ClientSDK {
    * Get Exhibitor File
    *
    * @remarks
-   * Get a single file for an exhibitor.
+   * Retrieves a file of an exhibitor.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -59,7 +59,7 @@ export class ExhibitorContent extends ClientSDK {
    * Associate Exhibitor File
    *
    * @remarks
-   * Associate a file to an exhibitor using a file ID taken from the <a href="#operation/uploadFile">file upload</a> endpoint.
+   * Associates a file with an exhibitor. The file ID comes from the [file upload](#operation/uploadFile) operation.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -78,7 +78,7 @@ export class ExhibitorContent extends ClientSDK {
    * Disassociate Exhibitor File
    *
    * @remarks
-   * Disassociate a single file from an exhibitor.
+   * Disassociates a file from an exhibitor.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -154,7 +154,7 @@ export class ExhibitorContent extends ClientSDK {
    * Update Exhibitor Weblink
    *
    * @remarks
-   * Updates content weblink data in an event for a given exhibitor ID.
+   * Updates a content weblink of an exhibitor.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */

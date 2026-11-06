@@ -14,29 +14,29 @@ import java.util.Optional;
 /**
  * ExhibitorAdminRequest
  *
- * <p>An object representing the exhibitor admin.
+ * <p>Exhibitor admin.
  */
 public class ExhibitorAdminRequest {
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     @JsonProperty("exhibitor")
     private Exhibitor exhibitor;
 
     /**
-     * The first name of the exhibitor admin
+     * First name of the exhibitor admin.
      */
     @JsonProperty("firstName")
     private String firstName;
 
     /**
-     * The last name of the exhibitor admin
+     * Last name of the exhibitor admin.
      */
     @JsonProperty("lastName")
     private String lastName;
 
     /**
-     * The email address of the exhibitor admin
+     * Email address of the exhibitor admin.
      */
     @JsonProperty("email")
     private String email;
@@ -57,28 +57,28 @@ public class ExhibitorAdminRequest {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public Exhibitor exhibitor() {
         return this.exhibitor;
     }
 
     /**
-     * The first name of the exhibitor admin
+     * First name of the exhibitor admin.
      */
     public String firstName() {
         return this.firstName;
     }
 
     /**
-     * The last name of the exhibitor admin
+     * Last name of the exhibitor admin.
      */
     public String lastName() {
         return this.lastName;
     }
 
     /**
-     * The email address of the exhibitor admin
+     * Email address of the exhibitor admin.
      */
     public String email() {
         return this.email;
@@ -89,7 +89,7 @@ public class ExhibitorAdminRequest {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public ExhibitorAdminRequest withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -97,7 +97,7 @@ public class ExhibitorAdminRequest {
     }
 
     /**
-     * The first name of the exhibitor admin
+     * First name of the exhibitor admin.
      */
     public ExhibitorAdminRequest withFirstName(@Nonnull String firstName) {
         this.firstName = Utils.checkNotNull(firstName, "firstName");
@@ -105,7 +105,7 @@ public class ExhibitorAdminRequest {
     }
 
     /**
-     * The last name of the exhibitor admin
+     * Last name of the exhibitor admin.
      */
     public ExhibitorAdminRequest withLastName(@Nonnull String lastName) {
         this.lastName = Utils.checkNotNull(lastName, "lastName");
@@ -113,7 +113,7 @@ public class ExhibitorAdminRequest {
     }
 
     /**
-     * The email address of the exhibitor admin
+     * Email address of the exhibitor admin.
      */
     public ExhibitorAdminRequest withEmail(@Nonnull String email) {
         this.email = Utils.checkNotNull(email, "email");
@@ -170,7 +170,7 @@ public class ExhibitorAdminRequest {
         }
 
         /**
-         * The Associated Exhibitor.
+         * Associated exhibitor.
          */
         public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -178,7 +178,7 @@ public class ExhibitorAdminRequest {
         }
 
         /**
-         * The first name of the exhibitor admin
+         * First name of the exhibitor admin.
          */
         public Builder firstName(@Nonnull String firstName) {
             this.firstName = Utils.checkNotNull(firstName, "firstName");
@@ -186,7 +186,7 @@ public class ExhibitorAdminRequest {
         }
 
         /**
-         * The last name of the exhibitor admin
+         * Last name of the exhibitor admin.
          */
         public Builder lastName(@Nonnull String lastName) {
             this.lastName = Utils.checkNotNull(lastName, "lastName");
@@ -194,7 +194,7 @@ public class ExhibitorAdminRequest {
         }
 
         /**
-         * The email address of the exhibitor admin
+         * Email address of the exhibitor admin.
          */
         public Builder email(@Nonnull String email) {
             this.email = Utils.checkNotNull(email, "email");

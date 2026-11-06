@@ -19,7 +19,7 @@ export type UpdateExhibitorFileRequest = {
    */
   fileId: string;
   /**
-   * Exhibitor file content to be updated.
+   * Exhibitor file details.
    */
   file: components.FileInput;
 };

@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * LeadType
  *
- * <p>The type of lead.
+ * <p>Type of the lead.
  */
 public enum LeadType {
     LEADCAPTURE("leadcapture"),

@@ -17,5 +17,6 @@ namespace Cvent.SDK.Models.Components
     public enum VideoWarningCode
     {
         SevenHundred = 700,
+        SevenHundredAndOne = 701,
     }
 }

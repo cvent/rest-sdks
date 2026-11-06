@@ -1,6 +1,6 @@
 # SessionCategory
 
-This is used to denote the category of a session.
+A session category with a name and an optional description.
 
 ## Example Usage
 
@@ -19,6 +19,6 @@ let value: SessionCategory = {
 
 | Field                                                               | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `id`                                                                | *string*                                                            | :heavy_minus_sign:                                                  | A string that represents a specified session category.              | 38db6ae2-0dc3-487b-953e-86d6abbdf7d3                                |
+| `id`                                                                | *string*                                                            | :heavy_minus_sign:                                                  | The ID of the session category.                                     | 38db6ae2-0dc3-487b-953e-86d6abbdf7d3                                |
 | `name`                                                              | *string*                                                            | :heavy_check_mark:                                                  | The name of the session category.                                   | Networking                                                          |
 | `description`                                                       | *string*                                                            | :heavy_minus_sign:                                                  | A description for the session category.                             | During networking sessions, come meet fellow workers in your field. |

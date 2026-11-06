@@ -26,7 +26,7 @@ import java.util.Optional;
 /**
  * Session
  *
- * <p>Used to denote a session and its attributes.
+ * <p>A session, including whether it was automatically included with the event.
  */
 public class Session {
     /**
@@ -58,7 +58,7 @@ public class Session {
     private String lastModifiedBy;
 
     /**
-     * A unique identifier of the session
+     * The unique ID of the session.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -102,7 +102,7 @@ public class Session {
     private SessionLookup type;
 
     /**
-     * Used to denote a locations name and abbreviation.
+     * A location identified by its ID, code, and name.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("location")
@@ -247,7 +247,7 @@ public class Session {
     private SessionGroup group;
 
     /**
-     * The ids of the admission items, if the session is included with any.
+     * IDs of admission items associated with the session, if any.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("admissionItems")
@@ -268,7 +268,7 @@ public class Session {
     private Boolean openForAttendeeHub;
 
     /**
-     * Contains unique identifiers for registration types associated with this session
+     * Registration type IDs associated with this session.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("registrationTypes")
@@ -289,14 +289,14 @@ public class Session {
     private String dataTagCode;
 
     /**
-     * Collection of custom fields.
+     * Custom fields associated with the session.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customFields")
     private List<CustomField> customFields;
 
     /**
-     * Contains unique identifiers for segments associated with this session.
+     * Segment IDs associated with this session.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("segments")
@@ -495,7 +495,7 @@ public class Session {
     }
 
     /**
-     * A unique identifier of the session
+     * The unique ID of the session.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -541,7 +541,7 @@ public class Session {
     }
 
     /**
-     * Used to denote a locations name and abbreviation.
+     * A location identified by its ID, code, and name.
      */
     public Optional<Location1> location() {
         return Optional.ofNullable(this.location);
@@ -689,7 +689,7 @@ public class Session {
     }
 
     /**
-     * The ids of the admission items, if the session is included with any.
+     * IDs of admission items associated with the session, if any.
      */
     public Optional<List<String>> admissionItems() {
         return Optional.ofNullable(this.admissionItems);
@@ -710,7 +710,7 @@ public class Session {
     }
 
     /**
-     * Contains unique identifiers for registration types associated with this session
+     * Registration type IDs associated with this session.
      */
     public Optional<List<String>> registrationTypes() {
         return Optional.ofNullable(this.registrationTypes);
@@ -731,14 +731,14 @@ public class Session {
     }
 
     /**
-     * Collection of custom fields.
+     * Custom fields associated with the session.
      */
     public Optional<List<CustomField>> customFields() {
         return Optional.ofNullable(this.customFields);
     }
 
     /**
-     * Contains unique identifiers for segments associated with this session.
+     * Segment IDs associated with this session.
      */
     public Optional<List<String>> segments() {
         return Optional.ofNullable(this.segments);
@@ -806,7 +806,7 @@ public class Session {
     }
 
     /**
-     * A unique identifier of the session
+     * The unique ID of the session.
      */
     public Session withId(@Nullable String id) {
         this.id = id;
@@ -859,7 +859,7 @@ public class Session {
     }
 
     /**
-     * Used to denote a locations name and abbreviation.
+     * A location identified by its ID, code, and name.
      */
     public Session withLocation(@Nullable Location1 location) {
         this.location = location;
@@ -1026,7 +1026,7 @@ public class Session {
     }
 
     /**
-     * The ids of the admission items, if the session is included with any.
+     * IDs of admission items associated with the session, if any.
      */
     public Session withAdmissionItems(@Nullable List<String> admissionItems) {
         this.admissionItems = admissionItems;
@@ -1050,7 +1050,7 @@ public class Session {
     }
 
     /**
-     * Contains unique identifiers for registration types associated with this session
+     * Registration type IDs associated with this session.
      */
     public Session withRegistrationTypes(@Nullable List<String> registrationTypes) {
         this.registrationTypes = registrationTypes;
@@ -1074,7 +1074,7 @@ public class Session {
     }
 
     /**
-     * Collection of custom fields.
+     * Custom fields associated with the session.
      */
     public Session withCustomFields(@Nullable List<CustomField> customFields) {
         this.customFields = customFields;
@@ -1082,7 +1082,7 @@ public class Session {
     }
 
     /**
-     * Contains unique identifiers for segments associated with this session.
+     * Segment IDs associated with this session.
      */
     public Session withSegments(@Nullable List<String> segments) {
         this.segments = segments;
@@ -1426,7 +1426,7 @@ public class Session {
         }
 
         /**
-         * A unique identifier of the session
+         * The unique ID of the session.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -1479,7 +1479,7 @@ public class Session {
         }
 
         /**
-         * Used to denote a locations name and abbreviation.
+         * A location identified by its ID, code, and name.
          */
         public Builder location(@Nullable Location1 location) {
             this.location = location;
@@ -1646,7 +1646,7 @@ public class Session {
         }
 
         /**
-         * The ids of the admission items, if the session is included with any.
+         * IDs of admission items associated with the session, if any.
          */
         public Builder admissionItems(@Nullable List<String> admissionItems) {
             this.admissionItems = admissionItems;
@@ -1670,7 +1670,7 @@ public class Session {
         }
 
         /**
-         * Contains unique identifiers for registration types associated with this session
+         * Registration type IDs associated with this session.
          */
         public Builder registrationTypes(@Nullable List<String> registrationTypes) {
             this.registrationTypes = registrationTypes;
@@ -1694,7 +1694,7 @@ public class Session {
         }
 
         /**
-         * Collection of custom fields.
+         * Custom fields associated with the session.
          */
         public Builder customFields(@Nullable List<CustomField> customFields) {
             this.customFields = customFields;
@@ -1702,7 +1702,7 @@ public class Session {
         }
 
         /**
-         * Contains unique identifiers for segments associated with this session.
+         * Segment IDs associated with this session.
          */
         public Builder segments(@Nullable List<String> segments) {
             this.segments = segments;

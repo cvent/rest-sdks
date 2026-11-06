@@ -1,6 +1,6 @@
 # BoothStaffListResponse
 
-Represents the booth staff list response, with paging information and a list of booth staff.
+Paginated list of booth staff members.
 
 
 ## Fields
@@ -8,4 +8,4 @@ Represents the booth staff list response, with paging information and a list of 
 | Field                                                                     | Type                                                                      | Required                                                                  | Description                                                               |
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
 | `Paging`                                                                  | [Paging](../../Models/Components/Paging.md)                               | :heavy_minus_sign:                                                        | Represents pagination information for a collection of resources.          |
-| `Data`                                                                    | List<[BoothStaffResponse](../../Models/Components/BoothStaffResponse.md)> | :heavy_minus_sign:                                                        | List of booth staff.                                                      |
+| `Data`                                                                    | List<[BoothStaffResponse](../../Models/Components/BoothStaffResponse.md)> | :heavy_minus_sign:                                                        | List of booth staff members.                                              |

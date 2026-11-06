@@ -42,7 +42,8 @@ public class LeadCatcherPatch {
     private JsonNullable<String> title;
 
     /**
-     * Email address of the lead catcher contact. RFP notifications are sent to this address.
+     * Email address of the lead catcher contact. RFP notifications are sent to this address. Maximum 80
+     * characters in total, with no more than 64 characters before the `@`.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("email")
@@ -142,7 +143,8 @@ public class LeadCatcherPatch {
     }
 
     /**
-     * Email address of the lead catcher contact. RFP notifications are sent to this address.
+     * Email address of the lead catcher contact. RFP notifications are sent to this address. Maximum 80
+     * characters in total, with no more than 64 characters before the `@`.
      */
     public JsonNullable<String> email() {
         return this.email;
@@ -221,7 +223,8 @@ public class LeadCatcherPatch {
     }
 
     /**
-     * Email address of the lead catcher contact. RFP notifications are sent to this address.
+     * Email address of the lead catcher contact. RFP notifications are sent to this address. Maximum 80
+     * characters in total, with no more than 64 characters before the `@`.
      */
     public LeadCatcherPatch withEmail(@Nullable String email) {
         this.email = JsonNullable.of(email);
@@ -383,7 +386,8 @@ public class LeadCatcherPatch {
         }
 
         /**
-         * Email address of the lead catcher contact. RFP notifications are sent to this address.
+         * Email address of the lead catcher contact. RFP notifications are sent to this address. Maximum 80
+         * characters in total, with no more than 64 characters before the `@`.
          */
         public Builder email(@Nullable String email) {
             this.email = JsonNullable.of(email);

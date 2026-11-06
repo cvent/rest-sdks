@@ -26,7 +26,7 @@ public class PostRegistrationPackRequest {
     private String exhibitorId;
 
     /**
-     * Registration pack details
+     * Registration pack details.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private RegistrationPackRequest registrationPackRequest;
@@ -56,7 +56,7 @@ public class PostRegistrationPackRequest {
     }
 
     /**
-     * Registration pack details
+     * Registration pack details.
      */
     public RegistrationPackRequest registrationPackRequest() {
         return this.registrationPackRequest;
@@ -83,7 +83,7 @@ public class PostRegistrationPackRequest {
     }
 
     /**
-     * Registration pack details
+     * Registration pack details.
      */
     public PostRegistrationPackRequest withRegistrationPackRequest(
             @Nonnull RegistrationPackRequest registrationPackRequest) {
@@ -152,7 +152,7 @@ public class PostRegistrationPackRequest {
         }
 
         /**
-         * Registration pack details
+         * Registration pack details.
          */
         public Builder registrationPackRequest(@Nonnull RegistrationPackRequest registrationPackRequest) {
             this.registrationPackRequest = Utils.checkNotNull(registrationPackRequest, "registrationPackRequest");

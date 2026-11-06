@@ -1,6 +1,6 @@
 # BoothStaffRequest
 
-A JSON schema representing booth staff.
+Booth staff member of an exhibitor.
 
 ## Example Usage
 
@@ -24,6 +24,6 @@ let value: BoothStaffRequest = {
 
 | Field                                                          | Type                                                           | Required                                                       | Description                                                    |
 | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| `attendee`                                                     | [components.Attendee12](../../models/components/attendee12.md) | :heavy_check_mark:                                             | The associated Attendee.                                       |
-| `event`                                                        | [components.Event4](../../models/components/event4.md)         | :heavy_check_mark:                                             | The Associated Event.                                          |
-| `exhibitor`                                                    | [components.Exhibitor](../../models/components/exhibitor.md)   | :heavy_check_mark:                                             | The Associated Exhibitor.                                      |
+| `attendee`                                                     | [components.Attendee12](../../models/components/attendee12.md) | :heavy_check_mark:                                             | Associated attendee.                                           |
+| `event`                                                        | [components.Event4](../../models/components/event4.md)         | :heavy_check_mark:                                             | Associated event.                                              |
+| `exhibitor`                                                    | [components.Exhibitor](../../models/components/exhibitor.md)   | :heavy_check_mark:                                             | Associated exhibitor.                                          |

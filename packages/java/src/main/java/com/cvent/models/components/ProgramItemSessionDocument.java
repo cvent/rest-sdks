@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  * ProgramItemSessionDocument
  *
- * <p>Represents a program item object that will be added to a session document.
+ * <p>A relationship between a session program item and a session document.
  */
 public class ProgramItemSessionDocument {
     /**
@@ -57,19 +57,19 @@ public class ProgramItemSessionDocument {
     private String id;
 
     /**
-     * The related event object.
+     * A reference to an event by its ID.
      */
     @JsonProperty("event")
     private EventId event;
 
     /**
-     * The related session object.
+     * A reference to a session by its ID.
      */
     @JsonProperty("session")
     private Session1 session;
 
     /**
-     * The related document object.
+     * A reference to a session document by its ID.
      */
     @JsonProperty("document")
     private SessionDocumentLite document;
@@ -149,21 +149,21 @@ public class ProgramItemSessionDocument {
     }
 
     /**
-     * The related event object.
+     * A reference to an event by its ID.
      */
     public EventId event() {
         return this.event;
     }
 
     /**
-     * The related session object.
+     * A reference to a session by its ID.
      */
     public Session1 session() {
         return this.session;
     }
 
     /**
-     * The related document object.
+     * A reference to a session document by its ID.
      */
     public SessionDocumentLite document() {
         return this.document;
@@ -221,7 +221,7 @@ public class ProgramItemSessionDocument {
     }
 
     /**
-     * The related event object.
+     * A reference to an event by its ID.
      */
     public ProgramItemSessionDocument withEvent(@Nonnull EventId event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -229,7 +229,7 @@ public class ProgramItemSessionDocument {
     }
 
     /**
-     * The related session object.
+     * A reference to a session by its ID.
      */
     public ProgramItemSessionDocument withSession(@Nonnull Session1 session) {
         this.session = Utils.checkNotNull(session, "session");
@@ -237,7 +237,7 @@ public class ProgramItemSessionDocument {
     }
 
     /**
-     * The related document object.
+     * A reference to a session document by its ID.
      */
     public ProgramItemSessionDocument withDocument(@Nonnull SessionDocumentLite document) {
         this.document = Utils.checkNotNull(document, "document");
@@ -368,7 +368,7 @@ public class ProgramItemSessionDocument {
         }
 
         /**
-         * The related event object.
+         * A reference to an event by its ID.
          */
         public Builder event(@Nonnull EventId event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -376,7 +376,7 @@ public class ProgramItemSessionDocument {
         }
 
         /**
-         * The related session object.
+         * A reference to a session by its ID.
          */
         public Builder session(@Nonnull Session1 session) {
             this.session = Utils.checkNotNull(session, "session");
@@ -384,7 +384,7 @@ public class ProgramItemSessionDocument {
         }
 
         /**
-         * The related document object.
+         * A reference to a session document by its ID.
          */
         public Builder document(@Nonnull SessionDocumentLite document) {
             this.document = Utils.checkNotNull(document, "document");

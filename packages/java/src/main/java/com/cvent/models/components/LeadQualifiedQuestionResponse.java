@@ -25,7 +25,7 @@ public class LeadQualifiedQuestionResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("question")
-    private Question2 question;
+    private Question3 question;
 
     /**
      * List of answers.
@@ -36,7 +36,7 @@ public class LeadQualifiedQuestionResponse {
 
     @JsonCreator
     public LeadQualifiedQuestionResponse(
-            @JsonProperty("question") @Nullable Question2 question,
+            @JsonProperty("question") @Nullable Question3 question,
             @JsonProperty("answers") @Nullable List<LeadQualifiedAnswer> answers) {
         this.question = question;
         this.answers = answers;
@@ -49,7 +49,7 @@ public class LeadQualifiedQuestionResponse {
     /**
      * The question that was answered.
      */
-    public Optional<Question2> question() {
+    public Optional<Question3> question() {
         return Optional.ofNullable(this.question);
     }
 
@@ -67,7 +67,7 @@ public class LeadQualifiedQuestionResponse {
     /**
      * The question that was answered.
      */
-    public LeadQualifiedQuestionResponse withQuestion(@Nullable Question2 question) {
+    public LeadQualifiedQuestionResponse withQuestion(@Nullable Question3 question) {
         this.question = question;
         return this;
     }
@@ -106,7 +106,7 @@ public class LeadQualifiedQuestionResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private Question2 question;
+        private Question3 question;
 
         private List<LeadQualifiedAnswer> answers;
 
@@ -117,7 +117,7 @@ public class LeadQualifiedQuestionResponse {
         /**
          * The question that was answered.
          */
-        public Builder question(@Nullable Question2 question) {
+        public Builder question(@Nullable Question3 question) {
             this.question = question;
             return this;
         }

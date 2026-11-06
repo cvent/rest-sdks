@@ -32,7 +32,7 @@ public class GetBadgesPostFiltersResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully get badges.
+     * Successfully retrieved the badges.
      */
     private BadgePaginatedResponse badgePaginatedResponse;
 
@@ -77,7 +77,7 @@ public class GetBadgesPostFiltersResponse implements Response {
     }
 
     /**
-     * Successfully get badges.
+     * Successfully retrieved the badges.
      */
     public Optional<BadgePaginatedResponse> badgePaginatedResponse() {
         return Optional.ofNullable(this.badgePaginatedResponse);
@@ -112,7 +112,7 @@ public class GetBadgesPostFiltersResponse implements Response {
     }
 
     /**
-     * Successfully get badges.
+     * Successfully retrieved the badges.
      */
     public GetBadgesPostFiltersResponse withBadgePaginatedResponse(
             @Nullable BadgePaginatedResponse badgePaginatedResponse) {
@@ -194,7 +194,7 @@ public class GetBadgesPostFiltersResponse implements Response {
         }
 
         /**
-         * Successfully get badges.
+         * Successfully retrieved the badges.
          */
         public Builder badgePaginatedResponse(@Nullable BadgePaginatedResponse badgePaginatedResponse) {
             this.badgePaginatedResponse = badgePaginatedResponse;

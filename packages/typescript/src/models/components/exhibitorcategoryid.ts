@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Schema for Exhibitor Category ID.
+ * Exhibitor category ID.
  */
 export type ExhibitorCategoryId = {
   /**
-   * ID of exhibitor category.
+   * Exhibitor category ID.
    */
   id?: string | undefined;
 };

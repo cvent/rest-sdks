@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Components
     public class MembershipItem
     {
         /// <summary>
-        /// The unique ID representing the optional item.
+        /// Optional item ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

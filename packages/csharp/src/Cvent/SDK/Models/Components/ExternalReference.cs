@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// An external reference.
+    /// An external reference linking the attendee to a record in an external system.
     /// </summary>
     public class ExternalReference
     {
@@ -25,13 +25,13 @@ namespace Cvent.SDK.Models.Components
         public ExternalReferenceType? Type { get; set; }
 
         /// <summary>
-        /// The identifier of the external system.
+        /// External system ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The identifier of an attendee in the external system.
+        /// Attendee ID in the external system.
         /// </summary>
         [JsonProperty("referenceId")]
         public string? ReferenceId { get; set; }

@@ -20,87 +20,86 @@ import java.util.Optional;
 /**
  * ExhibitorRequest
  *
- * <p>A representation of an exhibitor including all relevant information.
+ * <p>Exhibitor at an event.
  */
 public class ExhibitorRequest {
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal
-     * results.
+     * Name of the exhibitor. The recommended maximum length is 200 characters.
      */
     @JsonProperty("name")
     private String name;
 
     /**
-     * Exhibitor description
+     * Description of the exhibitor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("description")
     private String description;
 
     /**
-     * Code used to identify the exhibitor
+     * Code that identifies the exhibitor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("code")
     private String code;
 
     /**
-     * Code used for marketing groupings
+     * Code of the marketing group of the exhibitor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("sourceId")
     private String sourceId;
 
     /**
-     * Exhibitor location
+     * Location of the exhibitor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("location")
     private String location;
 
     /**
-     * An object representing an address with various properties.
+     * Address of the exhibitor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address")
     private Address5 address;
 
     /**
-     * Email address of the exhibitor
+     * Email address of the exhibitor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("email")
     private String email;
 
     /**
-     * Mobile Phone of the exhibitor
+     * Mobile phone number of the exhibitor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("mobilePhone")
     private String mobilePhone;
 
     /**
-     * Work Phone of the exhibitor
+     * Work phone number of the exhibitor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("workPhone")
     private String workPhone;
 
     /**
-     * Any other phone of the exhibitor
+     * Other phone number of the exhibitor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("otherPhone")
     private String otherPhone;
 
     /**
-     * Exhibitor's website URL
+     * URL of the exhibitor website.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("website")
@@ -114,7 +113,7 @@ public class ExhibitorRequest {
     private ContactLinks1 contactLinks;
 
     /**
-     * A boolean indicating whether the exhibitor is deleted or not
+     * True indicates that the exhibitor is deleted.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("deleted")
@@ -128,21 +127,38 @@ public class ExhibitorRequest {
     private Boolean hidden;
 
     /**
-     * A boolean indicating whether the exhibitor is an event sponsor or not
+     * True indicates that the exhibitor is an event sponsor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("eventSponsor")
     private Boolean eventSponsor;
 
     /**
-     * A boolean indicating whether the exhibitor is designated as featured or not
+     * True indicates that the exhibitor is featured.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("featured")
     private Boolean featured;
 
     /**
-     * Associated sponsorship level for an exhibitor
+     * True indicates that the exhibitor is hidden from the exhibitor list in Attendee Hub. The exhibitor
+     * still appears in the sponsor list. The value applies only to an event sponsor.
+     *
+     * <p>The value is saved as false when `eventSponsor` is false.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("sponsorOnlyExhibitor")
+    private Boolean sponsorOnlyExhibitor;
+
+    /**
+     * True indicates that the exhibitor is hidden from the exhibitor widget on the event website.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("hiddenFromRegistration")
+    private Boolean hiddenFromRegistration;
+
+    /**
+     * Associated sponsorship level of an exhibitor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("sponsorshipLevel")
@@ -167,6 +183,8 @@ public class ExhibitorRequest {
             @JsonProperty("hidden") @Nullable Boolean hidden,
             @JsonProperty("eventSponsor") @Nullable Boolean eventSponsor,
             @JsonProperty("featured") @Nullable Boolean featured,
+            @JsonProperty("sponsorOnlyExhibitor") @Nullable Boolean sponsorOnlyExhibitor,
+            @JsonProperty("hiddenFromRegistration") @Nullable Boolean hiddenFromRegistration,
             @JsonProperty("sponsorshipLevel") @Nullable SponsorshipLevel sponsorshipLevel) {
         this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
@@ -185,6 +203,10 @@ public class ExhibitorRequest {
         this.hidden = Optional.ofNullable(hidden).orElse(Builder._SINGLETON_VALUE_Hidden.value());
         this.eventSponsor = Optional.ofNullable(eventSponsor).orElse(Builder._SINGLETON_VALUE_EventSponsor.value());
         this.featured = Optional.ofNullable(featured).orElse(Builder._SINGLETON_VALUE_Featured.value());
+        this.sponsorOnlyExhibitor =
+                Optional.ofNullable(sponsorOnlyExhibitor).orElse(Builder._SINGLETON_VALUE_SponsorOnlyExhibitor.value());
+        this.hiddenFromRegistration = Optional.ofNullable(hiddenFromRegistration)
+                .orElse(Builder._SINGLETON_VALUE_HiddenFromRegistration.value());
         this.sponsorshipLevel = sponsorshipLevel;
     }
 
@@ -207,89 +229,90 @@ public class ExhibitorRequest {
                 null,
                 null,
                 null,
+                null,
+                null,
                 null);
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Event4 event() {
         return this.event;
     }
 
     /**
-     * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal
-     * results.
+     * Name of the exhibitor. The recommended maximum length is 200 characters.
      */
     public String name() {
         return this.name;
     }
 
     /**
-     * Exhibitor description
+     * Description of the exhibitor.
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
 
     /**
-     * Code used to identify the exhibitor
+     * Code that identifies the exhibitor.
      */
     public Optional<String> code() {
         return Optional.ofNullable(this.code);
     }
 
     /**
-     * Code used for marketing groupings
+     * Code of the marketing group of the exhibitor.
      */
     public Optional<String> sourceId() {
         return Optional.ofNullable(this.sourceId);
     }
 
     /**
-     * Exhibitor location
+     * Location of the exhibitor.
      */
     public Optional<String> location() {
         return Optional.ofNullable(this.location);
     }
 
     /**
-     * An object representing an address with various properties.
+     * Address of the exhibitor.
      */
     public Optional<Address5> address() {
         return Optional.ofNullable(this.address);
     }
 
     /**
-     * Email address of the exhibitor
+     * Email address of the exhibitor.
      */
     public Optional<String> email() {
         return Optional.ofNullable(this.email);
     }
 
     /**
-     * Mobile Phone of the exhibitor
+     * Mobile phone number of the exhibitor.
      */
     public Optional<String> mobilePhone() {
         return Optional.ofNullable(this.mobilePhone);
     }
 
     /**
-     * Work Phone of the exhibitor
+     * Work phone number of the exhibitor.
      */
     public Optional<String> workPhone() {
         return Optional.ofNullable(this.workPhone);
     }
 
     /**
-     * Any other phone of the exhibitor
+     * Other phone number of the exhibitor.
      */
     public Optional<String> otherPhone() {
         return Optional.ofNullable(this.otherPhone);
     }
 
     /**
-     * Exhibitor's website URL
+     * URL of the exhibitor website.
      */
     public Optional<String> website() {
         return Optional.ofNullable(this.website);
@@ -303,7 +326,7 @@ public class ExhibitorRequest {
     }
 
     /**
-     * A boolean indicating whether the exhibitor is deleted or not
+     * True indicates that the exhibitor is deleted.
      */
     public Optional<Boolean> deleted() {
         return Optional.ofNullable(this.deleted);
@@ -317,21 +340,38 @@ public class ExhibitorRequest {
     }
 
     /**
-     * A boolean indicating whether the exhibitor is an event sponsor or not
+     * True indicates that the exhibitor is an event sponsor.
      */
     public Optional<Boolean> eventSponsor() {
         return Optional.ofNullable(this.eventSponsor);
     }
 
     /**
-     * A boolean indicating whether the exhibitor is designated as featured or not
+     * True indicates that the exhibitor is featured.
      */
     public Optional<Boolean> featured() {
         return Optional.ofNullable(this.featured);
     }
 
     /**
-     * Associated sponsorship level for an exhibitor
+     * True indicates that the exhibitor is hidden from the exhibitor list in Attendee Hub. The exhibitor
+     * still appears in the sponsor list. The value applies only to an event sponsor.
+     *
+     * <p>The value is saved as false when `eventSponsor` is false.
+     */
+    public Optional<Boolean> sponsorOnlyExhibitor() {
+        return Optional.ofNullable(this.sponsorOnlyExhibitor);
+    }
+
+    /**
+     * True indicates that the exhibitor is hidden from the exhibitor widget on the event website.
+     */
+    public Optional<Boolean> hiddenFromRegistration() {
+        return Optional.ofNullable(this.hiddenFromRegistration);
+    }
+
+    /**
+     * Associated sponsorship level of an exhibitor.
      */
     public Optional<SponsorshipLevel> sponsorshipLevel() {
         return Optional.ofNullable(this.sponsorshipLevel);
@@ -342,7 +382,7 @@ public class ExhibitorRequest {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public ExhibitorRequest withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -350,8 +390,7 @@ public class ExhibitorRequest {
     }
 
     /**
-     * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal
-     * results.
+     * Name of the exhibitor. The recommended maximum length is 200 characters.
      */
     public ExhibitorRequest withName(@Nonnull String name) {
         this.name = Utils.checkNotNull(name, "name");
@@ -359,7 +398,7 @@ public class ExhibitorRequest {
     }
 
     /**
-     * Exhibitor description
+     * Description of the exhibitor.
      */
     public ExhibitorRequest withDescription(@Nullable String description) {
         this.description = description;
@@ -367,7 +406,7 @@ public class ExhibitorRequest {
     }
 
     /**
-     * Code used to identify the exhibitor
+     * Code that identifies the exhibitor.
      */
     public ExhibitorRequest withCode(@Nullable String code) {
         this.code = code;
@@ -375,7 +414,7 @@ public class ExhibitorRequest {
     }
 
     /**
-     * Code used for marketing groupings
+     * Code of the marketing group of the exhibitor.
      */
     public ExhibitorRequest withSourceId(@Nullable String sourceId) {
         this.sourceId = sourceId;
@@ -383,7 +422,7 @@ public class ExhibitorRequest {
     }
 
     /**
-     * Exhibitor location
+     * Location of the exhibitor.
      */
     public ExhibitorRequest withLocation(@Nullable String location) {
         this.location = location;
@@ -391,7 +430,7 @@ public class ExhibitorRequest {
     }
 
     /**
-     * An object representing an address with various properties.
+     * Address of the exhibitor.
      */
     public ExhibitorRequest withAddress(@Nullable Address5 address) {
         this.address = address;
@@ -399,7 +438,7 @@ public class ExhibitorRequest {
     }
 
     /**
-     * Email address of the exhibitor
+     * Email address of the exhibitor.
      */
     public ExhibitorRequest withEmail(@Nullable String email) {
         this.email = email;
@@ -407,7 +446,7 @@ public class ExhibitorRequest {
     }
 
     /**
-     * Mobile Phone of the exhibitor
+     * Mobile phone number of the exhibitor.
      */
     public ExhibitorRequest withMobilePhone(@Nullable String mobilePhone) {
         this.mobilePhone = mobilePhone;
@@ -415,7 +454,7 @@ public class ExhibitorRequest {
     }
 
     /**
-     * Work Phone of the exhibitor
+     * Work phone number of the exhibitor.
      */
     public ExhibitorRequest withWorkPhone(@Nullable String workPhone) {
         this.workPhone = workPhone;
@@ -423,7 +462,7 @@ public class ExhibitorRequest {
     }
 
     /**
-     * Any other phone of the exhibitor
+     * Other phone number of the exhibitor.
      */
     public ExhibitorRequest withOtherPhone(@Nullable String otherPhone) {
         this.otherPhone = otherPhone;
@@ -431,7 +470,7 @@ public class ExhibitorRequest {
     }
 
     /**
-     * Exhibitor's website URL
+     * URL of the exhibitor website.
      */
     public ExhibitorRequest withWebsite(@Nullable String website) {
         this.website = website;
@@ -447,7 +486,7 @@ public class ExhibitorRequest {
     }
 
     /**
-     * A boolean indicating whether the exhibitor is deleted or not
+     * True indicates that the exhibitor is deleted.
      */
     public ExhibitorRequest withDeleted(@Nullable Boolean deleted) {
         this.deleted = deleted;
@@ -463,7 +502,7 @@ public class ExhibitorRequest {
     }
 
     /**
-     * A boolean indicating whether the exhibitor is an event sponsor or not
+     * True indicates that the exhibitor is an event sponsor.
      */
     public ExhibitorRequest withEventSponsor(@Nullable Boolean eventSponsor) {
         this.eventSponsor = eventSponsor;
@@ -471,7 +510,7 @@ public class ExhibitorRequest {
     }
 
     /**
-     * A boolean indicating whether the exhibitor is designated as featured or not
+     * True indicates that the exhibitor is featured.
      */
     public ExhibitorRequest withFeatured(@Nullable Boolean featured) {
         this.featured = featured;
@@ -479,7 +518,26 @@ public class ExhibitorRequest {
     }
 
     /**
-     * Associated sponsorship level for an exhibitor
+     * True indicates that the exhibitor is hidden from the exhibitor list in Attendee Hub. The exhibitor
+     * still appears in the sponsor list. The value applies only to an event sponsor.
+     *
+     * <p>The value is saved as false when `eventSponsor` is false.
+     */
+    public ExhibitorRequest withSponsorOnlyExhibitor(@Nullable Boolean sponsorOnlyExhibitor) {
+        this.sponsorOnlyExhibitor = sponsorOnlyExhibitor;
+        return this;
+    }
+
+    /**
+     * True indicates that the exhibitor is hidden from the exhibitor widget on the event website.
+     */
+    public ExhibitorRequest withHiddenFromRegistration(@Nullable Boolean hiddenFromRegistration) {
+        this.hiddenFromRegistration = hiddenFromRegistration;
+        return this;
+    }
+
+    /**
+     * Associated sponsorship level of an exhibitor.
      */
     public ExhibitorRequest withSponsorshipLevel(@Nullable SponsorshipLevel sponsorshipLevel) {
         this.sponsorshipLevel = sponsorshipLevel;
@@ -512,6 +570,8 @@ public class ExhibitorRequest {
                 && Utils.enhancedDeepEquals(this.hidden, other.hidden)
                 && Utils.enhancedDeepEquals(this.eventSponsor, other.eventSponsor)
                 && Utils.enhancedDeepEquals(this.featured, other.featured)
+                && Utils.enhancedDeepEquals(this.sponsorOnlyExhibitor, other.sponsorOnlyExhibitor)
+                && Utils.enhancedDeepEquals(this.hiddenFromRegistration, other.hiddenFromRegistration)
                 && Utils.enhancedDeepEquals(this.sponsorshipLevel, other.sponsorshipLevel);
     }
 
@@ -535,6 +595,8 @@ public class ExhibitorRequest {
                 hidden,
                 eventSponsor,
                 featured,
+                sponsorOnlyExhibitor,
+                hiddenFromRegistration,
                 sponsorshipLevel);
     }
 
@@ -576,6 +638,10 @@ public class ExhibitorRequest {
                 eventSponsor,
                 "featured",
                 featured,
+                "sponsorOnlyExhibitor",
+                sponsorOnlyExhibitor,
+                "hiddenFromRegistration",
+                hiddenFromRegistration,
                 "sponsorshipLevel",
                 sponsorshipLevel);
     }
@@ -617,6 +683,10 @@ public class ExhibitorRequest {
 
         private Boolean featured;
 
+        private Boolean sponsorOnlyExhibitor;
+
+        private Boolean hiddenFromRegistration;
+
         private SponsorshipLevel sponsorshipLevel;
 
         private Builder() {
@@ -624,7 +694,7 @@ public class ExhibitorRequest {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -632,8 +702,7 @@ public class ExhibitorRequest {
         }
 
         /**
-         * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal
-         * results.
+         * Name of the exhibitor. The recommended maximum length is 200 characters.
          */
         public Builder name(@Nonnull String name) {
             this.name = Utils.checkNotNull(name, "name");
@@ -641,7 +710,7 @@ public class ExhibitorRequest {
         }
 
         /**
-         * Exhibitor description
+         * Description of the exhibitor.
          */
         public Builder description(@Nullable String description) {
             this.description = description;
@@ -649,7 +718,7 @@ public class ExhibitorRequest {
         }
 
         /**
-         * Code used to identify the exhibitor
+         * Code that identifies the exhibitor.
          */
         public Builder code(@Nullable String code) {
             this.code = code;
@@ -657,7 +726,7 @@ public class ExhibitorRequest {
         }
 
         /**
-         * Code used for marketing groupings
+         * Code of the marketing group of the exhibitor.
          */
         public Builder sourceId(@Nullable String sourceId) {
             this.sourceId = sourceId;
@@ -665,7 +734,7 @@ public class ExhibitorRequest {
         }
 
         /**
-         * Exhibitor location
+         * Location of the exhibitor.
          */
         public Builder location(@Nullable String location) {
             this.location = location;
@@ -673,7 +742,7 @@ public class ExhibitorRequest {
         }
 
         /**
-         * An object representing an address with various properties.
+         * Address of the exhibitor.
          */
         public Builder address(@Nullable Address5 address) {
             this.address = address;
@@ -681,7 +750,7 @@ public class ExhibitorRequest {
         }
 
         /**
-         * Email address of the exhibitor
+         * Email address of the exhibitor.
          */
         public Builder email(@Nullable String email) {
             this.email = email;
@@ -689,7 +758,7 @@ public class ExhibitorRequest {
         }
 
         /**
-         * Mobile Phone of the exhibitor
+         * Mobile phone number of the exhibitor.
          */
         public Builder mobilePhone(@Nullable String mobilePhone) {
             this.mobilePhone = mobilePhone;
@@ -697,7 +766,7 @@ public class ExhibitorRequest {
         }
 
         /**
-         * Work Phone of the exhibitor
+         * Work phone number of the exhibitor.
          */
         public Builder workPhone(@Nullable String workPhone) {
             this.workPhone = workPhone;
@@ -705,7 +774,7 @@ public class ExhibitorRequest {
         }
 
         /**
-         * Any other phone of the exhibitor
+         * Other phone number of the exhibitor.
          */
         public Builder otherPhone(@Nullable String otherPhone) {
             this.otherPhone = otherPhone;
@@ -713,7 +782,7 @@ public class ExhibitorRequest {
         }
 
         /**
-         * Exhibitor's website URL
+         * URL of the exhibitor website.
          */
         public Builder website(@Nullable String website) {
             this.website = website;
@@ -729,7 +798,7 @@ public class ExhibitorRequest {
         }
 
         /**
-         * A boolean indicating whether the exhibitor is deleted or not
+         * True indicates that the exhibitor is deleted.
          */
         public Builder deleted(@Nullable Boolean deleted) {
             this.deleted = deleted;
@@ -745,7 +814,7 @@ public class ExhibitorRequest {
         }
 
         /**
-         * A boolean indicating whether the exhibitor is an event sponsor or not
+         * True indicates that the exhibitor is an event sponsor.
          */
         public Builder eventSponsor(@Nullable Boolean eventSponsor) {
             this.eventSponsor = eventSponsor;
@@ -753,7 +822,7 @@ public class ExhibitorRequest {
         }
 
         /**
-         * A boolean indicating whether the exhibitor is designated as featured or not
+         * True indicates that the exhibitor is featured.
          */
         public Builder featured(@Nullable Boolean featured) {
             this.featured = featured;
@@ -761,7 +830,26 @@ public class ExhibitorRequest {
         }
 
         /**
-         * Associated sponsorship level for an exhibitor
+         * True indicates that the exhibitor is hidden from the exhibitor list in Attendee Hub. The exhibitor
+         * still appears in the sponsor list. The value applies only to an event sponsor.
+         *
+         * <p>The value is saved as false when `eventSponsor` is false.
+         */
+        public Builder sponsorOnlyExhibitor(@Nullable Boolean sponsorOnlyExhibitor) {
+            this.sponsorOnlyExhibitor = sponsorOnlyExhibitor;
+            return this;
+        }
+
+        /**
+         * True indicates that the exhibitor is hidden from the exhibitor widget on the event website.
+         */
+        public Builder hiddenFromRegistration(@Nullable Boolean hiddenFromRegistration) {
+            this.hiddenFromRegistration = hiddenFromRegistration;
+            return this;
+        }
+
+        /**
+         * Associated sponsorship level of an exhibitor.
          */
         public Builder sponsorshipLevel(@Nullable SponsorshipLevel sponsorshipLevel) {
             this.sponsorshipLevel = sponsorshipLevel;
@@ -787,6 +875,8 @@ public class ExhibitorRequest {
                     hidden,
                     eventSponsor,
                     featured,
+                    sponsorOnlyExhibitor,
+                    hiddenFromRegistration,
                     sponsorshipLevel);
         }
 
@@ -801,5 +891,11 @@ public class ExhibitorRequest {
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Featured =
                 new LazySingletonValue<>("featured", "false", new TypeReference<Boolean>() {});
+
+        private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_SponsorOnlyExhibitor =
+                new LazySingletonValue<>("sponsorOnlyExhibitor", "false", new TypeReference<Boolean>() {});
+
+        private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_HiddenFromRegistration =
+                new LazySingletonValue<>("hiddenFromRegistration", "false", new TypeReference<Boolean>() {});
     }
 }

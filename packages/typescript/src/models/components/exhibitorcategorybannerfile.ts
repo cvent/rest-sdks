@@ -18,7 +18,7 @@ export type ExhibitorCategoryBannerFileFile = {
 };
 
 /**
- * A JSON schema for the exhibitor category banner file.
+ * Banner image file of an exhibitor category.
  */
 export type ExhibitorCategoryBannerFile = {
   /**
@@ -26,7 +26,7 @@ export type ExhibitorCategoryBannerFile = {
    */
   file?: ExhibitorCategoryBannerFileFile | undefined;
   /**
-   * URL of a exhibitor category banner image
+   * URL of the banner image of the exhibitor category.
    */
   href?: string | undefined;
 };

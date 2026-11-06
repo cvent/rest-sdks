@@ -75,7 +75,7 @@ export type SupplierAssociatedAds = {
 };
 
 /**
- * Lead source details.
+ * Lead source: only `leadSource.section.id` is used; `leadSource.id` is ignored. If you omit the section, Cvent sets the default section. A caller can send only the default section. Another section is rejected with 400.
  */
 export type RfpSupplierLeadSource = {
   /**
@@ -89,7 +89,7 @@ export type RfpSupplierLeadSource = {
 };
 
 /**
- * Promotion applied by planner while adding supplier on RFP.
+ * Promotion applied by the planner to the supplier on the RFP. Can be set when the supplier is first associated, or added later by calling Associate Supplier to RFP again for the same supplier.
  */
 export type Promotion = {
   /**
@@ -175,6 +175,9 @@ export type RfpSupplier = {
    * Internal note by planner for supplier. This is not visible to the supplier.
    */
   internalNote?: string | undefined;
+  /**
+   * Lead source: only `leadSource.section.id` is used; `leadSource.id` is ignored. If you omit the section, Cvent sets the default section. A caller can send only the default section. Another section is rejected with 400.
+   */
   leadSource?: RfpSupplierLeadSource | undefined;
   /**
    * True indicates the largest meeting room criteria is met.
@@ -189,7 +192,7 @@ export type RfpSupplier = {
    */
   totalMeetingSpaceMet?: boolean | undefined;
   /**
-   * Promotion applied by planner while adding supplier on RFP.
+   * Promotion applied by the planner to the supplier on the RFP. Can be set when the supplier is first associated, or added later by calling Associate Supplier to RFP again for the same supplier.
    */
   promotion?: Promotion | undefined;
   /**

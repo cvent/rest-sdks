@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Optional Item fetch results.
+    /// A paginated collection of optional items selected by an attendee during event registration.
     /// </summary>
     public class PaginatedOptionalItem
     {

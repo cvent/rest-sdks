@@ -9,6 +9,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { CustomField, CustomField$inboundSchema } from "./customfield.js";
 import { EventFormat, EventFormat$inboundSchema } from "./eventformat.js";
+import { EventImage, EventImage$inboundSchema } from "./eventimage.js";
 import { EventLinks, EventLinks$inboundSchema } from "./eventlinks.js";
 import {
   EventSecurityLevel,
@@ -177,6 +178,14 @@ export type EventUpdate = {
    */
   type: EventType11;
   /**
+   * An object that contains the image associated with the event.
+   *
+   * @remarks
+   *
+   * This is an **expandable** object. It is present only when `expand=image` is requested, and is `null` when the event has no image. It can be up to 60 seconds behind a change to the event's image.
+   */
+  image?: EventImage | null | undefined;
+  /**
    * Represents the links associated with an event.
    */
   links?: EventLinks | undefined;
@@ -266,6 +275,7 @@ export const EventUpdate$inboundSchema: z.ZodType<
   customFields: z.array(CustomField$inboundSchema).optional(),
   category: z.lazy(() => EventUpdateLookup$inboundSchema).optional(),
   type: EventType11$inboundSchema,
+  image: z.nullable(EventImage$inboundSchema).optional(),
   _links: EventLinks$inboundSchema.optional(),
   created: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),

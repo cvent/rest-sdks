@@ -26,7 +26,7 @@ import {
 } from "./exhibitorquestiontype.js";
 
 /**
- * Schema for an existing exhibitor question
+ * Exhibitor question with an ID.
  */
 export type ExistingExhibitorQuestion = {
   /**
@@ -46,55 +46,55 @@ export type ExistingExhibitorQuestion = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * The actual text of the exhibitor question.
+   * Text of the exhibitor question.
    */
   text: string;
   /**
-   * System or User defined event level unique exhibitor question code.
+   * Code of the exhibitor question. The code is unique in the event. The system or the user defines the code.
    */
   code?: string | undefined;
   /**
-   * Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice': Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single option from a list, often displayed as a dropdown or radio button. 'OpenEndedTextOneLine': brief text responses, such as names or short answers. 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime': captures date and time information from respondents.
+   * Type of data that an exhibitor question collects. `MultiChoice`: the respondent selects multiple options from a list. `SingleChoice`: the respondent selects one option from a list, such as a dropdown or radio buttons. `OpenEndedTextOneLine`: the respondent enters a short text answer, such as a name. `OpenEndedTextCommentBox`: the respondent enters a long text answer. `OpenEndedDateTime`: the respondent enters a date and time.
    */
   type: ExhibitorQuestionType;
   /**
-   * A boolean indicating whether the question is mandatory or not
+   * True indicates that the question requires an answer.
    */
   required: boolean;
   /**
-   * An array of choices for the exhibitor question.
+   * List of the choices of the exhibitor question.
    */
   choices?: Array<BaseChoice> | undefined;
   /**
-   * Contains text of additional choice
+   * Additional choice of the question.
    */
   notApplicableAnswer?: AdditionalChoice1 | undefined;
   /**
-   * Contains text of additional choice
+   * Additional choice of the question.
    */
   otherAnswer?: AdditionalChoice1 | undefined;
   /**
-   * Specifies the format for displaying answers based on the question type. For SingleChoice questions, choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General', 'EmailAddress', or 'PhoneNumber'. For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
+   * Display format of the answers to the question. The valid formats depend on the question type. A `SingleChoice` question uses `Dropdown` or `RadioButton`. An `OpenEndedTextOneLine` question uses `General`, `EmailAddress`, or `PhoneNumber`. An `OpenEndedDateTime` question uses `DateAndTime` or `Date`.
    */
   answerFormat?: ExhibitorAnswerFormat | undefined;
   /**
-   * Defines the limits for answers to exhibitor questions.
+   * Limits of the answers to an exhibitor question.
    */
   answerLimits?: ExhibitorAnswerLimits | undefined;
   /**
-   * True indicates the current date and time is automatically set as the default value for OpenEndedDateTime questions.
+   * True indicates that the current date and time is the default answer to an `OpenEndedDateTime` question.
    */
   defaultToCurrentDate?: boolean | undefined;
   /**
-   * Exhibitor Question id
+   * Exhibitor question ID.
    */
   id: string;
   /**
-   * The unique display order of the exhibitor question.
+   * Unique display order of the exhibitor question.
    */
   displayOrder: number;
 };

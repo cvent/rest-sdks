@@ -21,55 +21,55 @@ import {
 } from "./sponsorshiplevel.js";
 
 /**
- * A representation of an exhibitor including all relevant information.
+ * Exhibitor at an event.
  */
 export type ExhibitorRequest = {
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal results.
+   * Name of the exhibitor. The recommended maximum length is 200 characters.
    */
   name: string;
   /**
-   * Exhibitor description
+   * Description of the exhibitor.
    */
   description?: string | undefined;
   /**
-   * Code used to identify the exhibitor
+   * Code that identifies the exhibitor.
    */
   code?: string | undefined;
   /**
-   * Code used for marketing groupings
+   * Code of the marketing group of the exhibitor.
    */
   sourceId?: string | undefined;
   /**
-   * Exhibitor location
+   * Location of the exhibitor.
    */
   location?: string | undefined;
   /**
-   * An object representing an address with various properties.
+   * Address of the exhibitor.
    */
   address?: Address5 | undefined;
   /**
-   * Email address of the exhibitor
+   * Email address of the exhibitor.
    */
   email?: string | undefined;
   /**
-   * Mobile Phone of the exhibitor
+   * Mobile phone number of the exhibitor.
    */
   mobilePhone?: string | undefined;
   /**
-   * Work Phone of the exhibitor
+   * Work phone number of the exhibitor.
    */
   workPhone?: string | undefined;
   /**
-   * Any other phone of the exhibitor
+   * Other phone number of the exhibitor.
    */
   otherPhone?: string | undefined;
   /**
-   * Exhibitor's website URL
+   * URL of the exhibitor website.
    */
   website?: string | undefined;
   /**
@@ -77,7 +77,7 @@ export type ExhibitorRequest = {
    */
   contactLinks?: ContactLinks1 | undefined;
   /**
-   * A boolean indicating whether the exhibitor is deleted or not
+   * True indicates that the exhibitor is deleted.
    */
   deleted?: boolean | undefined;
   /**
@@ -85,15 +85,23 @@ export type ExhibitorRequest = {
    */
   hidden?: boolean | undefined;
   /**
-   * A boolean indicating whether the exhibitor is an event sponsor or not
+   * True indicates that the exhibitor is an event sponsor.
    */
   eventSponsor?: boolean | undefined;
   /**
-   * A boolean indicating whether the exhibitor is designated as featured or not
+   * True indicates that the exhibitor is featured.
    */
   featured?: boolean | undefined;
   /**
-   * Associated sponsorship level for an exhibitor
+   * True indicates that the exhibitor is hidden from the exhibitor list in Attendee Hub. The exhibitor still appears in the sponsor list. The value applies only to an event sponsor. The value is saved as false when `eventSponsor` is false.
+   */
+  sponsorOnlyExhibitor?: boolean | undefined;
+  /**
+   * True indicates that the exhibitor is hidden from the exhibitor widget on the event website.
+   */
+  hiddenFromRegistration?: boolean | undefined;
+  /**
+   * Associated sponsorship level of an exhibitor.
    */
   sponsorshipLevel?: SponsorshipLevel | undefined;
 };
@@ -117,6 +125,8 @@ export type ExhibitorRequest$Outbound = {
   hidden: boolean;
   eventSponsor: boolean;
   featured: boolean;
+  sponsorOnlyExhibitor: boolean;
+  hiddenFromRegistration: boolean;
   sponsorshipLevel?: SponsorshipLevel$Outbound | undefined;
 };
 
@@ -143,6 +153,8 @@ export const ExhibitorRequest$outboundSchema: z.ZodType<
   hidden: z.boolean().default(false),
   eventSponsor: z.boolean().default(false),
   featured: z.boolean().default(false),
+  sponsorOnlyExhibitor: z.boolean().default(false),
+  hiddenFromRegistration: z.boolean().default(false),
   sponsorshipLevel: SponsorshipLevel$outboundSchema.optional(),
 });
 

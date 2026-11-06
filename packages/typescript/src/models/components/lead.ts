@@ -16,7 +16,7 @@ import { Event4, Event4$inboundSchema } from "./event4.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 
 /**
- * The type of lead.
+ * Type of the lead.
  */
 export const LeadType = {
   Leadcapture: "leadcapture",
@@ -24,12 +24,12 @@ export const LeadType = {
   Appointment: "appointment",
 } as const;
 /**
- * The type of lead.
+ * Type of the lead.
  */
 export type LeadType = ClosedEnum<typeof LeadType>;
 
 /**
- * The application used to capture lead.
+ * Application that captured the lead.
  */
 export const Application = {
   Leadcapture: "leadcapture",
@@ -38,12 +38,12 @@ export const Application = {
   AppointmentApp: "appointment_app",
 } as const;
 /**
- * The application used to capture lead.
+ * Application that captured the lead.
  */
 export type Application = ClosedEnum<typeof Application>;
 
 /**
- * The source of entry for the lead
+ * Source of the lead entry.
  */
 export const Source = {
   Scanned: "scanned",
@@ -54,12 +54,12 @@ export const Source = {
   Appointment: "appointment",
 } as const;
 /**
- * The source of entry for the lead
+ * Source of the lead entry.
  */
 export type Source = ClosedEnum<typeof Source>;
 
 /**
- * Current status of business card transcription
+ * Status of the business card transcription.
  */
 export const TranscriptionStatus = {
   Pending: "pending",
@@ -68,17 +68,17 @@ export const TranscriptionStatus = {
   Failed: "failed",
 } as const;
 /**
- * Current status of business card transcription
+ * Status of the business card transcription.
  */
 export type TranscriptionStatus = ClosedEnum<typeof TranscriptionStatus>;
 
 /**
- * Map containing extra properties from badgekit provider
+ * Map of the additional properties from the badgekit provider.
  */
 export type AdditionalBadgekitFields = {};
 
 /**
- * A JSON Schema file for Lead.
+ * Lead with an ID.
  */
 export type Lead = {
   /**
@@ -98,111 +98,111 @@ export type Lead = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event?: Event4 | undefined;
   /**
-   * The Associated Exhibitor.
+   * Associated exhibitor.
    */
   exhibitor?: Exhibitor | undefined;
   /**
-   * A JSON schema representing the Attendee object
+   * Attendee of the lead.
    */
   attendee?: Attendee13 | undefined;
   /**
-   * A JSON schema representing Booth Staff entity
+   * Booth staff member of the lead.
    */
   boothStaff?: BoothStaff | undefined;
   /**
-   * A JSON object representing an electronic device used to capture leads.
+   * Device that captured the lead.
    */
   device?: Device | undefined;
   /**
-   * A JSON schema representing the structure of an appointment object.
+   * Appointment of the lead.
    */
   appointment?: Appointment1 | undefined;
   /**
-   * The title of the lead
+   * Title of the lead.
    */
   title?: string | undefined;
   /**
-   * The first name of the lead
+   * First name of the lead.
    */
   firstName?: string | undefined;
   /**
-   * The last name of the lead
+   * Last name of the lead.
    */
   lastName?: string | undefined;
   /**
-   * The email address of the lead
+   * Email address of the lead.
    */
   email?: string | undefined;
   /**
-   * The company/organization the lead belongs to.
+   * Company or organization of the lead.
    */
   company?: string | undefined;
   /**
-   * Mobile phone number of the lead
+   * Mobile phone number of the lead.
    */
   mobilePhone?: string | undefined;
   /**
-   * Schema for address information
+   * Address of the lead.
    */
   homeAddress?: Address11 | undefined;
   /**
-   * Home phone number of the lead
+   * Home phone number of the lead.
    */
   homePhone?: string | undefined;
   /**
-   * Schema for address information
+   * Address of the lead.
    */
   workAddress?: Address11 | undefined;
   /**
-   * Work Phone number of the lead
+   * Work phone number of the lead.
    */
   workPhone?: string | undefined;
   /**
-   * The type of lead.
+   * Type of the lead.
    */
   type: LeadType;
   /**
-   * The application used to capture lead.
+   * Application that captured the lead.
    */
   application: Application;
   /**
-   * The source of entry for the lead
+   * Source of the lead entry.
    */
   source?: Source | undefined;
   /**
-   * A boolean indicating whether a lead is deleted or not
+   * True indicates that the lead is deleted.
    */
   deleted: boolean;
   /**
-   * Comments about the lead
+   * Comments about the lead.
    */
   comments?: string | undefined;
   /**
-   * License (access code) that was used to capture the lead
+   * License (access code) that captured the lead.
    */
   licenseCode?: string | undefined;
   /**
-   * A boolean indicating whether the lead is matched or not
+   * True indicates that the lead is matched.
    */
   matched?: boolean | undefined;
   /**
-   * Current status of business card transcription
+   * Status of the business card transcription.
    */
   transcriptionStatus?: TranscriptionStatus | undefined;
   /**
-   * A boolean indicating whether a lead is qualified or not
+   * True indicates that the lead is qualified.
    */
   qualified?: boolean | undefined;
   /**
-   * Map containing extra properties from badgekit provider
+   * Map of the additional properties from the badgekit provider.
    */
   additionalBadgekitFields?: AdditionalBadgekitFields | undefined;
   /**
-   * ID of Lead.
+   * Lead ID.
    */
   id?: string | undefined;
 };

@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// A JSON Schema file for Lead.
+    /// Lead with an ID.
     /// </summary>
     public class Lead
     {
@@ -44,67 +44,67 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// The Associated Event.
+        /// Associated event.
         /// </summary>
         [JsonProperty("event")]
         public Event4? Event { get; set; }
 
         /// <summary>
-        /// The Associated Exhibitor.
+        /// Associated exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
         public Models.Components.Exhibitor? Exhibitor { get; set; }
 
         /// <summary>
-        /// A JSON schema representing the Attendee object.
+        /// Attendee of the lead.
         /// </summary>
         [JsonProperty("attendee")]
         public Attendee13? Attendee { get; set; }
 
         /// <summary>
-        /// A JSON schema representing Booth Staff entity.
+        /// Booth staff member of the lead.
         /// </summary>
         [JsonProperty("boothStaff")]
         public BoothStaff? BoothStaff { get; set; }
 
         /// <summary>
-        /// A JSON object representing an electronic device used to capture leads.
+        /// Device that captured the lead.
         /// </summary>
         [JsonProperty("device")]
         public Device? Device { get; set; }
 
         /// <summary>
-        /// A JSON schema representing the structure of an appointment object.
+        /// Appointment of the lead.
         /// </summary>
         [JsonProperty("appointment")]
         public Appointment1? Appointment { get; set; }
 
         /// <summary>
-        /// The title of the lead.
+        /// Title of the lead.
         /// </summary>
         [JsonProperty("title")]
         public string? Title { get; set; }
 
         /// <summary>
-        /// The first name of the lead.
+        /// First name of the lead.
         /// </summary>
         [JsonProperty("firstName")]
         public string? FirstName { get; set; }
 
         /// <summary>
-        /// The last name of the lead.
+        /// Last name of the lead.
         /// </summary>
         [JsonProperty("lastName")]
         public string? LastName { get; set; }
 
         /// <summary>
-        /// The email address of the lead.
+        /// Email address of the lead.
         /// </summary>
         [JsonProperty("email")]
         public string? Email { get; set; }
 
         /// <summary>
-        /// The company/organization the lead belongs to.
+        /// Company or organization of the lead.
         /// </summary>
         [JsonProperty("company")]
         public string? Company { get; set; }
@@ -116,7 +116,7 @@ namespace Cvent.SDK.Models.Components
         public string? MobilePhone { get; set; }
 
         /// <summary>
-        /// Schema for address information.
+        /// Address of the lead.
         /// </summary>
         [JsonProperty("homeAddress")]
         public Address11? HomeAddress { get; set; }
@@ -128,37 +128,37 @@ namespace Cvent.SDK.Models.Components
         public string? HomePhone { get; set; }
 
         /// <summary>
-        /// Schema for address information.
+        /// Address of the lead.
         /// </summary>
         [JsonProperty("workAddress")]
         public Address11? WorkAddress { get; set; }
 
         /// <summary>
-        /// Work Phone number of the lead.
+        /// Work phone number of the lead.
         /// </summary>
         [JsonProperty("workPhone")]
         public string? WorkPhone { get; set; }
 
         /// <summary>
-        /// The type of lead.
+        /// Type of the lead.
         /// </summary>
         [JsonProperty("type")]
         public LeadType? Type { get; set; } = Cvent.SDK.Models.Components.LeadType.Leadcapture;
 
         /// <summary>
-        /// The application used to capture lead.
+        /// Application that captured the lead.
         /// </summary>
         [JsonProperty("application")]
         public Application? Application { get; set; } = Cvent.SDK.Models.Components.Application.Leadcapture;
 
         /// <summary>
-        /// The source of entry for the lead.
+        /// Source of the lead entry.
         /// </summary>
         [JsonProperty("source")]
         public Source? Source { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether a lead is deleted or not.
+        /// True indicates that the lead is deleted.
         /// </summary>
         [JsonProperty("deleted")]
         public bool? Deleted { get; set; } = false;
@@ -170,37 +170,37 @@ namespace Cvent.SDK.Models.Components
         public string? Comments { get; set; }
 
         /// <summary>
-        /// License (access code) that was used to capture the lead.
+        /// License (access code) that captured the lead.
         /// </summary>
         [JsonProperty("licenseCode")]
         public string? LicenseCode { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether the lead is matched or not.
+        /// True indicates that the lead is matched.
         /// </summary>
         [JsonProperty("matched")]
         public bool? Matched { get; set; }
 
         /// <summary>
-        /// Current status of business card transcription.
+        /// Status of the business card transcription.
         /// </summary>
         [JsonProperty("transcriptionStatus")]
         public TranscriptionStatus? TranscriptionStatus { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether a lead is qualified or not.
+        /// True indicates that the lead is qualified.
         /// </summary>
         [JsonProperty("qualified")]
         public bool? Qualified { get; set; }
 
         /// <summary>
-        /// Map containing extra properties from badgekit provider.
+        /// Map of the additional properties from the badgekit provider.
         /// </summary>
         [JsonProperty("additionalBadgekitFields")]
         public AdditionalBadgekitFields? AdditionalBadgekitFields { get; set; }
 
         /// <summary>
-        /// ID of Lead.
+        /// Lead ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

@@ -1,6 +1,6 @@
 # Choice1
 
-A schema representing a choice object
+Choice of a lead qualification question.
 
 ## Example Usage
 
@@ -15,8 +15,8 @@ let value: Choice1 = {
 
 ## Fields
 
-| Field                            | Type                             | Required                         | Description                      | Example                          |
-| -------------------------------- | -------------------------------- | -------------------------------- | -------------------------------- | -------------------------------- |
-| `id`                             | *string*                         | :heavy_minus_sign:               | Unique identifier for the choice |                                  |
-| `text`                           | *string*                         | :heavy_minus_sign:               | Text value of the field          | Choice 1                         |
-| `label`                          | *string*                         | :heavy_minus_sign:               | Label of choice                  | Choice A                         |
+| Field                | Type                 | Required             | Description          | Example              |
+| -------------------- | -------------------- | -------------------- | -------------------- | -------------------- |
+| `id`                 | *string*             | :heavy_minus_sign:   | Choice ID.           |                      |
+| `text`               | *string*             | :heavy_minus_sign:   | Text of the choice.  | Choice 1             |
+| `label`              | *string*             | :heavy_minus_sign:   | Label of the choice. | Choice A             |

@@ -49,7 +49,7 @@ public class AccountUserAuditDetails {
     private OffsetDateTime lockedOutDate;
 
     /**
-     * The ISO 8601 zoned date time when the user has accepted [Cvent's Terms of
+     * The ISO 8601 zoned date time when the user accepted [Cvent's Terms of
      * Use](https://www.cvent.com/en/product-terms-of-use).
      */
     @JsonProperty("termsOfUseAcceptedDate")
@@ -131,7 +131,7 @@ public class AccountUserAuditDetails {
     }
 
     /**
-     * The ISO 8601 zoned date time when the user has accepted [Cvent's Terms of
+     * The ISO 8601 zoned date time when the user accepted [Cvent's Terms of
      * Use](https://www.cvent.com/en/product-terms-of-use).
      */
     public OffsetDateTime termsOfUseAcceptedDate() {
@@ -197,7 +197,7 @@ public class AccountUserAuditDetails {
     }
 
     /**
-     * The ISO 8601 zoned date time when the user has accepted [Cvent's Terms of
+     * The ISO 8601 zoned date time when the user accepted [Cvent's Terms of
      * Use](https://www.cvent.com/en/product-terms-of-use).
      */
     public AccountUserAuditDetails withTermsOfUseAcceptedDate(@Nonnull OffsetDateTime termsOfUseAcceptedDate) {
@@ -339,7 +339,7 @@ public class AccountUserAuditDetails {
         }
 
         /**
-         * The ISO 8601 zoned date time when the user has accepted [Cvent's Terms of
+         * The ISO 8601 zoned date time when the user accepted [Cvent's Terms of
          * Use](https://www.cvent.com/en/product-terms-of-use).
          */
         public Builder termsOfUseAcceptedDate(@Nonnull OffsetDateTime termsOfUseAcceptedDate) {

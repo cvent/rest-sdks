@@ -6,11 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 import {
-  StandardSurveyEmailTemplateJson,
-  StandardSurveyEmailTemplateJson$inboundSchema,
-} from "./standardsurveyemailtemplatejson.js";
+  StandardSurveyEmailTemplateResponse,
+  StandardSurveyEmailTemplateResponse$inboundSchema,
+} from "./standardsurveyemailtemplateresponse.js";
 
 /**
  * Response include paging and collection of email templates of a particular standard survey
@@ -19,11 +19,11 @@ export type StandardSurveyEmailTemplatesPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of standard survey email templates
    */
-  data: Array<StandardSurveyEmailTemplateJson>;
+  data: Array<StandardSurveyEmailTemplateResponse>;
 };
 
 /** @internal */
@@ -33,8 +33,8 @@ export const StandardSurveyEmailTemplatesPaginatedResponse$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    paging: PagingJson$inboundSchema,
-    data: z.array(StandardSurveyEmailTemplateJson$inboundSchema),
+    paging: Paging$inboundSchema,
+    data: z.array(StandardSurveyEmailTemplateResponse$inboundSchema),
   });
 
 export function standardSurveyEmailTemplatesPaginatedResponseFromJSON(

@@ -19,7 +19,7 @@ public class GetProgramItemSessionDocumentRequest {
     private String programItemId;
 
     /**
-     * The unique identifier of a file from <a href="#operation/uploadFile">file upload</a> service.
+     * The unique ID of a file from [file upload](#operation/uploadFile) service.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=fileId")
     private String fileId;
@@ -40,7 +40,7 @@ public class GetProgramItemSessionDocumentRequest {
     }
 
     /**
-     * The unique identifier of a file from <a href="#operation/uploadFile">file upload</a> service.
+     * The unique ID of a file from [file upload](#operation/uploadFile) service.
      */
     public String fileId() {
         return this.fileId;
@@ -59,7 +59,7 @@ public class GetProgramItemSessionDocumentRequest {
     }
 
     /**
-     * The unique identifier of a file from <a href="#operation/uploadFile">file upload</a> service.
+     * The unique ID of a file from [file upload](#operation/uploadFile) service.
      */
     public GetProgramItemSessionDocumentRequest withFileId(@Nonnull String fileId) {
         this.fileId = Utils.checkNotNull(fileId, "fileId");
@@ -110,7 +110,7 @@ public class GetProgramItemSessionDocumentRequest {
         }
 
         /**
-         * The unique identifier of a file from <a href="#operation/uploadFile">file upload</a> service.
+         * The unique ID of a file from [file upload](#operation/uploadFile) service.
          */
         public Builder fileId(@Nonnull String fileId) {
             this.fileId = Utils.checkNotNull(fileId, "fileId");

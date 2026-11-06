@@ -15,7 +15,7 @@ import java.util.Optional;
 /**
  * ExistingExhibitorAnswerInput
  *
- * <p>Existing Exhibitor Answer schema
+ * <p>Exhibitor answer with an ID.
  */
 public class ExistingExhibitorAnswerInput {
     /**
@@ -25,29 +25,29 @@ public class ExistingExhibitorAnswerInput {
     private Uuid question;
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     @JsonProperty("exhibitor")
     private Exhibitor exhibitor;
 
     /**
-     * List of answers
+     * List of answers.
      */
     @JsonProperty("answers")
-    private List<Answer22> answers;
+    private List<Answer2> answers;
 
     @JsonCreator
     public ExistingExhibitorAnswerInput(
             @JsonProperty("question") @Nonnull Uuid question,
             @JsonProperty("event") @Nonnull Event4 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
-            @JsonProperty("answers") @Nonnull List<Answer22> answers) {
+            @JsonProperty("answers") @Nonnull List<Answer2> answers) {
         this.question = Optional.ofNullable(question)
                 .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
         this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
@@ -65,23 +65,23 @@ public class ExistingExhibitorAnswerInput {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Event4 event() {
         return this.event;
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public Exhibitor exhibitor() {
         return this.exhibitor;
     }
 
     /**
-     * List of answers
+     * List of answers.
      */
-    public List<Answer22> answers() {
+    public List<Answer2> answers() {
         return this.answers;
     }
 
@@ -98,7 +98,7 @@ public class ExistingExhibitorAnswerInput {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public ExistingExhibitorAnswerInput withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -106,7 +106,7 @@ public class ExistingExhibitorAnswerInput {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public ExistingExhibitorAnswerInput withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -114,9 +114,9 @@ public class ExistingExhibitorAnswerInput {
     }
 
     /**
-     * List of answers
+     * List of answers.
      */
-    public ExistingExhibitorAnswerInput withAnswers(@Nonnull List<Answer22> answers) {
+    public ExistingExhibitorAnswerInput withAnswers(@Nonnull List<Answer2> answers) {
         this.answers = Utils.checkNotNull(answers, "answers");
         return this;
     }
@@ -164,7 +164,7 @@ public class ExistingExhibitorAnswerInput {
 
         private Exhibitor exhibitor;
 
-        private List<Answer22> answers;
+        private List<Answer2> answers;
 
         private Builder() {
             // force use of static builder() method
@@ -179,7 +179,7 @@ public class ExistingExhibitorAnswerInput {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -187,7 +187,7 @@ public class ExistingExhibitorAnswerInput {
         }
 
         /**
-         * The Associated Exhibitor.
+         * Associated exhibitor.
          */
         public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -195,9 +195,9 @@ public class ExistingExhibitorAnswerInput {
         }
 
         /**
-         * List of answers
+         * List of answers.
          */
-        public Builder answers(@Nonnull List<Answer22> answers) {
+        public Builder answers(@Nonnull List<Answer2> answers) {
             this.answers = Utils.checkNotNull(answers, "answers");
             return this;
         }

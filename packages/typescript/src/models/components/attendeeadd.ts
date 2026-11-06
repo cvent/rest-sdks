@@ -26,7 +26,7 @@ import {
 } from "./attendeevisibility.js";
 
 /**
- * The ID of the event associated with the attendee.
+ * The event associated with the attendee.
  */
 export type AttendeeAddEvent = {
   /**
@@ -36,7 +36,7 @@ export type AttendeeAddEvent = {
 };
 
 /**
- * The ID of the address book contact associated with the attendee.
+ * The address book contact associated with the attendee.
  */
 export type AttendeeAddContact = {
   /**
@@ -46,7 +46,7 @@ export type AttendeeAddContact = {
 };
 
 /**
- * The ID of the invitation list associated with the attendee.
+ * The invitation list associated with the attendee.
  */
 export type AttendeeAddInvitationList = {
   /**
@@ -56,7 +56,7 @@ export type AttendeeAddInvitationList = {
 };
 
 /**
- * The ID of the administrator contact whom registered this attendee.
+ * The administrator contact who registered this attendee.
  */
 export type AttendeeAddAdministrator = {
   /**
@@ -66,7 +66,7 @@ export type AttendeeAddAdministrator = {
 };
 
 /**
- * The ID of the attendee's admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
+ * The attendee's admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
  */
 export type AttendeeAddAdmissionItem = {
   /**
@@ -80,7 +80,7 @@ export type AttendeeAddAdmissionItem = {
  */
 export type RegistrationPath = {
   /**
-   * The ID of the registration path.
+   * Registration path ID.
    */
   id?: string | undefined;
 };
@@ -90,7 +90,7 @@ export type RegistrationPath = {
  */
 export type AttendeeAddRegistrationType = {
   /**
-   * The ID of the registration type.
+   * Registration type ID.
    */
   id?: string | undefined;
 };
@@ -100,19 +100,19 @@ export type AttendeeAddRegistrationType = {
  */
 export type AttendeeAdd = {
   /**
-   * The ID of the event associated with the attendee.
+   * The event associated with the attendee.
    */
   event: AttendeeAddEvent;
   /**
-   * The ID of the address book contact associated with the attendee.
+   * The address book contact associated with the attendee.
    */
   contact: AttendeeAddContact;
   /**
-   * The ID of the invitation list associated with the attendee.
+   * The invitation list associated with the attendee.
    */
   invitationList?: AttendeeAddInvitationList | undefined;
   /**
-   * The reference ID of an attendee. A planner determined string used to track which link attendee's used to reach the event registration.
+   * Reference ID. A planner-defined string that tracks the link that the attendee used to reach the event registration.
    */
   referenceId?: string | undefined;
   /**
@@ -120,11 +120,11 @@ export type AttendeeAdd = {
    */
   note?: string | undefined;
   /**
-   * The ID of the administrator contact whom registered this attendee.
+   * The administrator contact who registered this attendee.
    */
   administrator?: AttendeeAddAdministrator | undefined;
   /**
-   * The ID of the attendee's admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
+   * The attendee's admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
    */
   admissionItem?: AttendeeAddAdmissionItem | undefined;
   /**
@@ -156,7 +156,7 @@ export type AttendeeAdd = {
    */
   guest?: boolean | undefined;
   /**
-   * The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this attendee is a guest.
+   * Primary attendee ID. Applies only when this attendee is a guest.
    */
   primaryId?: string | undefined;
   /**

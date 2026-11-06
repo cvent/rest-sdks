@@ -23,30 +23,30 @@ namespace Cvent.SDK.Models.Components
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("question")]
-        public UuidJson Question { get; set; } = default!;
+        public Uuid Question { get; set; } = default!;
 
         /// <summary>
         /// List of responded survey answers.
         /// </summary>
         [JsonProperty("answers")]
-        public List<AnswerJson> Answers { get; set; } = default!;
+        public List<Answer11> Answers { get; set; } = default!;
 
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("survey")]
-        public UuidJson? Survey { get; set; }
+        public Uuid? Survey { get; set; }
 
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("session")]
-        public UuidJson? Session { get; set; }
+        public Uuid? Session { get; set; }
 
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("speaker")]
-        public UuidJson? Speaker { get; set; }
+        public Uuid? Speaker { get; set; }
     }
 }

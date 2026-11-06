@@ -36,7 +36,7 @@ import {
  * List Exhibitor's Categories
  *
  * @remarks
- * Get a paginated list of exhibitor-categories assigned to the provided exhibitor Id.
+ * Retrieves a paginated list of the exhibitor categories of an exhibitor.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

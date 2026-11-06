@@ -8,15 +8,15 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * A JSON schema representing a base choice object
+ * Choice of a question.
  */
 export type BaseChoice = {
   /**
-   * Unique identifier for the choice
+   * Choice ID.
    */
   id?: string | undefined;
   /**
-   * Text value of the field
+   * Text of the choice.
    */
   text?: string | undefined;
 };

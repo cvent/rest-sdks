@@ -33,7 +33,7 @@ public class UpdateExhibitorFileResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully added the exhibitor file content.
+     * Successfully associated the exhibitor file.
      */
     private ExistingFile existingFile;
 
@@ -78,7 +78,7 @@ public class UpdateExhibitorFileResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully added the exhibitor file content.
+     * Successfully associated the exhibitor file.
      */
     public Optional<ExistingFile> existingFile() {
         return Optional.ofNullable(this.existingFile);
@@ -113,7 +113,7 @@ public class UpdateExhibitorFileResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully added the exhibitor file content.
+     * Successfully associated the exhibitor file.
      */
     public UpdateExhibitorFileResponse withExistingFile(@Nullable ExistingFile existingFile) {
         this.existingFile = existingFile;
@@ -194,7 +194,7 @@ public class UpdateExhibitorFileResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully added the exhibitor file content.
+         * Successfully associated the exhibitor file.
          */
         public Builder existingFile(@Nullable ExistingFile existingFile) {
             this.existingFile = existingFile;

@@ -25,7 +25,7 @@ public class Choices1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("choices")
-    private List<Choice3> choices;
+    private List<Choice4> choices;
 
     /**
      * Display type indicating how to display the choices on UI. For 'Choice - Single Answer' custom field
@@ -38,7 +38,7 @@ public class Choices1 {
 
     @JsonCreator
     public Choices1(
-            @JsonProperty("choices") @Nullable List<Choice3> choices,
+            @JsonProperty("choices") @Nullable List<Choice4> choices,
             @JsonProperty("displayType") @Nullable DisplayType1 displayType) {
         this.choices = choices;
         this.displayType = displayType;
@@ -51,7 +51,7 @@ public class Choices1 {
     /**
      * Choices of custom fields.
      */
-    public Optional<List<Choice3>> choices() {
+    public Optional<List<Choice4>> choices() {
         return Optional.ofNullable(this.choices);
     }
 
@@ -71,7 +71,7 @@ public class Choices1 {
     /**
      * Choices of custom fields.
      */
-    public Choices1 withChoices(@Nullable List<Choice3> choices) {
+    public Choices1 withChoices(@Nullable List<Choice4> choices) {
         this.choices = choices;
         return this;
     }
@@ -112,7 +112,7 @@ public class Choices1 {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private List<Choice3> choices;
+        private List<Choice4> choices;
 
         private DisplayType1 displayType;
 
@@ -123,7 +123,7 @@ public class Choices1 {
         /**
          * Choices of custom fields.
          */
-        public Builder choices(@Nullable List<Choice3> choices) {
+        public Builder choices(@Nullable List<Choice4> choices) {
             this.choices = choices;
             return this;
         }

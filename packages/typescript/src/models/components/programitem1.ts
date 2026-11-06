@@ -10,7 +10,7 @@ import { EventId, EventId$inboundSchema } from "./eventid.js";
 import { Session1, Session1$inboundSchema } from "./session1.js";
 
 /**
- * Represents a program item object that will be added to a session.
+ * A program item associated with a session.
  */
 export type ProgramItem1 = {
   /**
@@ -34,11 +34,11 @@ export type ProgramItem1 = {
    */
   id?: string | undefined;
   /**
-   * The related event object.
+   * A reference to an event by its ID.
    */
   event: EventId;
   /**
-   * The related session object.
+   * A reference to a session by its ID.
    */
   session: Session1;
   /**
@@ -54,7 +54,7 @@ export type ProgramItem1 = {
    */
   description?: string | undefined;
   /**
-   * Rich-text-editor description in json formatting.
+   * The program item's rich-text description, formatted as JSON.
    */
   rteDescription?: string | undefined;
 };

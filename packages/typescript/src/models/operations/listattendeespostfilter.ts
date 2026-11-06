@@ -45,10 +45,10 @@ export type ListAttendeesPostFilterRequest = {
    * The following fields are expandable:
    *   * answers.question
    *     * **Scope**: event/events:read
-   *     * **Reference**: <a href="#operation/getEventQuestions">List Event Questions</a>
+   *     * **Reference**: [List Event Questions](#operation/getEventQuestions)
    *   * registrationType
    *     * **Scope**: event/registration-types:read
-   *     * **Reference**: <a href="#operation/listRegistrationTypes">List Registration Types</a>
+   *     * **Reference**: [List Registration Types](#operation/listRegistrationTypes)
    */
   expand?: Array<components.Expand> | undefined;
   /**

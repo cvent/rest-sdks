@@ -100,7 +100,7 @@ export type Attendee11 = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * The ID of attendee in the given event.
+   * Attendee ID.
    */
   id?: string | undefined;
   /**
@@ -120,7 +120,7 @@ export type Attendee11 = {
    */
   checkedIn?: boolean | undefined;
   /**
-   * The date time when attendee was checked in to an event. Note: this field is deprecated. Please use the `checkIn` field instead.
+   * DEPRECATED: The ISO 8601 zoned date time when the attendee was checked in to an event. Use the `checkIn` field instead.
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
@@ -154,11 +154,11 @@ export type Attendee11 = {
    */
   registrationType?: Lookup | undefined;
   /**
-   * The reference ID of an attendee. A planner determined string used to track which link attendee's used to reach the event registration.
+   * Reference ID. A planner-defined string that tracks the link that the attendee used to reach the event registration.
    */
   referenceId?: string | undefined;
   /**
-   * The details of an attendee in an external systems.
+   * References to the attendee in external systems.
    */
   externalReferences?: Array<ExternalReference> | undefined;
   /**
@@ -174,7 +174,7 @@ export type Attendee11 = {
    */
   deletedGuest?: boolean | undefined;
   /**
-   * The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this attendee is a guest.
+   * Primary attendee ID. Applies only when this attendee is a guest.
    */
   primaryId?: string | undefined;
   /**
@@ -256,7 +256,7 @@ export type Attendee11 = {
    */
   bio?: string | undefined;
   /**
-   * Notification setting in the Attendee Hub app or website. Note: This field is deprecated. Use `allowPushNotification` field instead.
+   * DEPRECATED: Notification setting in the Attendee Hub app or website. Use `allowPushNotifications` instead.
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
@@ -266,11 +266,11 @@ export type Attendee11 = {
    */
   websiteUrl?: string | undefined;
   /**
-   * True indicates attendee will recieve push notifications for session-schedule changes, promotions and other event activities in the Attendee Hub app.
+   * True indicates that the attendee receives push notifications for session schedule changes, promotions, and other event activities in the Attendee Hub app.
    */
   allowPushNotifications?: boolean | undefined;
   /**
-   * True indicaites attendee will recieve push notifications for appointments related activities in the Attendee Hub app.
+   * True indicates that the attendee receives push notifications for appointment-related activities in the Attendee Hub app.
    */
   allowAppointmentPushNotifications?: boolean | undefined;
   /**

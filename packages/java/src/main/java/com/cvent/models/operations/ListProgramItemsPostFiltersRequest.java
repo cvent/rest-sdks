@@ -50,8 +50,8 @@ public class ListProgramItemsPostFiltersRequest {
     private String locale;
 
     /**
-     * See the filter description of <a href="#operation/listProgramItems">GET List Program Items</a> for
-     * full filtering information.
+     * See the filter description of [GET List Program Items](#operation/listProgramItems) for full
+     * filtering information.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private Filter filter;
@@ -114,8 +114,8 @@ public class ListProgramItemsPostFiltersRequest {
     }
 
     /**
-     * See the filter description of <a href="#operation/listProgramItems">GET List Program Items</a> for
-     * full filtering information.
+     * See the filter description of [GET List Program Items](#operation/listProgramItems) for full
+     * filtering information.
      */
     public Optional<Filter> filter() {
         return Optional.ofNullable(this.filter);
@@ -168,8 +168,8 @@ public class ListProgramItemsPostFiltersRequest {
     }
 
     /**
-     * See the filter description of <a href="#operation/listProgramItems">GET List Program Items</a> for
-     * full filtering information.
+     * See the filter description of [GET List Program Items](#operation/listProgramItems) for full
+     * filtering information.
      */
     public ListProgramItemsPostFiltersRequest withFilter(@Nullable Filter filter) {
         this.filter = filter;
@@ -278,8 +278,8 @@ public class ListProgramItemsPostFiltersRequest {
         }
 
         /**
-         * See the filter description of <a href="#operation/listProgramItems">GET List Program Items</a> for
-         * full filtering information.
+         * See the filter description of [GET List Program Items](#operation/listProgramItems) for full
+         * filtering information.
          */
         public Builder filter(@Nullable Filter filter) {
             this.filter = filter;

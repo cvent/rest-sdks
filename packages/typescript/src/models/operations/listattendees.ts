@@ -11,11 +11,11 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListAttendeesRequest = {
   /**
-   * Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
+   * Returns records created or updated **on or after** this date and time. Defaults to the beginning of the data store's time range.
    */
   after?: Date | undefined;
   /**
-   * Used to query records that have been added or updated before this time point.
+   * Returns records created or updated **on or before** this date and time.
    */
   before?: Date | undefined;
   /**
@@ -45,10 +45,10 @@ export type ListAttendeesRequest = {
    * The following fields are expandable:
    *   * answers.question
    *     * **Scope**: event/events:read
-   *     * **Reference**: <a href="#operation/getEventQuestions">List Event Questions</a>
+   *     * **Reference**: [List Event Questions](#operation/getEventQuestions)
    *   * registrationType
    *     * **Scope**: event/registration-types:read
-   *     * **Reference**: <a href="#operation/listRegistrationTypes">List Registration Types</a>
+   *     * **Reference**: [List Registration Types](#operation/listRegistrationTypes)
    */
   expand?: Array<components.Expand> | undefined;
   /**

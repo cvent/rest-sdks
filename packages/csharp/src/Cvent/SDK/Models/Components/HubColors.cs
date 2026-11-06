@@ -18,25 +18,25 @@ namespace Cvent.SDK.Models.Components
     public class HubColors
     {
         /// <summary>
-        /// The secondary color of an Events+ hub.
+        /// The secondary color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an optional leading #.
         /// </summary>
         [JsonProperty("action")]
         public string? Action { get; set; }
 
         /// <summary>
-        /// The background color of an Events+ hub.
+        /// The background color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an optional leading #.
         /// </summary>
         [JsonProperty("background")]
         public string? Background { get; set; }
 
         /// <summary>
-        /// The primary color of an Events+ hub.
+        /// The primary color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an optional leading #.
         /// </summary>
         [JsonProperty("main")]
         public string? Main { get; set; }
 
         /// <summary>
-        /// An Events+ hub color configuration that can be set to light, dark, or a similar shade to the main color.
+        /// An Events+ hub color configuration that can be set to light, dark, or a similar shade to the main color. The value is a three- or six-digit hexadecimal color with an optional leading #.
         /// </summary>
         [JsonProperty("mood")]
         public string? Mood { get; set; } = "#FFFFFF";

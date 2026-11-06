@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * WeblinkListResponse
  *
- * <p>A response object containing a list of weblinks associated with an exhibitor.
+ * <p>List of the weblinks of an exhibitor.
  */
 public class WeblinkListResponse {
     /**

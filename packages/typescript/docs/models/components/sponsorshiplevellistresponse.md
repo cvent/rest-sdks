@@ -1,6 +1,6 @@
 # SponsorshipLevelListResponse
 
-This schema describes the response for a list of sponsorship levels.
+List of sponsorship levels.
 
 ## Example Usage
 
@@ -29,4 +29,4 @@ let value: SponsorshipLevelListResponse = {
 
 | Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
 | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `data`                                                                                       | [components.ExistingSponsorshipLevel](../../models/components/existingsponsorshiplevel.md)[] | :heavy_minus_sign:                                                                           | List of sponsorship level.                                                                   |
+| `data`                                                                                       | [components.ExistingSponsorshipLevel](../../models/components/existingsponsorshiplevel.md)[] | :heavy_minus_sign:                                                                           | List of sponsorship levels.                                                                  |

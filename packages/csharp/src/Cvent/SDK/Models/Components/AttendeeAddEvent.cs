@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The ID of the event associated with the attendee.
+    /// The event associated with the attendee.
     /// </summary>
     public class AttendeeAddEvent
     {

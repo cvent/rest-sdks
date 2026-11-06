@@ -18,7 +18,7 @@ import java.util.Optional;
  */
 public class Segment1 {
     /**
-     * The unique identifier for an audience segment
+     * The unique ID of an audience segment.
      */
     @JsonProperty("id")
     private String id;
@@ -29,7 +29,7 @@ public class Segment1 {
     }
 
     /**
-     * The unique identifier for an audience segment
+     * The unique ID of an audience segment.
      */
     public String id() {
         return this.id;
@@ -40,7 +40,7 @@ public class Segment1 {
     }
 
     /**
-     * The unique identifier for an audience segment
+     * The unique ID of an audience segment.
      */
     public Segment1 withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -79,7 +79,7 @@ public class Segment1 {
         }
 
         /**
-         * The unique identifier for an audience segment
+         * The unique ID of an audience segment.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

@@ -13,6 +13,7 @@ var value = VideoWarningCode.SevenHundred;
 
 ## Values
 
-| Name           | Value          |
-| -------------- | -------------- |
-| `SevenHundred` | 700            |
+| Name                 | Value                |
+| -------------------- | -------------------- |
+| `SevenHundred`       | 700                  |
+| `SevenHundredAndOne` | 701                  |

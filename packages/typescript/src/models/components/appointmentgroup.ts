@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type AppointmentGroup = {
   /**
-   * The ID of the appointment group.
+   * Appointment group ID.
    */
   id?: string | undefined;
 };

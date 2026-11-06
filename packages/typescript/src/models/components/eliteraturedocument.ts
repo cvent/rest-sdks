@@ -9,33 +9,33 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Type of eliterature document
+ * Type of the e-literature document.
  */
 export const ELiteratureDocumentType = {
   File: "FILE",
   Link: "LINK",
 } as const;
 /**
- * Type of eliterature document
+ * Type of the e-literature document.
  */
 export type ELiteratureDocumentType = ClosedEnum<
   typeof ELiteratureDocumentType
 >;
 
 /**
- * A JSON schema representing an E-literature Document
+ * E-literature document.
  */
 export type ELiteratureDocument = {
   /**
-   * Document identifier
+   * Document ID.
    */
   id: string;
   /**
-   * Document display name
+   * Display name of the document.
    */
   displayName: string;
   /**
-   * Type of eliterature document
+   * Type of the e-literature document.
    */
   type: ELiteratureDocumentType;
 };

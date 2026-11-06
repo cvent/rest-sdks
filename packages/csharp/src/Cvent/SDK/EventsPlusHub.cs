@@ -48,7 +48,7 @@ namespace Cvent.SDK
         /// Get Events+ Hub Members.
         /// </summary>
         /// <remarks>
-        /// Fetches a list of members associated with a particular Events+ hub.
+        /// Fetches a list of members associated with the Events+ hub you specify.
         /// </remarks>
         /// <param name="request">A <see cref="GetHubMembersRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -276,7 +276,7 @@ namespace Cvent.SDK
         /// Get Events+ Hub Members.
         /// </summary>
         /// <remarks>
-        /// Fetches a list of members associated with a particular Events+ hub.
+        /// Fetches a list of members associated with the Events+ hub you specify.
         /// </remarks>
         /// <param name="request">A <see cref="GetHubMembersRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

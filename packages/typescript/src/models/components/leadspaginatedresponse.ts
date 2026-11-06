@@ -10,7 +10,7 @@ import { Lead, Lead$inboundSchema } from "./lead.js";
 import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
- * A paginated response of leads.
+ * Paginated list of leads.
  */
 export type LeadsPaginatedResponse = {
   /**
@@ -18,7 +18,7 @@ export type LeadsPaginatedResponse = {
    */
   paging?: Paging | undefined;
   /**
-   * Collection of leads.
+   * List of leads.
    */
   data?: Array<Lead> | undefined;
 };

@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * AttendeeUpdateEvent
  *
- * <p>The ID of the event associated with the attendee.
+ * <p>The event associated with the attendee.
  */
 public class AttendeeUpdateEvent {
     /**

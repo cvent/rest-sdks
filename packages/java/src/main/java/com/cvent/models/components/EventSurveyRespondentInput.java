@@ -43,7 +43,7 @@ public class EventSurveyRespondentInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("respondedThrough")
-    private RespondedThroughJson respondedThrough;
+    private RespondedThrough respondedThrough;
 
     /**
      * Reference ids are used to track where response is coming from. Survey Author can create multiple
@@ -70,7 +70,7 @@ public class EventSurveyRespondentInput {
     @JsonCreator
     public EventSurveyRespondentInput(
             @JsonProperty("localeId") @Nullable String localeId,
-            @JsonProperty("respondedThrough") @Nullable RespondedThroughJson respondedThrough,
+            @JsonProperty("respondedThrough") @Nullable RespondedThrough respondedThrough,
             @JsonProperty("referenceId") @Nullable String referenceId,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("attendee") @Nullable EventSurveyRespondentAttendee attendee) {
@@ -107,7 +107,7 @@ public class EventSurveyRespondentInput {
      * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is
      * deprecated.
      */
-    public Optional<RespondedThroughJson> respondedThrough() {
+    public Optional<RespondedThrough> respondedThrough() {
         return Optional.ofNullable(this.respondedThrough);
     }
 
@@ -160,7 +160,7 @@ public class EventSurveyRespondentInput {
      * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is
      * deprecated.
      */
-    public EventSurveyRespondentInput withRespondedThrough(@Nullable RespondedThroughJson respondedThrough) {
+    public EventSurveyRespondentInput withRespondedThrough(@Nullable RespondedThrough respondedThrough) {
         this.respondedThrough = respondedThrough;
         return this;
     }
@@ -232,7 +232,7 @@ public class EventSurveyRespondentInput {
 
         private String localeId;
 
-        private RespondedThroughJson respondedThrough;
+        private RespondedThrough respondedThrough;
 
         private String referenceId;
 
@@ -267,7 +267,7 @@ public class EventSurveyRespondentInput {
          * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is
          * deprecated.
          */
-        public Builder respondedThrough(@Nullable RespondedThroughJson respondedThrough) {
+        public Builder respondedThrough(@Nullable RespondedThrough respondedThrough) {
             this.respondedThrough = respondedThrough;
             return this;
         }

@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Existing Exhibitor Admin with an id property.
+    /// Exhibitor admin with an ID.
     /// </summary>
     public class ExhibitorAdminResponse
     {
@@ -45,31 +45,31 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// The Associated Exhibitor.
+        /// Associated exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
         public Models.Components.Exhibitor Exhibitor { get; set; } = default!;
 
         /// <summary>
-        /// The first name of the exhibitor admin.
+        /// First name of the exhibitor admin.
         /// </summary>
         [JsonProperty("firstName")]
         public string FirstName { get; set; } = default!;
 
         /// <summary>
-        /// The last name of the exhibitor admin.
+        /// Last name of the exhibitor admin.
         /// </summary>
         [JsonProperty("lastName")]
         public string LastName { get; set; } = default!;
 
         /// <summary>
-        /// The email address of the exhibitor admin.
+        /// Email address of the exhibitor admin.
         /// </summary>
         [JsonProperty("email")]
         public string Email { get; set; } = default!;
 
         /// <summary>
-        /// Exhibitor Admin id.
+        /// Exhibitor admin ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

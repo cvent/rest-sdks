@@ -10,6 +10,8 @@ import { usersGetAccountUser } from "../funcs/usersGetAccountUser.js";
 import { usersGetAccountUserGroup } from "../funcs/usersGetAccountUserGroup.js";
 import { usersGetAccountUserGroups } from "../funcs/usersGetAccountUserGroups.js";
 import { usersListAccountUsers } from "../funcs/usersListAccountUsers.js";
+import { usersListAccountUsersFilter } from "../funcs/usersListAccountUsersFilter.js";
+import { usersUpdateAccountUserCustomFieldAnswer } from "../funcs/usersUpdateAccountUserCustomFieldAnswer.js";
 import { usersUpdateAccountUserGroup } from "../funcs/usersUpdateAccountUserGroup.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
@@ -143,7 +145,7 @@ export class Users extends ClientSDK {
    * List Account Users
    *
    * @remarks
-   * Gets a list of all users associated with your account.
+   * Gets a paginated list of account users associated with your account.
    */
   async listAccountUsers(
     request: operations.ListAccountUsersRequest,
@@ -152,6 +154,25 @@ export class Users extends ClientSDK {
     PageIterator<operations.ListAccountUsersResponse, { cursor: string }>
   > {
     return unwrapResultIterator(usersListAccountUsers(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Account Users
+   *
+   * @remarks
+   * Gets a paginated list of users associated with your account using the filter provided in the body of the request. This method returns the same data as [List Account Users](#operation/listAccountUsers) (`GET /users`) but allows for longer filter strings and filtering on fields that may contain personally identifiable information (PII).
+   */
+  async listAccountUsersFilter(
+    request: operations.ListAccountUsersFilterRequest,
+    options?: RequestOptions,
+  ): Promise<
+    PageIterator<operations.ListAccountUsersFilterResponse, { cursor: string }>
+  > {
+    return unwrapResultIterator(usersListAccountUsersFilter(
       this,
       request,
       options,
@@ -169,6 +190,42 @@ export class Users extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.AccountUser> {
     return unwrapAsync(usersGetAccountUser(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Custom Field Answer
+   *
+   * @remarks
+   * Updates an account user's answer to a single custom field using the details provided in the body of
+   * the request. The `id` in the request body must match the `customFieldId` path parameter.
+   *
+   * `values` is always an array. For custom fields that aren't choice-based, such as one-line text,
+   * comment box, and date/time fields, `values` contains a single element.
+   *
+   * Date/time custom field values use ISO 8601 format. A date-only field accepts only the `yyyy-MM-dd`
+   * format, such as `2026-11-11`, and returns answers in that same format. A date and time field accepts
+   * a full date-time with an offset, such as `2026-10-15T09:30:00Z`, which Cvent converts to UTC and
+   * returns as a UTC date-time.
+   *
+   * To clear an answer, send an empty `values` array. Cvent trims each value and drops blank ones, so a
+   * `values` array that holds only blank strings also clears the answer. You can only clear answers to
+   * custom fields that aren't required. Clearing the answer to a required custom field returns a `400` error.
+   *
+   * This endpoint only validates the custom field you're updating. It doesn't check whether the account
+   * user has answered their other required custom fields.
+   *
+   * Auto-increment custom fields are read-only because Cvent generates their values. Updating the
+   * answer to an auto-increment custom field returns a `400` error.
+   */
+  async updateAccountUserCustomFieldAnswer(
+    request: operations.UpdateAccountUserCustomFieldAnswerRequest,
+    options?: RequestOptions,
+  ): Promise<components.AccountUserCustomField> {
+    return unwrapAsync(usersUpdateAccountUserCustomFieldAnswer(
       this,
       request,
       options,

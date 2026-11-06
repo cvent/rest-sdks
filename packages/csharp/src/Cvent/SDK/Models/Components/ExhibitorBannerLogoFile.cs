@@ -14,18 +14,18 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// JSON Schema for Exhibitor Banner/Logo File.
+    /// Banner or logo image file of an exhibitor.
     /// </summary>
     public class ExhibitorBannerLogoFile
     {
         /// <summary>
-        /// File object containing UUID.
+        /// File of the image, with the file ID.
         /// </summary>
         [JsonProperty("file")]
         public ExhibitorBannerLogoFileFile? File { get; set; }
 
         /// <summary>
-        /// URL of a exhibitor banner/logo image.
+        /// URL of the banner or logo image.
         /// </summary>
         [JsonProperty("href")]
         public string? Href { get; set; }

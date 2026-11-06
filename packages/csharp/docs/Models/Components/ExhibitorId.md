@@ -1,6 +1,6 @@
 # ExhibitorId
 
-A JSON Schema representation of an exhibitor ID.
+Exhibitor ID.
 
 
 ## Fields

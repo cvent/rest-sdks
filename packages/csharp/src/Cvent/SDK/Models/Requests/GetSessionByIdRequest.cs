@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Requests
     public class GetSessionByIdRequest
     {
         /// <summary>
-        /// Unique Id of a session.
+        /// Unique ID of a session.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;

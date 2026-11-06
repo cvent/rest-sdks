@@ -26,7 +26,7 @@ export type DonationItemEvent = {
  */
 export type DonationItem = {
   /**
-   * The unique ID representing the optional item.
+   * Optional item ID.
    */
   id?: string | undefined;
   /**

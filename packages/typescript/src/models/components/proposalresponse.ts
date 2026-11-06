@@ -29,7 +29,7 @@ import {
 } from "./proposalstatus.js";
 import { ProposalType, ProposalType$inboundSchema } from "./proposaltype.js";
 import { RfpSummary, RfpSummary$inboundSchema } from "./rfpsummary.js";
-import { SleepingRoom1, SleepingRoom1$inboundSchema } from "./sleepingroom1.js";
+import { SleepingRoom2, SleepingRoom2$inboundSchema } from "./sleepingroom2.js";
 import { StatusSummary, StatusSummary$inboundSchema } from "./statussummary.js";
 import {
   SupplierSummary,
@@ -171,7 +171,7 @@ export type ProposalResponse = {
   /**
    * List of all sleeping rooms offered in the proposal.
    */
-  sleepingRooms?: Array<SleepingRoom1> | undefined;
+  sleepingRooms?: Array<SleepingRoom2> | undefined;
   /**
    * Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by vendors, and the vendor marketplace is sunset.
    *
@@ -294,7 +294,7 @@ export const ProposalResponse$inboundSchema: z.ZodType<
   name: z.string().optional(),
   blockCode: z.string().optional(),
   proposalDates: z.array(ProposalDate$inboundSchema).optional(),
-  sleepingRooms: z.array(SleepingRoom1$inboundSchema).optional(),
+  sleepingRooms: z.array(SleepingRoom2$inboundSchema).optional(),
   categoryItemsCost: CategoryItemsCost$inboundSchema.optional(),
   aggregatedCost: AggregatedCost$inboundSchema.optional(),
   estimatedCost: EstimatedCost$inboundSchema.optional(),

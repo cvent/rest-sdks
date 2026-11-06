@@ -5,25 +5,25 @@
 import * as z from "zod/v3";
 
 /**
- * Registration type information
+ * Registration type of the capacity.
  */
 export type CapacityRegistrationType = {
   /**
-   * Registration type id
+   * Registration type ID.
    */
   id: string;
 };
 
 /**
- * Registration capacity object containing registration type and reserved capacity
+ * Reserved capacity of a registration type.
  */
 export type Capacity = {
   /**
-   * Registration type information
+   * Registration type of the capacity.
    */
   registrationType: CapacityRegistrationType;
   /**
-   * Reserved capacity of the registration type for an exhibitor
+   * Reserved capacity of the registration type for an exhibitor.
    */
   reservedCapacity: number;
 };

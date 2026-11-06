@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type AttendeeAnswerQuestion = {
   /**
-   * The ID of the question.
+   * Question ID.
    */
   id?: string | undefined;
 };

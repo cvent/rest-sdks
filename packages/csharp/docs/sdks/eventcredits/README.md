@@ -39,8 +39,8 @@ GetAttendeeCreditsRequest req = new GetAttendeeCreditsRequest() {
     Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Sort = "lastModified:DESC",
-    Expand = new List<Expand1>() {
-        Expand1.CreditType,
+    Expand = new List<Expand2>() {
+        Expand2.CreditType,
     },
     Filter = "attendee.id eq '{UUID}'",
 };

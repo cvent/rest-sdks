@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 
 export type GetSessionByIdRequest = {
   /**
-   * Unique Id of a session
+   * Unique ID of a session
    */
   id: string;
 };

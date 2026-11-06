@@ -8,7 +8,7 @@ import * as components from "../components/index.js";
 
 export type AddSessionLocationRequest = {
   /**
-   * Unique Id of Event
+   * Unique ID of Event
    */
   id: string;
   /**

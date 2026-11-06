@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  * Badge
  *
- * <p>A JSON Schema for Badge object.
+ * <p>Badge of an attendee.
  */
 public class Badge {
     /**
@@ -50,31 +50,31 @@ public class Badge {
     private String lastModifiedBy;
 
     /**
-     * Id of a badge
+     * Badge ID.
      */
     @JsonProperty("id")
     private String id;
 
     /**
-     * Badge status
+     * Status of the badge.
      */
     @JsonProperty("status")
     private BadgeStatus status;
 
     /**
-     * Badge type
+     * Type of the badge.
      */
     @JsonProperty("type")
     private BadgeType type;
 
     /**
-     * The associated Attendee.
+     * Associated attendee.
      */
     @JsonProperty("attendee")
     private Attendee12 attendee;
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonProperty("event")
     private Event4 event;
@@ -141,35 +141,35 @@ public class Badge {
     }
 
     /**
-     * Id of a badge
+     * Badge ID.
      */
     public String id() {
         return this.id;
     }
 
     /**
-     * Badge status
+     * Status of the badge.
      */
     public BadgeStatus status() {
         return this.status;
     }
 
     /**
-     * Badge type
+     * Type of the badge.
      */
     public BadgeType type() {
         return this.type;
     }
 
     /**
-     * The associated Attendee.
+     * Associated attendee.
      */
     public Attendee12 attendee() {
         return this.attendee;
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Event4 event() {
         return this.event;
@@ -212,7 +212,7 @@ public class Badge {
     }
 
     /**
-     * Id of a badge
+     * Badge ID.
      */
     public Badge withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -220,7 +220,7 @@ public class Badge {
     }
 
     /**
-     * Badge status
+     * Status of the badge.
      */
     public Badge withStatus(@Nonnull BadgeStatus status) {
         this.status = Utils.checkNotNull(status, "status");
@@ -228,7 +228,7 @@ public class Badge {
     }
 
     /**
-     * Badge type
+     * Type of the badge.
      */
     public Badge withType(@Nonnull BadgeType type) {
         this.type = Utils.checkNotNull(type, "type");
@@ -236,7 +236,7 @@ public class Badge {
     }
 
     /**
-     * The associated Attendee.
+     * Associated attendee.
      */
     public Badge withAttendee(@Nonnull Attendee12 attendee) {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
@@ -244,7 +244,7 @@ public class Badge {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Badge withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -358,7 +358,7 @@ public class Badge {
         }
 
         /**
-         * Id of a badge
+         * Badge ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -366,7 +366,7 @@ public class Badge {
         }
 
         /**
-         * Badge status
+         * Status of the badge.
          */
         public Builder status(@Nonnull BadgeStatus status) {
             this.status = Utils.checkNotNull(status, "status");
@@ -374,7 +374,7 @@ public class Badge {
         }
 
         /**
-         * Badge type
+         * Type of the badge.
          */
         public Builder type(@Nonnull BadgeType type) {
             this.type = Utils.checkNotNull(type, "type");
@@ -382,7 +382,7 @@ public class Badge {
         }
 
         /**
-         * The associated Attendee.
+         * Associated attendee.
          */
         public Builder attendee(@Nonnull Attendee12 attendee) {
             this.attendee = Utils.checkNotNull(attendee, "attendee");
@@ -390,7 +390,7 @@ public class Badge {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");

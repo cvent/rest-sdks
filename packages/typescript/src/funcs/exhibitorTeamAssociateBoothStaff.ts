@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Create Booth Staff
  *
  * @remarks
- * Associates a registered attendee as a booth staff to a specific exhibitor id within an event.
+ * Associates a registered attendee with an exhibitor as a booth staff member.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

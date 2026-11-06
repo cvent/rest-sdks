@@ -63,7 +63,7 @@ export type SessionGroup = {
 };
 
 /**
- * Used to denote a session and its attributes.
+ * A session, including whether it was automatically included with the event.
  */
 export type Session = {
   /**
@@ -83,7 +83,7 @@ export type Session = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * A unique identifier of the session
+   * The unique ID of the session.
    */
   id?: string | undefined;
   /**
@@ -108,7 +108,7 @@ export type Session = {
   category?: NamedObject | undefined;
   type?: SessionLookup | undefined;
   /**
-   * Used to denote a locations name and abbreviation.
+   * A location identified by its ID, code, and name.
    */
   location?: Location1 | undefined;
   /**
@@ -195,7 +195,7 @@ export type Session = {
    */
   group?: SessionGroup | undefined;
   /**
-   * The ids of the admission items, if the session is included with any.
+   * IDs of admission items associated with the session, if any.
    */
   admissionItems?: Array<string> | undefined;
   /**
@@ -207,7 +207,7 @@ export type Session = {
    */
   openForAttendeeHub?: boolean | undefined;
   /**
-   * Contains unique identifiers for registration types associated with this session
+   * Registration type IDs associated with this session.
    */
   registrationTypes?: Array<string> | undefined;
   /**
@@ -219,11 +219,11 @@ export type Session = {
    */
   dataTagCode?: string | undefined;
   /**
-   * Collection of custom fields.
+   * Custom fields associated with the session.
    */
   customFields?: Array<CustomField> | undefined;
   /**
-   * Contains unique identifiers for segments associated with this session.
+   * Segment IDs associated with this session.
    */
   segments?: Array<string> | undefined;
   /**
@@ -241,7 +241,7 @@ export type Session = {
 };
 
 /**
- * Used to denote a session and its attributes.
+ * A session, including whether it was automatically included with the event.
  */
 export type SessionInput = {
   /**
@@ -262,7 +262,7 @@ export type SessionInput = {
   category?: NamedObject | undefined;
   type?: SessionLookup | undefined;
   /**
-   * Used to denote a locations name and abbreviation.
+   * A location identified by its ID, code, and name.
    */
   location?: Location1Input | undefined;
   /**
@@ -343,7 +343,7 @@ export type SessionInput = {
    */
   group?: SessionGroup | undefined;
   /**
-   * The ids of the admission items, if the session is included with any.
+   * IDs of admission items associated with the session, if any.
    */
   admissionItems?: Array<string> | undefined;
   /**
@@ -355,7 +355,7 @@ export type SessionInput = {
    */
   openForAttendeeHub?: boolean | undefined;
   /**
-   * Contains unique identifiers for registration types associated with this session
+   * Registration type IDs associated with this session.
    */
   registrationTypes?: Array<string> | undefined;
   /**

@@ -12,7 +12,7 @@ import {
 } from "./externalreferencetype.js";
 
 /**
- * An external reference.
+ * An external reference linking the attendee to a record in an external system.
  */
 export type ExternalReference = {
   /**
@@ -20,11 +20,11 @@ export type ExternalReference = {
    */
   type?: ExternalReferenceType | undefined;
   /**
-   * The identifier of the external system.
+   * External system ID.
    */
   id?: string | undefined;
   /**
-   * The identifier of an attendee in the external system.
+   * Attendee ID in the external system.
    */
   referenceId?: string | undefined;
 };

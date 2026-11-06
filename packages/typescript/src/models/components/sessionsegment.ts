@@ -35,11 +35,11 @@ export type SessionSegment = {
    */
   id?: string | undefined;
   /**
-   * The related event object.
+   * A reference to an event by its ID.
    */
   event: EventId;
   /**
-   * The related session object.
+   * A reference to a session by its ID.
    */
   session: Session1;
   /**

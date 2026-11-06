@@ -20,7 +20,7 @@ namespace Cvent.SDK.Models.Requests
         public string ProgramItemId { get; set; } = default!;
 
         /// <summary>
-        /// The unique identifier of a file from <a href="#operation/uploadFile">file upload</a> service.
+        /// The unique ID of a file from <a href="#operation/uploadFile">file upload</a> service.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=fileId")]
         public string FileId { get; set; } = default!;

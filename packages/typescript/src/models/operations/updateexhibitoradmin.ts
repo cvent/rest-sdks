@@ -20,7 +20,7 @@ export type UpdateExhibitorAdminRequest = {
    */
   adminId: string;
   /**
-   * Exhibitor Admin details
+   * Exhibitor admin details.
    */
   exhibitorAdminRequest: components.ExhibitorAdminRequest;
 };

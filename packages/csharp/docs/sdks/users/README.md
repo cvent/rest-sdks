@@ -14,7 +14,9 @@ Operations for managing account users and user groups, including creation, retri
 * [AddUserToAccountUserGroup](#addusertoaccountusergroup) - Associate User to Group
 * [DeleteUserFromAccountUserGroup](#deleteuserfromaccountusergroup) - Delete User from Group
 * [ListAccountUsers](#listaccountusers) - List Account Users
+* [ListAccountUsersFilter](#listaccountusersfilter) - List Account Users
 * [GetAccountUser](#getaccountuser) - Get Account User
+* [UpdateAccountUserCustomFieldAnswer](#updateaccountusercustomfieldanswer) - Update Custom Field Answer
 
 ## GetAccountUserGroups
 
@@ -360,7 +362,7 @@ var res = await sdk.Users.DeleteUserFromAccountUserGroupAsync(req);
 
 ## ListAccountUsers
 
-Gets a list of all users associated with your account.
+Gets a paginated list of account users associated with your account.
 
 ### Example Usage: active
 
@@ -508,6 +510,165 @@ while(res != null)
 | Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 429                      | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
+## ListAccountUsersFilter
+
+Gets a paginated list of users associated with your account using the filter provided in the body of the request. This method returns the same data as [List Account Users](#operation/listAccountUsers) (`GET /users`) but allows for longer filter strings and filtering on fields that may contain personally identifiable information (PII).
+
+
+### Example Usage: combined
+
+<!-- UsageSnippet language="csharp" operationID="listAccountUsersFilter" method="post" path="/users/filter" example="combined" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+ListAccountUsersFilterRequest req = new ListAccountUsersFilterRequest() {
+    Token = "1a2b3c4d5e6f7g8h9i10j11k",
+    Sort = "username DESC",
+    AccountUsersFilter = new AccountUsersFilter() {
+        Filter = "active eq 'true' and (contact.lastName eq 'Smith' or contact.email sw 'jsmith')",
+    },
+};
+
+ListAccountUsersFilterResponse? res = await sdk.Users.ListAccountUsersFilterAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+### Example Usage: customFields
+
+<!-- UsageSnippet language="csharp" operationID="listAccountUsersFilter" method="post" path="/users/filter" example="customFields" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+ListAccountUsersFilterRequest req = new ListAccountUsersFilterRequest() {
+    Token = "1a2b3c4d5e6f7g8h9i10j11k",
+    Sort = "username DESC",
+    AccountUsersFilter = new AccountUsersFilter() {
+        Filter = "customFields.6839fbc1-ad25-48ec-a3a0-fc051b853c8a.values contains ('Example')",
+    },
+};
+
+ListAccountUsersFilterResponse? res = await sdk.Users.ListAccountUsersFilterAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+### Example Usage: email
+
+<!-- UsageSnippet language="csharp" operationID="listAccountUsersFilter" method="post" path="/users/filter" example="email" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+ListAccountUsersFilterRequest req = new ListAccountUsersFilterRequest() {
+    Token = "1a2b3c4d5e6f7g8h9i10j11k",
+    Sort = "username DESC",
+    AccountUsersFilter = new AccountUsersFilter() {
+        Filter = "contact.email sw 'jsmith'",
+    },
+};
+
+ListAccountUsersFilterResponse? res = await sdk.Users.ListAccountUsersFilterAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+### Example Usage: username
+
+<!-- UsageSnippet language="csharp" operationID="listAccountUsersFilter" method="post" path="/users/filter" example="username" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+ListAccountUsersFilterRequest req = new ListAccountUsersFilterRequest() {
+    Token = "1a2b3c4d5e6f7g8h9i10j11k",
+    Sort = "username DESC",
+    AccountUsersFilter = new AccountUsersFilter() {
+        Filter = "username contains 'example'",
+    },
+};
+
+ListAccountUsersFilterResponse? res = await sdk.Users.ListAccountUsersFilterAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+
+### Parameters
+
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [ListAccountUsersFilterRequest](../../Models/Requests/ListAccountUsersFilterRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+
+### Response
+
+**[ListAccountUsersFilterResponse](../../Models/Requests/ListAccountUsersFilterResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
 ## GetAccountUser
 
 Gets a single account user.
@@ -553,4 +714,80 @@ var res = await sdk.Users.GetAccountUserAsync(req);
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
 | Cvent.SDK.Models.Errors.ErrorResponse12 | 401, 403, 404, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## UpdateAccountUserCustomFieldAnswer
+
+Updates an account user's answer to a single custom field using the details provided in the body of
+the request. The `id` in the request body must match the `customFieldId` path parameter.
+
+`values` is always an array. For custom fields that aren't choice-based, such as one-line text,
+comment box, and date/time fields, `values` contains a single element.
+
+Date/time custom field values use ISO 8601 format. A date-only field accepts only the `yyyy-MM-dd`
+format, such as `2026-11-11`, and returns answers in that same format. A date and time field accepts
+a full date-time with an offset, such as `2026-10-15T09:30:00Z`, which Cvent converts to UTC and
+returns as a UTC date-time.
+
+To clear an answer, send an empty `values` array. Cvent trims each value and drops blank ones, so a
+`values` array that holds only blank strings also clears the answer. You can only clear answers to
+custom fields that aren't required. Clearing the answer to a required custom field returns a `400` error.
+
+This endpoint only validates the custom field you're updating. It doesn't check whether the account
+user has answered their other required custom fields.
+
+Auto-increment custom fields are read-only because Cvent generates their values. Updating the
+answer to an auto-increment custom field returns a `400` error.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="updateAccountUserCustomFieldAnswer" method="put" path="/users/{userId}/custom-fields/{customFieldId}/answers" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System.Collections.Generic;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+UpdateAccountUserCustomFieldAnswerRequest req = new UpdateAccountUserCustomFieldAnswerRequest() {
+    UserId = "ff8af134-3505-4d67-aaea-1975d8e1327c",
+    CustomFieldId = "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+    AccountUserCustomField = new AccountUserCustomFieldInput() {
+        Id = "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+        Values = new List<string>() {
+            "Choice C",
+            "Choice A",
+        },
+    },
+};
+
+var res = await sdk.Users.UpdateAccountUserCustomFieldAnswerAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                       | [UpdateAccountUserCustomFieldAnswerRequest](../../Models/Requests/UpdateAccountUserCustomFieldAnswerRequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
+
+### Response
+
+**[UpdateAccountUserCustomFieldAnswerResponse](../../Models/Requests/UpdateAccountUserCustomFieldAnswerResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |

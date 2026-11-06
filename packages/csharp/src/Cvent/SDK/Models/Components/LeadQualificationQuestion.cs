@@ -16,7 +16,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// A JSON schema representing a Lead Qualification Question model.
+    /// Lead qualification question of an exhibitor.
     /// </summary>
     public class LeadQualificationQuestion
     {
@@ -45,61 +45,61 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Lead Qualification Question id.
+        /// Lead qualification question ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The Associated Event.
+        /// Associated event.
         /// </summary>
         [JsonProperty("event")]
         public Event4? Event { get; set; }
 
         /// <summary>
-        /// The Associated Exhibitor.
+        /// Associated exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
         public Models.Components.Exhibitor? Exhibitor { get; set; }
 
         /// <summary>
-        /// Type of question.
+        /// Type of the question.
         /// </summary>
         [JsonProperty("type")]
         public LeadQualificationQuestionType? Type { get; set; }
 
         /// <summary>
-        /// question code.
+        /// Code of the question.
         /// </summary>
         [JsonProperty("code")]
         public string? Code { get; set; }
 
         /// <summary>
-        /// List of available choices for the question.
+        /// List of the choices of the question.
         /// </summary>
         [JsonProperty("choices")]
         public List<Choice1>? Choices { get; set; }
 
         /// <summary>
-        /// Contains text of additional choice.
+        /// Additional choice of the question.
         /// </summary>
         [JsonProperty("notApplicableAnswer")]
         public AdditionalChoice1? NotApplicableAnswer { get; set; }
 
         /// <summary>
-        /// Contains text of additional choice.
+        /// Additional choice of the question.
         /// </summary>
         [JsonProperty("otherAnswers")]
         public AdditionalChoice1? OtherAnswers { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether the question is mandatory or not.
+        /// True indicates that the question requires an answer.
         /// </summary>
         [JsonProperty("required")]
         public bool? Required { get; set; }
 
         /// <summary>
-        /// text of the question.
+        /// Text of the question.
         /// </summary>
         [JsonProperty("text")]
         public string? Text { get; set; }

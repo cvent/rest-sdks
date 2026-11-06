@@ -33,7 +33,7 @@ public class GetBadgesPostFiltersResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully get badges.
+     * Successfully retrieved the badges.
      */
     private BadgePaginatedResponse badgePaginatedResponse;
 
@@ -78,7 +78,7 @@ public class GetBadgesPostFiltersResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully get badges.
+     * Successfully retrieved the badges.
      */
     public Optional<BadgePaginatedResponse> badgePaginatedResponse() {
         return Optional.ofNullable(this.badgePaginatedResponse);
@@ -113,7 +113,7 @@ public class GetBadgesPostFiltersResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully get badges.
+     * Successfully retrieved the badges.
      */
     public GetBadgesPostFiltersResponse withBadgePaginatedResponse(
             @Nullable BadgePaginatedResponse badgePaginatedResponse) {
@@ -195,7 +195,7 @@ public class GetBadgesPostFiltersResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully get badges.
+         * Successfully retrieved the badges.
          */
         public Builder badgePaginatedResponse(@Nullable BadgePaginatedResponse badgePaginatedResponse) {
             this.badgePaginatedResponse = badgePaginatedResponse;

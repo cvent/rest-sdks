@@ -96,11 +96,11 @@ var sdk = new CventSDK(security: new Security() {
     },
 });
 
-CustomField1 req = new CustomField1() {
+CustomField1Input req = new CustomField1Input() {
     Category = CustomFieldCategory.Contact,
     Name = "What is a your favorite color?",
     Code = "FAVORITE_COLOR_CODE",
-    Type = CustomFieldType2.OpenEndedTextOneLine,
+    Type = CustomFieldType3.OpenEndedTextOneLine,
     Details = CustomField1Details.CreateOpenEndedOneLine(
         new OpenEndedOneLine() {
             AnswerFormat = "General",
@@ -119,9 +119,9 @@ var res = await sdk.CustomFields.CreateCustomFieldAsync(req);
 
 ### Parameters
 
-| Parameter                                               | Type                                                    | Required                                                | Description                                             |
-| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
-| `request`                                               | [CustomField1](../../Models/Components/CustomField1.md) | :heavy_check_mark:                                      | The request object to use for the request.              |
+| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `request`                                                         | [CustomField1Input](../../Models/Components/CustomField1Input.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
 
 ### Response
 
@@ -165,11 +165,11 @@ UpdateCustomFieldRequest req = new UpdateCustomFieldRequest() {
         Category = CustomFieldCategory.Contact,
         Name = "What is a your favorite color?",
         Code = "FAVORITE_COLOR_CODE",
-        Type = CustomFieldType2.OpenEndedTextOneLine,
+        Type = CustomFieldType3.OpenEndedTextOneLine,
         Details = ExistingCustomFieldDetailsInput.CreateChoices1Input(
             new Choices1Input() {
-                Choices = new List<Choice3Input>() {
-                    new Choice3Input() {
+                Choices = new List<Choice4Input>() {
+                    new Choice4Input() {
                         Text = "What is your current designation?",
                     },
                 },

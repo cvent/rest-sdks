@@ -15,12 +15,12 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// A response containing a list of all questions for exhibitors.
+    /// List of exhibitor questions.
     /// </summary>
     public class ExhibitorQuestionsResponse
     {
         /// <summary>
-        /// List of all questions for exhibitors.
+        /// List of exhibitor questions.
         /// </summary>
         [JsonProperty("data")]
         public List<ExistingExhibitorQuestion>? Data { get; set; }

@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * Source
  *
- * <p>The source of entry for the lead
+ * <p>Source of the lead entry.
  */
 public enum Source {
     SCANNED("scanned"),

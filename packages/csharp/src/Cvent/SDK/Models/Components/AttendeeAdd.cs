@@ -20,25 +20,25 @@ namespace Cvent.SDK.Models.Components
     public class AttendeeAdd
     {
         /// <summary>
-        /// The ID of the event associated with the attendee.
+        /// The event associated with the attendee.
         /// </summary>
         [JsonProperty("event")]
         public AttendeeAddEvent Event { get; set; } = default!;
 
         /// <summary>
-        /// The ID of the address book contact associated with the attendee.
+        /// The address book contact associated with the attendee.
         /// </summary>
         [JsonProperty("contact")]
         public AttendeeAddContact Contact { get; set; } = default!;
 
         /// <summary>
-        /// The ID of the invitation list associated with the attendee.
+        /// The invitation list associated with the attendee.
         /// </summary>
         [JsonProperty("invitationList")]
         public AttendeeAddInvitationList? InvitationList { get; set; }
 
         /// <summary>
-        /// The reference ID of an attendee. A planner determined string used to track which link attendee's used to reach the event registration.
+        /// Reference ID. A planner-defined string that tracks the link that the attendee used to reach the event registration.
         /// </summary>
         [JsonProperty("referenceId")]
         public string? ReferenceId { get; set; }
@@ -50,13 +50,13 @@ namespace Cvent.SDK.Models.Components
         public string? Note { get; set; }
 
         /// <summary>
-        /// The ID of the administrator contact whom registered this attendee.
+        /// The administrator contact who registered this attendee.
         /// </summary>
         [JsonProperty("administrator")]
         public AttendeeAddAdministrator? Administrator { get; set; }
 
         /// <summary>
-        /// The ID of the attendee's admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
+        /// The attendee's admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
         /// </summary>
         [JsonProperty("admissionItem")]
         public AttendeeAddAdmissionItem? AdmissionItem { get; set; }
@@ -104,7 +104,7 @@ namespace Cvent.SDK.Models.Components
         public bool? Guest { get; set; }
 
         /// <summary>
-        /// The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this attendee is a guest.
+        /// Primary attendee ID. Applies only when this attendee is a guest.
         /// </summary>
         [JsonProperty("primaryId")]
         public string? PrimaryId { get; set; }

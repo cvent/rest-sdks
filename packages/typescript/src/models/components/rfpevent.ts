@@ -25,7 +25,7 @@ export type RfpEvent = {
   /**
    * Name of the event linked with the RFP.
    */
-  name?: string | undefined;
+  name: string;
   /**
    * Location where the contract will be signed.
    */
@@ -81,7 +81,7 @@ export type RfpEvent = {
   /**
    * Event format type.
    */
-  formatType?: EventFormatType | undefined;
+  formatType: EventFormatType;
   /**
    * Number of virtual attendees per day.
    */
@@ -107,7 +107,7 @@ export const RfpEvent$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   event: Event12$inboundSchema.optional(),
-  name: z.string().optional(),
+  name: z.string(),
   contractSignatureLocation: z.string().optional(),
   destinationsUnderConsideration: z.string().optional(),
   externalMeetingRequest: z.boolean().optional(),
@@ -121,7 +121,7 @@ export const RfpEvent$inboundSchema: z.ZodType<
   referenceNumber: z.string().optional(),
   largestMeetingSpaceRequired: SpaceArea$inboundSchema.optional(),
   meetingRequestId: z.string().optional(),
-  formatType: EventFormatType$inboundSchema.optional(),
+  formatType: EventFormatType$inboundSchema,
   virtualAttendeesPerDay: z.number().int().optional(),
   budget: z.number().optional(),
   roomRateBudget: z.number().optional(),

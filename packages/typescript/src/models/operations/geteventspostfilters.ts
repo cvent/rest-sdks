@@ -30,6 +30,41 @@ export type GetEventsPostFiltersRequest = {
    */
   token?: string | undefined;
   /**
+   * This endpoint allows you to request additional information as an
+   *
+   * @remarks
+   * expanded response using the `expand` query parameter.
+   *
+   * The expanded entity is retrieved and displayed inline for each
+   * specified expand value. You can expand multiple objects at the same
+   * time by identifying multiple items in the expand array.
+   *
+   * The following fields are expandable:
+   *   * image
+   *
+   * When `image` is not requested it is omitted from the response
+   * entirely. When it is requested and the event has no image, `image`
+   * is `null`.
+   *
+   * Images are retrieved in bulk per page; `expand` does not change the
+   * maximum `limit`.
+   *
+   * On list endpoints `expand` is kept in the paging `token`: a request
+   * with `token` uses the `expand` of the first request, and an `expand`
+   * sent with `token` is validated but otherwise ignored.
+   *
+   * The image is retrieved at request time. If it cannot be retrieved the
+   * whole request fails with `504` when the image service does not respond
+   * in time, and `503` otherwise. On list endpoints this is all-or-nothing:
+   * one image that cannot be retrieved fails the whole page. To read events
+   * while images are unavailable, omit `expand`.
+   *
+   * On endpoints that support `partialResponse`, sending
+   * `partialResponse=true` instead returns every event on the page without
+   * `image`, together with a single partial error for that field.
+   */
+  expand?: Array<components.Expand1> | undefined;
+  /**
    * The sort order passed as a parameter, used to control the order of the
    *
    * @remarks
@@ -61,6 +96,7 @@ export type GetEventsPostFiltersRequest$Outbound = {
   before?: string | undefined;
   limit: number;
   token?: string | undefined;
+  expand?: Array<string> | undefined;
   sort?: string | undefined;
   filter?: components.Filter$Outbound | undefined;
 };
@@ -75,6 +111,7 @@ export const GetEventsPostFiltersRequest$outboundSchema: z.ZodType<
   before: z.date().transform(v => v.toISOString()).optional(),
   limit: z.number().int().default(100),
   token: z.string().optional(),
+  expand: z.array(components.Expand1$outboundSchema).optional(),
   sort: z.string().optional(),
   filter: components.Filter$outboundSchema.optional(),
 });

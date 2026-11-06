@@ -33,10 +33,10 @@ import {
 } from "../types/operations.js";
 
 /**
- * Get Badge
+ * List Badges
  *
  * @remarks
- * Retrieves a list of third-party badge associations for attendees within the event.
+ * Retrieves a list of the third-party badge associations of the attendees of an event.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

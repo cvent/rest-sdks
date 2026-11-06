@@ -46,7 +46,7 @@ export type EmailVerified = ClosedEnum<typeof EmailVerified>;
  */
 export type AccountUser = {
   /**
-   * The identifier of the Account User.
+   * The account user's ID.
    */
   id: string;
   /**
@@ -54,7 +54,7 @@ export type AccountUser = {
    */
   platformUserId?: string | undefined;
   /**
-   * The account user's username used to log into the account.
+   * The account user's username used to log in to the account.
    */
   username: string;
   /**
@@ -74,7 +74,7 @@ export type AccountUser = {
    */
   timezone: string;
   /**
-   * True indicates the account user is active. Active users can log into the account. Account users are created with this flag set to false by default.
+   * True indicates the account user is active. Active users can log in to the account. Account users are created with this flag set to false by default.
    */
   active: boolean;
   /**
@@ -86,7 +86,7 @@ export type AccountUser = {
    */
   emailVerified: EmailVerified;
   /**
-   * True indicates the account user is locked.
+   * True indicates the account user is locked out.
    */
   lockedOut: boolean;
   /**

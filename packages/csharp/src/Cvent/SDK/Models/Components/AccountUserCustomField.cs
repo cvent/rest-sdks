@@ -20,7 +20,7 @@ namespace Cvent.SDK.Models.Components
     public class AccountUserCustomField
     {
         /// <summary>
-        /// The unique ID representing this custom field.
+        /// The custom field's ID.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

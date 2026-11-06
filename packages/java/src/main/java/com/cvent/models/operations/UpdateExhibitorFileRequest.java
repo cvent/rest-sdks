@@ -32,7 +32,7 @@ public class UpdateExhibitorFileRequest {
     private String fileId;
 
     /**
-     * Exhibitor file content to be updated.
+     * Exhibitor file details.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private FileInput file;
@@ -70,7 +70,7 @@ public class UpdateExhibitorFileRequest {
     }
 
     /**
-     * Exhibitor file content to be updated.
+     * Exhibitor file details.
      */
     public FileInput file() {
         return this.file;
@@ -105,7 +105,7 @@ public class UpdateExhibitorFileRequest {
     }
 
     /**
-     * Exhibitor file content to be updated.
+     * Exhibitor file details.
      */
     public UpdateExhibitorFileRequest withFile(@Nonnull FileInput file) {
         this.file = Utils.checkNotNull(file, "file");
@@ -178,7 +178,7 @@ public class UpdateExhibitorFileRequest {
         }
 
         /**
-         * Exhibitor file content to be updated.
+         * Exhibitor file details.
          */
         public Builder file(@Nonnull FileInput file) {
             this.file = Utils.checkNotNull(file, "file");

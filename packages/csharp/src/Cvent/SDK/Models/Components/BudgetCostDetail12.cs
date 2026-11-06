@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the category assigned to the budget item.
         /// </summary>
         [JsonProperty("category")]
-        public BudgetCategory? Category { get; set; }
+        public BudgetCategory1? Category { get; set; }
 
         /// <summary>
         /// This is used to denote the sub category for a budget.

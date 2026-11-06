@@ -23,7 +23,7 @@ import java.util.Optional;
 /**
  * ExistingExhibitorQuestion
  *
- * <p>Schema for an existing exhibitor question
+ * <p>Exhibitor question with an ID.
  */
 public class ExistingExhibitorQuestion {
     /**
@@ -55,97 +55,98 @@ public class ExistingExhibitorQuestion {
     private String lastModifiedBy;
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * The actual text of the exhibitor question.
+     * Text of the exhibitor question.
      */
     @JsonProperty("text")
     private String text;
 
     /**
-     * System or User defined event level unique exhibitor question code.
+     * Code of the exhibitor question. The code is unique in the event. The system or the user defines the
+     * code.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("code")
     private String code;
 
     /**
-     * Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice':
-     * Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single
-     * option from a list, often displayed as a dropdown or radio button.
+     * Type of data that an exhibitor question collects. `MultiChoice`: the respondent selects multiple
+     * options from a list. `SingleChoice`: the respondent selects one option from a list, such as a
+     * dropdown or radio buttons.
      *
-     * <p>'OpenEndedTextOneLine': brief text responses, such as names or short answers.
-     * 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime':
-     * captures date and time information from respondents.
+     * <p>`OpenEndedTextOneLine`: the respondent enters a short text answer, such as a name.
+     * `OpenEndedTextCommentBox`: the respondent enters a long text answer. `OpenEndedDateTime`: the
+     * respondent enters a date and time.
      */
     @JsonProperty("type")
     private ExhibitorQuestionType type;
 
     /**
-     * A boolean indicating whether the question is mandatory or not
+     * True indicates that the question requires an answer.
      */
     @JsonProperty("required")
     private boolean required;
 
     /**
-     * An array of choices for the exhibitor question.
+     * List of the choices of the exhibitor question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("choices")
     private List<BaseChoice> choices;
 
     /**
-     * Contains text of additional choice
+     * Additional choice of the question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("notApplicableAnswer")
     private AdditionalChoice1 notApplicableAnswer;
 
     /**
-     * Contains text of additional choice
+     * Additional choice of the question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("otherAnswer")
     private AdditionalChoice1 otherAnswer;
 
     /**
-     * Specifies the format for displaying answers based on the question type. For SingleChoice questions,
-     * choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General',
-     * 'EmailAddress', or 'PhoneNumber'.
+     * Display format of the answers to the question. The valid formats depend on the question type. A
+     * `SingleChoice` question uses `Dropdown` or `RadioButton`.
      *
-     * <p>For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
+     * <p>An `OpenEndedTextOneLine` question uses `General`, `EmailAddress`, or `PhoneNumber`. An
+     * `OpenEndedDateTime` question uses `DateAndTime` or `Date`.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("answerFormat")
     private ExhibitorAnswerFormat answerFormat;
 
     /**
-     * Defines the limits for answers to exhibitor questions.
+     * Limits of the answers to an exhibitor question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("answerLimits")
     private ExhibitorAnswerLimits answerLimits;
 
     /**
-     * True indicates the current date and time is automatically set as the default value for
-     * OpenEndedDateTime questions.
+     * True indicates that the current date and time is the default answer to an `OpenEndedDateTime`
+     * question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("defaultToCurrentDate")
     private Boolean defaultToCurrentDate;
 
     /**
-     * Exhibitor Question id
+     * Exhibitor question ID.
      */
     @JsonProperty("id")
     private String id;
 
     /**
-     * The unique display order of the exhibitor question.
+     * Unique display order of the exhibitor question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("displayOrder")
@@ -227,102 +228,103 @@ public class ExistingExhibitorQuestion {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Event4 event() {
         return this.event;
     }
 
     /**
-     * The actual text of the exhibitor question.
+     * Text of the exhibitor question.
      */
     public String text() {
         return this.text;
     }
 
     /**
-     * System or User defined event level unique exhibitor question code.
+     * Code of the exhibitor question. The code is unique in the event. The system or the user defines the
+     * code.
      */
     public Optional<String> code() {
         return Optional.ofNullable(this.code);
     }
 
     /**
-     * Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice':
-     * Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single
-     * option from a list, often displayed as a dropdown or radio button.
+     * Type of data that an exhibitor question collects. `MultiChoice`: the respondent selects multiple
+     * options from a list. `SingleChoice`: the respondent selects one option from a list, such as a
+     * dropdown or radio buttons.
      *
-     * <p>'OpenEndedTextOneLine': brief text responses, such as names or short answers.
-     * 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime':
-     * captures date and time information from respondents.
+     * <p>`OpenEndedTextOneLine`: the respondent enters a short text answer, such as a name.
+     * `OpenEndedTextCommentBox`: the respondent enters a long text answer. `OpenEndedDateTime`: the
+     * respondent enters a date and time.
      */
     public ExhibitorQuestionType type() {
         return this.type;
     }
 
     /**
-     * A boolean indicating whether the question is mandatory or not
+     * True indicates that the question requires an answer.
      */
     public boolean required() {
         return this.required;
     }
 
     /**
-     * An array of choices for the exhibitor question.
+     * List of the choices of the exhibitor question.
      */
     public Optional<List<BaseChoice>> choices() {
         return Optional.ofNullable(this.choices);
     }
 
     /**
-     * Contains text of additional choice
+     * Additional choice of the question.
      */
     public Optional<AdditionalChoice1> notApplicableAnswer() {
         return Optional.ofNullable(this.notApplicableAnswer);
     }
 
     /**
-     * Contains text of additional choice
+     * Additional choice of the question.
      */
     public Optional<AdditionalChoice1> otherAnswer() {
         return Optional.ofNullable(this.otherAnswer);
     }
 
     /**
-     * Specifies the format for displaying answers based on the question type. For SingleChoice questions,
-     * choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General',
-     * 'EmailAddress', or 'PhoneNumber'.
+     * Display format of the answers to the question. The valid formats depend on the question type. A
+     * `SingleChoice` question uses `Dropdown` or `RadioButton`.
      *
-     * <p>For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
+     * <p>An `OpenEndedTextOneLine` question uses `General`, `EmailAddress`, or `PhoneNumber`. An
+     * `OpenEndedDateTime` question uses `DateAndTime` or `Date`.
      */
     public Optional<ExhibitorAnswerFormat> answerFormat() {
         return Optional.ofNullable(this.answerFormat);
     }
 
     /**
-     * Defines the limits for answers to exhibitor questions.
+     * Limits of the answers to an exhibitor question.
      */
     public Optional<ExhibitorAnswerLimits> answerLimits() {
         return Optional.ofNullable(this.answerLimits);
     }
 
     /**
-     * True indicates the current date and time is automatically set as the default value for
-     * OpenEndedDateTime questions.
+     * True indicates that the current date and time is the default answer to an `OpenEndedDateTime`
+     * question.
      */
     public Optional<Boolean> defaultToCurrentDate() {
         return Optional.ofNullable(this.defaultToCurrentDate);
     }
 
     /**
-     * Exhibitor Question id
+     * Exhibitor question ID.
      */
     public String id() {
         return this.id;
     }
 
     /**
-     * The unique display order of the exhibitor question.
+     * Unique display order of the exhibitor question.
      */
     public Optional<Long> displayOrder() {
         return Optional.ofNullable(this.displayOrder);
@@ -365,7 +367,7 @@ public class ExistingExhibitorQuestion {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public ExistingExhibitorQuestion withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -373,7 +375,7 @@ public class ExistingExhibitorQuestion {
     }
 
     /**
-     * The actual text of the exhibitor question.
+     * Text of the exhibitor question.
      */
     public ExistingExhibitorQuestion withText(@Nonnull String text) {
         this.text = Utils.checkNotNull(text, "text");
@@ -381,7 +383,8 @@ public class ExistingExhibitorQuestion {
     }
 
     /**
-     * System or User defined event level unique exhibitor question code.
+     * Code of the exhibitor question. The code is unique in the event. The system or the user defines the
+     * code.
      */
     public ExistingExhibitorQuestion withCode(@Nullable String code) {
         this.code = code;
@@ -389,13 +392,13 @@ public class ExistingExhibitorQuestion {
     }
 
     /**
-     * Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice':
-     * Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single
-     * option from a list, often displayed as a dropdown or radio button.
+     * Type of data that an exhibitor question collects. `MultiChoice`: the respondent selects multiple
+     * options from a list. `SingleChoice`: the respondent selects one option from a list, such as a
+     * dropdown or radio buttons.
      *
-     * <p>'OpenEndedTextOneLine': brief text responses, such as names or short answers.
-     * 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime':
-     * captures date and time information from respondents.
+     * <p>`OpenEndedTextOneLine`: the respondent enters a short text answer, such as a name.
+     * `OpenEndedTextCommentBox`: the respondent enters a long text answer. `OpenEndedDateTime`: the
+     * respondent enters a date and time.
      */
     public ExistingExhibitorQuestion withType(@Nonnull ExhibitorQuestionType type) {
         this.type = Utils.checkNotNull(type, "type");
@@ -403,7 +406,7 @@ public class ExistingExhibitorQuestion {
     }
 
     /**
-     * A boolean indicating whether the question is mandatory or not
+     * True indicates that the question requires an answer.
      */
     public ExistingExhibitorQuestion withRequired(boolean required) {
         this.required = required;
@@ -411,7 +414,7 @@ public class ExistingExhibitorQuestion {
     }
 
     /**
-     * An array of choices for the exhibitor question.
+     * List of the choices of the exhibitor question.
      */
     public ExistingExhibitorQuestion withChoices(@Nullable List<BaseChoice> choices) {
         this.choices = choices;
@@ -419,7 +422,7 @@ public class ExistingExhibitorQuestion {
     }
 
     /**
-     * Contains text of additional choice
+     * Additional choice of the question.
      */
     public ExistingExhibitorQuestion withNotApplicableAnswer(@Nullable AdditionalChoice1 notApplicableAnswer) {
         this.notApplicableAnswer = notApplicableAnswer;
@@ -427,7 +430,7 @@ public class ExistingExhibitorQuestion {
     }
 
     /**
-     * Contains text of additional choice
+     * Additional choice of the question.
      */
     public ExistingExhibitorQuestion withOtherAnswer(@Nullable AdditionalChoice1 otherAnswer) {
         this.otherAnswer = otherAnswer;
@@ -435,11 +438,11 @@ public class ExistingExhibitorQuestion {
     }
 
     /**
-     * Specifies the format for displaying answers based on the question type. For SingleChoice questions,
-     * choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General',
-     * 'EmailAddress', or 'PhoneNumber'.
+     * Display format of the answers to the question. The valid formats depend on the question type. A
+     * `SingleChoice` question uses `Dropdown` or `RadioButton`.
      *
-     * <p>For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
+     * <p>An `OpenEndedTextOneLine` question uses `General`, `EmailAddress`, or `PhoneNumber`. An
+     * `OpenEndedDateTime` question uses `DateAndTime` or `Date`.
      */
     public ExistingExhibitorQuestion withAnswerFormat(@Nullable ExhibitorAnswerFormat answerFormat) {
         this.answerFormat = answerFormat;
@@ -447,7 +450,7 @@ public class ExistingExhibitorQuestion {
     }
 
     /**
-     * Defines the limits for answers to exhibitor questions.
+     * Limits of the answers to an exhibitor question.
      */
     public ExistingExhibitorQuestion withAnswerLimits(@Nullable ExhibitorAnswerLimits answerLimits) {
         this.answerLimits = answerLimits;
@@ -455,8 +458,8 @@ public class ExistingExhibitorQuestion {
     }
 
     /**
-     * True indicates the current date and time is automatically set as the default value for
-     * OpenEndedDateTime questions.
+     * True indicates that the current date and time is the default answer to an `OpenEndedDateTime`
+     * question.
      */
     public ExistingExhibitorQuestion withDefaultToCurrentDate(@Nullable Boolean defaultToCurrentDate) {
         this.defaultToCurrentDate = defaultToCurrentDate;
@@ -464,7 +467,7 @@ public class ExistingExhibitorQuestion {
     }
 
     /**
-     * Exhibitor Question id
+     * Exhibitor question ID.
      */
     public ExistingExhibitorQuestion withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -472,7 +475,7 @@ public class ExistingExhibitorQuestion {
     }
 
     /**
-     * The unique display order of the exhibitor question.
+     * Unique display order of the exhibitor question.
      */
     public ExistingExhibitorQuestion withDisplayOrder(@Nullable Long displayOrder) {
         this.displayOrder = displayOrder;
@@ -643,7 +646,7 @@ public class ExistingExhibitorQuestion {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -651,7 +654,7 @@ public class ExistingExhibitorQuestion {
         }
 
         /**
-         * The actual text of the exhibitor question.
+         * Text of the exhibitor question.
          */
         public Builder text(@Nonnull String text) {
             this.text = Utils.checkNotNull(text, "text");
@@ -659,7 +662,8 @@ public class ExistingExhibitorQuestion {
         }
 
         /**
-         * System or User defined event level unique exhibitor question code.
+         * Code of the exhibitor question. The code is unique in the event. The system or the user defines the
+         * code.
          */
         public Builder code(@Nullable String code) {
             this.code = code;
@@ -667,13 +671,13 @@ public class ExistingExhibitorQuestion {
         }
 
         /**
-         * Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice':
-         * Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single
-         * option from a list, often displayed as a dropdown or radio button.
+         * Type of data that an exhibitor question collects. `MultiChoice`: the respondent selects multiple
+         * options from a list. `SingleChoice`: the respondent selects one option from a list, such as a
+         * dropdown or radio buttons.
          *
-         * <p>'OpenEndedTextOneLine': brief text responses, such as names or short answers.
-         * 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime':
-         * captures date and time information from respondents.
+         * <p>`OpenEndedTextOneLine`: the respondent enters a short text answer, such as a name.
+         * `OpenEndedTextCommentBox`: the respondent enters a long text answer. `OpenEndedDateTime`: the
+         * respondent enters a date and time.
          */
         public Builder type(@Nonnull ExhibitorQuestionType type) {
             this.type = Utils.checkNotNull(type, "type");
@@ -681,7 +685,7 @@ public class ExistingExhibitorQuestion {
         }
 
         /**
-         * A boolean indicating whether the question is mandatory or not
+         * True indicates that the question requires an answer.
          */
         public Builder required(boolean required) {
             this.required = required;
@@ -689,7 +693,7 @@ public class ExistingExhibitorQuestion {
         }
 
         /**
-         * An array of choices for the exhibitor question.
+         * List of the choices of the exhibitor question.
          */
         public Builder choices(@Nullable List<BaseChoice> choices) {
             this.choices = choices;
@@ -697,7 +701,7 @@ public class ExistingExhibitorQuestion {
         }
 
         /**
-         * Contains text of additional choice
+         * Additional choice of the question.
          */
         public Builder notApplicableAnswer(@Nullable AdditionalChoice1 notApplicableAnswer) {
             this.notApplicableAnswer = notApplicableAnswer;
@@ -705,7 +709,7 @@ public class ExistingExhibitorQuestion {
         }
 
         /**
-         * Contains text of additional choice
+         * Additional choice of the question.
          */
         public Builder otherAnswer(@Nullable AdditionalChoice1 otherAnswer) {
             this.otherAnswer = otherAnswer;
@@ -713,11 +717,11 @@ public class ExistingExhibitorQuestion {
         }
 
         /**
-         * Specifies the format for displaying answers based on the question type. For SingleChoice questions,
-         * choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General',
-         * 'EmailAddress', or 'PhoneNumber'.
+         * Display format of the answers to the question. The valid formats depend on the question type. A
+         * `SingleChoice` question uses `Dropdown` or `RadioButton`.
          *
-         * <p>For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
+         * <p>An `OpenEndedTextOneLine` question uses `General`, `EmailAddress`, or `PhoneNumber`. An
+         * `OpenEndedDateTime` question uses `DateAndTime` or `Date`.
          */
         public Builder answerFormat(@Nullable ExhibitorAnswerFormat answerFormat) {
             this.answerFormat = answerFormat;
@@ -725,7 +729,7 @@ public class ExistingExhibitorQuestion {
         }
 
         /**
-         * Defines the limits for answers to exhibitor questions.
+         * Limits of the answers to an exhibitor question.
          */
         public Builder answerLimits(@Nullable ExhibitorAnswerLimits answerLimits) {
             this.answerLimits = answerLimits;
@@ -733,8 +737,8 @@ public class ExistingExhibitorQuestion {
         }
 
         /**
-         * True indicates the current date and time is automatically set as the default value for
-         * OpenEndedDateTime questions.
+         * True indicates that the current date and time is the default answer to an `OpenEndedDateTime`
+         * question.
          */
         public Builder defaultToCurrentDate(@Nullable Boolean defaultToCurrentDate) {
             this.defaultToCurrentDate = defaultToCurrentDate;
@@ -742,7 +746,7 @@ public class ExistingExhibitorQuestion {
         }
 
         /**
-         * Exhibitor Question id
+         * Exhibitor question ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -750,7 +754,7 @@ public class ExistingExhibitorQuestion {
         }
 
         /**
-         * The unique display order of the exhibitor question.
+         * Unique display order of the exhibitor question.
          */
         public Builder displayOrder(@Nullable Long displayOrder) {
             this.displayOrder = displayOrder;

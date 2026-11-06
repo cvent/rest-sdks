@@ -33,7 +33,7 @@ namespace Cvent.SDK.Models.Requests
         public string WeblinkId { get; set; } = default!;
 
         /// <summary>
-        /// Exhibitor content to be updated.
+        /// Exhibitor content weblink details.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Weblink Weblink { get; set; } = default!;

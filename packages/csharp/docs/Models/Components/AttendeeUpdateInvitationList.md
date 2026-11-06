@@ -1,6 +1,6 @@
 # AttendeeUpdateInvitationList
 
-The ID of the invitation list associated with the attendee.
+The invitation list associated with the attendee.
 
 
 ## Fields

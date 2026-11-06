@@ -1,6 +1,6 @@
 # LeadQualificationQuestionsListResponse
 
-A response containing a list of lead qualification questions.
+List of lead qualification questions.
 
 ## Example Usage
 
@@ -45,4 +45,4 @@ let value: LeadQualificationQuestionsListResponse = {
 
 | Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
 | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `data`                                                                                         | [components.LeadQualificationQuestion](../../models/components/leadqualificationquestion.md)[] | :heavy_minus_sign:                                                                             | Collection of lead qualification questions.                                                    |
+| `data`                                                                                         | [components.LeadQualificationQuestion](../../models/components/leadqualificationquestion.md)[] | :heavy_minus_sign:                                                                             | List of lead qualification questions.                                                          |

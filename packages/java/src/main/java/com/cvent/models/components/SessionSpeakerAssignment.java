@@ -17,11 +17,11 @@ import java.util.Optional;
 /**
  * SessionSpeakerAssignment
  *
- * <p>Holds fields that can be applied to a session speaker assignment.
+ * <p>Optional speaker category and preferred position for a speaker assigned to a session.
  */
 public class SessionSpeakerAssignment {
     /**
-     * An object that holds the id for a category
+     * A reference to a category by its ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("speakerCategory")
@@ -48,7 +48,7 @@ public class SessionSpeakerAssignment {
     }
 
     /**
-     * An object that holds the id for a category
+     * A reference to a category by its ID.
      */
     public Optional<CategoryId> speakerCategory() {
         return Optional.ofNullable(this.speakerCategory);
@@ -67,7 +67,7 @@ public class SessionSpeakerAssignment {
     }
 
     /**
-     * An object that holds the id for a category
+     * A reference to a category by its ID.
      */
     public SessionSpeakerAssignment withSpeakerCategory(@Nullable CategoryId speakerCategory) {
         this.speakerCategory = speakerCategory;
@@ -118,7 +118,7 @@ public class SessionSpeakerAssignment {
         }
 
         /**
-         * An object that holds the id for a category
+         * A reference to a category by its ID.
          */
         public Builder speakerCategory(@Nullable CategoryId speakerCategory) {
             this.speakerCategory = speakerCategory;

@@ -22,18 +22,17 @@ public class LargeChoicesPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of choices for large choices question.
      */
     @JsonProperty("data")
-    private List<LargeChoiceJson> data;
+    private List<LargeChoice> data;
 
     @JsonCreator
     public LargeChoicesPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<LargeChoiceJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<LargeChoice> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +41,14 @@ public class LargeChoicesPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of choices for large choices question.
      */
-    public List<LargeChoiceJson> data() {
+    public List<LargeChoice> data() {
         return this.data;
     }
 
@@ -60,7 +59,7 @@ public class LargeChoicesPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public LargeChoicesPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public LargeChoicesPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +67,7 @@ public class LargeChoicesPaginatedResponse {
     /**
      * Collection of choices for large choices question.
      */
-    public LargeChoicesPaginatedResponse withData(@Nonnull List<LargeChoiceJson> data) {
+    public LargeChoicesPaginatedResponse withData(@Nonnull List<LargeChoice> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +97,9 @@ public class LargeChoicesPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<LargeChoiceJson> data;
+        private List<LargeChoice> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +108,7 @@ public class LargeChoicesPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +116,7 @@ public class LargeChoicesPaginatedResponse {
         /**
          * Collection of choices for large choices question.
          */
-        public Builder data(@Nonnull List<LargeChoiceJson> data) {
+        public Builder data(@Nonnull List<LargeChoice> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

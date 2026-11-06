@@ -16,11 +16,11 @@ import java.util.Optional;
 /**
  * SessionDocumentLite
  *
- * <p>The related document object.
+ * <p>A reference to a session document by its ID.
  */
 public class SessionDocumentLite {
     /**
-     * The unique identifier for a document.
+     * The unique ID of a document.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -36,7 +36,7 @@ public class SessionDocumentLite {
     }
 
     /**
-     * The unique identifier for a document.
+     * The unique ID of a document.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -47,7 +47,7 @@ public class SessionDocumentLite {
     }
 
     /**
-     * The unique identifier for a document.
+     * The unique ID of a document.
      */
     public SessionDocumentLite withId(@Nullable String id) {
         this.id = id;
@@ -86,7 +86,7 @@ public class SessionDocumentLite {
         }
 
         /**
-         * The unique identifier for a document.
+         * The unique ID of a document.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

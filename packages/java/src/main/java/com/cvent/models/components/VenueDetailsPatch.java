@@ -159,7 +159,7 @@ public class VenueDetailsPatch {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address")
-    private JsonNullable<VenueDetailsPatchAddress> address;
+    private JsonNullable<VenueDetailsAddressPatch> address;
 
     @JsonCreator
     public VenueDetailsPatch(
@@ -179,7 +179,7 @@ public class VenueDetailsPatch {
             @JsonProperty("additionalInformation") @Nullable JsonNullable<String> additionalInformation,
             @JsonProperty("cancellationPolicy") @Nullable JsonNullable<String> cancellationPolicy,
             @JsonProperty("locationTypes") @Nullable JsonNullable<List<LocationType>> locationTypes,
-            @JsonProperty("address") @Nullable JsonNullable<VenueDetailsPatchAddress> address) {
+            @JsonProperty("address") @Nullable JsonNullable<VenueDetailsAddressPatch> address) {
         this.type = type;
         this.timeZone = Optional.ofNullable(timeZone).orElse(JsonNullable.undefined());
         this.brand = Optional.ofNullable(brand).orElse(JsonNullable.undefined());
@@ -339,7 +339,7 @@ public class VenueDetailsPatch {
     /**
      * Venue address information.
      */
-    public JsonNullable<VenueDetailsPatchAddress> address() {
+    public JsonNullable<VenueDetailsAddressPatch> address() {
         return this.address;
     }
 
@@ -499,7 +499,7 @@ public class VenueDetailsPatch {
     /**
      * Venue address information.
      */
-    public VenueDetailsPatch withAddress(@Nullable VenueDetailsPatchAddress address) {
+    public VenueDetailsPatch withAddress(@Nullable VenueDetailsAddressPatch address) {
         this.address = JsonNullable.of(address);
         return this;
     }
@@ -629,7 +629,7 @@ public class VenueDetailsPatch {
 
         private JsonNullable<List<LocationType>> locationTypes;
 
-        private JsonNullable<VenueDetailsPatchAddress> address;
+        private JsonNullable<VenueDetailsAddressPatch> address;
 
         private Builder() {
             // force use of static builder() method
@@ -787,7 +787,7 @@ public class VenueDetailsPatch {
         /**
          * Venue address information.
          */
-        public Builder address(@Nullable VenueDetailsPatchAddress address) {
+        public Builder address(@Nullable VenueDetailsAddressPatch address) {
             this.address = JsonNullable.of(address);
             return this;
         }

@@ -29,6 +29,6 @@ namespace Cvent.SDK.Models.Components
         /// Collection of choices for a choice question.
         /// </summary>
         [JsonProperty("data")]
-        public List<Choice2> Data { get; set; } = default!;
+        public List<Choice3> Data { get; set; } = default!;
     }
 }

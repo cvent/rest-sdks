@@ -19,7 +19,7 @@ A session is a presentation, discussion, or activity. Use these APIs to get info
 * [getProgramItemSessionDocument](#getprogramitemsessiondocument) - Get Program Item Document
 * [deleteProgramItemSessionDocument](#deleteprogramitemsessiondocument) - Delete Program Item Document
 * [listSessionsCategories](#listsessionscategories) - List Session Categories
-* [createSessionCategory](#createsessioncategory) - Create Session Categories
+* [createSessionCategory](#createsessioncategory) - Create Session Category
 * [getSessionSegments](#getsessionsegments) - Get Session Segments
 * [listSessions](#listsessions) - List Sessions
 * [createSession](#createsession) - Create Session
@@ -135,7 +135,7 @@ run();
 
 ## addSessionLocation
 
-Add a session location to the specified event.
+Adds a session location to the specified event based on the details provided in the request body.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -536,7 +536,7 @@ run();
 
 ## listProgramItemsPostFilters
 
-Gets a paginated list of session program items by sending a filter in the body of the request. This method will return the same data as <a href="#operation/listProgramItems">GET List Program Items</a> but allows for longer filters.
+Gets a paginated list of session program items by sending a filter in the body of the request. This method will return the same data as [GET List Program Items](#operation/listProgramItems) but allows for longer filters.
 
 ### Example Usage
 
@@ -842,8 +842,7 @@ run();
 
 ## ~~getProgramItemDocuments~~
 
-Returns a list of session documents for the specified program item ID.
-**Note:** This endpoint is deprecated. use <a href="#operation/filterProgramItemDocuments">Filter Program Item Documents</a>
+DEPRECATED: Use [Filter Program Item Documents](#tag/Sessions/operation/filterProgramItemDocuments) instead. Returns a list of session documents for the specified program item ID.
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
@@ -1303,7 +1302,7 @@ run();
 
 ## createSessionCategory
 
-Create a session category.
+Creates a session category based on the details provided in the request body.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -1785,7 +1784,7 @@ run();
 
 ## listSessionsPostFilters
 
-Gets a paginated list of sessions by sending a filter in the request's body. This method returns the same data as <a href="#operation/listSessions">GET List Sessions</a> but allows longer filters.
+Gets a paginated list of sessions by sending a filter in the request's body. This method returns the same data as [GET List Sessions](#operation/listSessions) but allows longer filters.
 
 
 More about OAuth2 authorization code support for administrators
@@ -2566,7 +2565,7 @@ run();
 ## addSessionDoc
 
 Associates a given document to a session. Documents must be
-<a href="#operation/uploadFile">uploaded</a> before you can associate
+[uploaded](#operation/uploadFile) before you can associate
 them.
 
 
@@ -2661,7 +2660,7 @@ run();
 
 ## deleteSessionDocument
 
-Disassociates a given document from a session. Document IDs are provided after <a href="#operation/uploadFile">file upload</a>.
+Disassociates a given document from a session. Document IDs are provided after [file upload](#operation/uploadFile).
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>

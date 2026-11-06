@@ -33,7 +33,7 @@ public class GetLeadQualificationQuestionsResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully retrieved a list of Lead Qualification Questions.
+     * Successfully retrieved a list of lead qualification questions.
      */
     private LeadQualificationQuestionsListResponse leadQualificationQuestionsListResponse;
 
@@ -78,7 +78,7 @@ public class GetLeadQualificationQuestionsResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully retrieved a list of Lead Qualification Questions.
+     * Successfully retrieved a list of lead qualification questions.
      */
     public Optional<LeadQualificationQuestionsListResponse> leadQualificationQuestionsListResponse() {
         return Optional.ofNullable(this.leadQualificationQuestionsListResponse);
@@ -113,7 +113,7 @@ public class GetLeadQualificationQuestionsResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully retrieved a list of Lead Qualification Questions.
+     * Successfully retrieved a list of lead qualification questions.
      */
     public GetLeadQualificationQuestionsResponse withLeadQualificationQuestionsListResponse(
             @Nullable LeadQualificationQuestionsListResponse leadQualificationQuestionsListResponse) {
@@ -196,7 +196,7 @@ public class GetLeadQualificationQuestionsResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully retrieved a list of Lead Qualification Questions.
+         * Successfully retrieved a list of lead qualification questions.
          */
         public Builder leadQualificationQuestionsListResponse(
                 @Nullable LeadQualificationQuestionsListResponse leadQualificationQuestionsListResponse) {

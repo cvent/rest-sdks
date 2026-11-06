@@ -16,8 +16,8 @@ The Attendee entity primarily refers to the person throughout the lifecycle of a
 * [UpdateInternalInfoAnswers](#updateinternalinfoanswers) - Update Internal Information
 * [ListOptionalItems](#listoptionalitems) - List Attendee Optional Items
 * [PostBadge](#postbadge) - Create Badge
-* [GetBadge](#getbadge) - Get Badge
-* [GetBadgesPostFilters](#getbadgespostfilters) - Get Badges
+* [GetBadge](#getbadge) - List Badges
+* [GetBadgesPostFilters](#getbadgespostfilters) - List Badges
 * [UpdateBadge](#updatebadge) - Update Badge
 
 ## ListDurations
@@ -82,7 +82,7 @@ while(res != null)
 
 ## CreateAttendee
 
-Adds given contacts to an event as attendees, either inviting them or registering them directly.
+Adds contacts to an event as attendees using the details in the request body, either inviting them or registering them directly.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -606,7 +606,7 @@ while(res != null)
 
 ## PostBadge
 
-Create a badge for an attendee associated with an event.
+Creates a badge for an attendee of an event.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -667,7 +667,7 @@ var res = await sdk.Attendees.PostBadgeAsync(req);
 
 ## GetBadge
 
-Retrieves a list of third-party badge associations for attendees within the event.
+Retrieves a list of the third-party badge associations of the attendees of an event.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -724,7 +724,7 @@ while(res != null)
 
 ## GetBadgesPostFilters
 
-Gets a paginated list of Badges by sending a filter in the body of the request. This method will return the same data as the getBadge but allows for longer filters.
+Retrieves a paginated list of the badges that match a filter in the request body. The response holds the same data as [List Badges](#operation/getBadge). The request body accepts a longer filter than the query parameter.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -783,7 +783,7 @@ while(res != null)
 
 ## UpdateBadge
 
-Update a badge for an attendee associated with an event.
+Updates a badge of an attendee of an event.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>

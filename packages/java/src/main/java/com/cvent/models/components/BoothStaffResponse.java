@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  * BoothStaffResponse
  *
- * <p>Booth staff with an associated ID.
+ * <p>Booth staff member with an ID.
  */
 public class BoothStaffResponse {
     /**
@@ -50,25 +50,25 @@ public class BoothStaffResponse {
     private String lastModifiedBy;
 
     /**
-     * The associated Attendee.
+     * Associated attendee.
      */
     @JsonProperty("attendee")
     private Attendee12 attendee;
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     @JsonProperty("exhibitor")
     private Exhibitor exhibitor;
 
     /**
-     * ID of an exhibitor booth staff member.
+     * Booth staff member ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -129,28 +129,28 @@ public class BoothStaffResponse {
     }
 
     /**
-     * The associated Attendee.
+     * Associated attendee.
      */
     public Attendee12 attendee() {
         return this.attendee;
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Event4 event() {
         return this.event;
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public Exhibitor exhibitor() {
         return this.exhibitor;
     }
 
     /**
-     * ID of an exhibitor booth staff member.
+     * Booth staff member ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -193,7 +193,7 @@ public class BoothStaffResponse {
     }
 
     /**
-     * The associated Attendee.
+     * Associated attendee.
      */
     public BoothStaffResponse withAttendee(@Nonnull Attendee12 attendee) {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
@@ -201,7 +201,7 @@ public class BoothStaffResponse {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public BoothStaffResponse withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -209,7 +209,7 @@ public class BoothStaffResponse {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public BoothStaffResponse withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -217,7 +217,7 @@ public class BoothStaffResponse {
     }
 
     /**
-     * ID of an exhibitor booth staff member.
+     * Booth staff member ID.
      */
     public BoothStaffResponse withId(@Nullable String id) {
         this.id = id;
@@ -326,7 +326,7 @@ public class BoothStaffResponse {
         }
 
         /**
-         * The associated Attendee.
+         * Associated attendee.
          */
         public Builder attendee(@Nonnull Attendee12 attendee) {
             this.attendee = Utils.checkNotNull(attendee, "attendee");
@@ -334,7 +334,7 @@ public class BoothStaffResponse {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -342,7 +342,7 @@ public class BoothStaffResponse {
         }
 
         /**
-         * The Associated Exhibitor.
+         * Associated exhibitor.
          */
         public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -350,7 +350,7 @@ public class BoothStaffResponse {
         }
 
         /**
-         * ID of an exhibitor booth staff member.
+         * Booth staff member ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

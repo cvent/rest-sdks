@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { QuestionType2, QuestionType2$inboundSchema } from "./questiontype2.js";
+import { QuestionType3, QuestionType3$inboundSchema } from "./questiontype3.js";
 import { Uuid, Uuid$inboundSchema } from "./uuid.js";
 
 /**
@@ -80,7 +80,7 @@ export type EventQuestion = {
   /**
    * This object represents the type of a question
    */
-  type?: QuestionType2 | undefined;
+  type?: QuestionType3 | undefined;
   /**
    * Optional description to provide additional context of the question.
    */
@@ -146,7 +146,7 @@ export const EventQuestion$inboundSchema: z.ZodType<
   session: z.lazy(() => EventQuestionSession$inboundSchema).optional(),
   admissionItem: z.lazy(() => EventQuestionAdmissionItem$inboundSchema)
     .optional(),
-  type: QuestionType2$inboundSchema.optional(),
+  type: QuestionType3$inboundSchema.optional(),
   internalNote: z.string().optional(),
 });
 

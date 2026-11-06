@@ -18,7 +18,7 @@ namespace Cvent.SDK.Models.Components
     public class RegistrationPath
     {
         /// <summary>
-        /// The ID of the registration path.
+        /// Registration path ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * File object containing UUID
+ * File of the image, with the file ID.
  */
 export type ExhibitorBannerLogoFileFile = {
   /**
@@ -18,15 +18,15 @@ export type ExhibitorBannerLogoFileFile = {
 };
 
 /**
- * JSON Schema for Exhibitor Banner/Logo File
+ * Banner or logo image file of an exhibitor.
  */
 export type ExhibitorBannerLogoFile = {
   /**
-   * File object containing UUID
+   * File of the image, with the file ID.
    */
   file?: ExhibitorBannerLogoFileFile | undefined;
   /**
-   * URL of a exhibitor banner/logo image
+   * URL of the banner or logo image.
    */
   href?: string | undefined;
 };

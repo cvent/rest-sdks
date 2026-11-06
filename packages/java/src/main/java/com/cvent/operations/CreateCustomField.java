@@ -9,7 +9,7 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.CustomField1;
+import com.cvent.models.components.CustomField1Input;
 import com.cvent.models.components.ExistingCustomField;
 import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse12;
@@ -129,13 +129,13 @@ public class CreateCustomField {
         }
     }
 
-    public static class Sync extends Base implements RequestOperation<CustomField1, CreateCustomFieldResponse> {
+    public static class Sync extends Base implements RequestOperation<CustomField1Input, CreateCustomFieldResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, @Nullable Options options, Headers _headers) {
             super(sdkConfiguration, options, _headers);
         }
 
-        private HttpRequest onBuildRequest(CustomField1 request) throws Exception {
-            HttpRequest req = buildRequest(request, new TypeReference<CustomField1>() {});
+        private HttpRequest onBuildRequest(CustomField1Input request) throws Exception {
+            HttpRequest req = buildRequest(request, new TypeReference<CustomField1Input>() {});
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -151,7 +151,7 @@ public class CreateCustomField {
         }
 
         @Override
-        public HttpResponse<InputStream> doRequest(CustomField1 request) {
+        public HttpResponse<InputStream> doRequest(CustomField1Input request) {
             Retries retries = Retries.builder()
                     .action(() -> {
                         HttpRequest r;
@@ -215,7 +215,7 @@ public class CreateCustomField {
 
     public static class Async extends Base
             implements AsyncRequestOperation<
-                    CustomField1, com.cvent.models.operations.async.CreateCustomFieldResponse> {
+                    CustomField1Input, com.cvent.models.operations.async.CreateCustomFieldResponse> {
         private final ScheduledExecutorService retryScheduler;
 
         public Async(
@@ -227,8 +227,8 @@ public class CreateCustomField {
             this.retryScheduler = retryScheduler;
         }
 
-        private CompletableFuture<HttpRequest> onBuildRequest(CustomField1 request) throws Exception {
-            HttpRequest req = buildRequest(request, new TypeReference<CustomField1>() {});
+        private CompletableFuture<HttpRequest> onBuildRequest(CustomField1Input request) throws Exception {
+            HttpRequest req = buildRequest(request, new TypeReference<CustomField1Input>() {});
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -241,7 +241,7 @@ public class CreateCustomField {
         }
 
         @Override
-        public CompletableFuture<HttpResponse<Blob>> doRequest(CustomField1 request) {
+        public CompletableFuture<HttpResponse<Blob>> doRequest(CustomField1Input request) {
             AsyncRetries retries = AsyncRetries.builder()
                     .retryConfig(retryConfig)
                     .statusCodes(retryStatusCodes)

@@ -496,6 +496,9 @@ async function run() {
     after: new Date("2017-01-02T02:00:00Z"),
     before: new Date("2017-01-02T02:00:00Z"),
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    expand: [
+      "image",
+    ],
     sort: "start:DESC",
     filter: "status eq 'Accepted' or status eq 'Pending' and (id eq 'abc' or id eq 'def')",
   });
@@ -534,6 +537,9 @@ async function run() {
     after: new Date("2017-01-02T02:00:00Z"),
     before: new Date("2017-01-02T02:00:00Z"),
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    expand: [
+      "image",
+    ],
     sort: "start:DESC",
     filter: "status eq 'Accepted' or status eq 'Pending' and (id eq 'abc' or id eq 'def')",
   });
@@ -568,6 +574,7 @@ run();
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 503, 504               | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## createEventAsync
@@ -1144,6 +1151,9 @@ async function run() {
     after: new Date("2017-01-02T02:00:00Z"),
     before: new Date("2017-01-02T02:00:00Z"),
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    expand: [
+      "image",
+    ],
     sort: "start:DESC",
     filter: {
       filter: "status eq 'Accepted' or status eq 'Pending' and (id eq 'abc' or id eq 'def')",
@@ -1184,6 +1194,9 @@ async function run() {
     after: new Date("2017-01-02T02:00:00Z"),
     before: new Date("2017-01-02T02:00:00Z"),
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    expand: [
+      "image",
+    ],
     sort: "start:DESC",
     filter: {
       filter: "status eq 'Accepted' or status eq 'Pending' and (id eq 'abc' or id eq 'def')",
@@ -1220,6 +1233,7 @@ run();
 | Error Type             | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
+| errors.ErrorResponse12 | 503, 504               | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
 ## getEventById
@@ -1249,6 +1263,9 @@ const cventSDK = new CventSDK({
 async function run() {
   const result = await cventSDK.events.getEventById({
     id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    expand: [
+      "image",
+    ],
   });
 
   console.log(result);
@@ -1281,6 +1298,9 @@ const cventSDK = new CventSDKCore({
 async function run() {
   const res = await eventsGetEventById(cventSDK, {
     id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    expand: [
+      "image",
+    ],
   });
   if (res.ok) {
     const { value: result } = res;
@@ -1308,10 +1328,11 @@ run();
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
-| errors.APIError        | 4XX, 5XX               | \*/\*                  |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse12  | 503, 504                | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateEvent
 

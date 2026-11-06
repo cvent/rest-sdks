@@ -1,6 +1,6 @@
 # AttendeeSubscriptionResponse
 
-Response body for successful attendee subscription status update.
+The attendee ID and updated email subscription status.
 
 
 ## Fields

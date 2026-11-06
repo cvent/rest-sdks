@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Get Exhibitor Admin
  *
  * @remarks
- * Gets the details of a single exhibitor admin, such as name or contact email.
+ * Retrieves the details of an exhibitor admin, such as the name and the email address.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

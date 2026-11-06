@@ -1,6 +1,6 @@
 # BadgeInput
 
-A JSON Schema for Badge object.
+Badge of an attendee.
 
 ## Example Usage
 
@@ -24,8 +24,8 @@ let value: BadgeInput = {
 
 | Field                                                            | Type                                                             | Required                                                         | Description                                                      | Example                                                          |
 | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `id`                                                             | *string*                                                         | :heavy_check_mark:                                               | Id of a badge                                                    | abc123                                                           |
-| `status`                                                         | [components.BadgeStatus](../../models/components/badgestatus.md) | :heavy_check_mark:                                               | Badge status                                                     | Active                                                           |
-| `type`                                                           | [components.BadgeType](../../models/components/badgetype.md)     | :heavy_check_mark:                                               | Badge type                                                       | Epc                                                              |
-| `attendee`                                                       | [components.Attendee12](../../models/components/attendee12.md)   | :heavy_check_mark:                                               | The associated Attendee.                                         |                                                                  |
-| `event`                                                          | [components.Event4](../../models/components/event4.md)           | :heavy_check_mark:                                               | The Associated Event.                                            |                                                                  |
+| `id`                                                             | *string*                                                         | :heavy_check_mark:                                               | Badge ID.                                                        | abc123                                                           |
+| `status`                                                         | [components.BadgeStatus](../../models/components/badgestatus.md) | :heavy_check_mark:                                               | Status of the badge.                                             | Active                                                           |
+| `type`                                                           | [components.BadgeType](../../models/components/badgetype.md)     | :heavy_check_mark:                                               | Type of the badge.                                               | Epc                                                              |
+| `attendee`                                                       | [components.Attendee12](../../models/components/attendee12.md)   | :heavy_check_mark:                                               | Associated attendee.                                             |                                                                  |
+| `event`                                                          | [components.Event4](../../models/components/event4.md)           | :heavy_check_mark:                                               | Associated event.                                                |                                                                  |

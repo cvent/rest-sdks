@@ -13,7 +13,8 @@ import java.util.Optional;
  * <p>This is used to denote the warning codes for a video entity.
  */
 public enum VideoWarningCode {
-    SEVEN_HUNDRED(700L);
+    SEVEN_HUNDRED(700L),
+    SEVEN_HUNDRED_AND_ONE(701L);
 
     @JsonValue
     private final long value;

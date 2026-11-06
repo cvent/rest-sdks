@@ -140,7 +140,8 @@ public class Attendees {
     /**
      * Add Attendees
      *
-     * <p>Adds given contacts to an event as attendees, either inviting them or registering them directly.
+     * <p>Adds contacts to an event as attendees using the details in the request body, either inviting them
+     * or registering them directly.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -153,7 +154,8 @@ public class Attendees {
     /**
      * Add Attendees
      *
-     * <p>Adds given contacts to an event as attendees, either inviting them or registering them directly.
+     * <p>Adds contacts to an event as attendees using the details in the request body, either inviting them
+     * or registering them directly.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -168,7 +170,8 @@ public class Attendees {
     /**
      * Add Attendees
      *
-     * <p>Adds given contacts to an event as attendees, either inviting them or registering them directly.
+     * <p>Adds contacts to an event as attendees using the details in the request body, either inviting them
+     * or registering them directly.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -523,7 +526,7 @@ public class Attendees {
     /**
      * Create Badge
      *
-     * <p>Create a badge for an attendee associated with an event.
+     * <p>Creates a badge for an attendee of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -536,7 +539,7 @@ public class Attendees {
     /**
      * Create Badge
      *
-     * <p>Create a badge for an attendee associated with an event.
+     * <p>Creates a badge for an attendee of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -551,7 +554,7 @@ public class Attendees {
     /**
      * Create Badge
      *
-     * <p>Create a badge for an attendee associated with an event.
+     * <p>Creates a badge for an attendee of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -567,9 +570,9 @@ public class Attendees {
     }
 
     /**
-     * Get Badge
+     * List Badges
      *
-     * <p>Retrieves a list of third-party badge associations for attendees within the event.
+     * <p>Retrieves a list of the third-party badge associations of the attendees of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -580,9 +583,9 @@ public class Attendees {
     }
 
     /**
-     * Get Badge
+     * List Badges
      *
-     * <p>Retrieves a list of third-party badge associations for attendees within the event.
+     * <p>Retrieves a list of the third-party badge associations of the attendees of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -595,9 +598,9 @@ public class Attendees {
     }
 
     /**
-     * Get Badge
+     * List Badges
      *
-     * <p>Retrieves a list of third-party badge associations for attendees within the event.
+     * <p>Retrieves a list of the third-party badge associations of the attendees of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -613,10 +616,11 @@ public class Attendees {
     }
 
     /**
-     * Get Badges
+     * List Badges
      *
-     * <p>Gets a paginated list of Badges by sending a filter in the body of the request. This method will
-     * return the same data as the getBadge but allows for longer filters.
+     * <p>Retrieves a paginated list of the badges that match a filter in the request body. The response holds
+     * the same data as [List Badges](#operation/getBadge). The request body accepts a longer filter than
+     * the query parameter.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -627,10 +631,11 @@ public class Attendees {
     }
 
     /**
-     * Get Badges
+     * List Badges
      *
-     * <p>Gets a paginated list of Badges by sending a filter in the body of the request. This method will
-     * return the same data as the getBadge but allows for longer filters.
+     * <p>Retrieves a paginated list of the badges that match a filter in the request body. The response holds
+     * the same data as [List Badges](#operation/getBadge). The request body accepts a longer filter than
+     * the query parameter.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -643,10 +648,11 @@ public class Attendees {
     }
 
     /**
-     * Get Badges
+     * List Badges
      *
-     * <p>Gets a paginated list of Badges by sending a filter in the body of the request. This method will
-     * return the same data as the getBadge but allows for longer filters.
+     * <p>Retrieves a paginated list of the badges that match a filter in the request body. The response holds
+     * the same data as [List Badges](#operation/getBadge). The request body accepts a longer filter than
+     * the query parameter.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -665,7 +671,7 @@ public class Attendees {
     /**
      * Update Badge
      *
-     * <p>Update a badge for an attendee associated with an event.
+     * <p>Updates a badge of an attendee of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -678,7 +684,7 @@ public class Attendees {
     /**
      * Update Badge
      *
-     * <p>Update a badge for an attendee associated with an event.
+     * <p>Updates a badge of an attendee of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -693,7 +699,7 @@ public class Attendees {
     /**
      * Update Badge
      *
-     * <p>Update a badge for an attendee associated with an event.
+     * <p>Updates a badge of an attendee of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *

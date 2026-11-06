@@ -162,7 +162,7 @@ public class ProposalResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("sleepingRooms")
-    private List<SleepingRoom1> sleepingRooms;
+    private List<SleepingRoom2> sleepingRooms;
 
     /**
      * Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by
@@ -298,7 +298,7 @@ public class ProposalResponse {
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("blockCode") @Nullable String blockCode,
             @JsonProperty("proposalDates") @Nullable List<ProposalDate> proposalDates,
-            @JsonProperty("sleepingRooms") @Nullable List<SleepingRoom1> sleepingRooms,
+            @JsonProperty("sleepingRooms") @Nullable List<SleepingRoom2> sleepingRooms,
             @JsonProperty("categoryItemsCost") @Nullable CategoryItemsCost categoryItemsCost,
             @JsonProperty("aggregatedCost") @Nullable AggregatedCost aggregatedCost,
             @JsonProperty("estimatedCost") @Nullable EstimatedCost estimatedCost,
@@ -525,7 +525,7 @@ public class ProposalResponse {
     /**
      * List of all sleeping rooms offered in the proposal.
      */
-    public Optional<List<SleepingRoom1>> sleepingRooms() {
+    public Optional<List<SleepingRoom2>> sleepingRooms() {
         return Optional.ofNullable(this.sleepingRooms);
     }
 
@@ -801,7 +801,7 @@ public class ProposalResponse {
     /**
      * List of all sleeping rooms offered in the proposal.
      */
-    public ProposalResponse withSleepingRooms(@Nullable List<SleepingRoom1> sleepingRooms) {
+    public ProposalResponse withSleepingRooms(@Nullable List<SleepingRoom2> sleepingRooms) {
         this.sleepingRooms = sleepingRooms;
         return this;
     }
@@ -1141,7 +1141,7 @@ public class ProposalResponse {
 
         private List<ProposalDate> proposalDates;
 
-        private List<SleepingRoom1> sleepingRooms;
+        private List<SleepingRoom2> sleepingRooms;
 
         @Deprecated
         private CategoryItemsCost categoryItemsCost;
@@ -1331,7 +1331,7 @@ public class ProposalResponse {
         /**
          * List of all sleeping rooms offered in the proposal.
          */
-        public Builder sleepingRooms(@Nullable List<SleepingRoom1> sleepingRooms) {
+        public Builder sleepingRooms(@Nullable List<SleepingRoom2> sleepingRooms) {
             this.sleepingRooms = sleepingRooms;
             return this;
         }

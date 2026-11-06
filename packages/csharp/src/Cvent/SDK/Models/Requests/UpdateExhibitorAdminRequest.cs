@@ -33,7 +33,7 @@ namespace Cvent.SDK.Models.Requests
         public string AdminId { get; set; } = default!;
 
         /// <summary>
-        /// Exhibitor Admin details.
+        /// Exhibitor admin details.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public ExhibitorAdminRequest ExhibitorAdminRequest { get; set; } = default!;

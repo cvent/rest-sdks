@@ -409,9 +409,9 @@ namespace Cvent.SDK
         public IVenueProfiles VenueProfiles { get; }
 
         /// <summary>
-        /// Manage inbound leads submitted to venues through Cvent's sourcing channels.
+        /// A lead catcher is a venue contact who can receive an email notification when an RFP (Request for Proposal) is submitted to the venue. The operations create, update, and delete lead catchers, and return the name of each lead catcher.
         /// </summary>
-        public IVenueLeads VenueLeads { get; }
+        public IVenueLeadCatchers VenueLeadCatchers { get; }
 
         /// <summary>
         /// Manage meeting rooms for a venue, including creating and updating room details, configuring capacities and amenities, and associating images.
@@ -662,9 +662,9 @@ namespace Cvent.SDK
         /// </summary>
         public IVenueProfiles VenueProfiles { get; private set; }
         /// <summary>
-        /// The VenueLeads sub-SDK.
+        /// The VenueLeadCatchers sub-SDK.
         /// </summary>
-        public IVenueLeads VenueLeads { get; private set; }
+        public IVenueLeadCatchers VenueLeadCatchers { get; private set; }
         /// <summary>
         /// The VenueMeetingRooms sub-SDK.
         /// </summary>
@@ -797,7 +797,7 @@ namespace Cvent.SDK
 
             VenueProfiles = new VenueProfiles(SDKConfiguration);
 
-            VenueLeads = new VenueLeads(SDKConfiguration);
+            VenueLeadCatchers = new VenueLeadCatchers(SDKConfiguration);
 
             VenueMeetingRooms = new VenueMeetingRooms(SDKConfiguration);
 
@@ -972,7 +972,7 @@ namespace Cvent.SDK
 
             VenueProfiles = new VenueProfiles(SDKConfiguration);
 
-            VenueLeads = new VenueLeads(SDKConfiguration);
+            VenueLeadCatchers = new VenueLeadCatchers(SDKConfiguration);
 
             VenueMeetingRooms = new VenueMeetingRooms(SDKConfiguration);
 

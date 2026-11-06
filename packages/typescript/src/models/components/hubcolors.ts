@@ -12,19 +12,19 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type HubColors = {
   /**
-   * The secondary color of an Events+ hub.
+   * The secondary color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an optional leading #.
    */
   action?: string | undefined;
   /**
-   * The background color of an Events+ hub.
+   * The background color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an optional leading #.
    */
   background?: string | undefined;
   /**
-   * The primary color of an Events+ hub.
+   * The primary color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an optional leading #.
    */
   main?: string | undefined;
   /**
-   * An Events+ hub color configuration that can be set to light, dark, or a similar shade to the main color.
+   * An Events+ hub color configuration that can be set to light, dark, or a similar shade to the main color. The value is a three- or six-digit hexadecimal color with an optional leading #.
    */
   mood: string;
 };

@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type Segment1 = {
   /**
-   * The unique identifier for an audience segment
+   * The unique ID of an audience segment.
    */
   id: string;
 };

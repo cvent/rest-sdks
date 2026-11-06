@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Represents the booth staff list response, with paging information and a list of booth staff.
+    /// Paginated list of booth staff members.
     /// </summary>
     public class BoothStaffListResponse
     {
@@ -26,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public Paging? Paging { get; set; }
 
         /// <summary>
-        /// List of booth staff.
+        /// List of booth staff members.
         /// </summary>
         [JsonProperty("data")]
         public List<BoothStaffResponse>? Data { get; set; }

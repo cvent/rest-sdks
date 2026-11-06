@@ -86,7 +86,7 @@ public class AsyncEventsPlusHub {
     /**
      * Get Events+ Hub Members
      *
-     * <p>Fetches a list of members associated with a particular Events+ hub.
+     * <p>Fetches a list of members associated with the Events+ hub you specify.
      *
      * @return The async call builder
      */
@@ -97,7 +97,7 @@ public class AsyncEventsPlusHub {
     /**
      * Get Events+ Hub Members
      *
-     * <p>Fetches a list of members associated with a particular Events+ hub.
+     * <p>Fetches a list of members associated with the Events+ hub you specify.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetHubMembersResponse>} - The async response
@@ -109,7 +109,7 @@ public class AsyncEventsPlusHub {
     /**
      * Get Events+ Hub Members
      *
-     * <p>Fetches a list of members associated with a particular Events+ hub.
+     * <p>Fetches a list of members associated with the Events+ hub you specify.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options

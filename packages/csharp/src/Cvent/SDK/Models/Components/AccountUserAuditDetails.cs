@@ -49,7 +49,7 @@ namespace Cvent.SDK.Models.Components
         public DateTime LockedOutDate { get; set; } = default!;
 
         /// <summary>
-        /// The ISO 8601 zoned date time when the user has accepted <a href="https://www.cvent.com/en/product-terms-of-use">Cvent's Terms of Use</a>.
+        /// The ISO 8601 zoned date time when the user accepted <a href="https://www.cvent.com/en/product-terms-of-use">Cvent's Terms of Use</a>.
         /// </summary>
         [JsonProperty("termsOfUseAcceptedDate")]
         public DateTime TermsOfUseAcceptedDate { get; set; } = default!;

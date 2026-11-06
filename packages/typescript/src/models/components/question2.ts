@@ -6,23 +6,109 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  AdditionalChoice2,
+  AdditionalChoice2$inboundSchema,
+} from "./additionalchoice2.js";
+import { Category2, Category2$inboundSchema } from "./category2.js";
+import { Choice2, Choice2$inboundSchema } from "./choice2.js";
+import { Field5, Field5$inboundSchema } from "./field5.js";
+import { QuestionType2, QuestionType2$inboundSchema } from "./questiontype2.js";
+import { TextField1, TextField1$inboundSchema } from "./textfield1.js";
+import { Uuid, Uuid$inboundSchema } from "./uuid.js";
 
 /**
- * The question that was answered.
+ * A survey question.
  */
 export type Question2 = {
   /**
-   * The unique identifier of the question.
+   * The ISO 8601 zoned date time when this record was created.
+   */
+  created?: Date | undefined;
+  /**
+   * The identifier of the user that created this record.
+   */
+  createdBy?: string | undefined;
+  /**
+   * The ISO 8601 zoned date time when this record was updated.
+   */
+  lastModified?: Date | undefined;
+  /**
+   * The identifier of the user that last updated this record.
+   */
+  lastModifiedBy?: string | undefined;
+  /**
+   * Text field ID.
    */
   id?: string | undefined;
   /**
-   * Question text.
+   * text Value of the Field
    */
   text?: string | undefined;
   /**
-   * Question code.
+   * Reporting value of the Category, Its like a custom abbreviation
+   */
+  shortText?: string | undefined;
+  /**
+   * Html of the question
+   */
+  htmlText?: string | undefined;
+  /**
+   * Question Code
    */
   code?: string | undefined;
+  /**
+   * Question Type.
+   */
+  type?: QuestionType2 | undefined;
+  /**
+   * List of choices for the question.
+   */
+  choices?: Array<Choice2> | undefined;
+  /**
+   * List of categories for the question.
+   */
+  categories?: Array<Category2> | undefined;
+  /**
+   * List of sub categories for matrix side-by-side questions
+   */
+  subCategories?: Array<TextField1> | undefined;
+  /**
+   * Contains text of additional choice i.e N/A choice or otherAnswer choice
+   */
+  notApplicableAnswer?: AdditionalChoice2 | undefined;
+  /**
+   * Contains text of additional choice i.e N/A choice or otherAnswer choice
+   */
+  otherAnswer?: AdditionalChoice2 | undefined;
+  /**
+   * Text Value of Comments Input box placeholder
+   */
+  comments?: string | undefined;
+  /**
+   * Is this a mandatory question
+   */
+  required: boolean;
+  /**
+   * List of fields for form/matrix questions
+   */
+  fields?: Array<Field5> | undefined;
+  /**
+   * Max possible score
+   */
+  maxScore?: number | undefined;
+  /**
+   * Total configured sum of all choices for number allocation question
+   */
+  totalSum?: number | undefined;
+  /**
+   * The reference to the related entity. Contains only the ID of the related entity.
+   */
+  survey?: Uuid | undefined;
+  /**
+   * The reference to the related entity. Contains only the ID of the related entity.
+   */
+  chapter?: Uuid | undefined;
 };
 
 /** @internal */
@@ -31,9 +117,31 @@ export const Question2$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  created: z.string().datetime({ offset: true }).transform(v => new Date(v))
+    .optional(),
+  createdBy: z.string().optional(),
+  lastModified: z.string().datetime({ offset: true }).transform(v =>
+    new Date(v)
+  ).optional(),
+  lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
   text: z.string().optional(),
+  shortText: z.string().optional(),
+  htmlText: z.string().optional(),
   code: z.string().optional(),
+  type: QuestionType2$inboundSchema.optional(),
+  choices: z.array(Choice2$inboundSchema).optional(),
+  categories: z.array(Category2$inboundSchema).optional(),
+  subCategories: z.array(TextField1$inboundSchema).optional(),
+  notApplicableAnswer: AdditionalChoice2$inboundSchema.optional(),
+  otherAnswer: AdditionalChoice2$inboundSchema.optional(),
+  comments: z.string().optional(),
+  required: z.boolean().default(false),
+  fields: z.array(Field5$inboundSchema).optional(),
+  maxScore: z.number().optional(),
+  totalSum: z.number().int().optional(),
+  survey: Uuid$inboundSchema.optional(),
+  chapter: Uuid$inboundSchema.optional(),
 });
 
 export function question2FromJSON(

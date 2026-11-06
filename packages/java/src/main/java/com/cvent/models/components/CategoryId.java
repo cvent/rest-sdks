@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * CategoryId
  *
- * <p>An object that holds the id for a category
+ * <p>A reference to a category by its ID.
  */
 public class CategoryId {
     /**

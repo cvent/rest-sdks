@@ -9,7 +9,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 public enum Expand1 {
-    CREDIT_TYPE("creditType");
+    IMAGE("image");
 
     @JsonValue
     private final String value;

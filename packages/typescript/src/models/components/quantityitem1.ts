@@ -26,7 +26,7 @@ export type QuantityItemEvent = {
  */
 export type QuantityItem1 = {
   /**
-   * The unique ID representing the optional item.
+   * Optional item ID.
    */
   id?: string | undefined;
   /**
@@ -46,7 +46,7 @@ export type QuantityItem1 = {
    */
   type?: OptionalItemType | undefined;
   /**
-   * Denotes the count of quantity item selected by an attendee during event registration.
+   * The number of this item selected by the attendee during event registration.
    */
   quantity?: number | undefined;
 };

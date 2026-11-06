@@ -1,6 +1,6 @@
 # Capacity
 
-Registration capacity object containing registration type and reserved capacity
+Reserved capacity of a registration type.
 
 ## Example Usage
 
@@ -19,5 +19,5 @@ let value: Capacity = {
 
 | Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                | Example                                                                                    |
 | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `registrationType`                                                                         | [components.CapacityRegistrationType](../../models/components/capacityregistrationtype.md) | :heavy_check_mark:                                                                         | Registration type information                                                              |                                                                                            |
-| `reservedCapacity`                                                                         | *number*                                                                                   | :heavy_check_mark:                                                                         | Reserved capacity of the registration type for an exhibitor                                | 5                                                                                          |
+| `registrationType`                                                                         | [components.CapacityRegistrationType](../../models/components/capacityregistrationtype.md) | :heavy_check_mark:                                                                         | Registration type of the capacity.                                                         |                                                                                            |
+| `reservedCapacity`                                                                         | *number*                                                                                   | :heavy_check_mark:                                                                         | Reserved capacity of the registration type for an exhibitor.                               | 5                                                                                          |

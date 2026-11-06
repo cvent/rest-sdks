@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Badge List response including paging and badge data.
+    /// Paginated list of badges.
     /// </summary>
     public class BadgePaginatedResponse
     {

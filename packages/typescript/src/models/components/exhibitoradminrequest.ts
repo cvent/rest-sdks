@@ -10,23 +10,23 @@ import {
 } from "./exhibitor.js";
 
 /**
- * An object representing the exhibitor admin.
+ * Exhibitor admin.
  */
 export type ExhibitorAdminRequest = {
   /**
-   * The Associated Exhibitor.
+   * Associated exhibitor.
    */
   exhibitor: Exhibitor;
   /**
-   * The first name of the exhibitor admin
+   * First name of the exhibitor admin.
    */
   firstName: string;
   /**
-   * The last name of the exhibitor admin
+   * Last name of the exhibitor admin.
    */
   lastName: string;
   /**
-   * The email address of the exhibitor admin
+   * Email address of the exhibitor admin.
    */
   email: string;
 };

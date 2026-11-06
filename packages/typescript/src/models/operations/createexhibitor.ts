@@ -12,7 +12,7 @@ export type CreateExhibitorRequest = {
    */
   id: string;
   /**
-   * Exhibitor details
+   * Exhibitor details.
    */
   exhibitorRequest: components.ExhibitorRequest;
 };

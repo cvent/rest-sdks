@@ -14,19 +14,19 @@ import {
 } from "./existingcapacity.js";
 
 /**
- * Schema for existing registration pack object
+ * Registration pack with an ID.
  */
 export type RegistrationPackResponse = {
   /**
-   * Registration pack id
+   * Registration pack ID.
    */
   id: string;
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * The Associated Exhibitor.
+   * Associated exhibitor.
    */
   exhibitor: Exhibitor;
   /**

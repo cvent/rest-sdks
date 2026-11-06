@@ -34,6 +34,7 @@ import { Result } from "../types/fp.js";
  *
  * - Only fields present in the request body are updated; omitted fields remain unchanged.
  * - Set a field to `null` to unset it.
+ * - Exception: for `address` sub-fields, `null` keeps the current value, and a `null` `city` or `country` is rejected with 400.
  * - If any part of the patch fails, the entire request will fail.
  *
  * **Array Handling:**

@@ -1,6 +1,6 @@
 # AnswerType11
 
-Type of answer
+Type of the answer.
 
 ## Example Usage
 

@@ -17,7 +17,7 @@ import java.util.Optional;
 
 public class GetSessionLocationRequest {
     /**
-     * Unique Id of Event
+     * Unique ID of Event
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
@@ -47,7 +47,7 @@ public class GetSessionLocationRequest {
     }
 
     /**
-     * Unique Id of Event
+     * Unique ID of Event
      */
     public String id() {
         return this.id;
@@ -73,7 +73,7 @@ public class GetSessionLocationRequest {
     }
 
     /**
-     * Unique Id of Event
+     * Unique ID of Event
      */
     public GetSessionLocationRequest withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -135,7 +135,7 @@ public class GetSessionLocationRequest {
         }
 
         /**
-         * Unique Id of Event
+         * Unique ID of Event
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

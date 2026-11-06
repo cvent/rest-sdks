@@ -17,11 +17,12 @@ import java.util.Optional;
 /**
  * SessionLocation
  *
- * <p>Used to denote a sessions location.
+ * <p>A location associated with a session, with a code and name. The response may include its read-only
+ * ID.
  */
 public class SessionLocation {
     /**
-     * A string that represents a specified location.
+     * The ID of the session location.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -54,7 +55,7 @@ public class SessionLocation {
     }
 
     /**
-     * A string that represents a specified location.
+     * The ID of the session location.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -79,7 +80,7 @@ public class SessionLocation {
     }
 
     /**
-     * A string that represents a specified location.
+     * The ID of the session location.
      */
     public SessionLocation withId(@Nullable String id) {
         this.id = id;
@@ -140,7 +141,7 @@ public class SessionLocation {
         }
 
         /**
-         * A string that represents a specified location.
+         * The ID of the session location.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

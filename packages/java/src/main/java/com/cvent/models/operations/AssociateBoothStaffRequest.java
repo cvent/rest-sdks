@@ -26,7 +26,7 @@ public class AssociateBoothStaffRequest {
     private String exhibitorId;
 
     /**
-     * Booth Staff details
+     * Booth staff details.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private BoothStaffRequest boothStaffRequest;
@@ -56,7 +56,7 @@ public class AssociateBoothStaffRequest {
     }
 
     /**
-     * Booth Staff details
+     * Booth staff details.
      */
     public BoothStaffRequest boothStaffRequest() {
         return this.boothStaffRequest;
@@ -83,7 +83,7 @@ public class AssociateBoothStaffRequest {
     }
 
     /**
-     * Booth Staff details
+     * Booth staff details.
      */
     public AssociateBoothStaffRequest withBoothStaffRequest(@Nonnull BoothStaffRequest boothStaffRequest) {
         this.boothStaffRequest = Utils.checkNotNull(boothStaffRequest, "boothStaffRequest");
@@ -151,7 +151,7 @@ public class AssociateBoothStaffRequest {
         }
 
         /**
-         * Booth Staff details
+         * Booth staff details.
          */
         public Builder boothStaffRequest(@Nonnull BoothStaffRequest boothStaffRequest) {
             this.boothStaffRequest = Utils.checkNotNull(boothStaffRequest, "boothStaffRequest");

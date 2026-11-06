@@ -11,7 +11,7 @@ import { Event4, Event4$inboundSchema } from "./event4.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 
 /**
- * Booth staff with an associated ID.
+ * Booth staff member with an ID.
  */
 export type BoothStaffResponse = {
   /**
@@ -31,19 +31,19 @@ export type BoothStaffResponse = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * The associated Attendee.
+   * Associated attendee.
    */
   attendee: Attendee12;
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * The Associated Exhibitor.
+   * Associated exhibitor.
    */
   exhibitor: Exhibitor;
   /**
-   * ID of an exhibitor booth staff member.
+   * Booth staff member ID.
    */
   id?: string | undefined;
 };

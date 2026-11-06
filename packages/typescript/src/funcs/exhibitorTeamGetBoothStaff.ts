@@ -27,10 +27,10 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get Booth Staff member
+ * Get Booth Staff Member
  *
  * @remarks
- * Retrieves the attendee id associated with an exhibitor booth staff member.
+ * Retrieves the attendee ID of a booth staff member of an exhibitor.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

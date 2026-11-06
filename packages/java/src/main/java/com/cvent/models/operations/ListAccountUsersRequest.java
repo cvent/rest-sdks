@@ -20,7 +20,8 @@ public class ListAccountUsersRequest {
      * conditions using the `and` and `or` logical operators, and group them with parentheses.
      *
      * <p>Fields that may contain personally identifiable information (PII) are excluded from this filter
-     * query parameter.
+     * query parameter; to filter on those fields, use the [List Account
+     * Users](#operation/listAccountUsersFilter) (`POST /users/filter`) endpoint.
      *
      * <p>## Supported Account Users Filters:
      *
@@ -80,7 +81,8 @@ public class ListAccountUsersRequest {
      * conditions using the `and` and `or` logical operators, and group them with parentheses.
      *
      * <p>Fields that may contain personally identifiable information (PII) are excluded from this filter
-     * query parameter.
+     * query parameter; to filter on those fields, use the [List Account
+     * Users](#operation/listAccountUsersFilter) (`POST /users/filter`) endpoint.
      *
      * <p>## Supported Account Users Filters:
      *
@@ -135,7 +137,8 @@ public class ListAccountUsersRequest {
      * conditions using the `and` and `or` logical operators, and group them with parentheses.
      *
      * <p>Fields that may contain personally identifiable information (PII) are excluded from this filter
-     * query parameter.
+     * query parameter; to filter on those fields, use the [List Account
+     * Users](#operation/listAccountUsersFilter) (`POST /users/filter`) endpoint.
      *
      * <p>## Supported Account Users Filters:
      *
@@ -231,7 +234,8 @@ public class ListAccountUsersRequest {
          * conditions using the `and` and `or` logical operators, and group them with parentheses.
          *
          * <p>Fields that may contain personally identifiable information (PII) are excluded from this filter
-         * query parameter.
+         * query parameter; to filter on those fields, use the [List Account
+         * Users](#operation/listAccountUsersFilter) (`POST /users/filter`) endpoint.
          *
          * <p>## Supported Account Users Filters:
          *

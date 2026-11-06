@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * BadgeType
  *
- * <p>Badge type
+ * <p>Type of the badge.
  */
 public enum BadgeType {
     EPC("Epc"),

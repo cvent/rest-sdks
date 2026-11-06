@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetHubMembersRequest = {
   /**
-   * The identifier of an Events+ Hub
+   * The ID of an Events+ Hub.
    */
   hubId: string;
   /**

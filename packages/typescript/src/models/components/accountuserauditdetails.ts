@@ -32,7 +32,7 @@ export type AccountUserAuditDetails = {
    */
   lockedOutDate: Date;
   /**
-   * The ISO 8601 zoned date time when the user has accepted [Cvent's Terms of Use](https://www.cvent.com/en/product-terms-of-use).
+   * The ISO 8601 zoned date time when the user accepted [Cvent's Terms of Use](https://www.cvent.com/en/product-terms-of-use).
    */
   termsOfUseAcceptedDate: Date;
   /**

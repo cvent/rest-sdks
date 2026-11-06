@@ -8,31 +8,31 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * An object representing an address with various properties.
+ * Address of the exhibitor.
  */
 export type Address5 = {
   /**
-   * The first line of an address
+   * First line of the address.
    */
   address1?: string | undefined;
   /**
-   * The second line of an address
+   * Second line of the address.
    */
   address2?: string | undefined;
   /**
-   * The name of the city.
+   * Name of the city.
    */
   city?: string | undefined;
   /**
-   * The name of the state/province/region of the address.
+   * Name of the state, province, or region.
    */
   region?: string | undefined;
   /**
-   * postal code (also known as zipcode) of the address
+   * Postal code or ZIP code of the address.
    */
   postalCode?: string | undefined;
   /**
-   * Name of the country for example, 'United States'
+   * Name of the country.
    */
   country?: string | undefined;
 };

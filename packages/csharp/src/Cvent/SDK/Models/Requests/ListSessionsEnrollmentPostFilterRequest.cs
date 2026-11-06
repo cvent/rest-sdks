@@ -16,13 +16,13 @@ namespace Cvent.SDK.Models.Requests
     public class ListSessionsEnrollmentPostFilterRequest
     {
         /// <summary>
-        /// Used to query records that have been added or updated on or after this time point. Defaults to the beginning of time of the data store.
+        /// Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=after")]
         public DateTime? After { get; set; }
 
         /// <summary>
-        /// Used to query records that have been added or updated on or before this time point. The date and time should be in ISO 8601 format.
+        /// Used to query records that have been added or updated before this time point.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=before")]
         public DateTime? Before { get; set; }

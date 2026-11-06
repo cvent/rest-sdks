@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// A paginated response of leads.
+    /// Paginated list of leads.
     /// </summary>
     public class LeadsPaginatedResponse
     {
@@ -26,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public Paging? Paging { get; set; }
 
         /// <summary>
-        /// Collection of leads.
+        /// List of leads.
         /// </summary>
         [JsonProperty("data")]
         public List<Lead>? Data { get; set; }

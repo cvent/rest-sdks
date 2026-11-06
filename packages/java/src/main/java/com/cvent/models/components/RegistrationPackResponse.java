@@ -15,23 +15,23 @@ import java.util.Optional;
 /**
  * RegistrationPackResponse
  *
- * <p>Schema for existing registration pack object
+ * <p>Registration pack with an ID.
  */
 public class RegistrationPackResponse {
     /**
-     * Registration pack id
+     * Registration pack ID.
      */
     @JsonProperty("id")
     private String id;
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     @JsonProperty("exhibitor")
     private Exhibitor exhibitor;
@@ -57,21 +57,21 @@ public class RegistrationPackResponse {
     }
 
     /**
-     * Registration pack id
+     * Registration pack ID.
      */
     public String id() {
         return this.id;
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Event4 event() {
         return this.event;
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public Exhibitor exhibitor() {
         return this.exhibitor;
@@ -89,7 +89,7 @@ public class RegistrationPackResponse {
     }
 
     /**
-     * Registration pack id
+     * Registration pack ID.
      */
     public RegistrationPackResponse withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -97,7 +97,7 @@ public class RegistrationPackResponse {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public RegistrationPackResponse withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -105,7 +105,7 @@ public class RegistrationPackResponse {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public RegistrationPackResponse withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -170,7 +170,7 @@ public class RegistrationPackResponse {
         }
 
         /**
-         * Registration pack id
+         * Registration pack ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -178,7 +178,7 @@ public class RegistrationPackResponse {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -186,7 +186,7 @@ public class RegistrationPackResponse {
         }
 
         /**
-         * The Associated Exhibitor.
+         * Associated exhibitor.
          */
         public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");

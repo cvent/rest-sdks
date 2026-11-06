@@ -112,6 +112,7 @@ async function $do(
     encodeFormQuery({
       "after": payload.after,
       "before": payload.before,
+      "expand": payload.expand,
       "filter": payload.filter,
       "limit": payload.limit,
       "token": payload.token,
@@ -168,7 +169,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["400", "401", "403", "429", "4XX", "5XX"],
+    errorCodes: ["400", "401", "403", "429", "4XX", "503", "504", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -195,6 +196,7 @@ async function $do(
   >(
     M.json(200, operations.GetEventsResponse$inboundSchema, { key: "Result" }),
     M.jsonErr([400, 401, 403, 429], errors.ErrorResponse12$inboundSchema),
+    M.jsonErr([503, 504], errors.ErrorResponse12$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

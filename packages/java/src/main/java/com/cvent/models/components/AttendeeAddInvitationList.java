@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * AttendeeAddInvitationList
  *
- * <p>The ID of the invitation list associated with the attendee.
+ * <p>The invitation list associated with the attendee.
  */
 public class AttendeeAddInvitationList {
     /**

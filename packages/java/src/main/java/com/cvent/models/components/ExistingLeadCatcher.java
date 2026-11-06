@@ -71,7 +71,8 @@ public class ExistingLeadCatcher {
     private String title;
 
     /**
-     * Email address of the lead catcher contact. RFP notifications are sent to this address.
+     * Email address of the lead catcher contact. RFP notifications are sent to this address. Maximum 80
+     * characters in total, with no more than 64 characters before the `@`.
      */
     @JsonProperty("email")
     private String email;
@@ -303,7 +304,8 @@ public class ExistingLeadCatcher {
     }
 
     /**
-     * Email address of the lead catcher contact. RFP notifications are sent to this address.
+     * Email address of the lead catcher contact. RFP notifications are sent to this address. Maximum 80
+     * characters in total, with no more than 64 characters before the `@`.
      */
     public String email() {
         return this.email;
@@ -504,7 +506,8 @@ public class ExistingLeadCatcher {
     }
 
     /**
-     * Email address of the lead catcher contact. RFP notifications are sent to this address.
+     * Email address of the lead catcher contact. RFP notifications are sent to this address. Maximum 80
+     * characters in total, with no more than 64 characters before the `@`.
      */
     public ExistingLeadCatcher withEmail(@Nonnull String email) {
         this.email = Utils.checkNotNull(email, "email");
@@ -828,7 +831,8 @@ public class ExistingLeadCatcher {
         }
 
         /**
-         * Email address of the lead catcher contact. RFP notifications are sent to this address.
+         * Email address of the lead catcher contact. RFP notifications are sent to this address. Maximum 80
+         * characters in total, with no more than 64 characters before the `@`.
          */
         public Builder email(@Nonnull String email) {
             this.email = Utils.checkNotNull(email, "email");

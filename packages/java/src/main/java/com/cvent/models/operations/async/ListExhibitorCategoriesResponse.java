@@ -33,7 +33,7 @@ public class ListExhibitorCategoriesResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully retrieved a Paginated list of exhibitor-categories assigned to the exhibitor
+     * Successfully retrieved a paginated list of the exhibitor categories of the exhibitor.
      */
     private ExhibitorCategoryIdListResponse exhibitorCategoryIdListResponse;
 
@@ -78,7 +78,7 @@ public class ListExhibitorCategoriesResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully retrieved a Paginated list of exhibitor-categories assigned to the exhibitor
+     * Successfully retrieved a paginated list of the exhibitor categories of the exhibitor.
      */
     public Optional<ExhibitorCategoryIdListResponse> exhibitorCategoryIdListResponse() {
         return Optional.ofNullable(this.exhibitorCategoryIdListResponse);
@@ -113,7 +113,7 @@ public class ListExhibitorCategoriesResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully retrieved a Paginated list of exhibitor-categories assigned to the exhibitor
+     * Successfully retrieved a paginated list of the exhibitor categories of the exhibitor.
      */
     public ListExhibitorCategoriesResponse withExhibitorCategoryIdListResponse(
             @Nullable ExhibitorCategoryIdListResponse exhibitorCategoryIdListResponse) {
@@ -195,7 +195,7 @@ public class ListExhibitorCategoriesResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully retrieved a Paginated list of exhibitor-categories assigned to the exhibitor
+         * Successfully retrieved a paginated list of the exhibitor categories of the exhibitor.
          */
         public Builder exhibitorCategoryIdListResponse(
                 @Nullable ExhibitorCategoryIdListResponse exhibitorCategoryIdListResponse) {

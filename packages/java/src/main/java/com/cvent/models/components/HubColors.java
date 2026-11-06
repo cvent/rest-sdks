@@ -22,21 +22,24 @@ import java.util.Optional;
  */
 public class HubColors {
     /**
-     * The secondary color of an Events+ hub.
+     * The secondary color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an
+     * optional leading #.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("action")
     private String action;
 
     /**
-     * The background color of an Events+ hub.
+     * The background color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an
+     * optional leading #.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("background")
     private String background;
 
     /**
-     * The primary color of an Events+ hub.
+     * The primary color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an
+     * optional leading #.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("main")
@@ -44,7 +47,7 @@ public class HubColors {
 
     /**
      * An Events+ hub color configuration that can be set to light, dark, or a similar shade to the main
-     * color.
+     * color. The value is a three- or six-digit hexadecimal color with an optional leading #.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("mood")
@@ -67,21 +70,24 @@ public class HubColors {
     }
 
     /**
-     * The secondary color of an Events+ hub.
+     * The secondary color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an
+     * optional leading #.
      */
     public Optional<String> action() {
         return Optional.ofNullable(this.action);
     }
 
     /**
-     * The background color of an Events+ hub.
+     * The background color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an
+     * optional leading #.
      */
     public Optional<String> background() {
         return Optional.ofNullable(this.background);
     }
 
     /**
-     * The primary color of an Events+ hub.
+     * The primary color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an
+     * optional leading #.
      */
     public Optional<String> main() {
         return Optional.ofNullable(this.main);
@@ -89,7 +95,7 @@ public class HubColors {
 
     /**
      * An Events+ hub color configuration that can be set to light, dark, or a similar shade to the main
-     * color.
+     * color. The value is a three- or six-digit hexadecimal color with an optional leading #.
      */
     public Optional<String> mood() {
         return Optional.ofNullable(this.mood);
@@ -100,7 +106,8 @@ public class HubColors {
     }
 
     /**
-     * The secondary color of an Events+ hub.
+     * The secondary color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an
+     * optional leading #.
      */
     public HubColors withAction(@Nullable String action) {
         this.action = action;
@@ -108,7 +115,8 @@ public class HubColors {
     }
 
     /**
-     * The background color of an Events+ hub.
+     * The background color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an
+     * optional leading #.
      */
     public HubColors withBackground(@Nullable String background) {
         this.background = background;
@@ -116,7 +124,8 @@ public class HubColors {
     }
 
     /**
-     * The primary color of an Events+ hub.
+     * The primary color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an
+     * optional leading #.
      */
     public HubColors withMain(@Nullable String main) {
         this.main = main;
@@ -125,7 +134,7 @@ public class HubColors {
 
     /**
      * An Events+ hub color configuration that can be set to light, dark, or a similar shade to the main
-     * color.
+     * color. The value is a three- or six-digit hexadecimal color with an optional leading #.
      */
     public HubColors withMood(@Nullable String mood) {
         this.mood = mood;
@@ -173,7 +182,8 @@ public class HubColors {
         }
 
         /**
-         * The secondary color of an Events+ hub.
+         * The secondary color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an
+         * optional leading #.
          */
         public Builder action(@Nullable String action) {
             this.action = action;
@@ -181,7 +191,8 @@ public class HubColors {
         }
 
         /**
-         * The background color of an Events+ hub.
+         * The background color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an
+         * optional leading #.
          */
         public Builder background(@Nullable String background) {
             this.background = background;
@@ -189,7 +200,8 @@ public class HubColors {
         }
 
         /**
-         * The primary color of an Events+ hub.
+         * The primary color of an Events+ hub, specified as a three- or six-digit hexadecimal value with an
+         * optional leading #.
          */
         public Builder main(@Nullable String main) {
             this.main = main;
@@ -198,7 +210,7 @@ public class HubColors {
 
         /**
          * An Events+ hub color configuration that can be set to light, dark, or a similar shade to the main
-         * color.
+         * color. The value is a three- or six-digit hexadecimal color with an optional leading #.
          */
         public Builder mood(@Nullable String mood) {
             this.mood = mood;

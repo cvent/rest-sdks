@@ -30,8 +30,7 @@ import { Result } from "../types/fp.js";
  * Get Program Item Documents
  *
  * @remarks
- * Returns a list of session documents for the specified program item ID.
- * **Note:** This endpoint is deprecated. use <a href="#operation/filterProgramItemDocuments">Filter Program Item Documents</a>
+ * DEPRECATED: Use [Filter Program Item Documents](#tag/Sessions/operation/filterProgramItemDocuments) instead. Returns a list of session documents for the specified program item ID.
  *
  * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
  */

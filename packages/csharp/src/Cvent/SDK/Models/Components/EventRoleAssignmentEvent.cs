@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The event where the user gets a role. For more details, use the <a href="#tag/Events/operation/getEventById">Get Event</a> endpoint with the event ID.
+    /// The event where the user gets a role.
     /// </summary>
     public class EventRoleAssignmentEvent
     {

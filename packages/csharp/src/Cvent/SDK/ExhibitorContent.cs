@@ -52,7 +52,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Get a single file for an exhibitor.
+        /// Retrieves a file of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="GetExhibitorFileRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -72,7 +72,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Associate a file to an exhibitor using a file ID taken from the <a href="#operation/uploadFile">file upload</a> endpoint.
+        /// Associates a file with an exhibitor. The file ID comes from the <a href="#operation/uploadFile">file upload</a> operation.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorFileRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -93,7 +93,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Disassociate a single file from an exhibitor.
+        /// Disassociates a file from an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="DisassociateExhibitorFileRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -174,7 +174,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Updates content weblink data in an event for a given exhibitor ID.
+        /// Updates a content weblink of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorWeblinkRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -399,7 +399,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Get a single file for an exhibitor.
+        /// Retrieves a file of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="GetExhibitorFileRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -566,7 +566,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Associate a file to an exhibitor using a file ID taken from the <a href="#operation/uploadFile">file upload</a> endpoint.
+        /// Associates a file with an exhibitor. The file ID comes from the <a href="#operation/uploadFile">file upload</a> operation.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorFileRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -760,7 +760,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Disassociate a single file from an exhibitor.
+        /// Disassociates a file from an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="DisassociateExhibitorFileRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1437,7 +1437,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Updates content weblink data in an event for a given exhibitor ID.
+        /// Updates a content weblink of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorWeblinkRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

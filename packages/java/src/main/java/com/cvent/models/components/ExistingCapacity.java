@@ -14,23 +14,23 @@ import java.util.Optional;
 /**
  * ExistingCapacity
  *
- * <p>Represents the existing capacity of the registration type for an exhibitor
+ * <p>Capacity of a registration type for an exhibitor, with the available capacity.
  */
 public class ExistingCapacity {
     /**
-     * Registration type information
+     * Registration type of the capacity.
      */
     @JsonProperty("registrationType")
     private ExistingCapacityRegistrationType registrationType;
 
     /**
-     * Reserved capacity of the registration type for an exhibitor
+     * Reserved capacity of the registration type for an exhibitor.
      */
     @JsonProperty("reservedCapacity")
     private long reservedCapacity;
 
     /**
-     * Available capacity of the registration type for an exhibitor
+     * Available capacity of the registration type for an exhibitor.
      */
     @JsonProperty("availableCapacity")
     private long availableCapacity;
@@ -47,21 +47,21 @@ public class ExistingCapacity {
     }
 
     /**
-     * Registration type information
+     * Registration type of the capacity.
      */
     public ExistingCapacityRegistrationType registrationType() {
         return this.registrationType;
     }
 
     /**
-     * Reserved capacity of the registration type for an exhibitor
+     * Reserved capacity of the registration type for an exhibitor.
      */
     public long reservedCapacity() {
         return this.reservedCapacity;
     }
 
     /**
-     * Available capacity of the registration type for an exhibitor
+     * Available capacity of the registration type for an exhibitor.
      */
     public long availableCapacity() {
         return this.availableCapacity;
@@ -72,7 +72,7 @@ public class ExistingCapacity {
     }
 
     /**
-     * Registration type information
+     * Registration type of the capacity.
      */
     public ExistingCapacity withRegistrationType(@Nonnull ExistingCapacityRegistrationType registrationType) {
         this.registrationType = Utils.checkNotNull(registrationType, "registrationType");
@@ -80,7 +80,7 @@ public class ExistingCapacity {
     }
 
     /**
-     * Reserved capacity of the registration type for an exhibitor
+     * Reserved capacity of the registration type for an exhibitor.
      */
     public ExistingCapacity withReservedCapacity(long reservedCapacity) {
         this.reservedCapacity = reservedCapacity;
@@ -88,7 +88,7 @@ public class ExistingCapacity {
     }
 
     /**
-     * Available capacity of the registration type for an exhibitor
+     * Available capacity of the registration type for an exhibitor.
      */
     public ExistingCapacity withAvailableCapacity(long availableCapacity) {
         this.availableCapacity = availableCapacity;
@@ -140,7 +140,7 @@ public class ExistingCapacity {
         }
 
         /**
-         * Registration type information
+         * Registration type of the capacity.
          */
         public Builder registrationType(@Nonnull ExistingCapacityRegistrationType registrationType) {
             this.registrationType = Utils.checkNotNull(registrationType, "registrationType");
@@ -148,7 +148,7 @@ public class ExistingCapacity {
         }
 
         /**
-         * Reserved capacity of the registration type for an exhibitor
+         * Reserved capacity of the registration type for an exhibitor.
          */
         public Builder reservedCapacity(long reservedCapacity) {
             this.reservedCapacity = reservedCapacity;
@@ -156,7 +156,7 @@ public class ExistingCapacity {
         }
 
         /**
-         * Available capacity of the registration type for an exhibitor
+         * Available capacity of the registration type for an exhibitor.
          */
         public Builder availableCapacity(long availableCapacity) {
             this.availableCapacity = availableCapacity;

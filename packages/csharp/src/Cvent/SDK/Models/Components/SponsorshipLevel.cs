@@ -13,12 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Associated sponsorship level for an exhibitor.
+    /// Associated sponsorship level of an exhibitor.
     /// </summary>
     public class SponsorshipLevel
     {
         /// <summary>
-        /// Sponsorship Level Id.
+        /// Sponsorship level ID.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

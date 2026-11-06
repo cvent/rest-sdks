@@ -13,13 +13,13 @@ import java.util.Optional;
 
 public class DeleteSessionDocumentRequest {
     /**
-     * Unique Id of a session
+     * Unique ID of a session
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
     /**
-     * The unique identifier of a file from <a href="#operation/uploadFile">file upload</a> service.
+     * The unique ID of a file from [file upload](#operation/uploadFile) service.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=fileId")
     private String fileId;
@@ -32,14 +32,14 @@ public class DeleteSessionDocumentRequest {
     }
 
     /**
-     * Unique Id of a session
+     * Unique ID of a session
      */
     public String id() {
         return this.id;
     }
 
     /**
-     * The unique identifier of a file from <a href="#operation/uploadFile">file upload</a> service.
+     * The unique ID of a file from [file upload](#operation/uploadFile) service.
      */
     public String fileId() {
         return this.fileId;
@@ -50,7 +50,7 @@ public class DeleteSessionDocumentRequest {
     }
 
     /**
-     * Unique Id of a session
+     * Unique ID of a session
      */
     public DeleteSessionDocumentRequest withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -58,7 +58,7 @@ public class DeleteSessionDocumentRequest {
     }
 
     /**
-     * The unique identifier of a file from <a href="#operation/uploadFile">file upload</a> service.
+     * The unique ID of a file from [file upload](#operation/uploadFile) service.
      */
     public DeleteSessionDocumentRequest withFileId(@Nonnull String fileId) {
         this.fileId = Utils.checkNotNull(fileId, "fileId");
@@ -99,7 +99,7 @@ public class DeleteSessionDocumentRequest {
         }
 
         /**
-         * Unique Id of a session
+         * Unique ID of a session
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -107,7 +107,7 @@ public class DeleteSessionDocumentRequest {
         }
 
         /**
-         * The unique identifier of a file from <a href="#operation/uploadFile">file upload</a> service.
+         * The unique ID of a file from [file upload](#operation/uploadFile) service.
          */
         public Builder fileId(@Nonnull String fileId) {
             this.fileId = Utils.checkNotNull(fileId, "fileId");

@@ -8,11 +8,6 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  Country,
-  Country$inboundSchema,
-  Country$outboundSchema,
-} from "./country.js";
-import {
   LocationType,
   LocationType$inboundSchema,
   LocationType$outboundSchema,
@@ -256,9 +251,278 @@ export const Currency = {
 export type Currency = ClosedEnum<typeof Currency>;
 
 /**
+ * ISO 3166 two-letter (alpha-2) country codes with some additional non-standard cvent specific codes.
+ */
+export const VenueDetailsPatchCountry = {
+  Blank: "BLANK",
+  Ad: "AD",
+  Ae: "AE",
+  Af: "AF",
+  Ag: "AG",
+  Ai: "AI",
+  Al: "AL",
+  Am: "AM",
+  An: "AN",
+  Ao: "AO",
+  Aq: "AQ",
+  Ar: "AR",
+  As: "AS",
+  At: "AT",
+  Au: "AU",
+  Aw: "AW",
+  Ax: "AX",
+  Az: "AZ",
+  Ba: "BA",
+  Bb: "BB",
+  Bd: "BD",
+  Be: "BE",
+  Bf: "BF",
+  Bg: "BG",
+  Bh: "BH",
+  Bi: "BI",
+  Bj: "BJ",
+  Bl: "BL",
+  Bm: "BM",
+  Bn: "BN",
+  Bo: "BO",
+  Bq: "BQ",
+  Br: "BR",
+  Bs: "BS",
+  Bt: "BT",
+  Bv: "BV",
+  Bw: "BW",
+  By: "BY",
+  Bz: "BZ",
+  Ca: "CA",
+  Cc: "CC",
+  Cd: "CD",
+  Cf: "CF",
+  Cg: "CG",
+  Ch: "CH",
+  Ci: "CI",
+  Ck: "CK",
+  Cl: "CL",
+  Cm: "CM",
+  Cn: "CN",
+  Co: "CO",
+  Cr: "CR",
+  Cu: "CU",
+  Cv: "CV",
+  Cw: "CW",
+  Cx: "CX",
+  Cy: "CY",
+  Cz: "CZ",
+  De: "DE",
+  Dj: "DJ",
+  Dk: "DK",
+  Dm: "DM",
+  Do: "DO",
+  Dz: "DZ",
+  Ec: "EC",
+  Ee: "EE",
+  Eg: "EG",
+  Eh: "EH",
+  Er: "ER",
+  Es: "ES",
+  Et: "ET",
+  Fi: "FI",
+  Fj: "FJ",
+  Fk: "FK",
+  Fm: "FM",
+  Fo: "FO",
+  Fr: "FR",
+  Ga: "GA",
+  Gb: "GB",
+  Gb1: "GB_1",
+  Gb2: "GB_2",
+  Gb3: "GB_3",
+  Gb4: "GB_4",
+  Gd: "GD",
+  Ge: "GE",
+  Gf: "GF",
+  Gg: "GG",
+  Gh: "GH",
+  Gi: "GI",
+  Gl: "GL",
+  Gm: "GM",
+  Gn: "GN",
+  Gp: "GP",
+  Gq: "GQ",
+  Gr: "GR",
+  Gs: "GS",
+  Gt: "GT",
+  Gu: "GU",
+  Gw: "GW",
+  Gy: "GY",
+  Hk: "HK",
+  Hm: "HM",
+  Hn: "HN",
+  Hr: "HR",
+  Ht: "HT",
+  Hu: "HU",
+  Id: "ID",
+  Ie: "IE",
+  Il: "IL",
+  Im: "IM",
+  In: "IN",
+  Io: "IO",
+  Iq: "IQ",
+  Ir: "IR",
+  Is: "IS",
+  It: "IT",
+  Je: "JE",
+  Jm: "JM",
+  Jo: "JO",
+  Jp: "JP",
+  Ke: "KE",
+  Kg: "KG",
+  Kh: "KH",
+  Ki: "KI",
+  Km: "KM",
+  Kn: "KN",
+  Ko: "KO",
+  Kp: "KP",
+  Kr: "KR",
+  Kw: "KW",
+  Ky: "KY",
+  Kz: "KZ",
+  La: "LA",
+  Lb: "LB",
+  Lc: "LC",
+  Li: "LI",
+  Lk: "LK",
+  Lr: "LR",
+  Ls: "LS",
+  Lt: "LT",
+  Lu: "LU",
+  Lv: "LV",
+  Ly: "LY",
+  Ma: "MA",
+  Mc: "MC",
+  Md: "MD",
+  Me: "ME",
+  Mf: "MF",
+  Mg: "MG",
+  Mh: "MH",
+  Mk: "MK",
+  Ml: "ML",
+  Mm: "MM",
+  Mn: "MN",
+  Mo: "MO",
+  Mp: "MP",
+  Mq: "MQ",
+  Mr: "MR",
+  Ms: "MS",
+  Mt: "MT",
+  Mu: "MU",
+  Mv: "MV",
+  Mw: "MW",
+  Mx: "MX",
+  My: "MY",
+  Mz: "MZ",
+  Na: "NA",
+  Nc: "NC",
+  Ne: "NE",
+  Nf: "NF",
+  Ng: "NG",
+  Ni: "NI",
+  Nl: "NL",
+  No: "NO",
+  Np: "NP",
+  Nr: "NR",
+  Nu: "NU",
+  Nz: "NZ",
+  Om: "OM",
+  Pa: "PA",
+  Pe: "PE",
+  Pf: "PF",
+  Pg: "PG",
+  Ph: "PH",
+  Pk: "PK",
+  Pl: "PL",
+  Pm: "PM",
+  Pn: "PN",
+  Pr: "PR",
+  Ps: "PS",
+  Pt: "PT",
+  Pw: "PW",
+  Py: "PY",
+  Qa: "QA",
+  Re: "RE",
+  Ro: "RO",
+  Rs: "RS",
+  Ru: "RU",
+  Rw: "RW",
+  Sa: "SA",
+  Sb: "SB",
+  Sc: "SC",
+  Sd: "SD",
+  Se: "SE",
+  Sg: "SG",
+  Sh: "SH",
+  Si: "SI",
+  Sj: "SJ",
+  Sk: "SK",
+  Sl: "SL",
+  Sm: "SM",
+  Sn: "SN",
+  So: "SO",
+  Sr: "SR",
+  Ss: "SS",
+  St: "ST",
+  Sv: "SV",
+  Sx: "SX",
+  Sy: "SY",
+  Sz: "SZ",
+  Tc: "TC",
+  Td: "TD",
+  Tf: "TF",
+  Tg: "TG",
+  Th: "TH",
+  Tj: "TJ",
+  Tk: "TK",
+  Tl: "TL",
+  Tm: "TM",
+  Tn: "TN",
+  To: "TO",
+  Tp: "TP",
+  Tr: "TR",
+  Tt: "TT",
+  Tv: "TV",
+  Tw: "TW",
+  Tz: "TZ",
+  Ua: "UA",
+  Ug: "UG",
+  Um: "UM",
+  Us: "US",
+  Uy: "UY",
+  Uz: "UZ",
+  Va: "VA",
+  Vc: "VC",
+  Ve: "VE",
+  Vg: "VG",
+  Vi: "VI",
+  Vn: "VN",
+  Vu: "VU",
+  Wf: "WF",
+  Ws: "WS",
+  Ye: "YE",
+  Yt: "YT",
+  Za: "ZA",
+  Zm: "ZM",
+  Zw: "ZW",
+} as const;
+/**
+ * ISO 3166 two-letter (alpha-2) country codes with some additional non-standard cvent specific codes.
+ */
+export type VenueDetailsPatchCountry = ClosedEnum<
+  typeof VenueDetailsPatchCountry
+>;
+
+/**
  * Venue address information.
  */
-export type VenueDetailsPatchAddress = {
+export type VenueDetailsAddressPatch = {
   /**
    * Street address line 1.
    */
@@ -282,7 +546,7 @@ export type VenueDetailsPatchAddress = {
   /**
    * ISO 3166 two-letter (alpha-2) country codes with some additional non-standard cvent specific codes.
    */
-  country?: Country | undefined;
+  country?: VenueDetailsPatchCountry | undefined;
   /**
    * Directions or instructions for getting to the venue.
    */
@@ -381,7 +645,7 @@ export type VenueDetailsPatch = {
   /**
    * Venue address information.
    */
-  address?: VenueDetailsPatchAddress | null | undefined;
+  address?: VenueDetailsAddressPatch | null | undefined;
 };
 
 /** @internal */
@@ -401,8 +665,17 @@ export const Currency$outboundSchema: z.ZodNativeEnum<typeof Currency> =
   Currency$inboundSchema;
 
 /** @internal */
-export const VenueDetailsPatchAddress$inboundSchema: z.ZodType<
-  VenueDetailsPatchAddress,
+export const VenueDetailsPatchCountry$inboundSchema: z.ZodNativeEnum<
+  typeof VenueDetailsPatchCountry
+> = z.nativeEnum(VenueDetailsPatchCountry);
+/** @internal */
+export const VenueDetailsPatchCountry$outboundSchema: z.ZodNativeEnum<
+  typeof VenueDetailsPatchCountry
+> = VenueDetailsPatchCountry$inboundSchema;
+
+/** @internal */
+export const VenueDetailsAddressPatch$inboundSchema: z.ZodType<
+  VenueDetailsAddressPatch,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -411,11 +684,11 @@ export const VenueDetailsPatchAddress$inboundSchema: z.ZodType<
   city: z.string().optional(),
   stateProvince: StateProvince$inboundSchema.optional(),
   zipPostalCode: z.nullable(z.string()).optional(),
-  country: Country$inboundSchema.optional(),
+  country: VenueDetailsPatchCountry$inboundSchema.optional(),
   directions: z.nullable(z.string()).optional(),
 });
 /** @internal */
-export type VenueDetailsPatchAddress$Outbound = {
+export type VenueDetailsAddressPatch$Outbound = {
   streetAddress1?: string | null | undefined;
   streetAddress2?: string | null | undefined;
   city?: string | undefined;
@@ -426,34 +699,34 @@ export type VenueDetailsPatchAddress$Outbound = {
 };
 
 /** @internal */
-export const VenueDetailsPatchAddress$outboundSchema: z.ZodType<
-  VenueDetailsPatchAddress$Outbound,
+export const VenueDetailsAddressPatch$outboundSchema: z.ZodType<
+  VenueDetailsAddressPatch$Outbound,
   z.ZodTypeDef,
-  VenueDetailsPatchAddress
+  VenueDetailsAddressPatch
 > = z.object({
   streetAddress1: z.nullable(z.string()).optional(),
   streetAddress2: z.nullable(z.string()).optional(),
   city: z.string().optional(),
   stateProvince: StateProvince$outboundSchema.optional(),
   zipPostalCode: z.nullable(z.string()).optional(),
-  country: Country$outboundSchema.optional(),
+  country: VenueDetailsPatchCountry$outboundSchema.optional(),
   directions: z.nullable(z.string()).optional(),
 });
 
-export function venueDetailsPatchAddressToJSON(
-  venueDetailsPatchAddress: VenueDetailsPatchAddress,
+export function venueDetailsAddressPatchToJSON(
+  venueDetailsAddressPatch: VenueDetailsAddressPatch,
 ): string {
   return JSON.stringify(
-    VenueDetailsPatchAddress$outboundSchema.parse(venueDetailsPatchAddress),
+    VenueDetailsAddressPatch$outboundSchema.parse(venueDetailsAddressPatch),
   );
 }
-export function venueDetailsPatchAddressFromJSON(
+export function venueDetailsAddressPatchFromJSON(
   jsonString: string,
-): SafeParseResult<VenueDetailsPatchAddress, SDKValidationError> {
+): SafeParseResult<VenueDetailsAddressPatch, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => VenueDetailsPatchAddress$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'VenueDetailsPatchAddress' from JSON`,
+    (x) => VenueDetailsAddressPatch$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'VenueDetailsAddressPatch' from JSON`,
   );
 }
 
@@ -479,7 +752,7 @@ export const VenueDetailsPatch$inboundSchema: z.ZodType<
   additionalInformation: z.nullable(z.string()).optional(),
   cancellationPolicy: z.nullable(z.string()).optional(),
   locationTypes: z.nullable(z.array(LocationType$inboundSchema)).optional(),
-  address: z.nullable(z.lazy(() => VenueDetailsPatchAddress$inboundSchema))
+  address: z.nullable(z.lazy(() => VenueDetailsAddressPatch$inboundSchema))
     .optional(),
 });
 /** @internal */
@@ -500,7 +773,7 @@ export type VenueDetailsPatch$Outbound = {
   additionalInformation?: string | null | undefined;
   cancellationPolicy?: string | null | undefined;
   locationTypes?: Array<string> | null | undefined;
-  address?: VenueDetailsPatchAddress$Outbound | null | undefined;
+  address?: VenueDetailsAddressPatch$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -525,7 +798,7 @@ export const VenueDetailsPatch$outboundSchema: z.ZodType<
   additionalInformation: z.nullable(z.string()).optional(),
   cancellationPolicy: z.nullable(z.string()).optional(),
   locationTypes: z.nullable(z.array(LocationType$outboundSchema)).optional(),
-  address: z.nullable(z.lazy(() => VenueDetailsPatchAddress$outboundSchema))
+  address: z.nullable(z.lazy(() => VenueDetailsAddressPatch$outboundSchema))
     .optional(),
 });
 

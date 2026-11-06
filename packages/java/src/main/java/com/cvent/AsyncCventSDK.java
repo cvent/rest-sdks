@@ -463,9 +463,11 @@ public class AsyncCventSDK {
      */
     private final AsyncVenueProfiles venueProfiles;
     /**
-     * Manage inbound leads submitted to venues through Cvent's sourcing channels.
+     * A lead catcher is a venue contact who can receive an email notification when an RFP (Request for
+     * Proposal) is submitted to the venue. The operations create, update, and delete lead catchers, and
+     * return the name of each lead catcher.
      */
-    private final AsyncVenueLeads venueLeads;
+    private final AsyncVenueLeadCatchers venueLeadCatchers;
     /**
      * Manage meeting rooms for a venue, including creating and updating room details, configuring
      * capacities and amenities, and associating images.
@@ -1044,10 +1046,12 @@ public class AsyncCventSDK {
         return venueProfiles;
     }
     /**
-     * Manage inbound leads submitted to venues through Cvent's sourcing channels.
+     * A lead catcher is a venue contact who can receive an email notification when an RFP (Request for
+     * Proposal) is submitted to the venue. The operations create, update, and delete lead catchers, and
+     * return the name of each lead catcher.
      */
-    public AsyncVenueLeads venueLeads() {
-        return venueLeads;
+    public AsyncVenueLeadCatchers venueLeadCatchers() {
+        return venueLeadCatchers;
     }
     /**
      * Manage meeting rooms for a venue, including creating and updating room details, configuring
@@ -1137,7 +1141,7 @@ public class AsyncCventSDK {
         this.venueContent = new AsyncVenueContent(syncSDK.venueContent(), sdkConfiguration);
         this.venueAvailability = new AsyncVenueAvailability(syncSDK.venueAvailability(), sdkConfiguration);
         this.venueProfiles = new AsyncVenueProfiles(syncSDK.venueProfiles(), sdkConfiguration);
-        this.venueLeads = new AsyncVenueLeads(syncSDK.venueLeads(), sdkConfiguration);
+        this.venueLeadCatchers = new AsyncVenueLeadCatchers(syncSDK.venueLeadCatchers(), sdkConfiguration);
         this.venueMeetingRooms = new AsyncVenueMeetingRooms(syncSDK.venueMeetingRooms(), sdkConfiguration);
         this.video = new AsyncVideo(syncSDK.video(), sdkConfiguration);
         this.webcasts = new AsyncWebcasts(syncSDK.webcasts(), sdkConfiguration);

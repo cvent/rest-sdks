@@ -17,7 +17,7 @@ import java.util.Optional;
 
 public class ListOptionalItemsRequest {
     /**
-     * The unique ID of an attendee.
+     * Attendee ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
@@ -47,7 +47,7 @@ public class ListOptionalItemsRequest {
     }
 
     /**
-     * The unique ID of an attendee.
+     * Attendee ID.
      */
     public String id() {
         return this.id;
@@ -73,7 +73,7 @@ public class ListOptionalItemsRequest {
     }
 
     /**
-     * The unique ID of an attendee.
+     * Attendee ID.
      */
     public ListOptionalItemsRequest withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -135,7 +135,7 @@ public class ListOptionalItemsRequest {
         }
 
         /**
-         * The unique ID of an attendee.
+         * Attendee ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

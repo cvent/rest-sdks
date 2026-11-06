@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Requests
     public class GetHubMembersRequest
     {
         /// <summary>
-        /// The identifier of an Events+ Hub.
+        /// The ID of an Events+ Hub.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=hubId")]
         public string HubId { get; set; } = default!;

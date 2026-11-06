@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Response body for successful attendee subscription status update.
+    /// The attendee ID and updated email subscription status.
     /// </summary>
     public class AttendeeSubscriptionResponse
     {

@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The ID of the administrator contact whom registered this attendee.
+    /// The administrator contact who registered this attendee.
     /// </summary>
     public class AttendeeUpdateAdministrator
     {

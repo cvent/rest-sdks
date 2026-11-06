@@ -10,7 +10,7 @@ import { Badge, Badge$inboundSchema } from "./badge.js";
 import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
- * Badge List response including paging and badge data.
+ * Paginated list of badges.
  */
 export type BadgePaginatedResponse = {
   /**

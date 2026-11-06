@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * An event reference used in attendee insights to identify the event context for engagement data
+ * Details of the event.
  */
 export type EventJson2 = {
   /**
-   * A unique identifier (UUID) for the event where the engagement score applies
+   * The unique ID of the event.
    */
   id: string;
 };
@@ -25,7 +25,23 @@ export const EventJson2$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
+/** @internal */
+export type EventJson2$Outbound = {
+  id: string;
+};
 
+/** @internal */
+export const EventJson2$outboundSchema: z.ZodType<
+  EventJson2$Outbound,
+  z.ZodTypeDef,
+  EventJson2
+> = z.object({
+  id: z.string(),
+});
+
+export function eventJson2ToJSON(eventJson2: EventJson2): string {
+  return JSON.stringify(EventJson2$outboundSchema.parse(eventJson2));
+}
 export function eventJson2FromJSON(
   jsonString: string,
 ): SafeParseResult<EventJson2, SDKValidationError> {

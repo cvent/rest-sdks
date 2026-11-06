@@ -31,7 +31,7 @@ export type AccountUserCustomFieldType = ClosedEnum<
  */
 export type AccountUserCustomField = {
   /**
-   * The unique ID representing this custom field.
+   * The custom field's ID.
    */
   id: string;
   /**

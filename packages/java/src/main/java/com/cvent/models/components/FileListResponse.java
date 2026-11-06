@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * FileListResponse
  *
- * <p>A JSON object containing a list of files associated with an exhibitor.
+ * <p>List of the files of an exhibitor.
  */
 public class FileListResponse {
     /**

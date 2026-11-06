@@ -16,7 +16,7 @@ import { Event4, Event4$inboundSchema } from "./event4.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 
 /**
- * Type of question
+ * Type of the question.
  */
 export const LeadQualificationQuestionType = {
   MultiChoice: "MultiChoice",
@@ -27,14 +27,14 @@ export const LeadQualificationQuestionType = {
   OpenEndedDateTime: "OpenEndedDateTime",
 } as const;
 /**
- * Type of question
+ * Type of the question.
  */
 export type LeadQualificationQuestionType = ClosedEnum<
   typeof LeadQualificationQuestionType
 >;
 
 /**
- * A JSON schema representing a Lead Qualification Question model
+ * Lead qualification question of an exhibitor.
  */
 export type LeadQualificationQuestion = {
   /**
@@ -54,43 +54,43 @@ export type LeadQualificationQuestion = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * Lead Qualification Question id
+   * Lead qualification question ID.
    */
   id?: string | undefined;
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event?: Event4 | undefined;
   /**
-   * The Associated Exhibitor.
+   * Associated exhibitor.
    */
   exhibitor?: Exhibitor | undefined;
   /**
-   * Type of question
+   * Type of the question.
    */
   type?: LeadQualificationQuestionType | undefined;
   /**
-   * question code
+   * Code of the question.
    */
   code?: string | undefined;
   /**
-   * List of available choices for the question
+   * List of the choices of the question.
    */
   choices?: Array<Choice1> | undefined;
   /**
-   * Contains text of additional choice
+   * Additional choice of the question.
    */
   notApplicableAnswer?: AdditionalChoice1 | undefined;
   /**
-   * Contains text of additional choice
+   * Additional choice of the question.
    */
   otherAnswers?: AdditionalChoice1 | undefined;
   /**
-   * A boolean indicating whether the question is mandatory or not
+   * True indicates that the question requires an answer.
    */
   required?: boolean | undefined;
   /**
-   * text of the question
+   * Text of the question.
    */
   text?: string | undefined;
 };

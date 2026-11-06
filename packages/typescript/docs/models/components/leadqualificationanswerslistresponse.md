@@ -1,6 +1,6 @@
 # LeadQualificationAnswersListResponse
 
-A JSON schema representing the response for a list of lead qualification answers.
+List of lead qualification answers.
 
 ## Example Usage
 
@@ -45,4 +45,4 @@ let value: LeadQualificationAnswersListResponse = {
 
 | Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
 | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `data`                                                                                       | [components.LeadQualificationAnswers](../../models/components/leadqualificationanswers.md)[] | :heavy_minus_sign:                                                                           | Collection of Lead Qualification Answers.                                                    |
+| `data`                                                                                       | [components.LeadQualificationAnswers](../../models/components/leadqualificationanswers.md)[] | :heavy_minus_sign:                                                                           | List of lead qualification answers.                                                          |

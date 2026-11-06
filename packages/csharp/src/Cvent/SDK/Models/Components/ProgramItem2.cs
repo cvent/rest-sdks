@@ -18,7 +18,7 @@ namespace Cvent.SDK.Models.Components
     public class ProgramItem2
     {
         /// <summary>
-        /// The unique identifier for a program item.
+        /// The unique ID of a program item.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

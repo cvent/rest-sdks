@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * The unique identifier of a speaker.
+ * A reference to a speaker by its ID.
  */
 export type SpeakerLite1 = {
   /**
-   * The unique identifier for a speaker.
+   * The unique ID of a speaker.
    */
   id: string;
 };

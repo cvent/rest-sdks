@@ -20,7 +20,7 @@ namespace Cvent.SDK.Models.Requests
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// ID of sponsorship level.
+        /// ID of a sponsorship level.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=sponsorshipLevelId")]
         public string SponsorshipLevelId { get; set; } = default!;

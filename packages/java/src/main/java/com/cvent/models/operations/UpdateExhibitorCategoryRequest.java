@@ -26,7 +26,7 @@ public class UpdateExhibitorCategoryRequest {
     private String exhibitorCategoryId;
 
     /**
-     * Exhibitor Category details
+     * Exhibitor category details.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private ExhibitorCategoryRequest exhibitorCategoryRequest;
@@ -58,7 +58,7 @@ public class UpdateExhibitorCategoryRequest {
     }
 
     /**
-     * Exhibitor Category details
+     * Exhibitor category details.
      */
     public ExhibitorCategoryRequest exhibitorCategoryRequest() {
         return this.exhibitorCategoryRequest;
@@ -85,7 +85,7 @@ public class UpdateExhibitorCategoryRequest {
     }
 
     /**
-     * Exhibitor Category details
+     * Exhibitor category details.
      */
     public UpdateExhibitorCategoryRequest withExhibitorCategoryRequest(
             @Nonnull ExhibitorCategoryRequest exhibitorCategoryRequest) {
@@ -154,7 +154,7 @@ public class UpdateExhibitorCategoryRequest {
         }
 
         /**
-         * Exhibitor Category details
+         * Exhibitor category details.
          */
         public Builder exhibitorCategoryRequest(@Nonnull ExhibitorCategoryRequest exhibitorCategoryRequest) {
             this.exhibitorCategoryRequest = Utils.checkNotNull(exhibitorCategoryRequest, "exhibitorCategoryRequest");

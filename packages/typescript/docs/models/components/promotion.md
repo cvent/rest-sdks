@@ -1,6 +1,6 @@
 # Promotion
 
-Promotion applied by planner while adding supplier on RFP.
+Promotion applied by the planner to the supplier on the RFP. Can be set when the supplier is first associated, or added later by calling Associate Supplier to RFP again for the same supplier.
 
 ## Example Usage
 

@@ -8,26 +8,26 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  InvitationListCommonJson,
-  InvitationListCommonJson$inboundSchema,
-  InvitationListCommonJson$Outbound,
-  InvitationListCommonJson$outboundSchema,
-} from "./invitationlistcommonjson.js";
-import { LinkJson, LinkJson$inboundSchema } from "./linkjson.js";
+  InvitationListCommon,
+  InvitationListCommon$inboundSchema,
+  InvitationListCommon$Outbound,
+  InvitationListCommon$outboundSchema,
+} from "./invitationlistcommon.js";
+import { Link, Link$inboundSchema } from "./link.js";
 import {
-  RespondedThroughJson,
-  RespondedThroughJson$inboundSchema,
-  RespondedThroughJson$outboundSchema,
-} from "./respondedthroughjson.js";
+  RespondedThrough,
+  RespondedThrough$inboundSchema,
+  RespondedThrough$outboundSchema,
+} from "./respondedthrough.js";
 import {
-  RespondentChapterReferenceJson,
-  RespondentChapterReferenceJson$inboundSchema,
-} from "./respondentchapterreferencejson.js";
+  RespondentChapterReference,
+  RespondentChapterReference$inboundSchema,
+} from "./respondentchapterreference.js";
 import {
-  RespondentStatusJson,
-  RespondentStatusJson$inboundSchema,
-  RespondentStatusJson$outboundSchema,
-} from "./respondentstatusjson.js";
+  RespondentStatus,
+  RespondentStatus$inboundSchema,
+  RespondentStatus$outboundSchema,
+} from "./respondentstatus.js";
 
 /**
  * Related links.
@@ -36,7 +36,7 @@ export type StandardSurveyRespondentLinks = {
   /**
    * Represents a link to a related resource.
    */
-  surveyUrl?: LinkJson | undefined;
+  surveyUrl?: Link | undefined;
 };
 
 /**
@@ -100,7 +100,7 @@ export type StandardSurveyRespondent = {
    * - "Mobile" (deprecated): Historically indicated submission from a mobile device. This value is deprecated.
    * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is deprecated.
    */
-  respondedThrough?: RespondedThroughJson | undefined;
+  respondedThrough?: RespondedThrough | undefined;
   /**
    * Reference ids are used to track where response is coming from. Survey Author can create multiple weblinks with different values of referenceId query param in them.
    */
@@ -132,7 +132,7 @@ export type StandardSurveyRespondent = {
   /**
    * Respondent Status
    */
-  status?: RespondentStatusJson | undefined;
+  status?: RespondentStatus | undefined;
   /**
    * Whether or not the respondent has unsubscribed from Survey
    */
@@ -144,11 +144,11 @@ export type StandardSurveyRespondent = {
   /**
    * Invitation list of respondents
    */
-  invitationList?: InvitationListCommonJson | undefined;
+  invitationList?: InvitationListCommon | undefined;
   /**
    * List of respondent chapters.
    */
-  chapters?: Array<RespondentChapterReferenceJson> | undefined;
+  chapters?: Array<RespondentChapterReference> | undefined;
   /**
    * Authors use transaction IDs to collect feedback after a customer transaction: invoice numbers or order IDs are common transaction IDs. Respondents can take a survey by entering their transaction ID, and each transaction ID uniquely identifies a response for that transaction.
    */
@@ -178,7 +178,7 @@ export type StandardSurveyRespondentInput = {
    * - "Mobile" (deprecated): Historically indicated submission from a mobile device. This value is deprecated.
    * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is deprecated.
    */
-  respondedThrough?: RespondedThroughJson | undefined;
+  respondedThrough?: RespondedThrough | undefined;
   /**
    * Reference ids are used to track where response is coming from. Survey Author can create multiple weblinks with different values of referenceId query param in them.
    */
@@ -194,11 +194,11 @@ export type StandardSurveyRespondentInput = {
   /**
    * Respondent Status
    */
-  status?: RespondentStatusJson | undefined;
+  status?: RespondentStatus | undefined;
   /**
    * Invitation list of respondents
    */
-  invitationList?: InvitationListCommonJson | undefined;
+  invitationList?: InvitationListCommon | undefined;
   /**
    * Authors use transaction IDs to collect feedback after a customer transaction: invoice numbers or order IDs are common transaction IDs. Respondents can take a survey by entering their transaction ID, and each transaction ID uniquely identifies a response for that transaction.
    */
@@ -211,7 +211,7 @@ export const StandardSurveyRespondentLinks$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  surveyUrl: LinkJson$inboundSchema.optional(),
+  surveyUrl: Link$inboundSchema.optional(),
 });
 
 export function standardSurveyRespondentLinksFromJSON(
@@ -282,7 +282,7 @@ export const StandardSurveyRespondent$inboundSchema: z.ZodType<
   responseCode: z.string().optional(),
   responseDuration: z.number().optional(),
   localeId: z.string().optional(),
-  respondedThrough: RespondedThroughJson$inboundSchema.optional(),
+  respondedThrough: RespondedThrough$inboundSchema.optional(),
   referenceId: z.string().optional(),
   score: z.number().optional(),
   maxPossibleScore: z.number().optional(),
@@ -291,11 +291,11 @@ export const StandardSurveyRespondent$inboundSchema: z.ZodType<
   sourceId: z.string().optional(),
   contact: z.lazy(() => StandardSurveyRespondentContact$inboundSchema)
     .optional(),
-  status: RespondentStatusJson$inboundSchema.optional(),
+  status: RespondentStatus$inboundSchema.optional(),
   unsubscribed: z.boolean().optional(),
   unsubscribedBy: z.string().optional(),
-  invitationList: InvitationListCommonJson$inboundSchema.optional(),
-  chapters: z.array(RespondentChapterReferenceJson$inboundSchema).optional(),
+  invitationList: InvitationListCommon$inboundSchema.optional(),
+  chapters: z.array(RespondentChapterReference$inboundSchema).optional(),
   transactionId: z.string().optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -321,7 +321,7 @@ export type StandardSurveyRespondentInput$Outbound = {
   sourceId?: string | undefined;
   contact?: StandardSurveyRespondentContact$Outbound | undefined;
   status?: string | undefined;
-  invitationList?: InvitationListCommonJson$Outbound | undefined;
+  invitationList?: InvitationListCommon$Outbound | undefined;
   transactionId?: string | undefined;
 };
 
@@ -332,13 +332,13 @@ export const StandardSurveyRespondentInput$outboundSchema: z.ZodType<
   StandardSurveyRespondentInput
 > = z.object({
   localeId: z.string().optional(),
-  respondedThrough: RespondedThroughJson$outboundSchema.optional(),
+  respondedThrough: RespondedThrough$outboundSchema.optional(),
   referenceId: z.string().optional(),
   sourceId: z.string().optional(),
   contact: z.lazy(() => StandardSurveyRespondentContact$outboundSchema)
     .optional(),
-  status: RespondentStatusJson$outboundSchema.optional(),
-  invitationList: InvitationListCommonJson$outboundSchema.optional(),
+  status: RespondentStatus$outboundSchema.optional(),
+  invitationList: InvitationListCommon$outboundSchema.optional(),
   transactionId: z.string().optional(),
 });
 

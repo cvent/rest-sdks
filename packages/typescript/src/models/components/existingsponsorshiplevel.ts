@@ -9,7 +9,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Event4, Event4$inboundSchema } from "./event4.js";
 
 /**
- * Existing sponsorship level model
+ * Sponsorship level with an ID.
  */
 export type ExistingSponsorshipLevel = {
   /**
@@ -29,19 +29,19 @@ export type ExistingSponsorshipLevel = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * Name of the sponsorship level
+   * Name of the sponsorship level.
    */
   name: string;
   /**
-   * ID of event sponsorship level.
+   * Sponsorship level ID.
    */
   id?: string | undefined;
   /**
-   * Represents the order sponsors appear in a list.
+   * Order in which the sponsors appear in a list.
    */
   rank?: number | undefined;
 };

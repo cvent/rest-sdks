@@ -17,11 +17,11 @@ import java.util.Optional;
 /**
  * SessionCategory
  *
- * <p>This is used to denote the category of a session.
+ * <p>A session category with a name and an optional description.
  */
 public class SessionCategory {
     /**
-     * A string that represents a specified session category.
+     * The ID of the session category.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -55,7 +55,7 @@ public class SessionCategory {
     }
 
     /**
-     * A string that represents a specified session category.
+     * The ID of the session category.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -80,7 +80,7 @@ public class SessionCategory {
     }
 
     /**
-     * A string that represents a specified session category.
+     * The ID of the session category.
      */
     public SessionCategory withId(@Nullable String id) {
         this.id = id;
@@ -141,7 +141,7 @@ public class SessionCategory {
         }
 
         /**
-         * A string that represents a specified session category.
+         * The ID of the session category.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

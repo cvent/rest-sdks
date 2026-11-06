@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Type of answer.
+    /// Type of the answer.
     /// </summary>
     public enum AnswerType
     {

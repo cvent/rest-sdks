@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Contains text of additional choice
+ * Additional choice of the question.
  */
 export type AdditionalChoice1 = {
   /**
-   * Text Value of additional choice
+   * Text of the additional choice.
    */
   text?: string | undefined;
 };

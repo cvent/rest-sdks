@@ -1,6 +1,6 @@
 # AttendeeUpdateAdministrator
 
-The ID of the administrator contact whom registered this attendee.
+The administrator contact who registered this attendee.
 
 ## Example Usage
 

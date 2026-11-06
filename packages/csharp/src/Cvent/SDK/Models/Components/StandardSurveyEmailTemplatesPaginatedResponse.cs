@@ -23,12 +23,12 @@ namespace Cvent.SDK.Models.Components
         /// Represents pagination information for a collection of resources.
         /// </summary>
         [JsonProperty("paging")]
-        public PagingJson Paging { get; set; } = default!;
+        public Paging Paging { get; set; } = default!;
 
         /// <summary>
         /// Collection of standard survey email templates.
         /// </summary>
         [JsonProperty("data")]
-        public List<StandardSurveyEmailTemplateJson> Data { get; set; } = default!;
+        public List<StandardSurveyEmailTemplateResponse> Data { get; set; } = default!;
     }
 }

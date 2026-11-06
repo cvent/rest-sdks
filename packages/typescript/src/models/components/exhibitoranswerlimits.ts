@@ -8,23 +8,23 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Defines the limits for answers to exhibitor questions.
+ * Limits of the answers to an exhibitor question.
  */
 export type ExhibitorAnswerLimits = {
   /**
-   * Minimum length of the answer for OpenEndedTextCommentBox questions. It must be less than or equal to maxLength.
+   * Minimum length of the answer to an `OpenEndedTextCommentBox` question. The value is less than or equal to `maxLength`.
    */
   minLength: number;
   /**
-   * Maximum length of the answer for OpenEndedTextCommentBox questions.
+   * Maximum length of the answer to an `OpenEndedTextCommentBox` question.
    */
   maxLength: number;
   /**
-   * Minimum number of choices required for MultiChoice questions. It must be less than or equal to maxSelections.
+   * Minimum number of selected choices for a `MultiChoice` question. The value is less than or equal to `maxSelections`.
    */
   minSelections?: number | undefined;
   /**
-   * Maximum number of choices allowed for MultiChoice questions. It cannot exceed the total number of available choices.
+   * Maximum number of selected choices for a `MultiChoice` question. The value is less than or equal to the number of choices.
    */
   maxSelections?: number | undefined;
 };

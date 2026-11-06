@@ -1,6 +1,6 @@
 # ExhibitorAdminsListResponse
 
-Exhibitor Admins List Response schema
+Paginated list of exhibitor admins.
 
 
 ## Fields

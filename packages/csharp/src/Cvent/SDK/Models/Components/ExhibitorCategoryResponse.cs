@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// A description of the Existing Exhibitor Category JSON schema.
+    /// Exhibitor category with an ID.
     /// </summary>
     public class ExhibitorCategoryResponse
     {
@@ -44,7 +44,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// The Associated Event.
+        /// Associated event.
         /// </summary>
         [JsonProperty("event")]
         public Event4 Event { get; set; } = default!;
@@ -56,37 +56,37 @@ namespace Cvent.SDK.Models.Components
         public string Name { get; set; } = default!;
 
         /// <summary>
-        /// Exhibitor Category description.
+        /// Description of the exhibitor category.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
 
         /// <summary>
-        /// order for exhibitor category.
+        /// Display order of the exhibitor category.
         /// </summary>
         [JsonProperty("order")]
         public long Order { get; set; } = default!;
 
         /// <summary>
-        /// Type of exhibitor category.
+        /// Type of the exhibitor category.
         /// </summary>
         [JsonProperty("type")]
         public ExhibitorCategoryResponseType Type { get; set; } = default!;
 
         /// <summary>
-        /// ID of exhibitor category.
+        /// Exhibitor category ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// File ID for exhibitor category banner.
+        /// File ID of the exhibitor category banner.
         /// </summary>
         [JsonProperty("bannerId")]
         public string? BannerId { get; set; }
 
         /// <summary>
-        /// URL for exhibitor category banner.
+        /// URL of the exhibitor category banner.
         /// </summary>
         [JsonProperty("bannerUrl")]
         public string? BannerUrl { get; set; }

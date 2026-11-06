@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Update Exhibitor Admin
  *
  * @remarks
- * Updates a single exhibitor admin.
+ * Updates an exhibitor admin.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

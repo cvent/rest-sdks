@@ -29,7 +29,7 @@ namespace Cvent.SDK.Models.Components
         /// List of dates for the event. Can be used to provide set of alternate event dates when mode is ALTERNATE_DATE.
         /// </summary>
         [JsonProperty("alternateDates")]
-        public List<Dates1>? AlternateDates { get; set; }
+        public List<Dates1>? AlternateDates { get; set; } = null;
 
         /// <summary>
         /// Date pattern for days on which event can occur. Used when dateMode is DATE_PATTERN.

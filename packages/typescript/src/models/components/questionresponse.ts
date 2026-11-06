@@ -6,8 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Answer21, Answer21$inboundSchema } from "./answer21.js";
-import { Question2, Question2$inboundSchema } from "./question2.js";
+import { Answer3, Answer3$inboundSchema } from "./answer3.js";
+import { Question3, Question3$inboundSchema } from "./question3.js";
 
 /**
  * A Question response.
@@ -16,11 +16,11 @@ export type QuestionResponse = {
   /**
    * The question that was answered.
    */
-  question?: Question2 | undefined;
+  question?: Question3 | undefined;
   /**
    * List of answers.
    */
-  answers?: Array<Answer21> | undefined;
+  answers?: Array<Answer3> | undefined;
 };
 
 /** @internal */
@@ -29,8 +29,8 @@ export const QuestionResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  question: Question2$inboundSchema.optional(),
-  answers: z.array(Answer21$inboundSchema).optional(),
+  question: Question3$inboundSchema.optional(),
+  answers: z.array(Answer3$inboundSchema).optional(),
 });
 
 export function questionResponseFromJSON(

@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * ExhibitorCategoryResponseType
  *
- * <p>Type of exhibitor category
+ * <p>Type of the exhibitor category.
  */
 public enum ExhibitorCategoryResponseType {
     BANNER("BANNER"),

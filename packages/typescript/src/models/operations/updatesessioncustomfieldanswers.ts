@@ -8,11 +8,11 @@ import * as components from "../components/index.js";
 
 export type UpdateSessionCustomFieldAnswersRequest = {
   /**
-   * Unique Id of a session
+   * Unique ID of a session
    */
   id: string;
   /**
-   * Unique Id of a custom field
+   * Unique ID of a custom field
    */
   customFieldId: string;
   /**

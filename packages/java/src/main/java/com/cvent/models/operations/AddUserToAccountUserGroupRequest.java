@@ -19,7 +19,7 @@ public class AddUserToAccountUserGroupRequest {
     private String userGroupId;
 
     /**
-     * The Account User's Id.
+     * The account user's ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=userId")
     private String userId;
@@ -40,7 +40,7 @@ public class AddUserToAccountUserGroupRequest {
     }
 
     /**
-     * The Account User's Id.
+     * The account user's ID.
      */
     public String userId() {
         return this.userId;
@@ -59,7 +59,7 @@ public class AddUserToAccountUserGroupRequest {
     }
 
     /**
-     * The Account User's Id.
+     * The account user's ID.
      */
     public AddUserToAccountUserGroupRequest withUserId(@Nonnull String userId) {
         this.userId = Utils.checkNotNull(userId, "userId");
@@ -109,7 +109,7 @@ public class AddUserToAccountUserGroupRequest {
         }
 
         /**
-         * The Account User's Id.
+         * The account user's ID.
          */
         public Builder userId(@Nonnull String userId) {
             this.userId = Utils.checkNotNull(userId, "userId");

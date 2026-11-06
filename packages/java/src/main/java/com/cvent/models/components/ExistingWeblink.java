@@ -21,7 +21,7 @@ import java.util.Optional;
 /**
  * ExistingWeblink
  *
- * <p>Content of existing exhibitor weblink
+ * <p>Exhibitor weblink with an ID.
  */
 public class ExistingWeblink {
     /**
@@ -53,13 +53,13 @@ public class ExistingWeblink {
     private String lastModifiedBy;
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     @JsonProperty("exhibitor")
     private Exhibitor exhibitor;
@@ -71,7 +71,7 @@ public class ExistingWeblink {
     private String name;
 
     /**
-     * The URL of the weblink.
+     * URL of the weblink.
      */
     @JsonProperty("url")
     private String url;
@@ -84,13 +84,13 @@ public class ExistingWeblink {
     private Boolean hidden;
 
     /**
-     * Display order for exhibitor weblink content.
+     * Display order of the weblink.
      */
     @JsonProperty("order")
     private long order;
 
     /**
-     * Unique ID of the weblink.
+     * Weblink ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -161,14 +161,14 @@ public class ExistingWeblink {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Event4 event() {
         return this.event;
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public Exhibitor exhibitor() {
         return this.exhibitor;
@@ -182,7 +182,7 @@ public class ExistingWeblink {
     }
 
     /**
-     * The URL of the weblink.
+     * URL of the weblink.
      */
     public String url() {
         return this.url;
@@ -196,14 +196,14 @@ public class ExistingWeblink {
     }
 
     /**
-     * Display order for exhibitor weblink content.
+     * Display order of the weblink.
      */
     public long order() {
         return this.order;
     }
 
     /**
-     * Unique ID of the weblink.
+     * Weblink ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -246,7 +246,7 @@ public class ExistingWeblink {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public ExistingWeblink withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -254,7 +254,7 @@ public class ExistingWeblink {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public ExistingWeblink withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -270,7 +270,7 @@ public class ExistingWeblink {
     }
 
     /**
-     * The URL of the weblink.
+     * URL of the weblink.
      */
     public ExistingWeblink withUrl(@Nonnull String url) {
         this.url = Utils.checkNotNull(url, "url");
@@ -286,7 +286,7 @@ public class ExistingWeblink {
     }
 
     /**
-     * Display order for exhibitor weblink content.
+     * Display order of the weblink.
      */
     public ExistingWeblink withOrder(long order) {
         this.order = order;
@@ -294,7 +294,7 @@ public class ExistingWeblink {
     }
 
     /**
-     * Unique ID of the weblink.
+     * Weblink ID.
      */
     public ExistingWeblink withId(@Nullable String id) {
         this.id = id;
@@ -419,7 +419,7 @@ public class ExistingWeblink {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -427,7 +427,7 @@ public class ExistingWeblink {
         }
 
         /**
-         * The Associated Exhibitor.
+         * Associated exhibitor.
          */
         public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -443,7 +443,7 @@ public class ExistingWeblink {
         }
 
         /**
-         * The URL of the weblink.
+         * URL of the weblink.
          */
         public Builder url(@Nonnull String url) {
             this.url = Utils.checkNotNull(url, "url");
@@ -459,7 +459,7 @@ public class ExistingWeblink {
         }
 
         /**
-         * Display order for exhibitor weblink content.
+         * Display order of the weblink.
          */
         public Builder order(long order) {
             this.order = order;
@@ -467,7 +467,7 @@ public class ExistingWeblink {
         }
 
         /**
-         * Unique ID of the weblink.
+         * Weblink ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

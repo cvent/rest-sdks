@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully updated exhibitor content.
+        /// Successfully updated the exhibitor weblink.
         /// </summary>
         public ExistingWeblink? ExistingWeblink { get; set; }
     }

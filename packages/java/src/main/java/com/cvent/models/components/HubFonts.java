@@ -20,16 +20,16 @@ import java.util.Optional;
  */
 public class HubFonts {
     /**
-     * The id of the font used in this Events+ hub's heading. Custom fonts are previously uploaded in the
-     * account.
+     * The ID of the font used in this Events+ hub's heading. Custom fonts are uploaded to the account
+     * before use.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("headingId")
     private String headingId;
 
     /**
-     * The id of the font used in this Events+ hub's body text. Custom fonts are previously uploaded in
-     * account.
+     * The ID of the font used in this Events+ hub's body text. Custom fonts are uploaded to the account
+     * before use.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bodyId")
@@ -47,16 +47,16 @@ public class HubFonts {
     }
 
     /**
-     * The id of the font used in this Events+ hub's heading. Custom fonts are previously uploaded in the
-     * account.
+     * The ID of the font used in this Events+ hub's heading. Custom fonts are uploaded to the account
+     * before use.
      */
     public Optional<String> headingId() {
         return Optional.ofNullable(this.headingId);
     }
 
     /**
-     * The id of the font used in this Events+ hub's body text. Custom fonts are previously uploaded in
-     * account.
+     * The ID of the font used in this Events+ hub's body text. Custom fonts are uploaded to the account
+     * before use.
      */
     public Optional<String> bodyId() {
         return Optional.ofNullable(this.bodyId);
@@ -67,8 +67,8 @@ public class HubFonts {
     }
 
     /**
-     * The id of the font used in this Events+ hub's heading. Custom fonts are previously uploaded in the
-     * account.
+     * The ID of the font used in this Events+ hub's heading. Custom fonts are uploaded to the account
+     * before use.
      */
     public HubFonts withHeadingId(@Nullable String headingId) {
         this.headingId = headingId;
@@ -76,8 +76,8 @@ public class HubFonts {
     }
 
     /**
-     * The id of the font used in this Events+ hub's body text. Custom fonts are previously uploaded in
-     * account.
+     * The ID of the font used in this Events+ hub's body text. Custom fonts are uploaded to the account
+     * before use.
      */
     public HubFonts withBodyId(@Nullable String bodyId) {
         this.bodyId = bodyId;
@@ -119,8 +119,8 @@ public class HubFonts {
         }
 
         /**
-         * The id of the font used in this Events+ hub's heading. Custom fonts are previously uploaded in the
-         * account.
+         * The ID of the font used in this Events+ hub's heading. Custom fonts are uploaded to the account
+         * before use.
          */
         public Builder headingId(@Nullable String headingId) {
             this.headingId = headingId;
@@ -128,8 +128,8 @@ public class HubFonts {
         }
 
         /**
-         * The id of the font used in this Events+ hub's body text. Custom fonts are previously uploaded in
-         * account.
+         * The ID of the font used in this Events+ hub's body text. Custom fonts are uploaded to the account
+         * before use.
          */
         public Builder bodyId(@Nullable String bodyId) {
             this.bodyId = bodyId;

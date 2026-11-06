@@ -12,7 +12,7 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Utils;
 
     /// <summary>
-    /// Map containing extra properties from badgekit provider.
+    /// Map of the additional properties from the badgekit provider.
     /// </summary>
     public class AdditionalBadgekitFields
     {

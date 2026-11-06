@@ -22,18 +22,18 @@ public class StandardSurveyQuestionsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of standard survey questions
      */
     @JsonProperty("data")
-    private List<StandardSurveyQuestionJson> data;
+    private List<StandardSurveyQuestion> data;
 
     @JsonCreator
     public StandardSurveyQuestionsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<StandardSurveyQuestionJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<StandardSurveyQuestion> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +42,14 @@ public class StandardSurveyQuestionsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of standard survey questions
      */
-    public List<StandardSurveyQuestionJson> data() {
+    public List<StandardSurveyQuestion> data() {
         return this.data;
     }
 
@@ -60,7 +60,7 @@ public class StandardSurveyQuestionsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public StandardSurveyQuestionsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public StandardSurveyQuestionsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +68,7 @@ public class StandardSurveyQuestionsPaginatedResponse {
     /**
      * Collection of standard survey questions
      */
-    public StandardSurveyQuestionsPaginatedResponse withData(@Nonnull List<StandardSurveyQuestionJson> data) {
+    public StandardSurveyQuestionsPaginatedResponse withData(@Nonnull List<StandardSurveyQuestion> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +98,9 @@ public class StandardSurveyQuestionsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<StandardSurveyQuestionJson> data;
+        private List<StandardSurveyQuestion> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +109,7 @@ public class StandardSurveyQuestionsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +117,7 @@ public class StandardSurveyQuestionsPaginatedResponse {
         /**
          * Collection of standard survey questions
          */
-        public Builder data(@Nonnull List<StandardSurveyQuestionJson> data) {
+        public Builder data(@Nonnull List<StandardSurveyQuestion> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

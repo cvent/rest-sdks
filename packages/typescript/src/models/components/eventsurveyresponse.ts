@@ -6,9 +6,9 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AnswerJson, AnswerJson$inboundSchema } from "./answerjson.js";
-import { EventJson1, EventJson1$inboundSchema } from "./eventjson1.js";
-import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
+import { Answer11, Answer11$inboundSchema } from "./answer11.js";
+import { Event5, Event5$inboundSchema } from "./event5.js";
+import { Uuid, Uuid$inboundSchema } from "./uuid.js";
 
 /**
  * The reference to the related entity. Contains only the ID of the related entity.
@@ -48,11 +48,11 @@ export type EventSurveyResponse = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  question: UuidJson;
+  question: Uuid;
   /**
    * List of responded survey answers.
    */
-  answers: Array<AnswerJson>;
+  answers: Array<Answer11>;
   /**
    * Answer score (This property is not supported).
    *
@@ -62,19 +62,19 @@ export type EventSurveyResponse = {
   /**
    * Detail object of an event which is associated to a survey.
    */
-  event?: EventJson1 | undefined;
+  event?: Event5 | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  survey?: UuidJson | undefined;
+  survey?: Uuid | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  session?: UuidJson | undefined;
+  session?: Uuid | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  speaker?: UuidJson | undefined;
+  speaker?: Uuid | undefined;
 };
 
 /** @internal */
@@ -111,13 +111,13 @@ export const EventSurveyResponse$inboundSchema: z.ZodType<
   lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
   respondent: z.lazy(() => EventSurveyResponseUUID$inboundSchema).optional(),
-  question: UuidJson$inboundSchema,
-  answers: z.array(AnswerJson$inboundSchema),
+  question: Uuid$inboundSchema,
+  answers: z.array(Answer11$inboundSchema),
   score: z.number().optional(),
-  event: EventJson1$inboundSchema.optional(),
-  survey: UuidJson$inboundSchema.optional(),
-  session: UuidJson$inboundSchema.optional(),
-  speaker: UuidJson$inboundSchema.optional(),
+  event: Event5$inboundSchema.optional(),
+  survey: Uuid$inboundSchema.optional(),
+  session: Uuid$inboundSchema.optional(),
+  speaker: Uuid$inboundSchema.optional(),
 });
 
 export function eventSurveyResponseFromJSON(

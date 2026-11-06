@@ -16,8 +16,7 @@ import java.util.Optional;
 /**
  * EventRoleAssignmentEvent
  *
- * <p>The event where the user gets a role. For more details, use the [Get
- * Event](#tag/Events/operation/getEventById) endpoint with the event ID.
+ * <p>The event where the user gets a role.
  */
 public class EventRoleAssignmentEvent {
     /**

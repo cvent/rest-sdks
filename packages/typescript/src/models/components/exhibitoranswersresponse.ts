@@ -12,7 +12,7 @@ import {
 } from "./existingexhibitoranswer.js";
 
 /**
- * A response object containing a list of exhibitor question answers.
+ * List of exhibitor answers.
  */
 export type ExhibitorAnswersResponse = {
   /**

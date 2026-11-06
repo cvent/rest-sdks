@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully get badges.
+        /// Successfully retrieved the badges.
         /// </summary>
         public BadgePaginatedResponse? BadgePaginatedResponse { get; set; }
     }

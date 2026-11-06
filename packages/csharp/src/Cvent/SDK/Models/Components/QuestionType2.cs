@@ -14,19 +14,28 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// This object represents the type of a question.
+    /// Question Type.
     /// </summary>
     public enum QuestionType2
     {
         [JsonProperty("SingleChoice")] SingleChoice,
         [JsonProperty("MultiChoice")] MultiChoice,
-        [JsonProperty("OpenEndedDateTime")] OpenEndedDateTime,
-        [JsonProperty("OpenEndedTextOneLine")] OpenEndedTextOneLine,
-        [JsonProperty("OpenEndedTextCommentBox")] OpenEndedTextCommentBox,
-        [JsonProperty("OpenEndedNumeric")] OpenEndedNumeric,
+        [JsonProperty("MatrixSingleChoice")] MatrixSingleChoice,
+        [JsonProperty("MatrixMultiChoice")] MatrixMultiChoice,
+        [JsonProperty("MatrixSideBySide")] MatrixSideBySide,
+        [JsonProperty("MatrixSpreadSheet")] MatrixSpreadSheet,
+        [JsonProperty("DateTime")] DateTime,
+        [JsonProperty("Number")] Number,
+        [JsonProperty("Text")] Text,
+        [JsonProperty("CommentBox")] CommentBox,
+        [JsonProperty("Form")] Form,
+        [JsonProperty("RankOrder")] RankOrder,
         [JsonProperty("FileUpload")] FileUpload,
-        [JsonProperty("MatrixSinglePerRow")] MatrixSinglePerRow,
-        [JsonProperty("MatrixMultiPerRow")] MatrixMultiPerRow,
+        [JsonProperty("NetPromoter")] NetPromoter,
+        [JsonProperty("Rating")] Rating,
+        [JsonProperty("MatrixRating")] MatrixRating,
+        [JsonProperty("NumberAllocation")] NumberAllocation,
+        [JsonProperty("LargeChoices")] LargeChoices,
     }
 
     public static class QuestionType2Extension

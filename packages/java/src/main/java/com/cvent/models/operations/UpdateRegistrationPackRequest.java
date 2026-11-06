@@ -32,7 +32,7 @@ public class UpdateRegistrationPackRequest {
     private String registrationPackId;
 
     /**
-     * Registration pack details
+     * Registration pack details.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private RegistrationPackRequest registrationPackRequest;
@@ -74,7 +74,7 @@ public class UpdateRegistrationPackRequest {
     }
 
     /**
-     * Registration pack details
+     * Registration pack details.
      */
     public RegistrationPackRequest registrationPackRequest() {
         return this.registrationPackRequest;
@@ -109,7 +109,7 @@ public class UpdateRegistrationPackRequest {
     }
 
     /**
-     * Registration pack details
+     * Registration pack details.
      */
     public UpdateRegistrationPackRequest withRegistrationPackRequest(
             @Nonnull RegistrationPackRequest registrationPackRequest) {
@@ -191,7 +191,7 @@ public class UpdateRegistrationPackRequest {
         }
 
         /**
-         * Registration pack details
+         * Registration pack details.
          */
         public Builder registrationPackRequest(@Nonnull RegistrationPackRequest registrationPackRequest) {
             this.registrationPackRequest = Utils.checkNotNull(registrationPackRequest, "registrationPackRequest");

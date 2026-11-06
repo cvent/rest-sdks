@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 
 export type GetAccountUserRequest = {
   /**
-   * The Account User's Id.
+   * The account user's ID.
    *
    * @remarks
    */

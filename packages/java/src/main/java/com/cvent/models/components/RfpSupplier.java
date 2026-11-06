@@ -87,6 +87,12 @@ public class RfpSupplier {
     @JsonProperty("internalNote")
     private String internalNote;
 
+    /**
+     * Lead source: only `leadSource.section.id` is used; `leadSource.id` is ignored. If you omit the
+     * section, Cvent sets the default section. A caller can send only the default section.
+     *
+     * <p>Another section is rejected with 400.
+     */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("leadSource")
     private RfpSupplierLeadSource leadSource;
@@ -113,7 +119,8 @@ public class RfpSupplier {
     private Boolean totalMeetingSpaceMet;
 
     /**
-     * Promotion applied by planner while adding supplier on RFP.
+     * Promotion applied by the planner to the supplier on the RFP. Can be set when the supplier is first
+     * associated, or added later by calling Associate Supplier to RFP again for the same supplier.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("promotion")
@@ -381,6 +388,12 @@ public class RfpSupplier {
         return Optional.ofNullable(this.internalNote);
     }
 
+    /**
+     * Lead source: only `leadSource.section.id` is used; `leadSource.id` is ignored. If you omit the
+     * section, Cvent sets the default section. A caller can send only the default section.
+     *
+     * <p>Another section is rejected with 400.
+     */
     public Optional<RfpSupplierLeadSource> leadSource() {
         return Optional.ofNullable(this.leadSource);
     }
@@ -407,7 +420,8 @@ public class RfpSupplier {
     }
 
     /**
-     * Promotion applied by planner while adding supplier on RFP.
+     * Promotion applied by the planner to the supplier on the RFP. Can be set when the supplier is first
+     * associated, or added later by calling Associate Supplier to RFP again for the same supplier.
      */
     public Optional<Promotion> promotion() {
         return Optional.ofNullable(this.promotion);
@@ -591,6 +605,12 @@ public class RfpSupplier {
         return this;
     }
 
+    /**
+     * Lead source: only `leadSource.section.id` is used; `leadSource.id` is ignored. If you omit the
+     * section, Cvent sets the default section. A caller can send only the default section.
+     *
+     * <p>Another section is rejected with 400.
+     */
     public RfpSupplier withLeadSource(@Nullable RfpSupplierLeadSource leadSource) {
         this.leadSource = leadSource;
         return this;
@@ -621,7 +641,8 @@ public class RfpSupplier {
     }
 
     /**
-     * Promotion applied by planner while adding supplier on RFP.
+     * Promotion applied by the planner to the supplier on the RFP. Can be set when the supplier is first
+     * associated, or added later by calling Associate Supplier to RFP again for the same supplier.
      */
     public RfpSupplier withPromotion(@Nullable Promotion promotion) {
         this.promotion = promotion;
@@ -1026,6 +1047,12 @@ public class RfpSupplier {
             return this;
         }
 
+        /**
+         * Lead source: only `leadSource.section.id` is used; `leadSource.id` is ignored. If you omit the
+         * section, Cvent sets the default section. A caller can send only the default section.
+         *
+         * <p>Another section is rejected with 400.
+         */
         public Builder leadSource(@Nullable RfpSupplierLeadSource leadSource) {
             this.leadSource = leadSource;
             return this;
@@ -1056,7 +1083,8 @@ public class RfpSupplier {
         }
 
         /**
-         * Promotion applied by planner while adding supplier on RFP.
+         * Promotion applied by the planner to the supplier on the RFP. Can be set when the supplier is first
+         * associated, or added later by calling Associate Supplier to RFP again for the same supplier.
          */
         public Builder promotion(@Nullable Promotion promotion) {
             this.promotion = promotion;

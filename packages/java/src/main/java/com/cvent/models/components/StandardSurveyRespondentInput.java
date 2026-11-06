@@ -43,7 +43,7 @@ public class StandardSurveyRespondentInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("respondedThrough")
-    private RespondedThroughJson respondedThrough;
+    private RespondedThrough respondedThrough;
 
     /**
      * Reference ids are used to track where response is coming from. Survey Author can create multiple
@@ -72,14 +72,14 @@ public class StandardSurveyRespondentInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private RespondentStatusJson status;
+    private RespondentStatus status;
 
     /**
      * Invitation list of respondents
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("invitationList")
-    private InvitationListCommonJson invitationList;
+    private InvitationListCommon invitationList;
 
     /**
      * Authors use transaction IDs to collect feedback after a customer transaction: invoice numbers or
@@ -93,12 +93,12 @@ public class StandardSurveyRespondentInput {
     @JsonCreator
     public StandardSurveyRespondentInput(
             @JsonProperty("localeId") @Nullable String localeId,
-            @JsonProperty("respondedThrough") @Nullable RespondedThroughJson respondedThrough,
+            @JsonProperty("respondedThrough") @Nullable RespondedThrough respondedThrough,
             @JsonProperty("referenceId") @Nullable String referenceId,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("contact") @Nullable StandardSurveyRespondentContact contact,
-            @JsonProperty("status") @Nullable RespondentStatusJson status,
-            @JsonProperty("invitationList") @Nullable InvitationListCommonJson invitationList,
+            @JsonProperty("status") @Nullable RespondentStatus status,
+            @JsonProperty("invitationList") @Nullable InvitationListCommon invitationList,
             @JsonProperty("transactionId") @Nullable String transactionId) {
         this.localeId = localeId;
         this.respondedThrough = respondedThrough;
@@ -136,7 +136,7 @@ public class StandardSurveyRespondentInput {
      * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is
      * deprecated.
      */
-    public Optional<RespondedThroughJson> respondedThrough() {
+    public Optional<RespondedThrough> respondedThrough() {
         return Optional.ofNullable(this.respondedThrough);
     }
 
@@ -165,14 +165,14 @@ public class StandardSurveyRespondentInput {
     /**
      * Respondent Status
      */
-    public Optional<RespondentStatusJson> status() {
+    public Optional<RespondentStatus> status() {
         return Optional.ofNullable(this.status);
     }
 
     /**
      * Invitation list of respondents
      */
-    public Optional<InvitationListCommonJson> invitationList() {
+    public Optional<InvitationListCommon> invitationList() {
         return Optional.ofNullable(this.invitationList);
     }
 
@@ -212,7 +212,7 @@ public class StandardSurveyRespondentInput {
      * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is
      * deprecated.
      */
-    public StandardSurveyRespondentInput withRespondedThrough(@Nullable RespondedThroughJson respondedThrough) {
+    public StandardSurveyRespondentInput withRespondedThrough(@Nullable RespondedThrough respondedThrough) {
         this.respondedThrough = respondedThrough;
         return this;
     }
@@ -245,7 +245,7 @@ public class StandardSurveyRespondentInput {
     /**
      * Respondent Status
      */
-    public StandardSurveyRespondentInput withStatus(@Nullable RespondentStatusJson status) {
+    public StandardSurveyRespondentInput withStatus(@Nullable RespondentStatus status) {
         this.status = status;
         return this;
     }
@@ -253,7 +253,7 @@ public class StandardSurveyRespondentInput {
     /**
      * Invitation list of respondents
      */
-    public StandardSurveyRespondentInput withInvitationList(@Nullable InvitationListCommonJson invitationList) {
+    public StandardSurveyRespondentInput withInvitationList(@Nullable InvitationListCommon invitationList) {
         this.invitationList = invitationList;
         return this;
     }
@@ -320,7 +320,7 @@ public class StandardSurveyRespondentInput {
 
         private String localeId;
 
-        private RespondedThroughJson respondedThrough;
+        private RespondedThrough respondedThrough;
 
         private String referenceId;
 
@@ -328,9 +328,9 @@ public class StandardSurveyRespondentInput {
 
         private StandardSurveyRespondentContact contact;
 
-        private RespondentStatusJson status;
+        private RespondentStatus status;
 
-        private InvitationListCommonJson invitationList;
+        private InvitationListCommon invitationList;
 
         private String transactionId;
 
@@ -361,7 +361,7 @@ public class StandardSurveyRespondentInput {
          * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is
          * deprecated.
          */
-        public Builder respondedThrough(@Nullable RespondedThroughJson respondedThrough) {
+        public Builder respondedThrough(@Nullable RespondedThrough respondedThrough) {
             this.respondedThrough = respondedThrough;
             return this;
         }
@@ -394,7 +394,7 @@ public class StandardSurveyRespondentInput {
         /**
          * Respondent Status
          */
-        public Builder status(@Nullable RespondentStatusJson status) {
+        public Builder status(@Nullable RespondentStatus status) {
             this.status = status;
             return this;
         }
@@ -402,7 +402,7 @@ public class StandardSurveyRespondentInput {
         /**
          * Invitation list of respondents
          */
-        public Builder invitationList(@Nullable InvitationListCommonJson invitationList) {
+        public Builder invitationList(@Nullable InvitationListCommon invitationList) {
             this.invitationList = invitationList;
             return this;
         }

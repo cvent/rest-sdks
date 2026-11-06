@@ -10,7 +10,7 @@ export type RelateProgramItemToSessionDocumentRequest = {
    */
   programItemId: string;
   /**
-   * The unique identifier of a file from <a href="#operation/uploadFile">file upload</a> service.
+   * The unique ID of a file from [file upload](#operation/uploadFile) service.
    */
   fileId: string;
 };

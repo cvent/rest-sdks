@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Current status of business card transcription.
+    /// Status of the business card transcription.
     /// </summary>
     public enum TranscriptionStatus
     {

@@ -312,6 +312,7 @@ using Cvent.SDK;
 using Cvent.SDK.Models.Components;
 using Cvent.SDK.Models.Requests;
 using System;
+using System.Collections.Generic;
 
 var sdk = new CventSDK(security: new Security() {
     OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
@@ -326,6 +327,9 @@ GetEventsRequest req = new GetEventsRequest() {
     After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    Expand = new List<Expand1>() {
+        Expand1.Image,
+    },
     Sort = "start:DESC",
     Filter = "status eq 'Accepted' or status eq 'Pending' and (id eq 'abc' or id eq 'def')",
 };
@@ -355,6 +359,7 @@ while(res != null)
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
 | Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 503, 504                                | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## CreateEventAsync
@@ -570,7 +575,7 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 SendEmailEventRequest req = new SendEmailEventRequest() {
-    Event = new EventJson3() {
+    Event = new EventJson2() {
         Id = "a150f1ee-6c54-4b01-90e6-d701748f0851",
     },
     Email = new EmailJson() {
@@ -670,6 +675,7 @@ using Cvent.SDK;
 using Cvent.SDK.Models.Components;
 using Cvent.SDK.Models.Requests;
 using System;
+using System.Collections.Generic;
 
 var sdk = new CventSDK(security: new Security() {
     OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
@@ -684,6 +690,9 @@ GetEventsPostFiltersRequest req = new GetEventsPostFiltersRequest() {
     After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    Expand = new List<Expand1>() {
+        Expand1.Image,
+    },
     Sort = "start:DESC",
     Filter = new Filter() {
         FilterValue = "status eq 'Accepted' or status eq 'Pending' and (id eq 'abc' or id eq 'def')",
@@ -715,6 +724,7 @@ while(res != null)
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
 | Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 503, 504                                | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetEventById
@@ -731,6 +741,7 @@ More about OAuth2 authorization code support for administrators
 using Cvent.SDK;
 using Cvent.SDK.Models.Components;
 using Cvent.SDK.Models.Requests;
+using System.Collections.Generic;
 
 var sdk = new CventSDK(security: new Security() {
     OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
@@ -743,6 +754,9 @@ var sdk = new CventSDK(security: new Security() {
 
 GetEventByIdRequest req = new GetEventByIdRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    Expand = new List<Expand1>() {
+        Expand1.Image,
+    },
 };
 
 var res = await sdk.Events.GetEventByIdAsync(req);
@@ -764,7 +778,8 @@ var res = await sdk.Events.GetEventByIdAsync(req);
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse12 | 401, 403, 404, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 503, 504                                | application/json                        |
 | Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
 
 ## UpdateEvent

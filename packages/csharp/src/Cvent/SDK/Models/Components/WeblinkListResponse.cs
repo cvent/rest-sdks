@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// A response object containing a list of weblinks associated with an exhibitor.
+    /// List of the weblinks of an exhibitor.
     /// </summary>
     public class WeblinkListResponse
     {

@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  EventSurveyQuestionJson,
-  EventSurveyQuestionJson$inboundSchema,
-} from "./eventsurveyquestionjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  EventSurveyQuestion,
+  EventSurveyQuestion$inboundSchema,
+} from "./eventsurveyquestion.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * Response include Paging and collection os questions
@@ -19,11 +19,11 @@ export type EventSurveyQuestionsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of Questions
    */
-  data: Array<EventSurveyQuestionJson>;
+  data: Array<EventSurveyQuestion>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const EventSurveyQuestionsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(EventSurveyQuestionJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(EventSurveyQuestion$inboundSchema),
 });
 
 export function eventSurveyQuestionsPaginatedResponseFromJSON(

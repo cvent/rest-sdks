@@ -16,7 +16,7 @@ export type PostExhibitorAdminRequest = {
    */
   exhibitorId: string;
   /**
-   * Exhibitor Admin details
+   * Exhibitor admin details.
    */
   exhibitorAdminRequest: components.ExhibitorAdminRequest;
 };

@@ -28,13 +28,13 @@ public class ProgramItemUpdateRequest {
     private String id;
 
     /**
-     * The related event object.
+     * A reference to an event by its ID.
      */
     @JsonProperty("event")
     private EventId event;
 
     /**
-     * The related session object.
+     * A reference to a session by its ID.
      */
     @JsonProperty("session")
     private Session1 session;
@@ -60,7 +60,7 @@ public class ProgramItemUpdateRequest {
     private String description;
 
     /**
-     * Rich-text-editor description in json formatting.
+     * The program item's rich-text description, formatted as JSON.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rteDescription")
@@ -98,14 +98,14 @@ public class ProgramItemUpdateRequest {
     }
 
     /**
-     * The related event object.
+     * A reference to an event by its ID.
      */
     public EventId event() {
         return this.event;
     }
 
     /**
-     * The related session object.
+     * A reference to a session by its ID.
      */
     public Session1 session() {
         return this.session;
@@ -133,7 +133,7 @@ public class ProgramItemUpdateRequest {
     }
 
     /**
-     * Rich-text-editor description in json formatting.
+     * The program item's rich-text description, formatted as JSON.
      */
     public Optional<String> rteDescription() {
         return Optional.ofNullable(this.rteDescription);
@@ -152,7 +152,7 @@ public class ProgramItemUpdateRequest {
     }
 
     /**
-     * The related event object.
+     * A reference to an event by its ID.
      */
     public ProgramItemUpdateRequest withEvent(@Nonnull EventId event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -160,7 +160,7 @@ public class ProgramItemUpdateRequest {
     }
 
     /**
-     * The related session object.
+     * A reference to a session by its ID.
      */
     public ProgramItemUpdateRequest withSession(@Nonnull Session1 session) {
         this.session = Utils.checkNotNull(session, "session");
@@ -192,7 +192,7 @@ public class ProgramItemUpdateRequest {
     }
 
     /**
-     * Rich-text-editor description in json formatting.
+     * The program item's rich-text description, formatted as JSON.
      */
     public ProgramItemUpdateRequest withRteDescription(@Nullable String rteDescription) {
         this.rteDescription = rteDescription;
@@ -272,7 +272,7 @@ public class ProgramItemUpdateRequest {
         }
 
         /**
-         * The related event object.
+         * A reference to an event by its ID.
          */
         public Builder event(@Nonnull EventId event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -280,7 +280,7 @@ public class ProgramItemUpdateRequest {
         }
 
         /**
-         * The related session object.
+         * A reference to a session by its ID.
          */
         public Builder session(@Nonnull Session1 session) {
             this.session = Utils.checkNotNull(session, "session");
@@ -312,7 +312,7 @@ public class ProgramItemUpdateRequest {
         }
 
         /**
-         * Rich-text-editor description in json formatting.
+         * The program item's rich-text description, formatted as JSON.
          */
         public Builder rteDescription(@Nullable String rteDescription) {
             this.rteDescription = rteDescription;

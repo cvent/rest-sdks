@@ -13,7 +13,7 @@ import java.util.Optional;
 
 public class GetSessionByIdRequest {
     /**
-     * Unique Id of a session
+     * Unique ID of a session
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
@@ -24,7 +24,7 @@ public class GetSessionByIdRequest {
     }
 
     /**
-     * Unique Id of a session
+     * Unique ID of a session
      */
     public String id() {
         return this.id;
@@ -35,7 +35,7 @@ public class GetSessionByIdRequest {
     }
 
     /**
-     * Unique Id of a session
+     * Unique ID of a session
      */
     public GetSessionByIdRequest withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -74,7 +74,7 @@ public class GetSessionByIdRequest {
         }
 
         /**
-         * Unique Id of a session
+         * Unique ID of a session
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

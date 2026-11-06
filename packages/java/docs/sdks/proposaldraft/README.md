@@ -70,7 +70,7 @@ public class Application {
                         .endDate(LocalDate.parse("2021-01-13"))
                         .build()))
                 .sleepingRooms(List.of(
-                    SleepingRoom1.builder()
+                    SleepingRoom2.builder()
                         .checkInDate(LocalDate.parse("2021-01-13"))
                         .checkOutDate(LocalDate.parse("2021-01-13"))
                         .peakRoomNights(2L)

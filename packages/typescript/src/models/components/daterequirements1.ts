@@ -21,7 +21,7 @@ export type DateRequirements1 = {
   /**
    * List of dates for the event. Can be used to provide set of alternate event dates when mode is ALTERNATE_DATE.
    */
-  alternateDates?: Array<Dates1> | undefined;
+  alternateDates?: Array<Dates1> | null | undefined;
   /**
    * Date pattern for days on which event can occur. Used when dateMode is DATE_PATTERN.
    */
@@ -39,7 +39,7 @@ export const DateRequirements1$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   mode: RfpDateMode$inboundSchema,
-  alternateDates: z.array(Dates1$inboundSchema).optional(),
+  alternateDates: z.nullable(z.array(Dates1$inboundSchema)).optional(),
   pattern: DatePattern1$inboundSchema.optional(),
   availabilityRangeRequired: z.boolean().default(false),
 });

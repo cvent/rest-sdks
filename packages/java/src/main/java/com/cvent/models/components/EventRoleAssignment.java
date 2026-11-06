@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
@@ -21,24 +22,22 @@ import java.util.Optional;
  */
 public class EventRoleAssignment {
     /**
-     * The unique ID of the event role assignment, which concatenates the IDs of the event, the event role,
-     * and the user assigned the role.
+     * The ID of the event role assignment. The ID joins the event ID, the event role ID, and the user ID,
+     * in that order, with `::` separators.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * The event where the user gets a role. For more details, use the [Get
-     * Event](#tag/Events/operation/getEventById) endpoint with the event ID.
+     * The event where the user gets a role.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
     private EventRoleAssignmentEvent event;
 
     /**
-     * The user to whom the event role is assigned. For more details, use the [Get
-     * User](#tag/User-SCIM/operation/getUser) endpoint with the user ID.
+     * The user to whom the event role is assigned. For a no-login user, the `id` is the resolved user ID,
+     * not the email address.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("user")
@@ -68,13 +67,13 @@ public class EventRoleAssignment {
 
     @JsonCreator
     public EventRoleAssignment(
-            @JsonProperty("id") @Nullable String id,
+            @JsonProperty("id") @Nonnull String id,
             @JsonProperty("event") @Nullable EventRoleAssignmentEvent event,
             @JsonProperty("user") @Nullable EventRoleAssignmentUser user,
             @JsonProperty("eventRole") @Nullable EventRole eventRole,
             @JsonProperty("assigned") @Nullable OffsetDateTime assigned,
             @JsonProperty("assignedBy") @Nullable String assignedBy) {
-        this.id = id;
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.event = event;
         this.user = user;
         this.eventRole = eventRole;
@@ -82,29 +81,28 @@ public class EventRoleAssignment {
         this.assignedBy = assignedBy;
     }
 
-    public EventRoleAssignment() {
-        this(null, null, null, null, null, null);
+    public EventRoleAssignment(@Nonnull String id) {
+        this(id, null, null, null, null, null);
     }
 
     /**
-     * The unique ID of the event role assignment, which concatenates the IDs of the event, the event role,
-     * and the user assigned the role.
+     * The ID of the event role assignment. The ID joins the event ID, the event role ID, and the user ID,
+     * in that order, with `::` separators.
      */
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
+    public String id() {
+        return this.id;
     }
 
     /**
-     * The event where the user gets a role. For more details, use the [Get
-     * Event](#tag/Events/operation/getEventById) endpoint with the event ID.
+     * The event where the user gets a role.
      */
     public Optional<EventRoleAssignmentEvent> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
-     * The user to whom the event role is assigned. For more details, use the [Get
-     * User](#tag/User-SCIM/operation/getUser) endpoint with the user ID.
+     * The user to whom the event role is assigned. For a no-login user, the `id` is the resolved user ID,
+     * not the email address.
      */
     public Optional<EventRoleAssignmentUser> user() {
         return Optional.ofNullable(this.user);
@@ -137,17 +135,16 @@ public class EventRoleAssignment {
     }
 
     /**
-     * The unique ID of the event role assignment, which concatenates the IDs of the event, the event role,
-     * and the user assigned the role.
+     * The ID of the event role assignment. The ID joins the event ID, the event role ID, and the user ID,
+     * in that order, with `::` separators.
      */
-    public EventRoleAssignment withId(@Nullable String id) {
-        this.id = id;
+    public EventRoleAssignment withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
         return this;
     }
 
     /**
-     * The event where the user gets a role. For more details, use the [Get
-     * Event](#tag/Events/operation/getEventById) endpoint with the event ID.
+     * The event where the user gets a role.
      */
     public EventRoleAssignment withEvent(@Nullable EventRoleAssignmentEvent event) {
         this.event = event;
@@ -155,8 +152,8 @@ public class EventRoleAssignment {
     }
 
     /**
-     * The user to whom the event role is assigned. For more details, use the [Get
-     * User](#tag/User-SCIM/operation/getUser) endpoint with the user ID.
+     * The user to whom the event role is assigned. For a no-login user, the `id` is the resolved user ID,
+     * not the email address.
      */
     public EventRoleAssignment withUser(@Nullable EventRoleAssignmentUser user) {
         this.user = user;
@@ -248,17 +245,16 @@ public class EventRoleAssignment {
         }
 
         /**
-         * The unique ID of the event role assignment, which concatenates the IDs of the event, the event role,
-         * and the user assigned the role.
+         * The ID of the event role assignment. The ID joins the event ID, the event role ID, and the user ID,
+         * in that order, with `::` separators.
          */
-        public Builder id(@Nullable String id) {
-            this.id = id;
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
             return this;
         }
 
         /**
-         * The event where the user gets a role. For more details, use the [Get
-         * Event](#tag/Events/operation/getEventById) endpoint with the event ID.
+         * The event where the user gets a role.
          */
         public Builder event(@Nullable EventRoleAssignmentEvent event) {
             this.event = event;
@@ -266,8 +262,8 @@ public class EventRoleAssignment {
         }
 
         /**
-         * The user to whom the event role is assigned. For more details, use the [Get
-         * User](#tag/User-SCIM/operation/getUser) endpoint with the user ID.
+         * The user to whom the event role is assigned. For a no-login user, the `id` is the resolved user ID,
+         * not the email address.
          */
         public Builder user(@Nullable EventRoleAssignmentUser user) {
             this.user = user;

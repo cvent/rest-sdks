@@ -14,11 +14,11 @@ import java.util.Optional;
 /**
  * SponsorshipLevel
  *
- * <p>Associated sponsorship level for an exhibitor
+ * <p>Associated sponsorship level of an exhibitor.
  */
 public class SponsorshipLevel {
     /**
-     * Sponsorship Level Id
+     * Sponsorship level ID.
      */
     @JsonProperty("id")
     private String id;
@@ -29,7 +29,7 @@ public class SponsorshipLevel {
     }
 
     /**
-     * Sponsorship Level Id
+     * Sponsorship level ID.
      */
     public String id() {
         return this.id;
@@ -40,7 +40,7 @@ public class SponsorshipLevel {
     }
 
     /**
-     * Sponsorship Level Id
+     * Sponsorship level ID.
      */
     public SponsorshipLevel withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -79,7 +79,7 @@ public class SponsorshipLevel {
         }
 
         /**
-         * Sponsorship Level Id
+         * Sponsorship level ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

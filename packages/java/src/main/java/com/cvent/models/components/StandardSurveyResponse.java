@@ -67,13 +67,13 @@ public class StandardSurveyResponse {
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonProperty("question")
-    private UuidJson question;
+    private Uuid question;
 
     /**
      * List of responded survey answers.
      */
     @JsonProperty("answers")
-    private List<AnswerJson> answers;
+    private List<Answer11> answers;
 
     /**
      * Answer score (This property is not supported).
@@ -90,7 +90,7 @@ public class StandardSurveyResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("survey")
-    private UuidJson survey;
+    private Uuid survey;
 
     /**
      * Loop Choice is the choice for which the chapter is looped. Questions in the looping chapter get
@@ -98,7 +98,7 @@ public class StandardSurveyResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("loopingChoice")
-    private LoopingChoiceJson loopingChoice;
+    private LoopingChoice loopingChoice;
 
     @JsonCreator
     public StandardSurveyResponse(
@@ -108,11 +108,11 @@ public class StandardSurveyResponse {
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("respondent") @Nullable StandardSurveyResponseUUID respondent,
-            @JsonProperty("question") @Nonnull UuidJson question,
-            @JsonProperty("answers") @Nonnull List<AnswerJson> answers,
+            @JsonProperty("question") @Nonnull Uuid question,
+            @JsonProperty("answers") @Nonnull List<Answer11> answers,
             @JsonProperty("score") @Nullable Double score,
-            @JsonProperty("survey") @Nullable UuidJson survey,
-            @JsonProperty("loopingChoice") @Nullable LoopingChoiceJson loopingChoice) {
+            @JsonProperty("survey") @Nullable Uuid survey,
+            @JsonProperty("loopingChoice") @Nullable LoopingChoice loopingChoice) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -128,7 +128,7 @@ public class StandardSurveyResponse {
         this.loopingChoice = loopingChoice;
     }
 
-    public StandardSurveyResponse(@Nonnull UuidJson question, @Nonnull List<AnswerJson> answers) {
+    public StandardSurveyResponse(@Nonnull Uuid question, @Nonnull List<Answer11> answers) {
         this(null, null, null, null, null, null, question, answers, null, null, null);
     }
 
@@ -174,14 +174,14 @@ public class StandardSurveyResponse {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public UuidJson question() {
+    public Uuid question() {
         return this.question;
     }
 
     /**
      * List of responded survey answers.
      */
-    public List<AnswerJson> answers() {
+    public List<Answer11> answers() {
         return this.answers;
     }
 
@@ -198,7 +198,7 @@ public class StandardSurveyResponse {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> survey() {
+    public Optional<Uuid> survey() {
         return Optional.ofNullable(this.survey);
     }
 
@@ -206,7 +206,7 @@ public class StandardSurveyResponse {
      * Loop Choice is the choice for which the chapter is looped. Questions in the looping chapter get
      * repeated once for each choice selected in the parent question
      */
-    public Optional<LoopingChoiceJson> loopingChoice() {
+    public Optional<LoopingChoice> loopingChoice() {
         return Optional.ofNullable(this.loopingChoice);
     }
 
@@ -262,7 +262,7 @@ public class StandardSurveyResponse {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public StandardSurveyResponse withQuestion(@Nonnull UuidJson question) {
+    public StandardSurveyResponse withQuestion(@Nonnull Uuid question) {
         this.question = Utils.checkNotNull(question, "question");
         return this;
     }
@@ -270,7 +270,7 @@ public class StandardSurveyResponse {
     /**
      * List of responded survey answers.
      */
-    public StandardSurveyResponse withAnswers(@Nonnull List<AnswerJson> answers) {
+    public StandardSurveyResponse withAnswers(@Nonnull List<Answer11> answers) {
         this.answers = Utils.checkNotNull(answers, "answers");
         return this;
     }
@@ -289,7 +289,7 @@ public class StandardSurveyResponse {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public StandardSurveyResponse withSurvey(@Nullable UuidJson survey) {
+    public StandardSurveyResponse withSurvey(@Nullable Uuid survey) {
         this.survey = survey;
         return this;
     }
@@ -298,7 +298,7 @@ public class StandardSurveyResponse {
      * Loop Choice is the choice for which the chapter is looped. Questions in the looping chapter get
      * repeated once for each choice selected in the parent question
      */
-    public StandardSurveyResponse withLoopingChoice(@Nullable LoopingChoiceJson loopingChoice) {
+    public StandardSurveyResponse withLoopingChoice(@Nullable LoopingChoice loopingChoice) {
         this.loopingChoice = loopingChoice;
         return this;
     }
@@ -384,16 +384,16 @@ public class StandardSurveyResponse {
 
         private StandardSurveyResponseUUID respondent;
 
-        private UuidJson question;
+        private Uuid question;
 
-        private List<AnswerJson> answers;
+        private List<Answer11> answers;
 
         @Deprecated
         private Double score;
 
-        private UuidJson survey;
+        private Uuid survey;
 
-        private LoopingChoiceJson loopingChoice;
+        private LoopingChoice loopingChoice;
 
         private Builder() {
             // force use of static builder() method
@@ -447,7 +447,7 @@ public class StandardSurveyResponse {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder question(@Nonnull UuidJson question) {
+        public Builder question(@Nonnull Uuid question) {
             this.question = Utils.checkNotNull(question, "question");
             return this;
         }
@@ -455,7 +455,7 @@ public class StandardSurveyResponse {
         /**
          * List of responded survey answers.
          */
-        public Builder answers(@Nonnull List<AnswerJson> answers) {
+        public Builder answers(@Nonnull List<Answer11> answers) {
             this.answers = Utils.checkNotNull(answers, "answers");
             return this;
         }
@@ -474,7 +474,7 @@ public class StandardSurveyResponse {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder survey(@Nullable UuidJson survey) {
+        public Builder survey(@Nullable Uuid survey) {
             this.survey = survey;
             return this;
         }
@@ -483,7 +483,7 @@ public class StandardSurveyResponse {
          * Loop Choice is the choice for which the chapter is looped. Questions in the looping chapter get
          * repeated once for each choice selected in the parent question
          */
-        public Builder loopingChoice(@Nullable LoopingChoiceJson loopingChoice) {
+        public Builder loopingChoice(@Nullable LoopingChoice loopingChoice) {
             this.loopingChoice = loopingChoice;
             return this;
         }

@@ -16,11 +16,11 @@ import java.util.Optional;
 /**
  * ExhibitorCategoryId
  *
- * <p>Schema for Exhibitor Category ID.
+ * <p>Exhibitor category ID.
  */
 public class ExhibitorCategoryId {
     /**
-     * ID of exhibitor category.
+     * Exhibitor category ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -36,7 +36,7 @@ public class ExhibitorCategoryId {
     }
 
     /**
-     * ID of exhibitor category.
+     * Exhibitor category ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -47,7 +47,7 @@ public class ExhibitorCategoryId {
     }
 
     /**
-     * ID of exhibitor category.
+     * Exhibitor category ID.
      */
     public ExhibitorCategoryId withId(@Nullable String id) {
         this.id = id;
@@ -86,7 +86,7 @@ public class ExhibitorCategoryId {
         }
 
         /**
-         * ID of exhibitor category.
+         * Exhibitor category ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

@@ -67,13 +67,13 @@ public class EventSurveyResponse {
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonProperty("question")
-    private UuidJson question;
+    private Uuid question;
 
     /**
      * List of responded survey answers.
      */
     @JsonProperty("answers")
-    private List<AnswerJson> answers;
+    private List<Answer11> answers;
 
     /**
      * Answer score (This property is not supported).
@@ -90,28 +90,28 @@ public class EventSurveyResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private EventJson1 event;
+    private Event5 event;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("survey")
-    private UuidJson survey;
+    private Uuid survey;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("session")
-    private UuidJson session;
+    private Uuid session;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("speaker")
-    private UuidJson speaker;
+    private Uuid speaker;
 
     @JsonCreator
     public EventSurveyResponse(
@@ -121,13 +121,13 @@ public class EventSurveyResponse {
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("respondent") @Nullable EventSurveyResponseUUID respondent,
-            @JsonProperty("question") @Nonnull UuidJson question,
-            @JsonProperty("answers") @Nonnull List<AnswerJson> answers,
+            @JsonProperty("question") @Nonnull Uuid question,
+            @JsonProperty("answers") @Nonnull List<Answer11> answers,
             @JsonProperty("score") @Nullable Double score,
-            @JsonProperty("event") @Nullable EventJson1 event,
-            @JsonProperty("survey") @Nullable UuidJson survey,
-            @JsonProperty("session") @Nullable UuidJson session,
-            @JsonProperty("speaker") @Nullable UuidJson speaker) {
+            @JsonProperty("event") @Nullable Event5 event,
+            @JsonProperty("survey") @Nullable Uuid survey,
+            @JsonProperty("session") @Nullable Uuid session,
+            @JsonProperty("speaker") @Nullable Uuid speaker) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -145,7 +145,7 @@ public class EventSurveyResponse {
         this.speaker = speaker;
     }
 
-    public EventSurveyResponse(@Nonnull UuidJson question, @Nonnull List<AnswerJson> answers) {
+    public EventSurveyResponse(@Nonnull Uuid question, @Nonnull List<Answer11> answers) {
         this(null, null, null, null, null, null, question, answers, null, null, null, null, null);
     }
 
@@ -191,14 +191,14 @@ public class EventSurveyResponse {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public UuidJson question() {
+    public Uuid question() {
         return this.question;
     }
 
     /**
      * List of responded survey answers.
      */
-    public List<AnswerJson> answers() {
+    public List<Answer11> answers() {
         return this.answers;
     }
 
@@ -215,28 +215,28 @@ public class EventSurveyResponse {
     /**
      * Detail object of an event which is associated to a survey.
      */
-    public Optional<EventJson1> event() {
+    public Optional<Event5> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> survey() {
+    public Optional<Uuid> survey() {
         return Optional.ofNullable(this.survey);
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> session() {
+    public Optional<Uuid> session() {
         return Optional.ofNullable(this.session);
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> speaker() {
+    public Optional<Uuid> speaker() {
         return Optional.ofNullable(this.speaker);
     }
 
@@ -292,7 +292,7 @@ public class EventSurveyResponse {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public EventSurveyResponse withQuestion(@Nonnull UuidJson question) {
+    public EventSurveyResponse withQuestion(@Nonnull Uuid question) {
         this.question = Utils.checkNotNull(question, "question");
         return this;
     }
@@ -300,7 +300,7 @@ public class EventSurveyResponse {
     /**
      * List of responded survey answers.
      */
-    public EventSurveyResponse withAnswers(@Nonnull List<AnswerJson> answers) {
+    public EventSurveyResponse withAnswers(@Nonnull List<Answer11> answers) {
         this.answers = Utils.checkNotNull(answers, "answers");
         return this;
     }
@@ -319,7 +319,7 @@ public class EventSurveyResponse {
     /**
      * Detail object of an event which is associated to a survey.
      */
-    public EventSurveyResponse withEvent(@Nullable EventJson1 event) {
+    public EventSurveyResponse withEvent(@Nullable Event5 event) {
         this.event = event;
         return this;
     }
@@ -327,7 +327,7 @@ public class EventSurveyResponse {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public EventSurveyResponse withSurvey(@Nullable UuidJson survey) {
+    public EventSurveyResponse withSurvey(@Nullable Uuid survey) {
         this.survey = survey;
         return this;
     }
@@ -335,7 +335,7 @@ public class EventSurveyResponse {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public EventSurveyResponse withSession(@Nullable UuidJson session) {
+    public EventSurveyResponse withSession(@Nullable Uuid session) {
         this.session = session;
         return this;
     }
@@ -343,7 +343,7 @@ public class EventSurveyResponse {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public EventSurveyResponse withSpeaker(@Nullable UuidJson speaker) {
+    public EventSurveyResponse withSpeaker(@Nullable Uuid speaker) {
         this.speaker = speaker;
         return this;
     }
@@ -437,20 +437,20 @@ public class EventSurveyResponse {
 
         private EventSurveyResponseUUID respondent;
 
-        private UuidJson question;
+        private Uuid question;
 
-        private List<AnswerJson> answers;
+        private List<Answer11> answers;
 
         @Deprecated
         private Double score;
 
-        private EventJson1 event;
+        private Event5 event;
 
-        private UuidJson survey;
+        private Uuid survey;
 
-        private UuidJson session;
+        private Uuid session;
 
-        private UuidJson speaker;
+        private Uuid speaker;
 
         private Builder() {
             // force use of static builder() method
@@ -504,7 +504,7 @@ public class EventSurveyResponse {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder question(@Nonnull UuidJson question) {
+        public Builder question(@Nonnull Uuid question) {
             this.question = Utils.checkNotNull(question, "question");
             return this;
         }
@@ -512,7 +512,7 @@ public class EventSurveyResponse {
         /**
          * List of responded survey answers.
          */
-        public Builder answers(@Nonnull List<AnswerJson> answers) {
+        public Builder answers(@Nonnull List<Answer11> answers) {
             this.answers = Utils.checkNotNull(answers, "answers");
             return this;
         }
@@ -531,7 +531,7 @@ public class EventSurveyResponse {
         /**
          * Detail object of an event which is associated to a survey.
          */
-        public Builder event(@Nullable EventJson1 event) {
+        public Builder event(@Nullable Event5 event) {
             this.event = event;
             return this;
         }
@@ -539,7 +539,7 @@ public class EventSurveyResponse {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder survey(@Nullable UuidJson survey) {
+        public Builder survey(@Nullable Uuid survey) {
             this.survey = survey;
             return this;
         }
@@ -547,7 +547,7 @@ public class EventSurveyResponse {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder session(@Nullable UuidJson session) {
+        public Builder session(@Nullable Uuid session) {
             this.session = session;
             return this;
         }
@@ -555,7 +555,7 @@ public class EventSurveyResponse {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder speaker(@Nullable UuidJson speaker) {
+        public Builder speaker(@Nullable Uuid speaker) {
             this.speaker = speaker;
             return this;
         }

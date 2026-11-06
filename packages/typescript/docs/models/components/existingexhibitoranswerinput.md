@@ -1,6 +1,6 @@
 # ExistingExhibitorAnswerInput
 
-Existing Exhibitor Answer schema
+Exhibitor answer with an ID.
 
 ## Example Usage
 
@@ -26,6 +26,6 @@ let value: ExistingExhibitorAnswerInput = {
 | Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
 | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
 | `question`                                                                       | [components.Uuid](../../models/components/uuid.md)                               | :heavy_check_mark:                                                               | The reference to the related entity. Contains only the ID of the related entity. |
-| `event`                                                                          | [components.Event4](../../models/components/event4.md)                           | :heavy_check_mark:                                                               | The Associated Event.                                                            |
-| `exhibitor`                                                                      | [components.Exhibitor](../../models/components/exhibitor.md)                     | :heavy_check_mark:                                                               | The Associated Exhibitor.                                                        |
-| `answers`                                                                        | [components.Answer22](../../models/components/answer22.md)[]                     | :heavy_check_mark:                                                               | List of answers                                                                  |
+| `event`                                                                          | [components.Event4](../../models/components/event4.md)                           | :heavy_check_mark:                                                               | Associated event.                                                                |
+| `exhibitor`                                                                      | [components.Exhibitor](../../models/components/exhibitor.md)                     | :heavy_check_mark:                                                               | Associated exhibitor.                                                            |
+| `answers`                                                                        | [components.Answer2](../../models/components/answer2.md)[]                       | :heavy_check_mark:                                                               | List of answers.                                                                 |

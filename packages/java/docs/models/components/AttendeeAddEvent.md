@@ -1,6 +1,6 @@
 # AttendeeAddEvent
 
-The ID of the event associated with the attendee.
+The event associated with the attendee.
 
 
 ## Fields

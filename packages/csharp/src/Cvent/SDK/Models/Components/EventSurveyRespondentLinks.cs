@@ -22,6 +22,6 @@ namespace Cvent.SDK.Models.Components
         /// Represents a link to a related resource.
         /// </summary>
         [JsonProperty("surveyUrl")]
-        public LinkJson? SurveyUrl { get; set; }
+        public Link? SurveyUrl { get; set; }
     }
 }

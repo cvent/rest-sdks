@@ -30,7 +30,7 @@ export class EventsPlusHub extends ClientSDK {
    * Get Events+ Hub Members
    *
    * @remarks
-   * Fetches a list of members associated with a particular Events+ hub.
+   * Fetches a list of members associated with the Events+ hub you specify.
    */
   async getHubMembers(
     request: operations.GetHubMembersRequest,

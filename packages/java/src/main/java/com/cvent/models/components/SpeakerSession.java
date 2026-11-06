@@ -27,7 +27,7 @@ public class SpeakerSession {
     private String id;
 
     /**
-     * The unique identifier of a speaker.
+     * A reference to a speaker by its ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("speaker")
@@ -62,7 +62,7 @@ public class SpeakerSession {
     }
 
     /**
-     * The unique identifier of a speaker.
+     * A reference to a speaker by its ID.
      */
     public Optional<SpeakerLite1> speaker() {
         return Optional.ofNullable(this.speaker);
@@ -88,7 +88,7 @@ public class SpeakerSession {
     }
 
     /**
-     * The unique identifier of a speaker.
+     * A reference to a speaker by its ID.
      */
     public SpeakerSession withSpeaker(@Nullable SpeakerLite1 speaker) {
         this.speaker = speaker;
@@ -149,7 +149,7 @@ public class SpeakerSession {
         }
 
         /**
-         * The unique identifier of a speaker.
+         * A reference to a speaker by its ID.
          */
         public Builder speaker(@Nullable SpeakerLite1 speaker) {
             this.speaker = speaker;

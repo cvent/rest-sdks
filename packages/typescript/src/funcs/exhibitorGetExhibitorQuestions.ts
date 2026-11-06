@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * List Exhibitor Questions
  *
  * @remarks
- * Gets a list of exhibitor questions for a given event id.
+ * Retrieves a list of the exhibitor questions of an event.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

@@ -64,7 +64,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Creates a single exhibitor category entity for an event.
+        /// Creates an exhibitor category for an event.
         /// </remarks>
         /// <param name="request">A <see cref="CreateExhibitorCategoryRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -84,7 +84,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Updates data for a single exhibitor category entity.
+        /// Updates an exhibitor category.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorCategoryRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -104,7 +104,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Deletes a single exhibitor Category entity.
+        /// Deletes an exhibitor category.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteExhibitorCategoryRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -124,9 +124,9 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Assign a banner image to an exhibitor category with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if one is assigned.<br/>
+        /// Assigns a banner image to an exhibitor category. The file ID comes from the <a href="#operation/uploadFile">file upload</a> operation. The new image replaces the current banner image.<br/>
         /// <br/>
-        /// **Note:** For category banner images we recommend images that are 900x300 pixels and 5MiB or smaller. File types supported are : JPEG, JPG, PNG, GIF.
+        /// **Note:** The recommended category banner image is 900x300 pixels and 5 MiB or smaller. The supported file types are JPEG, JPG, PNG, and GIF.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorCategoryBannerRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -146,7 +146,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Deletes an exhibitor Category banner image.
+        /// Deletes the banner image of an exhibitor category.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteExhibitorCategoryImageRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -166,7 +166,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Get a paginated list of exhibitors assigned to the provided exhibitor-category Id.
+        /// Retrieves a paginated list of the exhibitors in an exhibitor category.
         /// </remarks>
         /// <param name="request">A <see cref="ListExhibitorsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -186,7 +186,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Assign an exhibitor ID to an exhibitor-category Id.
+        /// Assigns an exhibitor to an exhibitor category.
         /// </remarks>
         /// <param name="request">A <see cref="AddExhibitorToExhibitorCategoryRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -206,7 +206,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// delete an exhibitor from an exhibitor-category.
+        /// Removes an exhibitor from an exhibitor category.
         /// </remarks>
         /// <param name="request">A <see cref="RemoveExhibitorFromExhibitorCategoryRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -226,7 +226,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a list of exhibitor questions for a given event id.
+        /// Retrieves a list of the exhibitor questions of an event.
         /// </remarks>
         /// <param name="request">A <see cref="GetExhibitorQuestionsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -286,7 +286,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Retrieves a single exhibitor entity for an event.
+        /// Retrieves an exhibitor of an event.
         /// </remarks>
         /// <param name="request">A <see cref="GetExhibitorRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -306,7 +306,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Updates data for a single exhibitor entity.
+        /// Updates an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -326,7 +326,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Deletes a single exhibitor entity. To be deleted, exhibitors must have no tasks, registrations, or LeadCapture licenses assigned and must not be a sponsored or featured exhibitor.
+        /// Deletes an exhibitor. An exhibitor with an assigned task, registration, or LeadCapture license cannot be deleted. A sponsored or featured exhibitor cannot be deleted.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteExhibitorRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -346,9 +346,9 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Assign a banner image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if one is assigned.<br/>
+        /// Assigns a banner image to an exhibitor. The file ID comes from the <a href="#operation/uploadFile">file upload</a> operation. The new image replaces the current banner image.<br/>
         /// <br/>
-        /// **Note:** For exhibitor profile banner images, we recommend images that are 1872x320 pixels or smaller images that have an aspect ratio of 5.85:1. File extensions supported: JPEG, JPG, PNG, GIF.
+        /// **Note:** The recommended size of an exhibitor profile banner image is 1872x320 pixels or smaller, with an aspect ratio of 5.85:1. The supported file types are JPEG, JPG, PNG, and GIF.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorBannerRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -368,7 +368,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Deletes exhibitor banner image data.
+        /// Deletes the banner image of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteExhibitorBannerRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -388,7 +388,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a list of answers to exhibitor questions for a given exhibitor id.
+        /// Retrieves a list of the answers of an exhibitor to the exhibitor questions.
         /// </remarks>
         /// <param name="request">A <see cref="GetExhibitorAnswersRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -408,7 +408,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Updates answers to exhibitor questions for a given exhibitor id. The Planner can skip answering the questions marked as required for exhibitor admins.
+        /// Updates the answers of an exhibitor to the exhibitor questions. A planner can skip a question that is required for exhibitor admins.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorAnswersRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -428,7 +428,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Get a paginated list of exhibitor-categories assigned to the provided exhibitor Id.
+        /// Retrieves a paginated list of the exhibitor categories of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="ListExhibitorCategoriesRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -448,9 +448,9 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Assign a logo image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current logo image if one is assigned.<br/>
+        /// Assigns a logo image to an exhibitor. The file ID comes from the <a href="#operation/uploadFile">file upload</a> operation. The new image replaces the current logo image.<br/>
         /// <br/>
-        /// **Note:**  For exhibitor profile logo images we recommend square images larger than 300x300 pixels. The file types supported are : JPEG, JPG, PNG, GIF.
+        /// **Note:** The recommended exhibitor profile logo image is a square image larger than 300x300 pixels. The supported file types are JPEG, JPG, PNG, and GIF.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorLogoRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -470,7 +470,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Deletes exhibitor logo image data.
+        /// Deletes the logo image of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteExhibitorLogoRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -490,7 +490,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of lead qualification questions associated with a single exhibitor at the given event.
+        /// Retrieves a list of the lead qualification questions of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="GetLeadQualificationQuestionsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -510,7 +510,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Create registration pack for an exhibitor.
+        /// Creates a registration pack for an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="PostRegistrationPackRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -518,7 +518,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="ErrorResponse">Registration pack for given exhibitor already exists. Thrown when the API returns a 409 response.</exception>
+        /// <exception cref="ErrorResponse">The exhibitor already has a registration pack. Thrown when the API returns a 409 response.</exception>
         /// <exception cref="Models.Errors.ErrorResponse12">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<PostRegistrationPackResponse> PostRegistrationPackAsync(
@@ -527,7 +527,7 @@ namespace Cvent.SDK
         );
 
         /// <summary>
-        /// List Registration Pack<br/>
+        /// List Registration Packs<br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
@@ -552,7 +552,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Retrieves registration types allocated to an exhibitor, along with the count of registrations utilized.
+        /// Retrieves the registration types that are allocated to an exhibitor, with the count of used registrations.
         /// </remarks>
         /// <param name="request">A <see cref="GetRegistrationPackRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -572,7 +572,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Update registration pack for an exhibitor.
+        /// Updates the registration pack of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateRegistrationPackRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -592,7 +592,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Delete registration pack for an exhibitor.
+        /// Deletes the registration pack of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteRegistrationPackRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -600,7 +600,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="ErrorResponse">RegPack cannot be deleted when at least one or more booth staff are already assigned. Thrown when the API returns a 409 response.</exception>
+        /// <exception cref="ErrorResponse">The registration pack has at least one assigned booth staff member. Thrown when the API returns a 409 response.</exception>
         /// <exception cref="Models.Errors.ErrorResponse12">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<DeleteRegistrationPackResponse> DeleteRegistrationPackAsync(
@@ -613,7 +613,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a list of associated sponsorship levels for a single event.
+        /// Retrieves a list of the sponsorship levels of an event.
         /// </remarks>
         /// <param name="request">A <see cref="GetSponsorshipLevelsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -633,7 +633,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Retrieves associated sponsorship level data for a single sponsorship level ID.
+        /// Retrieves a sponsorship level of an event.
         /// </remarks>
         /// <param name="request">A <see cref="GetSponsorshipLevelRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -876,7 +876,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Creates a single exhibitor category entity for an event.
+        /// Creates an exhibitor category for an event.
         /// </remarks>
         /// <param name="request">A <see cref="CreateExhibitorCategoryRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1049,7 +1049,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Updates data for a single exhibitor category entity.
+        /// Updates an exhibitor category.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorCategoryRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1222,7 +1222,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Deletes a single exhibitor Category entity.
+        /// Deletes an exhibitor category.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteExhibitorCategoryRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1371,9 +1371,9 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Assign a banner image to an exhibitor category with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if one is assigned.<br/>
+        /// Assigns a banner image to an exhibitor category. The file ID comes from the <a href="#operation/uploadFile">file upload</a> operation. The new image replaces the current banner image.<br/>
         /// <br/>
-        /// **Note:** For category banner images we recommend images that are 900x300 pixels and 5MiB or smaller. File types supported are : JPEG, JPG, PNG, GIF.
+        /// **Note:** The recommended category banner image is 900x300 pixels and 5 MiB or smaller. The supported file types are JPEG, JPG, PNG, and GIF.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorCategoryBannerRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1540,7 +1540,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Deletes an exhibitor Category banner image.
+        /// Deletes the banner image of an exhibitor category.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteExhibitorCategoryImageRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1689,7 +1689,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Get a paginated list of exhibitors assigned to the provided exhibitor-category Id.
+        /// Retrieves a paginated list of the exhibitors in an exhibitor category.
         /// </remarks>
         /// <param name="request">A <see cref="ListExhibitorsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1886,7 +1886,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Assign an exhibitor ID to an exhibitor-category Id.
+        /// Assigns an exhibitor to an exhibitor category.
         /// </remarks>
         /// <param name="request">A <see cref="AddExhibitorToExhibitorCategoryRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2035,7 +2035,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// delete an exhibitor from an exhibitor-category.
+        /// Removes an exhibitor from an exhibitor category.
         /// </remarks>
         /// <param name="request">A <see cref="RemoveExhibitorFromExhibitorCategoryRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2184,7 +2184,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a list of exhibitor questions for a given event id.
+        /// Retrieves a list of the exhibitor questions of an event.
         /// </remarks>
         /// <param name="request">A <see cref="GetExhibitorQuestionsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2723,7 +2723,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Retrieves a single exhibitor entity for an event.
+        /// Retrieves an exhibitor of an event.
         /// </remarks>
         /// <param name="request">A <see cref="GetExhibitorRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2890,7 +2890,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Updates data for a single exhibitor entity.
+        /// Updates an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -3063,7 +3063,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Deletes a single exhibitor entity. To be deleted, exhibitors must have no tasks, registrations, or LeadCapture licenses assigned and must not be a sponsored or featured exhibitor.
+        /// Deletes an exhibitor. An exhibitor with an assigned task, registration, or LeadCapture license cannot be deleted. A sponsored or featured exhibitor cannot be deleted.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteExhibitorRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -3212,9 +3212,9 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Assign a banner image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if one is assigned.<br/>
+        /// Assigns a banner image to an exhibitor. The file ID comes from the <a href="#operation/uploadFile">file upload</a> operation. The new image replaces the current banner image.<br/>
         /// <br/>
-        /// **Note:** For exhibitor profile banner images, we recommend images that are 1872x320 pixels or smaller images that have an aspect ratio of 5.85:1. File extensions supported: JPEG, JPG, PNG, GIF.
+        /// **Note:** The recommended size of an exhibitor profile banner image is 1872x320 pixels or smaller, with an aspect ratio of 5.85:1. The supported file types are JPEG, JPG, PNG, and GIF.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorBannerRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -3381,7 +3381,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Deletes exhibitor banner image data.
+        /// Deletes the banner image of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteExhibitorBannerRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -3530,7 +3530,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a list of answers to exhibitor questions for a given exhibitor id.
+        /// Retrieves a list of the answers of an exhibitor to the exhibitor questions.
         /// </remarks>
         /// <param name="request">A <see cref="GetExhibitorAnswersRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -3697,7 +3697,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Updates answers to exhibitor questions for a given exhibitor id. The Planner can skip answering the questions marked as required for exhibitor admins.
+        /// Updates the answers of an exhibitor to the exhibitor questions. A planner can skip a question that is required for exhibitor admins.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorAnswersRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -3870,7 +3870,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Get a paginated list of exhibitor-categories assigned to the provided exhibitor Id.
+        /// Retrieves a paginated list of the exhibitor categories of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="ListExhibitorCategoriesRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -4067,9 +4067,9 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Assign a logo image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current logo image if one is assigned.<br/>
+        /// Assigns a logo image to an exhibitor. The file ID comes from the <a href="#operation/uploadFile">file upload</a> operation. The new image replaces the current logo image.<br/>
         /// <br/>
-        /// **Note:**  For exhibitor profile logo images we recommend square images larger than 300x300 pixels. The file types supported are : JPEG, JPG, PNG, GIF.
+        /// **Note:** The recommended exhibitor profile logo image is a square image larger than 300x300 pixels. The supported file types are JPEG, JPG, PNG, and GIF.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorLogoRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -4236,7 +4236,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Deletes exhibitor logo image data.
+        /// Deletes the logo image of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteExhibitorLogoRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -4385,7 +4385,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of lead qualification questions associated with a single exhibitor at the given event.
+        /// Retrieves a list of the lead qualification questions of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="GetLeadQualificationQuestionsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -4552,7 +4552,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Create registration pack for an exhibitor.
+        /// Creates a registration pack for an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="PostRegistrationPackRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -4560,7 +4560,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="ErrorResponse">Registration pack for given exhibitor already exists. Thrown when the API returns a 409 response.</exception>
+        /// <exception cref="ErrorResponse">The exhibitor already has a registration pack. Thrown when the API returns a 409 response.</exception>
         /// <exception cref="Models.Errors.ErrorResponse12">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<PostRegistrationPackResponse> PostRegistrationPackAsync(
@@ -4742,7 +4742,7 @@ namespace Cvent.SDK
         }
 
         /// <summary>
-        /// List Registration Pack<br/>
+        /// List Registration Packs<br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
@@ -4914,7 +4914,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Retrieves registration types allocated to an exhibitor, along with the count of registrations utilized.
+        /// Retrieves the registration types that are allocated to an exhibitor, with the count of used registrations.
         /// </remarks>
         /// <param name="request">A <see cref="GetRegistrationPackRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -5081,7 +5081,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Update registration pack for an exhibitor.
+        /// Updates the registration pack of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateRegistrationPackRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -5254,7 +5254,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Delete registration pack for an exhibitor.
+        /// Deletes the registration pack of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteRegistrationPackRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -5262,7 +5262,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="ErrorResponse">RegPack cannot be deleted when at least one or more booth staff are already assigned. Thrown when the API returns a 409 response.</exception>
+        /// <exception cref="ErrorResponse">The registration pack has at least one assigned booth staff member. Thrown when the API returns a 409 response.</exception>
         /// <exception cref="Models.Errors.ErrorResponse12">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<DeleteRegistrationPackResponse> DeleteRegistrationPackAsync(
@@ -5424,7 +5424,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a list of associated sponsorship levels for a single event.
+        /// Retrieves a list of the sponsorship levels of an event.
         /// </remarks>
         /// <param name="request">A <see cref="GetSponsorshipLevelsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -5591,7 +5591,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Retrieves associated sponsorship level data for a single sponsorship level ID.
+        /// Retrieves a sponsorship level of an event.
         /// </remarks>
         /// <param name="request">A <see cref="GetSponsorshipLevelRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

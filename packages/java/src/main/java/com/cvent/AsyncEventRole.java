@@ -5,9 +5,17 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
+import com.cvent.models.components.EventRoleAssignmentCreate;
+import com.cvent.models.operations.DeleteEventRoleAssignmentRequest;
 import com.cvent.models.operations.ListEventRoleAssignmentRequest;
+import com.cvent.models.operations.async.CreateEventRoleAssignmentRequestBuilder;
+import com.cvent.models.operations.async.CreateEventRoleAssignmentResponse;
+import com.cvent.models.operations.async.DeleteEventRoleAssignmentRequestBuilder;
+import com.cvent.models.operations.async.DeleteEventRoleAssignmentResponse;
 import com.cvent.models.operations.async.ListEventRoleAssignmentRequestBuilder;
 import com.cvent.models.operations.async.ListEventRoleAssignmentResponse;
+import com.cvent.operations.CreateEventRoleAssignment;
+import com.cvent.operations.DeleteEventRoleAssignment;
 import com.cvent.operations.ListEventRoleAssignment;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
@@ -81,6 +89,143 @@ public class AsyncEventRole {
             @Nonnull ListEventRoleAssignmentRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListEventRoleAssignmentRequest, ListEventRoleAssignmentResponse> operation =
                 new ListEventRoleAssignment.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Assign Event Role
+     *
+     * <p>Assigns an event role to an account user or a no-login user for an event, using the details in the
+     * request body.
+     *
+     * <p>The optional `notification` object applies to both `ACCOUNT_USER` and `NO_LOGIN_USER`. If you omit
+     * the object,
+     * omit `sendNotification`, or set it to `false`, the service sends no notification and still returns
+     * `201`.
+     * When `sendNotification` is `true`, the service queues a notification email to the assignee after the
+     * assignment succeeds.
+     *
+     * <p>For a `NO_LOGIN_USER`, the service finds the user by `id` when it is sent, or else by `email`:
+     * - If `id` and `email` are both sent and the email does not match that user, the service returns
+     * `400`.
+     * - If no no-login user in the account has the email, the service returns `404`.
+     * - If more than one no-login user in the account has the email, the service returns `409`. Send `id`
+     * instead.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @return The async call builder
+     */
+    public CreateEventRoleAssignmentRequestBuilder createEventRoleAssignment() {
+        return new CreateEventRoleAssignmentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Assign Event Role
+     *
+     * <p>Assigns an event role to an account user or a no-login user for an event, using the details in the
+     * request body.
+     *
+     * <p>The optional `notification` object applies to both `ACCOUNT_USER` and `NO_LOGIN_USER`. If you omit
+     * the object,
+     * omit `sendNotification`, or set it to `false`, the service sends no notification and still returns
+     * `201`.
+     * When `sendNotification` is `true`, the service queues a notification email to the assignee after the
+     * assignment succeeds.
+     *
+     * <p>For a `NO_LOGIN_USER`, the service finds the user by `id` when it is sent, or else by `email`:
+     * - If `id` and `email` are both sent and the email does not match that user, the service returns
+     * `400`.
+     * - If no no-login user in the account has the email, the service returns `404`.
+     * - If more than one no-login user in the account has the email, the service returns `409`. Send `id`
+     * instead.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<CreateEventRoleAssignmentResponse>} - The async response
+     */
+    public CompletableFuture<CreateEventRoleAssignmentResponse> createEventRoleAssignment(
+            @Nonnull EventRoleAssignmentCreate request) {
+        return createEventRoleAssignment(request, null);
+    }
+
+    /**
+     * Assign Event Role
+     *
+     * <p>Assigns an event role to an account user or a no-login user for an event, using the details in the
+     * request body.
+     *
+     * <p>The optional `notification` object applies to both `ACCOUNT_USER` and `NO_LOGIN_USER`. If you omit
+     * the object,
+     * omit `sendNotification`, or set it to `false`, the service sends no notification and still returns
+     * `201`.
+     * When `sendNotification` is `true`, the service queues a notification email to the assignee after the
+     * assignment succeeds.
+     *
+     * <p>For a `NO_LOGIN_USER`, the service finds the user by `id` when it is sent, or else by `email`:
+     * - If `id` and `email` are both sent and the email does not match that user, the service returns
+     * `400`.
+     * - If no no-login user in the account has the email, the service returns `404`.
+     * - If more than one no-login user in the account has the email, the service returns `409`. Send `id`
+     * instead.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateEventRoleAssignmentResponse>} - The async response
+     */
+    public CompletableFuture<CreateEventRoleAssignmentResponse> createEventRoleAssignment(
+            @Nonnull EventRoleAssignmentCreate request, @Nullable Options options) {
+        AsyncRequestOperation<EventRoleAssignmentCreate, CreateEventRoleAssignmentResponse> operation =
+                new CreateEventRoleAssignment.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Unassign Event Role
+     *
+     * <p>Deletes an event role assignment identified by its composite assignment ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @return The async call builder
+     */
+    public DeleteEventRoleAssignmentRequestBuilder deleteEventRoleAssignment() {
+        return new DeleteEventRoleAssignmentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Unassign Event Role
+     *
+     * <p>Deletes an event role assignment identified by its composite assignment ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<DeleteEventRoleAssignmentResponse>} - The async response
+     */
+    public CompletableFuture<DeleteEventRoleAssignmentResponse> deleteEventRoleAssignment(
+            @Nonnull DeleteEventRoleAssignmentRequest request) {
+        return deleteEventRoleAssignment(request, null);
+    }
+
+    /**
+     * Unassign Event Role
+     *
+     * <p>Deletes an event role assignment identified by its composite assignment ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteEventRoleAssignmentResponse>} - The async response
+     */
+    public CompletableFuture<DeleteEventRoleAssignmentResponse> deleteEventRoleAssignment(
+            @Nonnull DeleteEventRoleAssignmentRequest request, @Nullable Options options) {
+        AsyncRequestOperation<DeleteEventRoleAssignmentRequest, DeleteEventRoleAssignmentResponse> operation =
+                new DeleteEventRoleAssignment.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

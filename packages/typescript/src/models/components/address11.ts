@@ -8,39 +8,39 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Schema for address information
+ * Address of the lead.
  */
 export type Address11 = {
   /**
-   * The first line of an address
+   * First line of the address.
    */
   address1?: string | undefined;
   /**
-   * The second line of an address
+   * Second line of the address.
    */
   address2?: string | undefined;
   /**
-   * The name of the city.
+   * Name of the city.
    */
   city?: string | undefined;
   /**
-   * The name of the state/province/region of the address.
+   * Name of the state, province, or region.
    */
   region?: string | undefined;
   /**
-   * The abbreviation of the state/province/region of the address.
+   * Abbreviation of the state, province, or region.
    */
   regionCode?: string | undefined;
   /**
-   * postal code (also known as zipcode) of the address
+   * Postal code or ZIP code of the address.
    */
   postalCode?: string | undefined;
   /**
-   * Name of the country for example, 'United States'
+   * Name of the country.
    */
   country?: string | undefined;
   /**
-   * ISO 3166 two-letter (alpha-2) country code
+   * ISO 3166-1 alpha-2 code of the country.
    */
   countryCode?: string | undefined;
 };

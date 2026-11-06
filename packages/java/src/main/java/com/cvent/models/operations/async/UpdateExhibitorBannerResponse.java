@@ -33,7 +33,7 @@ public class UpdateExhibitorBannerResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully added the exhibitor banner image.
+     * Successfully assigned the exhibitor banner image.
      */
     private ExhibitorBannerLogoFile exhibitorBannerLogoFile;
 
@@ -78,7 +78,7 @@ public class UpdateExhibitorBannerResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully added the exhibitor banner image.
+     * Successfully assigned the exhibitor banner image.
      */
     public Optional<ExhibitorBannerLogoFile> exhibitorBannerLogoFile() {
         return Optional.ofNullable(this.exhibitorBannerLogoFile);
@@ -113,7 +113,7 @@ public class UpdateExhibitorBannerResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully added the exhibitor banner image.
+     * Successfully assigned the exhibitor banner image.
      */
     public UpdateExhibitorBannerResponse withExhibitorBannerLogoFile(
             @Nullable ExhibitorBannerLogoFile exhibitorBannerLogoFile) {
@@ -195,7 +195,7 @@ public class UpdateExhibitorBannerResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully added the exhibitor banner image.
+         * Successfully assigned the exhibitor banner image.
          */
         public Builder exhibitorBannerLogoFile(@Nullable ExhibitorBannerLogoFile exhibitorBannerLogoFile) {
             this.exhibitorBannerLogoFile = exhibitorBannerLogoFile;

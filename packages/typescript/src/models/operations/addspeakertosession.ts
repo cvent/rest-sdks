@@ -8,11 +8,11 @@ import * as components from "../components/index.js";
 
 export type AddSpeakerToSessionRequest = {
   /**
-   * Unique Id of a session
+   * Unique ID of a session
    */
   id: string;
   /**
-   * Unique Id of a speaker
+   * Unique ID of a speaker
    */
   speakerId: string;
   /**

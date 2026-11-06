@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// The type of lead.
+    /// Type of the lead.
     /// </summary>
     public enum LeadType
     {

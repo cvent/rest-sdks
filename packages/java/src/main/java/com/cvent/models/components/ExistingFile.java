@@ -21,7 +21,7 @@ import java.util.Optional;
 /**
  * ExistingFile
  *
- * <p>Content of existing exhibitor file
+ * <p>Exhibitor file with an ID.
  */
 public class ExistingFile {
     /**
@@ -53,13 +53,13 @@ public class ExistingFile {
     private String lastModifiedBy;
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     @JsonProperty("exhibitor")
     private Exhibitor exhibitor;
@@ -78,13 +78,13 @@ public class ExistingFile {
     private Boolean hidden;
 
     /**
-     * Display order for exhibitor file content.
+     * Display order of the file.
      */
     @JsonProperty("order")
     private long order;
 
     /**
-     * Unique ID of the file.
+     * File ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -149,14 +149,14 @@ public class ExistingFile {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Event4 event() {
         return this.event;
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public Exhibitor exhibitor() {
         return this.exhibitor;
@@ -177,14 +177,14 @@ public class ExistingFile {
     }
 
     /**
-     * Display order for exhibitor file content.
+     * Display order of the file.
      */
     public long order() {
         return this.order;
     }
 
     /**
-     * Unique ID of the file.
+     * File ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -227,7 +227,7 @@ public class ExistingFile {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public ExistingFile withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -235,7 +235,7 @@ public class ExistingFile {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public ExistingFile withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -259,7 +259,7 @@ public class ExistingFile {
     }
 
     /**
-     * Display order for exhibitor file content.
+     * Display order of the file.
      */
     public ExistingFile withOrder(long order) {
         this.order = order;
@@ -267,7 +267,7 @@ public class ExistingFile {
     }
 
     /**
-     * Unique ID of the file.
+     * File ID.
      */
     public ExistingFile withId(@Nullable String id) {
         this.id = id;
@@ -387,7 +387,7 @@ public class ExistingFile {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -395,7 +395,7 @@ public class ExistingFile {
         }
 
         /**
-         * The Associated Exhibitor.
+         * Associated exhibitor.
          */
         public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -419,7 +419,7 @@ public class ExistingFile {
         }
 
         /**
-         * Display order for exhibitor file content.
+         * Display order of the file.
          */
         public Builder order(long order) {
             this.order = order;
@@ -427,7 +427,7 @@ public class ExistingFile {
         }
 
         /**
-         * Unique ID of the file.
+         * File ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

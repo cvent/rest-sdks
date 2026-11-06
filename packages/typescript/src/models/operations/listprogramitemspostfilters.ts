@@ -34,7 +34,7 @@ export type ListProgramItemsPostFiltersRequest = {
    */
   locale?: string | undefined;
   /**
-   * See the filter description of <a href="#operation/listProgramItems">GET List Program Items</a> for full filtering information.
+   * See the filter description of [GET List Program Items](#operation/listProgramItems) for full filtering information.
    */
   filter?: components.Filter | undefined;
 };

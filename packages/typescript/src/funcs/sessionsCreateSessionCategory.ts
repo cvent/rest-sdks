@@ -26,10 +26,10 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Create Session Categories
+ * Create Session Category
  *
  * @remarks
- * Create a session category.
+ * Creates a session category based on the details provided in the request body.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

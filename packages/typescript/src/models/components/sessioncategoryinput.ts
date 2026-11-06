@@ -5,7 +5,7 @@
 import * as z from "zod/v3";
 
 /**
- * This is used to denote the category of a session.
+ * A session category with a name and an optional description.
  */
 export type SessionCategoryInput = {
   /**

@@ -14,11 +14,11 @@ import java.util.Optional;
 /**
  * Session1
  *
- * <p>The related session object.
+ * <p>A reference to a session by its ID.
  */
 public class Session1 {
     /**
-     * The unique identifier for a session
+     * The unique ID of a session.
      */
     @JsonProperty("id")
     private String id;
@@ -29,7 +29,7 @@ public class Session1 {
     }
 
     /**
-     * The unique identifier for a session
+     * The unique ID of a session.
      */
     public String id() {
         return this.id;
@@ -40,7 +40,7 @@ public class Session1 {
     }
 
     /**
-     * The unique identifier for a session
+     * The unique ID of a session.
      */
     public Session1 withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -79,7 +79,7 @@ public class Session1 {
         }
 
         /**
-         * The unique identifier for a session
+         * The unique ID of a session.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

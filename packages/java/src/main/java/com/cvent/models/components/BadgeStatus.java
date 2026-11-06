@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * BadgeStatus
  *
- * <p>Badge status
+ * <p>Status of the badge.
  */
 public enum BadgeStatus {
     ASSIGNED("Assigned"),

@@ -6,11 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  LargeChoiceJson,
-  LargeChoiceJson$inboundSchema,
-} from "./largechoicejson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { LargeChoice, LargeChoice$inboundSchema } from "./largechoice.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * Response include paging and collection of choices for large choices question.
@@ -19,11 +16,11 @@ export type LargeChoicesPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of choices for large choices question.
    */
-  data: Array<LargeChoiceJson>;
+  data: Array<LargeChoice>;
 };
 
 /** @internal */
@@ -32,8 +29,8 @@ export const LargeChoicesPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(LargeChoiceJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(LargeChoice$inboundSchema),
 });
 
 export function largeChoicesPaginatedResponseFromJSON(

@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Used to denote a locations name and abbreviation.
+ * A location identified by its ID, code, and name.
  */
 export type Location1 = {
   /**

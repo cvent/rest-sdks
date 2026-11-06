@@ -14,18 +14,18 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Content of exhibitor weblink.
+    /// Weblink of an exhibitor.
     /// </summary>
     public class Weblink
     {
         /// <summary>
-        /// The Associated Event.
+        /// Associated event.
         /// </summary>
         [JsonProperty("event")]
         public Event4 Event { get; set; } = default!;
 
         /// <summary>
-        /// The Associated Exhibitor.
+        /// Associated exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
         public Models.Components.Exhibitor Exhibitor { get; set; } = default!;
@@ -37,7 +37,7 @@ namespace Cvent.SDK.Models.Components
         public string Name { get; set; } = default!;
 
         /// <summary>
-        /// The URL of the weblink.
+        /// URL of the weblink.
         /// </summary>
         [JsonProperty("url")]
         public string Url { get; set; } = default!;
@@ -49,7 +49,7 @@ namespace Cvent.SDK.Models.Components
         public bool? Hidden { get; set; } = false;
 
         /// <summary>
-        /// Display order for exhibitor weblink content.
+        /// Display order of the weblink.
         /// </summary>
         [JsonProperty("order")]
         public long Order { get; set; } = default!;

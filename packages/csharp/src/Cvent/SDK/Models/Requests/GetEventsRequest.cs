@@ -9,19 +9,21 @@
 #nullable enable
 namespace Cvent.SDK.Models.Requests
 {
+    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using System;
+    using System.Collections.Generic;
 
     public class GetEventsRequest
     {
         /// <summary>
-        /// Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
+        /// Returns records created or updated **on or after** this date and time. Defaults to the beginning of the data store's time range.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=after")]
         public DateTime? After { get; set; }
 
         /// <summary>
-        /// Used to query records that have been added or updated before this time point.
+        /// Returns records created or updated **on or before** this date and time.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=before")]
         public DateTime? Before { get; set; }
@@ -38,6 +40,41 @@ namespace Cvent.SDK.Models.Requests
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
+
+        /// <summary>
+        /// This endpoint allows you to request additional information as an<br/>
+        /// expanded response using the `expand` query parameter.<br/>
+        /// <br/>
+        /// The expanded entity is retrieved and displayed inline for each<br/>
+        /// specified expand value. You can expand multiple objects at the same<br/>
+        /// time by identifying multiple items in the expand array.<br/>
+        /// <br/>
+        /// The following fields are expandable:<br/>
+        ///   * image<br/>
+        /// <br/>
+        /// When `image` is not requested it is omitted from the response<br/>
+        /// entirely. When it is requested and the event has no image, `image`<br/>
+        /// is `null`.<br/>
+        /// <br/>
+        /// Images are retrieved in bulk per page; `expand` does not change the<br/>
+        /// maximum `limit`.<br/>
+        /// <br/>
+        /// On list endpoints `expand` is kept in the paging `token`: a request<br/>
+        /// with `token` uses the `expand` of the first request, and an `expand`<br/>
+        /// sent with `token` is validated but otherwise ignored.<br/>
+        /// <br/>
+        /// The image is retrieved at request time. If it cannot be retrieved the<br/>
+        /// whole request fails with `504` when the image service does not respond<br/>
+        /// in time, and `503` otherwise. On list endpoints this is all-or-nothing:<br/>
+        /// one image that cannot be retrieved fails the whole page. To read events<br/>
+        /// while images are unavailable, omit `expand`.<br/>
+        /// <br/>
+        /// On endpoints that support `partialResponse`, sending<br/>
+        /// `partialResponse=true` instead returns every event on the page without<br/>
+        /// `image`, together with a single partial error for that field.
+        /// </summary>
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=expand")]
+        public List<Expand1>? Expand { get; set; }
 
         /// <summary>
         /// The sort order passed as a parameter, used to control the order of the<br/>

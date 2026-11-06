@@ -63,7 +63,7 @@ export class Sessions extends ClientSDK {
    * Add Session Location
    *
    * @remarks
-   * Add a session location to the specified event.
+   * Adds a session location to the specified event based on the details provided in the request body.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -140,7 +140,7 @@ export class Sessions extends ClientSDK {
    * List Program Items
    *
    * @remarks
-   * Gets a paginated list of session program items by sending a filter in the body of the request. This method will return the same data as <a href="#operation/listProgramItems">GET List Program Items</a> but allows for longer filters.
+   * Gets a paginated list of session program items by sending a filter in the body of the request. This method will return the same data as [GET List Program Items](#operation/listProgramItems) but allows for longer filters.
    */
   async listProgramItemsPostFilters(
     request: operations.ListProgramItemsPostFiltersRequest,
@@ -196,8 +196,7 @@ export class Sessions extends ClientSDK {
    * Get Program Item Documents
    *
    * @remarks
-   * Returns a list of session documents for the specified program item ID.
-   * **Note:** This endpoint is deprecated. use <a href="#operation/filterProgramItemDocuments">Filter Program Item Documents</a>
+   * DEPRECATED: Use [Filter Program Item Documents](#tag/Sessions/operation/filterProgramItemDocuments) instead. Returns a list of session documents for the specified program item ID.
    *
    * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
@@ -285,10 +284,10 @@ export class Sessions extends ClientSDK {
   }
 
   /**
-   * Create Session Categories
+   * Create Session Category
    *
    * @remarks
-   * Create a session category.
+   * Creates a session category based on the details provided in the request body.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -368,7 +367,7 @@ export class Sessions extends ClientSDK {
    * List Sessions
    *
    * @remarks
-   * Gets a paginated list of sessions by sending a filter in the request's body. This method returns the same data as <a href="#operation/listSessions">GET List Sessions</a> but allows longer filters.
+   * Gets a paginated list of sessions by sending a filter in the request's body. This method returns the same data as [GET List Sessions](#operation/listSessions) but allows longer filters.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -506,7 +505,7 @@ export class Sessions extends ClientSDK {
    *
    * @remarks
    * Associates a given document to a session. Documents must be
-   * <a href="#operation/uploadFile">uploaded</a> before you can associate
+   * [uploaded](#operation/uploadFile) before you can associate
    * them.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
@@ -526,7 +525,7 @@ export class Sessions extends ClientSDK {
    * Delete Document from Session
    *
    * @remarks
-   * Disassociates a given document from a session. Document IDs are provided after <a href="#operation/uploadFile">file upload</a>.
+   * Disassociates a given document from a session. Document IDs are provided after [file upload](#operation/uploadFile).
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */

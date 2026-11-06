@@ -13,5 +13,5 @@ let value: VideoWarningCode = 700;
 ## Values
 
 ```typescript
-700
+700 | 701
 ```

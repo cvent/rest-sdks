@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * ExhibitorBannerLogoFileFile
  *
- * <p>File object containing UUID
+ * <p>File of the image, with the file ID.
  */
 public class ExhibitorBannerLogoFileFile {
     /**

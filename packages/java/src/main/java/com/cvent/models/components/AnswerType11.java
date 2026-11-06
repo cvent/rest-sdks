@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * AnswerType11
  *
- * <p>Type of answer
+ * <p>Type of the answer.
  */
 public enum AnswerType11 {
     CHOICE("Choice"),

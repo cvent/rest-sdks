@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// A JSON schema for the exhibitor category banner file.
+    /// Banner image file of an exhibitor category.
     /// </summary>
     public class ExhibitorCategoryBannerFile
     {
@@ -25,7 +25,7 @@ namespace Cvent.SDK.Models.Components
         public ExhibitorCategoryBannerFileFile? File { get; set; }
 
         /// <summary>
-        /// URL of a exhibitor category banner image.
+        /// URL of the banner image of the exhibitor category.
         /// </summary>
         [JsonProperty("href")]
         public string? Href { get; set; }

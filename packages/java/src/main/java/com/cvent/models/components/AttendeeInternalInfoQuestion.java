@@ -16,8 +16,8 @@ import java.util.Optional;
 /**
  * AttendeeInternalInfoQuestion
  *
- * <p>The registration question. Use either question ID or code to identify the question. If both are
- * provided, they must match the same question.
+ * <p>The registration question identified by its ID or code. If both fields are present, they must
+ * identify the same question.
  */
 public class AttendeeInternalInfoQuestion {
     /**

@@ -30,7 +30,7 @@ namespace Cvent.SDK.Models.Components
         public bool? PdfLinkEnabled { get; set; } = true;
 
         /// <summary>
-        /// Name of the supplier contact role assigned to this contact.
+        /// Name of the supplier contact role assigned to this contact. Must match an active supplier contact role configured for the account; any other value returns `400`. Supplier contact roles are managed in Cvent and are not available through this API. An empty string or an omitted field means the contact has no role. On update, the contact's current role is accepted even if it has since been made inactive.
         /// </summary>
         [JsonProperty("supplierContactRole")]
         public string? SupplierContactRole { get; set; }

@@ -15,12 +15,12 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// A JSON schema representing the response for a list of lead qualification answers.
+    /// List of lead qualification answers.
     /// </summary>
     public class LeadQualificationAnswersListResponse
     {
         /// <summary>
-        /// Collection of Lead Qualification Answers.
+        /// List of lead qualification answers.
         /// </summary>
         [JsonProperty("data")]
         public List<LeadQualificationAnswers>? Data { get; set; }

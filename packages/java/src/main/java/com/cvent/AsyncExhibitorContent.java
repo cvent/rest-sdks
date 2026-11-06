@@ -119,7 +119,7 @@ public class AsyncExhibitorContent {
     /**
      * Get Exhibitor File
      *
-     * <p>Get a single file for an exhibitor.
+     * <p>Retrieves a file of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -132,7 +132,7 @@ public class AsyncExhibitorContent {
     /**
      * Get Exhibitor File
      *
-     * <p>Get a single file for an exhibitor.
+     * <p>Retrieves a file of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -146,7 +146,7 @@ public class AsyncExhibitorContent {
     /**
      * Get Exhibitor File
      *
-     * <p>Get a single file for an exhibitor.
+     * <p>Retrieves a file of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -164,8 +164,8 @@ public class AsyncExhibitorContent {
     /**
      * Associate Exhibitor File
      *
-     * <p>Associate a file to an exhibitor using a file ID taken from the <a href="#operation/uploadFile">file
-     * upload</a> endpoint.
+     * <p>Associates a file with an exhibitor. The file ID comes from the [file upload](#operation/uploadFile)
+     * operation.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -178,8 +178,8 @@ public class AsyncExhibitorContent {
     /**
      * Associate Exhibitor File
      *
-     * <p>Associate a file to an exhibitor using a file ID taken from the <a href="#operation/uploadFile">file
-     * upload</a> endpoint.
+     * <p>Associates a file with an exhibitor. The file ID comes from the [file upload](#operation/uploadFile)
+     * operation.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -194,8 +194,8 @@ public class AsyncExhibitorContent {
     /**
      * Associate Exhibitor File
      *
-     * <p>Associate a file to an exhibitor using a file ID taken from the <a href="#operation/uploadFile">file
-     * upload</a> endpoint.
+     * <p>Associates a file with an exhibitor. The file ID comes from the [file upload](#operation/uploadFile)
+     * operation.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -213,7 +213,7 @@ public class AsyncExhibitorContent {
     /**
      * Disassociate Exhibitor File
      *
-     * <p>Disassociate a single file from an exhibitor.
+     * <p>Disassociates a file from an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -226,7 +226,7 @@ public class AsyncExhibitorContent {
     /**
      * Disassociate Exhibitor File
      *
-     * <p>Disassociate a single file from an exhibitor.
+     * <p>Disassociates a file from an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -241,7 +241,7 @@ public class AsyncExhibitorContent {
     /**
      * Disassociate Exhibitor File
      *
-     * <p>Disassociate a single file from an exhibitor.
+     * <p>Disassociates a file from an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -397,7 +397,7 @@ public class AsyncExhibitorContent {
     /**
      * Update Exhibitor Weblink
      *
-     * <p>Updates content weblink data in an event for a given exhibitor ID.
+     * <p>Updates a content weblink of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -410,7 +410,7 @@ public class AsyncExhibitorContent {
     /**
      * Update Exhibitor Weblink
      *
-     * <p>Updates content weblink data in an event for a given exhibitor ID.
+     * <p>Updates a content weblink of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -425,7 +425,7 @@ public class AsyncExhibitorContent {
     /**
      * Update Exhibitor Weblink
      *
-     * <p>Updates content weblink data in an event for a given exhibitor ID.
+     * <p>Updates a content weblink of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
