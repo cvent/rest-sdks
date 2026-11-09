@@ -54,6 +54,7 @@ namespace Cvent.SDK
         /// <br/>
         /// - Only fields present in the request body are updated; omitted fields remain unchanged.<br/>
         /// - Set a field to `null` to unset it.<br/>
+        /// - Exception: for `address` sub-fields, `null` keeps the current value, and a `null` `city` or `country` is rejected with 400.<br/>
         /// - If any part of the patch fails, the entire request will fail.<br/>
         /// <br/>
         /// **Array Handling:**<br/>
@@ -388,6 +389,7 @@ namespace Cvent.SDK
         /// <br/>
         /// - Only fields present in the request body are updated; omitted fields remain unchanged.<br/>
         /// - Set a field to `null` to unset it.<br/>
+        /// - Exception: for `address` sub-fields, `null` keeps the current value, and a `null` `city` or `country` is rejected with 400.<br/>
         /// - If any part of the patch fails, the entire request will fail.<br/>
         /// <br/>
         /// **Array Handling:**<br/>

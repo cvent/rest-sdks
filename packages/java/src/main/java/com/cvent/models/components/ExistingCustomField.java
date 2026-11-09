@@ -83,7 +83,7 @@ public class ExistingCustomField {
      * are read only.
      */
     @JsonProperty("type")
-    private CustomFieldType2 type;
+    private CustomFieldType3 type;
 
     /**
      * Type-specific details of the custom-field.
@@ -171,7 +171,7 @@ public class ExistingCustomField {
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("code") @Nonnull String code,
             @JsonProperty("required") @Nullable Boolean required,
-            @JsonProperty("type") @Nonnull CustomFieldType2 type,
+            @JsonProperty("type") @Nonnull CustomFieldType3 type,
             @JsonProperty("details") @Nullable ExistingCustomFieldDetails details,
             @JsonProperty("order") @Nullable Long order,
             @JsonProperty("helpText") @Nullable String helpText,
@@ -210,7 +210,7 @@ public class ExistingCustomField {
             @Nonnull CustomFieldCategory category,
             @Nonnull String name,
             @Nonnull String code,
-            @Nonnull CustomFieldType2 type) {
+            @Nonnull CustomFieldType3 type) {
         this(
                 null,
                 null,
@@ -293,7 +293,7 @@ public class ExistingCustomField {
      * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields
      * are read only.
      */
-    public CustomFieldType2 type() {
+    public CustomFieldType3 type() {
         return this.type;
     }
 
@@ -445,7 +445,7 @@ public class ExistingCustomField {
      * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields
      * are read only.
      */
-    public ExistingCustomField withType(@Nonnull CustomFieldType2 type) {
+    public ExistingCustomField withType(@Nonnull CustomFieldType3 type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
@@ -653,7 +653,7 @@ public class ExistingCustomField {
 
         private Boolean required;
 
-        private CustomFieldType2 type;
+        private CustomFieldType3 type;
 
         private ExistingCustomFieldDetails details;
 
@@ -747,7 +747,7 @@ public class ExistingCustomField {
          * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields
          * are read only.
          */
-        public Builder type(@Nonnull CustomFieldType2 type) {
+        public Builder type(@Nonnull CustomFieldType3 type) {
             this.type = Utils.checkNotNull(type, "type");
             return this;
         }

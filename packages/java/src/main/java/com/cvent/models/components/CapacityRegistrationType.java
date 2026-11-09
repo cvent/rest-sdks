@@ -14,11 +14,11 @@ import java.util.Optional;
 /**
  * CapacityRegistrationType
  *
- * <p>Registration type information
+ * <p>Registration type of the capacity.
  */
 public class CapacityRegistrationType {
     /**
-     * Registration type id
+     * Registration type ID.
      */
     @JsonProperty("id")
     private String id;
@@ -29,7 +29,7 @@ public class CapacityRegistrationType {
     }
 
     /**
-     * Registration type id
+     * Registration type ID.
      */
     public String id() {
         return this.id;
@@ -40,7 +40,7 @@ public class CapacityRegistrationType {
     }
 
     /**
-     * Registration type id
+     * Registration type ID.
      */
     public CapacityRegistrationType withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -79,7 +79,7 @@ public class CapacityRegistrationType {
         }
 
         /**
-         * Registration type id
+         * Registration type ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

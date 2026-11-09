@@ -41,7 +41,7 @@
 * [deleteExhibitorLogo](#deleteexhibitorlogo) - Delete Exhibitor Logo Image
 * [getLeadQualificationQuestions](#getleadqualificationquestions) - List Qualification Questions
 * [postRegistrationPack](#postregistrationpack) - Create Registration Pack
-* [getExhibitorRegistrationPacks](#getexhibitorregistrationpacks) - List Registration Pack
+* [getExhibitorRegistrationPacks](#getexhibitorregistrationpacks) - List Registration Packs
 * [getRegistrationPack](#getregistrationpack) - Get Registration Pack
 * [updateRegistrationPack](#updateregistrationpack) - Update Registration Pack
 * [deleteRegistrationPack](#deleteregistrationpack) - Delete Registration Pack
@@ -147,7 +147,7 @@ run();
 
 ## createExhibitorCategory
 
-Creates a single exhibitor category entity for an event.
+Creates an exhibitor category for an event.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -256,7 +256,7 @@ run();
 
 ## updateExhibitorCategory
 
-Updates data for a single exhibitor category entity.
+Updates an exhibitor category.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -367,7 +367,7 @@ run();
 
 ## deleteExhibitorCategory
 
-Deletes a single exhibitor Category entity.
+Deletes an exhibitor category.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -460,9 +460,9 @@ run();
 
 ## updateExhibitorCategoryBanner
 
-Assign a banner image to an exhibitor category with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if one is assigned.
+Assigns a banner image to an exhibitor category. The file ID comes from the [file upload](#operation/uploadFile) operation. The new image replaces the current banner image.
 
-**Note:** For category banner images we recommend images that are 900x300 pixels and 5MiB or smaller. File types supported are : JPEG, JPG, PNG, GIF.
+**Note:** The recommended category banner image is 900x300 pixels and 5 MiB or smaller. The supported file types are JPEG, JPG, PNG, and GIF.
 
 
 More about OAuth2 authorization code support for administrators
@@ -558,7 +558,7 @@ run();
 
 ## deleteExhibitorCategoryImage
 
-Deletes an exhibitor Category banner image.
+Deletes the banner image of an exhibitor category.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -653,7 +653,7 @@ run();
 
 ## listExhibitors
 
-Get a paginated list of exhibitors assigned to the provided exhibitor-category Id.
+Retrieves a paginated list of the exhibitors in an exhibitor category.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -752,7 +752,7 @@ run();
 
 ## addExhibitorToExhibitorCategory
 
-Assign an exhibitor ID to an exhibitor-category Id.
+Assigns an exhibitor to an exhibitor category.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -847,7 +847,7 @@ run();
 
 ## removeExhibitorFromExhibitorCategory
 
-delete an exhibitor from an exhibitor-category
+Removes an exhibitor from an exhibitor category.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -942,7 +942,7 @@ run();
 
 ## getExhibitorQuestions
 
-Gets a list of exhibitor questions for a given event id.
+Retrieves a list of the exhibitor questions of an event.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -1307,7 +1307,7 @@ run();
 
 ## getExhibitor
 
-Retrieves a single exhibitor entity for an event.
+Retrieves an exhibitor of an event.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -1400,7 +1400,7 @@ run();
 
 ## updateExhibitor
 
-Updates data for a single exhibitor entity.
+Updates an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -1573,7 +1573,7 @@ run();
 
 ## deleteExhibitor
 
-Deletes a single exhibitor entity. To be deleted, exhibitors must have no tasks, registrations, or LeadCapture licenses assigned and must not be a sponsored or featured exhibitor.
+Deletes an exhibitor. An exhibitor with an assigned task, registration, or LeadCapture license cannot be deleted. A sponsored or featured exhibitor cannot be deleted.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -1666,9 +1666,9 @@ run();
 
 ## updateExhibitorBanner
 
-Assign a banner image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if one is assigned.
+Assigns a banner image to an exhibitor. The file ID comes from the [file upload](#operation/uploadFile) operation. The new image replaces the current banner image.
 
-**Note:** For exhibitor profile banner images, we recommend images that are 1872x320 pixels or smaller images that have an aspect ratio of 5.85:1. File extensions supported: JPEG, JPG, PNG, GIF
+**Note:** The recommended size of an exhibitor profile banner image is 1872x320 pixels or smaller, with an aspect ratio of 5.85:1. The supported file types are JPEG, JPG, PNG, and GIF.
 
 
 More about OAuth2 authorization code support for administrators
@@ -1764,7 +1764,7 @@ run();
 
 ## deleteExhibitorBanner
 
-Deletes exhibitor banner image data
+Deletes the banner image of an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -1859,7 +1859,7 @@ run();
 
 ## getExhibitorAnswers
 
-Gets a list of answers to exhibitor questions for a given exhibitor id.
+Retrieves a list of the answers of an exhibitor to the exhibitor questions.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -1952,7 +1952,7 @@ run();
 
 ## updateExhibitorAnswers
 
-Updates answers to exhibitor questions for a given exhibitor id. The Planner can skip answering the questions marked as required for exhibitor admins.
+Updates the answers of an exhibitor to the exhibitor questions. A planner can skip a question that is required for exhibitor admins.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -2087,7 +2087,7 @@ run();
 
 ## listExhibitorCategories
 
-Get a paginated list of exhibitor-categories assigned to the provided exhibitor Id.
+Retrieves a paginated list of the exhibitor categories of an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -2186,9 +2186,9 @@ run();
 
 ## updateExhibitorLogo
 
-Assign a logo image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current logo image if one is assigned.
+Assigns a logo image to an exhibitor. The file ID comes from the [file upload](#operation/uploadFile) operation. The new image replaces the current logo image.
 
-**Note:**  For exhibitor profile logo images we recommend square images larger than 300x300 pixels. The file types supported are : JPEG, JPG, PNG, GIF
+**Note:** The recommended exhibitor profile logo image is a square image larger than 300x300 pixels. The supported file types are JPEG, JPG, PNG, and GIF.
 
 
 More about OAuth2 authorization code support for administrators
@@ -2284,7 +2284,7 @@ run();
 
 ## deleteExhibitorLogo
 
-Deletes exhibitor logo image data
+Deletes the logo image of an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -2379,7 +2379,7 @@ run();
 
 ## getLeadQualificationQuestions
 
-Retrieves a list of lead qualification questions associated with a single exhibitor at the given event.
+Retrieves a list of the lead qualification questions of an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -2472,7 +2472,7 @@ run();
 
 ## postRegistrationPack
 
-Create registration pack for an exhibitor
+Creates a registration pack for an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -2693,7 +2693,7 @@ run();
 
 ## getRegistrationPack
 
-Retrieves registration types allocated to an exhibitor, along with the count of registrations utilized.
+Retrieves the registration types that are allocated to an exhibitor, with the count of used registrations.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -2788,7 +2788,7 @@ run();
 
 ## updateRegistrationPack
 
-Update registration pack for an exhibitor
+Updates the registration pack of an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -2915,7 +2915,7 @@ run();
 
 ## deleteRegistrationPack
 
-Delete registration pack for an exhibitor
+Deletes the registration pack of an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -3011,7 +3011,7 @@ run();
 
 ## getSponsorshipLevels
 
-Gets a list of associated sponsorship levels for a single event.
+Retrieves a list of the sponsorship levels of an event.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -3102,7 +3102,7 @@ run();
 
 ## getSponsorshipLevel
 
-Retrieves associated sponsorship level data for a single sponsorship level ID.
+Retrieves a sponsorship level of an event.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>

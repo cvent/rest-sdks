@@ -30,9 +30,9 @@ import { Result } from "../types/fp.js";
  * Assign Exhibitor Banner Image
  *
  * @remarks
- * Assign a banner image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if one is assigned.
+ * Assigns a banner image to an exhibitor. The file ID comes from the [file upload](#operation/uploadFile) operation. The new image replaces the current banner image.
  *
- * **Note:** For exhibitor profile banner images, we recommend images that are 1872x320 pixels or smaller images that have an aspect ratio of 5.85:1. File extensions supported: JPEG, JPG, PNG, GIF
+ * **Note:** The recommended size of an exhibitor profile banner image is 1872x320 pixels or smaller, with an aspect ratio of 5.85:1. The supported file types are JPEG, JPG, PNG, and GIF.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

@@ -21,7 +21,7 @@ import java.util.Optional;
  */
 public class QuantityItem1 {
     /**
-     * The unique ID representing the optional item.
+     * Optional item ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -56,7 +56,7 @@ public class QuantityItem1 {
     private OptionalItemType type;
 
     /**
-     * Denotes the count of quantity item selected by an attendee during event registration.
+     * The number of this item selected by the attendee during event registration.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("quantity")
@@ -83,7 +83,7 @@ public class QuantityItem1 {
     }
 
     /**
-     * The unique ID representing the optional item.
+     * Optional item ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -118,7 +118,7 @@ public class QuantityItem1 {
     }
 
     /**
-     * Denotes the count of quantity item selected by an attendee during event registration.
+     * The number of this item selected by the attendee during event registration.
      */
     public Optional<Long> quantity() {
         return Optional.ofNullable(this.quantity);
@@ -129,7 +129,7 @@ public class QuantityItem1 {
     }
 
     /**
-     * The unique ID representing the optional item.
+     * Optional item ID.
      */
     public QuantityItem1 withId(@Nullable String id) {
         this.id = id;
@@ -169,7 +169,7 @@ public class QuantityItem1 {
     }
 
     /**
-     * Denotes the count of quantity item selected by an attendee during event registration.
+     * The number of this item selected by the attendee during event registration.
      */
     public QuantityItem1 withQuantity(@Nullable Long quantity) {
         this.quantity = quantity;
@@ -236,7 +236,7 @@ public class QuantityItem1 {
         }
 
         /**
-         * The unique ID representing the optional item.
+         * Optional item ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -276,7 +276,7 @@ public class QuantityItem1 {
         }
 
         /**
-         * Denotes the count of quantity item selected by an attendee during event registration.
+         * The number of this item selected by the attendee during event registration.
          */
         public Builder quantity(@Nullable Long quantity) {
             this.quantity = quantity;

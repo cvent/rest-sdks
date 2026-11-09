@@ -25,7 +25,7 @@ import java.util.Optional;
  */
 public class AccountUser {
     /**
-     * The identifier of the Account User.
+     * The account user's ID.
      */
     @JsonProperty("id")
     private String id;
@@ -38,7 +38,7 @@ public class AccountUser {
     private String platformUserId;
 
     /**
-     * The account user's username used to log into the account.
+     * The account user's username used to log in to the account.
      */
     @JsonProperty("username")
     private String username;
@@ -69,7 +69,7 @@ public class AccountUser {
     private String timezone;
 
     /**
-     * True indicates the account user is active. Active users can log into the account. Account users are
+     * True indicates the account user is active. Active users can log in to the account. Account users are
      * created with this flag set to false by default.
      */
     @JsonProperty("active")
@@ -90,7 +90,7 @@ public class AccountUser {
     private EmailVerified emailVerified;
 
     /**
-     * True indicates the account user is locked.
+     * True indicates the account user is locked out.
      */
     @JsonProperty("lockedOut")
     private boolean lockedOut;
@@ -241,7 +241,7 @@ public class AccountUser {
     }
 
     /**
-     * The identifier of the Account User.
+     * The account user's ID.
      */
     public String id() {
         return this.id;
@@ -255,7 +255,7 @@ public class AccountUser {
     }
 
     /**
-     * The account user's username used to log into the account.
+     * The account user's username used to log in to the account.
      */
     public String username() {
         return this.username;
@@ -290,7 +290,7 @@ public class AccountUser {
     }
 
     /**
-     * True indicates the account user is active. Active users can log into the account. Account users are
+     * True indicates the account user is active. Active users can log in to the account. Account users are
      * created with this flag set to false by default.
      */
     public boolean active() {
@@ -314,7 +314,7 @@ public class AccountUser {
     }
 
     /**
-     * True indicates the account user is locked.
+     * True indicates the account user is locked out.
      */
     public boolean lockedOut() {
         return this.lockedOut;
@@ -392,7 +392,7 @@ public class AccountUser {
     }
 
     /**
-     * The identifier of the Account User.
+     * The account user's ID.
      */
     public AccountUser withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -408,7 +408,7 @@ public class AccountUser {
     }
 
     /**
-     * The account user's username used to log into the account.
+     * The account user's username used to log in to the account.
      */
     public AccountUser withUsername(@Nonnull String username) {
         this.username = Utils.checkNotNull(username, "username");
@@ -448,7 +448,7 @@ public class AccountUser {
     }
 
     /**
-     * True indicates the account user is active. Active users can log into the account. Account users are
+     * True indicates the account user is active. Active users can log in to the account. Account users are
      * created with this flag set to false by default.
      */
     public AccountUser withActive(boolean active) {
@@ -475,7 +475,7 @@ public class AccountUser {
     }
 
     /**
-     * True indicates the account user is locked.
+     * True indicates the account user is locked out.
      */
     public AccountUser withLockedOut(boolean lockedOut) {
         this.lockedOut = lockedOut;
@@ -694,7 +694,7 @@ public class AccountUser {
         }
 
         /**
-         * The identifier of the Account User.
+         * The account user's ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -710,7 +710,7 @@ public class AccountUser {
         }
 
         /**
-         * The account user's username used to log into the account.
+         * The account user's username used to log in to the account.
          */
         public Builder username(@Nonnull String username) {
             this.username = Utils.checkNotNull(username, "username");
@@ -750,7 +750,7 @@ public class AccountUser {
         }
 
         /**
-         * True indicates the account user is active. Active users can log into the account. Account users are
+         * True indicates the account user is active. Active users can log in to the account. Account users are
          * created with this flag set to false by default.
          */
         public Builder active(boolean active) {
@@ -777,7 +777,7 @@ public class AccountUser {
         }
 
         /**
-         * True indicates the account user is locked.
+         * True indicates the account user is locked out.
          */
         public Builder lockedOut(boolean lockedOut) {
             this.lockedOut = lockedOut;

@@ -6,14 +6,14 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Badge type
+ * Type of the badge.
  */
 export const BadgeType = {
   Epc: "Epc",
   Qr: "Qr",
 } as const;
 /**
- * Badge type
+ * Type of the badge.
  */
 export type BadgeType = ClosedEnum<typeof BadgeType>;
 

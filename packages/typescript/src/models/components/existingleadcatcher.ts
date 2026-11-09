@@ -52,7 +52,7 @@ export type ExistingLeadCatcher = {
    */
   title?: string | undefined;
   /**
-   * Email address of the lead catcher contact. RFP notifications are sent to this address.
+   * Email address of the lead catcher contact. RFP notifications are sent to this address. Maximum 80 characters in total, with no more than 64 characters before the `@`.
    */
   email: string;
   /**

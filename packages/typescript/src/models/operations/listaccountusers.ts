@@ -15,7 +15,7 @@ export type ListAccountUsersRequest = {
    *
    * @remarks
    *
-   * Fields that may contain personally identifiable information (PII) are excluded from this filter query parameter.
+   * Fields that may contain personally identifiable information (PII) are excluded from this filter query parameter; to filter on those fields, use the [List Account Users](#operation/listAccountUsersFilter) (`POST /users/filter`) endpoint.
    *
    * ## Supported Account Users Filters:
    *

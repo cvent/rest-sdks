@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Badge status
+ * Status of the badge.
  */
 export const BadgeStatus = {
   Assigned: "Assigned",
@@ -15,7 +15,7 @@ export const BadgeStatus = {
   Deleted: "Deleted",
 } as const;
 /**
- * Badge status
+ * Status of the badge.
  */
 export type BadgeStatus = ClosedEnum<typeof BadgeStatus>;
 

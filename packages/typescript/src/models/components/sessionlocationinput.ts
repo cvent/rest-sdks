@@ -5,7 +5,7 @@
 import * as z from "zod/v3";
 
 /**
- * Used to denote a sessions location.
+ * A location associated with a session, with a code and name. The response may include its read-only ID.
  */
 export type SessionLocationInput = {
   /**

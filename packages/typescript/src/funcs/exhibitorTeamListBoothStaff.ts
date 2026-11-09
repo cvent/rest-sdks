@@ -36,7 +36,7 @@ import {
  * List Booth Staff
  *
  * @remarks
- * Gets a list of booth staff members for a given event and exhibitor id.
+ * Retrieves a list of the booth staff members of an exhibitor.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Create Exhibitor Category
  *
  * @remarks
- * Creates a single exhibitor category entity for an event.
+ * Creates an exhibitor category for an event.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

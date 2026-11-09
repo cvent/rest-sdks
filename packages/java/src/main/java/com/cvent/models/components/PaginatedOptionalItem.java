@@ -15,7 +15,7 @@ import java.util.Optional;
 /**
  * PaginatedOptionalItem
  *
- * <p>Optional Item fetch results.
+ * <p>A paginated collection of optional items selected by an attendee during event registration.
  */
 public class PaginatedOptionalItem {
     /**

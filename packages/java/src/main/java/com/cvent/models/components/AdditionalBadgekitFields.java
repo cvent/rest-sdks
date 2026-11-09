@@ -11,7 +11,7 @@ import java.lang.String;
 /**
  * AdditionalBadgekitFields
  *
- * <p>Map containing extra properties from badgekit provider
+ * <p>Map of the additional properties from the badgekit provider.
  */
 public class AdditionalBadgekitFields {
     @JsonCreator

@@ -8,7 +8,7 @@ import * as components from "../components/index.js";
 
 export type UpdateSessionRequest = {
   /**
-   * Unique Id of a session
+   * Unique ID of a session
    */
   id: string;
   /**

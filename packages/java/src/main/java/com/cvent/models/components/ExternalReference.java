@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * ExternalReference
  *
- * <p>An external reference.
+ * <p>An external reference linking the attendee to a record in an external system.
  */
 public class ExternalReference {
     /**
@@ -27,14 +27,14 @@ public class ExternalReference {
     private ExternalReferenceType type;
 
     /**
-     * The identifier of the external system.
+     * External system ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * The identifier of an attendee in the external system.
+     * Attendee ID in the external system.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("referenceId")
@@ -62,14 +62,14 @@ public class ExternalReference {
     }
 
     /**
-     * The identifier of the external system.
+     * External system ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * The identifier of an attendee in the external system.
+     * Attendee ID in the external system.
      */
     public Optional<String> referenceId() {
         return Optional.ofNullable(this.referenceId);
@@ -88,7 +88,7 @@ public class ExternalReference {
     }
 
     /**
-     * The identifier of the external system.
+     * External system ID.
      */
     public ExternalReference withId(@Nullable String id) {
         this.id = id;
@@ -96,7 +96,7 @@ public class ExternalReference {
     }
 
     /**
-     * The identifier of an attendee in the external system.
+     * Attendee ID in the external system.
      */
     public ExternalReference withReferenceId(@Nullable String referenceId) {
         this.referenceId = referenceId;
@@ -149,7 +149,7 @@ public class ExternalReference {
         }
 
         /**
-         * The identifier of the external system.
+         * External system ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -157,7 +157,7 @@ public class ExternalReference {
         }
 
         /**
-         * The identifier of an attendee in the external system.
+         * Attendee ID in the external system.
          */
         public Builder referenceId(@Nullable String referenceId) {
             this.referenceId = referenceId;

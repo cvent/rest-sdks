@@ -434,6 +434,10 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "event/role-assignments:read"
   /**
+   * Allows the creation and deletion of event role assignments.
+   */
+  | "event/role-assignments:write"
+  /**
    * Allows the reading of sessions attendance
    */
   | "event/session-attendance:read"
@@ -1409,6 +1413,10 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    * Allows the reading of event role assignment.
    */
   | "event/role-assignments:read"
+  /**
+   * Allows the creation and deletion of event role assignments.
+   */
+  | "event/role-assignments:write"
   /**
    * Allows the reading of sessions attendance
    */

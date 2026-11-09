@@ -1,6 +1,6 @@
 # BadgeType
 
-Badge type
+Type of the badge.
 
 ## Example Usage
 

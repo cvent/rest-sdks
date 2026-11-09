@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * AttendeeUpdateAdministrator
  *
- * <p>The ID of the administrator contact whom registered this attendee.
+ * <p>The administrator contact who registered this attendee.
  */
 public class AttendeeUpdateAdministrator {
     /**

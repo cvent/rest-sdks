@@ -1,6 +1,6 @@
 # LeadsPaginatedResponse
 
-A paginated response of leads.
+Paginated list of leads.
 
 ## Example Usage
 
@@ -54,7 +54,7 @@ let value: LeadsPaginatedResponse = {
       title: "Mr.",
       firstName: "Henry",
       lastName: "Potterfield",
-      email: "h.potterfield@test.com",
+      email: "h.potterfield@example.com",
       company: "Cvent Inc",
       mobilePhone: "555-555-5555",
       homeAddress: {
@@ -94,4 +94,4 @@ let value: LeadsPaginatedResponse = {
 | Field                                                            | Type                                                             | Required                                                         | Description                                                      |
 | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
 | `paging`                                                         | [components.Paging](../../models/components/paging.md)           | :heavy_minus_sign:                                               | Represents pagination information for a collection of resources. |
-| `data`                                                           | [components.Lead](../../models/components/lead.md)[]             | :heavy_minus_sign:                                               | Collection of leads.                                             |
+| `data`                                                           | [components.Lead](../../models/components/lead.md)[]             | :heavy_minus_sign:                                               | List of leads.                                                   |

@@ -27,10 +27,10 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Delete Booth Staff member
+ * Delete Booth Staff Member
  *
  * @remarks
- * Disassociate a single booth staff member from a single exhibitor.
+ * Disassociates a booth staff member from an exhibitor.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

@@ -16,7 +16,7 @@ namespace Cvent.SDK.Models.Requests
     public class GetAttendeeByIdRequest
     {
         /// <summary>
-        /// The unique ID of an attendee.
+        /// Attendee ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;

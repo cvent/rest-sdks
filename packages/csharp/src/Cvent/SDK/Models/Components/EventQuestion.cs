@@ -89,7 +89,7 @@ namespace Cvent.SDK.Models.Components
         /// This object represents the type of a question.
         /// </summary>
         [JsonProperty("type")]
-        public QuestionType2? Type { get; set; }
+        public QuestionType3? Type { get; set; }
 
         /// <summary>
         /// Optional description to provide additional context of the question.

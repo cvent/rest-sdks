@@ -32,16 +32,16 @@ public class EventQuestionChoicesResponse {
      * Collection of choices for a choice question.
      */
     @JsonProperty("data")
-    private List<Choice2> data;
+    private List<Choice3> data;
 
     @JsonCreator
     public EventQuestionChoicesResponse(
-            @JsonProperty("paging") @Nullable Paging paging, @JsonProperty("data") @Nonnull List<Choice2> data) {
+            @JsonProperty("paging") @Nullable Paging paging, @JsonProperty("data") @Nonnull List<Choice3> data) {
         this.paging = paging;
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
-    public EventQuestionChoicesResponse(@Nonnull List<Choice2> data) {
+    public EventQuestionChoicesResponse(@Nonnull List<Choice3> data) {
         this(null, data);
     }
 
@@ -55,7 +55,7 @@ public class EventQuestionChoicesResponse {
     /**
      * Collection of choices for a choice question.
      */
-    public List<Choice2> data() {
+    public List<Choice3> data() {
         return this.data;
     }
 
@@ -74,7 +74,7 @@ public class EventQuestionChoicesResponse {
     /**
      * Collection of choices for a choice question.
      */
-    public EventQuestionChoicesResponse withData(@Nonnull List<Choice2> data) {
+    public EventQuestionChoicesResponse withData(@Nonnull List<Choice3> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -106,7 +106,7 @@ public class EventQuestionChoicesResponse {
 
         private Paging paging;
 
-        private List<Choice2> data;
+        private List<Choice3> data;
 
         private Builder() {
             // force use of static builder() method
@@ -123,7 +123,7 @@ public class EventQuestionChoicesResponse {
         /**
          * Collection of choices for a choice question.
          */
-        public Builder data(@Nonnull List<Choice2> data) {
+        public Builder data(@Nonnull List<Choice3> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

@@ -16,25 +16,25 @@ import java.util.Optional;
 /**
  * Choice1
  *
- * <p>A schema representing a choice object
+ * <p>Choice of a lead qualification question.
  */
 public class Choice1 {
     /**
-     * Unique identifier for the choice
+     * Choice ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * Text value of the field
+     * Text of the choice.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("text")
     private String text;
 
     /**
-     * Label of choice
+     * Label of the choice.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("label")
@@ -55,21 +55,21 @@ public class Choice1 {
     }
 
     /**
-     * Unique identifier for the choice
+     * Choice ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * Text value of the field
+     * Text of the choice.
      */
     public Optional<String> text() {
         return Optional.ofNullable(this.text);
     }
 
     /**
-     * Label of choice
+     * Label of the choice.
      */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
@@ -80,7 +80,7 @@ public class Choice1 {
     }
 
     /**
-     * Unique identifier for the choice
+     * Choice ID.
      */
     public Choice1 withId(@Nullable String id) {
         this.id = id;
@@ -88,7 +88,7 @@ public class Choice1 {
     }
 
     /**
-     * Text value of the field
+     * Text of the choice.
      */
     public Choice1 withText(@Nullable String text) {
         this.text = text;
@@ -96,7 +96,7 @@ public class Choice1 {
     }
 
     /**
-     * Label of choice
+     * Label of the choice.
      */
     public Choice1 withLabel(@Nullable String label) {
         this.label = label;
@@ -141,7 +141,7 @@ public class Choice1 {
         }
 
         /**
-         * Unique identifier for the choice
+         * Choice ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -149,7 +149,7 @@ public class Choice1 {
         }
 
         /**
-         * Text value of the field
+         * Text of the choice.
          */
         public Builder text(@Nullable String text) {
             this.text = text;
@@ -157,7 +157,7 @@ public class Choice1 {
         }
 
         /**
-         * Label of choice
+         * Label of the choice.
          */
         public Builder label(@Nullable String label) {
             this.label = label;

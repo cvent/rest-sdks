@@ -95,7 +95,7 @@ public class EventSurveyRespondent {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("respondedThrough")
-    private RespondedThroughJson respondedThrough;
+    private RespondedThrough respondedThrough;
 
     /**
      * Reference ids are used to track where response is coming from. Survey Author can create multiple
@@ -145,7 +145,7 @@ public class EventSurveyRespondent {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private EventJson1 event;
+    private Event5 event;
 
     /**
      * Associated attendee.
@@ -166,7 +166,7 @@ public class EventSurveyRespondent {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("surveys")
-    private List<RespondentEventSurveyReferenceJson> surveys;
+    private List<RespondentEventSurveyReference> surveys;
 
     @JsonCreator
     public EventSurveyRespondent(
@@ -178,17 +178,17 @@ public class EventSurveyRespondent {
             @JsonProperty("responseCode") @Nullable String responseCode,
             @JsonProperty("responseDuration") @Nullable Double responseDuration,
             @JsonProperty("localeId") @Nullable String localeId,
-            @JsonProperty("respondedThrough") @Nullable RespondedThroughJson respondedThrough,
+            @JsonProperty("respondedThrough") @Nullable RespondedThrough respondedThrough,
             @JsonProperty("referenceId") @Nullable String referenceId,
             @JsonProperty("score") @Nullable Double score,
             @JsonProperty("maxPossibleScore") @Nullable Double maxPossibleScore,
             @JsonProperty("percentageScore") @Nullable Double percentageScore,
             @JsonProperty("_links") @Nullable EventSurveyRespondentLinks links,
             @JsonProperty("sourceId") @Nullable String sourceId,
-            @JsonProperty("event") @Nullable EventJson1 event,
+            @JsonProperty("event") @Nullable Event5 event,
             @JsonProperty("attendee") @Nullable EventSurveyRespondentAttendee attendee,
             @JsonProperty("contact") @Nullable EventSurveyRespondentContact contact,
-            @JsonProperty("surveys") @Nullable List<RespondentEventSurveyReferenceJson> surveys) {
+            @JsonProperty("surveys") @Nullable List<RespondentEventSurveyReference> surveys) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -304,7 +304,7 @@ public class EventSurveyRespondent {
      * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is
      * deprecated.
      */
-    public Optional<RespondedThroughJson> respondedThrough() {
+    public Optional<RespondedThrough> respondedThrough() {
         return Optional.ofNullable(this.respondedThrough);
     }
 
@@ -354,7 +354,7 @@ public class EventSurveyRespondent {
     /**
      * Detail object of an event which is associated to a survey.
      */
-    public Optional<EventJson1> event() {
+    public Optional<Event5> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -375,7 +375,7 @@ public class EventSurveyRespondent {
     /**
      * List of associated surveys.
      */
-    public Optional<List<RespondentEventSurveyReferenceJson>> surveys() {
+    public Optional<List<RespondentEventSurveyReference>> surveys() {
         return Optional.ofNullable(this.surveys);
     }
 
@@ -462,7 +462,7 @@ public class EventSurveyRespondent {
      * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is
      * deprecated.
      */
-    public EventSurveyRespondent withRespondedThrough(@Nullable RespondedThroughJson respondedThrough) {
+    public EventSurveyRespondent withRespondedThrough(@Nullable RespondedThrough respondedThrough) {
         this.respondedThrough = respondedThrough;
         return this;
     }
@@ -519,7 +519,7 @@ public class EventSurveyRespondent {
     /**
      * Detail object of an event which is associated to a survey.
      */
-    public EventSurveyRespondent withEvent(@Nullable EventJson1 event) {
+    public EventSurveyRespondent withEvent(@Nullable Event5 event) {
         this.event = event;
         return this;
     }
@@ -543,7 +543,7 @@ public class EventSurveyRespondent {
     /**
      * List of associated surveys.
      */
-    public EventSurveyRespondent withSurveys(@Nullable List<RespondentEventSurveyReferenceJson> surveys) {
+    public EventSurveyRespondent withSurveys(@Nullable List<RespondentEventSurveyReference> surveys) {
         this.surveys = surveys;
         return this;
     }
@@ -665,7 +665,7 @@ public class EventSurveyRespondent {
 
         private String localeId;
 
-        private RespondedThroughJson respondedThrough;
+        private RespondedThrough respondedThrough;
 
         private String referenceId;
 
@@ -679,13 +679,13 @@ public class EventSurveyRespondent {
 
         private String sourceId;
 
-        private EventJson1 event;
+        private Event5 event;
 
         private EventSurveyRespondentAttendee attendee;
 
         private EventSurveyRespondentContact contact;
 
-        private List<RespondentEventSurveyReferenceJson> surveys;
+        private List<RespondentEventSurveyReference> surveys;
 
         private Builder() {
             // force use of static builder() method
@@ -770,7 +770,7 @@ public class EventSurveyRespondent {
          * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is
          * deprecated.
          */
-        public Builder respondedThrough(@Nullable RespondedThroughJson respondedThrough) {
+        public Builder respondedThrough(@Nullable RespondedThrough respondedThrough) {
             this.respondedThrough = respondedThrough;
             return this;
         }
@@ -827,7 +827,7 @@ public class EventSurveyRespondent {
         /**
          * Detail object of an event which is associated to a survey.
          */
-        public Builder event(@Nullable EventJson1 event) {
+        public Builder event(@Nullable Event5 event) {
             this.event = event;
             return this;
         }
@@ -851,7 +851,7 @@ public class EventSurveyRespondent {
         /**
          * List of associated surveys.
          */
-        public Builder surveys(@Nullable List<RespondentEventSurveyReferenceJson> surveys) {
+        public Builder surveys(@Nullable List<RespondentEventSurveyReference> surveys) {
             this.surveys = surveys;
             return this;
         }

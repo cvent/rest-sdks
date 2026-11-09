@@ -21,7 +21,7 @@ import java.util.Optional;
 /**
  * ExistingMember
  *
- * <p>An existing member.
+ * <p>An Events+ hub member with an ID and profile details.
  */
 public class ExistingMember {
     /**

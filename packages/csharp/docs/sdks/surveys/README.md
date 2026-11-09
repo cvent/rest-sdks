@@ -284,7 +284,7 @@ CreateEventSurveyRespondentRequest req = new CreateEventSurveyRespondentRequest(
     SurveyId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     EventSurveyRespondent = new EventSurveyRespondentInput() {
         LocaleId = "en-US",
-        RespondedThrough = RespondedThroughJson.Api,
+        RespondedThrough = RespondedThrough.Api,
         ReferenceId = "facebook",
         SourceId = "IN4IDS1",
         Attendee = new EventSurveyRespondentAttendee() {
@@ -342,7 +342,7 @@ UpdateEventSurveyRespondentRequest req = new UpdateEventSurveyRespondentRequest(
     RespondentId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     EventSurveyRespondent = new EventSurveyRespondentInput() {
         LocaleId = "en-US",
-        RespondedThrough = RespondedThroughJson.Api,
+        RespondedThrough = RespondedThrough.Api,
         ReferenceId = "facebook",
         SourceId = "IN4IDS1",
         Attendee = new EventSurveyRespondentAttendee() {
@@ -400,34 +400,34 @@ CreateEventSurveyResponsesRequest req = new CreateEventSurveyResponsesRequest() 
     SurveyId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     RespondentId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     EventSurveyResponse = new EventSurveyResponseInput() {
-        Question = new UuidJson() {
+        Question = new Uuid() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Answers = new List<AnswerJson>() {
-            new AnswerJson() {
-                Type = AnswerTypeJson.ChoiceText,
+        Answers = new List<Answer11>() {
+            new Answer11() {
+                Type = AnswerType2.ChoiceText,
                 Value = "1",
-                Choice = new UuidJson() {
+                Choice = new Uuid() {
                     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
                 },
-                Category = new UuidJson() {
+                Category = new Uuid() {
                     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
                 },
-                SubCategory = new UuidJson() {
+                SubCategory = new Uuid() {
                     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
                 },
-                Field = new UuidJson() {
+                Field = new Uuid() {
                     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
                 },
             },
         },
-        Survey = new UuidJson() {
+        Survey = new Uuid() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Session = new UuidJson() {
+        Session = new Uuid() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Speaker = new UuidJson() {
+        Speaker = new Uuid() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
     },
@@ -1037,14 +1037,14 @@ CreateStandardSurveyRespondentRequest req = new CreateStandardSurveyRespondentRe
     SurveyId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     StandardSurveyRespondent = new StandardSurveyRespondentInput() {
         LocaleId = "en-US",
-        RespondedThrough = RespondedThroughJson.Api,
+        RespondedThrough = RespondedThrough.Api,
         ReferenceId = "facebook",
         SourceId = "IN4IDS1",
         Contact = new StandardSurveyRespondentContact() {
             Id = "9463c74e-18c6-401a-a710-ae0f485bf059",
         },
-        Status = RespondentStatusJson.NoResponse,
-        InvitationList = new InvitationListCommonJson() {
+        Status = RespondentStatus.NoResponse,
+        InvitationList = new InvitationListCommon() {
             Id = "9463c74e-18c6-401a-a710-ae0f485bf059",
         },
         TransactionId = "TR5IDS4",
@@ -1099,14 +1099,14 @@ UpdateStandardSurveyRespondentRequest req = new UpdateStandardSurveyRespondentRe
     RespondentId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     StandardSurveyRespondent = new StandardSurveyRespondentInput() {
         LocaleId = "en-US",
-        RespondedThrough = RespondedThroughJson.Api,
+        RespondedThrough = RespondedThrough.Api,
         ReferenceId = "facebook",
         SourceId = "IN4IDS1",
         Contact = new StandardSurveyRespondentContact() {
             Id = "9463c74e-18c6-401a-a710-ae0f485bf059",
         },
-        Status = RespondentStatusJson.NoResponse,
-        InvitationList = new InvitationListCommonJson() {
+        Status = RespondentStatus.NoResponse,
+        InvitationList = new InvitationListCommon() {
             Id = "9463c74e-18c6-401a-a710-ae0f485bf059",
         },
         TransactionId = "TR5IDS4",
@@ -1210,14 +1210,14 @@ CreateStandardSurveyResponsesRequest req = new CreateStandardSurveyResponsesRequ
     SurveyId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     RespondentId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     StandardSurveyResponse = new StandardSurveyResponseInput() {
-        Question = new UuidJson() {
+        Question = new Uuid() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Answers = new List<AnswerJson>() {},
-        Survey = new UuidJson() {
+        Answers = new List<Answer11>() {},
+        Survey = new Uuid() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        LoopingChoice = new LoopingChoiceJson() {
+        LoopingChoice = new LoopingChoice() {
             Id = "9463c74e-18c6-401a-a710-ae0f485bf059",
         },
     },
@@ -1272,31 +1272,31 @@ UpdateStandardSurveyResponsesRequest req = new UpdateStandardSurveyResponsesRequ
     RespondentId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     ResponseId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     StandardSurveyResponse = new StandardSurveyResponseInput() {
-        Question = new UuidJson() {
+        Question = new Uuid() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Answers = new List<AnswerJson>() {
-            new AnswerJson() {
-                Type = AnswerTypeJson.ChoiceText,
+        Answers = new List<Answer11>() {
+            new Answer11() {
+                Type = AnswerType2.ChoiceText,
                 Value = "1",
-                Choice = new UuidJson() {
+                Choice = new Uuid() {
                     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
                 },
-                Category = new UuidJson() {
+                Category = new Uuid() {
                     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
                 },
-                SubCategory = new UuidJson() {
+                SubCategory = new Uuid() {
                     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
                 },
-                Field = new UuidJson() {
+                Field = new Uuid() {
                     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
                 },
             },
         },
-        Survey = new UuidJson() {
+        Survey = new Uuid() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        LoopingChoice = new LoopingChoiceJson() {
+        LoopingChoice = new LoopingChoice() {
             Id = "9463c74e-18c6-401a-a710-ae0f485bf059",
         },
     },

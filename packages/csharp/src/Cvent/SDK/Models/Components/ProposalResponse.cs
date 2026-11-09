@@ -133,7 +133,7 @@ namespace Cvent.SDK.Models.Components
         /// List of all sleeping rooms offered in the proposal.
         /// </summary>
         [JsonProperty("sleepingRooms")]
-        public List<SleepingRoom1>? SleepingRooms { get; set; }
+        public List<SleepingRoom2>? SleepingRooms { get; set; }
 
         /// <summary>
         /// Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by vendors, and the vendor marketplace is sunset.

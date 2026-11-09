@@ -10,11 +10,11 @@ import {
 } from "./categoryid.js";
 
 /**
- * Holds fields that can be applied to a session speaker assignment.
+ * Optional speaker category and preferred position for a speaker assigned to a session.
  */
 export type SessionSpeakerAssignment = {
   /**
-   * An object that holds the id for a category
+   * A reference to a category by its ID.
    */
   speakerCategory?: CategoryId | undefined;
   /**

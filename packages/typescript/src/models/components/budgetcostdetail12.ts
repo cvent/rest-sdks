@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BudgetCategory,
-  BudgetCategory$inboundSchema,
-} from "./budgetcategory.js";
+  BudgetCategory1,
+  BudgetCategory1$inboundSchema,
+} from "./budgetcategory1.js";
 import {
   BudgetSubCategory,
   BudgetSubCategory$inboundSchema,
@@ -22,7 +22,7 @@ export type BudgetCostDetail12 = {
   /**
    * Denotes the category assigned to the budget item.
    */
-  category?: BudgetCategory | undefined;
+  category?: BudgetCategory1 | undefined;
   /**
    * This is used to denote the sub category for a budget.
    */
@@ -47,7 +47,7 @@ export const BudgetCostDetail12$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  category: BudgetCategory$inboundSchema.optional(),
+  category: BudgetCategory1$inboundSchema.optional(),
   subCategory: BudgetSubCategory$inboundSchema.optional(),
   units: z.number().optional(),
   cost: z.number().optional(),

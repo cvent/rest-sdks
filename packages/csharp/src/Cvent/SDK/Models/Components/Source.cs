@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// The source of entry for the lead.
+    /// Source of the lead entry.
     /// </summary>
     public enum Source
     {

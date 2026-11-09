@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * TranscriptionStatus
  *
- * <p>Current status of business card transcription
+ * <p>Status of the business card transcription.
  */
 public enum TranscriptionStatus {
     PENDING("pending"),

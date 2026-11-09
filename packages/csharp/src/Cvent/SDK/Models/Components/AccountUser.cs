@@ -20,7 +20,7 @@ namespace Cvent.SDK.Models.Components
     public class AccountUser
     {
         /// <summary>
-        /// The identifier of the Account User.
+        /// The account user's ID.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
@@ -32,7 +32,7 @@ namespace Cvent.SDK.Models.Components
         public string? PlatformUserId { get; set; }
 
         /// <summary>
-        /// The account user's username used to log into the account.
+        /// The account user's username used to log in to the account.
         /// </summary>
         [JsonProperty("username")]
         public string Username { get; set; } = default!;
@@ -62,7 +62,7 @@ namespace Cvent.SDK.Models.Components
         public string Timezone { get; set; } = default!;
 
         /// <summary>
-        /// True indicates the account user is active. Active users can log into the account. Account users are created with this flag set to false by default.
+        /// True indicates the account user is active. Active users can log in to the account. Account users are created with this flag set to false by default.
         /// </summary>
         [JsonProperty("active")]
         public bool Active { get; set; } = default!;
@@ -80,7 +80,7 @@ namespace Cvent.SDK.Models.Components
         public EmailVerified EmailVerified { get; set; } = default!;
 
         /// <summary>
-        /// True indicates the account user is locked.
+        /// True indicates the account user is locked out.
         /// </summary>
         [JsonProperty("lockedOut")]
         public bool LockedOut { get; set; } = default!;

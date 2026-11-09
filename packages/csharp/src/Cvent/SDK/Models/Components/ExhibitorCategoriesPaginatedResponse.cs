@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// The response object containing the paginated list of exhibitor categories.
+    /// Paginated list of exhibitor categories.
     /// </summary>
     public class ExhibitorCategoriesPaginatedResponse
     {

@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// An object representing the request for exhibitor answers.
+    /// Exhibitor answers to update.
     /// </summary>
     public class ExhibitorAnswersRequest
     {

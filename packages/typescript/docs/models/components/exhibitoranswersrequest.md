@@ -1,6 +1,6 @@
 # ExhibitorAnswersRequest
 
-An object representing the request for exhibitor answers.
+Exhibitor answers to update.
 
 ## Example Usage
 

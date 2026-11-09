@@ -24,14 +24,14 @@ public class StandardSurveySendEmailResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("survey")
-    private Survey survey;
+    private StandardSurveySendEmailResponseSurvey survey;
 
     /**
      * Respondent of response.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("respondent")
-    private Respondent respondent;
+    private StandardSurveySendEmailResponseRespondent respondent;
 
     /**
      * Email template used.
@@ -42,8 +42,8 @@ public class StandardSurveySendEmailResponse {
 
     @JsonCreator
     public StandardSurveySendEmailResponse(
-            @JsonProperty("survey") @Nullable Survey survey,
-            @JsonProperty("respondent") @Nullable Respondent respondent,
+            @JsonProperty("survey") @Nullable StandardSurveySendEmailResponseSurvey survey,
+            @JsonProperty("respondent") @Nullable StandardSurveySendEmailResponseRespondent respondent,
             @JsonProperty("emailTemplate") @Nullable EmailTemplate emailTemplate) {
         this.survey = survey;
         this.respondent = respondent;
@@ -57,14 +57,14 @@ public class StandardSurveySendEmailResponse {
     /**
      * Survey of response.
      */
-    public Optional<Survey> survey() {
+    public Optional<StandardSurveySendEmailResponseSurvey> survey() {
         return Optional.ofNullable(this.survey);
     }
 
     /**
      * Respondent of response.
      */
-    public Optional<Respondent> respondent() {
+    public Optional<StandardSurveySendEmailResponseRespondent> respondent() {
         return Optional.ofNullable(this.respondent);
     }
 
@@ -82,7 +82,7 @@ public class StandardSurveySendEmailResponse {
     /**
      * Survey of response.
      */
-    public StandardSurveySendEmailResponse withSurvey(@Nullable Survey survey) {
+    public StandardSurveySendEmailResponse withSurvey(@Nullable StandardSurveySendEmailResponseSurvey survey) {
         this.survey = survey;
         return this;
     }
@@ -90,7 +90,8 @@ public class StandardSurveySendEmailResponse {
     /**
      * Respondent of response.
      */
-    public StandardSurveySendEmailResponse withRespondent(@Nullable Respondent respondent) {
+    public StandardSurveySendEmailResponse withRespondent(
+            @Nullable StandardSurveySendEmailResponseRespondent respondent) {
         this.respondent = respondent;
         return this;
     }
@@ -137,9 +138,9 @@ public class StandardSurveySendEmailResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private Survey survey;
+        private StandardSurveySendEmailResponseSurvey survey;
 
-        private Respondent respondent;
+        private StandardSurveySendEmailResponseRespondent respondent;
 
         private EmailTemplate emailTemplate;
 
@@ -150,7 +151,7 @@ public class StandardSurveySendEmailResponse {
         /**
          * Survey of response.
          */
-        public Builder survey(@Nullable Survey survey) {
+        public Builder survey(@Nullable StandardSurveySendEmailResponseSurvey survey) {
             this.survey = survey;
             return this;
         }
@@ -158,7 +159,7 @@ public class StandardSurveySendEmailResponse {
         /**
          * Respondent of response.
          */
-        public Builder respondent(@Nullable Respondent respondent) {
+        public Builder respondent(@Nullable StandardSurveySendEmailResponseRespondent respondent) {
             this.respondent = respondent;
             return this;
         }

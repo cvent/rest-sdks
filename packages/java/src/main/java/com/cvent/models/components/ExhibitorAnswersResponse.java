@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * ExhibitorAnswersResponse
  *
- * <p>A response object containing a list of exhibitor question answers.
+ * <p>List of exhibitor answers.
  */
 public class ExhibitorAnswersResponse {
     /**

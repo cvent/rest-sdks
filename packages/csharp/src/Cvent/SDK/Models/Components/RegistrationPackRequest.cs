@@ -20,19 +20,19 @@ namespace Cvent.SDK.Models.Components
     public class RegistrationPackRequest
     {
         /// <summary>
-        /// The Associated Event.
+        /// Associated event.
         /// </summary>
         [JsonProperty("event")]
         public Event4 Event { get; set; } = default!;
 
         /// <summary>
-        /// The Associated Exhibitor.
+        /// Associated exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
         public Models.Components.Exhibitor Exhibitor { get; set; } = default!;
 
         /// <summary>
-        /// An array of capacities for the registration pack.
+        /// List of the capacities of the registration pack.
         /// </summary>
         [JsonProperty("capacities")]
         public List<Capacity> Capacities { get; set; } = default!;

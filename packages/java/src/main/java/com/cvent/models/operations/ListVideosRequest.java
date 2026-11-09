@@ -18,14 +18,14 @@ import java.util.Optional;
 
 public class ListVideosRequest {
     /**
-     * Used to query records that have been added or updated after this time point. Default to the
-     * beginning of time of the data store.
+     * Returns records created or updated **on or after** this date and time. Defaults to the beginning of
+     * the data store's time range.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=after")
     private OffsetDateTime after;
 
     /**
-     * Used to query records that have been added or updated before this time point.
+     * Returns records created or updated **strictly before** this date and time.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=before")
     private OffsetDateTime before;
@@ -98,15 +98,15 @@ public class ListVideosRequest {
     }
 
     /**
-     * Used to query records that have been added or updated after this time point. Default to the
-     * beginning of time of the data store.
+     * Returns records created or updated **on or after** this date and time. Defaults to the beginning of
+     * the data store's time range.
      */
     public Optional<OffsetDateTime> after() {
         return Optional.ofNullable(this.after);
     }
 
     /**
-     * Used to query records that have been added or updated before this time point.
+     * Returns records created or updated **strictly before** this date and time.
      */
     public Optional<OffsetDateTime> before() {
         return Optional.ofNullable(this.before);
@@ -168,8 +168,8 @@ public class ListVideosRequest {
     }
 
     /**
-     * Used to query records that have been added or updated after this time point. Default to the
-     * beginning of time of the data store.
+     * Returns records created or updated **on or after** this date and time. Defaults to the beginning of
+     * the data store's time range.
      */
     public ListVideosRequest withAfter(@Nullable OffsetDateTime after) {
         this.after = after;
@@ -177,7 +177,7 @@ public class ListVideosRequest {
     }
 
     /**
-     * Used to query records that have been added or updated before this time point.
+     * Returns records created or updated **strictly before** this date and time.
      */
     public ListVideosRequest withBefore(@Nullable OffsetDateTime before) {
         this.before = before;
@@ -299,8 +299,8 @@ public class ListVideosRequest {
         }
 
         /**
-         * Used to query records that have been added or updated after this time point. Default to the
-         * beginning of time of the data store.
+         * Returns records created or updated **on or after** this date and time. Defaults to the beginning of
+         * the data store's time range.
          */
         public Builder after(@Nullable OffsetDateTime after) {
             this.after = after;
@@ -308,7 +308,7 @@ public class ListVideosRequest {
         }
 
         /**
-         * Used to query records that have been added or updated before this time point.
+         * Returns records created or updated **strictly before** this date and time.
          */
         public Builder before(@Nullable OffsetDateTime before) {
             this.before = before;

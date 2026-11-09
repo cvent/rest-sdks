@@ -10,7 +10,7 @@ import { Event4, Event4$inboundSchema } from "./event4.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 
 /**
- * Content of existing exhibitor weblink
+ * Exhibitor weblink with an ID.
  */
 export type ExistingWeblink = {
   /**
@@ -30,11 +30,11 @@ export type ExistingWeblink = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * The Associated Exhibitor.
+   * Associated exhibitor.
    */
   exhibitor: Exhibitor;
   /**
@@ -42,7 +42,7 @@ export type ExistingWeblink = {
    */
   name: string;
   /**
-   * The URL of the weblink.
+   * URL of the weblink.
    */
   url: string;
   /**
@@ -50,11 +50,11 @@ export type ExistingWeblink = {
    */
   hidden: boolean;
   /**
-   * Display order for exhibitor weblink content.
+   * Display order of the weblink.
    */
   order: number;
   /**
-   * Unique ID of the weblink.
+   * Weblink ID.
    */
   id?: string | undefined;
 };

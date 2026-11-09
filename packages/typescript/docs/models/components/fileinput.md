@@ -1,6 +1,6 @@
 # FileInput
 
-Content of exhibitor file.
+File of an exhibitor.
 
 ## Example Usage
 
@@ -23,8 +23,8 @@ let value: FileInput = {
 
 | Field                                                        | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `event`                                                      | [components.Event4](../../models/components/event4.md)       | :heavy_check_mark:                                           | The Associated Event.                                        |                                                              |
-| `exhibitor`                                                  | [components.Exhibitor](../../models/components/exhibitor.md) | :heavy_check_mark:                                           | The Associated Exhibitor.                                    |                                                              |
+| `event`                                                      | [components.Event4](../../models/components/event4.md)       | :heavy_check_mark:                                           | Associated event.                                            |                                                              |
+| `exhibitor`                                                  | [components.Exhibitor](../../models/components/exhibitor.md) | :heavy_check_mark:                                           | Associated exhibitor.                                        |                                                              |
 | `displayName`                                                | *string*                                                     | :heavy_check_mark:                                           | Display name of the file.                                    | Marketing Page                                               |
 | `hidden`                                                     | *boolean*                                                    | :heavy_minus_sign:                                           | True indicates the file is hidden from attendees.            |                                                              |
-| `order`                                                      | *number*                                                     | :heavy_check_mark:                                           | Display order for exhibitor file content.                    | 3                                                            |
+| `order`                                                      | *number*                                                     | :heavy_check_mark:                                           | Display order of the file.                                   | 3                                                            |

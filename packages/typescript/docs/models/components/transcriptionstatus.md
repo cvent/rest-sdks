@@ -1,6 +1,6 @@
 # TranscriptionStatus
 
-Current status of business card transcription
+Status of the business card transcription.
 
 ## Example Usage
 

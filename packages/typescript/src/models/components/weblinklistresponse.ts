@@ -12,7 +12,7 @@ import {
 } from "./existingweblink.js";
 
 /**
- * A response object containing a list of weblinks associated with an exhibitor.
+ * List of the weblinks of an exhibitor.
  */
 export type WeblinkListResponse = {
   /**

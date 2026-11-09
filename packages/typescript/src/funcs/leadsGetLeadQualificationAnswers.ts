@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * List Qualification Answers
  *
  * @remarks
- * Gets a list of answers to lead qualification questions for a given lead id.
+ * Retrieves a list of the answers of a lead to the lead qualification questions.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

@@ -26,7 +26,7 @@ public class UpdateExhibitorAnswersRequest {
     private String exhibitorId;
 
     /**
-     * Exhibitor answers to be updated
+     * Exhibitor answers to update.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private ExhibitorAnswersRequest exhibitorAnswersRequest;
@@ -56,7 +56,7 @@ public class UpdateExhibitorAnswersRequest {
     }
 
     /**
-     * Exhibitor answers to be updated
+     * Exhibitor answers to update.
      */
     public ExhibitorAnswersRequest exhibitorAnswersRequest() {
         return this.exhibitorAnswersRequest;
@@ -83,7 +83,7 @@ public class UpdateExhibitorAnswersRequest {
     }
 
     /**
-     * Exhibitor answers to be updated
+     * Exhibitor answers to update.
      */
     public UpdateExhibitorAnswersRequest withExhibitorAnswersRequest(
             @Nonnull ExhibitorAnswersRequest exhibitorAnswersRequest) {
@@ -152,7 +152,7 @@ public class UpdateExhibitorAnswersRequest {
         }
 
         /**
-         * Exhibitor answers to be updated
+         * Exhibitor answers to update.
          */
         public Builder exhibitorAnswersRequest(@Nonnull ExhibitorAnswersRequest exhibitorAnswersRequest) {
             this.exhibitorAnswersRequest = Utils.checkNotNull(exhibitorAnswersRequest, "exhibitorAnswersRequest");

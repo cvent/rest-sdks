@@ -23,7 +23,7 @@ import java.util.Optional;
  */
 public class AccountUserCustomField {
     /**
-     * The unique ID representing this custom field.
+     * The custom field's ID.
      */
     @JsonProperty("id")
     private String id;
@@ -76,7 +76,7 @@ public class AccountUserCustomField {
     }
 
     /**
-     * The unique ID representing this custom field.
+     * The custom field's ID.
      */
     public String id() {
         return this.id;
@@ -116,7 +116,7 @@ public class AccountUserCustomField {
     }
 
     /**
-     * The unique ID representing this custom field.
+     * The custom field's ID.
      */
     public AccountUserCustomField withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -201,7 +201,7 @@ public class AccountUserCustomField {
         }
 
         /**
-         * The unique ID representing this custom field.
+         * The custom field's ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

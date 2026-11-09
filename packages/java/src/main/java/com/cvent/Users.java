@@ -26,9 +26,15 @@ import com.cvent.models.operations.GetAccountUserGroupsResponse;
 import com.cvent.models.operations.GetAccountUserRequest;
 import com.cvent.models.operations.GetAccountUserRequestBuilder;
 import com.cvent.models.operations.GetAccountUserResponse;
+import com.cvent.models.operations.ListAccountUsersFilterRequest;
+import com.cvent.models.operations.ListAccountUsersFilterRequestBuilder;
+import com.cvent.models.operations.ListAccountUsersFilterResponse;
 import com.cvent.models.operations.ListAccountUsersRequest;
 import com.cvent.models.operations.ListAccountUsersRequestBuilder;
 import com.cvent.models.operations.ListAccountUsersResponse;
+import com.cvent.models.operations.UpdateAccountUserCustomFieldAnswerRequest;
+import com.cvent.models.operations.UpdateAccountUserCustomFieldAnswerRequestBuilder;
+import com.cvent.models.operations.UpdateAccountUserCustomFieldAnswerResponse;
 import com.cvent.models.operations.UpdateAccountUserGroupRequest;
 import com.cvent.models.operations.UpdateAccountUserGroupRequestBuilder;
 import com.cvent.models.operations.UpdateAccountUserGroupResponse;
@@ -40,6 +46,8 @@ import com.cvent.operations.GetAccountUser;
 import com.cvent.operations.GetAccountUserGroup;
 import com.cvent.operations.GetAccountUserGroups;
 import com.cvent.operations.ListAccountUsers;
+import com.cvent.operations.ListAccountUsersFilter;
+import com.cvent.operations.UpdateAccountUserCustomFieldAnswer;
 import com.cvent.operations.UpdateAccountUserGroup;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
@@ -360,7 +368,7 @@ public class Users {
     /**
      * List Account Users
      *
-     * <p>Gets a list of all users associated with your account.
+     * <p>Gets a paginated list of account users associated with your account.
      *
      * @return The call builder
      */
@@ -371,7 +379,7 @@ public class Users {
     /**
      * List Account Users
      *
-     * <p>Gets a list of all users associated with your account.
+     * <p>Gets a paginated list of account users associated with your account.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -384,7 +392,7 @@ public class Users {
     /**
      * List Account Users
      *
-     * <p>Gets a list of all users associated with your account.
+     * <p>Gets a paginated list of account users associated with your account.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -395,6 +403,56 @@ public class Users {
             @Nonnull ListAccountUsersRequest request, @Nullable Options options) {
         RequestOperation<ListAccountUsersRequest, ListAccountUsersResponse> operation =
                 new ListAccountUsers.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * List Account Users
+     *
+     * <p>Gets a paginated list of users associated with your account using the filter provided in the body of
+     * the request. This method returns the same data as [List Account Users](#operation/listAccountUsers)
+     * (`GET /users`) but allows for longer filter strings and filtering on fields that may contain
+     * personally identifiable information (PII).
+     *
+     * @return The call builder
+     */
+    public ListAccountUsersFilterRequestBuilder listAccountUsersFilter() {
+        return new ListAccountUsersFilterRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Account Users
+     *
+     * <p>Gets a paginated list of users associated with your account using the filter provided in the body of
+     * the request. This method returns the same data as [List Account Users](#operation/listAccountUsers)
+     * (`GET /users`) but allows for longer filter strings and filtering on fields that may contain
+     * personally identifiable information (PII).
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListAccountUsersFilterResponse listAccountUsersFilter(@Nonnull ListAccountUsersFilterRequest request) {
+        return listAccountUsersFilter(request, null);
+    }
+
+    /**
+     * List Account Users
+     *
+     * <p>Gets a paginated list of users associated with your account using the filter provided in the body of
+     * the request. This method returns the same data as [List Account Users](#operation/listAccountUsers)
+     * (`GET /users`) but allows for longer filter strings and filtering on fields that may contain
+     * personally identifiable information (PII).
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListAccountUsersFilterResponse listAccountUsersFilter(
+            @Nonnull ListAccountUsersFilterRequest request, @Nullable Options options) {
+        RequestOperation<ListAccountUsersFilterRequest, ListAccountUsersFilterResponse> operation =
+                new ListAccountUsersFilter.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -435,6 +493,108 @@ public class Users {
     public GetAccountUserResponse getAccountUser(@Nonnull GetAccountUserRequest request, @Nullable Options options) {
         RequestOperation<GetAccountUserRequest, GetAccountUserResponse> operation =
                 new GetAccountUser.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Update Custom Field Answer
+     *
+     * <p>Updates an account user's answer to a single custom field using the details provided in the body of
+     * the request. The `id` in the request body must match the `customFieldId` path parameter.
+     *
+     * <p>`values` is always an array. For custom fields that aren't choice-based, such as one-line text,
+     * comment box, and date/time fields, `values` contains a single element.
+     *
+     * <p>Date/time custom field values use ISO 8601 format. A date-only field accepts only the `yyyy-MM-dd`
+     * format, such as `2026-11-11`, and returns answers in that same format. A date and time field accepts
+     * a full date-time with an offset, such as `2026-10-15T09:30:00Z`, which Cvent converts to UTC and
+     * returns as a UTC date-time.
+     *
+     * <p>To clear an answer, send an empty `values` array. Cvent trims each value and drops blank ones, so a
+     * `values` array that holds only blank strings also clears the answer. You can only clear answers to
+     * custom fields that aren't required. Clearing the answer to a required custom field returns a `400`
+     * error.
+     *
+     * <p>This endpoint only validates the custom field you're updating. It doesn't check whether the account
+     * user has answered their other required custom fields.
+     *
+     * <p>Auto-increment custom fields are read-only because Cvent generates their values. Updating the
+     * answer to an auto-increment custom field returns a `400` error.
+     *
+     * @return The call builder
+     */
+    public UpdateAccountUserCustomFieldAnswerRequestBuilder updateAccountUserCustomFieldAnswer() {
+        return new UpdateAccountUserCustomFieldAnswerRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update Custom Field Answer
+     *
+     * <p>Updates an account user's answer to a single custom field using the details provided in the body of
+     * the request. The `id` in the request body must match the `customFieldId` path parameter.
+     *
+     * <p>`values` is always an array. For custom fields that aren't choice-based, such as one-line text,
+     * comment box, and date/time fields, `values` contains a single element.
+     *
+     * <p>Date/time custom field values use ISO 8601 format. A date-only field accepts only the `yyyy-MM-dd`
+     * format, such as `2026-11-11`, and returns answers in that same format. A date and time field accepts
+     * a full date-time with an offset, such as `2026-10-15T09:30:00Z`, which Cvent converts to UTC and
+     * returns as a UTC date-time.
+     *
+     * <p>To clear an answer, send an empty `values` array. Cvent trims each value and drops blank ones, so a
+     * `values` array that holds only blank strings also clears the answer. You can only clear answers to
+     * custom fields that aren't required. Clearing the answer to a required custom field returns a `400`
+     * error.
+     *
+     * <p>This endpoint only validates the custom field you're updating. It doesn't check whether the account
+     * user has answered their other required custom fields.
+     *
+     * <p>Auto-increment custom fields are read-only because Cvent generates their values. Updating the
+     * answer to an auto-increment custom field returns a `400` error.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateAccountUserCustomFieldAnswerResponse updateAccountUserCustomFieldAnswer(
+            @Nonnull UpdateAccountUserCustomFieldAnswerRequest request) {
+        return updateAccountUserCustomFieldAnswer(request, null);
+    }
+
+    /**
+     * Update Custom Field Answer
+     *
+     * <p>Updates an account user's answer to a single custom field using the details provided in the body of
+     * the request. The `id` in the request body must match the `customFieldId` path parameter.
+     *
+     * <p>`values` is always an array. For custom fields that aren't choice-based, such as one-line text,
+     * comment box, and date/time fields, `values` contains a single element.
+     *
+     * <p>Date/time custom field values use ISO 8601 format. A date-only field accepts only the `yyyy-MM-dd`
+     * format, such as `2026-11-11`, and returns answers in that same format. A date and time field accepts
+     * a full date-time with an offset, such as `2026-10-15T09:30:00Z`, which Cvent converts to UTC and
+     * returns as a UTC date-time.
+     *
+     * <p>To clear an answer, send an empty `values` array. Cvent trims each value and drops blank ones, so a
+     * `values` array that holds only blank strings also clears the answer. You can only clear answers to
+     * custom fields that aren't required. Clearing the answer to a required custom field returns a `400`
+     * error.
+     *
+     * <p>This endpoint only validates the custom field you're updating. It doesn't check whether the account
+     * user has answered their other required custom fields.
+     *
+     * <p>Auto-increment custom fields are read-only because Cvent generates their values. Updating the
+     * answer to an auto-increment custom field returns a `400` error.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateAccountUserCustomFieldAnswerResponse updateAccountUserCustomFieldAnswer(
+            @Nonnull UpdateAccountUserCustomFieldAnswerRequest request, @Nullable Options options) {
+        RequestOperation<UpdateAccountUserCustomFieldAnswerRequest, UpdateAccountUserCustomFieldAnswerResponse> operation =
+                new UpdateAccountUserCustomFieldAnswer.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

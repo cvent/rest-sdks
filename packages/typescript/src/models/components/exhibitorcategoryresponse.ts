@@ -10,21 +10,21 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Event4, Event4$inboundSchema } from "./event4.js";
 
 /**
- * Type of exhibitor category
+ * Type of the exhibitor category.
  */
 export const ExhibitorCategoryResponseType = {
   Banner: "BANNER",
   Logo: "LOGO",
 } as const;
 /**
- * Type of exhibitor category
+ * Type of the exhibitor category.
  */
 export type ExhibitorCategoryResponseType = ClosedEnum<
   typeof ExhibitorCategoryResponseType
 >;
 
 /**
- * A description of the Existing Exhibitor Category JSON schema
+ * Exhibitor category with an ID.
  */
 export type ExhibitorCategoryResponse = {
   /**
@@ -44,35 +44,35 @@ export type ExhibitorCategoryResponse = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * Name of the exhibitor category
+   * Name of the exhibitor category.
    */
   name: string;
   /**
-   * Exhibitor Category description
+   * Description of the exhibitor category.
    */
   description?: string | undefined;
   /**
-   * order for exhibitor category
+   * Display order of the exhibitor category.
    */
   order: number;
   /**
-   * Type of exhibitor category
+   * Type of the exhibitor category.
    */
   type: ExhibitorCategoryResponseType;
   /**
-   * ID of exhibitor category.
+   * Exhibitor category ID.
    */
   id?: string | undefined;
   /**
-   * File ID for exhibitor category banner.
+   * File ID of the exhibitor category banner.
    */
   bannerId?: string | undefined;
   /**
-   * URL for exhibitor category banner.
+   * URL of the exhibitor category banner.
    */
   bannerUrl?: string | undefined;
 };

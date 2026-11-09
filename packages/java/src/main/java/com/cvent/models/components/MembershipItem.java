@@ -20,7 +20,7 @@ import java.util.Optional;
  */
 public class MembershipItem {
     /**
-     * The unique ID representing the optional item.
+     * Optional item ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -73,7 +73,7 @@ public class MembershipItem {
     }
 
     /**
-     * The unique ID representing the optional item.
+     * Optional item ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -112,7 +112,7 @@ public class MembershipItem {
     }
 
     /**
-     * The unique ID representing the optional item.
+     * Optional item ID.
      */
     public MembershipItem withId(@Nullable String id) {
         this.id = id;
@@ -195,7 +195,7 @@ public class MembershipItem {
         }
 
         /**
-         * The unique ID representing the optional item.
+         * Optional item ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

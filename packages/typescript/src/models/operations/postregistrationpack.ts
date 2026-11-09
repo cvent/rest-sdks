@@ -16,7 +16,7 @@ export type PostRegistrationPackRequest = {
    */
   exhibitorId: string;
   /**
-   * Registration pack details
+   * Registration pack details.
    */
   registrationPackRequest: components.RegistrationPackRequest;
 };

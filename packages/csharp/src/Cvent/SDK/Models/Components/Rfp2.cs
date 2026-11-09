@@ -66,13 +66,13 @@ namespace Cvent.SDK.Models.Components
         /// Date requirements for the event.
         /// </summary>
         [JsonProperty("dateRequirements")]
-        public DateRequirements1? DateRequirements { get; set; }
+        public DateRequirements1 DateRequirements { get; set; } = default!;
 
         /// <summary>
         /// RFP event details.
         /// </summary>
         [JsonProperty("rfpEvent")]
-        public RfpEvent? RfpEvent { get; set; }
+        public RfpEvent RfpEvent { get; set; } = default!;
 
         /// <summary>
         /// The ISO 8601 date representing the start date of agenda.
@@ -187,10 +187,10 @@ namespace Cvent.SDK.Models.Components
         public bool? ShareAwardDetails { get; set; }
 
         /// <summary>
-        /// Lead source details.
+        /// If you omit `leadSource`, Cvent sets the default lead source. A caller can send only the default lead source. Any other `leadSource.id` or `leadSource.section.id` returns 400.
         /// </summary>
         [JsonProperty("leadSource")]
-        public LeadSource? LeadSource { get; set; }
+        public RfpLeadSource1? LeadSource { get; set; }
 
         /// <summary>
         /// Unique identifier for RFPs originating from outside Cvent network provided by source system where RFP was created.

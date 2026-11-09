@@ -112,7 +112,7 @@ run();
 
 ## getExhibitorFile
 
-Get a single file for an exhibitor.
+Retrieves a file of an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -207,7 +207,7 @@ run();
 
 ## updateExhibitorFile
 
-Associate a file to an exhibitor using a file ID taken from the <a href="#operation/uploadFile">file upload</a> endpoint.
+Associates a file with an exhibitor. The file ID comes from the [file upload](#operation/uploadFile) operation.
 
 
 More about OAuth2 authorization code support for administrators
@@ -324,7 +324,7 @@ run();
 
 ## disassociateExhibitorFile
 
-Disassociate a single file from an exhibitor.
+Disassociates a file from an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -723,7 +723,7 @@ run();
 
 ## updateExhibitorWeblink
 
-Updates content weblink data in an event for a given exhibitor ID.
+Updates a content weblink of an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>

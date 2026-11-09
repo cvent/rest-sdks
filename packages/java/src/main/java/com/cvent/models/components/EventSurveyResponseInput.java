@@ -25,42 +25,42 @@ public class EventSurveyResponseInput {
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonProperty("question")
-    private UuidJson question;
+    private Uuid question;
 
     /**
      * List of responded survey answers.
      */
     @JsonProperty("answers")
-    private List<AnswerJson> answers;
+    private List<Answer11> answers;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("survey")
-    private UuidJson survey;
+    private Uuid survey;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("session")
-    private UuidJson session;
+    private Uuid session;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("speaker")
-    private UuidJson speaker;
+    private Uuid speaker;
 
     @JsonCreator
     public EventSurveyResponseInput(
-            @JsonProperty("question") @Nonnull UuidJson question,
-            @JsonProperty("answers") @Nonnull List<AnswerJson> answers,
-            @JsonProperty("survey") @Nullable UuidJson survey,
-            @JsonProperty("session") @Nullable UuidJson session,
-            @JsonProperty("speaker") @Nullable UuidJson speaker) {
+            @JsonProperty("question") @Nonnull Uuid question,
+            @JsonProperty("answers") @Nonnull List<Answer11> answers,
+            @JsonProperty("survey") @Nullable Uuid survey,
+            @JsonProperty("session") @Nullable Uuid session,
+            @JsonProperty("speaker") @Nullable Uuid speaker) {
         this.question = Optional.ofNullable(question)
                 .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
         this.answers =
@@ -70,42 +70,42 @@ public class EventSurveyResponseInput {
         this.speaker = speaker;
     }
 
-    public EventSurveyResponseInput(@Nonnull UuidJson question, @Nonnull List<AnswerJson> answers) {
+    public EventSurveyResponseInput(@Nonnull Uuid question, @Nonnull List<Answer11> answers) {
         this(question, answers, null, null, null);
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public UuidJson question() {
+    public Uuid question() {
         return this.question;
     }
 
     /**
      * List of responded survey answers.
      */
-    public List<AnswerJson> answers() {
+    public List<Answer11> answers() {
         return this.answers;
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> survey() {
+    public Optional<Uuid> survey() {
         return Optional.ofNullable(this.survey);
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> session() {
+    public Optional<Uuid> session() {
         return Optional.ofNullable(this.session);
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> speaker() {
+    public Optional<Uuid> speaker() {
         return Optional.ofNullable(this.speaker);
     }
 
@@ -116,7 +116,7 @@ public class EventSurveyResponseInput {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public EventSurveyResponseInput withQuestion(@Nonnull UuidJson question) {
+    public EventSurveyResponseInput withQuestion(@Nonnull Uuid question) {
         this.question = Utils.checkNotNull(question, "question");
         return this;
     }
@@ -124,7 +124,7 @@ public class EventSurveyResponseInput {
     /**
      * List of responded survey answers.
      */
-    public EventSurveyResponseInput withAnswers(@Nonnull List<AnswerJson> answers) {
+    public EventSurveyResponseInput withAnswers(@Nonnull List<Answer11> answers) {
         this.answers = Utils.checkNotNull(answers, "answers");
         return this;
     }
@@ -132,7 +132,7 @@ public class EventSurveyResponseInput {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public EventSurveyResponseInput withSurvey(@Nullable UuidJson survey) {
+    public EventSurveyResponseInput withSurvey(@Nullable Uuid survey) {
         this.survey = survey;
         return this;
     }
@@ -140,7 +140,7 @@ public class EventSurveyResponseInput {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public EventSurveyResponseInput withSession(@Nullable UuidJson session) {
+    public EventSurveyResponseInput withSession(@Nullable Uuid session) {
         this.session = session;
         return this;
     }
@@ -148,7 +148,7 @@ public class EventSurveyResponseInput {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public EventSurveyResponseInput withSpeaker(@Nullable UuidJson speaker) {
+    public EventSurveyResponseInput withSpeaker(@Nullable Uuid speaker) {
         this.speaker = speaker;
         return this;
     }
@@ -193,15 +193,15 @@ public class EventSurveyResponseInput {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private UuidJson question;
+        private Uuid question;
 
-        private List<AnswerJson> answers;
+        private List<Answer11> answers;
 
-        private UuidJson survey;
+        private Uuid survey;
 
-        private UuidJson session;
+        private Uuid session;
 
-        private UuidJson speaker;
+        private Uuid speaker;
 
         private Builder() {
             // force use of static builder() method
@@ -210,7 +210,7 @@ public class EventSurveyResponseInput {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder question(@Nonnull UuidJson question) {
+        public Builder question(@Nonnull Uuid question) {
             this.question = Utils.checkNotNull(question, "question");
             return this;
         }
@@ -218,7 +218,7 @@ public class EventSurveyResponseInput {
         /**
          * List of responded survey answers.
          */
-        public Builder answers(@Nonnull List<AnswerJson> answers) {
+        public Builder answers(@Nonnull List<Answer11> answers) {
             this.answers = Utils.checkNotNull(answers, "answers");
             return this;
         }
@@ -226,7 +226,7 @@ public class EventSurveyResponseInput {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder survey(@Nullable UuidJson survey) {
+        public Builder survey(@Nullable Uuid survey) {
             this.survey = survey;
             return this;
         }
@@ -234,7 +234,7 @@ public class EventSurveyResponseInput {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder session(@Nullable UuidJson session) {
+        public Builder session(@Nullable Uuid session) {
             this.session = session;
             return this;
         }
@@ -242,7 +242,7 @@ public class EventSurveyResponseInput {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder speaker(@Nullable UuidJson speaker) {
+        public Builder speaker(@Nullable Uuid speaker) {
             this.speaker = speaker;
             return this;
         }

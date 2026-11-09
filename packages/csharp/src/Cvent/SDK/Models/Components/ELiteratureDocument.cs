@@ -14,24 +14,24 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// A JSON schema representing an E-literature Document.
+    /// E-literature document.
     /// </summary>
     public class ELiteratureDocument
     {
         /// <summary>
-        /// Document identifier.
+        /// Document ID.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Document display name.
+        /// Display name of the document.
         /// </summary>
         [JsonProperty("displayName")]
         public string DisplayName { get; set; } = default!;
 
         /// <summary>
-        /// Type of eliterature document.
+        /// Type of the e-literature document.
         /// </summary>
         [JsonProperty("type")]
         public ELiteratureDocumentType Type { get; set; } = default!;

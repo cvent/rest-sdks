@@ -16,7 +16,10 @@ import java.util.Optional;
 /**
  * RfpSupplierLeadSource
  *
- * <p>Lead source details.
+ * <p>Lead source: only `leadSource.section.id` is used; `leadSource.id` is ignored. If you omit the
+ * section, Cvent sets the default section. A caller can send only the default section.
+ *
+ * <p>Another section is rejected with 400.
  */
 public class RfpSupplierLeadSource {
     /**

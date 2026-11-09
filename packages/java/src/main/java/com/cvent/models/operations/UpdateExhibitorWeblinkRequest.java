@@ -32,7 +32,7 @@ public class UpdateExhibitorWeblinkRequest {
     private String weblinkId;
 
     /**
-     * Exhibitor content to be updated.
+     * Exhibitor content weblink details.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private Weblink weblink;
@@ -71,7 +71,7 @@ public class UpdateExhibitorWeblinkRequest {
     }
 
     /**
-     * Exhibitor content to be updated.
+     * Exhibitor content weblink details.
      */
     public Weblink weblink() {
         return this.weblink;
@@ -106,7 +106,7 @@ public class UpdateExhibitorWeblinkRequest {
     }
 
     /**
-     * Exhibitor content to be updated.
+     * Exhibitor content weblink details.
      */
     public UpdateExhibitorWeblinkRequest withWeblink(@Nonnull Weblink weblink) {
         this.weblink = Utils.checkNotNull(weblink, "weblink");
@@ -187,7 +187,7 @@ public class UpdateExhibitorWeblinkRequest {
         }
 
         /**
-         * Exhibitor content to be updated.
+         * Exhibitor content weblink details.
          */
         public Builder weblink(@Nonnull Weblink weblink) {
             this.weblink = Utils.checkNotNull(weblink, "weblink");

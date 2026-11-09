@@ -5,6 +5,6 @@ The attendee's registration path. Registration paths control the registration ex
 
 ## Fields
 
-| Field                            | Type                             | Required                         | Description                      |
-| -------------------------------- | -------------------------------- | -------------------------------- | -------------------------------- |
-| `Id`                             | *string*                         | :heavy_minus_sign:               | The ID of the registration path. |
+| Field                 | Type                  | Required              | Description           |
+| --------------------- | --------------------- | --------------------- | --------------------- |
+| `Id`                  | *string*              | :heavy_minus_sign:    | Registration path ID. |

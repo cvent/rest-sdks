@@ -19,7 +19,7 @@ import java.util.Optional;
 /**
  * LeadQualificationQuestion
  *
- * <p>A JSON schema representing a Lead Qualification Question model
+ * <p>Lead qualification question of an exhibitor.
  */
 public class LeadQualificationQuestion {
     /**
@@ -51,70 +51,70 @@ public class LeadQualificationQuestion {
     private String lastModifiedBy;
 
     /**
-     * Lead Qualification Question id
+     * Lead qualification question ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
     private Exhibitor exhibitor;
 
     /**
-     * Type of question
+     * Type of the question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
     private LeadQualificationQuestionType type;
 
     /**
-     * question code
+     * Code of the question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("code")
     private String code;
 
     /**
-     * List of available choices for the question
+     * List of the choices of the question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("choices")
     private List<Choice1> choices;
 
     /**
-     * Contains text of additional choice
+     * Additional choice of the question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("notApplicableAnswer")
     private AdditionalChoice1 notApplicableAnswer;
 
     /**
-     * Contains text of additional choice
+     * Additional choice of the question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("otherAnswers")
     private AdditionalChoice1 otherAnswers;
 
     /**
-     * A boolean indicating whether the question is mandatory or not
+     * True indicates that the question requires an answer.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("required")
     private Boolean required;
 
     /**
-     * text of the question
+     * Text of the question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("text")
@@ -185,70 +185,70 @@ public class LeadQualificationQuestion {
     }
 
     /**
-     * Lead Qualification Question id
+     * Lead qualification question ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Optional<Event4> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public Optional<Exhibitor> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
     /**
-     * Type of question
+     * Type of the question.
      */
     public Optional<LeadQualificationQuestionType> type() {
         return Optional.ofNullable(this.type);
     }
 
     /**
-     * question code
+     * Code of the question.
      */
     public Optional<String> code() {
         return Optional.ofNullable(this.code);
     }
 
     /**
-     * List of available choices for the question
+     * List of the choices of the question.
      */
     public Optional<List<Choice1>> choices() {
         return Optional.ofNullable(this.choices);
     }
 
     /**
-     * Contains text of additional choice
+     * Additional choice of the question.
      */
     public Optional<AdditionalChoice1> notApplicableAnswer() {
         return Optional.ofNullable(this.notApplicableAnswer);
     }
 
     /**
-     * Contains text of additional choice
+     * Additional choice of the question.
      */
     public Optional<AdditionalChoice1> otherAnswers() {
         return Optional.ofNullable(this.otherAnswers);
     }
 
     /**
-     * A boolean indicating whether the question is mandatory or not
+     * True indicates that the question requires an answer.
      */
     public Optional<Boolean> required() {
         return Optional.ofNullable(this.required);
     }
 
     /**
-     * text of the question
+     * Text of the question.
      */
     public Optional<String> text() {
         return Optional.ofNullable(this.text);
@@ -291,7 +291,7 @@ public class LeadQualificationQuestion {
     }
 
     /**
-     * Lead Qualification Question id
+     * Lead qualification question ID.
      */
     public LeadQualificationQuestion withId(@Nullable String id) {
         this.id = id;
@@ -299,7 +299,7 @@ public class LeadQualificationQuestion {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public LeadQualificationQuestion withEvent(@Nullable Event4 event) {
         this.event = event;
@@ -307,7 +307,7 @@ public class LeadQualificationQuestion {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public LeadQualificationQuestion withExhibitor(@Nullable Exhibitor exhibitor) {
         this.exhibitor = exhibitor;
@@ -315,7 +315,7 @@ public class LeadQualificationQuestion {
     }
 
     /**
-     * Type of question
+     * Type of the question.
      */
     public LeadQualificationQuestion withType(@Nullable LeadQualificationQuestionType type) {
         this.type = type;
@@ -323,7 +323,7 @@ public class LeadQualificationQuestion {
     }
 
     /**
-     * question code
+     * Code of the question.
      */
     public LeadQualificationQuestion withCode(@Nullable String code) {
         this.code = code;
@@ -331,7 +331,7 @@ public class LeadQualificationQuestion {
     }
 
     /**
-     * List of available choices for the question
+     * List of the choices of the question.
      */
     public LeadQualificationQuestion withChoices(@Nullable List<Choice1> choices) {
         this.choices = choices;
@@ -339,7 +339,7 @@ public class LeadQualificationQuestion {
     }
 
     /**
-     * Contains text of additional choice
+     * Additional choice of the question.
      */
     public LeadQualificationQuestion withNotApplicableAnswer(@Nullable AdditionalChoice1 notApplicableAnswer) {
         this.notApplicableAnswer = notApplicableAnswer;
@@ -347,7 +347,7 @@ public class LeadQualificationQuestion {
     }
 
     /**
-     * Contains text of additional choice
+     * Additional choice of the question.
      */
     public LeadQualificationQuestion withOtherAnswers(@Nullable AdditionalChoice1 otherAnswers) {
         this.otherAnswers = otherAnswers;
@@ -355,7 +355,7 @@ public class LeadQualificationQuestion {
     }
 
     /**
-     * A boolean indicating whether the question is mandatory or not
+     * True indicates that the question requires an answer.
      */
     public LeadQualificationQuestion withRequired(@Nullable Boolean required) {
         this.required = required;
@@ -363,7 +363,7 @@ public class LeadQualificationQuestion {
     }
 
     /**
-     * text of the question
+     * Text of the question.
      */
     public LeadQualificationQuestion withText(@Nullable String text) {
         this.text = text;
@@ -516,7 +516,7 @@ public class LeadQualificationQuestion {
         }
 
         /**
-         * Lead Qualification Question id
+         * Lead qualification question ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -524,7 +524,7 @@ public class LeadQualificationQuestion {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nullable Event4 event) {
             this.event = event;
@@ -532,7 +532,7 @@ public class LeadQualificationQuestion {
         }
 
         /**
-         * The Associated Exhibitor.
+         * Associated exhibitor.
          */
         public Builder exhibitor(@Nullable Exhibitor exhibitor) {
             this.exhibitor = exhibitor;
@@ -540,7 +540,7 @@ public class LeadQualificationQuestion {
         }
 
         /**
-         * Type of question
+         * Type of the question.
          */
         public Builder type(@Nullable LeadQualificationQuestionType type) {
             this.type = type;
@@ -548,7 +548,7 @@ public class LeadQualificationQuestion {
         }
 
         /**
-         * question code
+         * Code of the question.
          */
         public Builder code(@Nullable String code) {
             this.code = code;
@@ -556,7 +556,7 @@ public class LeadQualificationQuestion {
         }
 
         /**
-         * List of available choices for the question
+         * List of the choices of the question.
          */
         public Builder choices(@Nullable List<Choice1> choices) {
             this.choices = choices;
@@ -564,7 +564,7 @@ public class LeadQualificationQuestion {
         }
 
         /**
-         * Contains text of additional choice
+         * Additional choice of the question.
          */
         public Builder notApplicableAnswer(@Nullable AdditionalChoice1 notApplicableAnswer) {
             this.notApplicableAnswer = notApplicableAnswer;
@@ -572,7 +572,7 @@ public class LeadQualificationQuestion {
         }
 
         /**
-         * Contains text of additional choice
+         * Additional choice of the question.
          */
         public Builder otherAnswers(@Nullable AdditionalChoice1 otherAnswers) {
             this.otherAnswers = otherAnswers;
@@ -580,7 +580,7 @@ public class LeadQualificationQuestion {
         }
 
         /**
-         * A boolean indicating whether the question is mandatory or not
+         * True indicates that the question requires an answer.
          */
         public Builder required(@Nullable Boolean required) {
             this.required = required;
@@ -588,7 +588,7 @@ public class LeadQualificationQuestion {
         }
 
         /**
-         * text of the question
+         * Text of the question.
          */
         public Builder text(@Nullable String text) {
             this.text = text;

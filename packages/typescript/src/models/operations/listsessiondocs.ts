@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListSessionDocsRequest = {
   /**
-   * Unique Id of a session
+   * Unique ID of a session
    */
   id: string;
   /**

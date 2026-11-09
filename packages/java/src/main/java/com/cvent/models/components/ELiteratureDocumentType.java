@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * ELiteratureDocumentType
  *
- * <p>Type of eliterature document
+ * <p>Type of the e-literature document.
  */
 public enum ELiteratureDocumentType {
     FILE("FILE"),

@@ -164,7 +164,7 @@ namespace Cvent.SDK
         /// List Account Users.
         /// </summary>
         /// <remarks>
-        /// Gets a list of all users associated with your account.
+        /// Gets a paginated list of account users associated with your account.
         /// </remarks>
         /// <param name="request">A <see cref="ListAccountUsersRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -175,6 +175,24 @@ namespace Cvent.SDK
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<ListAccountUsersResponse> ListAccountUsersAsync(
             ListAccountUsersRequest? request = null,
+            RetryConfig? retryConfig = null
+        );
+
+        /// <summary>
+        /// List Account Users.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of users associated with your account using the filter provided in the body of the request. This method returns the same data as <a href="#operation/listAccountUsers">List Account Users</a> (`GET /users`) but allows for longer filter strings and filtering on fields that may contain personally identifiable information (PII).
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAccountUsersFilterRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountUsersFilterResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse12">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public Task<ListAccountUsersFilterResponse> ListAccountUsersFilterAsync(
+            ListAccountUsersFilterRequest? request = null,
             RetryConfig? retryConfig = null
         );
 
@@ -194,6 +212,128 @@ namespace Cvent.SDK
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<GetAccountUserResponse> GetAccountUserAsync(
             GetAccountUserRequest request,
+            RetryConfig? retryConfig = null
+        );
+
+        /// <summary>
+        /// Update Custom Field Answer.
+        /// </summary>
+        /// <remarks>
+        /// Updates an account user's answer to a single custom field using the details provided in the body of<br/>
+        /// the request. The `id` in the request body must match the `customFieldId` path parameter.<br/>
+        /// <br/>
+        /// `values` is always an array. For custom fields that aren't choice-based, such as one-line text,<br/>
+        /// comment box, and date/time fields, `values` contains a single element.<br/>
+        /// <br/>
+        /// Date/time custom field values use ISO 8601 format. A date-only field accepts only the `yyyy-MM-dd`<br/>
+        /// format, such as `2026-11-11`, and returns answers in that same format. A date and time field accepts<br/>
+        /// a full date-time with an offset, such as `2026-10-15T09:30:00Z`, which Cvent converts to UTC and<br/>
+        /// returns as a UTC date-time.<br/>
+        /// <br/>
+        /// To clear an answer, send an empty `values` array. Cvent trims each value and drops blank ones, so a<br/>
+        /// `values` array that holds only blank strings also clears the answer. You can only clear answers to<br/>
+        /// custom fields that aren't required. Clearing the answer to a required custom field returns a `400` error.<br/>
+        /// <br/>
+        /// This endpoint only validates the custom field you're updating. It doesn't check whether the account<br/>
+        /// user has answered their other required custom fields.<br/>
+        /// <br/>
+        /// Auto-increment custom fields are read-only because Cvent generates their values. Updating the<br/>
+        /// answer to an auto-increment custom field returns a `400` error.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateAccountUserCustomFieldAnswerRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateAccountUserCustomFieldAnswerResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse12">
+        /// The request was invalid. For a validation error, the top-level `code` is `invalidRequest` and the `message` is&lt;br/&gt;<br/>
+        /// generic. Each specific problem is listed in `details`, with `target` naming the request field it applies to.&lt;br/&gt;<br/>
+        /// For example:&lt;br/&gt;<br/>
+        /// &lt;br/&gt;<br/>
+        /// **Invalid choice value**: a value is not one of the field's choices:&lt;br/&gt;<br/>
+        /// ```json&lt;br/&gt;<br/>
+        /// {&lt;br/&gt;<br/>
+        ///   "code": "invalidRequest",&lt;br/&gt;<br/>
+        ///   "message": "The request is malformed or incorrect",&lt;br/&gt;<br/>
+        ///   "details": [&lt;br/&gt;<br/>
+        ///     { "code": "invalidRequest", "message": "Choice: C invalid.", "target": "values" }&lt;br/&gt;<br/>
+        ///   ]&lt;br/&gt;<br/>
+        /// }&lt;br/&gt;<br/>
+        /// ```&lt;br/&gt;<br/>
+        /// &lt;br/&gt;<br/>
+        /// **Mismatched custom field ID**: the `customFieldId` path parameter did not match the `id` in the request body:&lt;br/&gt;<br/>
+        /// ```json&lt;br/&gt;<br/>
+        /// {&lt;br/&gt;<br/>
+        ///   "code": "invalidRequest",&lt;br/&gt;<br/>
+        ///   "message": "The request is malformed or incorrect",&lt;br/&gt;<br/>
+        ///   "details": [&lt;br/&gt;<br/>
+        ///     { "code": "invalidRequest", "message": "Path and Body custom field id must match." }&lt;br/&gt;<br/>
+        ///   ]&lt;br/&gt;<br/>
+        /// }&lt;br/&gt;<br/>
+        /// ```&lt;br/&gt;<br/>
+        /// &lt;br/&gt;<br/>
+        /// **Clearing a required field**: an empty `values` array was supplied for a required custom field:&lt;br/&gt;<br/>
+        /// ```json&lt;br/&gt;<br/>
+        /// {&lt;br/&gt;<br/>
+        ///   "code": "invalidRequest",&lt;br/&gt;<br/>
+        ///   "message": "The request is malformed or incorrect",&lt;br/&gt;<br/>
+        ///   "details": [&lt;br/&gt;<br/>
+        ///     { "code": "invalidRequest", "message": "must not be cleared for a required custom field.", "target": "values" }&lt;br/&gt;<br/>
+        ///   ]&lt;br/&gt;<br/>
+        /// }&lt;br/&gt;<br/>
+        /// ```&lt;br/&gt;<br/>
+        /// &lt;br/&gt;<br/>
+        /// **Writing an auto-increment field**: an answer was supplied for an auto-increment custom field:&lt;br/&gt;<br/>
+        /// ```json&lt;br/&gt;<br/>
+        /// {&lt;br/&gt;<br/>
+        ///   "code": "invalidRequest",&lt;br/&gt;<br/>
+        ///   "message": "The request is malformed or incorrect",&lt;br/&gt;<br/>
+        ///   "details": [&lt;br/&gt;<br/>
+        ///     { "code": "invalidRequest", "message": "cannot be written for an auto increment custom field.", "target": "values" }&lt;br/&gt;<br/>
+        ///   ]&lt;br/&gt;<br/>
+        /// }&lt;br/&gt;<br/>
+        /// ```&lt;br/&gt;<br/>
+        /// &lt;br/&gt;<br/>
+        /// **Invalid date-only value**: a value for a date-only field was not in the form `yyyy-MM-dd`:&lt;br/&gt;<br/>
+        /// ```json&lt;br/&gt;<br/>
+        /// {&lt;br/&gt;<br/>
+        ///   "code": "invalidRequest",&lt;br/&gt;<br/>
+        ///   "message": "The request is malformed or incorrect",&lt;br/&gt;<br/>
+        ///   "details": [&lt;br/&gt;<br/>
+        ///     {&lt;br/&gt;<br/>
+        ///       "code": "invalidRequest",&lt;br/&gt;<br/>
+        ///       "message": "Failed to parse provided date: [11/11/2027]. Please provide a date only value in the form yyyy-MM-dd",&lt;br/&gt;<br/>
+        ///       "target": "values"&lt;br/&gt;<br/>
+        ///     }&lt;br/&gt;<br/>
+        ///   ]&lt;br/&gt;<br/>
+        /// }&lt;br/&gt;<br/>
+        /// ```&lt;br/&gt;<br/>
+        /// &lt;br/&gt;<br/>
+        /// **Invalid date and time value**: a value for a date and time field was not an ISO 8601 date-time:&lt;br/&gt;<br/>
+        /// ```json&lt;br/&gt;<br/>
+        /// {&lt;br/&gt;<br/>
+        ///   "code": "invalidRequest",&lt;br/&gt;<br/>
+        ///   "message": "The request is malformed or incorrect",&lt;br/&gt;<br/>
+        ///   "details": [&lt;br/&gt;<br/>
+        ///     {&lt;br/&gt;<br/>
+        ///       "code": "invalidRequest",&lt;br/&gt;<br/>
+        ///       "message": "Failed to parse provided date: [11/11/2027 10:30 AM]. Please provide an ISO8601 date time value",&lt;br/&gt;<br/>
+        ///       "target": "values"&lt;br/&gt;<br/>
+        ///     }&lt;br/&gt;<br/>
+        ///   ]&lt;br/&gt;<br/>
+        /// }&lt;br/&gt;<br/>
+        /// ```&lt;br/&gt;<br/>
+        /// &lt;br/&gt;<br/>
+        /// **Malformed JSON body**: the request body could not be deserialized, such as a wrong type in `values` or an&lt;br/&gt;<br/>
+        /// unknown enum value. This response has a numeric `code` and no `details`:&lt;br/&gt;<br/>
+        /// ```json&lt;br/&gt;<br/>
+        /// { "code": 400, "message": "Unable to process JSON" }&lt;br/&gt;<br/>
+        /// ``` Thrown when the API returns a 400, 401, 403, 404 or 429 response.
+        /// </exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public Task<UpdateAccountUserCustomFieldAnswerResponse> UpdateAccountUserCustomFieldAnswerAsync(
+            UpdateAccountUserCustomFieldAnswerRequest request,
             RetryConfig? retryConfig = null
         );
     }
@@ -1361,7 +1501,7 @@ namespace Cvent.SDK
         /// List Account Users.
         /// </summary>
         /// <remarks>
-        /// Gets a list of all users associated with your account.
+        /// Gets a paginated list of account users associated with your account.
         /// </remarks>
         /// <param name="request">A <see cref="ListAccountUsersRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1551,6 +1691,207 @@ namespace Cvent.SDK
         }
 
         /// <summary>
+        /// List Account Users.
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of users associated with your account using the filter provided in the body of the request. This method returns the same data as <a href="#operation/listAccountUsers">List Account Users</a> (`GET /users`) but allows for longer filter strings and filtering on fields that may contain personally identifiable information (PII).
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAccountUsersFilterRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountUsersFilterResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse12">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async Task<ListAccountUsersFilterResponse> ListAccountUsersFilterAsync(
+            ListAccountUsersFilterRequest? request = null,
+            RetryConfig? retryConfig = null
+        )
+        {
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
+            var urlString = URLBuilder.Build(baseUrl, "/users/filter", request, null);
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "AccountUsersFilter", "json", false, true);
+            if (serializedBody != null)
+            {
+                httpRequest.Content = serializedBody;
+            }
+
+            if (SDKConfiguration.SecuritySource != null)
+            {
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
+            }
+
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "listAccountUsersFilter", new List<string> { "account/users:read" }, SDKConfiguration.SecuritySource);
+
+            httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 2000L,
+                        maxIntervalMs: 16000L,
+                        maxElapsedTimeMs: 40000L,
+                        exponent: 2
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "502",
+                "503",
+                "504",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
+
+            HttpResponseMessage httpResponse;
+            try
+            {
+                httpResponse = await retries.Run();
+                int _statusCode = (int)httpResponse.StatusCode;
+
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                {
+                    var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                    if (_httpResponse != null)
+                    {
+                        httpResponse = _httpResponse;
+                    }
+                }
+            }
+            catch (Exception _hookError)
+            {
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
+                if (_httpResponse != null)
+                {
+                    httpResponse = _httpResponse;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
+
+            Func<Task<ListAccountUsersFilterResponse?>> nextFunc = async delegate()
+            {
+                var body = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
+                var nextCursorToken = body.SelectToken("$.paging.nextToken");
+
+                if (nextCursorToken == null)
+                {
+                    return null;
+                }
+
+                var nextCursor = nextCursorToken.Value<string>();
+                if (string.IsNullOrWhiteSpace(nextCursor))
+                {
+                    return null;
+                }
+
+                var newRequest = new ListAccountUsersFilterRequest {
+                    Limit = request?.Limit,
+                    Token = nextCursor,
+                    Sort = request?.Sort,
+                    AccountUsersFilter = new AccountUsersFilter {
+                        Filter = request?.AccountUsersFilter?.Filter
+                    }
+                };
+
+                return await ListAccountUsersFilterAsync(
+                    request: newRequest,
+                    retryConfig: retryConfig
+                );
+            };
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            int responseStatusCode = (int)httpResponse.StatusCode;
+            if (responseStatusCode == 200)
+            {
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    AccountUsers obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<AccountUsers>(httpResponseBody, NullValueHandling.Include);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into AccountUsers.", httpRequest, httpResponse, httpResponseBody, ex);
+                    }
+
+                    var response = new ListAccountUsersFilterResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
+                            Response = httpResponse,
+                            Request = httpRequest
+                        },
+                        Next = nextFunc
+                    };
+                    response.AccountUsers = obj;
+                    return response;
+                }
+
+                throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if (new List<int> { 400, 401, 403, 429 }.Contains(responseStatusCode))
+            {
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    Models.Errors.ErrorResponse12Payload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse12Payload>(httpResponseBody, NullValueHandling.Include);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse12Payload.", httpRequest, httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new Models.Errors.ErrorResponse12(payload, httpRequest, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+
+            throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+        }
+
+        /// <summary>
         /// Get Account User.
         /// </summary>
         /// <remarks>
@@ -1685,6 +2026,281 @@ namespace Cvent.SDK
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
             else if (new List<int> { 401, 403, 404, 429 }.Contains(responseStatusCode))
+            {
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    Models.Errors.ErrorResponse12Payload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse12Payload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse12Payload.", httpRequest, httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new Models.Errors.ErrorResponse12(payload, httpRequest, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+
+            throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+        }
+
+        /// <summary>
+        /// Update Custom Field Answer.
+        /// </summary>
+        /// <remarks>
+        /// Updates an account user's answer to a single custom field using the details provided in the body of<br/>
+        /// the request. The `id` in the request body must match the `customFieldId` path parameter.<br/>
+        /// <br/>
+        /// `values` is always an array. For custom fields that aren't choice-based, such as one-line text,<br/>
+        /// comment box, and date/time fields, `values` contains a single element.<br/>
+        /// <br/>
+        /// Date/time custom field values use ISO 8601 format. A date-only field accepts only the `yyyy-MM-dd`<br/>
+        /// format, such as `2026-11-11`, and returns answers in that same format. A date and time field accepts<br/>
+        /// a full date-time with an offset, such as `2026-10-15T09:30:00Z`, which Cvent converts to UTC and<br/>
+        /// returns as a UTC date-time.<br/>
+        /// <br/>
+        /// To clear an answer, send an empty `values` array. Cvent trims each value and drops blank ones, so a<br/>
+        /// `values` array that holds only blank strings also clears the answer. You can only clear answers to<br/>
+        /// custom fields that aren't required. Clearing the answer to a required custom field returns a `400` error.<br/>
+        /// <br/>
+        /// This endpoint only validates the custom field you're updating. It doesn't check whether the account<br/>
+        /// user has answered their other required custom fields.<br/>
+        /// <br/>
+        /// Auto-increment custom fields are read-only because Cvent generates their values. Updating the<br/>
+        /// answer to an auto-increment custom field returns a `400` error.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateAccountUserCustomFieldAnswerRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateAccountUserCustomFieldAnswerResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse12">
+        /// The request was invalid. For a validation error, the top-level `code` is `invalidRequest` and the `message` is&lt;br/&gt;<br/>
+        /// generic. Each specific problem is listed in `details`, with `target` naming the request field it applies to.&lt;br/&gt;<br/>
+        /// For example:&lt;br/&gt;<br/>
+        /// &lt;br/&gt;<br/>
+        /// **Invalid choice value**: a value is not one of the field's choices:&lt;br/&gt;<br/>
+        /// ```json&lt;br/&gt;<br/>
+        /// {&lt;br/&gt;<br/>
+        ///   "code": "invalidRequest",&lt;br/&gt;<br/>
+        ///   "message": "The request is malformed or incorrect",&lt;br/&gt;<br/>
+        ///   "details": [&lt;br/&gt;<br/>
+        ///     { "code": "invalidRequest", "message": "Choice: C invalid.", "target": "values" }&lt;br/&gt;<br/>
+        ///   ]&lt;br/&gt;<br/>
+        /// }&lt;br/&gt;<br/>
+        /// ```&lt;br/&gt;<br/>
+        /// &lt;br/&gt;<br/>
+        /// **Mismatched custom field ID**: the `customFieldId` path parameter did not match the `id` in the request body:&lt;br/&gt;<br/>
+        /// ```json&lt;br/&gt;<br/>
+        /// {&lt;br/&gt;<br/>
+        ///   "code": "invalidRequest",&lt;br/&gt;<br/>
+        ///   "message": "The request is malformed or incorrect",&lt;br/&gt;<br/>
+        ///   "details": [&lt;br/&gt;<br/>
+        ///     { "code": "invalidRequest", "message": "Path and Body custom field id must match." }&lt;br/&gt;<br/>
+        ///   ]&lt;br/&gt;<br/>
+        /// }&lt;br/&gt;<br/>
+        /// ```&lt;br/&gt;<br/>
+        /// &lt;br/&gt;<br/>
+        /// **Clearing a required field**: an empty `values` array was supplied for a required custom field:&lt;br/&gt;<br/>
+        /// ```json&lt;br/&gt;<br/>
+        /// {&lt;br/&gt;<br/>
+        ///   "code": "invalidRequest",&lt;br/&gt;<br/>
+        ///   "message": "The request is malformed or incorrect",&lt;br/&gt;<br/>
+        ///   "details": [&lt;br/&gt;<br/>
+        ///     { "code": "invalidRequest", "message": "must not be cleared for a required custom field.", "target": "values" }&lt;br/&gt;<br/>
+        ///   ]&lt;br/&gt;<br/>
+        /// }&lt;br/&gt;<br/>
+        /// ```&lt;br/&gt;<br/>
+        /// &lt;br/&gt;<br/>
+        /// **Writing an auto-increment field**: an answer was supplied for an auto-increment custom field:&lt;br/&gt;<br/>
+        /// ```json&lt;br/&gt;<br/>
+        /// {&lt;br/&gt;<br/>
+        ///   "code": "invalidRequest",&lt;br/&gt;<br/>
+        ///   "message": "The request is malformed or incorrect",&lt;br/&gt;<br/>
+        ///   "details": [&lt;br/&gt;<br/>
+        ///     { "code": "invalidRequest", "message": "cannot be written for an auto increment custom field.", "target": "values" }&lt;br/&gt;<br/>
+        ///   ]&lt;br/&gt;<br/>
+        /// }&lt;br/&gt;<br/>
+        /// ```&lt;br/&gt;<br/>
+        /// &lt;br/&gt;<br/>
+        /// **Invalid date-only value**: a value for a date-only field was not in the form `yyyy-MM-dd`:&lt;br/&gt;<br/>
+        /// ```json&lt;br/&gt;<br/>
+        /// {&lt;br/&gt;<br/>
+        ///   "code": "invalidRequest",&lt;br/&gt;<br/>
+        ///   "message": "The request is malformed or incorrect",&lt;br/&gt;<br/>
+        ///   "details": [&lt;br/&gt;<br/>
+        ///     {&lt;br/&gt;<br/>
+        ///       "code": "invalidRequest",&lt;br/&gt;<br/>
+        ///       "message": "Failed to parse provided date: [11/11/2027]. Please provide a date only value in the form yyyy-MM-dd",&lt;br/&gt;<br/>
+        ///       "target": "values"&lt;br/&gt;<br/>
+        ///     }&lt;br/&gt;<br/>
+        ///   ]&lt;br/&gt;<br/>
+        /// }&lt;br/&gt;<br/>
+        /// ```&lt;br/&gt;<br/>
+        /// &lt;br/&gt;<br/>
+        /// **Invalid date and time value**: a value for a date and time field was not an ISO 8601 date-time:&lt;br/&gt;<br/>
+        /// ```json&lt;br/&gt;<br/>
+        /// {&lt;br/&gt;<br/>
+        ///   "code": "invalidRequest",&lt;br/&gt;<br/>
+        ///   "message": "The request is malformed or incorrect",&lt;br/&gt;<br/>
+        ///   "details": [&lt;br/&gt;<br/>
+        ///     {&lt;br/&gt;<br/>
+        ///       "code": "invalidRequest",&lt;br/&gt;<br/>
+        ///       "message": "Failed to parse provided date: [11/11/2027 10:30 AM]. Please provide an ISO8601 date time value",&lt;br/&gt;<br/>
+        ///       "target": "values"&lt;br/&gt;<br/>
+        ///     }&lt;br/&gt;<br/>
+        ///   ]&lt;br/&gt;<br/>
+        /// }&lt;br/&gt;<br/>
+        /// ```&lt;br/&gt;<br/>
+        /// &lt;br/&gt;<br/>
+        /// **Malformed JSON body**: the request body could not be deserialized, such as a wrong type in `values` or an&lt;br/&gt;<br/>
+        /// unknown enum value. This response has a numeric `code` and no `details`:&lt;br/&gt;<br/>
+        /// ```json&lt;br/&gt;<br/>
+        /// { "code": 400, "message": "Unable to process JSON" }&lt;br/&gt;<br/>
+        /// ``` Thrown when the API returns a 400, 401, 403, 404 or 429 response.
+        /// </exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async Task<UpdateAccountUserCustomFieldAnswerResponse> UpdateAccountUserCustomFieldAnswerAsync(
+            UpdateAccountUserCustomFieldAnswerRequest request,
+            RetryConfig? retryConfig = null
+        )
+        {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
+            var urlString = URLBuilder.Build(baseUrl, "/users/{userId}/custom-fields/{customFieldId}/answers", request, null);
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "AccountUserCustomField", "json", false, false);
+            if (serializedBody != null)
+            {
+                httpRequest.Content = serializedBody;
+            }
+
+            if (SDKConfiguration.SecuritySource != null)
+            {
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
+            }
+
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "updateAccountUserCustomFieldAnswer", new List<string> { "account/users:write" }, SDKConfiguration.SecuritySource);
+
+            httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 2000L,
+                        maxIntervalMs: 16000L,
+                        maxElapsedTimeMs: 40000L,
+                        exponent: 2
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "502",
+                "503",
+                "504",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
+
+            HttpResponseMessage httpResponse;
+            try
+            {
+                httpResponse = await retries.Run();
+                int _statusCode = (int)httpResponse.StatusCode;
+
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                {
+                    var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                    if (_httpResponse != null)
+                    {
+                        httpResponse = _httpResponse;
+                    }
+                }
+            }
+            catch (Exception _hookError)
+            {
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
+                if (_httpResponse != null)
+                {
+                    httpResponse = _httpResponse;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            int responseStatusCode = (int)httpResponse.StatusCode;
+            if (responseStatusCode == 200)
+            {
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    AccountUserCustomField obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<AccountUserCustomField>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into AccountUserCustomField.", httpRequest, httpResponse, httpResponseBody, ex);
+                    }
+
+                    var response = new UpdateAccountUserCustomFieldAnswerResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
+                            Response = httpResponse,
+                            Request = httpRequest
+                        }
+                    };
+                    response.AccountUserCustomField = obj;
+                    return response;
+                }
+
+                throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {

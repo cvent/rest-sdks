@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * LeadQualificationQuestionType
  *
- * <p>Type of question
+ * <p>Type of the question.
  */
 public enum LeadQualificationQuestionType {
     MULTI_CHOICE("MultiChoice"),

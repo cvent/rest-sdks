@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Used to denote a locations name and abbreviation.
+    /// A location identified by its ID, code, and name.
     /// </summary>
     public class Location1Input
     {

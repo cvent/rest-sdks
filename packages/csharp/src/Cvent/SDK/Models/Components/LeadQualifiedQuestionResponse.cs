@@ -23,7 +23,7 @@ namespace Cvent.SDK.Models.Components
         /// The question that was answered.
         /// </summary>
         [JsonProperty("question")]
-        public Question2? Question { get; set; }
+        public Question3? Question { get; set; }
 
         /// <summary>
         /// List of answers.

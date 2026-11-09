@@ -30,9 +30,9 @@ import { Result } from "../types/fp.js";
  * Assign Banner to Category
  *
  * @remarks
- * Assign a banner image to an exhibitor category with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if one is assigned.
+ * Assigns a banner image to an exhibitor category. The file ID comes from the [file upload](#operation/uploadFile) operation. The new image replaces the current banner image.
  *
- * **Note:** For category banner images we recommend images that are 900x300 pixels and 5MiB or smaller. File types supported are : JPEG, JPG, PNG, GIF.
+ * **Note:** The recommended category banner image is 900x300 pixels and 5 MiB or smaller. The supported file types are JPEG, JPG, PNG, and GIF.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

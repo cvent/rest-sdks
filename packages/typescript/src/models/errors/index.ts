@@ -7,6 +7,7 @@ export * from "./cventsdkerror.js";
 export * from "./errorresponse.js";
 export * from "./errorresponse12.js";
 export * from "./errorresponse17.js";
+export * from "./eventroleassignmentnotificationfailureresponseerror.js";
 export * from "./httpclienterrors.js";
 export * from "./oauth2tokenpostresponse0error.js";
 export * from "./responsevalidationerror.js";

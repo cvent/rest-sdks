@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// A JSON Schema representation of an exhibitor ID.
+    /// Exhibitor ID.
     /// </summary>
     public class ExhibitorId
     {

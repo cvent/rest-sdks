@@ -27,7 +27,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * List Registration Pack
+ * List Registration Packs
  *
  * @remarks
  * Retrieves the registration pack associated with an exhibitor. Each exhibitor has one registration pack per event

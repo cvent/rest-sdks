@@ -16,11 +16,11 @@ import java.util.Optional;
 /**
  * Answer2Choice
  *
- * <p>The choice that was selected.
+ * <p>Selected choice.
  */
 public class Answer2Choice {
     /**
-     * The ID of the choice that was selected.
+     * ID of the selected choice.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -36,7 +36,7 @@ public class Answer2Choice {
     }
 
     /**
-     * The ID of the choice that was selected.
+     * ID of the selected choice.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -47,7 +47,7 @@ public class Answer2Choice {
     }
 
     /**
-     * The ID of the choice that was selected.
+     * ID of the selected choice.
      */
     public Answer2Choice withId(@Nullable String id) {
         this.id = id;
@@ -86,7 +86,7 @@ public class Answer2Choice {
         }
 
         /**
-         * The ID of the choice that was selected.
+         * ID of the selected choice.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

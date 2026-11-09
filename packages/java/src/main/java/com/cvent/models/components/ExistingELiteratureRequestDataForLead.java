@@ -19,7 +19,7 @@ import java.util.Optional;
 /**
  * ExistingELiteratureRequestDataForLead
  *
- * <p>A JSON Schema for an existing e-literature request data for a lead.
+ * <p>E-literature request of a lead, with an ID.
  */
 public class ExistingELiteratureRequestDataForLead {
     /**
@@ -51,31 +51,31 @@ public class ExistingELiteratureRequestDataForLead {
     private String lastModifiedBy;
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     @JsonProperty("exhibitor")
     private Exhibitor exhibitor;
 
     /**
-     * JSON schema for the Lead object
+     * Associated lead.
      */
     @JsonProperty("lead")
     private Lead2 lead;
 
     /**
-     * Collection of E-literature documents sent to lead.
+     * List of the e-literature documents that were sent to the lead.
      */
     @JsonProperty("documents")
     private List<ELiteratureDocument> documents;
 
     /**
-     * Request identifier
+     * E-literature request ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -142,35 +142,35 @@ public class ExistingELiteratureRequestDataForLead {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Event4 event() {
         return this.event;
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public Exhibitor exhibitor() {
         return this.exhibitor;
     }
 
     /**
-     * JSON schema for the Lead object
+     * Associated lead.
      */
     public Lead2 lead() {
         return this.lead;
     }
 
     /**
-     * Collection of E-literature documents sent to lead.
+     * List of the e-literature documents that were sent to the lead.
      */
     public List<ELiteratureDocument> documents() {
         return this.documents;
     }
 
     /**
-     * Request identifier
+     * E-literature request ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -213,7 +213,7 @@ public class ExistingELiteratureRequestDataForLead {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public ExistingELiteratureRequestDataForLead withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -221,7 +221,7 @@ public class ExistingELiteratureRequestDataForLead {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public ExistingELiteratureRequestDataForLead withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -229,7 +229,7 @@ public class ExistingELiteratureRequestDataForLead {
     }
 
     /**
-     * JSON schema for the Lead object
+     * Associated lead.
      */
     public ExistingELiteratureRequestDataForLead withLead(@Nonnull Lead2 lead) {
         this.lead = Utils.checkNotNull(lead, "lead");
@@ -237,7 +237,7 @@ public class ExistingELiteratureRequestDataForLead {
     }
 
     /**
-     * Collection of E-literature documents sent to lead.
+     * List of the e-literature documents that were sent to the lead.
      */
     public ExistingELiteratureRequestDataForLead withDocuments(@Nonnull List<ELiteratureDocument> documents) {
         this.documents = Utils.checkNotNull(documents, "documents");
@@ -245,7 +245,7 @@ public class ExistingELiteratureRequestDataForLead {
     }
 
     /**
-     * Request identifier
+     * E-literature request ID.
      */
     public ExistingELiteratureRequestDataForLead withId(@Nullable String id) {
         this.id = id;
@@ -360,7 +360,7 @@ public class ExistingELiteratureRequestDataForLead {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -368,7 +368,7 @@ public class ExistingELiteratureRequestDataForLead {
         }
 
         /**
-         * The Associated Exhibitor.
+         * Associated exhibitor.
          */
         public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -376,7 +376,7 @@ public class ExistingELiteratureRequestDataForLead {
         }
 
         /**
-         * JSON schema for the Lead object
+         * Associated lead.
          */
         public Builder lead(@Nonnull Lead2 lead) {
             this.lead = Utils.checkNotNull(lead, "lead");
@@ -384,7 +384,7 @@ public class ExistingELiteratureRequestDataForLead {
         }
 
         /**
-         * Collection of E-literature documents sent to lead.
+         * List of the e-literature documents that were sent to the lead.
          */
         public Builder documents(@Nonnull List<ELiteratureDocument> documents) {
             this.documents = Utils.checkNotNull(documents, "documents");
@@ -392,7 +392,7 @@ public class ExistingELiteratureRequestDataForLead {
         }
 
         /**
-         * Request identifier
+         * E-literature request ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

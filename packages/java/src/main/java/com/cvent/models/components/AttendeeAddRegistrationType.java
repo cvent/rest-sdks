@@ -21,7 +21,7 @@ import java.util.Optional;
  */
 public class AttendeeAddRegistrationType {
     /**
-     * The ID of the registration type.
+     * Registration type ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -37,7 +37,7 @@ public class AttendeeAddRegistrationType {
     }
 
     /**
-     * The ID of the registration type.
+     * Registration type ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -48,7 +48,7 @@ public class AttendeeAddRegistrationType {
     }
 
     /**
-     * The ID of the registration type.
+     * Registration type ID.
      */
     public AttendeeAddRegistrationType withId(@Nullable String id) {
         this.id = id;
@@ -87,7 +87,7 @@ public class AttendeeAddRegistrationType {
         }
 
         /**
-         * The ID of the registration type.
+         * Registration type ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

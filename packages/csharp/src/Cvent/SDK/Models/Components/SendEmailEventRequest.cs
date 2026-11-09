@@ -23,7 +23,7 @@ namespace Cvent.SDK.Models.Components
         /// Details of the event.
         /// </summary>
         [JsonProperty("event")]
-        public EventJson3 Event { get; set; } = default!;
+        public EventJson2 Event { get; set; } = default!;
 
         /// <summary>
         /// Details of an email to be send.

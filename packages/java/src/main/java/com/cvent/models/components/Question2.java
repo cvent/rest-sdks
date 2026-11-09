@@ -3,76 +3,409 @@
  */
 package com.cvent.models.components;
 
+import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
+import java.lang.Boolean;
+import java.lang.Double;
+import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Optional;
 
 /**
  * Question2
  *
- * <p>The question that was answered.
+ * <p>A survey question.
  */
 public class Question2 {
     /**
-     * The unique identifier of the question.
+     * The ISO 8601 zoned date time when this record was created.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("created")
+    private OffsetDateTime created;
+
+    /**
+     * The identifier of the user that created this record.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("createdBy")
+    private String createdBy;
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("lastModified")
+    private OffsetDateTime lastModified;
+
+    /**
+     * The identifier of the user that last updated this record.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("lastModifiedBy")
+    private String lastModifiedBy;
+
+    /**
+     * Text field ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * Question text.
+     * text Value of the Field
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("text")
     private String text;
 
     /**
-     * Question code.
+     * Reporting value of the Category, Its like a custom abbreviation
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("shortText")
+    private String shortText;
+
+    /**
+     * Html of the question
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("htmlText")
+    private String htmlText;
+
+    /**
+     * Question Code
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("code")
     private String code;
 
+    /**
+     * Question Type.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("type")
+    private QuestionType2 type;
+
+    /**
+     * List of choices for the question.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("choices")
+    private List<Choice2> choices;
+
+    /**
+     * List of categories for the question.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("categories")
+    private List<Category2> categories;
+
+    /**
+     * List of sub categories for matrix side-by-side questions
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("subCategories")
+    private List<TextField1> subCategories;
+
+    /**
+     * Contains text of additional choice i.e N/A choice or otherAnswer choice
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("notApplicableAnswer")
+    private AdditionalChoice2 notApplicableAnswer;
+
+    /**
+     * Contains text of additional choice i.e N/A choice or otherAnswer choice
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("otherAnswer")
+    private AdditionalChoice2 otherAnswer;
+
+    /**
+     * Text Value of Comments Input box placeholder
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("comments")
+    private String comments;
+
+    /**
+     * Is this a mandatory question
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("required")
+    private Boolean required;
+
+    /**
+     * List of fields for form/matrix questions
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("fields")
+    private List<Field5> fields;
+
+    /**
+     * Max possible score
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("maxScore")
+    private Double maxScore;
+
+    /**
+     * Total configured sum of all choices for number allocation question
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("totalSum")
+    private Long totalSum;
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("survey")
+    private Uuid survey;
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("chapter")
+    private Uuid chapter;
+
     @JsonCreator
     public Question2(
+            @JsonProperty("created") @Nullable OffsetDateTime created,
+            @JsonProperty("createdBy") @Nullable String createdBy,
+            @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
+            @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("text") @Nullable String text,
-            @JsonProperty("code") @Nullable String code) {
+            @JsonProperty("shortText") @Nullable String shortText,
+            @JsonProperty("htmlText") @Nullable String htmlText,
+            @JsonProperty("code") @Nullable String code,
+            @JsonProperty("type") @Nullable QuestionType2 type,
+            @JsonProperty("choices") @Nullable List<Choice2> choices,
+            @JsonProperty("categories") @Nullable List<Category2> categories,
+            @JsonProperty("subCategories") @Nullable List<TextField1> subCategories,
+            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoice2 notApplicableAnswer,
+            @JsonProperty("otherAnswer") @Nullable AdditionalChoice2 otherAnswer,
+            @JsonProperty("comments") @Nullable String comments,
+            @JsonProperty("required") @Nullable Boolean required,
+            @JsonProperty("fields") @Nullable List<Field5> fields,
+            @JsonProperty("maxScore") @Nullable Double maxScore,
+            @JsonProperty("totalSum") @Nullable Long totalSum,
+            @JsonProperty("survey") @Nullable Uuid survey,
+            @JsonProperty("chapter") @Nullable Uuid chapter) {
+        this.created = created;
+        this.createdBy = createdBy;
+        this.lastModified = lastModified;
+        this.lastModifiedBy = lastModifiedBy;
         this.id = id;
         this.text = text;
+        this.shortText = shortText;
+        this.htmlText = htmlText;
         this.code = code;
+        this.type = type;
+        this.choices = choices;
+        this.categories = categories;
+        this.subCategories = subCategories;
+        this.notApplicableAnswer = notApplicableAnswer;
+        this.otherAnswer = otherAnswer;
+        this.comments = comments;
+        this.required = Optional.ofNullable(required).orElse(Builder._SINGLETON_VALUE_Required.value());
+        this.fields = fields;
+        this.maxScore = maxScore;
+        this.totalSum = totalSum;
+        this.survey = survey;
+        this.chapter = chapter;
     }
 
     public Question2() {
-        this(null, null, null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
-     * The unique identifier of the question.
+     * The ISO 8601 zoned date time when this record was created.
+     */
+    public Optional<OffsetDateTime> created() {
+        return Optional.ofNullable(this.created);
+    }
+
+    /**
+     * The identifier of the user that created this record.
+     */
+    public Optional<String> createdBy() {
+        return Optional.ofNullable(this.createdBy);
+    }
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    public Optional<OffsetDateTime> lastModified() {
+        return Optional.ofNullable(this.lastModified);
+    }
+
+    /**
+     * The identifier of the user that last updated this record.
+     */
+    public Optional<String> lastModifiedBy() {
+        return Optional.ofNullable(this.lastModifiedBy);
+    }
+
+    /**
+     * Text field ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * Question text.
+     * text Value of the Field
      */
     public Optional<String> text() {
         return Optional.ofNullable(this.text);
     }
 
     /**
-     * Question code.
+     * Reporting value of the Category, Its like a custom abbreviation
+     */
+    public Optional<String> shortText() {
+        return Optional.ofNullable(this.shortText);
+    }
+
+    /**
+     * Html of the question
+     */
+    public Optional<String> htmlText() {
+        return Optional.ofNullable(this.htmlText);
+    }
+
+    /**
+     * Question Code
      */
     public Optional<String> code() {
         return Optional.ofNullable(this.code);
+    }
+
+    /**
+     * Question Type.
+     */
+    public Optional<QuestionType2> type() {
+        return Optional.ofNullable(this.type);
+    }
+
+    /**
+     * List of choices for the question.
+     */
+    public Optional<List<Choice2>> choices() {
+        return Optional.ofNullable(this.choices);
+    }
+
+    /**
+     * List of categories for the question.
+     */
+    public Optional<List<Category2>> categories() {
+        return Optional.ofNullable(this.categories);
+    }
+
+    /**
+     * List of sub categories for matrix side-by-side questions
+     */
+    public Optional<List<TextField1>> subCategories() {
+        return Optional.ofNullable(this.subCategories);
+    }
+
+    /**
+     * Contains text of additional choice i.e N/A choice or otherAnswer choice
+     */
+    public Optional<AdditionalChoice2> notApplicableAnswer() {
+        return Optional.ofNullable(this.notApplicableAnswer);
+    }
+
+    /**
+     * Contains text of additional choice i.e N/A choice or otherAnswer choice
+     */
+    public Optional<AdditionalChoice2> otherAnswer() {
+        return Optional.ofNullable(this.otherAnswer);
+    }
+
+    /**
+     * Text Value of Comments Input box placeholder
+     */
+    public Optional<String> comments() {
+        return Optional.ofNullable(this.comments);
+    }
+
+    /**
+     * Is this a mandatory question
+     */
+    public Optional<Boolean> required() {
+        return Optional.ofNullable(this.required);
+    }
+
+    /**
+     * List of fields for form/matrix questions
+     */
+    public Optional<List<Field5>> fields() {
+        return Optional.ofNullable(this.fields);
+    }
+
+    /**
+     * Max possible score
+     */
+    public Optional<Double> maxScore() {
+        return Optional.ofNullable(this.maxScore);
+    }
+
+    /**
+     * Total configured sum of all choices for number allocation question
+     */
+    public Optional<Long> totalSum() {
+        return Optional.ofNullable(this.totalSum);
+    }
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    public Optional<Uuid> survey() {
+        return Optional.ofNullable(this.survey);
+    }
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    public Optional<Uuid> chapter() {
+        return Optional.ofNullable(this.chapter);
     }
 
     public static Builder builder() {
@@ -80,7 +413,39 @@ public class Question2 {
     }
 
     /**
-     * The unique identifier of the question.
+     * The ISO 8601 zoned date time when this record was created.
+     */
+    public Question2 withCreated(@Nullable OffsetDateTime created) {
+        this.created = created;
+        return this;
+    }
+
+    /**
+     * The identifier of the user that created this record.
+     */
+    public Question2 withCreatedBy(@Nullable String createdBy) {
+        this.createdBy = createdBy;
+        return this;
+    }
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    public Question2 withLastModified(@Nullable OffsetDateTime lastModified) {
+        this.lastModified = lastModified;
+        return this;
+    }
+
+    /**
+     * The identifier of the user that last updated this record.
+     */
+    public Question2 withLastModifiedBy(@Nullable String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
+        return this;
+    }
+
+    /**
+     * Text field ID.
      */
     public Question2 withId(@Nullable String id) {
         this.id = id;
@@ -88,7 +453,7 @@ public class Question2 {
     }
 
     /**
-     * Question text.
+     * text Value of the Field
      */
     public Question2 withText(@Nullable String text) {
         this.text = text;
@@ -96,10 +461,130 @@ public class Question2 {
     }
 
     /**
-     * Question code.
+     * Reporting value of the Category, Its like a custom abbreviation
+     */
+    public Question2 withShortText(@Nullable String shortText) {
+        this.shortText = shortText;
+        return this;
+    }
+
+    /**
+     * Html of the question
+     */
+    public Question2 withHtmlText(@Nullable String htmlText) {
+        this.htmlText = htmlText;
+        return this;
+    }
+
+    /**
+     * Question Code
      */
     public Question2 withCode(@Nullable String code) {
         this.code = code;
+        return this;
+    }
+
+    /**
+     * Question Type.
+     */
+    public Question2 withType(@Nullable QuestionType2 type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * List of choices for the question.
+     */
+    public Question2 withChoices(@Nullable List<Choice2> choices) {
+        this.choices = choices;
+        return this;
+    }
+
+    /**
+     * List of categories for the question.
+     */
+    public Question2 withCategories(@Nullable List<Category2> categories) {
+        this.categories = categories;
+        return this;
+    }
+
+    /**
+     * List of sub categories for matrix side-by-side questions
+     */
+    public Question2 withSubCategories(@Nullable List<TextField1> subCategories) {
+        this.subCategories = subCategories;
+        return this;
+    }
+
+    /**
+     * Contains text of additional choice i.e N/A choice or otherAnswer choice
+     */
+    public Question2 withNotApplicableAnswer(@Nullable AdditionalChoice2 notApplicableAnswer) {
+        this.notApplicableAnswer = notApplicableAnswer;
+        return this;
+    }
+
+    /**
+     * Contains text of additional choice i.e N/A choice or otherAnswer choice
+     */
+    public Question2 withOtherAnswer(@Nullable AdditionalChoice2 otherAnswer) {
+        this.otherAnswer = otherAnswer;
+        return this;
+    }
+
+    /**
+     * Text Value of Comments Input box placeholder
+     */
+    public Question2 withComments(@Nullable String comments) {
+        this.comments = comments;
+        return this;
+    }
+
+    /**
+     * Is this a mandatory question
+     */
+    public Question2 withRequired(@Nullable Boolean required) {
+        this.required = required;
+        return this;
+    }
+
+    /**
+     * List of fields for form/matrix questions
+     */
+    public Question2 withFields(@Nullable List<Field5> fields) {
+        this.fields = fields;
+        return this;
+    }
+
+    /**
+     * Max possible score
+     */
+    public Question2 withMaxScore(@Nullable Double maxScore) {
+        this.maxScore = maxScore;
+        return this;
+    }
+
+    /**
+     * Total configured sum of all choices for number allocation question
+     */
+    public Question2 withTotalSum(@Nullable Long totalSum) {
+        this.totalSum = totalSum;
+        return this;
+    }
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    public Question2 withSurvey(@Nullable Uuid survey) {
+        this.survey = survey;
+        return this;
+    }
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    public Question2 withChapter(@Nullable Uuid chapter) {
+        this.chapter = chapter;
         return this;
     }
 
@@ -112,36 +597,192 @@ public class Question2 {
             return false;
         }
         Question2 other = (Question2) o;
-        return Utils.enhancedDeepEquals(this.id, other.id)
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
                 && Utils.enhancedDeepEquals(this.text, other.text)
-                && Utils.enhancedDeepEquals(this.code, other.code);
+                && Utils.enhancedDeepEquals(this.shortText, other.shortText)
+                && Utils.enhancedDeepEquals(this.htmlText, other.htmlText)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.choices, other.choices)
+                && Utils.enhancedDeepEquals(this.categories, other.categories)
+                && Utils.enhancedDeepEquals(this.subCategories, other.subCategories)
+                && Utils.enhancedDeepEquals(this.notApplicableAnswer, other.notApplicableAnswer)
+                && Utils.enhancedDeepEquals(this.otherAnswer, other.otherAnswer)
+                && Utils.enhancedDeepEquals(this.comments, other.comments)
+                && Utils.enhancedDeepEquals(this.required, other.required)
+                && Utils.enhancedDeepEquals(this.fields, other.fields)
+                && Utils.enhancedDeepEquals(this.maxScore, other.maxScore)
+                && Utils.enhancedDeepEquals(this.totalSum, other.totalSum)
+                && Utils.enhancedDeepEquals(this.survey, other.survey)
+                && Utils.enhancedDeepEquals(this.chapter, other.chapter);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, text, code);
+        return Utils.enhancedHash(
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                text,
+                shortText,
+                htmlText,
+                code,
+                type,
+                choices,
+                categories,
+                subCategories,
+                notApplicableAnswer,
+                otherAnswer,
+                comments,
+                required,
+                fields,
+                maxScore,
+                totalSum,
+                survey,
+                chapter);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(Question2.class, "id", id, "text", text, "code", code);
+        return Utils.toString(
+                Question2.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "text",
+                text,
+                "shortText",
+                shortText,
+                "htmlText",
+                htmlText,
+                "code",
+                code,
+                "type",
+                type,
+                "choices",
+                choices,
+                "categories",
+                categories,
+                "subCategories",
+                subCategories,
+                "notApplicableAnswer",
+                notApplicableAnswer,
+                "otherAnswer",
+                otherAnswer,
+                "comments",
+                comments,
+                "required",
+                required,
+                "fields",
+                fields,
+                "maxScore",
+                maxScore,
+                "totalSum",
+                totalSum,
+                "survey",
+                survey,
+                "chapter",
+                chapter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
+        private OffsetDateTime created;
+
+        private String createdBy;
+
+        private OffsetDateTime lastModified;
+
+        private String lastModifiedBy;
+
         private String id;
 
         private String text;
 
+        private String shortText;
+
+        private String htmlText;
+
         private String code;
+
+        private QuestionType2 type;
+
+        private List<Choice2> choices;
+
+        private List<Category2> categories;
+
+        private List<TextField1> subCategories;
+
+        private AdditionalChoice2 notApplicableAnswer;
+
+        private AdditionalChoice2 otherAnswer;
+
+        private String comments;
+
+        private Boolean required;
+
+        private List<Field5> fields;
+
+        private Double maxScore;
+
+        private Long totalSum;
+
+        private Uuid survey;
+
+        private Uuid chapter;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The unique identifier of the question.
+         * The ISO 8601 zoned date time when this record was created.
+         */
+        public Builder created(@Nullable OffsetDateTime created) {
+            this.created = created;
+            return this;
+        }
+
+        /**
+         * The identifier of the user that created this record.
+         */
+        public Builder createdBy(@Nullable String createdBy) {
+            this.createdBy = createdBy;
+            return this;
+        }
+
+        /**
+         * The ISO 8601 zoned date time when this record was updated.
+         */
+        public Builder lastModified(@Nullable OffsetDateTime lastModified) {
+            this.lastModified = lastModified;
+            return this;
+        }
+
+        /**
+         * The identifier of the user that last updated this record.
+         */
+        public Builder lastModifiedBy(@Nullable String lastModifiedBy) {
+            this.lastModifiedBy = lastModifiedBy;
+            return this;
+        }
+
+        /**
+         * Text field ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -149,7 +790,7 @@ public class Question2 {
         }
 
         /**
-         * Question text.
+         * text Value of the Field
          */
         public Builder text(@Nullable String text) {
             this.text = text;
@@ -157,15 +798,160 @@ public class Question2 {
         }
 
         /**
-         * Question code.
+         * Reporting value of the Category, Its like a custom abbreviation
+         */
+        public Builder shortText(@Nullable String shortText) {
+            this.shortText = shortText;
+            return this;
+        }
+
+        /**
+         * Html of the question
+         */
+        public Builder htmlText(@Nullable String htmlText) {
+            this.htmlText = htmlText;
+            return this;
+        }
+
+        /**
+         * Question Code
          */
         public Builder code(@Nullable String code) {
             this.code = code;
             return this;
         }
 
-        public Question2 build() {
-            return new Question2(id, text, code);
+        /**
+         * Question Type.
+         */
+        public Builder type(@Nullable QuestionType2 type) {
+            this.type = type;
+            return this;
         }
+
+        /**
+         * List of choices for the question.
+         */
+        public Builder choices(@Nullable List<Choice2> choices) {
+            this.choices = choices;
+            return this;
+        }
+
+        /**
+         * List of categories for the question.
+         */
+        public Builder categories(@Nullable List<Category2> categories) {
+            this.categories = categories;
+            return this;
+        }
+
+        /**
+         * List of sub categories for matrix side-by-side questions
+         */
+        public Builder subCategories(@Nullable List<TextField1> subCategories) {
+            this.subCategories = subCategories;
+            return this;
+        }
+
+        /**
+         * Contains text of additional choice i.e N/A choice or otherAnswer choice
+         */
+        public Builder notApplicableAnswer(@Nullable AdditionalChoice2 notApplicableAnswer) {
+            this.notApplicableAnswer = notApplicableAnswer;
+            return this;
+        }
+
+        /**
+         * Contains text of additional choice i.e N/A choice or otherAnswer choice
+         */
+        public Builder otherAnswer(@Nullable AdditionalChoice2 otherAnswer) {
+            this.otherAnswer = otherAnswer;
+            return this;
+        }
+
+        /**
+         * Text Value of Comments Input box placeholder
+         */
+        public Builder comments(@Nullable String comments) {
+            this.comments = comments;
+            return this;
+        }
+
+        /**
+         * Is this a mandatory question
+         */
+        public Builder required(@Nullable Boolean required) {
+            this.required = required;
+            return this;
+        }
+
+        /**
+         * List of fields for form/matrix questions
+         */
+        public Builder fields(@Nullable List<Field5> fields) {
+            this.fields = fields;
+            return this;
+        }
+
+        /**
+         * Max possible score
+         */
+        public Builder maxScore(@Nullable Double maxScore) {
+            this.maxScore = maxScore;
+            return this;
+        }
+
+        /**
+         * Total configured sum of all choices for number allocation question
+         */
+        public Builder totalSum(@Nullable Long totalSum) {
+            this.totalSum = totalSum;
+            return this;
+        }
+
+        /**
+         * The reference to the related entity. Contains only the ID of the related entity.
+         */
+        public Builder survey(@Nullable Uuid survey) {
+            this.survey = survey;
+            return this;
+        }
+
+        /**
+         * The reference to the related entity. Contains only the ID of the related entity.
+         */
+        public Builder chapter(@Nullable Uuid chapter) {
+            this.chapter = chapter;
+            return this;
+        }
+
+        public Question2 build() {
+            return new Question2(
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    text,
+                    shortText,
+                    htmlText,
+                    code,
+                    type,
+                    choices,
+                    categories,
+                    subCategories,
+                    notApplicableAnswer,
+                    otherAnswer,
+                    comments,
+                    required,
+                    fields,
+                    maxScore,
+                    totalSum,
+                    survey,
+                    chapter);
+        }
+
+        private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Required =
+                new LazySingletonValue<>("required", "false", new TypeReference<Boolean>() {});
     }
 }

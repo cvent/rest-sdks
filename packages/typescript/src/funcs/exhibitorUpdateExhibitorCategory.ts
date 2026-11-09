@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Update Exhibitor Category
  *
  * @remarks
- * Updates data for a single exhibitor category entity.
+ * Updates an exhibitor category.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

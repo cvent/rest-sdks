@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * The associated Attendee.
+ * Associated attendee.
  */
 export type Attendee12 = {
   /**
-   * Attendee id
+   * Attendee ID.
    */
   id: string;
 };

@@ -1,6 +1,6 @@
 # QuestionType2
 
-This object represents the type of a question
+Question Type.
 
 ## Example Usage
 
@@ -13,14 +13,23 @@ var value = QuestionType2.SingleChoice;
 
 ## Values
 
-| Name                      | Value                     |
-| ------------------------- | ------------------------- |
-| `SingleChoice`            | SingleChoice              |
-| `MultiChoice`             | MultiChoice               |
-| `OpenEndedDateTime`       | OpenEndedDateTime         |
-| `OpenEndedTextOneLine`    | OpenEndedTextOneLine      |
-| `OpenEndedTextCommentBox` | OpenEndedTextCommentBox   |
-| `OpenEndedNumeric`        | OpenEndedNumeric          |
-| `FileUpload`              | FileUpload                |
-| `MatrixSinglePerRow`      | MatrixSinglePerRow        |
-| `MatrixMultiPerRow`       | MatrixMultiPerRow         |
+| Name                 | Value                |
+| -------------------- | -------------------- |
+| `SingleChoice`       | SingleChoice         |
+| `MultiChoice`        | MultiChoice          |
+| `MatrixSingleChoice` | MatrixSingleChoice   |
+| `MatrixMultiChoice`  | MatrixMultiChoice    |
+| `MatrixSideBySide`   | MatrixSideBySide     |
+| `MatrixSpreadSheet`  | MatrixSpreadSheet    |
+| `DateTime`           | DateTime             |
+| `Number`             | Number               |
+| `Text`               | Text                 |
+| `CommentBox`         | CommentBox           |
+| `Form`               | Form                 |
+| `RankOrder`          | RankOrder            |
+| `FileUpload`         | FileUpload           |
+| `NetPromoter`        | NetPromoter          |
+| `Rating`             | Rating               |
+| `MatrixRating`       | MatrixRating         |
+| `NumberAllocation`   | NumberAllocation     |
+| `LargeChoices`       | LargeChoices         |

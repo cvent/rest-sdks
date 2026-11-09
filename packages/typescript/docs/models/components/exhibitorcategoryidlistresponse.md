@@ -1,6 +1,6 @@
 # ExhibitorCategoryIdListResponse
 
-A paginated response containing a list of exhibitor category Ids.
+Paginated list of exhibitor category IDs.
 
 ## Example Usage
 
@@ -39,4 +39,4 @@ let value: ExhibitorCategoryIdListResponse = {
 | Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
 | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | `paging`                                                                           | [components.Paging](../../models/components/paging.md)                             | :heavy_minus_sign:                                                                 | Represents pagination information for a collection of resources.                   |
-| `data`                                                                             | [components.ExhibitorCategoryId](../../models/components/exhibitorcategoryid.md)[] | :heavy_minus_sign:                                                                 | Paginated list of exhibitor category Ids for an exhibitor.                         |
+| `data`                                                                             | [components.ExhibitorCategoryId](../../models/components/exhibitorcategoryid.md)[] | :heavy_minus_sign:                                                                 | Paginated list of the exhibitor category IDs of an exhibitor.                      |

@@ -15,13 +15,13 @@ namespace Cvent.SDK.Models.Requests
     public class UpdateSessionCustomFieldAnswersRequest
     {
         /// <summary>
-        /// Unique Id of a session.
+        /// Unique ID of a session.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Unique Id of a custom field.
+        /// Unique ID of a custom field.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=customFieldId")]
         public string CustomFieldId { get; set; } = default!;

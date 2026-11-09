@@ -13,18 +13,18 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// A JSON object representing an electronic device used to capture leads.
+    /// Device that captured the lead.
     /// </summary>
     public class Device
     {
         /// <summary>
-        /// The id of device used to capture lead.
+        /// ID of the device.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The name of device used to capture lead.
+        /// Name of the device.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }

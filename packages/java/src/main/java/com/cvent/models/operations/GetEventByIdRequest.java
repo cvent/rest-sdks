@@ -3,12 +3,15 @@
  */
 package com.cvent.models.operations;
 
+import com.cvent.models.components.Expand1;
 import com.cvent.utils.SpeakeasyMetadata;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 
 public class GetEventByIdRequest {
@@ -18,9 +21,49 @@ public class GetEventByIdRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
+    /**
+     * This endpoint allows you to request additional information as an
+     * expanded response using the `expand` query parameter.
+     *
+     * <p>The expanded entity is retrieved and displayed inline for each
+     * specified expand value. You can expand multiple objects at the same
+     * time by identifying multiple items in the expand array.
+     *
+     * <p>The following fields are expandable:
+     * * image
+     *
+     * <p>When `image` is not requested it is omitted from the response
+     * entirely. When it is requested and the event has no image, `image`
+     * is `null`.
+     *
+     * <p>Images are retrieved in bulk per page; `expand` does not change the
+     * maximum `limit`.
+     *
+     * <p>On list endpoints `expand` is kept in the paging `token`: a request
+     * with `token` uses the `expand` of the first request, and an `expand`
+     * sent with `token` is validated but otherwise ignored.
+     *
+     * <p>The image is retrieved at request time. If it cannot be retrieved the
+     * whole request fails with `504` when the image service does not respond
+     * in time, and `503` otherwise. On list endpoints this is all-or-nothing:
+     * one image that cannot be retrieved fails the whole page. To read events
+     * while images are unavailable, omit `expand`.
+     *
+     * <p>On endpoints that support `partialResponse`, sending
+     * `partialResponse=true` instead returns every event on the page without
+     * `image`, together with a single partial error for that field.
+     */
+    @SpeakeasyMetadata("queryParam:style=form,explode=true,name=expand")
+    private List<Expand1> expand;
+
     @JsonCreator
-    public GetEventByIdRequest(@Nonnull String id) {
+    public GetEventByIdRequest(@Nonnull String id, @Nullable List<Expand1> expand) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.expand = expand;
+    }
+
+    public GetEventByIdRequest(@Nonnull String id) {
+        this(id, null);
     }
 
     /**
@@ -28,6 +71,42 @@ public class GetEventByIdRequest {
      */
     public String id() {
         return this.id;
+    }
+
+    /**
+     * This endpoint allows you to request additional information as an
+     * expanded response using the `expand` query parameter.
+     *
+     * <p>The expanded entity is retrieved and displayed inline for each
+     * specified expand value. You can expand multiple objects at the same
+     * time by identifying multiple items in the expand array.
+     *
+     * <p>The following fields are expandable:
+     * * image
+     *
+     * <p>When `image` is not requested it is omitted from the response
+     * entirely. When it is requested and the event has no image, `image`
+     * is `null`.
+     *
+     * <p>Images are retrieved in bulk per page; `expand` does not change the
+     * maximum `limit`.
+     *
+     * <p>On list endpoints `expand` is kept in the paging `token`: a request
+     * with `token` uses the `expand` of the first request, and an `expand`
+     * sent with `token` is validated but otherwise ignored.
+     *
+     * <p>The image is retrieved at request time. If it cannot be retrieved the
+     * whole request fails with `504` when the image service does not respond
+     * in time, and `503` otherwise. On list endpoints this is all-or-nothing:
+     * one image that cannot be retrieved fails the whole page. To read events
+     * while images are unavailable, omit `expand`.
+     *
+     * <p>On endpoints that support `partialResponse`, sending
+     * `partialResponse=true` instead returns every event on the page without
+     * `image`, together with a single partial error for that field.
+     */
+    public Optional<List<Expand1>> expand() {
+        return Optional.ofNullable(this.expand);
     }
 
     public static Builder builder() {
@@ -42,6 +121,43 @@ public class GetEventByIdRequest {
         return this;
     }
 
+    /**
+     * This endpoint allows you to request additional information as an
+     * expanded response using the `expand` query parameter.
+     *
+     * <p>The expanded entity is retrieved and displayed inline for each
+     * specified expand value. You can expand multiple objects at the same
+     * time by identifying multiple items in the expand array.
+     *
+     * <p>The following fields are expandable:
+     * * image
+     *
+     * <p>When `image` is not requested it is omitted from the response
+     * entirely. When it is requested and the event has no image, `image`
+     * is `null`.
+     *
+     * <p>Images are retrieved in bulk per page; `expand` does not change the
+     * maximum `limit`.
+     *
+     * <p>On list endpoints `expand` is kept in the paging `token`: a request
+     * with `token` uses the `expand` of the first request, and an `expand`
+     * sent with `token` is validated but otherwise ignored.
+     *
+     * <p>The image is retrieved at request time. If it cannot be retrieved the
+     * whole request fails with `504` when the image service does not respond
+     * in time, and `503` otherwise. On list endpoints this is all-or-nothing:
+     * one image that cannot be retrieved fails the whole page. To read events
+     * while images are unavailable, omit `expand`.
+     *
+     * <p>On endpoints that support `partialResponse`, sending
+     * `partialResponse=true` instead returns every event on the page without
+     * `image`, together with a single partial error for that field.
+     */
+    public GetEventByIdRequest withExpand(@Nullable List<Expand1> expand) {
+        this.expand = expand;
+        return this;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -51,23 +167,25 @@ public class GetEventByIdRequest {
             return false;
         }
         GetEventByIdRequest other = (GetEventByIdRequest) o;
-        return Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.expand, other.expand);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id);
+        return Utils.enhancedHash(id, expand);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(GetEventByIdRequest.class, "id", id);
+        return Utils.toString(GetEventByIdRequest.class, "id", id, "expand", expand);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
         private String id;
+
+        private List<Expand1> expand;
 
         private Builder() {
             // force use of static builder() method
@@ -81,8 +199,45 @@ public class GetEventByIdRequest {
             return this;
         }
 
+        /**
+         * This endpoint allows you to request additional information as an
+         * expanded response using the `expand` query parameter.
+         *
+         * <p>The expanded entity is retrieved and displayed inline for each
+         * specified expand value. You can expand multiple objects at the same
+         * time by identifying multiple items in the expand array.
+         *
+         * <p>The following fields are expandable:
+         * * image
+         *
+         * <p>When `image` is not requested it is omitted from the response
+         * entirely. When it is requested and the event has no image, `image`
+         * is `null`.
+         *
+         * <p>Images are retrieved in bulk per page; `expand` does not change the
+         * maximum `limit`.
+         *
+         * <p>On list endpoints `expand` is kept in the paging `token`: a request
+         * with `token` uses the `expand` of the first request, and an `expand`
+         * sent with `token` is validated but otherwise ignored.
+         *
+         * <p>The image is retrieved at request time. If it cannot be retrieved the
+         * whole request fails with `504` when the image service does not respond
+         * in time, and `503` otherwise. On list endpoints this is all-or-nothing:
+         * one image that cannot be retrieved fails the whole page. To read events
+         * while images are unavailable, omit `expand`.
+         *
+         * <p>On endpoints that support `partialResponse`, sending
+         * `partialResponse=true` instead returns every event on the page without
+         * `image`, together with a single partial error for that field.
+         */
+        public Builder expand(@Nullable List<Expand1> expand) {
+            this.expand = expand;
+            return this;
+        }
+
         public GetEventByIdRequest build() {
-            return new GetEventByIdRequest(id);
+            return new GetEventByIdRequest(id, expand);
         }
     }
 }

@@ -1,6 +1,6 @@
 # Application
 
-The application used to capture lead.
+Application that captured the lead.
 
 ## Example Usage
 

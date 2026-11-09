@@ -212,8 +212,8 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [UpdateInternalInfoAnswers](docs/sdks/attendees/README.md#updateinternalinfoanswers) - Update Internal Information
 * [ListOptionalItems](docs/sdks/attendees/README.md#listoptionalitems) - List Attendee Optional Items
 * [PostBadge](docs/sdks/attendees/README.md#postbadge) - Create Badge
-* [GetBadge](docs/sdks/attendees/README.md#getbadge) - Get Badge
-* [GetBadgesPostFilters](docs/sdks/attendees/README.md#getbadgespostfilters) - Get Badges
+* [GetBadge](docs/sdks/attendees/README.md#getbadge) - List Badges
+* [GetBadgesPostFilters](docs/sdks/attendees/README.md#getbadgespostfilters) - List Badges
 * [UpdateBadge](docs/sdks/attendees/README.md#updatebadge) - Update Badge
 
 ### [AudienceSegments](docs/sdks/audiencesegments/README.md)
@@ -376,6 +376,8 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 ### [EventRole](docs/sdks/eventrole/README.md)
 
 * [ListEventRoleAssignment](docs/sdks/eventrole/README.md#listeventroleassignment) - List Event Role Assignments
+* [CreateEventRoleAssignment](docs/sdks/eventrole/README.md#createeventroleassignment) - Assign Event Role
+* [DeleteEventRoleAssignment](docs/sdks/eventrole/README.md#deleteeventroleassignment) - Unassign Event Role
 
 ### [EventTravel](docs/sdks/eventtravel/README.md)
 
@@ -471,7 +473,7 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [DeleteExhibitorLogo](docs/sdks/exhibitor/README.md#deleteexhibitorlogo) - Delete Exhibitor Logo Image
 * [GetLeadQualificationQuestions](docs/sdks/exhibitor/README.md#getleadqualificationquestions) - List Qualification Questions
 * [PostRegistrationPack](docs/sdks/exhibitor/README.md#postregistrationpack) - Create Registration Pack
-* [GetExhibitorRegistrationPacks](docs/sdks/exhibitor/README.md#getexhibitorregistrationpacks) - List Registration Pack
+* [GetExhibitorRegistrationPacks](docs/sdks/exhibitor/README.md#getexhibitorregistrationpacks) - List Registration Packs
 * [GetRegistrationPack](docs/sdks/exhibitor/README.md#getregistrationpack) - Get Registration Pack
 * [UpdateRegistrationPack](docs/sdks/exhibitor/README.md#updateregistrationpack) - Update Registration Pack
 * [DeleteRegistrationPack](docs/sdks/exhibitor/README.md#deleteregistrationpack) - Delete Registration Pack
@@ -498,8 +500,8 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [UpdateExhibitorAdmin](docs/sdks/exhibitorteam/README.md#updateexhibitoradmin) - Update Exhibitor Admin
 * [ListBoothStaff](docs/sdks/exhibitorteam/README.md#listboothstaff) - List Booth Staff
 * [AssociateBoothStaff](docs/sdks/exhibitorteam/README.md#associateboothstaff) - Create Booth Staff
-* [GetBoothStaff](docs/sdks/exhibitorteam/README.md#getboothstaff) - Get Booth Staff member
-* [DeleteBoothStaff](docs/sdks/exhibitorteam/README.md#deleteboothstaff) - Delete Booth Staff member
+* [GetBoothStaff](docs/sdks/exhibitorteam/README.md#getboothstaff) - Get Booth Staff Member
+* [DeleteBoothStaff](docs/sdks/exhibitorteam/README.md#deleteboothstaff) - Delete Booth Staff Member
 
 ### [File](docs/sdks/file/README.md)
 
@@ -625,7 +627,7 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [GetProgramItemSessionDocument](docs/sdks/sessions/README.md#getprogramitemsessiondocument) - Get Program Item Document
 * [DeleteProgramItemSessionDocument](docs/sdks/sessions/README.md#deleteprogramitemsessiondocument) - Delete Program Item Document
 * [ListSessionsCategories](docs/sdks/sessions/README.md#listsessionscategories) - List Session Categories
-* [CreateSessionCategory](docs/sdks/sessions/README.md#createsessioncategory) - Create Session Categories
+* [CreateSessionCategory](docs/sdks/sessions/README.md#createsessioncategory) - Create Session Category
 * [GetSessionSegments](docs/sdks/sessions/README.md#getsessionsegments) - Get Session Segments
 * [ListSessions](docs/sdks/sessions/README.md#listsessions) - List Sessions
 * [CreateSession](docs/sdks/sessions/README.md#createsession) - Create Session
@@ -764,7 +766,9 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [AddUserToAccountUserGroup](docs/sdks/users/README.md#addusertoaccountusergroup) - Associate User to Group
 * [DeleteUserFromAccountUserGroup](docs/sdks/users/README.md#deleteuserfromaccountusergroup) - Delete User from Group
 * [ListAccountUsers](docs/sdks/users/README.md#listaccountusers) - List Account Users
+* [ListAccountUsersFilter](docs/sdks/users/README.md#listaccountusersfilter) - List Account Users
 * [GetAccountUser](docs/sdks/users/README.md#getaccountuser) - Get Account User
+* [UpdateAccountUserCustomFieldAnswer](docs/sdks/users/README.md#updateaccountusercustomfieldanswer) - Update Custom Field Answer
 
 ### [VenueAvailability](docs/sdks/venueavailability/README.md)
 
@@ -795,14 +799,14 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [AssociateVenueImage](docs/sdks/venuecontent/README.md#associatevenueimage) - Associate Venue Image
 * [DisassociateVenueImage](docs/sdks/venuecontent/README.md#disassociatevenueimage) - Remove Venue Image
 
-### [VenueLeads](docs/sdks/venueleads/README.md)
+### [VenueLeadCatchers](docs/sdks/venueleadcatchers/README.md)
 
-* [CreateLeadCatcher](docs/sdks/venueleads/README.md#createleadcatcher) - Create Lead Catcher
-* [ListLeadCatchersOverview](docs/sdks/venueleads/README.md#listleadcatchersoverview) - List Lead Catchers Overview
-* [UpdateLeadCatcher](docs/sdks/venueleads/README.md#updateleadcatcher) - Update Lead Catcher
-* [PatchLeadCatcher](docs/sdks/venueleads/README.md#patchleadcatcher) - Patch Lead Catcher
-* [DeleteLeadCatcher](docs/sdks/venueleads/README.md#deleteleadcatcher) - Delete Lead Catcher
-* [GetLeadCatcherOverview](docs/sdks/venueleads/README.md#getleadcatcheroverview) - Get Lead Catcher Overview
+* [CreateLeadCatcher](docs/sdks/venueleadcatchers/README.md#createleadcatcher) - Create Lead Catcher
+* [ListLeadCatchersOverview](docs/sdks/venueleadcatchers/README.md#listleadcatchersoverview) - List Lead Catchers Overview
+* [UpdateLeadCatcher](docs/sdks/venueleadcatchers/README.md#updateleadcatcher) - Update Lead Catcher
+* [PatchLeadCatcher](docs/sdks/venueleadcatchers/README.md#patchleadcatcher) - Patch Lead Catcher
+* [DeleteLeadCatcher](docs/sdks/venueleadcatchers/README.md#deleteleadcatcher) - Delete Lead Catcher
+* [GetLeadCatcherOverview](docs/sdks/venueleadcatchers/README.md#getleadcatcheroverview) - Get Lead Catcher Overview
 
 ### [VenueMeetingRooms](docs/sdks/venuemeetingrooms/README.md)
 
@@ -1064,15 +1068,16 @@ catch (System.Net.Http.HttpRequestException ex)
 * [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs): The base class for HTTP error responses.
   * [`ErrorResponse12`](./src/Cvent/SDK/Models/Errors/ErrorResponse12.cs): Represents an error response with additional details of cascading error messages. *
 
-<details><summary>Less common exceptions (6)</summary>
+<details><summary>Less common exceptions (7)</summary>
 
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs):
-  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 18 of 507 methods.*
-  * [`ErrorResponse17`](./src/Cvent/SDK/Models/Errors/ErrorResponse17.cs): The error response. Applicable to 11 of 507 methods.*
-  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 507 methods.*
-  * [`Oauth2TokenPostResponse0Exception`](./src/Cvent/SDK/Models/Errors/Oauth2TokenPostResponse0Exception.cs): A bad token response. Status code `400`. Applicable to 1 of 507 methods.*
+  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 18 of 511 methods.*
+  * [`ErrorResponse17`](./src/Cvent/SDK/Models/Errors/ErrorResponse17.cs): The error response. Applicable to 11 of 511 methods.*
+  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 511 methods.*
+  * [`Oauth2TokenPostResponse0Exception`](./src/Cvent/SDK/Models/Errors/Oauth2TokenPostResponse0Exception.cs): A bad token response. Status code `400`. Applicable to 1 of 511 methods.*
+  * [`EventRoleAssignmentNotificationFailureResponseException`](./src/Cvent/SDK/Models/Errors/EventRoleAssignmentNotificationFailureResponseException.cs): Standard error response for a notification failure while creating an event-role assignment. The top-level code and details[].code are the integer HTTP status code (503). Status code `503`. Applicable to 1 of 511 methods.*
   * [`ResponseValidationError`](./src/Cvent/SDK/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
 </details>
 

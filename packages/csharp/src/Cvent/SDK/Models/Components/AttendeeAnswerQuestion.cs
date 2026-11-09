@@ -18,7 +18,7 @@ namespace Cvent.SDK.Models.Components
     public class AttendeeAnswerQuestion
     {
         /// <summary>
-        /// The ID of the question.
+        /// Question ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

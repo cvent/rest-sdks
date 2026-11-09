@@ -16,7 +16,7 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// A Cvent DSL filter expression used to apply a filtered down list of account users. Combine multiple conditions using the `and` and `or` logical operators, and group them with parentheses.<br/>
         /// <br/>
-        /// Fields that may contain personally identifiable information (PII) are excluded from this filter query parameter.<br/>
+        /// Fields that may contain personally identifiable information (PII) are excluded from this filter query parameter; to filter on those fields, use the <a href="#operation/listAccountUsersFilter">List Account Users</a> (`POST /users/filter`) endpoint.<br/>
         /// <br/>
         /// ## Supported Account Users Filters:<br/>
         /// <br/>

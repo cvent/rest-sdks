@@ -44,8 +44,8 @@ public class GetLeadsPostFiltersDataRequest {
     private OffsetDateTime after;
 
     /**
-     * See the filter query parameter of <a href="#operation/getLeads">GET  Gets a paginated list of
-     * leads</a> for full filtering information
+     * Filter of the lead list. The syntax is the same as the `filter` query parameter of [List
+     * Leads](#operation/getLeads).
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private Filter filter;
@@ -99,8 +99,8 @@ public class GetLeadsPostFiltersDataRequest {
     }
 
     /**
-     * See the filter query parameter of <a href="#operation/getLeads">GET  Gets a paginated list of
-     * leads</a> for full filtering information
+     * Filter of the lead list. The syntax is the same as the `filter` query parameter of [List
+     * Leads](#operation/getLeads).
      */
     public Optional<Filter> filter() {
         return Optional.ofNullable(this.filter);
@@ -145,8 +145,8 @@ public class GetLeadsPostFiltersDataRequest {
     }
 
     /**
-     * See the filter query parameter of <a href="#operation/getLeads">GET  Gets a paginated list of
-     * leads</a> for full filtering information
+     * Filter of the lead list. The syntax is the same as the `filter` query parameter of [List
+     * Leads](#operation/getLeads).
      */
     public GetLeadsPostFiltersDataRequest withFilter(@Nullable Filter filter) {
         this.filter = filter;
@@ -242,8 +242,8 @@ public class GetLeadsPostFiltersDataRequest {
         }
 
         /**
-         * See the filter query parameter of <a href="#operation/getLeads">GET  Gets a paginated list of
-         * leads</a> for full filtering information
+         * Filter of the lead list. The syntax is the same as the `filter` query parameter of [List
+         * Leads](#operation/getLeads).
          */
         public Builder filter(@Nullable Filter filter) {
             this.filter = filter;

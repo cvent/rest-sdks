@@ -1,0 +1,19 @@
+# StandardSurveySendEmailResponseRespondent
+
+Respondent of response.
+
+## Example Usage
+
+```typescript
+import { StandardSurveySendEmailResponseRespondent } from "@cvent/sdk/models/components";
+
+let value: StandardSurveySendEmailResponseRespondent = {
+  id: "9463c74e-18c6-401a-a710-ae0f485bf059",
+};
+```
+
+## Fields
+
+| Field                                | Type                                 | Required                             | Description                          | Example                              |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| `id`                                 | *string*                             | :heavy_minus_sign:                   | Id of the respondent                 | 9463c74e-18c6-401a-a710-ae0f485bf059 |

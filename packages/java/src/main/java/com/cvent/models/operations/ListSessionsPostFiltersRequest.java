@@ -51,7 +51,7 @@ public class ListSessionsPostFiltersRequest {
 
     /**
      * Contains filters for the request. See the filter description of
-     * <a href="#operation/listSessions">GET List Sessions</a> for complete
+     * [GET List Sessions](#operation/listSessions) for complete
      * filtering information.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
@@ -116,7 +116,7 @@ public class ListSessionsPostFiltersRequest {
 
     /**
      * Contains filters for the request. See the filter description of
-     * <a href="#operation/listSessions">GET List Sessions</a> for complete
+     * [GET List Sessions](#operation/listSessions) for complete
      * filtering information.
      */
     public Optional<Filter> filter() {
@@ -171,7 +171,7 @@ public class ListSessionsPostFiltersRequest {
 
     /**
      * Contains filters for the request. See the filter description of
-     * <a href="#operation/listSessions">GET List Sessions</a> for complete
+     * [GET List Sessions](#operation/listSessions) for complete
      * filtering information.
      */
     public ListSessionsPostFiltersRequest withFilter(@Nullable Filter filter) {
@@ -282,7 +282,7 @@ public class ListSessionsPostFiltersRequest {
 
         /**
          * Contains filters for the request. See the filter description of
-         * <a href="#operation/listSessions">GET List Sessions</a> for complete
+         * [GET List Sessions](#operation/listSessions) for complete
          * filtering information.
          */
         public Builder filter(@Nullable Filter filter) {

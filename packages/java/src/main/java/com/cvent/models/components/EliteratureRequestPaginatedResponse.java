@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * EliteratureRequestPaginatedResponse
  *
- * <p>A paginated response for E-literature requests.
+ * <p>Paginated list of e-literature requests.
  */
 public class EliteratureRequestPaginatedResponse {
     /**
@@ -28,7 +28,7 @@ public class EliteratureRequestPaginatedResponse {
     private Paging paging;
 
     /**
-     * Collection of E-literature request data.
+     * List of e-literature requests.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
@@ -54,7 +54,7 @@ public class EliteratureRequestPaginatedResponse {
     }
 
     /**
-     * Collection of E-literature request data.
+     * List of e-literature requests.
      */
     public Optional<List<ExistingELiteratureRequestDataForLead>> data() {
         return Optional.ofNullable(this.data);
@@ -73,7 +73,7 @@ public class EliteratureRequestPaginatedResponse {
     }
 
     /**
-     * Collection of E-literature request data.
+     * List of e-literature requests.
      */
     public EliteratureRequestPaginatedResponse withData(@Nullable List<ExistingELiteratureRequestDataForLead> data) {
         this.data = data;
@@ -122,7 +122,7 @@ public class EliteratureRequestPaginatedResponse {
         }
 
         /**
-         * Collection of E-literature request data.
+         * List of e-literature requests.
          */
         public Builder data(@Nullable List<ExistingELiteratureRequestDataForLead> data) {
             this.data = data;

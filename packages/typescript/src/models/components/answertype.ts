@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Type of answer
+ * Type of the answer.
  */
 export const AnswerType = {
   Choice: "Choice",
@@ -16,7 +16,7 @@ export const AnswerType = {
   Na: "NA",
 } as const;
 /**
- * Type of answer
+ * Type of the answer.
  */
 export type AnswerType = ClosedEnum<typeof AnswerType>;
 

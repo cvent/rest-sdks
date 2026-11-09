@@ -12,88 +12,38 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
+    using System.Collections.Generic;
 
     /// <summary>
-    /// This is used to denote the custom field data.
+    /// A survey custom field.
     /// </summary>
     public class CustomField1
     {
         /// <summary>
-        /// This is used to denote the category of a custom field.
+        /// The unique id representing this custom field.
         /// </summary>
-        [JsonProperty("category")]
-        public CustomFieldCategory Category { get; set; } = default!;
+        [JsonProperty("id")]
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The actual text of the custom field.
         /// </summary>
         [JsonProperty("name")]
-        public string Name { get; set; } = default!;
+        public string? Name { get; set; }
 
         /// <summary>
         /// Code to uniquely identify custom field.
         /// </summary>
         [JsonProperty("code")]
-        public string Code { get; set; } = default!;
+        public string? Code { get; set; }
 
-        /// <summary>
-        /// Whether answer to custom field is mandatory or not.
-        /// </summary>
-        [JsonProperty("required")]
-        public bool? Required { get; set; } = true;
-
-        /// <summary>
-        /// This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
-        /// </summary>
         [JsonProperty("type")]
-        public CustomFieldType2 Type { get; set; } = default!;
+        public CustomField1CustomFieldType? Type { get; set; }
 
         /// <summary>
-        /// Type-specific details of the custom-field.
+        /// The set of values or possible values to a custom field.
         /// </summary>
-        [JsonProperty("details", NullValueHandling = NullValueHandling.Include)]
-        public CustomField1Details? Details { get; set; }
-
-        /// <summary>
-        /// The help text of the custom field.
-        /// </summary>
-        [JsonProperty("helpText")]
-        public string? HelpText { get; set; }
-
-        /// <summary>
-        /// This option allows you to choose whether to display the custom field in emails. The field name and the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to display always or only when answered. Only applicable to session custom fields.
-        /// </summary>
-        [JsonProperty("displayInDataTag")]
-        public DisplayInDataTag? DisplayInDataTag { get; set; } = Cvent.SDK.Models.Components.DisplayInDataTag.No;
-
-        /// <summary>
-        /// Default text in emails when a contact does not have a value answered for this custom field. Only applicable to contact custom fields.
-        /// </summary>
-        [JsonProperty("defaultTagText")]
-        public string? DefaultTagText { get; set; }
-
-        /// <summary>
-        /// True means that this is a consent field. Only applicable to contact custom fields.
-        /// </summary>
-        [JsonProperty("consentField")]
-        public bool? ConsentField { get; set; } = false;
-
-        /// <summary>
-        /// True means that this custom field is active. Determines visibility for event custom fields.
-        /// </summary>
-        [JsonProperty("active")]
-        public bool? Active { get; set; } = true;
-
-        /// <summary>
-        /// True means that the field will be displayed in the event creation wizard. Only applicable to event custom fields.
-        /// </summary>
-        [JsonProperty("displayInEventCreationWizard")]
-        public bool? DisplayInEventCreationWizard { get; set; } = false;
-
-        /// <summary>
-        /// Visibility of the custom field on various pages/forms.
-        /// </summary>
-        [JsonProperty("pageVisibility")]
-        public PageVisibility? PageVisibility { get; set; }
+        [JsonProperty("values")]
+        public List<string> Values { get; set; } = default!;
     }
 }

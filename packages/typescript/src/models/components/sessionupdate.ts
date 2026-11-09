@@ -51,7 +51,7 @@ export type SessionUpdateGroup = {
 };
 
 /**
- * Used to update a session.
+ * The session fields used in an update request.
  */
 export type SessionUpdate = {
   /**
@@ -72,7 +72,7 @@ export type SessionUpdate = {
   category?: NamedObject | undefined;
   type?: SessionUpdateLookup | undefined;
   /**
-   * Used to denote a locations name and abbreviation.
+   * A location identified by its ID, code, and name.
    */
   location?: Location1Input | undefined;
   /**
@@ -153,7 +153,7 @@ export type SessionUpdate = {
    */
   group?: SessionUpdateGroup | undefined;
   /**
-   * The ids of the admission items, if the session is included with any.
+   * IDs of admission items associated with the session, if any.
    */
   admissionItems?: Array<string> | undefined;
   /**
@@ -165,7 +165,7 @@ export type SessionUpdate = {
    */
   openForAttendeeHub?: boolean | undefined;
   /**
-   * Contains unique identifiers for registration types associated with this session
+   * Registration type IDs associated with this session.
    */
   registrationTypes?: Array<string> | undefined;
   /**

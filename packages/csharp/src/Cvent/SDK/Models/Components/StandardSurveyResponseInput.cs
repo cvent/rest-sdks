@@ -23,24 +23,24 @@ namespace Cvent.SDK.Models.Components
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("question")]
-        public UuidJson Question { get; set; } = default!;
+        public Uuid Question { get; set; } = default!;
 
         /// <summary>
         /// List of responded survey answers.
         /// </summary>
         [JsonProperty("answers")]
-        public List<AnswerJson> Answers { get; set; } = default!;
+        public List<Answer11> Answers { get; set; } = default!;
 
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("survey")]
-        public UuidJson? Survey { get; set; }
+        public Uuid? Survey { get; set; }
 
         /// <summary>
         /// Loop Choice is the choice for which the chapter is looped. Questions in the looping chapter get repeated once for each choice selected in the parent question.
         /// </summary>
         [JsonProperty("loopingChoice")]
-        public LoopingChoiceJson? LoopingChoice { get; set; }
+        public LoopingChoice? LoopingChoice { get; set; }
     }
 }

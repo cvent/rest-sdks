@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * The related document object.
+ * A reference to a session document by its ID.
  */
 export type SessionDocumentLite = {
   /**
-   * The unique identifier for a document.
+   * The unique ID of a document.
    */
   id?: string | undefined;
 };

@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * AttendeeUpdateContact
  *
- * <p>The ID of the address book contact associated with the attendee.
+ * <p>The address book contact associated with the attendee.
  */
 public class AttendeeUpdateContact {
     /**

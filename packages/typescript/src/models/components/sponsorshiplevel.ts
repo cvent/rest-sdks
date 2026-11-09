@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Associated sponsorship level for an exhibitor
+ * Associated sponsorship level of an exhibitor.
  */
 export type SponsorshipLevel = {
   /**
-   * Sponsorship Level Id
+   * Sponsorship level ID.
    */
   id: string;
 };

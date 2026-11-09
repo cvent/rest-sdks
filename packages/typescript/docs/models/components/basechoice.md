@@ -1,6 +1,6 @@
 # BaseChoice
 
-A JSON schema representing a base choice object
+Choice of a question.
 
 ## Example Usage
 
@@ -14,7 +14,7 @@ let value: BaseChoice = {
 
 ## Fields
 
-| Field                            | Type                             | Required                         | Description                      | Example                          |
-| -------------------------------- | -------------------------------- | -------------------------------- | -------------------------------- | -------------------------------- |
-| `id`                             | *string*                         | :heavy_minus_sign:               | Unique identifier for the choice |                                  |
-| `text`                           | *string*                         | :heavy_minus_sign:               | Text value of the field          | Choice 1                         |
+| Field               | Type                | Required            | Description         | Example             |
+| ------------------- | ------------------- | ------------------- | ------------------- | ------------------- |
+| `id`                | *string*            | :heavy_minus_sign:  | Choice ID.          |                     |
+| `text`              | *string*            | :heavy_minus_sign:  | Text of the choice. | Choice 1            |

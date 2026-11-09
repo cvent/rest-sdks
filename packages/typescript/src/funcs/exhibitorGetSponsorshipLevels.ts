@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * List Sponsorship Levels
  *
  * @remarks
- * Gets a list of associated sponsorship levels for a single event.
+ * Retrieves a list of the sponsorship levels of an event.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

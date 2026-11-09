@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Type of exhibitor category.
+    /// Type of the exhibitor category.
     /// </summary>
     public enum ExhibitorCategoryRequestType
     {

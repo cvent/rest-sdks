@@ -1,11 +1,11 @@
 # Capacity
 
-Registration capacity object containing registration type and reserved capacity
+Reserved capacity of a registration type.
 
 
 ## Fields
 
 | Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     | Example                                                                         |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `registrationType`                                                              | [CapacityRegistrationType](../../models/components/CapacityRegistrationType.md) | :heavy_check_mark:                                                              | Registration type information                                                   |                                                                                 |
-| `reservedCapacity`                                                              | *long*                                                                          | :heavy_check_mark:                                                              | Reserved capacity of the registration type for an exhibitor                     | 5                                                                               |
+| `registrationType`                                                              | [CapacityRegistrationType](../../models/components/CapacityRegistrationType.md) | :heavy_check_mark:                                                              | Registration type of the capacity.                                              |                                                                                 |
+| `reservedCapacity`                                                              | *long*                                                                          | :heavy_check_mark:                                                              | Reserved capacity of the registration type for an exhibitor.                    | 5                                                                               |

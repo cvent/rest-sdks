@@ -6,14 +6,14 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Answer1, Answer1$inboundSchema } from "./answer1.js";
+import { Answer12, Answer12$inboundSchema } from "./answer12.js";
 import { Event4, Event4$inboundSchema } from "./event4.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 import { Lead2, Lead2$inboundSchema } from "./lead2.js";
 import { Uuid, Uuid$inboundSchema } from "./uuid.js";
 
 /**
- * This JSON schema file represents lead qualification answers
+ * Answers of a lead to a lead qualification question.
  */
 export type LeadQualificationAnswers = {
   /**
@@ -33,7 +33,7 @@ export type LeadQualificationAnswers = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * Lead Qualification Answer id
+   * Lead qualification answer ID.
    */
   id?: string | undefined;
   /**
@@ -41,21 +41,21 @@ export type LeadQualificationAnswers = {
    */
   question?: Uuid | undefined;
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event?: Event4 | undefined;
   /**
-   * The Associated Exhibitor.
+   * Associated exhibitor.
    */
   exhibitor?: Exhibitor | undefined;
   /**
-   * JSON schema for the Lead object
+   * Associated lead.
    */
   lead?: Lead2 | undefined;
   /**
-   * List of answers
+   * List of answers.
    */
-  answers?: Array<Answer1> | undefined;
+  answers?: Array<Answer12> | undefined;
 };
 
 /** @internal */
@@ -76,7 +76,7 @@ export const LeadQualificationAnswers$inboundSchema: z.ZodType<
   event: Event4$inboundSchema.optional(),
   exhibitor: Exhibitor$inboundSchema.optional(),
   lead: Lead2$inboundSchema.optional(),
-  answers: z.array(Answer1$inboundSchema).optional(),
+  answers: z.array(Answer12$inboundSchema).optional(),
 });
 
 export function leadQualificationAnswersFromJSON(

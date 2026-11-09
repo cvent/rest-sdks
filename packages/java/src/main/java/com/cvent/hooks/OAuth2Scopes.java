@@ -547,6 +547,11 @@ public final class OAuth2Scopes {
         EventRoleAssignmentsRead("event/role-assignments:read"),
 
         /**
+         * Allows the creation and deletion of event role assignments.
+         */
+        EventRoleAssignmentsWrite("event/role-assignments:write"),
+
+        /**
          * Allows the reading of sessions attendance
          */
         EventSessionAttendanceRead("event/session-attendance:read"),
@@ -1782,6 +1787,11 @@ public final class OAuth2Scopes {
          * Allows the reading of event role assignment.
          */
         EventRoleAssignmentsRead("event/role-assignments:read"),
+
+        /**
+         * Allows the creation and deletion of event role assignments.
+         */
+        EventRoleAssignmentsWrite("event/role-assignments:write"),
 
         /**
          * Allows the reading of sessions attendance

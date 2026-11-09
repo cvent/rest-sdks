@@ -20,7 +20,7 @@
 
 **Deprecated.** The E-literature Requests feature has been sunset.
 
-Gets a paginated list of eliterature requests data
+Retrieves a paginated list of e-literature requests.
 
 
 More about OAuth2 authorization code support for administrators
@@ -124,7 +124,7 @@ run();
 
 ## getLeadQualificationAnswers
 
-Gets a list of answers to lead qualification questions for a given lead id.
+Retrieves a list of the answers of a lead to the lead qualification questions.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -219,7 +219,7 @@ run();
 
 ## getLeads
 
-Gets a paginated list of leads
+Retrieves a paginated list of leads.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -320,7 +320,7 @@ run();
 
 ## getLeadsPostFiltersData
 
-Gets a paginated list of leads
+Retrieves a paginated list of leads.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>

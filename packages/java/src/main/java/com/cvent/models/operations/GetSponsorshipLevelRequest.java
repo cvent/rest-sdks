@@ -19,7 +19,7 @@ public class GetSponsorshipLevelRequest {
     private String id;
 
     /**
-     * ID of sponsorship level.
+     * ID of a sponsorship level.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=sponsorshipLevelId")
     private String sponsorshipLevelId;
@@ -39,7 +39,7 @@ public class GetSponsorshipLevelRequest {
     }
 
     /**
-     * ID of sponsorship level.
+     * ID of a sponsorship level.
      */
     public String sponsorshipLevelId() {
         return this.sponsorshipLevelId;
@@ -58,7 +58,7 @@ public class GetSponsorshipLevelRequest {
     }
 
     /**
-     * ID of sponsorship level.
+     * ID of a sponsorship level.
      */
     public GetSponsorshipLevelRequest withSponsorshipLevelId(@Nonnull String sponsorshipLevelId) {
         this.sponsorshipLevelId = Utils.checkNotNull(sponsorshipLevelId, "sponsorshipLevelId");
@@ -108,7 +108,7 @@ public class GetSponsorshipLevelRequest {
         }
 
         /**
-         * ID of sponsorship level.
+         * ID of a sponsorship level.
          */
         public Builder sponsorshipLevelId(@Nonnull String sponsorshipLevelId) {
             this.sponsorshipLevelId = Utils.checkNotNull(sponsorshipLevelId, "sponsorshipLevelId");

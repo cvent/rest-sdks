@@ -17,11 +17,11 @@ import java.util.Optional;
 /**
  * LeadQualificationAnswersListResponse
  *
- * <p>A JSON schema representing the response for a list of lead qualification answers.
+ * <p>List of lead qualification answers.
  */
 public class LeadQualificationAnswersListResponse {
     /**
-     * Collection of Lead Qualification Answers.
+     * List of lead qualification answers.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
@@ -37,7 +37,7 @@ public class LeadQualificationAnswersListResponse {
     }
 
     /**
-     * Collection of Lead Qualification Answers.
+     * List of lead qualification answers.
      */
     public Optional<List<LeadQualificationAnswers>> data() {
         return Optional.ofNullable(this.data);
@@ -48,7 +48,7 @@ public class LeadQualificationAnswersListResponse {
     }
 
     /**
-     * Collection of Lead Qualification Answers.
+     * List of lead qualification answers.
      */
     public LeadQualificationAnswersListResponse withData(@Nullable List<LeadQualificationAnswers> data) {
         this.data = data;
@@ -87,7 +87,7 @@ public class LeadQualificationAnswersListResponse {
         }
 
         /**
-         * Collection of Lead Qualification Answers.
+         * List of lead qualification answers.
          */
         public Builder data(@Nullable List<LeadQualificationAnswers> data) {
             this.data = data;

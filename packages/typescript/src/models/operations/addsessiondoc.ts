@@ -6,11 +6,11 @@ import * as z from "zod/v3";
 
 export type AddSessionDocRequest = {
   /**
-   * Unique Id of a session
+   * Unique ID of a session
    */
   id: string;
   /**
-   * The unique identifier of a file from <a href="#operation/uploadFile">file upload</a> service.
+   * The unique ID of a file from [file upload](#operation/uploadFile) service.
    */
   fileId: string;
 };

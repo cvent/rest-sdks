@@ -16,7 +16,7 @@ export type AssociateBoothStaffRequest = {
    */
   exhibitorId: string;
   /**
-   * Booth Staff details
+   * Booth staff details.
    */
   boothStaffRequest: components.BoothStaffRequest;
 };

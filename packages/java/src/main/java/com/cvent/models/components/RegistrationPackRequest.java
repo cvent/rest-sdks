@@ -20,19 +20,19 @@ import java.util.Optional;
  */
 public class RegistrationPackRequest {
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     @JsonProperty("exhibitor")
     private Exhibitor exhibitor;
 
     /**
-     * An array of capacities for the registration pack.
+     * List of the capacities of the registration pack.
      */
     @JsonProperty("capacities")
     private List<Capacity> capacities;
@@ -50,21 +50,21 @@ public class RegistrationPackRequest {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Event4 event() {
         return this.event;
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public Exhibitor exhibitor() {
         return this.exhibitor;
     }
 
     /**
-     * An array of capacities for the registration pack.
+     * List of the capacities of the registration pack.
      */
     public List<Capacity> capacities() {
         return this.capacities;
@@ -75,7 +75,7 @@ public class RegistrationPackRequest {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public RegistrationPackRequest withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -83,7 +83,7 @@ public class RegistrationPackRequest {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public RegistrationPackRequest withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -91,7 +91,7 @@ public class RegistrationPackRequest {
     }
 
     /**
-     * An array of capacities for the registration pack.
+     * List of the capacities of the registration pack.
      */
     public RegistrationPackRequest withCapacities(@Nonnull List<Capacity> capacities) {
         this.capacities = Utils.checkNotNull(capacities, "capacities");
@@ -137,7 +137,7 @@ public class RegistrationPackRequest {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -145,7 +145,7 @@ public class RegistrationPackRequest {
         }
 
         /**
-         * The Associated Exhibitor.
+         * Associated exhibitor.
          */
         public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -153,7 +153,7 @@ public class RegistrationPackRequest {
         }
 
         /**
-         * An array of capacities for the registration pack.
+         * List of the capacities of the registration pack.
          */
         public Builder capacities(@Nonnull List<Capacity> capacities) {
             this.capacities = Utils.checkNotNull(capacities, "capacities");

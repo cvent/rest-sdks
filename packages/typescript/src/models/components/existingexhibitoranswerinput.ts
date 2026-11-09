@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  Answer22,
-  Answer22$Outbound,
-  Answer22$outboundSchema,
-} from "./answer22.js";
+  Answer2,
+  Answer2$Outbound,
+  Answer2$outboundSchema,
+} from "./answer2.js";
 import { Event4, Event4$Outbound, Event4$outboundSchema } from "./event4.js";
 import {
   Exhibitor,
@@ -17,7 +17,7 @@ import {
 import { Uuid, Uuid$Outbound, Uuid$outboundSchema } from "./uuid.js";
 
 /**
- * Existing Exhibitor Answer schema
+ * Exhibitor answer with an ID.
  */
 export type ExistingExhibitorAnswerInput = {
   /**
@@ -25,17 +25,17 @@ export type ExistingExhibitorAnswerInput = {
    */
   question: Uuid;
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * The Associated Exhibitor.
+   * Associated exhibitor.
    */
   exhibitor: Exhibitor;
   /**
-   * List of answers
+   * List of answers.
    */
-  answers: Array<Answer22>;
+  answers: Array<Answer2>;
 };
 
 /** @internal */
@@ -43,7 +43,7 @@ export type ExistingExhibitorAnswerInput$Outbound = {
   question: Uuid$Outbound;
   event: Event4$Outbound;
   exhibitor: Exhibitor$Outbound;
-  answers: Array<Answer22$Outbound>;
+  answers: Array<Answer2$Outbound>;
 };
 
 /** @internal */
@@ -55,7 +55,7 @@ export const ExistingExhibitorAnswerInput$outboundSchema: z.ZodType<
   question: Uuid$outboundSchema,
   event: Event4$outboundSchema,
   exhibitor: Exhibitor$outboundSchema,
-  answers: z.array(Answer22$outboundSchema),
+  answers: z.array(Answer2$outboundSchema),
 });
 
 export function existingExhibitorAnswerInputToJSON(

@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully added the exhibitor file content.
+        /// Successfully associated the exhibitor file.
         /// </summary>
         public ExistingFile? ExistingFile { get; set; }
     }

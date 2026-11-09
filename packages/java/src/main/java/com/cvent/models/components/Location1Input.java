@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * Location1Input
  *
- * <p>Used to denote a locations name and abbreviation.
+ * <p>A location identified by its ID, code, and name.
  */
 public class Location1Input {
     /**

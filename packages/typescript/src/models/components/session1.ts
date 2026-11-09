@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * The related session object.
+ * A reference to a session by its ID.
  */
 export type Session1 = {
   /**
-   * The unique identifier for a session
+   * The unique ID of a session.
    */
   id: string;
 };

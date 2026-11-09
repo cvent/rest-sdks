@@ -1,10 +1,11 @@
 # EventRoleAssignmentUser
 
-The user to whom the event role is assigned. For more details, use the [Get User](#tag/User-SCIM/operation/getUser) endpoint with the user ID.
+The user to whom the event role is assigned. For a no-login user, the `id` is the resolved user ID, not the email address.
 
 
 ## Fields
 
-| Field                                | Type                                 | Required                             | Description                          | Example                              |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *Optional\<String>*                  | :heavy_minus_sign:                   | The unique ID of the user.           | 6807e044-993b-428c-aec8-7316f13c1b95 |
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     | Example                                                                                         |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `id`                                                                                            | *Optional\<String>*                                                                             | :heavy_minus_sign:                                                                              | The unique ID of the user.                                                                      | 6807e044-993b-428c-aec8-7316f13c1b95                                                            |
+| `type`                                                                                          | [Optional\<EventRoleAssignmentType>](../../models/components/EventRoleAssignmentType.md)        | :heavy_minus_sign:                                                                              | Whether the assigned user is an account user (ACCOUNT_USER) or a no-login user (NO_LOGIN_USER). | ACCOUNT_USER                                                                                    |

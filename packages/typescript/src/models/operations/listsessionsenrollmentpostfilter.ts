@@ -11,11 +11,11 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListSessionsEnrollmentPostFilterRequest = {
   /**
-   * Used to query records that have been added or updated on or after this time point. Defaults to the beginning of time of the data store.
+   * Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
    */
   after?: Date | undefined;
   /**
-   * Used to query records that have been added or updated on or before this time point. The date and time should be in ISO 8601 format.
+   * Used to query records that have been added or updated before this time point.
    */
   before?: Date | undefined;
   /**

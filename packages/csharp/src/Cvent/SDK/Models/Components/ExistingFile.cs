@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Content of existing exhibitor file.
+    /// Exhibitor file with an ID.
     /// </summary>
     public class ExistingFile
     {
@@ -44,13 +44,13 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// The Associated Event.
+        /// Associated event.
         /// </summary>
         [JsonProperty("event")]
         public Event4 Event { get; set; } = default!;
 
         /// <summary>
-        /// The Associated Exhibitor.
+        /// Associated exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
         public Models.Components.Exhibitor Exhibitor { get; set; } = default!;
@@ -68,13 +68,13 @@ namespace Cvent.SDK.Models.Components
         public bool? Hidden { get; set; } = false;
 
         /// <summary>
-        /// Display order for exhibitor file content.
+        /// Display order of the file.
         /// </summary>
         [JsonProperty("order")]
         public long Order { get; set; } = default!;
 
         /// <summary>
-        /// Unique ID of the file.
+        /// File ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

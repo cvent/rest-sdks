@@ -33,7 +33,7 @@ namespace Cvent.SDK.Models.Requests
         public string FileId { get; set; } = default!;
 
         /// <summary>
-        /// Exhibitor file content to be updated.
+        /// Exhibitor file details.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public FileInput File { get; set; } = default!;

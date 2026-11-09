@@ -1,6 +1,6 @@
 # Answer2Choice
 
-The choice that was selected.
+Selected choice.
 
 ## Example Usage
 
@@ -12,6 +12,6 @@ let value: Answer2Choice = {};
 
 ## Fields
 
-| Field                                   | Type                                    | Required                                | Description                             |
-| --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| `id`                                    | *string*                                | :heavy_minus_sign:                      | The ID of the choice that was selected. |
+| Field                      | Type                       | Required                   | Description                |
+| -------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| `id`                       | *string*                   | :heavy_minus_sign:         | ID of the selected choice. |

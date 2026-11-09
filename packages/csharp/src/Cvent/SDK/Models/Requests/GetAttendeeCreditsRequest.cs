@@ -62,7 +62,7 @@ namespace Cvent.SDK.Models.Requests
         ///   * creditType(Includes only the `creditType.name` in the response. A full list of properties for `creditType` is not currently provided).
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=false,name=expand")]
-        public List<Expand1>? Expand { get; set; }
+        public List<Expand2>? Expand { get; set; }
 
         /// <summary>
         /// Use the filter query parameter to narrow results using comparison operators. Combine multiple<br/>

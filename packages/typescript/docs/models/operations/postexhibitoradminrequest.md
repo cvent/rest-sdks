@@ -14,7 +14,7 @@ let value: PostExhibitorAdminRequest = {
     },
     firstName: "John",
     lastName: "Eddy",
-    email: "john.eddy@test.com",
+    email: "john.eddy@example.com",
   },
 };
 ```
@@ -25,4 +25,4 @@ let value: PostExhibitorAdminRequest = {
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
 | `id`                                                                                 | *string*                                                                             | :heavy_check_mark:                                                                   | ID of an event.                                                                      | 3db28cfc-db22-11eb-8d19-0242ac130003                                                 |
 | `exhibitorId`                                                                        | *string*                                                                             | :heavy_check_mark:                                                                   | ID of an exhibitor.                                                                  | 4888db54-db22-11eb-8d19-0242ac130003                                                 |
-| `exhibitorAdminRequest`                                                              | [components.ExhibitorAdminRequest](../../models/components/exhibitoradminrequest.md) | :heavy_check_mark:                                                                   | Exhibitor Admin details                                                              |                                                                                      |
+| `exhibitorAdminRequest`                                                              | [components.ExhibitorAdminRequest](../../models/components/exhibitoradminrequest.md) | :heavy_check_mark:                                                                   | Exhibitor admin details.                                                             |                                                                                      |

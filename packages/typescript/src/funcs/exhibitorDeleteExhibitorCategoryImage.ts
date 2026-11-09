@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Delete Banner from Category
  *
  * @remarks
- * Deletes an exhibitor Category banner image.
+ * Deletes the banner image of an exhibitor category.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

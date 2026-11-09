@@ -96,7 +96,7 @@ public class StandardSurveyRespondent {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("respondedThrough")
-    private RespondedThroughJson respondedThrough;
+    private RespondedThrough respondedThrough;
 
     /**
      * Reference ids are used to track where response is coming from. Survey Author can create multiple
@@ -153,7 +153,7 @@ public class StandardSurveyRespondent {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private RespondentStatusJson status;
+    private RespondentStatus status;
 
     /**
      * Whether or not the respondent has unsubscribed from Survey
@@ -174,14 +174,14 @@ public class StandardSurveyRespondent {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("invitationList")
-    private InvitationListCommonJson invitationList;
+    private InvitationListCommon invitationList;
 
     /**
      * List of respondent chapters.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("chapters")
-    private List<RespondentChapterReferenceJson> chapters;
+    private List<RespondentChapterReference> chapters;
 
     /**
      * Authors use transaction IDs to collect feedback after a customer transaction: invoice numbers or
@@ -202,7 +202,7 @@ public class StandardSurveyRespondent {
             @JsonProperty("responseCode") @Nullable String responseCode,
             @JsonProperty("responseDuration") @Nullable Double responseDuration,
             @JsonProperty("localeId") @Nullable String localeId,
-            @JsonProperty("respondedThrough") @Nullable RespondedThroughJson respondedThrough,
+            @JsonProperty("respondedThrough") @Nullable RespondedThrough respondedThrough,
             @JsonProperty("referenceId") @Nullable String referenceId,
             @JsonProperty("score") @Nullable Double score,
             @JsonProperty("maxPossibleScore") @Nullable Double maxPossibleScore,
@@ -210,11 +210,11 @@ public class StandardSurveyRespondent {
             @JsonProperty("_links") @Nullable StandardSurveyRespondentLinks links,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("contact") @Nullable StandardSurveyRespondentContact contact,
-            @JsonProperty("status") @Nullable RespondentStatusJson status,
+            @JsonProperty("status") @Nullable RespondentStatus status,
             @JsonProperty("unsubscribed") @Nullable Boolean unsubscribed,
             @JsonProperty("unsubscribedBy") @Nullable String unsubscribedBy,
-            @JsonProperty("invitationList") @Nullable InvitationListCommonJson invitationList,
-            @JsonProperty("chapters") @Nullable List<RespondentChapterReferenceJson> chapters,
+            @JsonProperty("invitationList") @Nullable InvitationListCommon invitationList,
+            @JsonProperty("chapters") @Nullable List<RespondentChapterReference> chapters,
             @JsonProperty("transactionId") @Nullable String transactionId) {
         this.created = created;
         this.createdBy = createdBy;
@@ -337,7 +337,7 @@ public class StandardSurveyRespondent {
      * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is
      * deprecated.
      */
-    public Optional<RespondedThroughJson> respondedThrough() {
+    public Optional<RespondedThrough> respondedThrough() {
         return Optional.ofNullable(this.respondedThrough);
     }
 
@@ -394,7 +394,7 @@ public class StandardSurveyRespondent {
     /**
      * Respondent Status
      */
-    public Optional<RespondentStatusJson> status() {
+    public Optional<RespondentStatus> status() {
         return Optional.ofNullable(this.status);
     }
 
@@ -415,14 +415,14 @@ public class StandardSurveyRespondent {
     /**
      * Invitation list of respondents
      */
-    public Optional<InvitationListCommonJson> invitationList() {
+    public Optional<InvitationListCommon> invitationList() {
         return Optional.ofNullable(this.invitationList);
     }
 
     /**
      * List of respondent chapters.
      */
-    public Optional<List<RespondentChapterReferenceJson>> chapters() {
+    public Optional<List<RespondentChapterReference>> chapters() {
         return Optional.ofNullable(this.chapters);
     }
 
@@ -518,7 +518,7 @@ public class StandardSurveyRespondent {
      * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is
      * deprecated.
      */
-    public StandardSurveyRespondent withRespondedThrough(@Nullable RespondedThroughJson respondedThrough) {
+    public StandardSurveyRespondent withRespondedThrough(@Nullable RespondedThrough respondedThrough) {
         this.respondedThrough = respondedThrough;
         return this;
     }
@@ -583,7 +583,7 @@ public class StandardSurveyRespondent {
     /**
      * Respondent Status
      */
-    public StandardSurveyRespondent withStatus(@Nullable RespondentStatusJson status) {
+    public StandardSurveyRespondent withStatus(@Nullable RespondentStatus status) {
         this.status = status;
         return this;
     }
@@ -607,7 +607,7 @@ public class StandardSurveyRespondent {
     /**
      * Invitation list of respondents
      */
-    public StandardSurveyRespondent withInvitationList(@Nullable InvitationListCommonJson invitationList) {
+    public StandardSurveyRespondent withInvitationList(@Nullable InvitationListCommon invitationList) {
         this.invitationList = invitationList;
         return this;
     }
@@ -615,7 +615,7 @@ public class StandardSurveyRespondent {
     /**
      * List of respondent chapters.
      */
-    public StandardSurveyRespondent withChapters(@Nullable List<RespondentChapterReferenceJson> chapters) {
+    public StandardSurveyRespondent withChapters(@Nullable List<RespondentChapterReference> chapters) {
         this.chapters = chapters;
         return this;
     }
@@ -759,7 +759,7 @@ public class StandardSurveyRespondent {
 
         private String localeId;
 
-        private RespondedThroughJson respondedThrough;
+        private RespondedThrough respondedThrough;
 
         private String referenceId;
 
@@ -775,15 +775,15 @@ public class StandardSurveyRespondent {
 
         private StandardSurveyRespondentContact contact;
 
-        private RespondentStatusJson status;
+        private RespondentStatus status;
 
         private Boolean unsubscribed;
 
         private String unsubscribedBy;
 
-        private InvitationListCommonJson invitationList;
+        private InvitationListCommon invitationList;
 
-        private List<RespondentChapterReferenceJson> chapters;
+        private List<RespondentChapterReference> chapters;
 
         private String transactionId;
 
@@ -870,7 +870,7 @@ public class StandardSurveyRespondent {
          * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is
          * deprecated.
          */
-        public Builder respondedThrough(@Nullable RespondedThroughJson respondedThrough) {
+        public Builder respondedThrough(@Nullable RespondedThrough respondedThrough) {
             this.respondedThrough = respondedThrough;
             return this;
         }
@@ -935,7 +935,7 @@ public class StandardSurveyRespondent {
         /**
          * Respondent Status
          */
-        public Builder status(@Nullable RespondentStatusJson status) {
+        public Builder status(@Nullable RespondentStatus status) {
             this.status = status;
             return this;
         }
@@ -959,7 +959,7 @@ public class StandardSurveyRespondent {
         /**
          * Invitation list of respondents
          */
-        public Builder invitationList(@Nullable InvitationListCommonJson invitationList) {
+        public Builder invitationList(@Nullable InvitationListCommon invitationList) {
             this.invitationList = invitationList;
             return this;
         }
@@ -967,7 +967,7 @@ public class StandardSurveyRespondent {
         /**
          * List of respondent chapters.
          */
-        public Builder chapters(@Nullable List<RespondentChapterReferenceJson> chapters) {
+        public Builder chapters(@Nullable List<RespondentChapterReference> chapters) {
             this.chapters = chapters;
             return this;
         }

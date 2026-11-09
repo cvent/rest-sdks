@@ -23,11 +23,11 @@ export type ProgramItemUpdateRequest = {
    */
   id: string;
   /**
-   * The related event object.
+   * A reference to an event by its ID.
    */
   event: EventId;
   /**
-   * The related session object.
+   * A reference to a session by its ID.
    */
   session: Session1;
   /**
@@ -43,7 +43,7 @@ export type ProgramItemUpdateRequest = {
    */
   description?: string | undefined;
   /**
-   * Rich-text-editor description in json formatting.
+   * The program item's rich-text description, formatted as JSON.
    */
   rteDescription?: string | undefined;
 };

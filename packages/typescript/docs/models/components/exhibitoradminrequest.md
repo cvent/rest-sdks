@@ -1,6 +1,6 @@
 # ExhibitorAdminRequest
 
-An object representing the exhibitor admin.
+Exhibitor admin.
 
 ## Example Usage
 
@@ -13,7 +13,7 @@ let value: ExhibitorAdminRequest = {
   },
   firstName: "John",
   lastName: "Eddy",
-  email: "john.eddy@test.com",
+  email: "john.eddy@example.com",
 };
 ```
 
@@ -21,7 +21,7 @@ let value: ExhibitorAdminRequest = {
 
 | Field                                                        | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `exhibitor`                                                  | [components.Exhibitor](../../models/components/exhibitor.md) | :heavy_check_mark:                                           | The Associated Exhibitor.                                    |                                                              |
-| `firstName`                                                  | *string*                                                     | :heavy_check_mark:                                           | The first name of the exhibitor admin                        | John                                                         |
-| `lastName`                                                   | *string*                                                     | :heavy_check_mark:                                           | The last name of the exhibitor admin                         | Eddy                                                         |
-| `email`                                                      | *string*                                                     | :heavy_check_mark:                                           | The email address of the exhibitor admin                     | john.eddy@test.com                                           |
+| `exhibitor`                                                  | [components.Exhibitor](../../models/components/exhibitor.md) | :heavy_check_mark:                                           | Associated exhibitor.                                        |                                                              |
+| `firstName`                                                  | *string*                                                     | :heavy_check_mark:                                           | First name of the exhibitor admin.                           | John                                                         |
+| `lastName`                                                   | *string*                                                     | :heavy_check_mark:                                           | Last name of the exhibitor admin.                            | Eddy                                                         |
+| `email`                                                      | *string*                                                     | :heavy_check_mark:                                           | Email address of the exhibitor admin.                        | john.eddy@example.com                                        |

@@ -10,7 +10,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * Survey of response.
  */
-export type Survey = {
+export type StandardSurveySendEmailResponseSurvey = {
   /**
    * Id of the the survey
    */
@@ -20,7 +20,7 @@ export type Survey = {
 /**
  * Respondent of response.
  */
-export type Respondent = {
+export type StandardSurveySendEmailResponseRespondent = {
   /**
    * Id of the respondent
    */
@@ -44,11 +44,11 @@ export type StandardSurveySendEmailResponse = {
   /**
    * Survey of response.
    */
-  survey?: Survey | undefined;
+  survey?: StandardSurveySendEmailResponseSurvey | undefined;
   /**
    * Respondent of response.
    */
-  respondent?: Respondent | undefined;
+  respondent?: StandardSurveySendEmailResponseRespondent | undefined;
   /**
    * Email template used.
    */
@@ -56,37 +56,47 @@ export type StandardSurveySendEmailResponse = {
 };
 
 /** @internal */
-export const Survey$inboundSchema: z.ZodType<Survey, z.ZodTypeDef, unknown> = z
-  .object({
-    id: z.string().optional(),
-  });
-
-export function surveyFromJSON(
-  jsonString: string,
-): SafeParseResult<Survey, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Survey$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Survey' from JSON`,
-  );
-}
-
-/** @internal */
-export const Respondent$inboundSchema: z.ZodType<
-  Respondent,
+export const StandardSurveySendEmailResponseSurvey$inboundSchema: z.ZodType<
+  StandardSurveySendEmailResponseSurvey,
   z.ZodTypeDef,
   unknown
 > = z.object({
   id: z.string().optional(),
 });
 
-export function respondentFromJSON(
+export function standardSurveySendEmailResponseSurveyFromJSON(
   jsonString: string,
-): SafeParseResult<Respondent, SDKValidationError> {
+): SafeParseResult<StandardSurveySendEmailResponseSurvey, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Respondent$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Respondent' from JSON`,
+    (x) =>
+      StandardSurveySendEmailResponseSurvey$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'StandardSurveySendEmailResponseSurvey' from JSON`,
+  );
+}
+
+/** @internal */
+export const StandardSurveySendEmailResponseRespondent$inboundSchema: z.ZodType<
+  StandardSurveySendEmailResponseRespondent,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string().optional(),
+});
+
+export function standardSurveySendEmailResponseRespondentFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  StandardSurveySendEmailResponseRespondent,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      StandardSurveySendEmailResponseRespondent$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'StandardSurveySendEmailResponseRespondent' from JSON`,
   );
 }
 
@@ -115,8 +125,11 @@ export const StandardSurveySendEmailResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  survey: z.lazy(() => Survey$inboundSchema).optional(),
-  respondent: z.lazy(() => Respondent$inboundSchema).optional(),
+  survey: z.lazy(() => StandardSurveySendEmailResponseSurvey$inboundSchema)
+    .optional(),
+  respondent: z.lazy(() =>
+    StandardSurveySendEmailResponseRespondent$inboundSchema
+  ).optional(),
   emailTemplate: z.lazy(() => EmailTemplate$inboundSchema).optional(),
 });
 

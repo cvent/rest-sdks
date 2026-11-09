@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Associate Exhibitor File
  *
  * @remarks
- * Associate a file to an exhibitor using a file ID taken from the <a href="#operation/uploadFile">file upload</a> endpoint.
+ * Associates a file with an exhibitor. The file ID comes from the [file upload](#operation/uploadFile) operation.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

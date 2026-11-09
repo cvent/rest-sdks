@@ -20,17 +20,17 @@ import java.util.Optional;
 /**
  * ProgramItemInput
  *
- * <p>Represents a program item object that will be added to a session.
+ * <p>A program item associated with a session.
  */
 public class ProgramItemInput {
     /**
-     * The related event object.
+     * A reference to an event by its ID.
      */
     @JsonProperty("event")
     private EventId event;
 
     /**
-     * The related session object.
+     * A reference to a session by its ID.
      */
     @JsonProperty("session")
     private Session1 session;
@@ -56,7 +56,7 @@ public class ProgramItemInput {
     private String description;
 
     /**
-     * Rich-text-editor description in json formatting.
+     * The program item's rich-text description, formatted as JSON.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rteDescription")
@@ -84,14 +84,14 @@ public class ProgramItemInput {
     }
 
     /**
-     * The related event object.
+     * A reference to an event by its ID.
      */
     public EventId event() {
         return this.event;
     }
 
     /**
-     * The related session object.
+     * A reference to a session by its ID.
      */
     public Session1 session() {
         return this.session;
@@ -119,7 +119,7 @@ public class ProgramItemInput {
     }
 
     /**
-     * Rich-text-editor description in json formatting.
+     * The program item's rich-text description, formatted as JSON.
      */
     public Optional<String> rteDescription() {
         return Optional.ofNullable(this.rteDescription);
@@ -130,7 +130,7 @@ public class ProgramItemInput {
     }
 
     /**
-     * The related event object.
+     * A reference to an event by its ID.
      */
     public ProgramItemInput withEvent(@Nonnull EventId event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -138,7 +138,7 @@ public class ProgramItemInput {
     }
 
     /**
-     * The related session object.
+     * A reference to a session by its ID.
      */
     public ProgramItemInput withSession(@Nonnull Session1 session) {
         this.session = Utils.checkNotNull(session, "session");
@@ -170,7 +170,7 @@ public class ProgramItemInput {
     }
 
     /**
-     * Rich-text-editor description in json formatting.
+     * The program item's rich-text description, formatted as JSON.
      */
     public ProgramItemInput withRteDescription(@Nullable String rteDescription) {
         this.rteDescription = rteDescription;
@@ -237,7 +237,7 @@ public class ProgramItemInput {
         }
 
         /**
-         * The related event object.
+         * A reference to an event by its ID.
          */
         public Builder event(@Nonnull EventId event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -245,7 +245,7 @@ public class ProgramItemInput {
         }
 
         /**
-         * The related session object.
+         * A reference to a session by its ID.
          */
         public Builder session(@Nonnull Session1 session) {
             this.session = Utils.checkNotNull(session, "session");
@@ -277,7 +277,7 @@ public class ProgramItemInput {
         }
 
         /**
-         * Rich-text-editor description in json formatting.
+         * The program item's rich-text description, formatted as JSON.
          */
         public Builder rteDescription(@Nullable String rteDescription) {
             this.rteDescription = rteDescription;

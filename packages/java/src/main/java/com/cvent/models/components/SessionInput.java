@@ -25,7 +25,7 @@ import java.util.Optional;
 /**
  * SessionInput
  *
- * <p>Used to denote a session and its attributes.
+ * <p>A session, including whether it was automatically included with the event.
  */
 public class SessionInput {
     /**
@@ -59,7 +59,7 @@ public class SessionInput {
     private SessionLookup type;
 
     /**
-     * Used to denote a locations name and abbreviation.
+     * A location identified by its ID, code, and name.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("location")
@@ -194,7 +194,7 @@ public class SessionInput {
     private SessionGroup group;
 
     /**
-     * The ids of the admission items, if the session is included with any.
+     * IDs of admission items associated with the session, if any.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("admissionItems")
@@ -215,7 +215,7 @@ public class SessionInput {
     private Boolean openForAttendeeHub;
 
     /**
-     * Contains unique identifiers for registration types associated with this session
+     * Registration type IDs associated with this session.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("registrationTypes")
@@ -405,7 +405,7 @@ public class SessionInput {
     }
 
     /**
-     * Used to denote a locations name and abbreviation.
+     * A location identified by its ID, code, and name.
      */
     public Optional<Location1Input> location() {
         return Optional.ofNullable(this.location);
@@ -543,7 +543,7 @@ public class SessionInput {
     }
 
     /**
-     * The ids of the admission items, if the session is included with any.
+     * IDs of admission items associated with the session, if any.
      */
     public Optional<List<String>> admissionItems() {
         return Optional.ofNullable(this.admissionItems);
@@ -564,7 +564,7 @@ public class SessionInput {
     }
 
     /**
-     * Contains unique identifiers for registration types associated with this session
+     * Registration type IDs associated with this session.
      */
     public Optional<List<String>> registrationTypes() {
         return Optional.ofNullable(this.registrationTypes);
@@ -651,7 +651,7 @@ public class SessionInput {
     }
 
     /**
-     * Used to denote a locations name and abbreviation.
+     * A location identified by its ID, code, and name.
      */
     public SessionInput withLocation(@Nullable Location1Input location) {
         this.location = location;
@@ -807,7 +807,7 @@ public class SessionInput {
     }
 
     /**
-     * The ids of the admission items, if the session is included with any.
+     * IDs of admission items associated with the session, if any.
      */
     public SessionInput withAdmissionItems(@Nullable List<String> admissionItems) {
         this.admissionItems = admissionItems;
@@ -831,7 +831,7 @@ public class SessionInput {
     }
 
     /**
-     * Contains unique identifiers for registration types associated with this session
+     * Registration type IDs associated with this session.
      */
     public SessionInput withRegistrationTypes(@Nullable List<String> registrationTypes) {
         this.registrationTypes = registrationTypes;
@@ -1141,7 +1141,7 @@ public class SessionInput {
         }
 
         /**
-         * Used to denote a locations name and abbreviation.
+         * A location identified by its ID, code, and name.
          */
         public Builder location(@Nullable Location1Input location) {
             this.location = location;
@@ -1297,7 +1297,7 @@ public class SessionInput {
         }
 
         /**
-         * The ids of the admission items, if the session is included with any.
+         * IDs of admission items associated with the session, if any.
          */
         public Builder admissionItems(@Nullable List<String> admissionItems) {
             this.admissionItems = admissionItems;
@@ -1321,7 +1321,7 @@ public class SessionInput {
         }
 
         /**
-         * Contains unique identifiers for registration types associated with this session
+         * Registration type IDs associated with this session.
          */
         public Builder registrationTypes(@Nullable List<String> registrationTypes) {
             this.registrationTypes = registrationTypes;

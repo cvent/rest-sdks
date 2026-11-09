@@ -1,0 +1,21 @@
+# RespondentLinks
+
+Related links.
+
+## Example Usage
+
+```typescript
+import { RespondentLinks } from "@cvent/sdk/models/components";
+
+let value: RespondentLinks = {
+  surveyUrl: {
+    href: "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
+  },
+};
+```
+
+## Fields
+
+| Field                                              | Type                                               | Required                                           | Description                                        |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| `surveyUrl`                                        | [components.Link](../../models/components/link.md) | :heavy_minus_sign:                                 | Represents a link to a related resource.           |

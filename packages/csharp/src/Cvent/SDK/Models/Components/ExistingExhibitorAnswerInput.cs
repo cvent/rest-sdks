@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Existing Exhibitor Answer schema.
+    /// Exhibitor answer with an ID.
     /// </summary>
     public class ExistingExhibitorAnswerInput
     {
@@ -26,13 +26,13 @@ namespace Cvent.SDK.Models.Components
         public Uuid Question { get; set; } = default!;
 
         /// <summary>
-        /// The Associated Event.
+        /// Associated event.
         /// </summary>
         [JsonProperty("event")]
         public Event4 Event { get; set; } = default!;
 
         /// <summary>
-        /// The Associated Exhibitor.
+        /// Associated exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
         public Models.Components.Exhibitor Exhibitor { get; set; } = default!;
@@ -41,6 +41,6 @@ namespace Cvent.SDK.Models.Components
         /// List of answers.
         /// </summary>
         [JsonProperty("answers")]
-        public List<Answer22> Answers { get; set; } = default!;
+        public List<Answer2> Answers { get; set; } = default!;
     }
 }

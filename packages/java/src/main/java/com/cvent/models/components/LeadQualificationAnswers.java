@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  * LeadQualificationAnswers
  *
- * <p>This JSON schema file represents lead qualification answers
+ * <p>Answers of a lead to a lead qualification question.
  */
 public class LeadQualificationAnswers {
     /**
@@ -50,7 +50,7 @@ public class LeadQualificationAnswers {
     private String lastModifiedBy;
 
     /**
-     * Lead Qualification Answer id
+     * Lead qualification answer ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -64,32 +64,32 @@ public class LeadQualificationAnswers {
     private Uuid question;
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
     private Exhibitor exhibitor;
 
     /**
-     * JSON schema for the Lead object
+     * Associated lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("lead")
     private Lead2 lead;
 
     /**
-     * List of answers
+     * List of answers.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("answers")
-    private List<Answer1> answers;
+    private List<Answer12> answers;
 
     @JsonCreator
     public LeadQualificationAnswers(
@@ -102,7 +102,7 @@ public class LeadQualificationAnswers {
             @JsonProperty("event") @Nullable Event4 event,
             @JsonProperty("exhibitor") @Nullable Exhibitor exhibitor,
             @JsonProperty("lead") @Nullable Lead2 lead,
-            @JsonProperty("answers") @Nullable List<Answer1> answers) {
+            @JsonProperty("answers") @Nullable List<Answer12> answers) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -148,7 +148,7 @@ public class LeadQualificationAnswers {
     }
 
     /**
-     * Lead Qualification Answer id
+     * Lead qualification answer ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -162,30 +162,30 @@ public class LeadQualificationAnswers {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Optional<Event4> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public Optional<Exhibitor> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
     /**
-     * JSON schema for the Lead object
+     * Associated lead.
      */
     public Optional<Lead2> lead() {
         return Optional.ofNullable(this.lead);
     }
 
     /**
-     * List of answers
+     * List of answers.
      */
-    public Optional<List<Answer1>> answers() {
+    public Optional<List<Answer12>> answers() {
         return Optional.ofNullable(this.answers);
     }
 
@@ -226,7 +226,7 @@ public class LeadQualificationAnswers {
     }
 
     /**
-     * Lead Qualification Answer id
+     * Lead qualification answer ID.
      */
     public LeadQualificationAnswers withId(@Nullable String id) {
         this.id = id;
@@ -242,7 +242,7 @@ public class LeadQualificationAnswers {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public LeadQualificationAnswers withEvent(@Nullable Event4 event) {
         this.event = event;
@@ -250,7 +250,7 @@ public class LeadQualificationAnswers {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public LeadQualificationAnswers withExhibitor(@Nullable Exhibitor exhibitor) {
         this.exhibitor = exhibitor;
@@ -258,7 +258,7 @@ public class LeadQualificationAnswers {
     }
 
     /**
-     * JSON schema for the Lead object
+     * Associated lead.
      */
     public LeadQualificationAnswers withLead(@Nullable Lead2 lead) {
         this.lead = lead;
@@ -266,9 +266,9 @@ public class LeadQualificationAnswers {
     }
 
     /**
-     * List of answers
+     * List of answers.
      */
-    public LeadQualificationAnswers withAnswers(@Nullable List<Answer1> answers) {
+    public LeadQualificationAnswers withAnswers(@Nullable List<Answer12> answers) {
         this.answers = answers;
         return this;
     }
@@ -347,7 +347,7 @@ public class LeadQualificationAnswers {
 
         private Lead2 lead;
 
-        private List<Answer1> answers;
+        private List<Answer12> answers;
 
         private Builder() {
             // force use of static builder() method
@@ -386,7 +386,7 @@ public class LeadQualificationAnswers {
         }
 
         /**
-         * Lead Qualification Answer id
+         * Lead qualification answer ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -402,7 +402,7 @@ public class LeadQualificationAnswers {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nullable Event4 event) {
             this.event = event;
@@ -410,7 +410,7 @@ public class LeadQualificationAnswers {
         }
 
         /**
-         * The Associated Exhibitor.
+         * Associated exhibitor.
          */
         public Builder exhibitor(@Nullable Exhibitor exhibitor) {
             this.exhibitor = exhibitor;
@@ -418,7 +418,7 @@ public class LeadQualificationAnswers {
         }
 
         /**
-         * JSON schema for the Lead object
+         * Associated lead.
          */
         public Builder lead(@Nullable Lead2 lead) {
             this.lead = lead;
@@ -426,9 +426,9 @@ public class LeadQualificationAnswers {
         }
 
         /**
-         * List of answers
+         * List of answers.
          */
-        public Builder answers(@Nullable List<Answer1> answers) {
+        public Builder answers(@Nullable List<Answer12> answers) {
             this.answers = answers;
             return this;
         }

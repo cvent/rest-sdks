@@ -10,7 +10,7 @@ import {
   EventSurveyResponse,
   EventSurveyResponse$inboundSchema,
 } from "./eventsurveyresponse.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * Response include paging and responses for a survey
@@ -19,7 +19,7 @@ export type EventSurveyResponsesPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Response for a survey
    */
@@ -32,7 +32,7 @@ export const EventSurveyResponsesPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
+  paging: Paging$inboundSchema,
   data: z.array(EventSurveyResponse$inboundSchema),
 });
 

@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * Application
  *
- * <p>The application used to capture lead.
+ * <p>Application that captured the lead.
  */
 public enum Application {
     LEADCAPTURE("leadcapture"),

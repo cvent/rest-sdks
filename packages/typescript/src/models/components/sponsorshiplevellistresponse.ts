@@ -12,11 +12,11 @@ import {
 } from "./existingsponsorshiplevel.js";
 
 /**
- * This schema describes the response for a list of sponsorship levels.
+ * List of sponsorship levels.
  */
 export type SponsorshipLevelListResponse = {
   /**
-   * List of sponsorship level.
+   * List of sponsorship levels.
    */
   data?: Array<ExistingSponsorshipLevel> | undefined;
 };

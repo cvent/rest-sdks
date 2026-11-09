@@ -16,11 +16,11 @@ import java.util.Optional;
 /**
  * AdditionalChoice1
  *
- * <p>Contains text of additional choice
+ * <p>Additional choice of the question.
  */
 public class AdditionalChoice1 {
     /**
-     * Text Value of additional choice
+     * Text of the additional choice.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("text")
@@ -36,7 +36,7 @@ public class AdditionalChoice1 {
     }
 
     /**
-     * Text Value of additional choice
+     * Text of the additional choice.
      */
     public Optional<String> text() {
         return Optional.ofNullable(this.text);
@@ -47,7 +47,7 @@ public class AdditionalChoice1 {
     }
 
     /**
-     * Text Value of additional choice
+     * Text of the additional choice.
      */
     public AdditionalChoice1 withText(@Nullable String text) {
         this.text = text;
@@ -86,7 +86,7 @@ public class AdditionalChoice1 {
         }
 
         /**
-         * Text Value of additional choice
+         * Text of the additional choice.
          */
         public Builder text(@Nullable String text) {
             this.text = text;

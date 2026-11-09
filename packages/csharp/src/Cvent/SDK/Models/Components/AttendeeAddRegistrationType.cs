@@ -18,7 +18,7 @@ namespace Cvent.SDK.Models.Components
     public class AttendeeAddRegistrationType
     {
         /// <summary>
-        /// The ID of the registration type.
+        /// Registration type ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

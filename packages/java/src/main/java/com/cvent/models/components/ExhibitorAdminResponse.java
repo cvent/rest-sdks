@@ -19,7 +19,7 @@ import java.util.Optional;
 /**
  * ExhibitorAdminResponse
  *
- * <p>Existing Exhibitor Admin with an id property
+ * <p>Exhibitor admin with an ID.
  */
 public class ExhibitorAdminResponse {
     /**
@@ -54,31 +54,31 @@ public class ExhibitorAdminResponse {
     private String lastModifiedBy;
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     @JsonProperty("exhibitor")
     private Exhibitor exhibitor;
 
     /**
-     * The first name of the exhibitor admin
+     * First name of the exhibitor admin.
      */
     @JsonProperty("firstName")
     private String firstName;
 
     /**
-     * The last name of the exhibitor admin
+     * Last name of the exhibitor admin.
      */
     @JsonProperty("lastName")
     private String lastName;
 
     /**
-     * The email address of the exhibitor admin
+     * Email address of the exhibitor admin.
      */
     @JsonProperty("email")
     private String email;
 
     /**
-     * Exhibitor Admin id
+     * Exhibitor admin ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -146,35 +146,35 @@ public class ExhibitorAdminResponse {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public Exhibitor exhibitor() {
         return this.exhibitor;
     }
 
     /**
-     * The first name of the exhibitor admin
+     * First name of the exhibitor admin.
      */
     public String firstName() {
         return this.firstName;
     }
 
     /**
-     * The last name of the exhibitor admin
+     * Last name of the exhibitor admin.
      */
     public String lastName() {
         return this.lastName;
     }
 
     /**
-     * The email address of the exhibitor admin
+     * Email address of the exhibitor admin.
      */
     public String email() {
         return this.email;
     }
 
     /**
-     * Exhibitor Admin id
+     * Exhibitor admin ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -220,7 +220,7 @@ public class ExhibitorAdminResponse {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public ExhibitorAdminResponse withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -228,7 +228,7 @@ public class ExhibitorAdminResponse {
     }
 
     /**
-     * The first name of the exhibitor admin
+     * First name of the exhibitor admin.
      */
     public ExhibitorAdminResponse withFirstName(@Nonnull String firstName) {
         this.firstName = Utils.checkNotNull(firstName, "firstName");
@@ -236,7 +236,7 @@ public class ExhibitorAdminResponse {
     }
 
     /**
-     * The last name of the exhibitor admin
+     * Last name of the exhibitor admin.
      */
     public ExhibitorAdminResponse withLastName(@Nonnull String lastName) {
         this.lastName = Utils.checkNotNull(lastName, "lastName");
@@ -244,7 +244,7 @@ public class ExhibitorAdminResponse {
     }
 
     /**
-     * The email address of the exhibitor admin
+     * Email address of the exhibitor admin.
      */
     public ExhibitorAdminResponse withEmail(@Nonnull String email) {
         this.email = Utils.checkNotNull(email, "email");
@@ -252,7 +252,7 @@ public class ExhibitorAdminResponse {
     }
 
     /**
-     * Exhibitor Admin id
+     * Exhibitor admin ID.
      */
     public ExhibitorAdminResponse withId(@Nullable String id) {
         this.id = id;
@@ -371,7 +371,7 @@ public class ExhibitorAdminResponse {
         }
 
         /**
-         * The Associated Exhibitor.
+         * Associated exhibitor.
          */
         public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -379,7 +379,7 @@ public class ExhibitorAdminResponse {
         }
 
         /**
-         * The first name of the exhibitor admin
+         * First name of the exhibitor admin.
          */
         public Builder firstName(@Nonnull String firstName) {
             this.firstName = Utils.checkNotNull(firstName, "firstName");
@@ -387,7 +387,7 @@ public class ExhibitorAdminResponse {
         }
 
         /**
-         * The last name of the exhibitor admin
+         * Last name of the exhibitor admin.
          */
         public Builder lastName(@Nonnull String lastName) {
             this.lastName = Utils.checkNotNull(lastName, "lastName");
@@ -395,7 +395,7 @@ public class ExhibitorAdminResponse {
         }
 
         /**
-         * The email address of the exhibitor admin
+         * Email address of the exhibitor admin.
          */
         public Builder email(@Nonnull String email) {
             this.email = Utils.checkNotNull(email, "email");
@@ -403,7 +403,7 @@ public class ExhibitorAdminResponse {
         }
 
         /**
-         * Exhibitor Admin id
+         * Exhibitor admin ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

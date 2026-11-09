@@ -14,17 +14,17 @@ import java.util.Optional;
 /**
  * Capacity
  *
- * <p>Registration capacity object containing registration type and reserved capacity
+ * <p>Reserved capacity of a registration type.
  */
 public class Capacity {
     /**
-     * Registration type information
+     * Registration type of the capacity.
      */
     @JsonProperty("registrationType")
     private CapacityRegistrationType registrationType;
 
     /**
-     * Reserved capacity of the registration type for an exhibitor
+     * Reserved capacity of the registration type for an exhibitor.
      */
     @JsonProperty("reservedCapacity")
     private long reservedCapacity;
@@ -39,14 +39,14 @@ public class Capacity {
     }
 
     /**
-     * Registration type information
+     * Registration type of the capacity.
      */
     public CapacityRegistrationType registrationType() {
         return this.registrationType;
     }
 
     /**
-     * Reserved capacity of the registration type for an exhibitor
+     * Reserved capacity of the registration type for an exhibitor.
      */
     public long reservedCapacity() {
         return this.reservedCapacity;
@@ -57,7 +57,7 @@ public class Capacity {
     }
 
     /**
-     * Registration type information
+     * Registration type of the capacity.
      */
     public Capacity withRegistrationType(@Nonnull CapacityRegistrationType registrationType) {
         this.registrationType = Utils.checkNotNull(registrationType, "registrationType");
@@ -65,7 +65,7 @@ public class Capacity {
     }
 
     /**
-     * Reserved capacity of the registration type for an exhibitor
+     * Reserved capacity of the registration type for an exhibitor.
      */
     public Capacity withReservedCapacity(long reservedCapacity) {
         this.reservedCapacity = reservedCapacity;
@@ -108,7 +108,7 @@ public class Capacity {
         }
 
         /**
-         * Registration type information
+         * Registration type of the capacity.
          */
         public Builder registrationType(@Nonnull CapacityRegistrationType registrationType) {
             this.registrationType = Utils.checkNotNull(registrationType, "registrationType");
@@ -116,7 +116,7 @@ public class Capacity {
         }
 
         /**
-         * Reserved capacity of the registration type for an exhibitor
+         * Reserved capacity of the registration type for an exhibitor.
          */
         public Builder reservedCapacity(long reservedCapacity) {
             this.reservedCapacity = reservedCapacity;

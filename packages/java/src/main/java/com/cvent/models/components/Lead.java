@@ -20,7 +20,7 @@ import java.util.Optional;
 /**
  * Lead
  *
- * <p>A JSON Schema file for Lead.
+ * <p>Lead with an ID.
  */
 public class Lead {
     /**
@@ -52,189 +52,189 @@ public class Lead {
     private String lastModifiedBy;
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
     private Exhibitor exhibitor;
 
     /**
-     * A JSON schema representing the Attendee object
+     * Attendee of the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("attendee")
     private Attendee13 attendee;
 
     /**
-     * A JSON schema representing Booth Staff entity
+     * Booth staff member of the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("boothStaff")
     private BoothStaff boothStaff;
 
     /**
-     * A JSON object representing an electronic device used to capture leads.
+     * Device that captured the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("device")
     private Device device;
 
     /**
-     * A JSON schema representing the structure of an appointment object.
+     * Appointment of the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("appointment")
     private Appointment1 appointment;
 
     /**
-     * The title of the lead
+     * Title of the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("title")
     private String title;
 
     /**
-     * The first name of the lead
+     * First name of the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("firstName")
     private String firstName;
 
     /**
-     * The last name of the lead
+     * Last name of the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("lastName")
     private String lastName;
 
     /**
-     * The email address of the lead
+     * Email address of the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("email")
     private String email;
 
     /**
-     * The company/organization the lead belongs to.
+     * Company or organization of the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("company")
     private String company;
 
     /**
-     * Mobile phone number of the lead
+     * Mobile phone number of the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("mobilePhone")
     private String mobilePhone;
 
     /**
-     * Schema for address information
+     * Address of the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("homeAddress")
     private Address11 homeAddress;
 
     /**
-     * Home phone number of the lead
+     * Home phone number of the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("homePhone")
     private String homePhone;
 
     /**
-     * Schema for address information
+     * Address of the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("workAddress")
     private Address11 workAddress;
 
     /**
-     * Work Phone number of the lead
+     * Work phone number of the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("workPhone")
     private String workPhone;
 
     /**
-     * The type of lead.
+     * Type of the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
     private LeadType type;
 
     /**
-     * The application used to capture lead.
+     * Application that captured the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("application")
     private Application application;
 
     /**
-     * The source of entry for the lead
+     * Source of the lead entry.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("source")
     private Source source;
 
     /**
-     * A boolean indicating whether a lead is deleted or not
+     * True indicates that the lead is deleted.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("deleted")
     private Boolean deleted;
 
     /**
-     * Comments about the lead
+     * Comments about the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("comments")
     private String comments;
 
     /**
-     * License (access code) that was used to capture the lead
+     * License (access code) that captured the lead.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("licenseCode")
     private String licenseCode;
 
     /**
-     * A boolean indicating whether the lead is matched or not
+     * True indicates that the lead is matched.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("matched")
     private Boolean matched;
 
     /**
-     * Current status of business card transcription
+     * Status of the business card transcription.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("transcriptionStatus")
     private TranscriptionStatus transcriptionStatus;
 
     /**
-     * A boolean indicating whether a lead is qualified or not
+     * True indicates that the lead is qualified.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("qualified")
     private Boolean qualified;
 
     /**
-     * Map containing extra properties from badgekit provider
+     * Map of the additional properties from the badgekit provider.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("additionalBadgekitFields")
     private AdditionalBadgekitFields additionalBadgekitFields;
 
     /**
-     * ID of Lead.
+     * Lead ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -370,189 +370,189 @@ public class Lead {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Optional<Event4> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public Optional<Exhibitor> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
     /**
-     * A JSON schema representing the Attendee object
+     * Attendee of the lead.
      */
     public Optional<Attendee13> attendee() {
         return Optional.ofNullable(this.attendee);
     }
 
     /**
-     * A JSON schema representing Booth Staff entity
+     * Booth staff member of the lead.
      */
     public Optional<BoothStaff> boothStaff() {
         return Optional.ofNullable(this.boothStaff);
     }
 
     /**
-     * A JSON object representing an electronic device used to capture leads.
+     * Device that captured the lead.
      */
     public Optional<Device> device() {
         return Optional.ofNullable(this.device);
     }
 
     /**
-     * A JSON schema representing the structure of an appointment object.
+     * Appointment of the lead.
      */
     public Optional<Appointment1> appointment() {
         return Optional.ofNullable(this.appointment);
     }
 
     /**
-     * The title of the lead
+     * Title of the lead.
      */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
     }
 
     /**
-     * The first name of the lead
+     * First name of the lead.
      */
     public Optional<String> firstName() {
         return Optional.ofNullable(this.firstName);
     }
 
     /**
-     * The last name of the lead
+     * Last name of the lead.
      */
     public Optional<String> lastName() {
         return Optional.ofNullable(this.lastName);
     }
 
     /**
-     * The email address of the lead
+     * Email address of the lead.
      */
     public Optional<String> email() {
         return Optional.ofNullable(this.email);
     }
 
     /**
-     * The company/organization the lead belongs to.
+     * Company or organization of the lead.
      */
     public Optional<String> company() {
         return Optional.ofNullable(this.company);
     }
 
     /**
-     * Mobile phone number of the lead
+     * Mobile phone number of the lead.
      */
     public Optional<String> mobilePhone() {
         return Optional.ofNullable(this.mobilePhone);
     }
 
     /**
-     * Schema for address information
+     * Address of the lead.
      */
     public Optional<Address11> homeAddress() {
         return Optional.ofNullable(this.homeAddress);
     }
 
     /**
-     * Home phone number of the lead
+     * Home phone number of the lead.
      */
     public Optional<String> homePhone() {
         return Optional.ofNullable(this.homePhone);
     }
 
     /**
-     * Schema for address information
+     * Address of the lead.
      */
     public Optional<Address11> workAddress() {
         return Optional.ofNullable(this.workAddress);
     }
 
     /**
-     * Work Phone number of the lead
+     * Work phone number of the lead.
      */
     public Optional<String> workPhone() {
         return Optional.ofNullable(this.workPhone);
     }
 
     /**
-     * The type of lead.
+     * Type of the lead.
      */
     public Optional<LeadType> type() {
         return Optional.ofNullable(this.type);
     }
 
     /**
-     * The application used to capture lead.
+     * Application that captured the lead.
      */
     public Optional<Application> application() {
         return Optional.ofNullable(this.application);
     }
 
     /**
-     * The source of entry for the lead
+     * Source of the lead entry.
      */
     public Optional<Source> source() {
         return Optional.ofNullable(this.source);
     }
 
     /**
-     * A boolean indicating whether a lead is deleted or not
+     * True indicates that the lead is deleted.
      */
     public Optional<Boolean> deleted() {
         return Optional.ofNullable(this.deleted);
     }
 
     /**
-     * Comments about the lead
+     * Comments about the lead.
      */
     public Optional<String> comments() {
         return Optional.ofNullable(this.comments);
     }
 
     /**
-     * License (access code) that was used to capture the lead
+     * License (access code) that captured the lead.
      */
     public Optional<String> licenseCode() {
         return Optional.ofNullable(this.licenseCode);
     }
 
     /**
-     * A boolean indicating whether the lead is matched or not
+     * True indicates that the lead is matched.
      */
     public Optional<Boolean> matched() {
         return Optional.ofNullable(this.matched);
     }
 
     /**
-     * Current status of business card transcription
+     * Status of the business card transcription.
      */
     public Optional<TranscriptionStatus> transcriptionStatus() {
         return Optional.ofNullable(this.transcriptionStatus);
     }
 
     /**
-     * A boolean indicating whether a lead is qualified or not
+     * True indicates that the lead is qualified.
      */
     public Optional<Boolean> qualified() {
         return Optional.ofNullable(this.qualified);
     }
 
     /**
-     * Map containing extra properties from badgekit provider
+     * Map of the additional properties from the badgekit provider.
      */
     public Optional<AdditionalBadgekitFields> additionalBadgekitFields() {
         return Optional.ofNullable(this.additionalBadgekitFields);
     }
 
     /**
-     * ID of Lead.
+     * Lead ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -595,7 +595,7 @@ public class Lead {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Lead withEvent(@Nullable Event4 event) {
         this.event = event;
@@ -603,7 +603,7 @@ public class Lead {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public Lead withExhibitor(@Nullable Exhibitor exhibitor) {
         this.exhibitor = exhibitor;
@@ -611,7 +611,7 @@ public class Lead {
     }
 
     /**
-     * A JSON schema representing the Attendee object
+     * Attendee of the lead.
      */
     public Lead withAttendee(@Nullable Attendee13 attendee) {
         this.attendee = attendee;
@@ -619,7 +619,7 @@ public class Lead {
     }
 
     /**
-     * A JSON schema representing Booth Staff entity
+     * Booth staff member of the lead.
      */
     public Lead withBoothStaff(@Nullable BoothStaff boothStaff) {
         this.boothStaff = boothStaff;
@@ -627,7 +627,7 @@ public class Lead {
     }
 
     /**
-     * A JSON object representing an electronic device used to capture leads.
+     * Device that captured the lead.
      */
     public Lead withDevice(@Nullable Device device) {
         this.device = device;
@@ -635,7 +635,7 @@ public class Lead {
     }
 
     /**
-     * A JSON schema representing the structure of an appointment object.
+     * Appointment of the lead.
      */
     public Lead withAppointment(@Nullable Appointment1 appointment) {
         this.appointment = appointment;
@@ -643,7 +643,7 @@ public class Lead {
     }
 
     /**
-     * The title of the lead
+     * Title of the lead.
      */
     public Lead withTitle(@Nullable String title) {
         this.title = title;
@@ -651,7 +651,7 @@ public class Lead {
     }
 
     /**
-     * The first name of the lead
+     * First name of the lead.
      */
     public Lead withFirstName(@Nullable String firstName) {
         this.firstName = firstName;
@@ -659,7 +659,7 @@ public class Lead {
     }
 
     /**
-     * The last name of the lead
+     * Last name of the lead.
      */
     public Lead withLastName(@Nullable String lastName) {
         this.lastName = lastName;
@@ -667,7 +667,7 @@ public class Lead {
     }
 
     /**
-     * The email address of the lead
+     * Email address of the lead.
      */
     public Lead withEmail(@Nullable String email) {
         this.email = email;
@@ -675,7 +675,7 @@ public class Lead {
     }
 
     /**
-     * The company/organization the lead belongs to.
+     * Company or organization of the lead.
      */
     public Lead withCompany(@Nullable String company) {
         this.company = company;
@@ -683,7 +683,7 @@ public class Lead {
     }
 
     /**
-     * Mobile phone number of the lead
+     * Mobile phone number of the lead.
      */
     public Lead withMobilePhone(@Nullable String mobilePhone) {
         this.mobilePhone = mobilePhone;
@@ -691,7 +691,7 @@ public class Lead {
     }
 
     /**
-     * Schema for address information
+     * Address of the lead.
      */
     public Lead withHomeAddress(@Nullable Address11 homeAddress) {
         this.homeAddress = homeAddress;
@@ -699,7 +699,7 @@ public class Lead {
     }
 
     /**
-     * Home phone number of the lead
+     * Home phone number of the lead.
      */
     public Lead withHomePhone(@Nullable String homePhone) {
         this.homePhone = homePhone;
@@ -707,7 +707,7 @@ public class Lead {
     }
 
     /**
-     * Schema for address information
+     * Address of the lead.
      */
     public Lead withWorkAddress(@Nullable Address11 workAddress) {
         this.workAddress = workAddress;
@@ -715,7 +715,7 @@ public class Lead {
     }
 
     /**
-     * Work Phone number of the lead
+     * Work phone number of the lead.
      */
     public Lead withWorkPhone(@Nullable String workPhone) {
         this.workPhone = workPhone;
@@ -723,7 +723,7 @@ public class Lead {
     }
 
     /**
-     * The type of lead.
+     * Type of the lead.
      */
     public Lead withType(@Nullable LeadType type) {
         this.type = type;
@@ -731,7 +731,7 @@ public class Lead {
     }
 
     /**
-     * The application used to capture lead.
+     * Application that captured the lead.
      */
     public Lead withApplication(@Nullable Application application) {
         this.application = application;
@@ -739,7 +739,7 @@ public class Lead {
     }
 
     /**
-     * The source of entry for the lead
+     * Source of the lead entry.
      */
     public Lead withSource(@Nullable Source source) {
         this.source = source;
@@ -747,7 +747,7 @@ public class Lead {
     }
 
     /**
-     * A boolean indicating whether a lead is deleted or not
+     * True indicates that the lead is deleted.
      */
     public Lead withDeleted(@Nullable Boolean deleted) {
         this.deleted = deleted;
@@ -755,7 +755,7 @@ public class Lead {
     }
 
     /**
-     * Comments about the lead
+     * Comments about the lead.
      */
     public Lead withComments(@Nullable String comments) {
         this.comments = comments;
@@ -763,7 +763,7 @@ public class Lead {
     }
 
     /**
-     * License (access code) that was used to capture the lead
+     * License (access code) that captured the lead.
      */
     public Lead withLicenseCode(@Nullable String licenseCode) {
         this.licenseCode = licenseCode;
@@ -771,7 +771,7 @@ public class Lead {
     }
 
     /**
-     * A boolean indicating whether the lead is matched or not
+     * True indicates that the lead is matched.
      */
     public Lead withMatched(@Nullable Boolean matched) {
         this.matched = matched;
@@ -779,7 +779,7 @@ public class Lead {
     }
 
     /**
-     * Current status of business card transcription
+     * Status of the business card transcription.
      */
     public Lead withTranscriptionStatus(@Nullable TranscriptionStatus transcriptionStatus) {
         this.transcriptionStatus = transcriptionStatus;
@@ -787,7 +787,7 @@ public class Lead {
     }
 
     /**
-     * A boolean indicating whether a lead is qualified or not
+     * True indicates that the lead is qualified.
      */
     public Lead withQualified(@Nullable Boolean qualified) {
         this.qualified = qualified;
@@ -795,7 +795,7 @@ public class Lead {
     }
 
     /**
-     * Map containing extra properties from badgekit provider
+     * Map of the additional properties from the badgekit provider.
      */
     public Lead withAdditionalBadgekitFields(@Nullable AdditionalBadgekitFields additionalBadgekitFields) {
         this.additionalBadgekitFields = additionalBadgekitFields;
@@ -803,7 +803,7 @@ public class Lead {
     }
 
     /**
-     * ID of Lead.
+     * Lead ID.
      */
     public Lead withId(@Nullable String id) {
         this.id = id;
@@ -1058,7 +1058,7 @@ public class Lead {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nullable Event4 event) {
             this.event = event;
@@ -1066,7 +1066,7 @@ public class Lead {
         }
 
         /**
-         * The Associated Exhibitor.
+         * Associated exhibitor.
          */
         public Builder exhibitor(@Nullable Exhibitor exhibitor) {
             this.exhibitor = exhibitor;
@@ -1074,7 +1074,7 @@ public class Lead {
         }
 
         /**
-         * A JSON schema representing the Attendee object
+         * Attendee of the lead.
          */
         public Builder attendee(@Nullable Attendee13 attendee) {
             this.attendee = attendee;
@@ -1082,7 +1082,7 @@ public class Lead {
         }
 
         /**
-         * A JSON schema representing Booth Staff entity
+         * Booth staff member of the lead.
          */
         public Builder boothStaff(@Nullable BoothStaff boothStaff) {
             this.boothStaff = boothStaff;
@@ -1090,7 +1090,7 @@ public class Lead {
         }
 
         /**
-         * A JSON object representing an electronic device used to capture leads.
+         * Device that captured the lead.
          */
         public Builder device(@Nullable Device device) {
             this.device = device;
@@ -1098,7 +1098,7 @@ public class Lead {
         }
 
         /**
-         * A JSON schema representing the structure of an appointment object.
+         * Appointment of the lead.
          */
         public Builder appointment(@Nullable Appointment1 appointment) {
             this.appointment = appointment;
@@ -1106,7 +1106,7 @@ public class Lead {
         }
 
         /**
-         * The title of the lead
+         * Title of the lead.
          */
         public Builder title(@Nullable String title) {
             this.title = title;
@@ -1114,7 +1114,7 @@ public class Lead {
         }
 
         /**
-         * The first name of the lead
+         * First name of the lead.
          */
         public Builder firstName(@Nullable String firstName) {
             this.firstName = firstName;
@@ -1122,7 +1122,7 @@ public class Lead {
         }
 
         /**
-         * The last name of the lead
+         * Last name of the lead.
          */
         public Builder lastName(@Nullable String lastName) {
             this.lastName = lastName;
@@ -1130,7 +1130,7 @@ public class Lead {
         }
 
         /**
-         * The email address of the lead
+         * Email address of the lead.
          */
         public Builder email(@Nullable String email) {
             this.email = email;
@@ -1138,7 +1138,7 @@ public class Lead {
         }
 
         /**
-         * The company/organization the lead belongs to.
+         * Company or organization of the lead.
          */
         public Builder company(@Nullable String company) {
             this.company = company;
@@ -1146,7 +1146,7 @@ public class Lead {
         }
 
         /**
-         * Mobile phone number of the lead
+         * Mobile phone number of the lead.
          */
         public Builder mobilePhone(@Nullable String mobilePhone) {
             this.mobilePhone = mobilePhone;
@@ -1154,7 +1154,7 @@ public class Lead {
         }
 
         /**
-         * Schema for address information
+         * Address of the lead.
          */
         public Builder homeAddress(@Nullable Address11 homeAddress) {
             this.homeAddress = homeAddress;
@@ -1162,7 +1162,7 @@ public class Lead {
         }
 
         /**
-         * Home phone number of the lead
+         * Home phone number of the lead.
          */
         public Builder homePhone(@Nullable String homePhone) {
             this.homePhone = homePhone;
@@ -1170,7 +1170,7 @@ public class Lead {
         }
 
         /**
-         * Schema for address information
+         * Address of the lead.
          */
         public Builder workAddress(@Nullable Address11 workAddress) {
             this.workAddress = workAddress;
@@ -1178,7 +1178,7 @@ public class Lead {
         }
 
         /**
-         * Work Phone number of the lead
+         * Work phone number of the lead.
          */
         public Builder workPhone(@Nullable String workPhone) {
             this.workPhone = workPhone;
@@ -1186,7 +1186,7 @@ public class Lead {
         }
 
         /**
-         * The type of lead.
+         * Type of the lead.
          */
         public Builder type(@Nullable LeadType type) {
             this.type = type;
@@ -1194,7 +1194,7 @@ public class Lead {
         }
 
         /**
-         * The application used to capture lead.
+         * Application that captured the lead.
          */
         public Builder application(@Nullable Application application) {
             this.application = application;
@@ -1202,7 +1202,7 @@ public class Lead {
         }
 
         /**
-         * The source of entry for the lead
+         * Source of the lead entry.
          */
         public Builder source(@Nullable Source source) {
             this.source = source;
@@ -1210,7 +1210,7 @@ public class Lead {
         }
 
         /**
-         * A boolean indicating whether a lead is deleted or not
+         * True indicates that the lead is deleted.
          */
         public Builder deleted(@Nullable Boolean deleted) {
             this.deleted = deleted;
@@ -1218,7 +1218,7 @@ public class Lead {
         }
 
         /**
-         * Comments about the lead
+         * Comments about the lead.
          */
         public Builder comments(@Nullable String comments) {
             this.comments = comments;
@@ -1226,7 +1226,7 @@ public class Lead {
         }
 
         /**
-         * License (access code) that was used to capture the lead
+         * License (access code) that captured the lead.
          */
         public Builder licenseCode(@Nullable String licenseCode) {
             this.licenseCode = licenseCode;
@@ -1234,7 +1234,7 @@ public class Lead {
         }
 
         /**
-         * A boolean indicating whether the lead is matched or not
+         * True indicates that the lead is matched.
          */
         public Builder matched(@Nullable Boolean matched) {
             this.matched = matched;
@@ -1242,7 +1242,7 @@ public class Lead {
         }
 
         /**
-         * Current status of business card transcription
+         * Status of the business card transcription.
          */
         public Builder transcriptionStatus(@Nullable TranscriptionStatus transcriptionStatus) {
             this.transcriptionStatus = transcriptionStatus;
@@ -1250,7 +1250,7 @@ public class Lead {
         }
 
         /**
-         * A boolean indicating whether a lead is qualified or not
+         * True indicates that the lead is qualified.
          */
         public Builder qualified(@Nullable Boolean qualified) {
             this.qualified = qualified;
@@ -1258,7 +1258,7 @@ public class Lead {
         }
 
         /**
-         * Map containing extra properties from badgekit provider
+         * Map of the additional properties from the badgekit provider.
          */
         public Builder additionalBadgekitFields(@Nullable AdditionalBadgekitFields additionalBadgekitFields) {
             this.additionalBadgekitFields = additionalBadgekitFields;
@@ -1266,7 +1266,7 @@ public class Lead {
         }
 
         /**
-         * ID of Lead.
+         * Lead ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

@@ -1,6 +1,6 @@
 # LeadType
 
-The type of lead.
+Type of the lead.
 
 ## Example Usage
 

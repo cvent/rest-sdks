@@ -26,27 +26,27 @@ import java.util.Optional;
  */
 public class AttendeeAdd {
     /**
-     * The ID of the event associated with the attendee.
+     * The event associated with the attendee.
      */
     @JsonProperty("event")
     private AttendeeAddEvent event;
 
     /**
-     * The ID of the address book contact associated with the attendee.
+     * The address book contact associated with the attendee.
      */
     @JsonProperty("contact")
     private AttendeeAddContact contact;
 
     /**
-     * The ID of the invitation list associated with the attendee.
+     * The invitation list associated with the attendee.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("invitationList")
     private AttendeeAddInvitationList invitationList;
 
     /**
-     * The reference ID of an attendee. A planner determined string used to track which link attendee's
-     * used to reach the event registration.
+     * Reference ID. A planner-defined string that tracks the link that the attendee used to reach the
+     * event registration.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("referenceId")
@@ -60,15 +60,15 @@ public class AttendeeAdd {
     private String note;
 
     /**
-     * The ID of the administrator contact whom registered this attendee.
+     * The administrator contact who registered this attendee.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("administrator")
     private AttendeeAddAdministrator administrator;
 
     /**
-     * The ID of the attendee's admission item. Required when registering, updating a registered attendee,
-     * or cancelling an attendee.
+     * The attendee's admission item. Required when registering, updating a registered attendee, or
+     * cancelling an attendee.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("admissionItem")
@@ -133,8 +133,7 @@ public class AttendeeAdd {
     private Boolean guest;
 
     /**
-     * The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this
-     * attendee is a guest.
+     * Primary attendee ID. Applies only when this attendee is a guest.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("primaryId")
@@ -221,29 +220,29 @@ public class AttendeeAdd {
     }
 
     /**
-     * The ID of the event associated with the attendee.
+     * The event associated with the attendee.
      */
     public AttendeeAddEvent event() {
         return this.event;
     }
 
     /**
-     * The ID of the address book contact associated with the attendee.
+     * The address book contact associated with the attendee.
      */
     public AttendeeAddContact contact() {
         return this.contact;
     }
 
     /**
-     * The ID of the invitation list associated with the attendee.
+     * The invitation list associated with the attendee.
      */
     public Optional<AttendeeAddInvitationList> invitationList() {
         return Optional.ofNullable(this.invitationList);
     }
 
     /**
-     * The reference ID of an attendee. A planner determined string used to track which link attendee's
-     * used to reach the event registration.
+     * Reference ID. A planner-defined string that tracks the link that the attendee used to reach the
+     * event registration.
      */
     public Optional<String> referenceId() {
         return Optional.ofNullable(this.referenceId);
@@ -257,15 +256,15 @@ public class AttendeeAdd {
     }
 
     /**
-     * The ID of the administrator contact whom registered this attendee.
+     * The administrator contact who registered this attendee.
      */
     public Optional<AttendeeAddAdministrator> administrator() {
         return Optional.ofNullable(this.administrator);
     }
 
     /**
-     * The ID of the attendee's admission item. Required when registering, updating a registered attendee,
-     * or cancelling an attendee.
+     * The attendee's admission item. Required when registering, updating a registered attendee, or
+     * cancelling an attendee.
      */
     public Optional<AttendeeAddAdmissionItem> admissionItem() {
         return Optional.ofNullable(this.admissionItem);
@@ -330,8 +329,7 @@ public class AttendeeAdd {
     }
 
     /**
-     * The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this
-     * attendee is a guest.
+     * Primary attendee ID. Applies only when this attendee is a guest.
      */
     public Optional<String> primaryId() {
         return Optional.ofNullable(this.primaryId);
@@ -379,7 +377,7 @@ public class AttendeeAdd {
     }
 
     /**
-     * The ID of the event associated with the attendee.
+     * The event associated with the attendee.
      */
     public AttendeeAdd withEvent(@Nonnull AttendeeAddEvent event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -387,7 +385,7 @@ public class AttendeeAdd {
     }
 
     /**
-     * The ID of the address book contact associated with the attendee.
+     * The address book contact associated with the attendee.
      */
     public AttendeeAdd withContact(@Nonnull AttendeeAddContact contact) {
         this.contact = Utils.checkNotNull(contact, "contact");
@@ -395,7 +393,7 @@ public class AttendeeAdd {
     }
 
     /**
-     * The ID of the invitation list associated with the attendee.
+     * The invitation list associated with the attendee.
      */
     public AttendeeAdd withInvitationList(@Nullable AttendeeAddInvitationList invitationList) {
         this.invitationList = invitationList;
@@ -403,8 +401,8 @@ public class AttendeeAdd {
     }
 
     /**
-     * The reference ID of an attendee. A planner determined string used to track which link attendee's
-     * used to reach the event registration.
+     * Reference ID. A planner-defined string that tracks the link that the attendee used to reach the
+     * event registration.
      */
     public AttendeeAdd withReferenceId(@Nullable String referenceId) {
         this.referenceId = referenceId;
@@ -420,7 +418,7 @@ public class AttendeeAdd {
     }
 
     /**
-     * The ID of the administrator contact whom registered this attendee.
+     * The administrator contact who registered this attendee.
      */
     public AttendeeAdd withAdministrator(@Nullable AttendeeAddAdministrator administrator) {
         this.administrator = administrator;
@@ -428,8 +426,8 @@ public class AttendeeAdd {
     }
 
     /**
-     * The ID of the attendee's admission item. Required when registering, updating a registered attendee,
-     * or cancelling an attendee.
+     * The attendee's admission item. Required when registering, updating a registered attendee, or
+     * cancelling an attendee.
      */
     public AttendeeAdd withAdmissionItem(@Nullable AttendeeAddAdmissionItem admissionItem) {
         this.admissionItem = admissionItem;
@@ -502,8 +500,7 @@ public class AttendeeAdd {
     }
 
     /**
-     * The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this
-     * attendee is a guest.
+     * Primary attendee ID. Applies only when this attendee is a guest.
      */
     public AttendeeAdd withPrimaryId(@Nullable String primaryId) {
         this.primaryId = primaryId;
@@ -681,7 +678,7 @@ public class AttendeeAdd {
         }
 
         /**
-         * The ID of the event associated with the attendee.
+         * The event associated with the attendee.
          */
         public Builder event(@Nonnull AttendeeAddEvent event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -689,7 +686,7 @@ public class AttendeeAdd {
         }
 
         /**
-         * The ID of the address book contact associated with the attendee.
+         * The address book contact associated with the attendee.
          */
         public Builder contact(@Nonnull AttendeeAddContact contact) {
             this.contact = Utils.checkNotNull(contact, "contact");
@@ -697,7 +694,7 @@ public class AttendeeAdd {
         }
 
         /**
-         * The ID of the invitation list associated with the attendee.
+         * The invitation list associated with the attendee.
          */
         public Builder invitationList(@Nullable AttendeeAddInvitationList invitationList) {
             this.invitationList = invitationList;
@@ -705,8 +702,8 @@ public class AttendeeAdd {
         }
 
         /**
-         * The reference ID of an attendee. A planner determined string used to track which link attendee's
-         * used to reach the event registration.
+         * Reference ID. A planner-defined string that tracks the link that the attendee used to reach the
+         * event registration.
          */
         public Builder referenceId(@Nullable String referenceId) {
             this.referenceId = referenceId;
@@ -722,7 +719,7 @@ public class AttendeeAdd {
         }
 
         /**
-         * The ID of the administrator contact whom registered this attendee.
+         * The administrator contact who registered this attendee.
          */
         public Builder administrator(@Nullable AttendeeAddAdministrator administrator) {
             this.administrator = administrator;
@@ -730,8 +727,8 @@ public class AttendeeAdd {
         }
 
         /**
-         * The ID of the attendee's admission item. Required when registering, updating a registered attendee,
-         * or cancelling an attendee.
+         * The attendee's admission item. Required when registering, updating a registered attendee, or
+         * cancelling an attendee.
          */
         public Builder admissionItem(@Nullable AttendeeAddAdmissionItem admissionItem) {
             this.admissionItem = admissionItem;
@@ -804,8 +801,7 @@ public class AttendeeAdd {
         }
 
         /**
-         * The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this
-         * attendee is a guest.
+         * Primary attendee ID. Applies only when this attendee is a guest.
          */
         public Builder primaryId(@Nullable String primaryId) {
             this.primaryId = primaryId;

@@ -1,6 +1,6 @@
 # EliteratureRequestPaginatedResponse
 
-A paginated response for E-literature requests.
+Paginated list of e-literature requests.
 
 ## Example Usage
 
@@ -53,4 +53,4 @@ let value: EliteratureRequestPaginatedResponse = {
 | Field                                                                                                                  | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
 | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | `paging`                                                                                                               | [components.Paging](../../models/components/paging.md)                                                                 | :heavy_minus_sign:                                                                                                     | Represents pagination information for a collection of resources.                                                       |
-| `data`                                                                                                                 | [components.ExistingELiteratureRequestDataForLead](../../models/components/existingeliteraturerequestdataforlead.md)[] | :heavy_minus_sign:                                                                                                     | Collection of E-literature request data.                                                                               |
+| `data`                                                                                                                 | [components.ExistingELiteratureRequestDataForLead](../../models/components/existingeliteraturerequestdataforlead.md)[] | :heavy_minus_sign:                                                                                                     | List of e-literature requests.                                                                                         |

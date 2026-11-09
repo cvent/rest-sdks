@@ -18,7 +18,7 @@ import java.util.Optional;
  */
 public class ProgramItem2 {
     /**
-     * The unique identifier for a program item
+     * The unique ID of a program item.
      */
     @JsonProperty("id")
     private String id;
@@ -29,7 +29,7 @@ public class ProgramItem2 {
     }
 
     /**
-     * The unique identifier for a program item
+     * The unique ID of a program item.
      */
     public String id() {
         return this.id;
@@ -40,7 +40,7 @@ public class ProgramItem2 {
     }
 
     /**
-     * The unique identifier for a program item
+     * The unique ID of a program item.
      */
     public ProgramItem2 withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -79,7 +79,7 @@ public class ProgramItem2 {
         }
 
         /**
-         * The unique identifier for a program item
+         * The unique ID of a program item.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

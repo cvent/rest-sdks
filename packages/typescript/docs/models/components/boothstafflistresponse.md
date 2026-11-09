@@ -1,6 +1,6 @@
 # BoothStaffListResponse
 
-Represents the booth staff list response, with paging information and a list of booth staff.
+Paginated list of booth staff members.
 
 ## Example Usage
 
@@ -52,4 +52,4 @@ let value: BoothStaffListResponse = {
 | Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
 | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
 | `paging`                                                                         | [components.Paging](../../models/components/paging.md)                           | :heavy_minus_sign:                                                               | Represents pagination information for a collection of resources.                 |
-| `data`                                                                           | [components.BoothStaffResponse](../../models/components/boothstaffresponse.md)[] | :heavy_minus_sign:                                                               | List of booth staff.                                                             |
+| `data`                                                                           | [components.BoothStaffResponse](../../models/components/boothstaffresponse.md)[] | :heavy_minus_sign:                                                               | List of booth staff members.                                                     |

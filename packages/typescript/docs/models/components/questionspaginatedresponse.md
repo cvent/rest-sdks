@@ -105,7 +105,7 @@ let value: QuestionsPaginatedResponse = {
 
 ## Fields
 
-| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `paging`                                                               | [components.PagingJson](../../models/components/pagingjson.md)         | :heavy_check_mark:                                                     | Represents pagination information for a collection of resources.       |
-| `data`                                                                 | [components.QuestionJson1](../../models/components/questionjson1.md)[] | :heavy_check_mark:                                                     | Collection of questions for surveys.                                   |
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `paging`                                                         | [components.Paging](../../models/components/paging.md)           | :heavy_check_mark:                                               | Represents pagination information for a collection of resources. |
+| `data`                                                           | [components.Question2](../../models/components/question2.md)[]   | :heavy_check_mark:                                               | Collection of questions for surveys.                             |

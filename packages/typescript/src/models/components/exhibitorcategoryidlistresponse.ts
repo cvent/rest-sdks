@@ -13,7 +13,7 @@ import {
 import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
- * A paginated response containing a list of exhibitor category Ids.
+ * Paginated list of exhibitor category IDs.
  */
 export type ExhibitorCategoryIdListResponse = {
   /**
@@ -21,7 +21,7 @@ export type ExhibitorCategoryIdListResponse = {
    */
   paging?: Paging | undefined;
   /**
-   * Paginated list of exhibitor category Ids for an exhibitor.
+   * Paginated list of the exhibitor category IDs of an exhibitor.
    */
   data?: Array<ExhibitorCategoryId> | undefined;
 };

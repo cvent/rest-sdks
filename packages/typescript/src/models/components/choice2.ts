@@ -6,32 +6,36 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { ChoiceType, ChoiceType$inboundSchema } from "./choicetype.js";
 
 /**
- * This is used to denote the choice of questions in an event.
+ * A survey choice.
  */
 export type Choice2 = {
   /**
-   * The ID of the question choice. If you supply the choice's existing ID in a PUT call, the choice keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call, this choice text will be replaced with the text supplied, and a new choice ID is created.
+   * Text field ID.
    */
   id?: string | undefined;
   /**
-   * The text for the question choice.
+   * text Value of the Field
    */
-  text: string;
+  text?: string | undefined;
   /**
-   * The type for the event question choice.
+   * Reporting value of the Category, Its like a custom abbreviation
    */
-  type: ChoiceType;
+  shortText?: string | undefined;
+  /**
+   * Label of choice
+   */
+  label?: string | undefined;
 };
 
 /** @internal */
 export const Choice2$inboundSchema: z.ZodType<Choice2, z.ZodTypeDef, unknown> =
   z.object({
     id: z.string().optional(),
-    text: z.string(),
-    type: ChoiceType$inboundSchema.default("StandardChoice"),
+    text: z.string().optional(),
+    shortText: z.string().optional(),
+    label: z.string().optional(),
   });
 
 export function choice2FromJSON(

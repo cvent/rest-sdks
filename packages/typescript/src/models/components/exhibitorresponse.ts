@@ -29,7 +29,7 @@ export const ApprovalStatus = {
 export type ApprovalStatus = ClosedEnum<typeof ApprovalStatus>;
 
 /**
- * JSON schema for the exhibitor object
+ * Exhibitor with an ID.
  */
 export type ExhibitorResponse = {
   /**
@@ -49,51 +49,51 @@ export type ExhibitorResponse = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal results.
+   * Name of the exhibitor. The recommended maximum length is 200 characters.
    */
   name: string;
   /**
-   * Exhibitor description
+   * Description of the exhibitor.
    */
   description?: string | undefined;
   /**
-   * Code used to identify the exhibitor
+   * Code that identifies the exhibitor.
    */
   code?: string | undefined;
   /**
-   * Code used for marketing groupings
+   * Code of the marketing group of the exhibitor.
    */
   sourceId?: string | undefined;
   /**
-   * Exhibitor location
+   * Location of the exhibitor.
    */
   location?: string | undefined;
   /**
-   * An object representing an address with various properties.
+   * Address of the exhibitor.
    */
   address?: Address5 | undefined;
   /**
-   * Email address of the exhibitor
+   * Email address of the exhibitor.
    */
   email?: string | undefined;
   /**
-   * Mobile Phone of the exhibitor
+   * Mobile phone number of the exhibitor.
    */
   mobilePhone?: string | undefined;
   /**
-   * Work Phone of the exhibitor
+   * Work phone number of the exhibitor.
    */
   workPhone?: string | undefined;
   /**
-   * Any other phone of the exhibitor
+   * Other phone number of the exhibitor.
    */
   otherPhone?: string | undefined;
   /**
-   * Exhibitor's website URL
+   * URL of the exhibitor website.
    */
   website?: string | undefined;
   /**
@@ -101,7 +101,7 @@ export type ExhibitorResponse = {
    */
   contactLinks?: ContactLinks1 | undefined;
   /**
-   * A boolean indicating whether the exhibitor is deleted or not
+   * True indicates that the exhibitor is deleted.
    */
   deleted: boolean;
   /**
@@ -109,35 +109,43 @@ export type ExhibitorResponse = {
    */
   hidden: boolean;
   /**
-   * A boolean indicating whether the exhibitor is an event sponsor or not
+   * True indicates that the exhibitor is an event sponsor.
    */
   eventSponsor: boolean;
   /**
-   * A boolean indicating whether the exhibitor is designated as featured or not
+   * True indicates that the exhibitor is featured.
    */
   featured: boolean;
   /**
-   * Associated sponsorship level for an exhibitor
+   * True indicates that the exhibitor is hidden from the exhibitor list in Attendee Hub. The exhibitor still appears in the sponsor list. The value applies only to an event sponsor. The value is saved as false when `eventSponsor` is false.
+   */
+  sponsorOnlyExhibitor: boolean;
+  /**
+   * True indicates that the exhibitor is hidden from the exhibitor widget on the event website.
+   */
+  hiddenFromRegistration: boolean;
+  /**
+   * Associated sponsorship level of an exhibitor.
    */
   sponsorshipLevel?: SponsorshipLevel | undefined;
   /**
-   * ID of an exhibitor.
+   * Exhibitor ID.
    */
   id?: string | undefined;
   /**
-   * File ID for exhibitor profile logo.
+   * File ID of the exhibitor profile logo.
    */
   profileLogoId?: string | undefined;
   /**
-   * URL for exhibitor profile logo.
+   * URL of the exhibitor profile logo.
    */
   profileLogoUrl?: string | undefined;
   /**
-   * File ID for exhibitor banner.
+   * File ID of the exhibitor banner.
    */
   bannerId?: string | undefined;
   /**
-   * URL for exhibitor banner.
+   * URL of the exhibitor banner.
    */
   bannerUrl?: string | undefined;
   /**
@@ -181,6 +189,8 @@ export const ExhibitorResponse$inboundSchema: z.ZodType<
   hidden: z.boolean().default(false),
   eventSponsor: z.boolean().default(false),
   featured: z.boolean().default(false),
+  sponsorOnlyExhibitor: z.boolean().default(false),
+  hiddenFromRegistration: z.boolean().default(false),
   sponsorshipLevel: SponsorshipLevel$inboundSchema.optional(),
   id: z.string().optional(),
   profileLogoId: z.string().optional(),

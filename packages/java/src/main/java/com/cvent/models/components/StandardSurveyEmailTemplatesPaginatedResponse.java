@@ -22,18 +22,18 @@ public class StandardSurveyEmailTemplatesPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of standard survey email templates
      */
     @JsonProperty("data")
-    private List<StandardSurveyEmailTemplateJson> data;
+    private List<StandardSurveyEmailTemplateResponse> data;
 
     @JsonCreator
     public StandardSurveyEmailTemplatesPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<StandardSurveyEmailTemplateJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<StandardSurveyEmailTemplateResponse> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +42,14 @@ public class StandardSurveyEmailTemplatesPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of standard survey email templates
      */
-    public List<StandardSurveyEmailTemplateJson> data() {
+    public List<StandardSurveyEmailTemplateResponse> data() {
         return this.data;
     }
 
@@ -60,7 +60,7 @@ public class StandardSurveyEmailTemplatesPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public StandardSurveyEmailTemplatesPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public StandardSurveyEmailTemplatesPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +68,8 @@ public class StandardSurveyEmailTemplatesPaginatedResponse {
     /**
      * Collection of standard survey email templates
      */
-    public StandardSurveyEmailTemplatesPaginatedResponse withData(@Nonnull List<StandardSurveyEmailTemplateJson> data) {
+    public StandardSurveyEmailTemplatesPaginatedResponse withData(
+            @Nonnull List<StandardSurveyEmailTemplateResponse> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +99,9 @@ public class StandardSurveyEmailTemplatesPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<StandardSurveyEmailTemplateJson> data;
+        private List<StandardSurveyEmailTemplateResponse> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +110,7 @@ public class StandardSurveyEmailTemplatesPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +118,7 @@ public class StandardSurveyEmailTemplatesPaginatedResponse {
         /**
          * Collection of standard survey email templates
          */
-        public Builder data(@Nonnull List<StandardSurveyEmailTemplateJson> data) {
+        public Builder data(@Nonnull List<StandardSurveyEmailTemplateResponse> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

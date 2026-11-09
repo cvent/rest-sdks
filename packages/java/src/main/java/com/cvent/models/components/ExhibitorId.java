@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * ExhibitorId
  *
- * <p>A JSON Schema representation of an exhibitor ID.
+ * <p>Exhibitor ID.
  */
 public class ExhibitorId {
     /**

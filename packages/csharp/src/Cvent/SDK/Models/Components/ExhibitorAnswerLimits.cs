@@ -13,30 +13,30 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Defines the limits for answers to exhibitor questions.
+    /// Limits of the answers to an exhibitor question.
     /// </summary>
     public class ExhibitorAnswerLimits
     {
         /// <summary>
-        /// Minimum length of the answer for OpenEndedTextCommentBox questions. It must be less than or equal to maxLength.
+        /// Minimum length of the answer to an `OpenEndedTextCommentBox` question. The value is less than or equal to `maxLength`.
         /// </summary>
         [JsonProperty("minLength")]
         public long? MinLength { get; set; } = 1;
 
         /// <summary>
-        /// Maximum length of the answer for OpenEndedTextCommentBox questions.
+        /// Maximum length of the answer to an `OpenEndedTextCommentBox` question.
         /// </summary>
         [JsonProperty("maxLength")]
         public long? MaxLength { get; set; } = 2000;
 
         /// <summary>
-        /// Minimum number of choices required for MultiChoice questions. It must be less than or equal to maxSelections.
+        /// Minimum number of selected choices for a `MultiChoice` question. The value is less than or equal to `maxSelections`.
         /// </summary>
         [JsonProperty("minSelections")]
         public long? MinSelections { get; set; }
 
         /// <summary>
-        /// Maximum number of choices allowed for MultiChoice questions. It cannot exceed the total number of available choices.
+        /// Maximum number of selected choices for a `MultiChoice` question. The value is less than or equal to the number of choices.
         /// </summary>
         [JsonProperty("maxSelections")]
         public long? MaxSelections { get; set; }

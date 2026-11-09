@@ -18,7 +18,7 @@ namespace Cvent.SDK.Models.Components
     public class AppointmentGroup
     {
         /// <summary>
-        /// The ID of the appointment group.
+        /// Appointment group ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

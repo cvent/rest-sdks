@@ -8,7 +8,7 @@ import * as components from "../components/index.js";
 
 export type UpdateAttendeeRequest = {
   /**
-   * The unique ID of an attendee.
+   * Attendee ID.
    */
   id: string;
   attendeeUpdate: components.AttendeeUpdate;

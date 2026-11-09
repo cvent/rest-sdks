@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// A response object containing a list of exhibitor question answers.
+    /// List of exhibitor answers.
     /// </summary>
     public class ExhibitorAnswersResponse
     {

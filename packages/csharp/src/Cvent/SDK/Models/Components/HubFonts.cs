@@ -18,13 +18,13 @@ namespace Cvent.SDK.Models.Components
     public class HubFonts
     {
         /// <summary>
-        /// The id of the font used in this Events+ hub's heading. Custom fonts are previously uploaded in the account.
+        /// The ID of the font used in this Events+ hub's heading. Custom fonts are uploaded to the account before use.
         /// </summary>
         [JsonProperty("headingId")]
         public string? HeadingId { get; set; }
 
         /// <summary>
-        /// The id of the font used in this Events+ hub's body text. Custom fonts are previously uploaded in account.
+        /// The ID of the font used in this Events+ hub's body text. Custom fonts are uploaded to the account before use.
         /// </summary>
         [JsonProperty("bodyId")]
         public string? BodyId { get; set; }

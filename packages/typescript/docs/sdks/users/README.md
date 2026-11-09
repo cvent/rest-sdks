@@ -14,7 +14,9 @@ Operations for managing account users and user groups, including creation, retri
 * [addUserToAccountUserGroup](#addusertoaccountusergroup) - Associate User to Group
 * [deleteUserFromAccountUserGroup](#deleteuserfromaccountusergroup) - Delete User from Group
 * [listAccountUsers](#listaccountusers) - List Account Users
+* [listAccountUsersFilter](#listaccountusersfilter) - List Account Users
 * [getAccountUser](#getaccountuser) - Get Account User
+* [updateAccountUserCustomFieldAnswer](#updateaccountusercustomfieldanswer) - Update Custom Field Answer
 
 ## getAccountUserGroups
 
@@ -655,7 +657,7 @@ run();
 
 ## listAccountUsers
 
-Gets a list of all users associated with your account.
+Gets a paginated list of account users associated with your account.
 
 ### Example Usage: active
 
@@ -962,6 +964,332 @@ run();
 | errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
 
+## listAccountUsersFilter
+
+Gets a paginated list of users associated with your account using the filter provided in the body of the request. This method returns the same data as [List Account Users](#operation/listAccountUsers) (`GET /users`) but allows for longer filter strings and filtering on fields that may contain personally identifiable information (PII).
+
+
+### Example Usage: combined
+
+<!-- UsageSnippet language="typescript" operationID="listAccountUsersFilter" method="post" path="/users/filter" example="combined" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.users.listAccountUsersFilter({
+    token: "1a2b3c4d5e6f7g8h9i10j11k",
+    sort: "username DESC",
+    accountUsersFilter: {
+      filter: "active eq 'true' and (contact.lastName eq 'Smith' or contact.email sw 'jsmith')",
+    },
+  });
+
+  for await (const page of result) {
+    console.log(page);
+  }
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { usersListAccountUsersFilter } from "@cvent/sdk/funcs/usersListAccountUsersFilter.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await usersListAccountUsersFilter(cventSDK, {
+    token: "1a2b3c4d5e6f7g8h9i10j11k",
+    sort: "username DESC",
+    accountUsersFilter: {
+      filter: "active eq 'true' and (contact.lastName eq 'Smith' or contact.email sw 'jsmith')",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
+    console.log(page);
+  }
+  } else {
+    console.log("usersListAccountUsersFilter failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: customFields
+
+<!-- UsageSnippet language="typescript" operationID="listAccountUsersFilter" method="post" path="/users/filter" example="customFields" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.users.listAccountUsersFilter({
+    token: "1a2b3c4d5e6f7g8h9i10j11k",
+    sort: "username DESC",
+    accountUsersFilter: {
+      filter: "customFields.6839fbc1-ad25-48ec-a3a0-fc051b853c8a.values contains ('Example')",
+    },
+  });
+
+  for await (const page of result) {
+    console.log(page);
+  }
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { usersListAccountUsersFilter } from "@cvent/sdk/funcs/usersListAccountUsersFilter.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await usersListAccountUsersFilter(cventSDK, {
+    token: "1a2b3c4d5e6f7g8h9i10j11k",
+    sort: "username DESC",
+    accountUsersFilter: {
+      filter: "customFields.6839fbc1-ad25-48ec-a3a0-fc051b853c8a.values contains ('Example')",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
+    console.log(page);
+  }
+  } else {
+    console.log("usersListAccountUsersFilter failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: email
+
+<!-- UsageSnippet language="typescript" operationID="listAccountUsersFilter" method="post" path="/users/filter" example="email" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.users.listAccountUsersFilter({
+    token: "1a2b3c4d5e6f7g8h9i10j11k",
+    sort: "username DESC",
+    accountUsersFilter: {
+      filter: "contact.email sw 'jsmith'",
+    },
+  });
+
+  for await (const page of result) {
+    console.log(page);
+  }
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { usersListAccountUsersFilter } from "@cvent/sdk/funcs/usersListAccountUsersFilter.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await usersListAccountUsersFilter(cventSDK, {
+    token: "1a2b3c4d5e6f7g8h9i10j11k",
+    sort: "username DESC",
+    accountUsersFilter: {
+      filter: "contact.email sw 'jsmith'",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
+    console.log(page);
+  }
+  } else {
+    console.log("usersListAccountUsersFilter failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: username
+
+<!-- UsageSnippet language="typescript" operationID="listAccountUsersFilter" method="post" path="/users/filter" example="username" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.users.listAccountUsersFilter({
+    token: "1a2b3c4d5e6f7g8h9i10j11k",
+    sort: "username DESC",
+    accountUsersFilter: {
+      filter: "username contains 'example'",
+    },
+  });
+
+  for await (const page of result) {
+    console.log(page);
+  }
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { usersListAccountUsersFilter } from "@cvent/sdk/funcs/usersListAccountUsersFilter.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await usersListAccountUsersFilter(cventSDK, {
+    token: "1a2b3c4d5e6f7g8h9i10j11k",
+    sort: "username DESC",
+    accountUsersFilter: {
+      filter: "username contains 'example'",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
+    console.log(page);
+  }
+  } else {
+    console.log("usersListAccountUsersFilter failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListAccountUsersFilterRequest](../../models/operations/listaccountusersfilterrequest.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.ListAccountUsersFilterResponse](../../models/operations/listaccountusersfilterresponse.md)\>**
+
+### Errors
+
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ErrorResponse12 | 400, 401, 403, 429     | application/json       |
+| errors.APIError        | 4XX, 5XX               | \*/\*                  |
+
 ## getAccountUser
 
 Gets a single account user.
@@ -1049,3 +1377,127 @@ run();
 | ---------------------- | ---------------------- | ---------------------- |
 | errors.ErrorResponse12 | 401, 403, 404, 429     | application/json       |
 | errors.APIError        | 4XX, 5XX               | \*/\*                  |
+
+## updateAccountUserCustomFieldAnswer
+
+Updates an account user's answer to a single custom field using the details provided in the body of
+the request. The `id` in the request body must match the `customFieldId` path parameter.
+
+`values` is always an array. For custom fields that aren't choice-based, such as one-line text,
+comment box, and date/time fields, `values` contains a single element.
+
+Date/time custom field values use ISO 8601 format. A date-only field accepts only the `yyyy-MM-dd`
+format, such as `2026-11-11`, and returns answers in that same format. A date and time field accepts
+a full date-time with an offset, such as `2026-10-15T09:30:00Z`, which Cvent converts to UTC and
+returns as a UTC date-time.
+
+To clear an answer, send an empty `values` array. Cvent trims each value and drops blank ones, so a
+`values` array that holds only blank strings also clears the answer. You can only clear answers to
+custom fields that aren't required. Clearing the answer to a required custom field returns a `400` error.
+
+This endpoint only validates the custom field you're updating. It doesn't check whether the account
+user has answered their other required custom fields.
+
+Auto-increment custom fields are read-only because Cvent generates their values. Updating the
+answer to an auto-increment custom field returns a `400` error.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="updateAccountUserCustomFieldAnswer" method="put" path="/users/{userId}/custom-fields/{customFieldId}/answers" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.users.updateAccountUserCustomFieldAnswer({
+    userId: "ff8af134-3505-4d67-aaea-1975d8e1327c",
+    customFieldId: "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+    accountUserCustomField: {
+      id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      values: [
+        "Choice C",
+        "Choice A",
+      ],
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { usersUpdateAccountUserCustomFieldAnswer } from "@cvent/sdk/funcs/usersUpdateAccountUserCustomFieldAnswer.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await usersUpdateAccountUserCustomFieldAnswer(cventSDK, {
+    userId: "ff8af134-3505-4d67-aaea-1975d8e1327c",
+    customFieldId: "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+    accountUserCustomField: {
+      id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      values: [
+        "Choice C",
+        "Choice A",
+      ],
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("usersUpdateAccountUserCustomFieldAnswer failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateAccountUserCustomFieldAnswerRequest](../../models/operations/updateaccountusercustomfieldanswerrequest.md)                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.AccountUserCustomField](../../models/components/accountusercustomfield.md)\>**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse12  | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |

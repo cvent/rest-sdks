@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Get Registration Pack
  *
  * @remarks
- * Retrieves registration types allocated to an exhibitor, along with the count of registrations utilized.
+ * Retrieves the registration types that are allocated to an exhibitor, with the count of used registrations.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

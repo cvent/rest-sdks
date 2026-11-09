@@ -14,24 +14,24 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// A JSON schema representing booth staff.
+    /// Booth staff member of an exhibitor.
     /// </summary>
     public class BoothStaffRequest
     {
         /// <summary>
-        /// The associated Attendee.
+        /// Associated attendee.
         /// </summary>
         [JsonProperty("attendee")]
         public Attendee12 Attendee { get; set; } = default!;
 
         /// <summary>
-        /// The Associated Event.
+        /// Associated event.
         /// </summary>
         [JsonProperty("event")]
         public Event4 Event { get; set; } = default!;
 
         /// <summary>
-        /// The Associated Exhibitor.
+        /// Associated exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
         public Models.Components.Exhibitor Exhibitor { get; set; } = default!;

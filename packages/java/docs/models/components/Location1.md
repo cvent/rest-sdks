@@ -1,6 +1,6 @@
 # Location1
 
-Used to denote a locations name and abbreviation.
+A location identified by its ID, code, and name.
 
 
 ## Fields

@@ -5,7 +5,7 @@
 import * as z from "zod/v3";
 
 /**
- * An object that holds the id for a category
+ * A reference to a category by its ID.
  */
 export type CategoryId = {
   /**

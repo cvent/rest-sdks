@@ -17,6 +17,7 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * DateRequirements1
@@ -36,7 +37,7 @@ public class DateRequirements1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("alternateDates")
-    private List<Dates1> alternateDates;
+    private JsonNullable<List<Dates1>> alternateDates;
 
     /**
      * Date pattern for days on which event can occur. Used when dateMode is DATE_PATTERN.
@@ -55,11 +56,11 @@ public class DateRequirements1 {
     @JsonCreator
     public DateRequirements1(
             @JsonProperty("mode") @Nonnull RfpDateMode mode,
-            @JsonProperty("alternateDates") @Nullable List<Dates1> alternateDates,
+            @JsonProperty("alternateDates") @Nullable JsonNullable<List<Dates1>> alternateDates,
             @JsonProperty("pattern") @Nullable DatePattern1 pattern,
             @JsonProperty("availabilityRangeRequired") @Nullable Boolean availabilityRangeRequired) {
         this.mode = Optional.ofNullable(mode).orElseThrow(() -> new IllegalArgumentException("mode cannot be null"));
-        this.alternateDates = alternateDates;
+        this.alternateDates = Optional.ofNullable(alternateDates).orElse(JsonNullable.undefined());
         this.pattern = pattern;
         this.availabilityRangeRequired = Optional.ofNullable(availabilityRangeRequired)
                 .orElse(Builder._SINGLETON_VALUE_AvailabilityRangeRequired.value());
@@ -80,8 +81,8 @@ public class DateRequirements1 {
      * List of dates for the event. Can be used to provide set of alternate event dates when mode is
      * ALTERNATE_DATE.
      */
-    public Optional<List<Dates1>> alternateDates() {
-        return Optional.ofNullable(this.alternateDates);
+    public JsonNullable<List<Dates1>> alternateDates() {
+        return this.alternateDates;
     }
 
     /**
@@ -115,7 +116,7 @@ public class DateRequirements1 {
      * ALTERNATE_DATE.
      */
     public DateRequirements1 withAlternateDates(@Nullable List<Dates1> alternateDates) {
-        this.alternateDates = alternateDates;
+        this.alternateDates = JsonNullable.of(alternateDates);
         return this;
     }
 
@@ -174,7 +175,7 @@ public class DateRequirements1 {
 
         private RfpDateMode mode;
 
-        private List<Dates1> alternateDates;
+        private JsonNullable<List<Dates1>> alternateDates;
 
         private DatePattern1 pattern;
 
@@ -197,7 +198,7 @@ public class DateRequirements1 {
          * ALTERNATE_DATE.
          */
         public Builder alternateDates(@Nullable List<Dates1> alternateDates) {
-            this.alternateDates = alternateDates;
+            this.alternateDates = JsonNullable.of(alternateDates);
             return this;
         }
 

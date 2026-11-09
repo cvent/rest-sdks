@@ -20,7 +20,7 @@ namespace Cvent.SDK.Models.Requests
         public string UserGroupId { get; set; } = default!;
 
         /// <summary>
-        /// The Account User's Id.
+        /// The account user's ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=userId")]
         public string UserId { get; set; } = default!;

@@ -217,7 +217,7 @@ public class Exhibitor {
     /**
      * Create Exhibitor Category
      *
-     * <p>Creates a single exhibitor category entity for an event.
+     * <p>Creates an exhibitor category for an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -230,7 +230,7 @@ public class Exhibitor {
     /**
      * Create Exhibitor Category
      *
-     * <p>Creates a single exhibitor category entity for an event.
+     * <p>Creates an exhibitor category for an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -245,7 +245,7 @@ public class Exhibitor {
     /**
      * Create Exhibitor Category
      *
-     * <p>Creates a single exhibitor category entity for an event.
+     * <p>Creates an exhibitor category for an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -264,7 +264,7 @@ public class Exhibitor {
     /**
      * Update Exhibitor Category
      *
-     * <p>Updates data for a single exhibitor category entity.
+     * <p>Updates an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -277,7 +277,7 @@ public class Exhibitor {
     /**
      * Update Exhibitor Category
      *
-     * <p>Updates data for a single exhibitor category entity.
+     * <p>Updates an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -292,7 +292,7 @@ public class Exhibitor {
     /**
      * Update Exhibitor Category
      *
-     * <p>Updates data for a single exhibitor category entity.
+     * <p>Updates an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -311,7 +311,7 @@ public class Exhibitor {
     /**
      * Delete Exhibitor Category
      *
-     * <p>Deletes a single exhibitor Category entity.
+     * <p>Deletes an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -324,7 +324,7 @@ public class Exhibitor {
     /**
      * Delete Exhibitor Category
      *
-     * <p>Deletes a single exhibitor Category entity.
+     * <p>Deletes an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -339,7 +339,7 @@ public class Exhibitor {
     /**
      * Delete Exhibitor Category
      *
-     * <p>Deletes a single exhibitor Category entity.
+     * <p>Deletes an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -358,12 +358,11 @@ public class Exhibitor {
     /**
      * Assign Banner to Category
      *
-     * <p>Assign a banner image to an exhibitor category with a file UUID from <a
-     * href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if
-     * one is assigned.
+     * <p>Assigns a banner image to an exhibitor category. The file ID comes from the [file
+     * upload](#operation/uploadFile) operation. The new image replaces the current banner image.
      *
-     * <p>**Note:** For category banner images we recommend images that are 900x300 pixels and 5MiB or
-     * smaller. File types supported are : JPEG, JPG, PNG, GIF.
+     * <p>**Note:** The recommended category banner image is 900x300 pixels and 5 MiB or smaller. The
+     * supported file types are JPEG, JPG, PNG, and GIF.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -376,12 +375,11 @@ public class Exhibitor {
     /**
      * Assign Banner to Category
      *
-     * <p>Assign a banner image to an exhibitor category with a file UUID from <a
-     * href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if
-     * one is assigned.
+     * <p>Assigns a banner image to an exhibitor category. The file ID comes from the [file
+     * upload](#operation/uploadFile) operation. The new image replaces the current banner image.
      *
-     * <p>**Note:** For category banner images we recommend images that are 900x300 pixels and 5MiB or
-     * smaller. File types supported are : JPEG, JPG, PNG, GIF.
+     * <p>**Note:** The recommended category banner image is 900x300 pixels and 5 MiB or smaller. The
+     * supported file types are JPEG, JPG, PNG, and GIF.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -397,12 +395,11 @@ public class Exhibitor {
     /**
      * Assign Banner to Category
      *
-     * <p>Assign a banner image to an exhibitor category with a file UUID from <a
-     * href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if
-     * one is assigned.
+     * <p>Assigns a banner image to an exhibitor category. The file ID comes from the [file
+     * upload](#operation/uploadFile) operation. The new image replaces the current banner image.
      *
-     * <p>**Note:** For category banner images we recommend images that are 900x300 pixels and 5MiB or
-     * smaller. File types supported are : JPEG, JPG, PNG, GIF.
+     * <p>**Note:** The recommended category banner image is 900x300 pixels and 5 MiB or smaller. The
+     * supported file types are JPEG, JPG, PNG, and GIF.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -421,7 +418,7 @@ public class Exhibitor {
     /**
      * Delete Banner from Category
      *
-     * <p>Deletes an exhibitor Category banner image.
+     * <p>Deletes the banner image of an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -434,7 +431,7 @@ public class Exhibitor {
     /**
      * Delete Banner from Category
      *
-     * <p>Deletes an exhibitor Category banner image.
+     * <p>Deletes the banner image of an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -450,7 +447,7 @@ public class Exhibitor {
     /**
      * Delete Banner from Category
      *
-     * <p>Deletes an exhibitor Category banner image.
+     * <p>Deletes the banner image of an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -469,7 +466,7 @@ public class Exhibitor {
     /**
      * List Category's Exhibitors
      *
-     * <p>Get a paginated list of exhibitors assigned to the provided exhibitor-category Id.
+     * <p>Retrieves a paginated list of the exhibitors in an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -482,7 +479,7 @@ public class Exhibitor {
     /**
      * List Category's Exhibitors
      *
-     * <p>Get a paginated list of exhibitors assigned to the provided exhibitor-category Id.
+     * <p>Retrieves a paginated list of the exhibitors in an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -497,7 +494,7 @@ public class Exhibitor {
     /**
      * List Category's Exhibitors
      *
-     * <p>Get a paginated list of exhibitors assigned to the provided exhibitor-category Id.
+     * <p>Retrieves a paginated list of the exhibitors in an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -515,7 +512,7 @@ public class Exhibitor {
     /**
      * Assign Exhibitor to Category
      *
-     * <p>Assign an exhibitor ID to an exhibitor-category Id.
+     * <p>Assigns an exhibitor to an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -528,7 +525,7 @@ public class Exhibitor {
     /**
      * Assign Exhibitor to Category
      *
-     * <p>Assign an exhibitor ID to an exhibitor-category Id.
+     * <p>Assigns an exhibitor to an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -544,7 +541,7 @@ public class Exhibitor {
     /**
      * Assign Exhibitor to Category
      *
-     * <p>Assign an exhibitor ID to an exhibitor-category Id.
+     * <p>Assigns an exhibitor to an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -563,7 +560,7 @@ public class Exhibitor {
     /**
      * Delete Exhibitor from Category
      *
-     * <p>delete an exhibitor from an exhibitor-category
+     * <p>Removes an exhibitor from an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -576,7 +573,7 @@ public class Exhibitor {
     /**
      * Delete Exhibitor from Category
      *
-     * <p>delete an exhibitor from an exhibitor-category
+     * <p>Removes an exhibitor from an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -592,7 +589,7 @@ public class Exhibitor {
     /**
      * Delete Exhibitor from Category
      *
-     * <p>delete an exhibitor from an exhibitor-category
+     * <p>Removes an exhibitor from an exhibitor category.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -611,7 +608,7 @@ public class Exhibitor {
     /**
      * List Exhibitor Questions
      *
-     * <p>Gets a list of exhibitor questions for a given event id.
+     * <p>Retrieves a list of the exhibitor questions of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -624,7 +621,7 @@ public class Exhibitor {
     /**
      * List Exhibitor Questions
      *
-     * <p>Gets a list of exhibitor questions for a given event id.
+     * <p>Retrieves a list of the exhibitor questions of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -639,7 +636,7 @@ public class Exhibitor {
     /**
      * List Exhibitor Questions
      *
-     * <p>Gets a list of exhibitor questions for a given event id.
+     * <p>Retrieves a list of the exhibitor questions of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -750,7 +747,7 @@ public class Exhibitor {
     /**
      * Get Exhibitor
      *
-     * <p>Retrieves a single exhibitor entity for an event.
+     * <p>Retrieves an exhibitor of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -763,7 +760,7 @@ public class Exhibitor {
     /**
      * Get Exhibitor
      *
-     * <p>Retrieves a single exhibitor entity for an event.
+     * <p>Retrieves an exhibitor of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -778,7 +775,7 @@ public class Exhibitor {
     /**
      * Get Exhibitor
      *
-     * <p>Retrieves a single exhibitor entity for an event.
+     * <p>Retrieves an exhibitor of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -796,7 +793,7 @@ public class Exhibitor {
     /**
      * Update Exhibitor
      *
-     * <p>Updates data for a single exhibitor entity.
+     * <p>Updates an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -809,7 +806,7 @@ public class Exhibitor {
     /**
      * Update Exhibitor
      *
-     * <p>Updates data for a single exhibitor entity.
+     * <p>Updates an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -824,7 +821,7 @@ public class Exhibitor {
     /**
      * Update Exhibitor
      *
-     * <p>Updates data for a single exhibitor entity.
+     * <p>Updates an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -842,8 +839,8 @@ public class Exhibitor {
     /**
      * Delete Exhibitor
      *
-     * <p>Deletes a single exhibitor entity. To be deleted, exhibitors must have no tasks, registrations, or
-     * LeadCapture licenses assigned and must not be a sponsored or featured exhibitor.
+     * <p>Deletes an exhibitor. An exhibitor with an assigned task, registration, or LeadCapture license
+     * cannot be deleted. A sponsored or featured exhibitor cannot be deleted.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -856,8 +853,8 @@ public class Exhibitor {
     /**
      * Delete Exhibitor
      *
-     * <p>Deletes a single exhibitor entity. To be deleted, exhibitors must have no tasks, registrations, or
-     * LeadCapture licenses assigned and must not be a sponsored or featured exhibitor.
+     * <p>Deletes an exhibitor. An exhibitor with an assigned task, registration, or LeadCapture license
+     * cannot be deleted. A sponsored or featured exhibitor cannot be deleted.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -872,8 +869,8 @@ public class Exhibitor {
     /**
      * Delete Exhibitor
      *
-     * <p>Deletes a single exhibitor entity. To be deleted, exhibitors must have no tasks, registrations, or
-     * LeadCapture licenses assigned and must not be a sponsored or featured exhibitor.
+     * <p>Deletes an exhibitor. An exhibitor with an assigned task, registration, or LeadCapture license
+     * cannot be deleted. A sponsored or featured exhibitor cannot be deleted.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -891,11 +888,11 @@ public class Exhibitor {
     /**
      * Assign Exhibitor Banner Image
      *
-     * <p>Assign a banner image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file
-     * upload</a> endpoint. This will replace the current banner image if one is assigned.
+     * <p>Assigns a banner image to an exhibitor. The file ID comes from the [file
+     * upload](#operation/uploadFile) operation. The new image replaces the current banner image.
      *
-     * <p>**Note:** For exhibitor profile banner images, we recommend images that are 1872x320 pixels or
-     * smaller images that have an aspect ratio of 5.85:1. File extensions supported: JPEG, JPG, PNG, GIF
+     * <p>**Note:** The recommended size of an exhibitor profile banner image is 1872x320 pixels or smaller,
+     * with an aspect ratio of 5.85:1. The supported file types are JPEG, JPG, PNG, and GIF.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -908,11 +905,11 @@ public class Exhibitor {
     /**
      * Assign Exhibitor Banner Image
      *
-     * <p>Assign a banner image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file
-     * upload</a> endpoint. This will replace the current banner image if one is assigned.
+     * <p>Assigns a banner image to an exhibitor. The file ID comes from the [file
+     * upload](#operation/uploadFile) operation. The new image replaces the current banner image.
      *
-     * <p>**Note:** For exhibitor profile banner images, we recommend images that are 1872x320 pixels or
-     * smaller images that have an aspect ratio of 5.85:1. File extensions supported: JPEG, JPG, PNG, GIF
+     * <p>**Note:** The recommended size of an exhibitor profile banner image is 1872x320 pixels or smaller,
+     * with an aspect ratio of 5.85:1. The supported file types are JPEG, JPG, PNG, and GIF.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -927,11 +924,11 @@ public class Exhibitor {
     /**
      * Assign Exhibitor Banner Image
      *
-     * <p>Assign a banner image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file
-     * upload</a> endpoint. This will replace the current banner image if one is assigned.
+     * <p>Assigns a banner image to an exhibitor. The file ID comes from the [file
+     * upload](#operation/uploadFile) operation. The new image replaces the current banner image.
      *
-     * <p>**Note:** For exhibitor profile banner images, we recommend images that are 1872x320 pixels or
-     * smaller images that have an aspect ratio of 5.85:1. File extensions supported: JPEG, JPG, PNG, GIF
+     * <p>**Note:** The recommended size of an exhibitor profile banner image is 1872x320 pixels or smaller,
+     * with an aspect ratio of 5.85:1. The supported file types are JPEG, JPG, PNG, and GIF.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -950,7 +947,7 @@ public class Exhibitor {
     /**
      * Delete Exhibitor Banner Image
      *
-     * <p>Deletes exhibitor banner image data
+     * <p>Deletes the banner image of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -963,7 +960,7 @@ public class Exhibitor {
     /**
      * Delete Exhibitor Banner Image
      *
-     * <p>Deletes exhibitor banner image data
+     * <p>Deletes the banner image of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -978,7 +975,7 @@ public class Exhibitor {
     /**
      * Delete Exhibitor Banner Image
      *
-     * <p>Deletes exhibitor banner image data
+     * <p>Deletes the banner image of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -997,7 +994,7 @@ public class Exhibitor {
     /**
      * List Exhibitor Answers
      *
-     * <p>Gets a list of answers to exhibitor questions for a given exhibitor id.
+     * <p>Retrieves a list of the answers of an exhibitor to the exhibitor questions.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1010,7 +1007,7 @@ public class Exhibitor {
     /**
      * List Exhibitor Answers
      *
-     * <p>Gets a list of answers to exhibitor questions for a given exhibitor id.
+     * <p>Retrieves a list of the answers of an exhibitor to the exhibitor questions.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1025,7 +1022,7 @@ public class Exhibitor {
     /**
      * List Exhibitor Answers
      *
-     * <p>Gets a list of answers to exhibitor questions for a given exhibitor id.
+     * <p>Retrieves a list of the answers of an exhibitor to the exhibitor questions.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1044,8 +1041,8 @@ public class Exhibitor {
     /**
      * Update Exhibitor Answers
      *
-     * <p>Updates answers to exhibitor questions for a given exhibitor id. The Planner can skip answering the
-     * questions marked as required for exhibitor admins.
+     * <p>Updates the answers of an exhibitor to the exhibitor questions. A planner can skip a question that
+     * is required for exhibitor admins.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1058,8 +1055,8 @@ public class Exhibitor {
     /**
      * Update Exhibitor Answers
      *
-     * <p>Updates answers to exhibitor questions for a given exhibitor id. The Planner can skip answering the
-     * questions marked as required for exhibitor admins.
+     * <p>Updates the answers of an exhibitor to the exhibitor questions. A planner can skip a question that
+     * is required for exhibitor admins.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1074,8 +1071,8 @@ public class Exhibitor {
     /**
      * Update Exhibitor Answers
      *
-     * <p>Updates answers to exhibitor questions for a given exhibitor id. The Planner can skip answering the
-     * questions marked as required for exhibitor admins.
+     * <p>Updates the answers of an exhibitor to the exhibitor questions. A planner can skip a question that
+     * is required for exhibitor admins.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1094,7 +1091,7 @@ public class Exhibitor {
     /**
      * List Exhibitor's Categories
      *
-     * <p>Get a paginated list of exhibitor-categories assigned to the provided exhibitor Id.
+     * <p>Retrieves a paginated list of the exhibitor categories of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1107,7 +1104,7 @@ public class Exhibitor {
     /**
      * List Exhibitor's Categories
      *
-     * <p>Get a paginated list of exhibitor-categories assigned to the provided exhibitor Id.
+     * <p>Retrieves a paginated list of the exhibitor categories of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1122,7 +1119,7 @@ public class Exhibitor {
     /**
      * List Exhibitor's Categories
      *
-     * <p>Get a paginated list of exhibitor-categories assigned to the provided exhibitor Id.
+     * <p>Retrieves a paginated list of the exhibitor categories of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1141,11 +1138,11 @@ public class Exhibitor {
     /**
      * Assign Exhibitor Logo Image
      *
-     * <p>Assign a logo image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file
-     * upload</a> endpoint. This will replace the current logo image if one is assigned.
+     * <p>Assigns a logo image to an exhibitor. The file ID comes from the [file
+     * upload](#operation/uploadFile) operation. The new image replaces the current logo image.
      *
-     * <p>**Note:**  For exhibitor profile logo images we recommend square images larger than 300x300 pixels.
-     * The file types supported are : JPEG, JPG, PNG, GIF
+     * <p>**Note:** The recommended exhibitor profile logo image is a square image larger than 300x300 pixels.
+     * The supported file types are JPEG, JPG, PNG, and GIF.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1158,11 +1155,11 @@ public class Exhibitor {
     /**
      * Assign Exhibitor Logo Image
      *
-     * <p>Assign a logo image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file
-     * upload</a> endpoint. This will replace the current logo image if one is assigned.
+     * <p>Assigns a logo image to an exhibitor. The file ID comes from the [file
+     * upload](#operation/uploadFile) operation. The new image replaces the current logo image.
      *
-     * <p>**Note:**  For exhibitor profile logo images we recommend square images larger than 300x300 pixels.
-     * The file types supported are : JPEG, JPG, PNG, GIF
+     * <p>**Note:** The recommended exhibitor profile logo image is a square image larger than 300x300 pixels.
+     * The supported file types are JPEG, JPG, PNG, and GIF.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1177,11 +1174,11 @@ public class Exhibitor {
     /**
      * Assign Exhibitor Logo Image
      *
-     * <p>Assign a logo image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file
-     * upload</a> endpoint. This will replace the current logo image if one is assigned.
+     * <p>Assigns a logo image to an exhibitor. The file ID comes from the [file
+     * upload](#operation/uploadFile) operation. The new image replaces the current logo image.
      *
-     * <p>**Note:**  For exhibitor profile logo images we recommend square images larger than 300x300 pixels.
-     * The file types supported are : JPEG, JPG, PNG, GIF
+     * <p>**Note:** The recommended exhibitor profile logo image is a square image larger than 300x300 pixels.
+     * The supported file types are JPEG, JPG, PNG, and GIF.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1200,7 +1197,7 @@ public class Exhibitor {
     /**
      * Delete Exhibitor Logo Image
      *
-     * <p>Deletes exhibitor logo image data
+     * <p>Deletes the logo image of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1213,7 +1210,7 @@ public class Exhibitor {
     /**
      * Delete Exhibitor Logo Image
      *
-     * <p>Deletes exhibitor logo image data
+     * <p>Deletes the logo image of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1228,7 +1225,7 @@ public class Exhibitor {
     /**
      * Delete Exhibitor Logo Image
      *
-     * <p>Deletes exhibitor logo image data
+     * <p>Deletes the logo image of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1247,8 +1244,7 @@ public class Exhibitor {
     /**
      * List Qualification Questions
      *
-     * <p>Retrieves a list of lead qualification questions associated with a single exhibitor at the given
-     * event.
+     * <p>Retrieves a list of the lead qualification questions of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1261,8 +1257,7 @@ public class Exhibitor {
     /**
      * List Qualification Questions
      *
-     * <p>Retrieves a list of lead qualification questions associated with a single exhibitor at the given
-     * event.
+     * <p>Retrieves a list of the lead qualification questions of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1278,8 +1273,7 @@ public class Exhibitor {
     /**
      * List Qualification Questions
      *
-     * <p>Retrieves a list of lead qualification questions associated with a single exhibitor at the given
-     * event.
+     * <p>Retrieves a list of the lead qualification questions of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1298,7 +1292,7 @@ public class Exhibitor {
     /**
      * Create Registration Pack
      *
-     * <p>Create registration pack for an exhibitor
+     * <p>Creates a registration pack for an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1311,7 +1305,7 @@ public class Exhibitor {
     /**
      * Create Registration Pack
      *
-     * <p>Create registration pack for an exhibitor
+     * <p>Creates a registration pack for an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1326,7 +1320,7 @@ public class Exhibitor {
     /**
      * Create Registration Pack
      *
-     * <p>Create registration pack for an exhibitor
+     * <p>Creates a registration pack for an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1343,7 +1337,7 @@ public class Exhibitor {
     }
 
     /**
-     * List Registration Pack
+     * List Registration Packs
      *
      * <p>Retrieves the registration pack associated with an exhibitor. Each exhibitor has one registration
      * pack per event
@@ -1358,7 +1352,7 @@ public class Exhibitor {
     }
 
     /**
-     * List Registration Pack
+     * List Registration Packs
      *
      * <p>Retrieves the registration pack associated with an exhibitor. Each exhibitor has one registration
      * pack per event
@@ -1376,7 +1370,7 @@ public class Exhibitor {
     }
 
     /**
-     * List Registration Pack
+     * List Registration Packs
      *
      * <p>Retrieves the registration pack associated with an exhibitor. Each exhibitor has one registration
      * pack per event
@@ -1399,8 +1393,8 @@ public class Exhibitor {
     /**
      * Get Registration Pack
      *
-     * <p>Retrieves registration types allocated to an exhibitor, along with the count of registrations
-     * utilized.
+     * <p>Retrieves the registration types that are allocated to an exhibitor, with the count of used
+     * registrations.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1413,8 +1407,8 @@ public class Exhibitor {
     /**
      * Get Registration Pack
      *
-     * <p>Retrieves registration types allocated to an exhibitor, along with the count of registrations
-     * utilized.
+     * <p>Retrieves the registration types that are allocated to an exhibitor, with the count of used
+     * registrations.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1429,8 +1423,8 @@ public class Exhibitor {
     /**
      * Get Registration Pack
      *
-     * <p>Retrieves registration types allocated to an exhibitor, along with the count of registrations
-     * utilized.
+     * <p>Retrieves the registration types that are allocated to an exhibitor, with the count of used
+     * registrations.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1449,7 +1443,7 @@ public class Exhibitor {
     /**
      * Update Registration Pack
      *
-     * <p>Update registration pack for an exhibitor
+     * <p>Updates the registration pack of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1462,7 +1456,7 @@ public class Exhibitor {
     /**
      * Update Registration Pack
      *
-     * <p>Update registration pack for an exhibitor
+     * <p>Updates the registration pack of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1477,7 +1471,7 @@ public class Exhibitor {
     /**
      * Update Registration Pack
      *
-     * <p>Update registration pack for an exhibitor
+     * <p>Updates the registration pack of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1496,7 +1490,7 @@ public class Exhibitor {
     /**
      * Delete Registration Pack
      *
-     * <p>Delete registration pack for an exhibitor
+     * <p>Deletes the registration pack of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1509,7 +1503,7 @@ public class Exhibitor {
     /**
      * Delete Registration Pack
      *
-     * <p>Delete registration pack for an exhibitor
+     * <p>Deletes the registration pack of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1524,7 +1518,7 @@ public class Exhibitor {
     /**
      * Delete Registration Pack
      *
-     * <p>Delete registration pack for an exhibitor
+     * <p>Deletes the registration pack of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1543,7 +1537,7 @@ public class Exhibitor {
     /**
      * List Sponsorship Levels
      *
-     * <p>Gets a list of associated sponsorship levels for a single event.
+     * <p>Retrieves a list of the sponsorship levels of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1556,7 +1550,7 @@ public class Exhibitor {
     /**
      * List Sponsorship Levels
      *
-     * <p>Gets a list of associated sponsorship levels for a single event.
+     * <p>Retrieves a list of the sponsorship levels of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1571,7 +1565,7 @@ public class Exhibitor {
     /**
      * List Sponsorship Levels
      *
-     * <p>Gets a list of associated sponsorship levels for a single event.
+     * <p>Retrieves a list of the sponsorship levels of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1590,7 +1584,7 @@ public class Exhibitor {
     /**
      * Get Sponsorship Level
      *
-     * <p>Retrieves associated sponsorship level data for a single sponsorship level ID.
+     * <p>Retrieves a sponsorship level of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1603,7 +1597,7 @@ public class Exhibitor {
     /**
      * Get Sponsorship Level
      *
-     * <p>Retrieves associated sponsorship level data for a single sponsorship level ID.
+     * <p>Retrieves a sponsorship level of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1618,7 +1612,7 @@ public class Exhibitor {
     /**
      * Get Sponsorship Level
      *
-     * <p>Retrieves associated sponsorship level data for a single sponsorship level ID.
+     * <p>Retrieves a sponsorship level of an event.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *

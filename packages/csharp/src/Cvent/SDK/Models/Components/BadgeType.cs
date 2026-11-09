@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Badge type.
+    /// Type of the badge.
     /// </summary>
     public enum BadgeType
     {

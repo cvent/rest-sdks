@@ -7,17 +7,17 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { EventJson1, EventJson1$inboundSchema } from "./eventjson1.js";
-import { LinkJson, LinkJson$inboundSchema } from "./linkjson.js";
+import { Event5, Event5$inboundSchema } from "./event5.js";
+import { Link, Link$inboundSchema } from "./link.js";
 import {
-  RespondedThroughJson,
-  RespondedThroughJson$inboundSchema,
-  RespondedThroughJson$outboundSchema,
-} from "./respondedthroughjson.js";
+  RespondedThrough,
+  RespondedThrough$inboundSchema,
+  RespondedThrough$outboundSchema,
+} from "./respondedthrough.js";
 import {
-  RespondentEventSurveyReferenceJson,
-  RespondentEventSurveyReferenceJson$inboundSchema,
-} from "./respondenteventsurveyreferencejson.js";
+  RespondentEventSurveyReference,
+  RespondentEventSurveyReference$inboundSchema,
+} from "./respondenteventsurveyreference.js";
 
 /**
  * Related links.
@@ -26,7 +26,7 @@ export type EventSurveyRespondentLinks = {
   /**
    * Represents a link to a related resource.
    */
-  surveyUrl?: LinkJson | undefined;
+  surveyUrl?: Link | undefined;
 };
 
 /**
@@ -100,7 +100,7 @@ export type EventSurveyRespondent = {
    * - "Mobile" (deprecated): Historically indicated submission from a mobile device. This value is deprecated.
    * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is deprecated.
    */
-  respondedThrough?: RespondedThroughJson | undefined;
+  respondedThrough?: RespondedThrough | undefined;
   /**
    * Reference ids are used to track where response is coming from. Survey Author can create multiple weblinks with different values of referenceId query param in them.
    */
@@ -128,7 +128,7 @@ export type EventSurveyRespondent = {
   /**
    * Detail object of an event which is associated to a survey.
    */
-  event?: EventJson1 | undefined;
+  event?: Event5 | undefined;
   /**
    * Associated attendee.
    */
@@ -140,7 +140,7 @@ export type EventSurveyRespondent = {
   /**
    * List of associated surveys.
    */
-  surveys?: Array<RespondentEventSurveyReferenceJson> | undefined;
+  surveys?: Array<RespondentEventSurveyReference> | undefined;
 };
 
 /**
@@ -166,7 +166,7 @@ export type EventSurveyRespondentInput = {
    * - "Mobile" (deprecated): Historically indicated submission from a mobile device. This value is deprecated.
    * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is deprecated.
    */
-  respondedThrough?: RespondedThroughJson | undefined;
+  respondedThrough?: RespondedThrough | undefined;
   /**
    * Reference ids are used to track where response is coming from. Survey Author can create multiple weblinks with different values of referenceId query param in them.
    */
@@ -187,7 +187,7 @@ export const EventSurveyRespondentLinks$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  surveyUrl: LinkJson$inboundSchema.optional(),
+  surveyUrl: Link$inboundSchema.optional(),
 });
 
 export function eventSurveyRespondentLinksFromJSON(
@@ -277,18 +277,18 @@ export const EventSurveyRespondent$inboundSchema: z.ZodType<
   responseCode: z.string().optional(),
   responseDuration: z.number().optional(),
   localeId: z.string().optional(),
-  respondedThrough: RespondedThroughJson$inboundSchema.optional(),
+  respondedThrough: RespondedThrough$inboundSchema.optional(),
   referenceId: z.string().optional(),
   score: z.number().optional(),
   maxPossibleScore: z.number().optional(),
   percentageScore: z.number().optional(),
   _links: z.lazy(() => EventSurveyRespondentLinks$inboundSchema).optional(),
   sourceId: z.string().optional(),
-  event: EventJson1$inboundSchema.optional(),
+  event: Event5$inboundSchema.optional(),
   attendee: z.lazy(() => EventSurveyRespondentAttendee$inboundSchema)
     .optional(),
   contact: z.lazy(() => EventSurveyRespondentContact$inboundSchema).optional(),
-  surveys: z.array(RespondentEventSurveyReferenceJson$inboundSchema).optional(),
+  surveys: z.array(RespondentEventSurveyReference$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "_links": "links",
@@ -321,7 +321,7 @@ export const EventSurveyRespondentInput$outboundSchema: z.ZodType<
   EventSurveyRespondentInput
 > = z.object({
   localeId: z.string().optional(),
-  respondedThrough: RespondedThroughJson$outboundSchema.optional(),
+  respondedThrough: RespondedThrough$outboundSchema.optional(),
   referenceId: z.string().optional(),
   sourceId: z.string().optional(),
   attendee: z.lazy(() => EventSurveyRespondentAttendee$outboundSchema)

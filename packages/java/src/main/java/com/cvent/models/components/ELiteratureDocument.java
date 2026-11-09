@@ -14,23 +14,23 @@ import java.util.Optional;
 /**
  * ELiteratureDocument
  *
- * <p>A JSON schema representing an E-literature Document
+ * <p>E-literature document.
  */
 public class ELiteratureDocument {
     /**
-     * Document identifier
+     * Document ID.
      */
     @JsonProperty("id")
     private String id;
 
     /**
-     * Document display name
+     * Display name of the document.
      */
     @JsonProperty("displayName")
     private String displayName;
 
     /**
-     * Type of eliterature document
+     * Type of the e-literature document.
      */
     @JsonProperty("type")
     private ELiteratureDocumentType type;
@@ -47,21 +47,21 @@ public class ELiteratureDocument {
     }
 
     /**
-     * Document identifier
+     * Document ID.
      */
     public String id() {
         return this.id;
     }
 
     /**
-     * Document display name
+     * Display name of the document.
      */
     public String displayName() {
         return this.displayName;
     }
 
     /**
-     * Type of eliterature document
+     * Type of the e-literature document.
      */
     public ELiteratureDocumentType type() {
         return this.type;
@@ -72,7 +72,7 @@ public class ELiteratureDocument {
     }
 
     /**
-     * Document identifier
+     * Document ID.
      */
     public ELiteratureDocument withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -80,7 +80,7 @@ public class ELiteratureDocument {
     }
 
     /**
-     * Document display name
+     * Display name of the document.
      */
     public ELiteratureDocument withDisplayName(@Nonnull String displayName) {
         this.displayName = Utils.checkNotNull(displayName, "displayName");
@@ -88,7 +88,7 @@ public class ELiteratureDocument {
     }
 
     /**
-     * Type of eliterature document
+     * Type of the e-literature document.
      */
     public ELiteratureDocument withType(@Nonnull ELiteratureDocumentType type) {
         this.type = Utils.checkNotNull(type, "type");
@@ -133,7 +133,7 @@ public class ELiteratureDocument {
         }
 
         /**
-         * Document identifier
+         * Document ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -141,7 +141,7 @@ public class ELiteratureDocument {
         }
 
         /**
-         * Document display name
+         * Display name of the document.
          */
         public Builder displayName(@Nonnull String displayName) {
             this.displayName = Utils.checkNotNull(displayName, "displayName");
@@ -149,7 +149,7 @@ public class ELiteratureDocument {
         }
 
         /**
-         * Type of eliterature document
+         * Type of the e-literature document.
          */
         public Builder type(@Nonnull ELiteratureDocumentType type) {
             this.type = Utils.checkNotNull(type, "type");

@@ -32,7 +32,7 @@ public class GetEliteratureRequestsResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully retrieved a paginated list of eliterature requests data.
+     * Successfully retrieved a paginated list of e-literature requests.
      */
     private EliteratureRequestPaginatedResponse eliteratureRequestPaginatedResponse;
 
@@ -77,7 +77,7 @@ public class GetEliteratureRequestsResponse implements Response {
     }
 
     /**
-     * Successfully retrieved a paginated list of eliterature requests data.
+     * Successfully retrieved a paginated list of e-literature requests.
      */
     public Optional<EliteratureRequestPaginatedResponse> eliteratureRequestPaginatedResponse() {
         return Optional.ofNullable(this.eliteratureRequestPaginatedResponse);
@@ -112,7 +112,7 @@ public class GetEliteratureRequestsResponse implements Response {
     }
 
     /**
-     * Successfully retrieved a paginated list of eliterature requests data.
+     * Successfully retrieved a paginated list of e-literature requests.
      */
     public GetEliteratureRequestsResponse withEliteratureRequestPaginatedResponse(
             @Nullable EliteratureRequestPaginatedResponse eliteratureRequestPaginatedResponse) {
@@ -194,7 +194,7 @@ public class GetEliteratureRequestsResponse implements Response {
         }
 
         /**
-         * Successfully retrieved a paginated list of eliterature requests data.
+         * Successfully retrieved a paginated list of e-literature requests.
          */
         public Builder eliteratureRequestPaginatedResponse(
                 @Nullable EliteratureRequestPaginatedResponse eliteratureRequestPaginatedResponse) {

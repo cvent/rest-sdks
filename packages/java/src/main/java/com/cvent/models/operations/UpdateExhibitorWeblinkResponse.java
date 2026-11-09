@@ -32,7 +32,7 @@ public class UpdateExhibitorWeblinkResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully updated exhibitor content.
+     * Successfully updated the exhibitor weblink.
      */
     private ExistingWeblink existingWeblink;
 
@@ -77,7 +77,7 @@ public class UpdateExhibitorWeblinkResponse implements Response {
     }
 
     /**
-     * Successfully updated exhibitor content.
+     * Successfully updated the exhibitor weblink.
      */
     public Optional<ExistingWeblink> existingWeblink() {
         return Optional.ofNullable(this.existingWeblink);
@@ -112,7 +112,7 @@ public class UpdateExhibitorWeblinkResponse implements Response {
     }
 
     /**
-     * Successfully updated exhibitor content.
+     * Successfully updated the exhibitor weblink.
      */
     public UpdateExhibitorWeblinkResponse withExistingWeblink(@Nullable ExistingWeblink existingWeblink) {
         this.existingWeblink = existingWeblink;
@@ -193,7 +193,7 @@ public class UpdateExhibitorWeblinkResponse implements Response {
         }
 
         /**
-         * Successfully updated exhibitor content.
+         * Successfully updated the exhibitor weblink.
          */
         public Builder existingWeblink(@Nullable ExistingWeblink existingWeblink) {
             this.existingWeblink = existingWeblink;

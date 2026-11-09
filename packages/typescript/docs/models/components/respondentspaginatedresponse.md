@@ -86,7 +86,7 @@ let value: RespondentsPaginatedResponse = {
 
 ## Fields
 
-| Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `paging`                                                                 | [components.PagingJson](../../models/components/pagingjson.md)           | :heavy_check_mark:                                                       | Represents pagination information for a collection of resources.         |
-| `data`                                                                   | [components.RespondentJson](../../models/components/respondentjson.md)[] | :heavy_check_mark:                                                       | Respondents for surveys.                                                 |
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `paging`                                                         | [components.Paging](../../models/components/paging.md)           | :heavy_check_mark:                                               | Represents pagination information for a collection of resources. |
+| `data`                                                           | [components.Respondent](../../models/components/respondent.md)[] | :heavy_check_mark:                                               | Respondents for surveys.                                         |

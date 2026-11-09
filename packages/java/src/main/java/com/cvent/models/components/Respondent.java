@@ -9,37 +9,481 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
+import java.lang.Boolean;
+import java.lang.Double;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Optional;
 
 /**
  * Respondent
  *
- * <p>Respondent of response.
+ * <p>Respondent object for survey respondents.
  */
 public class Respondent {
     /**
-     * Id of the respondent
+     * The ISO 8601 zoned date time when this record was created.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("created")
+    private OffsetDateTime created;
+
+    /**
+     * The identifier of the user that created this record.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("createdBy")
+    private String createdBy;
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("lastModified")
+    private OffsetDateTime lastModified;
+
+    /**
+     * The identifier of the user that last updated this record.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("lastModifiedBy")
+    private String lastModifiedBy;
+
+    /**
+     * Id of the respondent that has to be in a format matching the industry standard uuid
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
+    /**
+     * Response Code
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("responseCode")
+    private String responseCode;
+
+    /**
+     * Time taken by respondent to respond to the survey (in seconds)
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("responseDuration")
+    private Double responseDuration;
+
+    /**
+     * Locale Id of the respondent using the IETF Language Tag format
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("localeId")
+    private String localeId;
+
+    /**
+     * Indicates the mode by which a respondent submitted their response.
+     *
+     * <p>This field contains one of the enumerated, string constants listed below.
+     *
+     * <p>Enum values:
+     *
+     * <p>- "Not Responded": Respondent did not provide a response.
+     * - "API": Response was submitted via an API.
+     * - "Import": Response was created by a bulk import process.
+     * - "Mobile" (deprecated): Historically indicated submission from a mobile device. This value is
+     * deprecated.
+     * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is
+     * deprecated.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("respondedThrough")
+    private RespondedThrough respondedThrough;
+
+    /**
+     * Reference ids are used to track where response is coming from. Survey Author can create multiple
+     * weblinks with different values of referenceId query param in them.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("referenceId")
+    private String referenceId;
+
+    /**
+     * Respondent Score
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("score")
+    private Double score;
+
+    /**
+     * Respondent Maximum Possible Score
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("maxPossibleScore")
+    private Double maxPossibleScore;
+
+    /**
+     * Respondent Percentage Score
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("percentageScore")
+    private Double percentageScore;
+
+    /**
+     * Related links.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("_links")
+    private RespondentLinks links;
+
+    /**
+     * Source IDs track respondents in an external system integrated with the Cvent survey.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("sourceId")
+    private String sourceId;
+
+    /**
+     * Detail object of an event which is associated to a survey.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("event")
+    private Event5 event;
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("contact")
+    private Uuid contact;
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("attendee")
+    private Uuid attendee;
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("survey")
+    private Uuid survey;
+
+    /**
+     * Respondent Status
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("status")
+    private RespondentStatus status;
+
+    /**
+     * True indicates the respondent has unsubscribed from recieving emails from the survey.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("unsubscribed")
+    private Boolean unsubscribed;
+
+    /**
+     * Who unsubscribed the respondent.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("unsubscribedBy")
+    private String unsubscribedBy;
+
+    /**
+     * Survey respondent chapters.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("chapters")
+    private List<RespondentChapterReference1> chapters;
+
+    /**
+     * Invitation list of respondents
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("invitationList")
+    private InvitationListCommon invitationList;
+
+    /**
+     * Authors use transaction IDs to collect feedback after a customer transaction: invoice numbers or
+     * order IDs are common transaction IDs. Respondents can take a survey by entering their transaction
+     * ID, and each transaction ID uniquely identifies a response for that transaction.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("transactionId")
+    private String transactionId;
+
     @JsonCreator
-    public Respondent(@JsonProperty("id") @Nullable String id) {
+    public Respondent(
+            @JsonProperty("created") @Nullable OffsetDateTime created,
+            @JsonProperty("createdBy") @Nullable String createdBy,
+            @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
+            @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
+            @JsonProperty("id") @Nullable String id,
+            @JsonProperty("responseCode") @Nullable String responseCode,
+            @JsonProperty("responseDuration") @Nullable Double responseDuration,
+            @JsonProperty("localeId") @Nullable String localeId,
+            @JsonProperty("respondedThrough") @Nullable RespondedThrough respondedThrough,
+            @JsonProperty("referenceId") @Nullable String referenceId,
+            @JsonProperty("score") @Nullable Double score,
+            @JsonProperty("maxPossibleScore") @Nullable Double maxPossibleScore,
+            @JsonProperty("percentageScore") @Nullable Double percentageScore,
+            @JsonProperty("_links") @Nullable RespondentLinks links,
+            @JsonProperty("sourceId") @Nullable String sourceId,
+            @JsonProperty("event") @Nullable Event5 event,
+            @JsonProperty("contact") @Nullable Uuid contact,
+            @JsonProperty("attendee") @Nullable Uuid attendee,
+            @JsonProperty("survey") @Nullable Uuid survey,
+            @JsonProperty("status") @Nullable RespondentStatus status,
+            @JsonProperty("unsubscribed") @Nullable Boolean unsubscribed,
+            @JsonProperty("unsubscribedBy") @Nullable String unsubscribedBy,
+            @JsonProperty("chapters") @Nullable List<RespondentChapterReference1> chapters,
+            @JsonProperty("invitationList") @Nullable InvitationListCommon invitationList,
+            @JsonProperty("transactionId") @Nullable String transactionId) {
+        this.created = created;
+        this.createdBy = createdBy;
+        this.lastModified = lastModified;
+        this.lastModifiedBy = lastModifiedBy;
         this.id = id;
+        this.responseCode = responseCode;
+        this.responseDuration = responseDuration;
+        this.localeId = localeId;
+        this.respondedThrough = respondedThrough;
+        this.referenceId = referenceId;
+        this.score = score;
+        this.maxPossibleScore = maxPossibleScore;
+        this.percentageScore = percentageScore;
+        this.links = links;
+        this.sourceId = sourceId;
+        this.event = event;
+        this.contact = contact;
+        this.attendee = attendee;
+        this.survey = survey;
+        this.status = status;
+        this.unsubscribed = unsubscribed;
+        this.unsubscribedBy = unsubscribedBy;
+        this.chapters = chapters;
+        this.invitationList = invitationList;
+        this.transactionId = transactionId;
     }
 
     public Respondent() {
-        this(null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
-     * Id of the respondent
+     * The ISO 8601 zoned date time when this record was created.
+     */
+    public Optional<OffsetDateTime> created() {
+        return Optional.ofNullable(this.created);
+    }
+
+    /**
+     * The identifier of the user that created this record.
+     */
+    public Optional<String> createdBy() {
+        return Optional.ofNullable(this.createdBy);
+    }
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    public Optional<OffsetDateTime> lastModified() {
+        return Optional.ofNullable(this.lastModified);
+    }
+
+    /**
+     * The identifier of the user that last updated this record.
+     */
+    public Optional<String> lastModifiedBy() {
+        return Optional.ofNullable(this.lastModifiedBy);
+    }
+
+    /**
+     * Id of the respondent that has to be in a format matching the industry standard uuid
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
+    }
+
+    /**
+     * Response Code
+     */
+    public Optional<String> responseCode() {
+        return Optional.ofNullable(this.responseCode);
+    }
+
+    /**
+     * Time taken by respondent to respond to the survey (in seconds)
+     */
+    public Optional<Double> responseDuration() {
+        return Optional.ofNullable(this.responseDuration);
+    }
+
+    /**
+     * Locale Id of the respondent using the IETF Language Tag format
+     */
+    public Optional<String> localeId() {
+        return Optional.ofNullable(this.localeId);
+    }
+
+    /**
+     * Indicates the mode by which a respondent submitted their response.
+     *
+     * <p>This field contains one of the enumerated, string constants listed below.
+     *
+     * <p>Enum values:
+     *
+     * <p>- "Not Responded": Respondent did not provide a response.
+     * - "API": Response was submitted via an API.
+     * - "Import": Response was created by a bulk import process.
+     * - "Mobile" (deprecated): Historically indicated submission from a mobile device. This value is
+     * deprecated.
+     * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is
+     * deprecated.
+     */
+    public Optional<RespondedThrough> respondedThrough() {
+        return Optional.ofNullable(this.respondedThrough);
+    }
+
+    /**
+     * Reference ids are used to track where response is coming from. Survey Author can create multiple
+     * weblinks with different values of referenceId query param in them.
+     */
+    public Optional<String> referenceId() {
+        return Optional.ofNullable(this.referenceId);
+    }
+
+    /**
+     * Respondent Score
+     */
+    public Optional<Double> score() {
+        return Optional.ofNullable(this.score);
+    }
+
+    /**
+     * Respondent Maximum Possible Score
+     */
+    public Optional<Double> maxPossibleScore() {
+        return Optional.ofNullable(this.maxPossibleScore);
+    }
+
+    /**
+     * Respondent Percentage Score
+     */
+    public Optional<Double> percentageScore() {
+        return Optional.ofNullable(this.percentageScore);
+    }
+
+    /**
+     * Related links.
+     */
+    public Optional<RespondentLinks> links() {
+        return Optional.ofNullable(this.links);
+    }
+
+    /**
+     * Source IDs track respondents in an external system integrated with the Cvent survey.
+     */
+    public Optional<String> sourceId() {
+        return Optional.ofNullable(this.sourceId);
+    }
+
+    /**
+     * Detail object of an event which is associated to a survey.
+     */
+    public Optional<Event5> event() {
+        return Optional.ofNullable(this.event);
+    }
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    public Optional<Uuid> contact() {
+        return Optional.ofNullable(this.contact);
+    }
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    public Optional<Uuid> attendee() {
+        return Optional.ofNullable(this.attendee);
+    }
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    public Optional<Uuid> survey() {
+        return Optional.ofNullable(this.survey);
+    }
+
+    /**
+     * Respondent Status
+     */
+    public Optional<RespondentStatus> status() {
+        return Optional.ofNullable(this.status);
+    }
+
+    /**
+     * True indicates the respondent has unsubscribed from recieving emails from the survey.
+     */
+    public Optional<Boolean> unsubscribed() {
+        return Optional.ofNullable(this.unsubscribed);
+    }
+
+    /**
+     * Who unsubscribed the respondent.
+     */
+    public Optional<String> unsubscribedBy() {
+        return Optional.ofNullable(this.unsubscribedBy);
+    }
+
+    /**
+     * Survey respondent chapters.
+     */
+    public Optional<List<RespondentChapterReference1>> chapters() {
+        return Optional.ofNullable(this.chapters);
+    }
+
+    /**
+     * Invitation list of respondents
+     */
+    public Optional<InvitationListCommon> invitationList() {
+        return Optional.ofNullable(this.invitationList);
+    }
+
+    /**
+     * Authors use transaction IDs to collect feedback after a customer transaction: invoice numbers or
+     * order IDs are common transaction IDs. Respondents can take a survey by entering their transaction
+     * ID, and each transaction ID uniquely identifies a response for that transaction.
+     */
+    public Optional<String> transactionId() {
+        return Optional.ofNullable(this.transactionId);
     }
 
     public static Builder builder() {
@@ -47,10 +491,217 @@ public class Respondent {
     }
 
     /**
-     * Id of the respondent
+     * The ISO 8601 zoned date time when this record was created.
+     */
+    public Respondent withCreated(@Nullable OffsetDateTime created) {
+        this.created = created;
+        return this;
+    }
+
+    /**
+     * The identifier of the user that created this record.
+     */
+    public Respondent withCreatedBy(@Nullable String createdBy) {
+        this.createdBy = createdBy;
+        return this;
+    }
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    public Respondent withLastModified(@Nullable OffsetDateTime lastModified) {
+        this.lastModified = lastModified;
+        return this;
+    }
+
+    /**
+     * The identifier of the user that last updated this record.
+     */
+    public Respondent withLastModifiedBy(@Nullable String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
+        return this;
+    }
+
+    /**
+     * Id of the respondent that has to be in a format matching the industry standard uuid
      */
     public Respondent withId(@Nullable String id) {
         this.id = id;
+        return this;
+    }
+
+    /**
+     * Response Code
+     */
+    public Respondent withResponseCode(@Nullable String responseCode) {
+        this.responseCode = responseCode;
+        return this;
+    }
+
+    /**
+     * Time taken by respondent to respond to the survey (in seconds)
+     */
+    public Respondent withResponseDuration(@Nullable Double responseDuration) {
+        this.responseDuration = responseDuration;
+        return this;
+    }
+
+    /**
+     * Locale Id of the respondent using the IETF Language Tag format
+     */
+    public Respondent withLocaleId(@Nullable String localeId) {
+        this.localeId = localeId;
+        return this;
+    }
+
+    /**
+     * Indicates the mode by which a respondent submitted their response.
+     *
+     * <p>This field contains one of the enumerated, string constants listed below.
+     *
+     * <p>Enum values:
+     *
+     * <p>- "Not Responded": Respondent did not provide a response.
+     * - "API": Response was submitted via an API.
+     * - "Import": Response was created by a bulk import process.
+     * - "Mobile" (deprecated): Historically indicated submission from a mobile device. This value is
+     * deprecated.
+     * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is
+     * deprecated.
+     */
+    public Respondent withRespondedThrough(@Nullable RespondedThrough respondedThrough) {
+        this.respondedThrough = respondedThrough;
+        return this;
+    }
+
+    /**
+     * Reference ids are used to track where response is coming from. Survey Author can create multiple
+     * weblinks with different values of referenceId query param in them.
+     */
+    public Respondent withReferenceId(@Nullable String referenceId) {
+        this.referenceId = referenceId;
+        return this;
+    }
+
+    /**
+     * Respondent Score
+     */
+    public Respondent withScore(@Nullable Double score) {
+        this.score = score;
+        return this;
+    }
+
+    /**
+     * Respondent Maximum Possible Score
+     */
+    public Respondent withMaxPossibleScore(@Nullable Double maxPossibleScore) {
+        this.maxPossibleScore = maxPossibleScore;
+        return this;
+    }
+
+    /**
+     * Respondent Percentage Score
+     */
+    public Respondent withPercentageScore(@Nullable Double percentageScore) {
+        this.percentageScore = percentageScore;
+        return this;
+    }
+
+    /**
+     * Related links.
+     */
+    public Respondent withLinks(@Nullable RespondentLinks links) {
+        this.links = links;
+        return this;
+    }
+
+    /**
+     * Source IDs track respondents in an external system integrated with the Cvent survey.
+     */
+    public Respondent withSourceId(@Nullable String sourceId) {
+        this.sourceId = sourceId;
+        return this;
+    }
+
+    /**
+     * Detail object of an event which is associated to a survey.
+     */
+    public Respondent withEvent(@Nullable Event5 event) {
+        this.event = event;
+        return this;
+    }
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    public Respondent withContact(@Nullable Uuid contact) {
+        this.contact = contact;
+        return this;
+    }
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    public Respondent withAttendee(@Nullable Uuid attendee) {
+        this.attendee = attendee;
+        return this;
+    }
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    public Respondent withSurvey(@Nullable Uuid survey) {
+        this.survey = survey;
+        return this;
+    }
+
+    /**
+     * Respondent Status
+     */
+    public Respondent withStatus(@Nullable RespondentStatus status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * True indicates the respondent has unsubscribed from recieving emails from the survey.
+     */
+    public Respondent withUnsubscribed(@Nullable Boolean unsubscribed) {
+        this.unsubscribed = unsubscribed;
+        return this;
+    }
+
+    /**
+     * Who unsubscribed the respondent.
+     */
+    public Respondent withUnsubscribedBy(@Nullable String unsubscribedBy) {
+        this.unsubscribedBy = unsubscribedBy;
+        return this;
+    }
+
+    /**
+     * Survey respondent chapters.
+     */
+    public Respondent withChapters(@Nullable List<RespondentChapterReference1> chapters) {
+        this.chapters = chapters;
+        return this;
+    }
+
+    /**
+     * Invitation list of respondents
+     */
+    public Respondent withInvitationList(@Nullable InvitationListCommon invitationList) {
+        this.invitationList = invitationList;
+        return this;
+    }
+
+    /**
+     * Authors use transaction IDs to collect feedback after a customer transaction: invoice numbers or
+     * order IDs are common transaction IDs. Respondents can take a survey by entering their transaction
+     * ID, and each transaction ID uniquely identifies a response for that transaction.
+     */
+    public Respondent withTransactionId(@Nullable String transactionId) {
+        this.transactionId = transactionId;
         return this;
     }
 
@@ -63,38 +714,418 @@ public class Respondent {
             return false;
         }
         Respondent other = (Respondent) o;
-        return Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.responseCode, other.responseCode)
+                && Utils.enhancedDeepEquals(this.responseDuration, other.responseDuration)
+                && Utils.enhancedDeepEquals(this.localeId, other.localeId)
+                && Utils.enhancedDeepEquals(this.respondedThrough, other.respondedThrough)
+                && Utils.enhancedDeepEquals(this.referenceId, other.referenceId)
+                && Utils.enhancedDeepEquals(this.score, other.score)
+                && Utils.enhancedDeepEquals(this.maxPossibleScore, other.maxPossibleScore)
+                && Utils.enhancedDeepEquals(this.percentageScore, other.percentageScore)
+                && Utils.enhancedDeepEquals(this.links, other.links)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.contact, other.contact)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.survey, other.survey)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.unsubscribed, other.unsubscribed)
+                && Utils.enhancedDeepEquals(this.unsubscribedBy, other.unsubscribedBy)
+                && Utils.enhancedDeepEquals(this.chapters, other.chapters)
+                && Utils.enhancedDeepEquals(this.invitationList, other.invitationList)
+                && Utils.enhancedDeepEquals(this.transactionId, other.transactionId);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id);
+        return Utils.enhancedHash(
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                responseCode,
+                responseDuration,
+                localeId,
+                respondedThrough,
+                referenceId,
+                score,
+                maxPossibleScore,
+                percentageScore,
+                links,
+                sourceId,
+                event,
+                contact,
+                attendee,
+                survey,
+                status,
+                unsubscribed,
+                unsubscribedBy,
+                chapters,
+                invitationList,
+                transactionId);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(Respondent.class, "id", id);
+        return Utils.toString(
+                Respondent.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "responseCode",
+                responseCode,
+                "responseDuration",
+                responseDuration,
+                "localeId",
+                localeId,
+                "respondedThrough",
+                respondedThrough,
+                "referenceId",
+                referenceId,
+                "score",
+                score,
+                "maxPossibleScore",
+                maxPossibleScore,
+                "percentageScore",
+                percentageScore,
+                "links",
+                links,
+                "sourceId",
+                sourceId,
+                "event",
+                event,
+                "contact",
+                contact,
+                "attendee",
+                attendee,
+                "survey",
+                survey,
+                "status",
+                status,
+                "unsubscribed",
+                unsubscribed,
+                "unsubscribedBy",
+                unsubscribedBy,
+                "chapters",
+                chapters,
+                "invitationList",
+                invitationList,
+                "transactionId",
+                transactionId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
+        private OffsetDateTime created;
+
+        private String createdBy;
+
+        private OffsetDateTime lastModified;
+
+        private String lastModifiedBy;
+
         private String id;
+
+        private String responseCode;
+
+        private Double responseDuration;
+
+        private String localeId;
+
+        private RespondedThrough respondedThrough;
+
+        private String referenceId;
+
+        private Double score;
+
+        private Double maxPossibleScore;
+
+        private Double percentageScore;
+
+        private RespondentLinks links;
+
+        private String sourceId;
+
+        private Event5 event;
+
+        private Uuid contact;
+
+        private Uuid attendee;
+
+        private Uuid survey;
+
+        private RespondentStatus status;
+
+        private Boolean unsubscribed;
+
+        private String unsubscribedBy;
+
+        private List<RespondentChapterReference1> chapters;
+
+        private InvitationListCommon invitationList;
+
+        private String transactionId;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * Id of the respondent
+         * The ISO 8601 zoned date time when this record was created.
+         */
+        public Builder created(@Nullable OffsetDateTime created) {
+            this.created = created;
+            return this;
+        }
+
+        /**
+         * The identifier of the user that created this record.
+         */
+        public Builder createdBy(@Nullable String createdBy) {
+            this.createdBy = createdBy;
+            return this;
+        }
+
+        /**
+         * The ISO 8601 zoned date time when this record was updated.
+         */
+        public Builder lastModified(@Nullable OffsetDateTime lastModified) {
+            this.lastModified = lastModified;
+            return this;
+        }
+
+        /**
+         * The identifier of the user that last updated this record.
+         */
+        public Builder lastModifiedBy(@Nullable String lastModifiedBy) {
+            this.lastModifiedBy = lastModifiedBy;
+            return this;
+        }
+
+        /**
+         * Id of the respondent that has to be in a format matching the industry standard uuid
          */
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
 
+        /**
+         * Response Code
+         */
+        public Builder responseCode(@Nullable String responseCode) {
+            this.responseCode = responseCode;
+            return this;
+        }
+
+        /**
+         * Time taken by respondent to respond to the survey (in seconds)
+         */
+        public Builder responseDuration(@Nullable Double responseDuration) {
+            this.responseDuration = responseDuration;
+            return this;
+        }
+
+        /**
+         * Locale Id of the respondent using the IETF Language Tag format
+         */
+        public Builder localeId(@Nullable String localeId) {
+            this.localeId = localeId;
+            return this;
+        }
+
+        /**
+         * Indicates the mode by which a respondent submitted their response.
+         *
+         * <p>This field contains one of the enumerated, string constants listed below.
+         *
+         * <p>Enum values:
+         *
+         * <p>- "Not Responded": Respondent did not provide a response.
+         * - "API": Response was submitted via an API.
+         * - "Import": Response was created by a bulk import process.
+         * - "Mobile" (deprecated): Historically indicated submission from a mobile device. This value is
+         * deprecated.
+         * - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is
+         * deprecated.
+         */
+        public Builder respondedThrough(@Nullable RespondedThrough respondedThrough) {
+            this.respondedThrough = respondedThrough;
+            return this;
+        }
+
+        /**
+         * Reference ids are used to track where response is coming from. Survey Author can create multiple
+         * weblinks with different values of referenceId query param in them.
+         */
+        public Builder referenceId(@Nullable String referenceId) {
+            this.referenceId = referenceId;
+            return this;
+        }
+
+        /**
+         * Respondent Score
+         */
+        public Builder score(@Nullable Double score) {
+            this.score = score;
+            return this;
+        }
+
+        /**
+         * Respondent Maximum Possible Score
+         */
+        public Builder maxPossibleScore(@Nullable Double maxPossibleScore) {
+            this.maxPossibleScore = maxPossibleScore;
+            return this;
+        }
+
+        /**
+         * Respondent Percentage Score
+         */
+        public Builder percentageScore(@Nullable Double percentageScore) {
+            this.percentageScore = percentageScore;
+            return this;
+        }
+
+        /**
+         * Related links.
+         */
+        public Builder links(@Nullable RespondentLinks links) {
+            this.links = links;
+            return this;
+        }
+
+        /**
+         * Source IDs track respondents in an external system integrated with the Cvent survey.
+         */
+        public Builder sourceId(@Nullable String sourceId) {
+            this.sourceId = sourceId;
+            return this;
+        }
+
+        /**
+         * Detail object of an event which is associated to a survey.
+         */
+        public Builder event(@Nullable Event5 event) {
+            this.event = event;
+            return this;
+        }
+
+        /**
+         * The reference to the related entity. Contains only the ID of the related entity.
+         */
+        public Builder contact(@Nullable Uuid contact) {
+            this.contact = contact;
+            return this;
+        }
+
+        /**
+         * The reference to the related entity. Contains only the ID of the related entity.
+         */
+        public Builder attendee(@Nullable Uuid attendee) {
+            this.attendee = attendee;
+            return this;
+        }
+
+        /**
+         * The reference to the related entity. Contains only the ID of the related entity.
+         */
+        public Builder survey(@Nullable Uuid survey) {
+            this.survey = survey;
+            return this;
+        }
+
+        /**
+         * Respondent Status
+         */
+        public Builder status(@Nullable RespondentStatus status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * True indicates the respondent has unsubscribed from recieving emails from the survey.
+         */
+        public Builder unsubscribed(@Nullable Boolean unsubscribed) {
+            this.unsubscribed = unsubscribed;
+            return this;
+        }
+
+        /**
+         * Who unsubscribed the respondent.
+         */
+        public Builder unsubscribedBy(@Nullable String unsubscribedBy) {
+            this.unsubscribedBy = unsubscribedBy;
+            return this;
+        }
+
+        /**
+         * Survey respondent chapters.
+         */
+        public Builder chapters(@Nullable List<RespondentChapterReference1> chapters) {
+            this.chapters = chapters;
+            return this;
+        }
+
+        /**
+         * Invitation list of respondents
+         */
+        public Builder invitationList(@Nullable InvitationListCommon invitationList) {
+            this.invitationList = invitationList;
+            return this;
+        }
+
+        /**
+         * Authors use transaction IDs to collect feedback after a customer transaction: invoice numbers or
+         * order IDs are common transaction IDs. Respondents can take a survey by entering their transaction
+         * ID, and each transaction ID uniquely identifies a response for that transaction.
+         */
+        public Builder transactionId(@Nullable String transactionId) {
+            this.transactionId = transactionId;
+            return this;
+        }
+
         public Respondent build() {
-            return new Respondent(id);
+            return new Respondent(
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    responseCode,
+                    responseDuration,
+                    localeId,
+                    respondedThrough,
+                    referenceId,
+                    score,
+                    maxPossibleScore,
+                    percentageScore,
+                    links,
+                    sourceId,
+                    event,
+                    contact,
+                    attendee,
+                    survey,
+                    status,
+                    unsubscribed,
+                    unsubscribedBy,
+                    chapters,
+                    invitationList,
+                    transactionId);
         }
     }
 }

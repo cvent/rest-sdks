@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Delete Exhibitor
  *
  * @remarks
- * Deletes a single exhibitor entity. To be deleted, exhibitors must have no tasks, registrations, or LeadCapture licenses assigned and must not be a sponsored or featured exhibitor.
+ * Deletes an exhibitor. An exhibitor with an assigned task, registration, or LeadCapture license cannot be deleted. A sponsored or featured exhibitor cannot be deleted.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

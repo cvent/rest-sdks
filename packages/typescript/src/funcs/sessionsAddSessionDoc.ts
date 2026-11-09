@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Associates a given document to a session. Documents must be
- * <a href="#operation/uploadFile">uploaded</a> before you can associate
+ * [uploaded](#operation/uploadFile) before you can associate
  * them.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators

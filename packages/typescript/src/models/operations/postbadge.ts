@@ -11,7 +11,7 @@ export type PostBadgeRequest = {
    */
   id: string;
   /**
-   * Badge details
+   * Badge details.
    */
   badge: components.BadgeInput;
 };

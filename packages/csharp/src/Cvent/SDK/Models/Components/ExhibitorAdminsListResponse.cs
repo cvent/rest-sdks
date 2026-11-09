@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Exhibitor Admins List Response schema.
+    /// Paginated list of exhibitor admins.
     /// </summary>
     public class ExhibitorAdminsListResponse
     {

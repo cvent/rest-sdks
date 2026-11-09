@@ -20,15 +20,15 @@ import {
  */
 export type RegistrationPackRequest = {
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * The Associated Exhibitor.
+   * Associated exhibitor.
    */
   exhibitor: Exhibitor;
   /**
-   * An array of capacities for the registration pack.
+   * List of the capacities of the registration pack.
    */
   capacities: Array<Capacity>;
 };

@@ -21,25 +21,25 @@ namespace Cvent.SDK.Models.Components
     public class AttendeeUpdate
     {
         /// <summary>
-        /// The ID of the event associated with the attendee.
+        /// The event associated with the attendee.
         /// </summary>
         [JsonProperty("event")]
         public AttendeeUpdateEvent Event { get; set; } = default!;
 
         /// <summary>
-        /// The ID of the address book contact associated with the attendee.
+        /// The address book contact associated with the attendee.
         /// </summary>
         [JsonProperty("contact")]
         public AttendeeUpdateContact Contact { get; set; } = default!;
 
         /// <summary>
-        /// The ID of the invitation list associated with the attendee.
+        /// The invitation list associated with the attendee.
         /// </summary>
         [JsonProperty("invitationList")]
         public AttendeeUpdateInvitationList? InvitationList { get; set; }
 
         /// <summary>
-        /// The reference ID of an attendee. A planner determined string used to track which link attendee's used to reach the event registration.
+        /// Reference ID. A planner-defined string that tracks the link that the attendee used to reach the event registration.
         /// </summary>
         [JsonProperty("referenceId")]
         public string? ReferenceId { get; set; }
@@ -51,13 +51,13 @@ namespace Cvent.SDK.Models.Components
         public string? Note { get; set; }
 
         /// <summary>
-        /// The ID of the administrator contact whom registered this attendee.
+        /// The administrator contact who registered this attendee.
         /// </summary>
         [JsonProperty("administrator")]
         public AttendeeUpdateAdministrator? Administrator { get; set; }
 
         /// <summary>
-        /// The ID of the attendee's admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
+        /// The attendee's admission item. Required when registering, updating a registered attendee, or cancelling an attendee.
         /// </summary>
         [JsonProperty("admissionItem")]
         public AttendeeUpdateAdmissionItem? AdmissionItem { get; set; }

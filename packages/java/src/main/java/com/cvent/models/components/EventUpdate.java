@@ -18,6 +18,7 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Optional;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * EventUpdate
@@ -252,6 +253,16 @@ public class EventUpdate {
     private EventType11 type;
 
     /**
+     * An object that contains the image associated with the event.
+     *
+     * <p>This is an **expandable** object. It is present only when `expand=image` is requested, and is `null`
+     * when the event has no image. It can be up to 60 seconds behind a change to the event's image.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("image")
+    private JsonNullable<EventImage> image;
+
+    /**
      * Represents the links associated with an event.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -326,6 +337,7 @@ public class EventUpdate {
             @JsonProperty("customFields") @Nullable List<CustomField> customFields,
             @JsonProperty("category") @Nullable EventUpdateLookup category,
             @JsonProperty("type") @Nonnull EventType11 type,
+            @JsonProperty("image") @Nullable JsonNullable<EventImage> image,
             @JsonProperty("_links") @Nullable EventLinks links,
             @JsonProperty("created") @Nullable OffsetDateTime created,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
@@ -367,6 +379,7 @@ public class EventUpdate {
         this.customFields = customFields;
         this.category = category;
         this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.image = Optional.ofNullable(image).orElse(JsonNullable.undefined());
         this.links = links;
         this.created = created;
         this.lastModified = lastModified;
@@ -414,6 +427,7 @@ public class EventUpdate {
                 null,
                 null,
                 type,
+                null,
                 null,
                 null,
                 null,
@@ -652,6 +666,16 @@ public class EventUpdate {
      */
     public EventType11 type() {
         return this.type;
+    }
+
+    /**
+     * An object that contains the image associated with the event.
+     *
+     * <p>This is an **expandable** object. It is present only when `expand=image` is requested, and is `null`
+     * when the event has no image. It can be up to 60 seconds behind a change to the event's image.
+     */
+    public JsonNullable<EventImage> image() {
+        return this.image;
     }
 
     /**
@@ -964,6 +988,17 @@ public class EventUpdate {
     }
 
     /**
+     * An object that contains the image associated with the event.
+     *
+     * <p>This is an **expandable** object. It is present only when `expand=image` is requested, and is `null`
+     * when the event has no image. It can be up to 60 seconds behind a change to the event's image.
+     */
+    public EventUpdate withImage(@Nullable EventImage image) {
+        this.image = JsonNullable.of(image);
+        return this;
+    }
+
+    /**
      * Represents the links associated with an event.
      */
     public EventUpdate withLinks(@Nullable EventLinks links) {
@@ -1051,6 +1086,7 @@ public class EventUpdate {
                 && Utils.enhancedDeepEquals(this.customFields, other.customFields)
                 && Utils.enhancedDeepEquals(this.category, other.category)
                 && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.image, other.image)
                 && Utils.enhancedDeepEquals(this.links, other.links)
                 && Utils.enhancedDeepEquals(this.created, other.created)
                 && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
@@ -1093,6 +1129,7 @@ public class EventUpdate {
                 customFields,
                 category,
                 type,
+                image,
                 links,
                 created,
                 lastModified,
@@ -1167,6 +1204,8 @@ public class EventUpdate {
                 category,
                 "type",
                 type,
+                "image",
+                image,
                 "links",
                 links,
                 "created",
@@ -1247,6 +1286,8 @@ public class EventUpdate {
         private EventUpdateLookup category;
 
         private EventType11 type;
+
+        private JsonNullable<EventImage> image;
 
         private EventLinks links;
 
@@ -1528,6 +1569,17 @@ public class EventUpdate {
         }
 
         /**
+         * An object that contains the image associated with the event.
+         *
+         * <p>This is an **expandable** object. It is present only when `expand=image` is requested, and is `null`
+         * when the event has no image. It can be up to 60 seconds behind a change to the event's image.
+         */
+        public Builder image(@Nullable EventImage image) {
+            this.image = JsonNullable.of(image);
+            return this;
+        }
+
+        /**
          * Represents the links associated with an event.
          */
         public Builder links(@Nullable EventLinks links) {
@@ -1608,6 +1660,7 @@ public class EventUpdate {
                     customFields,
                     category,
                     type,
+                    image,
                     links,
                     created,
                     lastModified,

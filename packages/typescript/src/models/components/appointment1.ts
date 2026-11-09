@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * A JSON schema representing the structure of an appointment object.
+ * Appointment of the lead.
  */
 export type Appointment1 = {
   /**
-   * Appointment id
+   * Appointment ID.
    */
   id?: string | undefined;
 };

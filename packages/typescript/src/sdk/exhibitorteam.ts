@@ -21,7 +21,7 @@ export class ExhibitorTeam extends ClientSDK {
    * List Exhibitor Admins
    *
    * @remarks
-   * Retrieves a paginated list of exhibitor admins for an exhibitor within an event.
+   * Retrieves a paginated list of the admins of an exhibitor.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -42,7 +42,7 @@ export class ExhibitorTeam extends ClientSDK {
    * Create Exhibitor Admin
    *
    * @remarks
-   * Creates an exhibitor admin for the given exhibitor.
+   * Creates an admin for an exhibitor.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -61,7 +61,7 @@ export class ExhibitorTeam extends ClientSDK {
    * Get Exhibitor Admin
    *
    * @remarks
-   * Gets the details of a single exhibitor admin, such as name or contact email.
+   * Retrieves the details of an exhibitor admin, such as the name and the email address.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -80,7 +80,7 @@ export class ExhibitorTeam extends ClientSDK {
    * Update Exhibitor Admin
    *
    * @remarks
-   * Updates a single exhibitor admin.
+   * Updates an exhibitor admin.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -99,7 +99,7 @@ export class ExhibitorTeam extends ClientSDK {
    * List Booth Staff
    *
    * @remarks
-   * Gets a list of booth staff members for a given event and exhibitor id.
+   * Retrieves a list of the booth staff members of an exhibitor.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -120,7 +120,7 @@ export class ExhibitorTeam extends ClientSDK {
    * Create Booth Staff
    *
    * @remarks
-   * Associates a registered attendee as a booth staff to a specific exhibitor id within an event.
+   * Associates a registered attendee with an exhibitor as a booth staff member.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -136,10 +136,10 @@ export class ExhibitorTeam extends ClientSDK {
   }
 
   /**
-   * Get Booth Staff member
+   * Get Booth Staff Member
    *
    * @remarks
-   * Retrieves the attendee id associated with an exhibitor booth staff member.
+   * Retrieves the attendee ID of a booth staff member of an exhibitor.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -155,10 +155,10 @@ export class ExhibitorTeam extends ClientSDK {
   }
 
   /**
-   * Delete Booth Staff member
+   * Delete Booth Staff Member
    *
    * @remarks
-   * Disassociate a single booth staff member from a single exhibitor.
+   * Disassociates a booth staff member from an exhibitor.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */

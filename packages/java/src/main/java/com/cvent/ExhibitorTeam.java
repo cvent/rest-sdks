@@ -76,7 +76,7 @@ public class ExhibitorTeam {
     /**
      * List Exhibitor Admins
      *
-     * <p>Retrieves a paginated list of exhibitor admins for an exhibitor within an event.
+     * <p>Retrieves a paginated list of the admins of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -89,7 +89,7 @@ public class ExhibitorTeam {
     /**
      * List Exhibitor Admins
      *
-     * <p>Retrieves a paginated list of exhibitor admins for an exhibitor within an event.
+     * <p>Retrieves a paginated list of the admins of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -104,7 +104,7 @@ public class ExhibitorTeam {
     /**
      * List Exhibitor Admins
      *
-     * <p>Retrieves a paginated list of exhibitor admins for an exhibitor within an event.
+     * <p>Retrieves a paginated list of the admins of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -123,7 +123,7 @@ public class ExhibitorTeam {
     /**
      * Create Exhibitor Admin
      *
-     * <p>Creates an exhibitor admin for the given exhibitor.
+     * <p>Creates an admin for an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -136,7 +136,7 @@ public class ExhibitorTeam {
     /**
      * Create Exhibitor Admin
      *
-     * <p>Creates an exhibitor admin for the given exhibitor.
+     * <p>Creates an admin for an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -151,7 +151,7 @@ public class ExhibitorTeam {
     /**
      * Create Exhibitor Admin
      *
-     * <p>Creates an exhibitor admin for the given exhibitor.
+     * <p>Creates an admin for an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -170,7 +170,7 @@ public class ExhibitorTeam {
     /**
      * Get Exhibitor Admin
      *
-     * <p>Gets the details of a single exhibitor admin, such as name or contact email.
+     * <p>Retrieves the details of an exhibitor admin, such as the name and the email address.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -183,7 +183,7 @@ public class ExhibitorTeam {
     /**
      * Get Exhibitor Admin
      *
-     * <p>Gets the details of a single exhibitor admin, such as name or contact email.
+     * <p>Retrieves the details of an exhibitor admin, such as the name and the email address.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -198,7 +198,7 @@ public class ExhibitorTeam {
     /**
      * Get Exhibitor Admin
      *
-     * <p>Gets the details of a single exhibitor admin, such as name or contact email.
+     * <p>Retrieves the details of an exhibitor admin, such as the name and the email address.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -217,7 +217,7 @@ public class ExhibitorTeam {
     /**
      * Update Exhibitor Admin
      *
-     * <p>Updates a single exhibitor admin.
+     * <p>Updates an exhibitor admin.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -230,7 +230,7 @@ public class ExhibitorTeam {
     /**
      * Update Exhibitor Admin
      *
-     * <p>Updates a single exhibitor admin.
+     * <p>Updates an exhibitor admin.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -245,7 +245,7 @@ public class ExhibitorTeam {
     /**
      * Update Exhibitor Admin
      *
-     * <p>Updates a single exhibitor admin.
+     * <p>Updates an exhibitor admin.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -264,7 +264,7 @@ public class ExhibitorTeam {
     /**
      * List Booth Staff
      *
-     * <p>Gets a list of booth staff members for a given event and exhibitor id.
+     * <p>Retrieves a list of the booth staff members of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -277,7 +277,7 @@ public class ExhibitorTeam {
     /**
      * List Booth Staff
      *
-     * <p>Gets a list of booth staff members for a given event and exhibitor id.
+     * <p>Retrieves a list of the booth staff members of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -292,7 +292,7 @@ public class ExhibitorTeam {
     /**
      * List Booth Staff
      *
-     * <p>Gets a list of booth staff members for a given event and exhibitor id.
+     * <p>Retrieves a list of the booth staff members of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -310,7 +310,7 @@ public class ExhibitorTeam {
     /**
      * Create Booth Staff
      *
-     * <p>Associates a registered attendee as a booth staff to a specific exhibitor id within an event.
+     * <p>Associates a registered attendee with an exhibitor as a booth staff member.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -323,7 +323,7 @@ public class ExhibitorTeam {
     /**
      * Create Booth Staff
      *
-     * <p>Associates a registered attendee as a booth staff to a specific exhibitor id within an event.
+     * <p>Associates a registered attendee with an exhibitor as a booth staff member.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -338,7 +338,7 @@ public class ExhibitorTeam {
     /**
      * Create Booth Staff
      *
-     * <p>Associates a registered attendee as a booth staff to a specific exhibitor id within an event.
+     * <p>Associates a registered attendee with an exhibitor as a booth staff member.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -355,9 +355,9 @@ public class ExhibitorTeam {
     }
 
     /**
-     * Get Booth Staff member
+     * Get Booth Staff Member
      *
-     * <p>Retrieves the attendee id associated with an exhibitor booth staff member.
+     * <p>Retrieves the attendee ID of a booth staff member of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -368,9 +368,9 @@ public class ExhibitorTeam {
     }
 
     /**
-     * Get Booth Staff member
+     * Get Booth Staff Member
      *
-     * <p>Retrieves the attendee id associated with an exhibitor booth staff member.
+     * <p>Retrieves the attendee ID of a booth staff member of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -383,9 +383,9 @@ public class ExhibitorTeam {
     }
 
     /**
-     * Get Booth Staff member
+     * Get Booth Staff Member
      *
-     * <p>Retrieves the attendee id associated with an exhibitor booth staff member.
+     * <p>Retrieves the attendee ID of a booth staff member of an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -401,9 +401,9 @@ public class ExhibitorTeam {
     }
 
     /**
-     * Delete Booth Staff member
+     * Delete Booth Staff Member
      *
-     * <p>Disassociate a single booth staff member from a single exhibitor.
+     * <p>Disassociates a booth staff member from an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -414,9 +414,9 @@ public class ExhibitorTeam {
     }
 
     /**
-     * Delete Booth Staff member
+     * Delete Booth Staff Member
      *
-     * <p>Disassociate a single booth staff member from a single exhibitor.
+     * <p>Disassociates a booth staff member from an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -429,9 +429,9 @@ public class ExhibitorTeam {
     }
 
     /**
-     * Delete Booth Staff member
+     * Delete Booth Staff Member
      *
-     * <p>Disassociate a single booth staff member from a single exhibitor.
+     * <p>Disassociates a booth staff member from an exhibitor.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *

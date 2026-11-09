@@ -1,0 +1,12 @@
+# Answer12
+
+Answer to a lead qualification question.
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                | Example                                                                                    |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `type`                                                                                     | [AnswerType](../../models/components/AnswerType.md)                                        | :heavy_check_mark:                                                                         | Type of the answer.                                                                        | File                                                                                       |
+| `value`                                                                                    | *Optional\<String>*                                                                        | :heavy_minus_sign:                                                                         | Value of the answer, such as the text of a choice or the text that the respondent entered. | Choice A                                                                                   |
+| `choice`                                                                                   | [Optional\<Uuid>](../../models/components/Uuid.md)                                         | :heavy_minus_sign:                                                                         | The reference to the related entity. Contains only the ID of the related entity.           |                                                                                            |

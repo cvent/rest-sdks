@@ -10,7 +10,7 @@ export type GetSponsorshipLevelRequest = {
    */
   id: string;
   /**
-   * ID of sponsorship level.
+   * ID of a sponsorship level.
    */
   sponsorshipLevelId: string;
 };

@@ -122,11 +122,11 @@ public class Application {
                     .build())
             .build();
 
-        CustomField1 req = CustomField1.builder()
+        CustomField1Input req = CustomField1Input.builder()
                 .category(CustomFieldCategory.CONTACT)
                 .name("What is a your favorite color?")
                 .code("FAVORITE_COLOR_CODE")
-                .type(CustomFieldType2.OPEN_ENDED_TEXT_ONE_LINE)
+                .type(CustomFieldType3.OPEN_ENDED_TEXT_ONE_LINE)
                 .details(CustomField1Details.of(OpenEndedOneLine.builder()
                     .answerFormat("General")
                     .minimum(2L)
@@ -149,9 +149,9 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                           | Type                                                | Required                                            | Description                                         |
-| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| `request`                                           | [CustomField1](../../models/shared/CustomField1.md) | :heavy_check_mark:                                  | The request object to use for the request.          |
+| Parameter                                                     | Type                                                          | Required                                                      | Description                                                   |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `request`                                                     | [CustomField1Input](../../models/shared/CustomField1Input.md) | :heavy_check_mark:                                            | The request object to use for the request.                    |
 
 ### Response
 
@@ -206,10 +206,10 @@ public class Application {
                     .category(CustomFieldCategory.CONTACT)
                     .name("What is a your favorite color?")
                     .code("FAVORITE_COLOR_CODE")
-                    .type(CustomFieldType2.OPEN_ENDED_TEXT_ONE_LINE)
+                    .type(CustomFieldType3.OPEN_ENDED_TEXT_ONE_LINE)
                     .details(ExistingCustomFieldDetailsInput.of(Choices1Input.builder()
                         .choices(List.of(
-                            Choice3Input.builder()
+                            Choice4Input.builder()
                                 .text("What is your current designation?")
                                 .build()))
                         .build()))

@@ -36,7 +36,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of exhibitor admins for an exhibitor within an event.
+        /// Retrieves a paginated list of the admins of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="ListExhibitorAdminsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -56,7 +56,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Creates an exhibitor admin for the given exhibitor.
+        /// Creates an admin for an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="PostExhibitorAdminRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -76,7 +76,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets the details of a single exhibitor admin, such as name or contact email.
+        /// Retrieves the details of an exhibitor admin, such as the name and the email address.
         /// </remarks>
         /// <param name="request">A <see cref="GetExhibitorAdminRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -96,7 +96,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Updates a single exhibitor admin.
+        /// Updates an exhibitor admin.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorAdminRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -116,7 +116,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a list of booth staff members for a given event and exhibitor id.
+        /// Retrieves a list of the booth staff members of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="ListBoothStaffRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -136,7 +136,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Associates a registered attendee as a booth staff to a specific exhibitor id within an event.
+        /// Associates a registered attendee with an exhibitor as a booth staff member.
         /// </remarks>
         /// <param name="request">A <see cref="AssociateBoothStaffRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -152,11 +152,11 @@ namespace Cvent.SDK
         );
 
         /// <summary>
-        /// Get Booth Staff member<br/>
+        /// Get Booth Staff Member<br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Retrieves the attendee id associated with an exhibitor booth staff member.
+        /// Retrieves the attendee ID of a booth staff member of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="GetBoothStaffRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -172,11 +172,11 @@ namespace Cvent.SDK
         );
 
         /// <summary>
-        /// Delete Booth Staff member<br/>
+        /// Delete Booth Staff Member<br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Disassociate a single booth staff member from a single exhibitor.
+        /// Disassociates a booth staff member from an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteBoothStaffRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -215,7 +215,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of exhibitor admins for an exhibitor within an event.
+        /// Retrieves a paginated list of the admins of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="ListExhibitorAdminsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -412,7 +412,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Creates an exhibitor admin for the given exhibitor.
+        /// Creates an admin for an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="PostExhibitorAdminRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -585,7 +585,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets the details of a single exhibitor admin, such as name or contact email.
+        /// Retrieves the details of an exhibitor admin, such as the name and the email address.
         /// </remarks>
         /// <param name="request">A <see cref="GetExhibitorAdminRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -752,7 +752,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Updates a single exhibitor admin.
+        /// Updates an exhibitor admin.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorAdminRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -925,7 +925,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a list of booth staff members for a given event and exhibitor id.
+        /// Retrieves a list of the booth staff members of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="ListBoothStaffRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1122,7 +1122,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Associates a registered attendee as a booth staff to a specific exhibitor id within an event.
+        /// Associates a registered attendee with an exhibitor as a booth staff member.
         /// </remarks>
         /// <param name="request">A <see cref="AssociateBoothStaffRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1291,11 +1291,11 @@ namespace Cvent.SDK
         }
 
         /// <summary>
-        /// Get Booth Staff member<br/>
+        /// Get Booth Staff Member<br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Retrieves the attendee id associated with an exhibitor booth staff member.
+        /// Retrieves the attendee ID of a booth staff member of an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="GetBoothStaffRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1458,11 +1458,11 @@ namespace Cvent.SDK
         }
 
         /// <summary>
-        /// Delete Booth Staff member<br/>
+        /// Delete Booth Staff Member<br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Disassociate a single booth staff member from a single exhibitor.
+        /// Disassociates a booth staff member from an exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteBoothStaffRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

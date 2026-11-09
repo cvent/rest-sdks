@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * ExhibitorAdminsListResponse
  *
- * <p>Exhibitor Admins List Response schema
+ * <p>Paginated list of exhibitor admins.
  */
 public class ExhibitorAdminsListResponse {
     /**

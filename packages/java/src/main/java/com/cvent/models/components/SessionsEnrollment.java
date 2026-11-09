@@ -78,7 +78,8 @@ public class SessionsEnrollment {
     private Uuid attendee;
 
     /**
-     * True indicates the attendee is registered for the session.
+     * True indicates the registration was cancelled. False indicates the attendee is registered for the
+     * session.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("deleted")
@@ -179,7 +180,8 @@ public class SessionsEnrollment {
     }
 
     /**
-     * True indicates the attendee is registered for the session.
+     * True indicates the registration was cancelled. False indicates the attendee is registered for the
+     * session.
      */
     public Optional<Boolean> deleted() {
         return Optional.ofNullable(this.deleted);
@@ -264,7 +266,8 @@ public class SessionsEnrollment {
     }
 
     /**
-     * True indicates the attendee is registered for the session.
+     * True indicates the registration was cancelled. False indicates the attendee is registered for the
+     * session.
      */
     public SessionsEnrollment withDeleted(@Nullable Boolean deleted) {
         this.deleted = deleted;
@@ -427,7 +430,8 @@ public class SessionsEnrollment {
         }
 
         /**
-         * True indicates the attendee is registered for the session.
+         * True indicates the registration was cancelled. False indicates the attendee is registered for the
+         * session.
          */
         public Builder deleted(@Nullable Boolean deleted) {
             this.deleted = deleted;

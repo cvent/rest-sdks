@@ -50,13 +50,13 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// The related event object.
+        /// A reference to an event by its ID.
         /// </summary>
         [JsonProperty("event")]
         public EventId Event { get; set; } = default!;
 
         /// <summary>
-        /// The related session object.
+        /// A reference to a session by its ID.
         /// </summary>
         [JsonProperty("session")]
         public Session1 Session { get; set; } = default!;

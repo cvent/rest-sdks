@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Requests
     public class ListSpeakerSessionsRequest
     {
         /// <summary>
-        /// Unique Id of a speaker.
+        /// Unique ID of a speaker.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;

@@ -49,7 +49,7 @@ export type SessionsEnrollment = {
    */
   attendee?: Uuid | undefined;
   /**
-   * True indicates the attendee is registered for the session.
+   * True indicates the registration was cancelled. False indicates the attendee is registered for the session.
    */
   deleted?: boolean | undefined;
   /**

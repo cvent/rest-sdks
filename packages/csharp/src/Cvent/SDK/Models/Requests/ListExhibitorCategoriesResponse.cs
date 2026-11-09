@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved a Paginated list of exhibitor-categories assigned to the exhibitor.
+        /// Successfully retrieved a paginated list of the exhibitor categories of the exhibitor.
         /// </summary>
         public ExhibitorCategoryIdListResponse? ExhibitorCategoryIdListResponse { get; set; }
     }

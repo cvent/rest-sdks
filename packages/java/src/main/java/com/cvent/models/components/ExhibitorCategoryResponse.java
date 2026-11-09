@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  * ExhibitorCategoryResponse
  *
- * <p>A description of the Existing Exhibitor Category JSON schema
+ * <p>Exhibitor category with an ID.
  */
 public class ExhibitorCategoryResponse {
     /**
@@ -50,52 +50,52 @@ public class ExhibitorCategoryResponse {
     private String lastModifiedBy;
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * Name of the exhibitor category
+     * Name of the exhibitor category.
      */
     @JsonProperty("name")
     private String name;
 
     /**
-     * Exhibitor Category description
+     * Description of the exhibitor category.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("description")
     private String description;
 
     /**
-     * order for exhibitor category
+     * Display order of the exhibitor category.
      */
     @JsonProperty("order")
     private long order;
 
     /**
-     * Type of exhibitor category
+     * Type of the exhibitor category.
      */
     @JsonProperty("type")
     private ExhibitorCategoryResponseType type;
 
     /**
-     * ID of exhibitor category.
+     * Exhibitor category ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * File ID for exhibitor category banner.
+     * File ID of the exhibitor category banner.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bannerId")
     private String bannerId;
 
     /**
-     * URL for exhibitor category banner.
+     * URL of the exhibitor category banner.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bannerUrl")
@@ -163,56 +163,56 @@ public class ExhibitorCategoryResponse {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Event4 event() {
         return this.event;
     }
 
     /**
-     * Name of the exhibitor category
+     * Name of the exhibitor category.
      */
     public String name() {
         return this.name;
     }
 
     /**
-     * Exhibitor Category description
+     * Description of the exhibitor category.
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
 
     /**
-     * order for exhibitor category
+     * Display order of the exhibitor category.
      */
     public long order() {
         return this.order;
     }
 
     /**
-     * Type of exhibitor category
+     * Type of the exhibitor category.
      */
     public ExhibitorCategoryResponseType type() {
         return this.type;
     }
 
     /**
-     * ID of exhibitor category.
+     * Exhibitor category ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * File ID for exhibitor category banner.
+     * File ID of the exhibitor category banner.
      */
     public Optional<String> bannerId() {
         return Optional.ofNullable(this.bannerId);
     }
 
     /**
-     * URL for exhibitor category banner.
+     * URL of the exhibitor category banner.
      */
     public Optional<String> bannerUrl() {
         return Optional.ofNullable(this.bannerUrl);
@@ -255,7 +255,7 @@ public class ExhibitorCategoryResponse {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public ExhibitorCategoryResponse withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -263,7 +263,7 @@ public class ExhibitorCategoryResponse {
     }
 
     /**
-     * Name of the exhibitor category
+     * Name of the exhibitor category.
      */
     public ExhibitorCategoryResponse withName(@Nonnull String name) {
         this.name = Utils.checkNotNull(name, "name");
@@ -271,7 +271,7 @@ public class ExhibitorCategoryResponse {
     }
 
     /**
-     * Exhibitor Category description
+     * Description of the exhibitor category.
      */
     public ExhibitorCategoryResponse withDescription(@Nullable String description) {
         this.description = description;
@@ -279,7 +279,7 @@ public class ExhibitorCategoryResponse {
     }
 
     /**
-     * order for exhibitor category
+     * Display order of the exhibitor category.
      */
     public ExhibitorCategoryResponse withOrder(long order) {
         this.order = order;
@@ -287,7 +287,7 @@ public class ExhibitorCategoryResponse {
     }
 
     /**
-     * Type of exhibitor category
+     * Type of the exhibitor category.
      */
     public ExhibitorCategoryResponse withType(@Nonnull ExhibitorCategoryResponseType type) {
         this.type = Utils.checkNotNull(type, "type");
@@ -295,7 +295,7 @@ public class ExhibitorCategoryResponse {
     }
 
     /**
-     * ID of exhibitor category.
+     * Exhibitor category ID.
      */
     public ExhibitorCategoryResponse withId(@Nullable String id) {
         this.id = id;
@@ -303,7 +303,7 @@ public class ExhibitorCategoryResponse {
     }
 
     /**
-     * File ID for exhibitor category banner.
+     * File ID of the exhibitor category banner.
      */
     public ExhibitorCategoryResponse withBannerId(@Nullable String bannerId) {
         this.bannerId = bannerId;
@@ -311,7 +311,7 @@ public class ExhibitorCategoryResponse {
     }
 
     /**
-     * URL for exhibitor category banner.
+     * URL of the exhibitor category banner.
      */
     public ExhibitorCategoryResponse withBannerUrl(@Nullable String bannerUrl) {
         this.bannerUrl = bannerUrl;
@@ -452,7 +452,7 @@ public class ExhibitorCategoryResponse {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -460,7 +460,7 @@ public class ExhibitorCategoryResponse {
         }
 
         /**
-         * Name of the exhibitor category
+         * Name of the exhibitor category.
          */
         public Builder name(@Nonnull String name) {
             this.name = Utils.checkNotNull(name, "name");
@@ -468,7 +468,7 @@ public class ExhibitorCategoryResponse {
         }
 
         /**
-         * Exhibitor Category description
+         * Description of the exhibitor category.
          */
         public Builder description(@Nullable String description) {
             this.description = description;
@@ -476,7 +476,7 @@ public class ExhibitorCategoryResponse {
         }
 
         /**
-         * order for exhibitor category
+         * Display order of the exhibitor category.
          */
         public Builder order(long order) {
             this.order = order;
@@ -484,7 +484,7 @@ public class ExhibitorCategoryResponse {
         }
 
         /**
-         * Type of exhibitor category
+         * Type of the exhibitor category.
          */
         public Builder type(@Nonnull ExhibitorCategoryResponseType type) {
             this.type = Utils.checkNotNull(type, "type");
@@ -492,7 +492,7 @@ public class ExhibitorCategoryResponse {
         }
 
         /**
-         * ID of exhibitor category.
+         * Exhibitor category ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -500,7 +500,7 @@ public class ExhibitorCategoryResponse {
         }
 
         /**
-         * File ID for exhibitor category banner.
+         * File ID of the exhibitor category banner.
          */
         public Builder bannerId(@Nullable String bannerId) {
             this.bannerId = bannerId;
@@ -508,7 +508,7 @@ public class ExhibitorCategoryResponse {
         }
 
         /**
-         * URL for exhibitor category banner.
+         * URL of the exhibitor category banner.
          */
         public Builder bannerUrl(@Nullable String bannerUrl) {
             this.bannerUrl = bannerUrl;

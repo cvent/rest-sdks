@@ -20,7 +20,7 @@ public class CreateExhibitorCategoryRequest {
     private String id;
 
     /**
-     * Exhibitor Category details
+     * Exhibitor category details.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private ExhibitorCategoryRequest exhibitorCategoryRequest;
@@ -41,7 +41,7 @@ public class CreateExhibitorCategoryRequest {
     }
 
     /**
-     * Exhibitor Category details
+     * Exhibitor category details.
      */
     public ExhibitorCategoryRequest exhibitorCategoryRequest() {
         return this.exhibitorCategoryRequest;
@@ -60,7 +60,7 @@ public class CreateExhibitorCategoryRequest {
     }
 
     /**
-     * Exhibitor Category details
+     * Exhibitor category details.
      */
     public CreateExhibitorCategoryRequest withExhibitorCategoryRequest(
             @Nonnull ExhibitorCategoryRequest exhibitorCategoryRequest) {
@@ -112,7 +112,7 @@ public class CreateExhibitorCategoryRequest {
         }
 
         /**
-         * Exhibitor Category details
+         * Exhibitor category details.
          */
         public Builder exhibitorCategoryRequest(@Nonnull ExhibitorCategoryRequest exhibitorCategoryRequest) {
             this.exhibitorCategoryRequest = Utils.checkNotNull(exhibitorCategoryRequest, "exhibitorCategoryRequest");

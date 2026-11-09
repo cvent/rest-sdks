@@ -13,12 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The related document object.
+    /// A reference to a session document by its ID.
     /// </summary>
     public class SessionDocumentLite
     {
         /// <summary>
-        /// The unique identifier for a document.
+        /// The unique ID of a document.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

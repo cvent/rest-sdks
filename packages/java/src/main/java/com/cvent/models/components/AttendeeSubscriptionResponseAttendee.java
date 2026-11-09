@@ -18,7 +18,7 @@ import java.util.Optional;
  */
 public class AttendeeSubscriptionResponseAttendee {
     /**
-     * The unique identifier of the attendee.
+     * Attendee ID.
      */
     @JsonProperty("id")
     private String id;
@@ -29,7 +29,7 @@ public class AttendeeSubscriptionResponseAttendee {
     }
 
     /**
-     * The unique identifier of the attendee.
+     * Attendee ID.
      */
     public String id() {
         return this.id;
@@ -40,7 +40,7 @@ public class AttendeeSubscriptionResponseAttendee {
     }
 
     /**
-     * The unique identifier of the attendee.
+     * Attendee ID.
      */
     public AttendeeSubscriptionResponseAttendee withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -79,7 +79,7 @@ public class AttendeeSubscriptionResponseAttendee {
         }
 
         /**
-         * The unique identifier of the attendee.
+         * Attendee ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

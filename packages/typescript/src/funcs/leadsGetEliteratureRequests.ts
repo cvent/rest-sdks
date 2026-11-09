@@ -38,7 +38,7 @@ import {
  * @remarks
  * **Deprecated.** The E-literature Requests feature has been sunset.
  *
- * Gets a paginated list of eliterature requests data
+ * Retrieves a paginated list of e-literature requests.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  *

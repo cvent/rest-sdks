@@ -19,7 +19,7 @@ import java.util.Optional;
 /**
  * ExistingExhibitorAnswer
  *
- * <p>Existing Exhibitor Answer schema
+ * <p>Exhibitor answer with an ID.
  */
 public class ExistingExhibitorAnswer {
     /**
@@ -57,25 +57,25 @@ public class ExistingExhibitorAnswer {
     private Uuid question;
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     @JsonProperty("exhibitor")
     private Exhibitor exhibitor;
 
     /**
-     * List of answers
+     * List of answers.
      */
     @JsonProperty("answers")
-    private List<Answer22> answers;
+    private List<Answer2> answers;
 
     /**
-     * Exhibitor Answer id
+     * Exhibitor answer ID.
      */
     @JsonProperty("id")
     private String id;
@@ -89,7 +89,7 @@ public class ExistingExhibitorAnswer {
             @JsonProperty("question") @Nonnull Uuid question,
             @JsonProperty("event") @Nonnull Event4 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
-            @JsonProperty("answers") @Nonnull List<Answer22> answers,
+            @JsonProperty("answers") @Nonnull List<Answer2> answers,
             @JsonProperty("id") @Nonnull String id) {
         this.created = created;
         this.createdBy = createdBy;
@@ -109,7 +109,7 @@ public class ExistingExhibitorAnswer {
             @Nonnull Uuid question,
             @Nonnull Event4 event,
             @Nonnull Exhibitor exhibitor,
-            @Nonnull List<Answer22> answers,
+            @Nonnull List<Answer2> answers,
             @Nonnull String id) {
         this(null, null, null, null, question, event, exhibitor, answers, id);
     }
@@ -150,28 +150,28 @@ public class ExistingExhibitorAnswer {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Event4 event() {
         return this.event;
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public Exhibitor exhibitor() {
         return this.exhibitor;
     }
 
     /**
-     * List of answers
+     * List of answers.
      */
-    public List<Answer22> answers() {
+    public List<Answer2> answers() {
         return this.answers;
     }
 
     /**
-     * Exhibitor Answer id
+     * Exhibitor answer ID.
      */
     public String id() {
         return this.id;
@@ -222,7 +222,7 @@ public class ExistingExhibitorAnswer {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public ExistingExhibitorAnswer withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -230,7 +230,7 @@ public class ExistingExhibitorAnswer {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public ExistingExhibitorAnswer withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -238,15 +238,15 @@ public class ExistingExhibitorAnswer {
     }
 
     /**
-     * List of answers
+     * List of answers.
      */
-    public ExistingExhibitorAnswer withAnswers(@Nonnull List<Answer22> answers) {
+    public ExistingExhibitorAnswer withAnswers(@Nonnull List<Answer2> answers) {
         this.answers = Utils.checkNotNull(answers, "answers");
         return this;
     }
 
     /**
-     * Exhibitor Answer id
+     * Exhibitor answer ID.
      */
     public ExistingExhibitorAnswer withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -320,7 +320,7 @@ public class ExistingExhibitorAnswer {
 
         private Exhibitor exhibitor;
 
-        private List<Answer22> answers;
+        private List<Answer2> answers;
 
         private String id;
 
@@ -369,7 +369,7 @@ public class ExistingExhibitorAnswer {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -377,7 +377,7 @@ public class ExistingExhibitorAnswer {
         }
 
         /**
-         * The Associated Exhibitor.
+         * Associated exhibitor.
          */
         public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -385,15 +385,15 @@ public class ExistingExhibitorAnswer {
         }
 
         /**
-         * List of answers
+         * List of answers.
          */
-        public Builder answers(@Nonnull List<Answer22> answers) {
+        public Builder answers(@Nonnull List<Answer2> answers) {
             this.answers = Utils.checkNotNull(answers, "answers");
             return this;
         }
 
         /**
-         * Exhibitor Answer id
+         * Exhibitor answer ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

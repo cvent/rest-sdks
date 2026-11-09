@@ -6,8 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
-import { QuestionJson1, QuestionJson1$inboundSchema } from "./questionjson1.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
+import { Question2, Question2$inboundSchema } from "./question2.js";
 
 /**
  * Response include paging and collection of questions of surveys
@@ -16,11 +16,11 @@ export type QuestionsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of questions for surveys.
    */
-  data: Array<QuestionJson1>;
+  data: Array<Question2>;
 };
 
 /** @internal */
@@ -29,8 +29,8 @@ export const QuestionsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(QuestionJson1$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(Question2$inboundSchema),
 });
 
 export function questionsPaginatedResponseFromJSON(

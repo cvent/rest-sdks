@@ -16,19 +16,19 @@ import {
 } from "./exhibitor.js";
 
 /**
- * A JSON schema representing booth staff.
+ * Booth staff member of an exhibitor.
  */
 export type BoothStaffRequest = {
   /**
-   * The associated Attendee.
+   * Associated attendee.
    */
   attendee: Attendee12;
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * The Associated Exhibitor.
+   * Associated exhibitor.
    */
   exhibitor: Exhibitor;
 };

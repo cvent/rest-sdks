@@ -5,12 +5,12 @@
 ```java
 import com.cvent.models.components.Expand1;
 
-Expand1 value = Expand1.CREDIT_TYPE;
+Expand1 value = Expand1.IMAGE;
 ```
 
 
 ## Values
 
-| Name          | Value         |
-| ------------- | ------------- |
-| `CREDIT_TYPE` | creditType    |
+| Name    | Value   |
+| ------- | ------- |
+| `IMAGE` | image   |

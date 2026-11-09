@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// A paginated response for E-literature requests.
+    /// Paginated list of e-literature requests.
     /// </summary>
     public class EliteratureRequestPaginatedResponse
     {
@@ -26,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public Paging? Paging { get; set; }
 
         /// <summary>
-        /// Collection of E-literature request data.
+        /// List of e-literature requests.
         /// </summary>
         [JsonProperty("data")]
         public List<ExistingELiteratureRequestDataForLead>? Data { get; set; }

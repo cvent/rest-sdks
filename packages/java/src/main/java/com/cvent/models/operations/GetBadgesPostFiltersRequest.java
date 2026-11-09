@@ -37,8 +37,8 @@ public class GetBadgesPostFiltersRequest {
     private String token;
 
     /**
-     * See the filter query parameter of <a href="#operation/getBadge">Get Badges</a> for full filtering
-     * information
+     * Filter of the badge list. The syntax is the same as the `filter` query parameter of [List
+     * Badges](#operation/getBadge).
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private Filter filter;
@@ -79,8 +79,8 @@ public class GetBadgesPostFiltersRequest {
     }
 
     /**
-     * See the filter query parameter of <a href="#operation/getBadge">Get Badges</a> for full filtering
-     * information
+     * Filter of the badge list. The syntax is the same as the `filter` query parameter of [List
+     * Badges](#operation/getBadge).
      */
     public Optional<Filter> filter() {
         return Optional.ofNullable(this.filter);
@@ -116,8 +116,8 @@ public class GetBadgesPostFiltersRequest {
     }
 
     /**
-     * See the filter query parameter of <a href="#operation/getBadge">Get Badges</a> for full filtering
-     * information
+     * Filter of the badge list. The syntax is the same as the `filter` query parameter of [List
+     * Badges](#operation/getBadge).
      */
     public GetBadgesPostFiltersRequest withFilter(@Nullable Filter filter) {
         this.filter = filter;
@@ -191,8 +191,8 @@ public class GetBadgesPostFiltersRequest {
         }
 
         /**
-         * See the filter query parameter of <a href="#operation/getBadge">Get Badges</a> for full filtering
-         * information
+         * Filter of the badge list. The syntax is the same as the `filter` query parameter of [List
+         * Badges](#operation/getBadge).
          */
         public Builder filter(@Nullable Filter filter) {
             this.filter = filter;

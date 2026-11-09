@@ -3,14 +3,11 @@
  */
 package com.cvent.models.components;
 
-import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.type.TypeReference;
-import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
@@ -19,66 +16,79 @@ import java.util.Optional;
 /**
  * Choice2
  *
- * <p>This is used to denote the choice of questions in an event.
+ * <p>A survey choice.
  */
 public class Choice2 {
     /**
-     * The ID of the question choice. If you supply the choice's existing ID in a PUT call, the choice
-     * keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call,
-     * this choice text will be replaced with the text supplied, and a new choice ID is created.
+     * Text field ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * The text for the question choice.
+     * text Value of the Field
      */
+    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("text")
     private String text;
 
     /**
-     * The type for the event question choice.
+     * Reporting value of the Category, Its like a custom abbreviation
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("type")
-    private ChoiceType type;
+    @JsonProperty("shortText")
+    private String shortText;
+
+    /**
+     * Label of choice
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("label")
+    private String label;
 
     @JsonCreator
     public Choice2(
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("text") @Nonnull String text,
-            @JsonProperty("type") @Nullable ChoiceType type) {
+            @JsonProperty("text") @Nullable String text,
+            @JsonProperty("shortText") @Nullable String shortText,
+            @JsonProperty("label") @Nullable String label) {
         this.id = id;
-        this.text = Optional.ofNullable(text).orElseThrow(() -> new IllegalArgumentException("text cannot be null"));
-        this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
+        this.text = text;
+        this.shortText = shortText;
+        this.label = label;
     }
 
-    public Choice2(@Nonnull String text) {
-        this(null, text, null);
+    public Choice2() {
+        this(null, null, null, null);
     }
 
     /**
-     * The ID of the question choice. If you supply the choice's existing ID in a PUT call, the choice
-     * keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call,
-     * this choice text will be replaced with the text supplied, and a new choice ID is created.
+     * Text field ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * The text for the question choice.
+     * text Value of the Field
      */
-    public String text() {
-        return this.text;
+    public Optional<String> text() {
+        return Optional.ofNullable(this.text);
     }
 
     /**
-     * The type for the event question choice.
+     * Reporting value of the Category, Its like a custom abbreviation
      */
-    public Optional<ChoiceType> type() {
-        return Optional.ofNullable(this.type);
+    public Optional<String> shortText() {
+        return Optional.ofNullable(this.shortText);
+    }
+
+    /**
+     * Label of choice
+     */
+    public Optional<String> label() {
+        return Optional.ofNullable(this.label);
     }
 
     public static Builder builder() {
@@ -86,9 +96,7 @@ public class Choice2 {
     }
 
     /**
-     * The ID of the question choice. If you supply the choice's existing ID in a PUT call, the choice
-     * keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call,
-     * this choice text will be replaced with the text supplied, and a new choice ID is created.
+     * Text field ID.
      */
     public Choice2 withId(@Nullable String id) {
         this.id = id;
@@ -96,18 +104,26 @@ public class Choice2 {
     }
 
     /**
-     * The text for the question choice.
+     * text Value of the Field
      */
-    public Choice2 withText(@Nonnull String text) {
-        this.text = Utils.checkNotNull(text, "text");
+    public Choice2 withText(@Nullable String text) {
+        this.text = text;
         return this;
     }
 
     /**
-     * The type for the event question choice.
+     * Reporting value of the Category, Its like a custom abbreviation
      */
-    public Choice2 withType(@Nullable ChoiceType type) {
-        this.type = type;
+    public Choice2 withShortText(@Nullable String shortText) {
+        this.shortText = shortText;
+        return this;
+    }
+
+    /**
+     * Label of choice
+     */
+    public Choice2 withLabel(@Nullable String label) {
+        this.label = label;
         return this;
     }
 
@@ -122,17 +138,18 @@ public class Choice2 {
         Choice2 other = (Choice2) o;
         return Utils.enhancedDeepEquals(this.id, other.id)
                 && Utils.enhancedDeepEquals(this.text, other.text)
-                && Utils.enhancedDeepEquals(this.type, other.type);
+                && Utils.enhancedDeepEquals(this.shortText, other.shortText)
+                && Utils.enhancedDeepEquals(this.label, other.label);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, text, type);
+        return Utils.enhancedHash(id, text, shortText, label);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(Choice2.class, "id", id, "text", text, "type", type);
+        return Utils.toString(Choice2.class, "id", id, "text", text, "shortText", shortText, "label", label);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -142,16 +159,16 @@ public class Choice2 {
 
         private String text;
 
-        private ChoiceType type;
+        private String shortText;
+
+        private String label;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The ID of the question choice. If you supply the choice's existing ID in a PUT call, the choice
-         * keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call,
-         * this choice text will be replaced with the text supplied, and a new choice ID is created.
+         * Text field ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -159,26 +176,31 @@ public class Choice2 {
         }
 
         /**
-         * The text for the question choice.
+         * text Value of the Field
          */
-        public Builder text(@Nonnull String text) {
-            this.text = Utils.checkNotNull(text, "text");
+        public Builder text(@Nullable String text) {
+            this.text = text;
             return this;
         }
 
         /**
-         * The type for the event question choice.
+         * Reporting value of the Category, Its like a custom abbreviation
          */
-        public Builder type(@Nullable ChoiceType type) {
-            this.type = type;
+        public Builder shortText(@Nullable String shortText) {
+            this.shortText = shortText;
+            return this;
+        }
+
+        /**
+         * Label of choice
+         */
+        public Builder label(@Nullable String label) {
+            this.label = label;
             return this;
         }
 
         public Choice2 build() {
-            return new Choice2(id, text, type);
+            return new Choice2(id, text, shortText, label);
         }
-
-        private static final LazySingletonValue<ChoiceType> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>("type", "\"StandardChoice\"", new TypeReference<ChoiceType>() {});
     }
 }

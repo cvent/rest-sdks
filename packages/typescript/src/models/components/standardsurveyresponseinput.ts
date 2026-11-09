@@ -4,20 +4,16 @@
 
 import * as z from "zod/v3";
 import {
-  AnswerJson,
-  AnswerJson$Outbound,
-  AnswerJson$outboundSchema,
-} from "./answerjson.js";
+  Answer11,
+  Answer11$Outbound,
+  Answer11$outboundSchema,
+} from "./answer11.js";
 import {
-  LoopingChoiceJson,
-  LoopingChoiceJson$Outbound,
-  LoopingChoiceJson$outboundSchema,
-} from "./loopingchoicejson.js";
-import {
-  UuidJson,
-  UuidJson$Outbound,
-  UuidJson$outboundSchema,
-} from "./uuidjson.js";
+  LoopingChoice,
+  LoopingChoice$Outbound,
+  LoopingChoice$outboundSchema,
+} from "./loopingchoice.js";
+import { Uuid, Uuid$Outbound, Uuid$outboundSchema } from "./uuid.js";
 
 /**
  * A standard survey response.
@@ -26,27 +22,27 @@ export type StandardSurveyResponseInput = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  question: UuidJson;
+  question: Uuid;
   /**
    * List of responded survey answers.
    */
-  answers: Array<AnswerJson>;
+  answers: Array<Answer11>;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  survey?: UuidJson | undefined;
+  survey?: Uuid | undefined;
   /**
    * Loop Choice is the choice for which the chapter is looped. Questions in the looping chapter get repeated once for each choice selected in the parent question
    */
-  loopingChoice?: LoopingChoiceJson | undefined;
+  loopingChoice?: LoopingChoice | undefined;
 };
 
 /** @internal */
 export type StandardSurveyResponseInput$Outbound = {
-  question: UuidJson$Outbound;
-  answers: Array<AnswerJson$Outbound>;
-  survey?: UuidJson$Outbound | undefined;
-  loopingChoice?: LoopingChoiceJson$Outbound | undefined;
+  question: Uuid$Outbound;
+  answers: Array<Answer11$Outbound>;
+  survey?: Uuid$Outbound | undefined;
+  loopingChoice?: LoopingChoice$Outbound | undefined;
 };
 
 /** @internal */
@@ -55,10 +51,10 @@ export const StandardSurveyResponseInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   StandardSurveyResponseInput
 > = z.object({
-  question: UuidJson$outboundSchema,
-  answers: z.array(AnswerJson$outboundSchema),
-  survey: UuidJson$outboundSchema.optional(),
-  loopingChoice: LoopingChoiceJson$outboundSchema.optional(),
+  question: Uuid$outboundSchema,
+  answers: z.array(Answer11$outboundSchema),
+  survey: Uuid$outboundSchema.optional(),
+  loopingChoice: LoopingChoice$outboundSchema.optional(),
 });
 
 export function standardSurveyResponseInputToJSON(

@@ -21,7 +21,7 @@ namespace Cvent.SDK.Models.Requests
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Exhibitor Category details.
+        /// Exhibitor category details.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public ExhibitorCategoryRequest ExhibitorCategoryRequest { get; set; } = default!;

@@ -36,7 +36,7 @@ import {
  * List Exhibitor Admins
  *
  * @remarks
- * Retrieves a paginated list of exhibitor admins for an exhibitor within an event.
+ * Retrieves a paginated list of the admins of an exhibitor.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

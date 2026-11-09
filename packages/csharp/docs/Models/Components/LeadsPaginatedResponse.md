@@ -1,6 +1,6 @@
 # LeadsPaginatedResponse
 
-A paginated response of leads.
+Paginated list of leads.
 
 
 ## Fields
@@ -8,4 +8,4 @@ A paginated response of leads.
 | Field                                                            | Type                                                             | Required                                                         | Description                                                      |
 | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
 | `Paging`                                                         | [Paging](../../Models/Components/Paging.md)                      | :heavy_minus_sign:                                               | Represents pagination information for a collection of resources. |
-| `Data`                                                           | List<[Lead](../../Models/Components/Lead.md)>                    | :heavy_minus_sign:                                               | Collection of leads.                                             |
+| `Data`                                                           | List<[Lead](../../Models/Components/Lead.md)>                    | :heavy_minus_sign:                                               | List of leads.                                                   |

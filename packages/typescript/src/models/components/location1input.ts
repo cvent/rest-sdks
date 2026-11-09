@@ -5,7 +5,7 @@
 import * as z from "zod/v3";
 
 /**
- * Used to denote a locations name and abbreviation.
+ * A location identified by its ID, code, and name.
  */
 export type Location1Input = {
   /**

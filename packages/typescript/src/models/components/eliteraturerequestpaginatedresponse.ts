@@ -13,7 +13,7 @@ import {
 import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
- * A paginated response for E-literature requests.
+ * Paginated list of e-literature requests.
  */
 export type EliteratureRequestPaginatedResponse = {
   /**
@@ -21,7 +21,7 @@ export type EliteratureRequestPaginatedResponse = {
    */
   paging?: Paging | undefined;
   /**
-   * Collection of E-literature request data.
+   * List of e-literature requests.
    */
   data?: Array<ExistingELiteratureRequestDataForLead> | undefined;
 };

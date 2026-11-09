@@ -8,15 +8,15 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * A JSON object representing an electronic device used to capture leads.
+ * Device that captured the lead.
  */
 export type Device = {
   /**
-   * The id of device used to capture lead
+   * ID of the device.
    */
   id?: string | undefined;
   /**
-   * The name of device used to capture lead
+   * Name of the device.
    */
   name?: string | undefined;
 };

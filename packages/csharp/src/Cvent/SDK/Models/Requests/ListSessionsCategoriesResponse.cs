@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved a paginated list of sessions categories.
+        /// Successfully retrieved a paginated list of session categories.
         /// </summary>
         public SessionCategoryPaginatedResponse? SessionCategoryPaginatedResponse { get; set; }
     }

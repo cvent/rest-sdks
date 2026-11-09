@@ -26,7 +26,7 @@ export type GetBadgesPostFiltersRequest = {
    */
   token?: string | undefined;
   /**
-   * See the filter query parameter of <a href="#operation/getBadge">Get Badges</a> for full filtering information
+   * Filter of the badge list. The syntax is the same as the `filter` query parameter of [List Badges](#operation/getBadge).
    */
   filter?: components.Filter | undefined;
 };

@@ -1,6 +1,6 @@
 # WeblinkListResponse
 
-A response object containing a list of weblinks associated with an exhibitor.
+List of the weblinks of an exhibitor.
 
 ## Example Usage
 
@@ -21,7 +21,7 @@ let value: WeblinkListResponse = {
         id: "4888db54-db22-11eb-8d19-0242ac130003",
       },
       name: "Marketing Page",
-      url: "http://www.example.com",
+      url: "https://www.example.com",
       order: 3,
       id: "4d44b9e4-8c1a-403d-a20a-0b981f539935",
     },

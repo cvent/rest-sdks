@@ -5,12 +5,12 @@
 ```csharp
 using Cvent.SDK.Models.Components;
 
-var value = Expand1.CreditType;
+var value = Expand1.Image;
 ```
 
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `CreditType` | creditType   |
+| Name    | Value   |
+| ------- | ------- |
+| `Image` | image   |

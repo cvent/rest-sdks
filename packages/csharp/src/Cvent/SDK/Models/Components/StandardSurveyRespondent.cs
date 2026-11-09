@@ -82,7 +82,7 @@ namespace Cvent.SDK.Models.Components
         /// - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is deprecated.
         /// </summary>
         [JsonProperty("respondedThrough")]
-        public RespondedThroughJson? RespondedThrough { get; set; }
+        public RespondedThrough? RespondedThrough { get; set; }
 
         /// <summary>
         /// Reference ids are used to track where response is coming from. Survey Author can create multiple weblinks with different values of referenceId query param in them.
@@ -130,7 +130,7 @@ namespace Cvent.SDK.Models.Components
         /// Respondent Status.
         /// </summary>
         [JsonProperty("status")]
-        public RespondentStatusJson? Status { get; set; }
+        public RespondentStatus? Status { get; set; }
 
         /// <summary>
         /// Whether or not the respondent has unsubscribed from Survey.
@@ -148,13 +148,13 @@ namespace Cvent.SDK.Models.Components
         /// Invitation list of respondents.
         /// </summary>
         [JsonProperty("invitationList")]
-        public InvitationListCommonJson? InvitationList { get; set; }
+        public InvitationListCommon? InvitationList { get; set; }
 
         /// <summary>
         /// List of respondent chapters.
         /// </summary>
         [JsonProperty("chapters")]
-        public List<RespondentChapterReferenceJson>? Chapters { get; set; }
+        public List<RespondentChapterReference>? Chapters { get; set; }
 
         /// <summary>
         /// Authors use transaction IDs to collect feedback after a customer transaction: invoice numbers or order IDs are common transaction IDs. Respondents can take a survey by entering their transaction ID, and each transaction ID uniquely identifies a response for that transaction.

@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// An object that holds the id for a category.
+    /// A reference to a category by its ID.
     /// </summary>
     public class CategoryId
     {

@@ -17,36 +17,36 @@ import java.util.Optional;
 /**
  * ExhibitorCategoryRequest
  *
- * <p>JSON schema representing an Exhibitor Category object
+ * <p>Exhibitor category of an event.
  */
 public class ExhibitorCategoryRequest {
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * Name of the exhibitor category
+     * Name of the exhibitor category.
      */
     @JsonProperty("name")
     private String name;
 
     /**
-     * Exhibitor Category description
+     * Description of the exhibitor category.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("description")
     private String description;
 
     /**
-     * order for exhibitor category
+     * Display order of the exhibitor category.
      */
     @JsonProperty("order")
     private long order;
 
     /**
-     * Type of exhibitor category
+     * Type of the exhibitor category.
      */
     @JsonProperty("type")
     private ExhibitorCategoryRequestType type;
@@ -71,35 +71,35 @@ public class ExhibitorCategoryRequest {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Event4 event() {
         return this.event;
     }
 
     /**
-     * Name of the exhibitor category
+     * Name of the exhibitor category.
      */
     public String name() {
         return this.name;
     }
 
     /**
-     * Exhibitor Category description
+     * Description of the exhibitor category.
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
 
     /**
-     * order for exhibitor category
+     * Display order of the exhibitor category.
      */
     public long order() {
         return this.order;
     }
 
     /**
-     * Type of exhibitor category
+     * Type of the exhibitor category.
      */
     public ExhibitorCategoryRequestType type() {
         return this.type;
@@ -110,7 +110,7 @@ public class ExhibitorCategoryRequest {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public ExhibitorCategoryRequest withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -118,7 +118,7 @@ public class ExhibitorCategoryRequest {
     }
 
     /**
-     * Name of the exhibitor category
+     * Name of the exhibitor category.
      */
     public ExhibitorCategoryRequest withName(@Nonnull String name) {
         this.name = Utils.checkNotNull(name, "name");
@@ -126,7 +126,7 @@ public class ExhibitorCategoryRequest {
     }
 
     /**
-     * Exhibitor Category description
+     * Description of the exhibitor category.
      */
     public ExhibitorCategoryRequest withDescription(@Nullable String description) {
         this.description = description;
@@ -134,7 +134,7 @@ public class ExhibitorCategoryRequest {
     }
 
     /**
-     * order for exhibitor category
+     * Display order of the exhibitor category.
      */
     public ExhibitorCategoryRequest withOrder(long order) {
         this.order = order;
@@ -142,7 +142,7 @@ public class ExhibitorCategoryRequest {
     }
 
     /**
-     * Type of exhibitor category
+     * Type of the exhibitor category.
      */
     public ExhibitorCategoryRequest withType(@Nonnull ExhibitorCategoryRequestType type) {
         this.type = Utils.checkNotNull(type, "type");
@@ -204,7 +204,7 @@ public class ExhibitorCategoryRequest {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -212,7 +212,7 @@ public class ExhibitorCategoryRequest {
         }
 
         /**
-         * Name of the exhibitor category
+         * Name of the exhibitor category.
          */
         public Builder name(@Nonnull String name) {
             this.name = Utils.checkNotNull(name, "name");
@@ -220,7 +220,7 @@ public class ExhibitorCategoryRequest {
         }
 
         /**
-         * Exhibitor Category description
+         * Description of the exhibitor category.
          */
         public Builder description(@Nullable String description) {
             this.description = description;
@@ -228,7 +228,7 @@ public class ExhibitorCategoryRequest {
         }
 
         /**
-         * order for exhibitor category
+         * Display order of the exhibitor category.
          */
         public Builder order(long order) {
             this.order = order;
@@ -236,7 +236,7 @@ public class ExhibitorCategoryRequest {
         }
 
         /**
-         * Type of exhibitor category
+         * Type of the exhibitor category.
          */
         public Builder type(@Nonnull ExhibitorCategoryRequestType type) {
             this.type = Utils.checkNotNull(type, "type");

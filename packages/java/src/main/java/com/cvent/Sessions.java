@@ -200,7 +200,7 @@ public class Sessions {
     /**
      * Add Session Location
      *
-     * <p>Add a session location to the specified event.
+     * <p>Adds a session location to the specified event based on the details provided in the request body.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -213,7 +213,7 @@ public class Sessions {
     /**
      * Add Session Location
      *
-     * <p>Add a session location to the specified event.
+     * <p>Adds a session location to the specified event based on the details provided in the request body.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -228,7 +228,7 @@ public class Sessions {
     /**
      * Add Session Location
      *
-     * <p>Add a session location to the specified event.
+     * <p>Adds a session location to the specified event based on the details provided in the request body.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -377,8 +377,8 @@ public class Sessions {
      * List Program Items
      *
      * <p>Gets a paginated list of session program items by sending a filter in the body of the request. This
-     * method will return the same data as <a href="#operation/listProgramItems">GET List Program Items</a>
-     * but allows for longer filters.
+     * method will return the same data as [GET List Program Items](#operation/listProgramItems) but allows
+     * for longer filters.
      *
      * @return The call builder
      */
@@ -390,8 +390,8 @@ public class Sessions {
      * List Program Items
      *
      * <p>Gets a paginated list of session program items by sending a filter in the body of the request. This
-     * method will return the same data as <a href="#operation/listProgramItems">GET List Program Items</a>
-     * but allows for longer filters.
+     * method will return the same data as [GET List Program Items](#operation/listProgramItems) but allows
+     * for longer filters.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -406,8 +406,8 @@ public class Sessions {
      * List Program Items
      *
      * <p>Gets a paginated list of session program items by sending a filter in the body of the request. This
-     * method will return the same data as <a href="#operation/listProgramItems">GET List Program Items</a>
-     * but allows for longer filters.
+     * method will return the same data as [GET List Program Items](#operation/listProgramItems) but allows
+     * for longer filters.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -506,9 +506,8 @@ public class Sessions {
     /**
      * Get Program Item Documents
      *
-     * <p>Returns a list of session documents for the specified program item ID.
-     * **Note:** This endpoint is deprecated. use <a href="#operation/filterProgramItemDocuments">Filter
-     * Program Item Documents</a>
+     * <p>DEPRECATED: Use [Filter Program Item Documents](#tag/Sessions/operation/filterProgramItemDocuments)
+     * instead. Returns a list of session documents for the specified program item ID.
      *
      * @return The call builder
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -521,9 +520,8 @@ public class Sessions {
     /**
      * Get Program Item Documents
      *
-     * <p>Returns a list of session documents for the specified program item ID.
-     * **Note:** This endpoint is deprecated. use <a href="#operation/filterProgramItemDocuments">Filter
-     * Program Item Documents</a>
+     * <p>DEPRECATED: Use [Filter Program Item Documents](#tag/Sessions/operation/filterProgramItemDocuments)
+     * instead. Returns a list of session documents for the specified program item ID.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -538,9 +536,8 @@ public class Sessions {
     /**
      * Get Program Item Documents
      *
-     * <p>Returns a list of session documents for the specified program item ID.
-     * **Note:** This endpoint is deprecated. use <a href="#operation/filterProgramItemDocuments">Filter
-     * Program Item Documents</a>
+     * <p>DEPRECATED: Use [Filter Program Item Documents](#tag/Sessions/operation/filterProgramItemDocuments)
+     * instead. Returns a list of session documents for the specified program item ID.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -733,9 +730,9 @@ public class Sessions {
     }
 
     /**
-     * Create Session Categories
+     * Create Session Category
      *
-     * <p>Create a session category.
+     * <p>Creates a session category based on the details provided in the request body.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -746,9 +743,9 @@ public class Sessions {
     }
 
     /**
-     * Create Session Categories
+     * Create Session Category
      *
-     * <p>Create a session category.
+     * <p>Creates a session category based on the details provided in the request body.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -761,9 +758,9 @@ public class Sessions {
     }
 
     /**
-     * Create Session Categories
+     * Create Session Category
      *
-     * <p>Create a session category.
+     * <p>Creates a session category based on the details provided in the request body.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -922,7 +919,7 @@ public class Sessions {
      * List Sessions
      *
      * <p>Gets a paginated list of sessions by sending a filter in the request's body. This method returns the
-     * same data as <a href="#operation/listSessions">GET List Sessions</a> but allows longer filters.
+     * same data as [GET List Sessions](#operation/listSessions) but allows longer filters.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -936,7 +933,7 @@ public class Sessions {
      * List Sessions
      *
      * <p>Gets a paginated list of sessions by sending a filter in the request's body. This method returns the
-     * same data as <a href="#operation/listSessions">GET List Sessions</a> but allows longer filters.
+     * same data as [GET List Sessions](#operation/listSessions) but allows longer filters.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -952,7 +949,7 @@ public class Sessions {
      * List Sessions
      *
      * <p>Gets a paginated list of sessions by sending a filter in the request's body. This method returns the
-     * same data as <a href="#operation/listSessions">GET List Sessions</a> but allows longer filters.
+     * same data as [GET List Sessions](#operation/listSessions) but allows longer filters.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1250,7 +1247,7 @@ public class Sessions {
      * Add Document To Session
      *
      * <p>Associates a given document to a session. Documents must be
-     * <a href="#operation/uploadFile">uploaded</a> before you can associate
+     * [uploaded](#operation/uploadFile) before you can associate
      * them.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
@@ -1265,7 +1262,7 @@ public class Sessions {
      * Add Document To Session
      *
      * <p>Associates a given document to a session. Documents must be
-     * <a href="#operation/uploadFile">uploaded</a> before you can associate
+     * [uploaded](#operation/uploadFile) before you can associate
      * them.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
@@ -1282,7 +1279,7 @@ public class Sessions {
      * Add Document To Session
      *
      * <p>Associates a given document to a session. Documents must be
-     * <a href="#operation/uploadFile">uploaded</a> before you can associate
+     * [uploaded](#operation/uploadFile) before you can associate
      * them.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
@@ -1301,8 +1298,8 @@ public class Sessions {
     /**
      * Delete Document from Session
      *
-     * <p>Disassociates a given document from a session. Document IDs are provided after <a
-     * href="#operation/uploadFile">file upload</a>.
+     * <p>Disassociates a given document from a session. Document IDs are provided after [file
+     * upload](#operation/uploadFile).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1315,8 +1312,8 @@ public class Sessions {
     /**
      * Delete Document from Session
      *
-     * <p>Disassociates a given document from a session. Document IDs are provided after <a
-     * href="#operation/uploadFile">file upload</a>.
+     * <p>Disassociates a given document from a session. Document IDs are provided after [file
+     * upload](#operation/uploadFile).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1331,8 +1328,8 @@ public class Sessions {
     /**
      * Delete Document from Session
      *
-     * <p>Disassociates a given document from a session. Document IDs are provided after <a
-     * href="#operation/uploadFile">file upload</a>.
+     * <p>Disassociates a given document from a session. Document IDs are provided after [file
+     * upload](#operation/uploadFile).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *

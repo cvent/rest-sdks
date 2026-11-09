@@ -533,9 +533,11 @@ public class CventSDK {
     private final VenueProfiles venueProfiles;
 
     /**
-     * Manage inbound leads submitted to venues through Cvent's sourcing channels.
+     * A lead catcher is a venue contact who can receive an email notification when an RFP (Request for
+     * Proposal) is submitted to the venue. The operations create, update, and delete lead catchers, and
+     * return the name of each lead catcher.
      */
-    private final VenueLeads venueLeads;
+    private final VenueLeadCatchers venueLeadCatchers;
 
     /**
      * Manage meeting rooms for a venue, including creating and updating room details, configuring
@@ -1173,10 +1175,12 @@ public class CventSDK {
     }
 
     /**
-     * Manage inbound leads submitted to venues through Cvent's sourcing channels.
+     * A lead catcher is a venue contact who can receive an email notification when an RFP (Request for
+     * Proposal) is submitted to the venue. The operations create, update, and delete lead catchers, and
+     * return the name of each lead catcher.
      */
-    public VenueLeads venueLeads() {
-        return venueLeads;
+    public VenueLeadCatchers venueLeadCatchers() {
+        return venueLeadCatchers;
     }
 
     /**
@@ -1410,7 +1414,7 @@ public class CventSDK {
         this.venueContent = new VenueContent(sdkConfiguration);
         this.venueAvailability = new VenueAvailability(sdkConfiguration);
         this.venueProfiles = new VenueProfiles(sdkConfiguration);
-        this.venueLeads = new VenueLeads(sdkConfiguration);
+        this.venueLeadCatchers = new VenueLeadCatchers(sdkConfiguration);
         this.venueMeetingRooms = new VenueMeetingRooms(sdkConfiguration);
         this.video = new Video(sdkConfiguration);
         this.webcasts = new Webcasts(sdkConfiguration);

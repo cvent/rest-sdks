@@ -27,7 +27,7 @@ namespace Cvent.SDK.Models.Requests
         public string ExhibitorId { get; set; } = default!;
 
         /// <summary>
-        /// Exhibitor answers to be updated.
+        /// Exhibitor answers to update.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public ExhibitorAnswersRequest ExhibitorAnswersRequest { get; set; } = default!;

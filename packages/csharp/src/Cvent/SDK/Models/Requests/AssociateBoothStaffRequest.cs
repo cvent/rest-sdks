@@ -27,7 +27,7 @@ namespace Cvent.SDK.Models.Requests
         public string ExhibitorId { get; set; } = default!;
 
         /// <summary>
-        /// Booth Staff details.
+        /// Booth staff details.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public BoothStaffRequest BoothStaffRequest { get; set; } = default!;

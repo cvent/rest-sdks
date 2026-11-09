@@ -1,6 +1,6 @@
 # ExhibitorIdListResponse
 
-Exhibitor Id Paginated Response schema
+Paginated list of exhibitor IDs.
 
 
 ## Fields
@@ -8,4 +8,4 @@ Exhibitor Id Paginated Response schema
 | Field                                                            | Type                                                             | Required                                                         | Description                                                      |
 | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
 | `paging`                                                         | [Optional\<Paging>](../../models/components/Paging.md)           | :heavy_minus_sign:                                               | Represents pagination information for a collection of resources. |
-| `data`                                                           | List\<[ExhibitorId](../../models/components/ExhibitorId.md)>     | :heavy_minus_sign:                                               | Paginated list of exhibitor Ids for an exhibitor category.       |
+| `data`                                                           | List\<[ExhibitorId](../../models/components/ExhibitorId.md)>     | :heavy_minus_sign:                                               | Paginated list of the exhibitor IDs of an exhibitor category.    |

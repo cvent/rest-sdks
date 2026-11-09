@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Represents an array of session document IDs associated with the given program item ID.
+    /// A collection of relationships between session documents and the specified program item.
     /// </summary>
     public class ProgramItemSessionDocuments
     {

@@ -33,7 +33,7 @@ public class ListSessionsCategoriesResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully retrieved a paginated list of sessions categories.
+     * Successfully retrieved a paginated list of session categories.
      */
     private SessionCategoryPaginatedResponse sessionCategoryPaginatedResponse;
 
@@ -78,7 +78,7 @@ public class ListSessionsCategoriesResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully retrieved a paginated list of sessions categories.
+     * Successfully retrieved a paginated list of session categories.
      */
     public Optional<SessionCategoryPaginatedResponse> sessionCategoryPaginatedResponse() {
         return Optional.ofNullable(this.sessionCategoryPaginatedResponse);
@@ -113,7 +113,7 @@ public class ListSessionsCategoriesResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully retrieved a paginated list of sessions categories.
+     * Successfully retrieved a paginated list of session categories.
      */
     public ListSessionsCategoriesResponse withSessionCategoryPaginatedResponse(
             @Nullable SessionCategoryPaginatedResponse sessionCategoryPaginatedResponse) {
@@ -195,7 +195,7 @@ public class ListSessionsCategoriesResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully retrieved a paginated list of sessions categories.
+         * Successfully retrieved a paginated list of session categories.
          */
         public Builder sessionCategoryPaginatedResponse(
                 @Nullable SessionCategoryPaginatedResponse sessionCategoryPaginatedResponse) {

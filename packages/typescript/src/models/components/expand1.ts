@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 export const Expand1 = {
-  CreditType: "creditType",
+  Image: "image",
 } as const;
 export type Expand1 = ClosedEnum<typeof Expand1>;
 

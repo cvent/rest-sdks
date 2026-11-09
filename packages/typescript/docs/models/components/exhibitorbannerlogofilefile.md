@@ -1,6 +1,6 @@
 # ExhibitorBannerLogoFileFile
 
-File object containing UUID
+File of the image, with the file ID.
 
 ## Example Usage
 

@@ -9,31 +9,36 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
-    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
 
     /// <summary>
-    /// This is used to denote the choice of questions in an event.
+    /// A survey choice.
     /// </summary>
     public class Choice2
     {
         /// <summary>
-        /// The ID of the question choice. If you supply the choice's existing ID in a PUT call, the choice keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call, this choice text will be replaced with the text supplied, and a new choice ID is created.
+        /// Text field ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The text for the question choice.
+        /// text Value of the Field.
         /// </summary>
         [JsonProperty("text")]
-        public string Text { get; set; } = default!;
+        public string? Text { get; set; }
 
         /// <summary>
-        /// The type for the event question choice.
+        /// Reporting value of the Category, Its like a custom abbreviation.
         /// </summary>
-        [JsonProperty("type")]
-        public ChoiceType? Type { get; set; } = Cvent.SDK.Models.Components.ChoiceType.StandardChoice;
+        [JsonProperty("shortText")]
+        public string? ShortText { get; set; }
+
+        /// <summary>
+        /// Label of choice.
+        /// </summary>
+        [JsonProperty("label")]
+        public string? Label { get; set; }
     }
 }

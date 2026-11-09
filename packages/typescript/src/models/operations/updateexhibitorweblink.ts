@@ -19,7 +19,7 @@ export type UpdateExhibitorWeblinkRequest = {
    */
   weblinkId: string;
   /**
-   * Exhibitor content to be updated.
+   * Exhibitor content weblink details.
    */
   weblink: components.Weblink;
 };

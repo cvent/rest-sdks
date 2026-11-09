@@ -18,7 +18,7 @@ namespace Cvent.SDK.Models.Components
     public class AttendeeSubscriptionResponseAttendee
     {
         /// <summary>
-        /// The unique identifier of the attendee.
+        /// Attendee ID.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

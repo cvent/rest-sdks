@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Update Badge
  *
  * @remarks
- * Update a badge for an attendee associated with an event.
+ * Updates a badge of an attendee of an event.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

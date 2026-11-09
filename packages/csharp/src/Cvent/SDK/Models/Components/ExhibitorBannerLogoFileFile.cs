@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// File object containing UUID.
+    /// File of the image, with the file ID.
     /// </summary>
     public class ExhibitorBannerLogoFileFile
     {

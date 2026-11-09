@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * BadgePaginatedResponse
  *
- * <p>Badge List response including paging and badge data.
+ * <p>Paginated list of badges.
  */
 public class BadgePaginatedResponse {
     /**

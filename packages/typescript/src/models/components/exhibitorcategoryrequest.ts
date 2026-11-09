@@ -7,41 +7,41 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Event4, Event4$Outbound, Event4$outboundSchema } from "./event4.js";
 
 /**
- * Type of exhibitor category
+ * Type of the exhibitor category.
  */
 export const ExhibitorCategoryRequestType = {
   Banner: "BANNER",
   Logo: "LOGO",
 } as const;
 /**
- * Type of exhibitor category
+ * Type of the exhibitor category.
  */
 export type ExhibitorCategoryRequestType = ClosedEnum<
   typeof ExhibitorCategoryRequestType
 >;
 
 /**
- * JSON schema representing an Exhibitor Category object
+ * Exhibitor category of an event.
  */
 export type ExhibitorCategoryRequest = {
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * Name of the exhibitor category
+   * Name of the exhibitor category.
    */
   name: string;
   /**
-   * Exhibitor Category description
+   * Description of the exhibitor category.
    */
   description?: string | undefined;
   /**
-   * order for exhibitor category
+   * Display order of the exhibitor category.
    */
   order: number;
   /**
-   * Type of exhibitor category
+   * Type of the exhibitor category.
    */
   type: ExhibitorCategoryRequestType;
 };

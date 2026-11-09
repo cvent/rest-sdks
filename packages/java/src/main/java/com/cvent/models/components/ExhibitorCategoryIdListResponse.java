@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * ExhibitorCategoryIdListResponse
  *
- * <p>A paginated response containing a list of exhibitor category Ids.
+ * <p>Paginated list of exhibitor category IDs.
  */
 public class ExhibitorCategoryIdListResponse {
     /**
@@ -28,7 +28,7 @@ public class ExhibitorCategoryIdListResponse {
     private Paging paging;
 
     /**
-     * Paginated list of exhibitor category Ids for an exhibitor.
+     * Paginated list of the exhibitor category IDs of an exhibitor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
@@ -54,7 +54,7 @@ public class ExhibitorCategoryIdListResponse {
     }
 
     /**
-     * Paginated list of exhibitor category Ids for an exhibitor.
+     * Paginated list of the exhibitor category IDs of an exhibitor.
      */
     public Optional<List<ExhibitorCategoryId>> data() {
         return Optional.ofNullable(this.data);
@@ -73,7 +73,7 @@ public class ExhibitorCategoryIdListResponse {
     }
 
     /**
-     * Paginated list of exhibitor category Ids for an exhibitor.
+     * Paginated list of the exhibitor category IDs of an exhibitor.
      */
     public ExhibitorCategoryIdListResponse withData(@Nullable List<ExhibitorCategoryId> data) {
         this.data = data;
@@ -122,7 +122,7 @@ public class ExhibitorCategoryIdListResponse {
         }
 
         /**
-         * Paginated list of exhibitor category Ids for an exhibitor.
+         * Paginated list of the exhibitor category IDs of an exhibitor.
          */
         public Builder data(@Nullable List<ExhibitorCategoryId> data) {
             this.data = data;

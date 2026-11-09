@@ -32,7 +32,7 @@ public class CreateExhibitorCategoryResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully Created the exhibitor category.
+     * Successfully created the exhibitor category.
      */
     private ExhibitorCategoryResponse exhibitorCategoryResponse;
 
@@ -77,7 +77,7 @@ public class CreateExhibitorCategoryResponse implements Response {
     }
 
     /**
-     * Successfully Created the exhibitor category.
+     * Successfully created the exhibitor category.
      */
     public Optional<ExhibitorCategoryResponse> exhibitorCategoryResponse() {
         return Optional.ofNullable(this.exhibitorCategoryResponse);
@@ -112,7 +112,7 @@ public class CreateExhibitorCategoryResponse implements Response {
     }
 
     /**
-     * Successfully Created the exhibitor category.
+     * Successfully created the exhibitor category.
      */
     public CreateExhibitorCategoryResponse withExhibitorCategoryResponse(
             @Nullable ExhibitorCategoryResponse exhibitorCategoryResponse) {
@@ -194,7 +194,7 @@ public class CreateExhibitorCategoryResponse implements Response {
         }
 
         /**
-         * Successfully Created the exhibitor category.
+         * Successfully created the exhibitor category.
          */
         public Builder exhibitorCategoryResponse(@Nullable ExhibitorCategoryResponse exhibitorCategoryResponse) {
             this.exhibitorCategoryResponse = exhibitorCategoryResponse;

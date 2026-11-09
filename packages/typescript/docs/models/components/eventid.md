@@ -1,6 +1,6 @@
 # EventId
 
-The related event object.
+A reference to an event by its ID.
 
 ## Example Usage
 
@@ -16,4 +16,4 @@ let value: EventId = {
 
 | Field                                | Type                                 | Required                             | Description                          | Example                              |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *string*                             | :heavy_minus_sign:                   | The unique identifier for an event   | 78842378-5d83-11ee-8c99-0242ac120002 |
+| `id`                                 | *string*                             | :heavy_minus_sign:                   | The unique ID of an event.           | 78842378-5d83-11ee-8c99-0242ac120002 |

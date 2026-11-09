@@ -34,7 +34,7 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// See the filter query parameter of <a href="#operation/getBadge">Get Badges</a> for full filtering information.
+        /// Filter of the badge list. The syntax is the same as the `filter` query parameter of <a href="#operation/getBadge">List Badges</a>.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Filter? Filter { get; set; }

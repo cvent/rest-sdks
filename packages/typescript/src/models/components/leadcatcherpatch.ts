@@ -1154,7 +1154,7 @@ export type LeadCatcherConfigPatch = {
    */
   pdfLinkEnabled?: boolean | null | undefined;
   /**
-   * Name of the supplier contact role assigned to this contact.
+   * Name of the supplier contact role assigned to this contact. Must match an active supplier contact role configured for the account; any other value returns `400`. Supplier contact roles are managed in Cvent and are not available through this API. Send `null` or an empty string to remove the role, or omit the field to keep the current one. The contact's current role is accepted even if it has since been made inactive.
    */
   supplierContactRole?: string | null | undefined;
 };
@@ -1176,7 +1176,7 @@ export type LeadCatcherPatch = {
    */
   title?: string | null | undefined;
   /**
-   * Email address of the lead catcher contact. RFP notifications are sent to this address.
+   * Email address of the lead catcher contact. RFP notifications are sent to this address. Maximum 80 characters in total, with no more than 64 characters before the `@`.
    */
   email?: string | null | undefined;
   /**

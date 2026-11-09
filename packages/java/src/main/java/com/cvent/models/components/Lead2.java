@@ -14,11 +14,11 @@ import java.util.Optional;
 /**
  * Lead2
  *
- * <p>JSON schema for the Lead object
+ * <p>Associated lead.
  */
 public class Lead2 {
     /**
-     * Lead id
+     * Lead ID.
      */
     @JsonProperty("id")
     private String id;
@@ -29,7 +29,7 @@ public class Lead2 {
     }
 
     /**
-     * Lead id
+     * Lead ID.
      */
     public String id() {
         return this.id;
@@ -40,7 +40,7 @@ public class Lead2 {
     }
 
     /**
-     * Lead id
+     * Lead ID.
      */
     public Lead2 withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -79,7 +79,7 @@ public class Lead2 {
         }
 
         /**
-         * Lead id
+         * Lead ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

@@ -8,19 +8,19 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * A schema representing a choice object
+ * Choice of a lead qualification question.
  */
 export type Choice1 = {
   /**
-   * Unique identifier for the choice
+   * Choice ID.
    */
   id?: string | undefined;
   /**
-   * Text value of the field
+   * Text of the choice.
    */
   text?: string | undefined;
   /**
-   * Label of choice
+   * Label of the choice.
    */
   label?: string | undefined;
 };

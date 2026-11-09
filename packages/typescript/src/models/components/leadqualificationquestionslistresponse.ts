@@ -12,11 +12,11 @@ import {
 } from "./leadqualificationquestion.js";
 
 /**
- * A response containing a list of lead qualification questions.
+ * List of lead qualification questions.
  */
 export type LeadQualificationQuestionsListResponse = {
   /**
-   * Collection of lead qualification questions.
+   * List of lead qualification questions.
    */
   data?: Array<LeadQualificationQuestion> | undefined;
 };

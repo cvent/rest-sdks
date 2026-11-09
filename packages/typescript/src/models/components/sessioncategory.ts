@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * This is used to denote the category of a session.
+ * A session category with a name and an optional description.
  */
 export type SessionCategory = {
   /**
-   * A string that represents a specified session category.
+   * The ID of the session category.
    */
   id?: string | undefined;
   /**

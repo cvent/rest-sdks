@@ -25,13 +25,13 @@ namespace Cvent.SDK.Models.Components
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// The related event object.
+        /// A reference to an event by its ID.
         /// </summary>
         [JsonProperty("event")]
         public EventId Event { get; set; } = default!;
 
         /// <summary>
-        /// The related session object.
+        /// A reference to a session by its ID.
         /// </summary>
         [JsonProperty("session")]
         public Session1 Session { get; set; } = default!;
@@ -55,7 +55,7 @@ namespace Cvent.SDK.Models.Components
         public string? Description { get; set; }
 
         /// <summary>
-        /// Rich-text-editor description in json formatting.
+        /// The program item's rich-text description, formatted as JSON.
         /// </summary>
         [JsonProperty("rteDescription")]
         public string? RteDescription { get; set; }

@@ -15,12 +15,12 @@
 * [UpdateExhibitorAdmin](#updateexhibitoradmin) - Update Exhibitor Admin
 * [ListBoothStaff](#listboothstaff) - List Booth Staff
 * [AssociateBoothStaff](#associateboothstaff) - Create Booth Staff
-* [GetBoothStaff](#getboothstaff) - Get Booth Staff member
-* [DeleteBoothStaff](#deleteboothstaff) - Delete Booth Staff member
+* [GetBoothStaff](#getboothstaff) - Get Booth Staff Member
+* [DeleteBoothStaff](#deleteboothstaff) - Delete Booth Staff Member
 
 ## ListExhibitorAdmins
 
-Retrieves a paginated list of exhibitor admins for an exhibitor within an event.
+Retrieves a paginated list of the admins of an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -77,7 +77,7 @@ while(res != null)
 
 ## PostExhibitorAdmin
 
-Creates an exhibitor admin for the given exhibitor.
+Creates an admin for an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -136,7 +136,7 @@ var res = await sdk.ExhibitorTeam.PostExhibitorAdminAsync(req);
 
 ## GetExhibitorAdmin
 
-Gets the details of a single exhibitor admin, such as name or contact email.
+Retrieves the details of an exhibitor admin, such as the name and the email address.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -188,7 +188,7 @@ var res = await sdk.ExhibitorTeam.GetExhibitorAdminAsync(req);
 
 ## UpdateExhibitorAdmin
 
-Updates a single exhibitor admin.
+Updates an exhibitor admin.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -248,7 +248,7 @@ var res = await sdk.ExhibitorTeam.UpdateExhibitorAdminAsync(req);
 
 ## ListBoothStaff
 
-Gets a list of booth staff members for a given event and exhibitor id.
+Retrieves a list of the booth staff members of an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -305,7 +305,7 @@ while(res != null)
 
 ## AssociateBoothStaff
 
-Associates a registered attendee as a booth staff to a specific exhibitor id within an event.
+Associates a registered attendee with an exhibitor as a booth staff member.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -367,7 +367,7 @@ var res = await sdk.ExhibitorTeam.AssociateBoothStaffAsync(req);
 
 ## GetBoothStaff
 
-Retrieves the attendee id associated with an exhibitor booth staff member.
+Retrieves the attendee ID of a booth staff member of an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -419,7 +419,7 @@ var res = await sdk.ExhibitorTeam.GetBoothStaffAsync(req);
 
 ## DeleteBoothStaff
 
-Disassociate a single booth staff member from a single exhibitor.
+Disassociates a booth staff member from an exhibitor.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>

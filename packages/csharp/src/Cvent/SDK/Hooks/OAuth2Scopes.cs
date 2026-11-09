@@ -551,6 +551,11 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("event/role-assignments:read")] EventRoleAssignmentsRead,
 
         /// <summary>
+        /// Allows the creation and deletion of event role assignments.
+        /// </summary>
+        [JsonProperty("event/role-assignments:write")] EventRoleAssignmentsWrite,
+
+        /// <summary>
         /// Allows the reading of sessions attendance.
         /// </summary>
         [JsonProperty("event/session-attendance:read")] EventSessionAttendanceRead,
@@ -1801,6 +1806,11 @@ namespace Cvent.SDK.Hooks
         /// Allows the reading of event role assignment.
         /// </summary>
         [JsonProperty("event/role-assignments:read")] EventRoleAssignmentsRead,
+
+        /// <summary>
+        /// Allows the creation and deletion of event role assignments.
+        /// </summary>
+        [JsonProperty("event/role-assignments:write")] EventRoleAssignmentsWrite,
 
         /// <summary>
         /// Allows the reading of sessions attendance.

@@ -36,7 +36,7 @@ import {
  * List Account Users
  *
  * @remarks
- * Gets a list of all users associated with your account.
+ * Gets a paginated list of account users associated with your account.
  */
 export function usersListAccountUsers(
   client: CventSDKCore,

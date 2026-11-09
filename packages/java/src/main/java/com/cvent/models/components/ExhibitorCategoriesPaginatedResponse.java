@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * ExhibitorCategoriesPaginatedResponse
  *
- * <p>The response object containing the paginated list of exhibitor categories.
+ * <p>Paginated list of exhibitor categories.
  */
 public class ExhibitorCategoriesPaginatedResponse {
     /**

@@ -53,7 +53,7 @@ let value: GetLeadsPostFiltersDataResponse = {
         title: "Mr.",
         firstName: "Henry",
         lastName: "Potterfield",
-        email: "h.potterfield@test.com",
+        email: "h.potterfield@example.com",
         company: "Cvent Inc",
         mobilePhone: "555-555-5555",
         homeAddress: {

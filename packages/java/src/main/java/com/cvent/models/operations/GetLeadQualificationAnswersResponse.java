@@ -32,7 +32,7 @@ public class GetLeadQualificationAnswersResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully retrieved a list of Lead Qualification Answers.
+     * Successfully retrieved a list of lead qualification answers.
      */
     private LeadQualificationAnswersListResponse leadQualificationAnswersListResponse;
 
@@ -77,7 +77,7 @@ public class GetLeadQualificationAnswersResponse implements Response {
     }
 
     /**
-     * Successfully retrieved a list of Lead Qualification Answers.
+     * Successfully retrieved a list of lead qualification answers.
      */
     public Optional<LeadQualificationAnswersListResponse> leadQualificationAnswersListResponse() {
         return Optional.ofNullable(this.leadQualificationAnswersListResponse);
@@ -112,7 +112,7 @@ public class GetLeadQualificationAnswersResponse implements Response {
     }
 
     /**
-     * Successfully retrieved a list of Lead Qualification Answers.
+     * Successfully retrieved a list of lead qualification answers.
      */
     public GetLeadQualificationAnswersResponse withLeadQualificationAnswersListResponse(
             @Nullable LeadQualificationAnswersListResponse leadQualificationAnswersListResponse) {
@@ -194,7 +194,7 @@ public class GetLeadQualificationAnswersResponse implements Response {
         }
 
         /**
-         * Successfully retrieved a list of Lead Qualification Answers.
+         * Successfully retrieved a list of lead qualification answers.
          */
         public Builder leadQualificationAnswersListResponse(
                 @Nullable LeadQualificationAnswersListResponse leadQualificationAnswersListResponse) {

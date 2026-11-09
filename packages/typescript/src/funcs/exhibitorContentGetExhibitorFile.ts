@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Get Exhibitor File
  *
  * @remarks
- * Get a single file for an exhibitor.
+ * Retrieves a file of an exhibitor.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

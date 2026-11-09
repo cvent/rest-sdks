@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Components
     public class QuantityItem1
     {
         /// <summary>
-        /// The unique ID representing the optional item.
+        /// Optional item ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -49,7 +49,7 @@ namespace Cvent.SDK.Models.Components
         public OptionalItemType? Type { get; set; }
 
         /// <summary>
-        /// Denotes the count of quantity item selected by an attendee during event registration.
+        /// The number of this item selected by the attendee during event registration.
         /// </summary>
         [JsonProperty("quantity")]
         public long? Quantity { get; set; }

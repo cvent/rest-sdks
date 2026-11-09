@@ -78,14 +78,12 @@ public class Rfp2 {
     /**
      * Date requirements for the event.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("dateRequirements")
     private DateRequirements1 dateRequirements;
 
     /**
      * RFP event details.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rfpEvent")
     private RfpEvent rfpEvent;
 
@@ -222,11 +220,12 @@ public class Rfp2 {
     private Boolean shareAwardDetails;
 
     /**
-     * Lead source details.
+     * If you omit `leadSource`, Cvent sets the default lead source. A caller can send only the default
+     * lead source. Any other `leadSource.id` or `leadSource.section.id` returns 400.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("leadSource")
-    private LeadSource leadSource;
+    private RfpLeadSource1 leadSource;
 
     /**
      * Unique identifier for RFPs originating from outside Cvent network provided by source system where
@@ -428,8 +427,8 @@ public class Rfp2 {
             @JsonProperty("needsMeetingSpace") boolean needsMeetingSpace,
             @JsonProperty("needsGuestRooms") boolean needsGuestRooms,
             @JsonProperty("description") @Nullable String description,
-            @JsonProperty("dateRequirements") @Nullable DateRequirements1 dateRequirements,
-            @JsonProperty("rfpEvent") @Nullable RfpEvent rfpEvent,
+            @JsonProperty("dateRequirements") @Nonnull DateRequirements1 dateRequirements,
+            @JsonProperty("rfpEvent") @Nonnull RfpEvent rfpEvent,
             @JsonProperty("agendaStartDate") @Nullable LocalDate agendaStartDate,
             @JsonProperty("contact") @Nullable Contact1 contact,
             @JsonProperty("rfpEventOrganization") @Nullable EventOrganization1 rfpEventOrganization,
@@ -448,7 +447,7 @@ public class Rfp2 {
             @JsonProperty("allowEmailNotifications") @Nullable Boolean allowEmailNotifications,
             @JsonProperty("notificationRecipients") @Nullable List<RecipientInfo> notificationRecipients,
             @JsonProperty("shareAwardDetails") @Nullable Boolean shareAwardDetails,
-            @JsonProperty("leadSource") @Nullable LeadSource leadSource,
+            @JsonProperty("leadSource") @Nullable RfpLeadSource1 leadSource,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("showcaseEnabled") @Nullable Boolean showcaseEnabled,
             @JsonProperty("autoAddToShowcaseEnabled") @Nullable Boolean autoAddToShowcaseEnabled,
@@ -483,8 +482,10 @@ public class Rfp2 {
         this.needsMeetingSpace = needsMeetingSpace;
         this.needsGuestRooms = needsGuestRooms;
         this.description = description;
-        this.dateRequirements = dateRequirements;
-        this.rfpEvent = rfpEvent;
+        this.dateRequirements = Optional.ofNullable(dateRequirements)
+                .orElseThrow(() -> new IllegalArgumentException("dateRequirements cannot be null"));
+        this.rfpEvent = Optional.ofNullable(rfpEvent)
+                .orElseThrow(() -> new IllegalArgumentException("rfpEvent cannot be null"));
         this.agendaStartDate = agendaStartDate;
         this.contact = contact;
         this.rfpEventOrganization = rfpEventOrganization;
@@ -536,7 +537,12 @@ public class Rfp2 {
         this.aiRfpGenerationSource = aiRfpGenerationSource;
     }
 
-    public Rfp2(boolean needsMeetingSpace, boolean needsGuestRooms, @Nonnull String id) {
+    public Rfp2(
+            boolean needsMeetingSpace,
+            boolean needsGuestRooms,
+            @Nonnull DateRequirements1 dateRequirements,
+            @Nonnull RfpEvent rfpEvent,
+            @Nonnull String id) {
         this(
                 null,
                 null,
@@ -545,8 +551,8 @@ public class Rfp2 {
                 needsMeetingSpace,
                 needsGuestRooms,
                 null,
-                null,
-                null,
+                dateRequirements,
+                rfpEvent,
                 null,
                 null,
                 null,
@@ -646,15 +652,15 @@ public class Rfp2 {
     /**
      * Date requirements for the event.
      */
-    public Optional<DateRequirements1> dateRequirements() {
-        return Optional.ofNullable(this.dateRequirements);
+    public DateRequirements1 dateRequirements() {
+        return this.dateRequirements;
     }
 
     /**
      * RFP event details.
      */
-    public Optional<RfpEvent> rfpEvent() {
-        return Optional.ofNullable(this.rfpEvent);
+    public RfpEvent rfpEvent() {
+        return this.rfpEvent;
     }
 
     /**
@@ -790,9 +796,10 @@ public class Rfp2 {
     }
 
     /**
-     * Lead source details.
+     * If you omit `leadSource`, Cvent sets the default lead source. A caller can send only the default
+     * lead source. Any other `leadSource.id` or `leadSource.section.id` returns 400.
      */
-    public Optional<LeadSource> leadSource() {
+    public Optional<RfpLeadSource1> leadSource() {
         return Optional.ofNullable(this.leadSource);
     }
 
@@ -1051,16 +1058,16 @@ public class Rfp2 {
     /**
      * Date requirements for the event.
      */
-    public Rfp2 withDateRequirements(@Nullable DateRequirements1 dateRequirements) {
-        this.dateRequirements = dateRequirements;
+    public Rfp2 withDateRequirements(@Nonnull DateRequirements1 dateRequirements) {
+        this.dateRequirements = Utils.checkNotNull(dateRequirements, "dateRequirements");
         return this;
     }
 
     /**
      * RFP event details.
      */
-    public Rfp2 withRfpEvent(@Nullable RfpEvent rfpEvent) {
-        this.rfpEvent = rfpEvent;
+    public Rfp2 withRfpEvent(@Nonnull RfpEvent rfpEvent) {
+        this.rfpEvent = Utils.checkNotNull(rfpEvent, "rfpEvent");
         return this;
     }
 
@@ -1215,9 +1222,10 @@ public class Rfp2 {
     }
 
     /**
-     * Lead source details.
+     * If you omit `leadSource`, Cvent sets the default lead source. A caller can send only the default
+     * lead source. Any other `leadSource.id` or `leadSource.section.id` returns 400.
      */
-    public Rfp2 withLeadSource(@Nullable LeadSource leadSource) {
+    public Rfp2 withLeadSource(@Nullable RfpLeadSource1 leadSource) {
         this.leadSource = leadSource;
         return this;
     }
@@ -1735,7 +1743,7 @@ public class Rfp2 {
 
         private Boolean shareAwardDetails;
 
-        private LeadSource leadSource;
+        private RfpLeadSource1 leadSource;
 
         private String sourceId;
 
@@ -1853,16 +1861,16 @@ public class Rfp2 {
         /**
          * Date requirements for the event.
          */
-        public Builder dateRequirements(@Nullable DateRequirements1 dateRequirements) {
-            this.dateRequirements = dateRequirements;
+        public Builder dateRequirements(@Nonnull DateRequirements1 dateRequirements) {
+            this.dateRequirements = Utils.checkNotNull(dateRequirements, "dateRequirements");
             return this;
         }
 
         /**
          * RFP event details.
          */
-        public Builder rfpEvent(@Nullable RfpEvent rfpEvent) {
-            this.rfpEvent = rfpEvent;
+        public Builder rfpEvent(@Nonnull RfpEvent rfpEvent) {
+            this.rfpEvent = Utils.checkNotNull(rfpEvent, "rfpEvent");
             return this;
         }
 
@@ -2017,9 +2025,10 @@ public class Rfp2 {
         }
 
         /**
-         * Lead source details.
+         * If you omit `leadSource`, Cvent sets the default lead source. A caller can send only the default
+         * lead source. Any other `leadSource.id` or `leadSource.section.id` returns 400.
          */
-        public Builder leadSource(@Nullable LeadSource leadSource) {
+        public Builder leadSource(@Nullable RfpLeadSource1 leadSource) {
             this.leadSource = leadSource;
             return this;
         }

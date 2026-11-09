@@ -24,11 +24,11 @@ let value: CreateExhibitorRequest = {
       postalCode: "78727",
       country: "United States of America",
     },
-    email: "h.potterfield@test.com",
+    email: "h.potterfield@example.com",
     mobilePhone: "555-555-5555",
     workPhone: "555-555-5555",
     otherPhone: "555-555-5555",
-    website: "www.superhappyfuntime.com",
+    website: "www.example.com",
     contactLinks: {
       twitterUrl: {
         href: "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
@@ -55,4 +55,4 @@ let value: CreateExhibitorRequest = {
 | Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                | Example                                                                    |
 | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | `id`                                                                       | *string*                                                                   | :heavy_check_mark:                                                         | ID of an event.                                                            | 3db28cfc-db22-11eb-8d19-0242ac130003                                       |
-| `exhibitorRequest`                                                         | [components.ExhibitorRequest](../../models/components/exhibitorrequest.md) | :heavy_check_mark:                                                         | Exhibitor details                                                          |                                                                            |
+| `exhibitorRequest`                                                         | [components.ExhibitorRequest](../../models/components/exhibitorrequest.md) | :heavy_check_mark:                                                         | Exhibitor details.                                                         |                                                                            |

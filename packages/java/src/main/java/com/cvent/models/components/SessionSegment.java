@@ -61,13 +61,13 @@ public class SessionSegment {
     private String id;
 
     /**
-     * The related event object.
+     * A reference to an event by its ID.
      */
     @JsonProperty("event")
     private EventId event;
 
     /**
-     * The related session object.
+     * A reference to a session by its ID.
      */
     @JsonProperty("session")
     private Session1 session;
@@ -149,14 +149,14 @@ public class SessionSegment {
     }
 
     /**
-     * The related event object.
+     * A reference to an event by its ID.
      */
     public EventId event() {
         return this.event;
     }
 
     /**
-     * The related session object.
+     * A reference to a session by its ID.
      */
     public Session1 session() {
         return this.session;
@@ -221,7 +221,7 @@ public class SessionSegment {
     }
 
     /**
-     * The related event object.
+     * A reference to an event by its ID.
      */
     public SessionSegment withEvent(@Nonnull EventId event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -229,7 +229,7 @@ public class SessionSegment {
     }
 
     /**
-     * The related session object.
+     * A reference to a session by its ID.
      */
     public SessionSegment withSession(@Nonnull Session1 session) {
         this.session = Utils.checkNotNull(session, "session");
@@ -368,7 +368,7 @@ public class SessionSegment {
         }
 
         /**
-         * The related event object.
+         * A reference to an event by its ID.
          */
         public Builder event(@Nonnull EventId event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -376,7 +376,7 @@ public class SessionSegment {
         }
 
         /**
-         * The related session object.
+         * A reference to a session by its ID.
          */
         public Builder session(@Nonnull Session1 session) {
             this.session = Utils.checkNotNull(session, "session");

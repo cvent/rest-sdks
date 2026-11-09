@@ -13,7 +13,7 @@ import {
 import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
- * The response object containing the paginated list of exhibitor categories.
+ * Paginated list of exhibitor categories.
  */
 export type ExhibitorCategoriesPaginatedResponse = {
   /**

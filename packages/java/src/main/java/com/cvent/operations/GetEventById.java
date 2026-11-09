@@ -113,6 +113,8 @@ public class GetEventById {
             HTTPRequest req = new HTTPRequest(url, "GET");
             req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
+
+            req.addQueryParams(Utils.getQueryParams(klass, request, null));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
             return req.build();
@@ -152,7 +154,17 @@ public class GetEventById {
                         }
                         try {
                             HttpResponse<InputStream> httpRes = client.send(r);
-                            if (Utils.statusCodeMatches(httpRes.statusCode(), "401", "403", "404", "429", "4XX", "5XX")) {
+                            if (Utils.statusCodeMatches(
+                                    httpRes.statusCode(),
+                                    "400",
+                                    "401",
+                                    "403",
+                                    "404",
+                                    "429",
+                                    "4XX",
+                                    "503",
+                                    "504",
+                                    "5XX")) {
                                 return onError(httpRes, null);
                             }
                             return httpRes;
@@ -183,7 +195,14 @@ public class GetEventById {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
             }
-            if (Utils.statusCodeMatches(response.statusCode(), "401", "403", "404", "429")) {
+            if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
+                if (Utils.contentTypeMatches(contentType, "application/json")) {
+                    throw ErrorResponse12.from(response);
+                } else {
+                    throw APIException.from("Unexpected content-type received: " + contentType, response);
+                }
+            }
+            if (Utils.statusCodeMatches(response.statusCode(), "503", "504")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     throw ErrorResponse12.from(response);
                 } else {
@@ -243,7 +262,8 @@ public class GetEventById {
                         if (err != null) {
                             return onError(null, err);
                         }
-                        if (Utils.statusCodeMatches(resp.statusCode(), "401", "403", "404", "429", "4XX", "5XX")) {
+                        if (Utils.statusCodeMatches(
+                                resp.statusCode(), "400", "401", "403", "404", "429", "4XX", "503", "504", "5XX")) {
                             return onError(resp, null);
                         }
                         return CompletableFuture.completedFuture(resp);
@@ -272,7 +292,14 @@ public class GetEventById {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }
             }
-            if (Utils.statusCodeMatches(response.statusCode(), "401", "403", "404", "429")) {
+            if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
+                if (Utils.contentTypeMatches(contentType, "application/json")) {
+                    return ErrorResponse12.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                } else {
+                    return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
+                }
+            }
+            if (Utils.statusCodeMatches(response.statusCode(), "503", "504")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return ErrorResponse12.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {

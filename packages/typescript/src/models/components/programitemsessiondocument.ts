@@ -15,7 +15,7 @@ import {
 } from "./sessiondocumentlite.js";
 
 /**
- * Represents a program item object that will be added to a session document.
+ * A relationship between a session program item and a session document.
  */
 export type ProgramItemSessionDocument = {
   /**
@@ -39,15 +39,15 @@ export type ProgramItemSessionDocument = {
    */
   id?: string | undefined;
   /**
-   * The related event object.
+   * A reference to an event by its ID.
    */
   event: EventId;
   /**
-   * The related session object.
+   * A reference to a session by its ID.
    */
   session: Session1;
   /**
-   * The related document object.
+   * A reference to a session document by its ID.
    */
   document: SessionDocumentLite;
   /**

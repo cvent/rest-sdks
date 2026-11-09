@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * ExhibitorCategoryBannerFile
  *
- * <p>A JSON schema for the exhibitor category banner file.
+ * <p>Banner image file of an exhibitor category.
  */
 public class ExhibitorCategoryBannerFile {
     /**
@@ -27,7 +27,7 @@ public class ExhibitorCategoryBannerFile {
     private ExhibitorCategoryBannerFileFile file;
 
     /**
-     * URL of a exhibitor category banner image
+     * URL of the banner image of the exhibitor category.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("href")
@@ -53,7 +53,7 @@ public class ExhibitorCategoryBannerFile {
     }
 
     /**
-     * URL of a exhibitor category banner image
+     * URL of the banner image of the exhibitor category.
      */
     public Optional<String> href() {
         return Optional.ofNullable(this.href);
@@ -72,7 +72,7 @@ public class ExhibitorCategoryBannerFile {
     }
 
     /**
-     * URL of a exhibitor category banner image
+     * URL of the banner image of the exhibitor category.
      */
     public ExhibitorCategoryBannerFile withHref(@Nullable String href) {
         this.href = href;
@@ -121,7 +121,7 @@ public class ExhibitorCategoryBannerFile {
         }
 
         /**
-         * URL of a exhibitor category banner image
+         * URL of the banner image of the exhibitor category.
          */
         public Builder href(@Nullable String href) {
             this.href = href;

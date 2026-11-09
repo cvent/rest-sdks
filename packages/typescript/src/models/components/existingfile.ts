@@ -10,7 +10,7 @@ import { Event4, Event4$inboundSchema } from "./event4.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 
 /**
- * Content of existing exhibitor file
+ * Exhibitor file with an ID.
  */
 export type ExistingFile = {
   /**
@@ -30,11 +30,11 @@ export type ExistingFile = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * The Associated Exhibitor.
+   * Associated exhibitor.
    */
   exhibitor: Exhibitor;
   /**
@@ -46,11 +46,11 @@ export type ExistingFile = {
    */
   hidden: boolean;
   /**
-   * Display order for exhibitor file content.
+   * Display order of the file.
    */
   order: number;
   /**
-   * Unique ID of the file.
+   * File ID.
    */
   id?: string | undefined;
 };

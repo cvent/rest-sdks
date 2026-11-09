@@ -18,7 +18,7 @@ export type SpeakerSession = {
    */
   id?: string | undefined;
   /**
-   * The unique identifier of a speaker.
+   * A reference to a speaker by its ID.
    */
   speaker?: SpeakerLite1 | undefined;
   /**

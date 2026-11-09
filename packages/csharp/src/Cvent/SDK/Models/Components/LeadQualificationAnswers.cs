@@ -16,7 +16,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// This JSON schema file represents lead qualification answers.
+    /// Answers of a lead to a lead qualification question.
     /// </summary>
     public class LeadQualificationAnswers
     {
@@ -45,7 +45,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Lead Qualification Answer id.
+        /// Lead qualification answer ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -57,19 +57,19 @@ namespace Cvent.SDK.Models.Components
         public Uuid? Question { get; set; }
 
         /// <summary>
-        /// The Associated Event.
+        /// Associated event.
         /// </summary>
         [JsonProperty("event")]
         public Event4? Event { get; set; }
 
         /// <summary>
-        /// The Associated Exhibitor.
+        /// Associated exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
         public Models.Components.Exhibitor? Exhibitor { get; set; }
 
         /// <summary>
-        /// JSON schema for the Lead object.
+        /// Associated lead.
         /// </summary>
         [JsonProperty("lead")]
         public Lead2? Lead { get; set; }
@@ -78,6 +78,6 @@ namespace Cvent.SDK.Models.Components
         /// List of answers.
         /// </summary>
         [JsonProperty("answers")]
-        public List<Answer1>? Answers { get; set; }
+        public List<Answer12>? Answers { get; set; }
     }
 }

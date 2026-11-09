@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * JSON schema for the Lead object
+ * Associated lead.
  */
 export type Lead2 = {
   /**
-   * Lead id
+   * Lead ID.
    */
   id: string;
 };

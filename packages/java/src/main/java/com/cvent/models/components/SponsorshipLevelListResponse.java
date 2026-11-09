@@ -17,11 +17,11 @@ import java.util.Optional;
 /**
  * SponsorshipLevelListResponse
  *
- * <p>This schema describes the response for a list of sponsorship levels.
+ * <p>List of sponsorship levels.
  */
 public class SponsorshipLevelListResponse {
     /**
-     * List of sponsorship level.
+     * List of sponsorship levels.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
@@ -37,7 +37,7 @@ public class SponsorshipLevelListResponse {
     }
 
     /**
-     * List of sponsorship level.
+     * List of sponsorship levels.
      */
     public Optional<List<ExistingSponsorshipLevel>> data() {
         return Optional.ofNullable(this.data);
@@ -48,7 +48,7 @@ public class SponsorshipLevelListResponse {
     }
 
     /**
-     * List of sponsorship level.
+     * List of sponsorship levels.
      */
     public SponsorshipLevelListResponse withData(@Nullable List<ExistingSponsorshipLevel> data) {
         this.data = data;
@@ -87,7 +87,7 @@ public class SponsorshipLevelListResponse {
         }
 
         /**
-         * List of sponsorship level.
+         * List of sponsorship levels.
          */
         public Builder data(@Nullable List<ExistingSponsorshipLevel> data) {
             this.data = data;

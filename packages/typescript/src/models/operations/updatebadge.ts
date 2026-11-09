@@ -15,7 +15,7 @@ export type UpdateBadgeRequest = {
    */
   badgeId: string;
   /**
-   * Badge details
+   * Badge details.
    */
   badge: components.BadgeInput;
 };

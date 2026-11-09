@@ -53,7 +53,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Adds given contacts to an event as attendees, either inviting them or registering them directly.
+        /// Adds contacts to an event as attendees using the details in the request body, either inviting them or registering them directly.
         /// </remarks>
         /// <param name="request">
         /// This endpoint supports both the invite and the ability to push registered attendees into Cvent.<br/>
@@ -230,7 +230,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Create a badge for an attendee associated with an event.
+        /// Creates a badge for an attendee of an event.
         /// </remarks>
         /// <param name="request">A <see cref="PostBadgeRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -243,11 +243,11 @@ namespace Cvent.SDK
         public Task<PostBadgeResponse> PostBadgeAsync(PostBadgeRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Get Badge<br/>
+        /// List Badges<br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of third-party badge associations for attendees within the event.
+        /// Retrieves a list of the third-party badge associations of the attendees of an event.
         /// </remarks>
         /// <param name="request">A <see cref="GetBadgeRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -260,11 +260,11 @@ namespace Cvent.SDK
         public Task<GetBadgeResponse> GetBadgeAsync(GetBadgeRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Get Badges<br/>
+        /// List Badges<br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a paginated list of Badges by sending a filter in the body of the request. This method will return the same data as the getBadge but allows for longer filters.
+        /// Retrieves a paginated list of the badges that match a filter in the request body. The response holds the same data as <a href="#operation/getBadge">List Badges</a>. The request body accepts a longer filter than the query parameter.
         /// </remarks>
         /// <param name="request">A <see cref="GetBadgesPostFiltersRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -284,7 +284,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Update a badge for an attendee associated with an event.
+        /// Updates a badge of an attendee of an event.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateBadgeRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -514,7 +514,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Adds given contacts to an event as attendees, either inviting them or registering them directly.
+        /// Adds contacts to an event as attendees using the details in the request body, either inviting them or registering them directly.
         /// </remarks>
         /// <param name="request">
         /// This endpoint supports both the invite and the ability to push registered attendees into Cvent.<br/>
@@ -1992,7 +1992,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Create a badge for an attendee associated with an event.
+        /// Creates a badge for an attendee of an event.
         /// </remarks>
         /// <param name="request">A <see cref="PostBadgeRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2158,11 +2158,11 @@ namespace Cvent.SDK
         }
 
         /// <summary>
-        /// Get Badge<br/>
+        /// List Badges<br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of third-party badge associations for attendees within the event.
+        /// Retrieves a list of the third-party badge associations of the attendees of an event.
         /// </remarks>
         /// <param name="request">A <see cref="GetBadgeRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2352,11 +2352,11 @@ namespace Cvent.SDK
         }
 
         /// <summary>
-        /// Get Badges<br/>
+        /// List Badges<br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Gets a paginated list of Badges by sending a filter in the body of the request. This method will return the same data as the getBadge but allows for longer filters.
+        /// Retrieves a paginated list of the badges that match a filter in the request body. The response holds the same data as <a href="#operation/getBadge">List Badges</a>. The request body accepts a longer filter than the query parameter.
         /// </remarks>
         /// <param name="request">A <see cref="GetBadgesPostFiltersRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2561,7 +2561,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Update a badge for an attendee associated with an event.
+        /// Updates a badge of an attendee of an event.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateBadgeRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

@@ -32,7 +32,7 @@ public class UpdateExhibitorAdminResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully updated the Exhibitor Admin.
+     * Successfully updated the exhibitor admin.
      */
     private ExhibitorAdminResponse exhibitorAdminResponse;
 
@@ -77,7 +77,7 @@ public class UpdateExhibitorAdminResponse implements Response {
     }
 
     /**
-     * Successfully updated the Exhibitor Admin.
+     * Successfully updated the exhibitor admin.
      */
     public Optional<ExhibitorAdminResponse> exhibitorAdminResponse() {
         return Optional.ofNullable(this.exhibitorAdminResponse);
@@ -112,7 +112,7 @@ public class UpdateExhibitorAdminResponse implements Response {
     }
 
     /**
-     * Successfully updated the Exhibitor Admin.
+     * Successfully updated the exhibitor admin.
      */
     public UpdateExhibitorAdminResponse withExhibitorAdminResponse(
             @Nullable ExhibitorAdminResponse exhibitorAdminResponse) {
@@ -194,7 +194,7 @@ public class UpdateExhibitorAdminResponse implements Response {
         }
 
         /**
-         * Successfully updated the Exhibitor Admin.
+         * Successfully updated the exhibitor admin.
          */
         public Builder exhibitorAdminResponse(@Nullable ExhibitorAdminResponse exhibitorAdminResponse) {
             this.exhibitorAdminResponse = exhibitorAdminResponse;

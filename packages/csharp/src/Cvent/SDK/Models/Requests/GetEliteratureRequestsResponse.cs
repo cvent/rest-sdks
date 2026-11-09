@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved a paginated list of eliterature requests data.
+        /// Successfully retrieved a paginated list of e-literature requests.
         /// </summary>
         public EliteratureRequestPaginatedResponse? EliteratureRequestPaginatedResponse { get; set; }
     }

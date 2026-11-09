@@ -14,48 +14,48 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// A representation of an exhibitor including all relevant information.
+    /// Exhibitor at an event.
     /// </summary>
     public class ExhibitorRequest
     {
         /// <summary>
-        /// The Associated Event.
+        /// Associated event.
         /// </summary>
         [JsonProperty("event")]
         public Event4 Event { get; set; } = default!;
 
         /// <summary>
-        /// Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal results.
+        /// Name of the exhibitor. The recommended maximum length is 200 characters.
         /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
 
         /// <summary>
-        /// Exhibitor description.
+        /// Description of the exhibitor.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
 
         /// <summary>
-        /// Code used to identify the exhibitor.
+        /// Code that identifies the exhibitor.
         /// </summary>
         [JsonProperty("code")]
         public string? Code { get; set; }
 
         /// <summary>
-        /// Code used for marketing groupings.
+        /// Code of the marketing group of the exhibitor.
         /// </summary>
         [JsonProperty("sourceId")]
         public string? SourceId { get; set; }
 
         /// <summary>
-        /// Exhibitor location.
+        /// Location of the exhibitor.
         /// </summary>
         [JsonProperty("location")]
         public string? Location { get; set; }
 
         /// <summary>
-        /// An object representing an address with various properties.
+        /// Address of the exhibitor.
         /// </summary>
         [JsonProperty("address")]
         public Address5? Address { get; set; }
@@ -67,25 +67,25 @@ namespace Cvent.SDK.Models.Components
         public string? Email { get; set; }
 
         /// <summary>
-        /// Mobile Phone of the exhibitor.
+        /// Mobile phone number of the exhibitor.
         /// </summary>
         [JsonProperty("mobilePhone")]
         public string? MobilePhone { get; set; }
 
         /// <summary>
-        /// Work Phone of the exhibitor.
+        /// Work phone number of the exhibitor.
         /// </summary>
         [JsonProperty("workPhone")]
         public string? WorkPhone { get; set; }
 
         /// <summary>
-        /// Any other phone of the exhibitor.
+        /// Other phone number of the exhibitor.
         /// </summary>
         [JsonProperty("otherPhone")]
         public string? OtherPhone { get; set; }
 
         /// <summary>
-        /// Exhibitor's website URL.
+        /// URL of the exhibitor website.
         /// </summary>
         [JsonProperty("website")]
         public string? Website { get; set; }
@@ -97,7 +97,7 @@ namespace Cvent.SDK.Models.Components
         public ContactLinks1? ContactLinks { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether the exhibitor is deleted or not.
+        /// True indicates that the exhibitor is deleted.
         /// </summary>
         [JsonProperty("deleted")]
         public bool? Deleted { get; set; } = false;
@@ -109,19 +109,31 @@ namespace Cvent.SDK.Models.Components
         public bool? Hidden { get; set; } = false;
 
         /// <summary>
-        /// A boolean indicating whether the exhibitor is an event sponsor or not.
+        /// True indicates that the exhibitor is an event sponsor.
         /// </summary>
         [JsonProperty("eventSponsor")]
         public bool? EventSponsor { get; set; } = false;
 
         /// <summary>
-        /// A boolean indicating whether the exhibitor is designated as featured or not.
+        /// True indicates that the exhibitor is featured.
         /// </summary>
         [JsonProperty("featured")]
         public bool? Featured { get; set; } = false;
 
         /// <summary>
-        /// Associated sponsorship level for an exhibitor.
+        /// True indicates that the exhibitor is hidden from the exhibitor list in Attendee Hub. The exhibitor still appears in the sponsor list. The value applies only to an event sponsor. The value is saved as false when `eventSponsor` is false.
+        /// </summary>
+        [JsonProperty("sponsorOnlyExhibitor")]
+        public bool? SponsorOnlyExhibitor { get; set; } = false;
+
+        /// <summary>
+        /// True indicates that the exhibitor is hidden from the exhibitor widget on the event website.
+        /// </summary>
+        [JsonProperty("hiddenFromRegistration")]
+        public bool? HiddenFromRegistration { get; set; } = false;
+
+        /// <summary>
+        /// Associated sponsorship level of an exhibitor.
         /// </summary>
         [JsonProperty("sponsorshipLevel")]
         public SponsorshipLevel? SponsorshipLevel { get; set; }

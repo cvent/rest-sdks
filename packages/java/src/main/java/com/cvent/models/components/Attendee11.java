@@ -54,7 +54,7 @@ public class Attendee11 {
     private String lastModifiedBy;
 
     /**
-     * The ID of attendee in the given event.
+     * Attendee ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -90,8 +90,8 @@ public class Attendee11 {
     private Boolean checkedIn;
 
     /**
-     * The date time when attendee was checked in to an event. Note: this field is deprecated. Please use
-     * the `checkIn` field instead.
+     * DEPRECATED: The ISO 8601 zoned date time when the attendee was checked in to an event. Use the
+     * `checkIn` field instead.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -150,15 +150,15 @@ public class Attendee11 {
     private Lookup registrationType;
 
     /**
-     * The reference ID of an attendee. A planner determined string used to track which link attendee's
-     * used to reach the event registration.
+     * Reference ID. A planner-defined string that tracks the link that the attendee used to reach the
+     * event registration.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("referenceId")
     private String referenceId;
 
     /**
-     * The details of an attendee in an external systems.
+     * References to the attendee in external systems.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("externalReferences")
@@ -186,8 +186,7 @@ public class Attendee11 {
     private Boolean deletedGuest;
 
     /**
-     * The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this
-     * attendee is a guest.
+     * Primary attendee ID. Applies only when this attendee is a guest.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("primaryId")
@@ -324,8 +323,8 @@ public class Attendee11 {
     private String bio;
 
     /**
-     * Notification setting in the Attendee Hub app or website. Note: This field is deprecated. Use
-     * `allowPushNotification` field instead.
+     * DEPRECATED: Notification setting in the Attendee Hub app or website. Use `allowPushNotifications`
+     * instead.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -342,16 +341,16 @@ public class Attendee11 {
     private String websiteUrl;
 
     /**
-     * True indicates attendee will recieve push notifications for session-schedule changes, promotions and
-     * other event activities in the Attendee Hub app.
+     * True indicates that the attendee receives push notifications for session schedule changes,
+     * promotions, and other event activities in the Attendee Hub app.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("allowPushNotifications")
     private Boolean allowPushNotifications;
 
     /**
-     * True indicaites attendee will recieve push notifications for appointments related activities in the
-     * Attendee Hub app.
+     * True indicates that the attendee receives push notifications for appointment-related activities in
+     * the Attendee Hub app.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("allowAppointmentPushNotifications")
@@ -562,7 +561,7 @@ public class Attendee11 {
     }
 
     /**
-     * The ID of attendee in the given event.
+     * Attendee ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -598,8 +597,8 @@ public class Attendee11 {
     }
 
     /**
-     * The date time when attendee was checked in to an event. Note: this field is deprecated. Please use
-     * the `checkIn` field instead.
+     * DEPRECATED: The ISO 8601 zoned date time when the attendee was checked in to an event. Use the
+     * `checkIn` field instead.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -658,15 +657,15 @@ public class Attendee11 {
     }
 
     /**
-     * The reference ID of an attendee. A planner determined string used to track which link attendee's
-     * used to reach the event registration.
+     * Reference ID. A planner-defined string that tracks the link that the attendee used to reach the
+     * event registration.
      */
     public Optional<String> referenceId() {
         return Optional.ofNullable(this.referenceId);
     }
 
     /**
-     * The details of an attendee in an external systems.
+     * References to the attendee in external systems.
      */
     public Optional<List<ExternalReference>> externalReferences() {
         return Optional.ofNullable(this.externalReferences);
@@ -694,8 +693,7 @@ public class Attendee11 {
     }
 
     /**
-     * The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this
-     * attendee is a guest.
+     * Primary attendee ID. Applies only when this attendee is a guest.
      */
     public Optional<String> primaryId() {
         return Optional.ofNullable(this.primaryId);
@@ -832,8 +830,8 @@ public class Attendee11 {
     }
 
     /**
-     * Notification setting in the Attendee Hub app or website. Note: This field is deprecated. Use
-     * `allowPushNotification` field instead.
+     * DEPRECATED: Notification setting in the Attendee Hub app or website. Use `allowPushNotifications`
+     * instead.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -850,16 +848,16 @@ public class Attendee11 {
     }
 
     /**
-     * True indicates attendee will recieve push notifications for session-schedule changes, promotions and
-     * other event activities in the Attendee Hub app.
+     * True indicates that the attendee receives push notifications for session schedule changes,
+     * promotions, and other event activities in the Attendee Hub app.
      */
     public Optional<Boolean> allowPushNotifications() {
         return Optional.ofNullable(this.allowPushNotifications);
     }
 
     /**
-     * True indicaites attendee will recieve push notifications for appointments related activities in the
-     * Attendee Hub app.
+     * True indicates that the attendee receives push notifications for appointment-related activities in
+     * the Attendee Hub app.
      */
     public Optional<Boolean> allowAppointmentPushNotifications() {
         return Optional.ofNullable(this.allowAppointmentPushNotifications);
@@ -935,7 +933,7 @@ public class Attendee11 {
     }
 
     /**
-     * The ID of attendee in the given event.
+     * Attendee ID.
      */
     public Attendee11 withId(@Nullable String id) {
         this.id = id;
@@ -976,8 +974,8 @@ public class Attendee11 {
     }
 
     /**
-     * The date time when attendee was checked in to an event. Note: this field is deprecated. Please use
-     * the `checkIn` field instead.
+     * DEPRECATED: The ISO 8601 zoned date time when the attendee was checked in to an event. Use the
+     * `checkIn` field instead.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -1044,8 +1042,8 @@ public class Attendee11 {
     }
 
     /**
-     * The reference ID of an attendee. A planner determined string used to track which link attendee's
-     * used to reach the event registration.
+     * Reference ID. A planner-defined string that tracks the link that the attendee used to reach the
+     * event registration.
      */
     public Attendee11 withReferenceId(@Nullable String referenceId) {
         this.referenceId = referenceId;
@@ -1053,7 +1051,7 @@ public class Attendee11 {
     }
 
     /**
-     * The details of an attendee in an external systems.
+     * References to the attendee in external systems.
      */
     public Attendee11 withExternalReferences(@Nullable List<ExternalReference> externalReferences) {
         this.externalReferences = externalReferences;
@@ -1085,8 +1083,7 @@ public class Attendee11 {
     }
 
     /**
-     * The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this
-     * attendee is a guest.
+     * Primary attendee ID. Applies only when this attendee is a guest.
      */
     public Attendee11 withPrimaryId(@Nullable String primaryId) {
         this.primaryId = primaryId;
@@ -1238,8 +1235,8 @@ public class Attendee11 {
     }
 
     /**
-     * Notification setting in the Attendee Hub app or website. Note: This field is deprecated. Use
-     * `allowPushNotification` field instead.
+     * DEPRECATED: Notification setting in the Attendee Hub app or website. Use `allowPushNotifications`
+     * instead.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -1258,8 +1255,8 @@ public class Attendee11 {
     }
 
     /**
-     * True indicates attendee will recieve push notifications for session-schedule changes, promotions and
-     * other event activities in the Attendee Hub app.
+     * True indicates that the attendee receives push notifications for session schedule changes,
+     * promotions, and other event activities in the Attendee Hub app.
      */
     public Attendee11 withAllowPushNotifications(@Nullable Boolean allowPushNotifications) {
         this.allowPushNotifications = allowPushNotifications;
@@ -1267,8 +1264,8 @@ public class Attendee11 {
     }
 
     /**
-     * True indicaites attendee will recieve push notifications for appointments related activities in the
-     * Attendee Hub app.
+     * True indicates that the attendee receives push notifications for appointment-related activities in
+     * the Attendee Hub app.
      */
     public Attendee11 withAllowAppointmentPushNotifications(@Nullable Boolean allowAppointmentPushNotifications) {
         this.allowAppointmentPushNotifications = allowAppointmentPushNotifications;
@@ -1647,7 +1644,7 @@ public class Attendee11 {
         }
 
         /**
-         * The ID of attendee in the given event.
+         * Attendee ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -1688,8 +1685,8 @@ public class Attendee11 {
         }
 
         /**
-         * The date time when attendee was checked in to an event. Note: this field is deprecated. Please use
-         * the `checkIn` field instead.
+         * DEPRECATED: The ISO 8601 zoned date time when the attendee was checked in to an event. Use the
+         * `checkIn` field instead.
          *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
@@ -1756,8 +1753,8 @@ public class Attendee11 {
         }
 
         /**
-         * The reference ID of an attendee. A planner determined string used to track which link attendee's
-         * used to reach the event registration.
+         * Reference ID. A planner-defined string that tracks the link that the attendee used to reach the
+         * event registration.
          */
         public Builder referenceId(@Nullable String referenceId) {
             this.referenceId = referenceId;
@@ -1765,7 +1762,7 @@ public class Attendee11 {
         }
 
         /**
-         * The details of an attendee in an external systems.
+         * References to the attendee in external systems.
          */
         public Builder externalReferences(@Nullable List<ExternalReference> externalReferences) {
             this.externalReferences = externalReferences;
@@ -1797,8 +1794,7 @@ public class Attendee11 {
         }
 
         /**
-         * The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this
-         * attendee is a guest.
+         * Primary attendee ID. Applies only when this attendee is a guest.
          */
         public Builder primaryId(@Nullable String primaryId) {
             this.primaryId = primaryId;
@@ -1950,8 +1946,8 @@ public class Attendee11 {
         }
 
         /**
-         * Notification setting in the Attendee Hub app or website. Note: This field is deprecated. Use
-         * `allowPushNotification` field instead.
+         * DEPRECATED: Notification setting in the Attendee Hub app or website. Use `allowPushNotifications`
+         * instead.
          *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
@@ -1970,8 +1966,8 @@ public class Attendee11 {
         }
 
         /**
-         * True indicates attendee will recieve push notifications for session-schedule changes, promotions and
-         * other event activities in the Attendee Hub app.
+         * True indicates that the attendee receives push notifications for session schedule changes,
+         * promotions, and other event activities in the Attendee Hub app.
          */
         public Builder allowPushNotifications(@Nullable Boolean allowPushNotifications) {
             this.allowPushNotifications = allowPushNotifications;
@@ -1979,8 +1975,8 @@ public class Attendee11 {
         }
 
         /**
-         * True indicaites attendee will recieve push notifications for appointments related activities in the
-         * Attendee Hub app.
+         * True indicates that the attendee receives push notifications for appointment-related activities in
+         * the Attendee Hub app.
          */
         public Builder allowAppointmentPushNotifications(@Nullable Boolean allowAppointmentPushNotifications) {
             this.allowAppointmentPushNotifications = allowAppointmentPushNotifications;

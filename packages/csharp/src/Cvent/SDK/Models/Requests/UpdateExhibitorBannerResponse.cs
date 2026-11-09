@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully added the exhibitor banner image.
+        /// Successfully assigned the exhibitor banner image.
         /// </summary>
         public ExhibitorBannerLogoFile? ExhibitorBannerLogoFile { get; set; }
     }

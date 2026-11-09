@@ -11,18 +11,27 @@ import java.util.Optional;
 /**
  * QuestionType2
  *
- * <p>This object represents the type of a question
+ * <p>Question Type.
  */
 public enum QuestionType2 {
     SINGLE_CHOICE("SingleChoice"),
     MULTI_CHOICE("MultiChoice"),
-    OPEN_ENDED_DATE_TIME("OpenEndedDateTime"),
-    OPEN_ENDED_TEXT_ONE_LINE("OpenEndedTextOneLine"),
-    OPEN_ENDED_TEXT_COMMENT_BOX("OpenEndedTextCommentBox"),
-    OPEN_ENDED_NUMERIC("OpenEndedNumeric"),
+    MATRIX_SINGLE_CHOICE("MatrixSingleChoice"),
+    MATRIX_MULTI_CHOICE("MatrixMultiChoice"),
+    MATRIX_SIDE_BY_SIDE("MatrixSideBySide"),
+    MATRIX_SPREAD_SHEET("MatrixSpreadSheet"),
+    DATE_TIME("DateTime"),
+    NUMBER("Number"),
+    TEXT("Text"),
+    COMMENT_BOX("CommentBox"),
+    FORM("Form"),
+    RANK_ORDER("RankOrder"),
     FILE_UPLOAD("FileUpload"),
-    MATRIX_SINGLE_PER_ROW("MatrixSinglePerRow"),
-    MATRIX_MULTI_PER_ROW("MatrixMultiPerRow");
+    NET_PROMOTER("NetPromoter"),
+    RATING("Rating"),
+    MATRIX_RATING("MatrixRating"),
+    NUMBER_ALLOCATION("NumberAllocation"),
+    LARGE_CHOICES("LargeChoices");
 
     @JsonValue
     private final String value;

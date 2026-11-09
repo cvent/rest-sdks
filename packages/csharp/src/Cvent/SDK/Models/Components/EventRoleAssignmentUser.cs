@@ -9,11 +9,12 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
+    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The user to whom the event role is assigned. For more details, use the <a href="#tag/User-SCIM/operation/getUser">Get User</a> endpoint with the user ID.
+    /// The user to whom the event role is assigned. For a no-login user, the `id` is the resolved user ID, not the email address.
     /// </summary>
     public class EventRoleAssignmentUser
     {
@@ -22,5 +23,11 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
+
+        /// <summary>
+        /// Whether the assigned user is an account user (ACCOUNT_USER) or a no-login user (NO_LOGIN_USER).
+        /// </summary>
+        [JsonProperty("type")]
+        public EventRoleAssignmentType? Type { get; set; }
     }
 }

@@ -1,10 +1,10 @@
 # SpeakerLite1
 
-The unique identifier of a speaker.
+A reference to a speaker by its ID.
 
 
 ## Fields
 
-| Field                                | Type                                 | Required                             | Description                          |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *String*                             | :heavy_check_mark:                   | The unique identifier for a speaker. |
+| Field                       | Type                        | Required                    | Description                 |
+| --------------------------- | --------------------------- | --------------------------- | --------------------------- |
+| `id`                        | *String*                    | :heavy_check_mark:          | The unique ID of a speaker. |

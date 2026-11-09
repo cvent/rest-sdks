@@ -16,7 +16,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Used to denote a session and its attributes.
+    /// A session, including whether it was automatically included with the event.
     /// </summary>
     public class Session
     {
@@ -45,7 +45,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// A unique identifier of the session.
+        /// The unique ID of the session.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -84,7 +84,7 @@ namespace Cvent.SDK.Models.Components
         public SessionLookup? Type { get; set; }
 
         /// <summary>
-        /// Used to denote a locations name and abbreviation.
+        /// A location identified by its ID, code, and name.
         /// </summary>
         [JsonProperty("location")]
         public Location1? Location { get; set; }
@@ -206,7 +206,7 @@ namespace Cvent.SDK.Models.Components
         public SessionGroup? Group { get; set; }
 
         /// <summary>
-        /// The ids of the admission items, if the session is included with any.
+        /// IDs of admission items associated with the session, if any.
         /// </summary>
         [JsonProperty("admissionItems")]
         public List<string>? AdmissionItems { get; set; }
@@ -224,7 +224,7 @@ namespace Cvent.SDK.Models.Components
         public bool? OpenForAttendeeHub { get; set; }
 
         /// <summary>
-        /// Contains unique identifiers for registration types associated with this session.
+        /// Registration type IDs associated with this session.
         /// </summary>
         [JsonProperty("registrationTypes")]
         public List<string>? RegistrationTypes { get; set; }
@@ -242,13 +242,13 @@ namespace Cvent.SDK.Models.Components
         public string? DataTagCode { get; set; }
 
         /// <summary>
-        /// Collection of custom fields.
+        /// Custom fields associated with the session.
         /// </summary>
         [JsonProperty("customFields")]
         public List<CustomField>? CustomFields { get; set; }
 
         /// <summary>
-        /// Contains unique identifiers for segments associated with this session.
+        /// Segment IDs associated with this session.
         /// </summary>
         [JsonProperty("segments")]
         public List<string>? Segments { get; set; }

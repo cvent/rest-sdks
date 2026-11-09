@@ -38,7 +38,12 @@ public class LeadCatcherConfigPatch {
     private JsonNullable<Boolean> pdfLinkEnabled;
 
     /**
-     * Name of the supplier contact role assigned to this contact.
+     * Name of the supplier contact role assigned to this contact. Must match an active supplier contact
+     * role configured for the account; any other value returns `400`. Supplier contact roles are managed
+     * in Cvent and are not available through this API.
+     *
+     * <p>Send `null` or an empty string to remove the role, or omit the field to keep the current one. The
+     * contact's current role is accepted even if it has since been made inactive.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("supplierContactRole")
@@ -74,7 +79,12 @@ public class LeadCatcherConfigPatch {
     }
 
     /**
-     * Name of the supplier contact role assigned to this contact.
+     * Name of the supplier contact role assigned to this contact. Must match an active supplier contact
+     * role configured for the account; any other value returns `400`. Supplier contact roles are managed
+     * in Cvent and are not available through this API.
+     *
+     * <p>Send `null` or an empty string to remove the role, or omit the field to keep the current one. The
+     * contact's current role is accepted even if it has since been made inactive.
      */
     public JsonNullable<String> supplierContactRole() {
         return this.supplierContactRole;
@@ -102,7 +112,12 @@ public class LeadCatcherConfigPatch {
     }
 
     /**
-     * Name of the supplier contact role assigned to this contact.
+     * Name of the supplier contact role assigned to this contact. Must match an active supplier contact
+     * role configured for the account; any other value returns `400`. Supplier contact roles are managed
+     * in Cvent and are not available through this API.
+     *
+     * <p>Send `null` or an empty string to remove the role, or omit the field to keep the current one. The
+     * contact's current role is accepted even if it has since been made inactive.
      */
     public LeadCatcherConfigPatch withSupplierContactRole(@Nullable String supplierContactRole) {
         this.supplierContactRole = JsonNullable.of(supplierContactRole);
@@ -171,7 +186,12 @@ public class LeadCatcherConfigPatch {
         }
 
         /**
-         * Name of the supplier contact role assigned to this contact.
+         * Name of the supplier contact role assigned to this contact. Must match an active supplier contact
+         * role configured for the account; any other value returns `400`. Supplier contact roles are managed
+         * in Cvent and are not available through this API.
+         *
+         * <p>Send `null` or an empty string to remove the role, or omit the field to keep the current one. The
+         * contact's current role is accepted even if it has since been made inactive.
          */
         public Builder supplierContactRole(@Nullable String supplierContactRole) {
             this.supplierContactRole = JsonNullable.of(supplierContactRole);

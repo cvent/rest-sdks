@@ -8,29 +8,29 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Registration type information
+ * Registration type of the capacity.
  */
 export type ExistingCapacityRegistrationType = {
   /**
-   * Registration type id
+   * Registration type ID.
    */
   id: string;
 };
 
 /**
- * Represents the existing capacity of the registration type for an exhibitor
+ * Capacity of a registration type for an exhibitor, with the available capacity.
  */
 export type ExistingCapacity = {
   /**
-   * Registration type information
+   * Registration type of the capacity.
    */
   registrationType: ExistingCapacityRegistrationType;
   /**
-   * Reserved capacity of the registration type for an exhibitor
+   * Reserved capacity of the registration type for an exhibitor.
    */
   reservedCapacity: number;
   /**
-   * Available capacity of the registration type for an exhibitor
+   * Available capacity of the registration type for an exhibitor.
    */
   availableCapacity: number;
 };

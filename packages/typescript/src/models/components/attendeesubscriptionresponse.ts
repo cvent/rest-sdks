@@ -12,13 +12,13 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type AttendeeSubscriptionResponseAttendee = {
   /**
-   * The unique identifier of the attendee.
+   * Attendee ID.
    */
   id: string;
 };
 
 /**
- * Response body for successful attendee subscription status update.
+ * The attendee ID and updated email subscription status.
  */
 export type AttendeeSubscriptionResponse = {
   /**

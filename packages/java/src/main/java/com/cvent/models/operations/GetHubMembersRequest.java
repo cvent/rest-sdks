@@ -17,7 +17,7 @@ import java.util.Optional;
 
 public class GetHubMembersRequest {
     /**
-     * The identifier of an Events+ Hub
+     * The ID of an Events+ Hub.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=hubId")
     private String hubId;
@@ -106,7 +106,7 @@ public class GetHubMembersRequest {
     }
 
     /**
-     * The identifier of an Events+ Hub
+     * The ID of an Events+ Hub.
      */
     public String hubId() {
         return this.hubId;
@@ -186,7 +186,7 @@ public class GetHubMembersRequest {
     }
 
     /**
-     * The identifier of an Events+ Hub
+     * The ID of an Events+ Hub.
      */
     public GetHubMembersRequest withHubId(@Nonnull String hubId) {
         this.hubId = Utils.checkNotNull(hubId, "hubId");
@@ -321,7 +321,7 @@ public class GetHubMembersRequest {
         }
 
         /**
-         * The identifier of an Events+ Hub
+         * The ID of an Events+ Hub.
          */
         public Builder hubId(@Nonnull String hubId) {
             this.hubId = Utils.checkNotNull(hubId, "hubId");

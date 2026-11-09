@@ -37,7 +37,7 @@ export type ListSessionsPostFiltersRequest = {
    * Contains filters for the request. See the filter description of
    *
    * @remarks
-   * <a href="#operation/listSessions">GET List Sessions</a> for complete
+   * [GET List Sessions](#operation/listSessions) for complete
    * filtering information.
    */
   filter?: components.Filter | undefined;

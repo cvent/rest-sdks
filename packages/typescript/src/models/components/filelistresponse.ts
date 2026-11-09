@@ -9,7 +9,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { ExistingFile, ExistingFile$inboundSchema } from "./existingfile.js";
 
 /**
- * A JSON object containing a list of files associated with an exhibitor.
+ * List of the files of an exhibitor.
  */
 export type FileListResponse = {
   /**

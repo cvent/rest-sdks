@@ -235,8 +235,8 @@ run();
 * [updateInternalInfoAnswers](docs/sdks/attendees/README.md#updateinternalinfoanswers) - Update Internal Information
 * [listOptionalItems](docs/sdks/attendees/README.md#listoptionalitems) - List Attendee Optional Items
 * [postBadge](docs/sdks/attendees/README.md#postbadge) - Create Badge
-* [getBadge](docs/sdks/attendees/README.md#getbadge) - Get Badge
-* [getBadgesPostFilters](docs/sdks/attendees/README.md#getbadgespostfilters) - Get Badges
+* [getBadge](docs/sdks/attendees/README.md#getbadge) - List Badges
+* [getBadgesPostFilters](docs/sdks/attendees/README.md#getbadgespostfilters) - List Badges
 * [updateBadge](docs/sdks/attendees/README.md#updatebadge) - Update Badge
 
 ### [AudienceSegments](docs/sdks/audiencesegments/README.md)
@@ -399,6 +399,8 @@ run();
 ### [EventRole](docs/sdks/eventrole/README.md)
 
 * [listEventRoleAssignment](docs/sdks/eventrole/README.md#listeventroleassignment) - List Event Role Assignments
+* [createEventRoleAssignment](docs/sdks/eventrole/README.md#createeventroleassignment) - Assign Event Role
+* [deleteEventRoleAssignment](docs/sdks/eventrole/README.md#deleteeventroleassignment) - Unassign Event Role
 
 ### [EventTravel](docs/sdks/eventtravel/README.md)
 
@@ -494,7 +496,7 @@ run();
 * [deleteExhibitorLogo](docs/sdks/exhibitor/README.md#deleteexhibitorlogo) - Delete Exhibitor Logo Image
 * [getLeadQualificationQuestions](docs/sdks/exhibitor/README.md#getleadqualificationquestions) - List Qualification Questions
 * [postRegistrationPack](docs/sdks/exhibitor/README.md#postregistrationpack) - Create Registration Pack
-* [getExhibitorRegistrationPacks](docs/sdks/exhibitor/README.md#getexhibitorregistrationpacks) - List Registration Pack
+* [getExhibitorRegistrationPacks](docs/sdks/exhibitor/README.md#getexhibitorregistrationpacks) - List Registration Packs
 * [getRegistrationPack](docs/sdks/exhibitor/README.md#getregistrationpack) - Get Registration Pack
 * [updateRegistrationPack](docs/sdks/exhibitor/README.md#updateregistrationpack) - Update Registration Pack
 * [deleteRegistrationPack](docs/sdks/exhibitor/README.md#deleteregistrationpack) - Delete Registration Pack
@@ -521,8 +523,8 @@ run();
 * [updateExhibitorAdmin](docs/sdks/exhibitorteam/README.md#updateexhibitoradmin) - Update Exhibitor Admin
 * [listBoothStaff](docs/sdks/exhibitorteam/README.md#listboothstaff) - List Booth Staff
 * [associateBoothStaff](docs/sdks/exhibitorteam/README.md#associateboothstaff) - Create Booth Staff
-* [getBoothStaff](docs/sdks/exhibitorteam/README.md#getboothstaff) - Get Booth Staff member
-* [deleteBoothStaff](docs/sdks/exhibitorteam/README.md#deleteboothstaff) - Delete Booth Staff member
+* [getBoothStaff](docs/sdks/exhibitorteam/README.md#getboothstaff) - Get Booth Staff Member
+* [deleteBoothStaff](docs/sdks/exhibitorteam/README.md#deleteboothstaff) - Delete Booth Staff Member
 
 ### [File](docs/sdks/file/README.md)
 
@@ -648,7 +650,7 @@ run();
 * [getProgramItemSessionDocument](docs/sdks/sessions/README.md#getprogramitemsessiondocument) - Get Program Item Document
 * [deleteProgramItemSessionDocument](docs/sdks/sessions/README.md#deleteprogramitemsessiondocument) - Delete Program Item Document
 * [listSessionsCategories](docs/sdks/sessions/README.md#listsessionscategories) - List Session Categories
-* [createSessionCategory](docs/sdks/sessions/README.md#createsessioncategory) - Create Session Categories
+* [createSessionCategory](docs/sdks/sessions/README.md#createsessioncategory) - Create Session Category
 * [getSessionSegments](docs/sdks/sessions/README.md#getsessionsegments) - Get Session Segments
 * [listSessions](docs/sdks/sessions/README.md#listsessions) - List Sessions
 * [createSession](docs/sdks/sessions/README.md#createsession) - Create Session
@@ -787,7 +789,9 @@ run();
 * [addUserToAccountUserGroup](docs/sdks/users/README.md#addusertoaccountusergroup) - Associate User to Group
 * [deleteUserFromAccountUserGroup](docs/sdks/users/README.md#deleteuserfromaccountusergroup) - Delete User from Group
 * [listAccountUsers](docs/sdks/users/README.md#listaccountusers) - List Account Users
+* [listAccountUsersFilter](docs/sdks/users/README.md#listaccountusersfilter) - List Account Users
 * [getAccountUser](docs/sdks/users/README.md#getaccountuser) - Get Account User
+* [updateAccountUserCustomFieldAnswer](docs/sdks/users/README.md#updateaccountusercustomfieldanswer) - Update Custom Field Answer
 
 ### [VenueAvailability](docs/sdks/venueavailability/README.md)
 
@@ -818,14 +822,14 @@ run();
 * [associateVenueImage](docs/sdks/venuecontent/README.md#associatevenueimage) - Associate Venue Image
 * [disassociateVenueImage](docs/sdks/venuecontent/README.md#disassociatevenueimage) - Remove Venue Image
 
-### [VenueLeads](docs/sdks/venueleads/README.md)
+### [VenueLeadCatchers](docs/sdks/venueleadcatchers/README.md)
 
-* [createLeadCatcher](docs/sdks/venueleads/README.md#createleadcatcher) - Create Lead Catcher
-* [listLeadCatchersOverview](docs/sdks/venueleads/README.md#listleadcatchersoverview) - List Lead Catchers Overview
-* [updateLeadCatcher](docs/sdks/venueleads/README.md#updateleadcatcher) - Update Lead Catcher
-* [patchLeadCatcher](docs/sdks/venueleads/README.md#patchleadcatcher) - Patch Lead Catcher
-* [deleteLeadCatcher](docs/sdks/venueleads/README.md#deleteleadcatcher) - Delete Lead Catcher
-* [getLeadCatcherOverview](docs/sdks/venueleads/README.md#getleadcatcheroverview) - Get Lead Catcher Overview
+* [createLeadCatcher](docs/sdks/venueleadcatchers/README.md#createleadcatcher) - Create Lead Catcher
+* [listLeadCatchersOverview](docs/sdks/venueleadcatchers/README.md#listleadcatchersoverview) - List Lead Catchers Overview
+* [updateLeadCatcher](docs/sdks/venueleadcatchers/README.md#updateleadcatcher) - Update Lead Catcher
+* [patchLeadCatcher](docs/sdks/venueleadcatchers/README.md#patchleadcatcher) - Patch Lead Catcher
+* [deleteLeadCatcher](docs/sdks/venueleadcatchers/README.md#deleteleadcatcher) - Delete Lead Catcher
+* [getLeadCatcherOverview](docs/sdks/venueleadcatchers/README.md#getleadcatcheroverview) - Get Lead Catcher Overview
 
 ### [VenueMeetingRooms](docs/sdks/venuemeetingrooms/README.md)
 
@@ -919,8 +923,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`attendeeMessagesGetAttendeeMessagesMembers`](docs/sdks/attendeemessages/README.md#getattendeemessagesmembers) - Get Messaging Members
 - [`attendeesCreateAttendee`](docs/sdks/attendees/README.md#createattendee) - Add Attendees
 - [`attendeesGetAttendeeById`](docs/sdks/attendees/README.md#getattendeebyid) - Get Attendee
-- [`attendeesGetBadge`](docs/sdks/attendees/README.md#getbadge) - Get Badge
-- [`attendeesGetBadgesPostFilters`](docs/sdks/attendees/README.md#getbadgespostfilters) - Get Badges
+- [`attendeesGetBadge`](docs/sdks/attendees/README.md#getbadge) - List Badges
+- [`attendeesGetBadgesPostFilters`](docs/sdks/attendees/README.md#getbadgespostfilters) - List Badges
 - [`attendeesListAttendees`](docs/sdks/attendees/README.md#listattendees) - List Attendees
 - [`attendeesListAttendeesPostFilter`](docs/sdks/attendees/README.md#listattendeespostfilter) - List Attendees
 - [`attendeesListDurations`](docs/sdks/attendees/README.md#listdurations) - List Attendance Duration
@@ -1041,6 +1045,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`eventFeaturesLaunchEventFeatures`](docs/sdks/eventfeatures/README.md#launcheventfeatures) - Launch Event Feature
 - [`eventFeaturesListEventWeblinks`](docs/sdks/eventfeatures/README.md#listeventweblinks) - List Event Weblinks
 - [`eventFeaturesUpdateEventFeatures`](docs/sdks/eventfeatures/README.md#updateeventfeatures) - Update Event Feature
+- [`eventRoleCreateEventRoleAssignment`](docs/sdks/eventrole/README.md#createeventroleassignment) - Assign Event Role
+- [`eventRoleDeleteEventRoleAssignment`](docs/sdks/eventrole/README.md#deleteeventroleassignment) - Unassign Event Role
 - [`eventRoleListEventRoleAssignment`](docs/sdks/eventrole/README.md#listeventroleassignment) - List Event Role Assignments
 - [`eventsAnswerEventCustomField`](docs/sdks/events/README.md#answereventcustomfield) - Event Custom Field Answers
 - [`eventsAssociateDiscountCodeToOrderItem`](docs/sdks/events/README.md#associatediscountcodetoorderitem) - Assign Discount to Order Item
@@ -1123,7 +1129,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`exhibitorGetExhibitorAnswers`](docs/sdks/exhibitor/README.md#getexhibitoranswers) - List Exhibitor Answers
 - [`exhibitorGetExhibitorCategories`](docs/sdks/exhibitor/README.md#getexhibitorcategories) - List Exhibitor Categories
 - [`exhibitorGetExhibitorQuestions`](docs/sdks/exhibitor/README.md#getexhibitorquestions) - List Exhibitor Questions
-- [`exhibitorGetExhibitorRegistrationPacks`](docs/sdks/exhibitor/README.md#getexhibitorregistrationpacks) - List Registration Pack
+- [`exhibitorGetExhibitorRegistrationPacks`](docs/sdks/exhibitor/README.md#getexhibitorregistrationpacks) - List Registration Packs
 - [`exhibitorGetExhibitors`](docs/sdks/exhibitor/README.md#getexhibitors) - List Exhibitors
 - [`exhibitorGetLeadQualificationQuestions`](docs/sdks/exhibitor/README.md#getleadqualificationquestions) - List Qualification Questions
 - [`exhibitorGetRegistrationPack`](docs/sdks/exhibitor/README.md#getregistrationpack) - Get Registration Pack
@@ -1134,8 +1140,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`exhibitorPostRegistrationPack`](docs/sdks/exhibitor/README.md#postregistrationpack) - Create Registration Pack
 - [`exhibitorRemoveExhibitorFromExhibitorCategory`](docs/sdks/exhibitor/README.md#removeexhibitorfromexhibitorcategory) - Delete Exhibitor from Category
 - [`exhibitorTeamAssociateBoothStaff`](docs/sdks/exhibitorteam/README.md#associateboothstaff) - Create Booth Staff
-- [`exhibitorTeamDeleteBoothStaff`](docs/sdks/exhibitorteam/README.md#deleteboothstaff) - Delete Booth Staff member
-- [`exhibitorTeamGetBoothStaff`](docs/sdks/exhibitorteam/README.md#getboothstaff) - Get Booth Staff member
+- [`exhibitorTeamDeleteBoothStaff`](docs/sdks/exhibitorteam/README.md#deleteboothstaff) - Delete Booth Staff Member
+- [`exhibitorTeamGetBoothStaff`](docs/sdks/exhibitorteam/README.md#getboothstaff) - Get Booth Staff Member
 - [`exhibitorTeamGetExhibitorAdmin`](docs/sdks/exhibitorteam/README.md#getexhibitoradmin) - Get Exhibitor Admin
 - [`exhibitorTeamListBoothStaff`](docs/sdks/exhibitorteam/README.md#listboothstaff) - List Booth Staff
 - [`exhibitorTeamListExhibitorAdmins`](docs/sdks/exhibitorteam/README.md#listexhibitoradmins) - List Exhibitor Admins
@@ -1219,7 +1225,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`sessionsAddSpeakerToSession`](docs/sdks/sessions/README.md#addspeakertosession) - Assign Speaker to Session
 - [`sessionsCreateProgramItem`](docs/sdks/sessions/README.md#createprogramitem) - Create Program Item
 - [`sessionsCreateSession`](docs/sdks/sessions/README.md#createsession) - Create Session
-- [`sessionsCreateSessionCategory`](docs/sdks/sessions/README.md#createsessioncategory) - Create Session Categories
+- [`sessionsCreateSessionCategory`](docs/sdks/sessions/README.md#createsessioncategory) - Create Session Category
 - [`sessionsDeleteProgramItem`](docs/sdks/sessions/README.md#deleteprogramitem) - Delete Session Program Item
 - [`sessionsDeleteProgramItemSessionDocument`](docs/sdks/sessions/README.md#deleteprogramitemsessiondocument) - Delete Program Item Document
 - [`sessionsDeleteSession`](docs/sdks/sessions/README.md#deletesession) - Delete Session
@@ -1335,6 +1341,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`usersGetAccountUserGroup`](docs/sdks/users/README.md#getaccountusergroup) - Get Account User Group
 - [`usersGetAccountUserGroups`](docs/sdks/users/README.md#getaccountusergroups) - List Account User Groups
 - [`usersListAccountUsers`](docs/sdks/users/README.md#listaccountusers) - List Account Users
+- [`usersListAccountUsersFilter`](docs/sdks/users/README.md#listaccountusersfilter) - List Account Users
+- [`usersUpdateAccountUserCustomFieldAnswer`](docs/sdks/users/README.md#updateaccountusercustomfieldanswer) - Update Custom Field Answer
 - [`usersUpdateAccountUserGroup`](docs/sdks/users/README.md#updateaccountusergroup) - Update Account User Group
 - [`venueAvailabilityCreateVenueNeedDate`](docs/sdks/venueavailability/README.md#createvenueneeddate) - Create Venue Need Date
 - [`venueAvailabilityDeleteVenueNeedDate`](docs/sdks/venueavailability/README.md#deletevenueneeddate) - Delete Venue Need Date
@@ -1359,12 +1367,12 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`venueContentUpdateVenueAmenities`](docs/sdks/venuecontent/README.md#updatevenueamenities) - Update Venue Amenities
 - [`venueContentUpdateVenueAttraction`](docs/sdks/venuecontent/README.md#updatevenueattraction) - Update Venue Attraction
 - [`venueContentUpdateVenueImageMetadata`](docs/sdks/venuecontent/README.md#updatevenueimagemetadata) - Update Venue Image Metadata
-- [`venueLeadsCreateLeadCatcher`](docs/sdks/venueleads/README.md#createleadcatcher) - Create Lead Catcher
-- [`venueLeadsDeleteLeadCatcher`](docs/sdks/venueleads/README.md#deleteleadcatcher) - Delete Lead Catcher
-- [`venueLeadsGetLeadCatcherOverview`](docs/sdks/venueleads/README.md#getleadcatcheroverview) - Get Lead Catcher Overview
-- [`venueLeadsListLeadCatchersOverview`](docs/sdks/venueleads/README.md#listleadcatchersoverview) - List Lead Catchers Overview
-- [`venueLeadsPatchLeadCatcher`](docs/sdks/venueleads/README.md#patchleadcatcher) - Patch Lead Catcher
-- [`venueLeadsUpdateLeadCatcher`](docs/sdks/venueleads/README.md#updateleadcatcher) - Update Lead Catcher
+- [`venueLeadCatchersCreateLeadCatcher`](docs/sdks/venueleadcatchers/README.md#createleadcatcher) - Create Lead Catcher
+- [`venueLeadCatchersDeleteLeadCatcher`](docs/sdks/venueleadcatchers/README.md#deleteleadcatcher) - Delete Lead Catcher
+- [`venueLeadCatchersGetLeadCatcherOverview`](docs/sdks/venueleadcatchers/README.md#getleadcatcheroverview) - Get Lead Catcher Overview
+- [`venueLeadCatchersListLeadCatchersOverview`](docs/sdks/venueleadcatchers/README.md#listleadcatchersoverview) - List Lead Catchers Overview
+- [`venueLeadCatchersPatchLeadCatcher`](docs/sdks/venueleadcatchers/README.md#patchleadcatcher) - Patch Lead Catcher
+- [`venueLeadCatchersUpdateLeadCatcher`](docs/sdks/venueleadcatchers/README.md#updateleadcatcher) - Update Lead Catcher
 - [`venueMeetingRoomsAssociateMeetingRoomImage`](docs/sdks/venuemeetingrooms/README.md#associatemeetingroomimage) - Associate Meeting Room Image
 - [`venueMeetingRoomsCreateMeetingRoom`](docs/sdks/venuemeetingrooms/README.md#createmeetingroom) - Create Meeting Room
 - [`venueMeetingRoomsDisassociateMeetingRoomImage`](docs/sdks/venuemeetingrooms/README.md#disassociatemeetingroomimage) - Remove Meeting Room Image
@@ -1644,7 +1652,7 @@ run();
 * [`CventSDKError`](./src/models/errors/cventsdkerror.ts): The base class for HTTP error responses.
   * [`ErrorResponse12`](./src/models/errors/errorresponse12.ts): Represents an error response with additional details of cascading error messages. *
 
-<details><summary>Less common errors (10)</summary>
+<details><summary>Less common errors (11)</summary>
 
 <br />
 
@@ -1657,10 +1665,11 @@ run();
 
 
 **Inherit from [`CventSDKError`](./src/models/errors/cventsdkerror.ts)**:
-* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 507 methods.*
-* [`ErrorResponse17`](./src/models/errors/errorresponse17.ts): The error response. Applicable to 11 of 507 methods.*
-* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 507 methods.*
-* [`Oauth2TokenPostResponse0Error`](./src/models/errors/oauth2tokenpostresponse0error.ts): A bad token response. Status code `400`. Applicable to 1 of 507 methods.*
+* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 511 methods.*
+* [`ErrorResponse17`](./src/models/errors/errorresponse17.ts): The error response. Applicable to 11 of 511 methods.*
+* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 511 methods.*
+* [`Oauth2TokenPostResponse0Error`](./src/models/errors/oauth2tokenpostresponse0error.ts): A bad token response. Status code `400`. Applicable to 1 of 511 methods.*
+* [`EventRoleAssignmentNotificationFailureResponseError`](./src/models/errors/eventroleassignmentnotificationfailureresponseerror.ts): Standard error response for a notification failure while creating an event-role assignment. The top-level code and details[].code are the integer HTTP status code (503). Status code `503`. Applicable to 1 of 511 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

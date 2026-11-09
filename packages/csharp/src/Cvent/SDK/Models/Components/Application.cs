@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// The application used to capture lead.
+    /// Application that captured the lead.
     /// </summary>
     public enum Application
     {

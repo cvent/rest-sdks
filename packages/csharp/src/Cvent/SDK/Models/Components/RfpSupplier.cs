@@ -73,6 +73,9 @@ namespace Cvent.SDK.Models.Components
         [JsonProperty("internalNote")]
         public string? InternalNote { get; set; }
 
+        /// <summary>
+        /// Lead source: only `leadSource.section.id` is used; `leadSource.id` is ignored. If you omit the section, Cvent sets the default section. A caller can send only the default section. Another section is rejected with 400.
+        /// </summary>
         [JsonProperty("leadSource")]
         public RfpSupplierLeadSource? LeadSource { get; set; }
 
@@ -95,7 +98,7 @@ namespace Cvent.SDK.Models.Components
         public bool? TotalMeetingSpaceMet { get; set; }
 
         /// <summary>
-        /// Promotion applied by planner while adding supplier on RFP.
+        /// Promotion applied by the planner to the supplier on the RFP. Can be set when the supplier is first associated, or added later by calling Associate Supplier to RFP again for the same supplier.
         /// </summary>
         [JsonProperty("promotion")]
         public Promotion? Promotion { get; set; }

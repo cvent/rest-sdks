@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * The related event object.
+ * A reference to an event by its ID.
  */
 export type EventId = {
   /**
-   * The unique identifier for an event
+   * The unique ID of an event.
    */
   id?: string | undefined;
 };

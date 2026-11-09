@@ -13,12 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Used to denote a sessions location.
+    /// A location associated with a session, with a code and name. The response may include its read-only ID.
     /// </summary>
     public class SessionLocation
     {
         /// <summary>
-        /// A string that represents a specified location.
+        /// The ID of the session location.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

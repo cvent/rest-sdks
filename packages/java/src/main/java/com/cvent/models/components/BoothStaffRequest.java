@@ -14,23 +14,23 @@ import java.util.Optional;
 /**
  * BoothStaffRequest
  *
- * <p>A JSON schema representing booth staff.
+ * <p>Booth staff member of an exhibitor.
  */
 public class BoothStaffRequest {
     /**
-     * The associated Attendee.
+     * Associated attendee.
      */
     @JsonProperty("attendee")
     private Attendee12 attendee;
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     @JsonProperty("exhibitor")
     private Exhibitor exhibitor;
@@ -48,21 +48,21 @@ public class BoothStaffRequest {
     }
 
     /**
-     * The associated Attendee.
+     * Associated attendee.
      */
     public Attendee12 attendee() {
         return this.attendee;
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Event4 event() {
         return this.event;
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public Exhibitor exhibitor() {
         return this.exhibitor;
@@ -73,7 +73,7 @@ public class BoothStaffRequest {
     }
 
     /**
-     * The associated Attendee.
+     * Associated attendee.
      */
     public BoothStaffRequest withAttendee(@Nonnull Attendee12 attendee) {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
@@ -81,7 +81,7 @@ public class BoothStaffRequest {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public BoothStaffRequest withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -89,7 +89,7 @@ public class BoothStaffRequest {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public BoothStaffRequest withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -134,7 +134,7 @@ public class BoothStaffRequest {
         }
 
         /**
-         * The associated Attendee.
+         * Associated attendee.
          */
         public Builder attendee(@Nonnull Attendee12 attendee) {
             this.attendee = Utils.checkNotNull(attendee, "attendee");
@@ -142,7 +142,7 @@ public class BoothStaffRequest {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -150,7 +150,7 @@ public class BoothStaffRequest {
         }
 
         /**
-         * The Associated Exhibitor.
+         * Associated exhibitor.
          */
         public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");

@@ -15,7 +15,7 @@ import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 import { Lead2, Lead2$inboundSchema } from "./lead2.js";
 
 /**
- * A JSON Schema for an existing e-literature request data for a lead.
+ * E-literature request of a lead, with an ID.
  */
 export type ExistingELiteratureRequestDataForLead = {
   /**
@@ -35,23 +35,23 @@ export type ExistingELiteratureRequestDataForLead = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * The Associated Event.
+   * Associated event.
    */
   event: Event4;
   /**
-   * The Associated Exhibitor.
+   * Associated exhibitor.
    */
   exhibitor: Exhibitor;
   /**
-   * JSON schema for the Lead object
+   * Associated lead.
    */
   lead: Lead2;
   /**
-   * Collection of E-literature documents sent to lead.
+   * List of the e-literature documents that were sent to the lead.
    */
   documents: Array<ELiteratureDocument>;
   /**
-   * Request identifier
+   * E-literature request ID.
    */
   id?: string | undefined;
 };

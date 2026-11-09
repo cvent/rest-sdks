@@ -17,11 +17,11 @@ import java.util.Optional;
 /**
  * ExhibitorQuestionsResponse
  *
- * <p>A response containing a list of all questions for exhibitors.
+ * <p>List of exhibitor questions.
  */
 public class ExhibitorQuestionsResponse {
     /**
-     * List of all questions for exhibitors.
+     * List of exhibitor questions.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
@@ -37,7 +37,7 @@ public class ExhibitorQuestionsResponse {
     }
 
     /**
-     * List of all questions for exhibitors.
+     * List of exhibitor questions.
      */
     public Optional<List<ExistingExhibitorQuestion>> data() {
         return Optional.ofNullable(this.data);
@@ -48,7 +48,7 @@ public class ExhibitorQuestionsResponse {
     }
 
     /**
-     * List of all questions for exhibitors.
+     * List of exhibitor questions.
      */
     public ExhibitorQuestionsResponse withData(@Nullable List<ExistingExhibitorQuestion> data) {
         this.data = data;
@@ -87,7 +87,7 @@ public class ExhibitorQuestionsResponse {
         }
 
         /**
-         * List of all questions for exhibitors.
+         * List of exhibitor questions.
          */
         public Builder data(@Nullable List<ExistingExhibitorQuestion> data) {
             this.data = data;

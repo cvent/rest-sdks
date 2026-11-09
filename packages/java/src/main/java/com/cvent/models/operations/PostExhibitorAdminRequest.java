@@ -26,7 +26,7 @@ public class PostExhibitorAdminRequest {
     private String exhibitorId;
 
     /**
-     * Exhibitor Admin details
+     * Exhibitor admin details.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private ExhibitorAdminRequest exhibitorAdminRequest;
@@ -56,7 +56,7 @@ public class PostExhibitorAdminRequest {
     }
 
     /**
-     * Exhibitor Admin details
+     * Exhibitor admin details.
      */
     public ExhibitorAdminRequest exhibitorAdminRequest() {
         return this.exhibitorAdminRequest;
@@ -83,7 +83,7 @@ public class PostExhibitorAdminRequest {
     }
 
     /**
-     * Exhibitor Admin details
+     * Exhibitor admin details.
      */
     public PostExhibitorAdminRequest withExhibitorAdminRequest(@Nonnull ExhibitorAdminRequest exhibitorAdminRequest) {
         this.exhibitorAdminRequest = Utils.checkNotNull(exhibitorAdminRequest, "exhibitorAdminRequest");
@@ -151,7 +151,7 @@ public class PostExhibitorAdminRequest {
         }
 
         /**
-         * Exhibitor Admin details
+         * Exhibitor admin details.
          */
         public Builder exhibitorAdminRequest(@Nonnull ExhibitorAdminRequest exhibitorAdminRequest) {
             this.exhibitorAdminRequest = Utils.checkNotNull(exhibitorAdminRequest, "exhibitorAdminRequest");

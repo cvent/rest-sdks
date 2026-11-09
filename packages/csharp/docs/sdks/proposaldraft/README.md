@@ -58,8 +58,8 @@ ProposalRequest req = new ProposalRequest() {
             EndDate = DateOnly.Parse("2021-01-13"),
         },
     },
-    SleepingRooms = new List<SleepingRoom1>() {
-        new SleepingRoom1() {
+    SleepingRooms = new List<SleepingRoom2>() {
+        new SleepingRoom2() {
             CheckInDate = DateOnly.Parse("2021-01-13"),
             CheckOutDate = DateOnly.Parse("2021-01-13"),
             PeakRoomNights = 2,

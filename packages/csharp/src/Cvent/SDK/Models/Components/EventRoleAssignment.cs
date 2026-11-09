@@ -20,19 +20,19 @@ namespace Cvent.SDK.Models.Components
     public class EventRoleAssignment
     {
         /// <summary>
-        /// The unique ID of the event role assignment, which concatenates the IDs of the event, the event role, and the user assigned the role.
+        /// The ID of the event role assignment. The ID joins the event ID, the event role ID, and the user ID, in that order, with `::` separators.
         /// </summary>
         [JsonProperty("id")]
-        public string? Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
-        /// The event where the user gets a role. For more details, use the <a href="#tag/Events/operation/getEventById">Get Event</a> endpoint with the event ID.
+        /// The event where the user gets a role.
         /// </summary>
         [JsonProperty("event")]
         public EventRoleAssignmentEvent? Event { get; set; }
 
         /// <summary>
-        /// The user to whom the event role is assigned. For more details, use the <a href="#tag/User-SCIM/operation/getUser">Get User</a> endpoint with the user ID.
+        /// The user to whom the event role is assigned. For a no-login user, the `id` is the resolved user ID, not the email address.
         /// </summary>
         [JsonProperty("user")]
         public EventRoleAssignmentUser? User { get; set; }

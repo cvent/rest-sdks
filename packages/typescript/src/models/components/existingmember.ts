@@ -24,7 +24,7 @@ export type ExistingMemberLink = {
 };
 
 /**
- * An existing member.
+ * An Events+ hub member with an ID and profile details.
  */
 export type ExistingMember = {
   /**

@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * ExhibitorAnswersRequest
  *
- * <p>An object representing the request for exhibitor answers.
+ * <p>Exhibitor answers to update.
  */
 public class ExhibitorAnswersRequest {
     /**

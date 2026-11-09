@@ -20,17 +20,17 @@ import java.util.Optional;
 /**
  * FileInput
  *
- * <p>Content of exhibitor file.
+ * <p>File of an exhibitor.
  */
 public class FileInput {
     /**
-     * The Associated Event.
+     * Associated event.
      */
     @JsonProperty("event")
     private Event4 event;
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     @JsonProperty("exhibitor")
     private Exhibitor exhibitor;
@@ -49,7 +49,7 @@ public class FileInput {
     private Boolean hidden;
 
     /**
-     * Display order for exhibitor file content.
+     * Display order of the file.
      */
     @JsonProperty("order")
     private long order;
@@ -75,14 +75,14 @@ public class FileInput {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public Event4 event() {
         return this.event;
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public Exhibitor exhibitor() {
         return this.exhibitor;
@@ -103,7 +103,7 @@ public class FileInput {
     }
 
     /**
-     * Display order for exhibitor file content.
+     * Display order of the file.
      */
     public long order() {
         return this.order;
@@ -114,7 +114,7 @@ public class FileInput {
     }
 
     /**
-     * The Associated Event.
+     * Associated event.
      */
     public FileInput withEvent(@Nonnull Event4 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -122,7 +122,7 @@ public class FileInput {
     }
 
     /**
-     * The Associated Exhibitor.
+     * Associated exhibitor.
      */
     public FileInput withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -146,7 +146,7 @@ public class FileInput {
     }
 
     /**
-     * Display order for exhibitor file content.
+     * Display order of the file.
      */
     public FileInput withOrder(long order) {
         this.order = order;
@@ -208,7 +208,7 @@ public class FileInput {
         }
 
         /**
-         * The Associated Event.
+         * Associated event.
          */
         public Builder event(@Nonnull Event4 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -216,7 +216,7 @@ public class FileInput {
         }
 
         /**
-         * The Associated Exhibitor.
+         * Associated exhibitor.
          */
         public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
@@ -240,7 +240,7 @@ public class FileInput {
         }
 
         /**
-         * Display order for exhibitor file content.
+         * Display order of the file.
          */
         public Builder order(long order) {
             this.order = order;

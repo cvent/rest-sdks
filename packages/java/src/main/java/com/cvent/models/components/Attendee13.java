@@ -16,11 +16,11 @@ import java.util.Optional;
 /**
  * Attendee13
  *
- * <p>A JSON schema representing the Attendee object
+ * <p>Attendee of the lead.
  */
 public class Attendee13 {
     /**
-     * Attendee id
+     * Attendee ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -36,7 +36,7 @@ public class Attendee13 {
     }
 
     /**
-     * Attendee id
+     * Attendee ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -47,7 +47,7 @@ public class Attendee13 {
     }
 
     /**
-     * Attendee id
+     * Attendee ID.
      */
     public Attendee13 withId(@Nullable String id) {
         this.id = id;
@@ -86,7 +86,7 @@ public class Attendee13 {
         }
 
         /**
-         * Attendee id
+         * Attendee ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

@@ -1,11 +1,11 @@
 # Device
 
-A JSON object representing an electronic device used to capture leads.
+Device that captured the lead.
 
 
 ## Fields
 
-| Field                                   | Type                                    | Required                                | Description                             | Example                                 |
-| --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| `Id`                                    | *string*                                | :heavy_minus_sign:                      | The id of device used to capture lead   | EKEK993IF9F                             |
-| `Name`                                  | *string*                                | :heavy_minus_sign:                      | The name of device used to capture lead | North Gate                              |
+| Field               | Type                | Required            | Description         | Example             |
+| ------------------- | ------------------- | ------------------- | ------------------- | ------------------- |
+| `Id`                | *string*            | :heavy_minus_sign:  | ID of the device.   | EKEK993IF9F         |
+| `Name`              | *string*            | :heavy_minus_sign:  | Name of the device. | North Gate          |

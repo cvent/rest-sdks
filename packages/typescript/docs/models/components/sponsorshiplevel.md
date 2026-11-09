@@ -1,6 +1,6 @@
 # SponsorshipLevel
 
-Associated sponsorship level for an exhibitor
+Associated sponsorship level of an exhibitor.
 
 ## Example Usage
 
@@ -16,4 +16,4 @@ let value: SponsorshipLevel = {
 
 | Field                                | Type                                 | Required                             | Description                          | Example                              |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *string*                             | :heavy_check_mark:                   | Sponsorship Level Id                 | 3db28cfc-db22-11eb-8d19-0242ac130003 |
+| `id`                                 | *string*                             | :heavy_check_mark:                   | Sponsorship level ID.                | 3db28cfc-db22-11eb-8d19-0242ac130003 |

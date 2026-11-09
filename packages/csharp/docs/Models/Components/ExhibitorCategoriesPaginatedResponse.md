@@ -1,6 +1,6 @@
 # ExhibitorCategoriesPaginatedResponse
 
-The response object containing the paginated list of exhibitor categories.
+Paginated list of exhibitor categories.
 
 
 ## Fields

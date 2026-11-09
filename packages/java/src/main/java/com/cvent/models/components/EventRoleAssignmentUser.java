@@ -16,8 +16,8 @@ import java.util.Optional;
 /**
  * EventRoleAssignmentUser
  *
- * <p>The user to whom the event role is assigned. For more details, use the [Get
- * User](#tag/User-SCIM/operation/getUser) endpoint with the user ID.
+ * <p>The user to whom the event role is assigned. For a no-login user, the `id` is the resolved user ID,
+ * not the email address.
  */
 public class EventRoleAssignmentUser {
     /**
@@ -27,13 +27,22 @@ public class EventRoleAssignmentUser {
     @JsonProperty("id")
     private String id;
 
+    /**
+     * Whether the assigned user is an account user (ACCOUNT_USER) or a no-login user (NO_LOGIN_USER).
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("type")
+    private EventRoleAssignmentType type;
+
     @JsonCreator
-    public EventRoleAssignmentUser(@JsonProperty("id") @Nullable String id) {
+    public EventRoleAssignmentUser(
+            @JsonProperty("id") @Nullable String id, @JsonProperty("type") @Nullable EventRoleAssignmentType type) {
         this.id = id;
+        this.type = type;
     }
 
     public EventRoleAssignmentUser() {
-        this(null);
+        this(null, null);
     }
 
     /**
@@ -41,6 +50,13 @@ public class EventRoleAssignmentUser {
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
+    }
+
+    /**
+     * Whether the assigned user is an account user (ACCOUNT_USER) or a no-login user (NO_LOGIN_USER).
+     */
+    public Optional<EventRoleAssignmentType> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -55,6 +71,14 @@ public class EventRoleAssignmentUser {
         return this;
     }
 
+    /**
+     * Whether the assigned user is an account user (ACCOUNT_USER) or a no-login user (NO_LOGIN_USER).
+     */
+    public EventRoleAssignmentUser withType(@Nullable EventRoleAssignmentType type) {
+        this.type = type;
+        return this;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -64,23 +88,25 @@ public class EventRoleAssignmentUser {
             return false;
         }
         EventRoleAssignmentUser other = (EventRoleAssignmentUser) o;
-        return Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.type, other.type);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id);
+        return Utils.enhancedHash(id, type);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(EventRoleAssignmentUser.class, "id", id);
+        return Utils.toString(EventRoleAssignmentUser.class, "id", id, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
         private String id;
+
+        private EventRoleAssignmentType type;
 
         private Builder() {
             // force use of static builder() method
@@ -94,8 +120,16 @@ public class EventRoleAssignmentUser {
             return this;
         }
 
+        /**
+         * Whether the assigned user is an account user (ACCOUNT_USER) or a no-login user (NO_LOGIN_USER).
+         */
+        public Builder type(@Nullable EventRoleAssignmentType type) {
+            this.type = type;
+            return this;
+        }
+
         public EventRoleAssignmentUser build() {
-            return new EventRoleAssignmentUser(id);
+            return new EventRoleAssignmentUser(id, type);
         }
     }
 }

@@ -105,7 +105,7 @@ run();
 
 ## getHubMembers
 
-Fetches a list of members associated with a particular Events+ hub.
+Fetches a list of members associated with the Events+ hub you specify.
 
 ### Example Usage
 

@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully associated booth staff.
+        /// Successfully associated the booth staff member.
         /// </summary>
         public BoothStaffResponse? BoothStaffResponse { get; set; }
     }

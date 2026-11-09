@@ -1,6 +1,6 @@
 # AdditionalChoice1
 
-Contains text of additional choice
+Additional choice of the question.
 
 ## Example Usage
 
@@ -14,6 +14,6 @@ let value: AdditionalChoice1 = {
 
 ## Fields
 
-| Field                           | Type                            | Required                        | Description                     | Example                         |
-| ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- |
-| `text`                          | *string*                        | :heavy_minus_sign:              | Text Value of additional choice | Not Applicable or Other         |
+| Field                          | Type                           | Required                       | Description                    | Example                        |
+| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
+| `text`                         | *string*                       | :heavy_minus_sign:             | Text of the additional choice. | Not Applicable or Other        |

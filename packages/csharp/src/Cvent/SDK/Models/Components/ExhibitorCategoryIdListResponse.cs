@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// A paginated response containing a list of exhibitor category Ids.
+    /// Paginated list of exhibitor category IDs.
     /// </summary>
     public class ExhibitorCategoryIdListResponse
     {
@@ -26,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public Paging? Paging { get; set; }
 
         /// <summary>
-        /// Paginated list of exhibitor category Ids for an exhibitor.
+        /// Paginated list of the exhibitor category IDs of an exhibitor.
         /// </summary>
         [JsonProperty("data")]
         public List<ExhibitorCategoryId>? Data { get; set; }

@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Delete Exhibitor Logo Image
  *
  * @remarks
- * Deletes exhibitor logo image data
+ * Deletes the logo image of an exhibitor.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Used to denote a session files attributes.
+    /// Metadata for a file associated with a session.
     /// </summary>
     public class SessionFile
     {
@@ -46,7 +46,7 @@ namespace Cvent.SDK.Models.Components
         public long? Size { get; set; }
 
         /// <summary>
-        /// Display this file to the public.
+        /// True indicates the file is displayed publicly.
         /// </summary>
         [JsonProperty("displayEnabled")]
         public bool? DisplayEnabled { get; set; }

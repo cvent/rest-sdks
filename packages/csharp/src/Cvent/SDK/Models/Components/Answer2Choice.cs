@@ -13,12 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The choice that was selected.
+    /// Selected choice.
     /// </summary>
     public class Answer2Choice
     {
         /// <summary>
-        /// The ID of the choice that was selected.
+        /// ID of the selected choice.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

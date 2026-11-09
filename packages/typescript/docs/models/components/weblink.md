@@ -1,6 +1,6 @@
 # Weblink
 
-Content of exhibitor weblink.
+Weblink of an exhibitor.
 
 ## Example Usage
 
@@ -15,7 +15,7 @@ let value: Weblink = {
     id: "4888db54-db22-11eb-8d19-0242ac130003",
   },
   name: "Marketing Page",
-  url: "http://www.example.com",
+  url: "https://www.example.com",
   order: 3,
 };
 ```
@@ -24,9 +24,9 @@ let value: Weblink = {
 
 | Field                                                        | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `event`                                                      | [components.Event4](../../models/components/event4.md)       | :heavy_check_mark:                                           | The Associated Event.                                        |                                                              |
-| `exhibitor`                                                  | [components.Exhibitor](../../models/components/exhibitor.md) | :heavy_check_mark:                                           | The Associated Exhibitor.                                    |                                                              |
+| `event`                                                      | [components.Event4](../../models/components/event4.md)       | :heavy_check_mark:                                           | Associated event.                                            |                                                              |
+| `exhibitor`                                                  | [components.Exhibitor](../../models/components/exhibitor.md) | :heavy_check_mark:                                           | Associated exhibitor.                                        |                                                              |
 | `name`                                                       | *string*                                                     | :heavy_check_mark:                                           | Display name of the weblink.                                 | Marketing Page                                               |
-| `url`                                                        | *string*                                                     | :heavy_check_mark:                                           | The URL of the weblink.                                      | http://www.example.com                                       |
+| `url`                                                        | *string*                                                     | :heavy_check_mark:                                           | URL of the weblink.                                          | https://www.example.com                                      |
 | `hidden`                                                     | *boolean*                                                    | :heavy_minus_sign:                                           | True indicates the weblink is hidden from attendees.         |                                                              |
-| `order`                                                      | *number*                                                     | :heavy_check_mark:                                           | Display order for exhibitor weblink content.                 | 3                                                            |
+| `order`                                                      | *number*                                                     | :heavy_check_mark:                                           | Display order of the weblink.                                | 3                                                            |

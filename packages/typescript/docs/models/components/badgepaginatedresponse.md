@@ -1,6 +1,6 @@
 # BadgePaginatedResponse
 
-Badge List response including paging and badge data.
+Paginated list of badges.
 
 ## Example Usage
 

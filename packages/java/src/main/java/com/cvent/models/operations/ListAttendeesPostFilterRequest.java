@@ -62,10 +62,10 @@ public class ListAttendeesPostFilterRequest {
      * <p>The following fields are expandable:
      * * answers.question
      * * **Scope**: event/events:read
-     * * **Reference**: <a href="#operation/getEventQuestions">List Event Questions</a>
+     * * **Reference**: [List Event Questions](#operation/getEventQuestions)
      * * registrationType
      * * **Scope**: event/registration-types:read
-     * * **Reference**: <a href="#operation/listRegistrationTypes">List Registration Types</a>
+     * * **Reference**: [List Registration Types](#operation/listRegistrationTypes)
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=expand")
     private List<Expand> expand;
@@ -174,10 +174,10 @@ public class ListAttendeesPostFilterRequest {
      * <p>The following fields are expandable:
      * * answers.question
      * * **Scope**: event/events:read
-     * * **Reference**: <a href="#operation/getEventQuestions">List Event Questions</a>
+     * * **Reference**: [List Event Questions](#operation/getEventQuestions)
      * * registrationType
      * * **Scope**: event/registration-types:read
-     * * **Reference**: <a href="#operation/listRegistrationTypes">List Registration Types</a>
+     * * **Reference**: [List Registration Types](#operation/listRegistrationTypes)
      */
     public Optional<List<Expand>> expand() {
         return Optional.ofNullable(this.expand);
@@ -273,10 +273,10 @@ public class ListAttendeesPostFilterRequest {
      * <p>The following fields are expandable:
      * * answers.question
      * * **Scope**: event/events:read
-     * * **Reference**: <a href="#operation/getEventQuestions">List Event Questions</a>
+     * * **Reference**: [List Event Questions](#operation/getEventQuestions)
      * * registrationType
      * * **Scope**: event/registration-types:read
-     * * **Reference**: <a href="#operation/listRegistrationTypes">List Registration Types</a>
+     * * **Reference**: [List Registration Types](#operation/listRegistrationTypes)
      */
     public ListAttendeesPostFilterRequest withExpand(@Nullable List<Expand> expand) {
         this.expand = expand;
@@ -441,10 +441,10 @@ public class ListAttendeesPostFilterRequest {
          * <p>The following fields are expandable:
          * * answers.question
          * * **Scope**: event/events:read
-         * * **Reference**: <a href="#operation/getEventQuestions">List Event Questions</a>
+         * * **Reference**: [List Event Questions](#operation/getEventQuestions)
          * * registrationType
          * * **Scope**: event/registration-types:read
-         * * **Reference**: <a href="#operation/listRegistrationTypes">List Registration Types</a>
+         * * **Reference**: [List Registration Types](#operation/listRegistrationTypes)
          */
         public Builder expand(@Nullable List<Expand> expand) {
             this.expand = expand;

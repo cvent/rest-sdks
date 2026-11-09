@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * LeadsPaginatedResponse
  *
- * <p>A paginated response of leads.
+ * <p>Paginated list of leads.
  */
 public class LeadsPaginatedResponse {
     /**
@@ -28,7 +28,7 @@ public class LeadsPaginatedResponse {
     private Paging paging;
 
     /**
-     * Collection of leads.
+     * List of leads.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
@@ -53,7 +53,7 @@ public class LeadsPaginatedResponse {
     }
 
     /**
-     * Collection of leads.
+     * List of leads.
      */
     public Optional<List<Lead>> data() {
         return Optional.ofNullable(this.data);
@@ -72,7 +72,7 @@ public class LeadsPaginatedResponse {
     }
 
     /**
-     * Collection of leads.
+     * List of leads.
      */
     public LeadsPaginatedResponse withData(@Nullable List<Lead> data) {
         this.data = data;
@@ -121,7 +121,7 @@ public class LeadsPaginatedResponse {
         }
 
         /**
-         * Collection of leads.
+         * List of leads.
          */
         public Builder data(@Nullable List<Lead> data) {
             this.data = data;

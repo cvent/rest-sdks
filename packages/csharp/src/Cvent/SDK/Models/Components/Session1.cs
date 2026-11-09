@@ -13,12 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The related session object.
+    /// A reference to a session by its ID.
     /// </summary>
     public class Session1
     {
         /// <summary>
-        /// The unique identifier for a session.
+        /// The unique ID of a session.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

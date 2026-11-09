@@ -32,7 +32,7 @@ public class PostExhibitorAdminResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully created an Exhibitor Admin.
+     * Successfully created the exhibitor admin.
      */
     private ExhibitorAdminResponse exhibitorAdminResponse;
 
@@ -77,7 +77,7 @@ public class PostExhibitorAdminResponse implements Response {
     }
 
     /**
-     * Successfully created an Exhibitor Admin.
+     * Successfully created the exhibitor admin.
      */
     public Optional<ExhibitorAdminResponse> exhibitorAdminResponse() {
         return Optional.ofNullable(this.exhibitorAdminResponse);
@@ -112,7 +112,7 @@ public class PostExhibitorAdminResponse implements Response {
     }
 
     /**
-     * Successfully created an Exhibitor Admin.
+     * Successfully created the exhibitor admin.
      */
     public PostExhibitorAdminResponse withExhibitorAdminResponse(
             @Nullable ExhibitorAdminResponse exhibitorAdminResponse) {
@@ -194,7 +194,7 @@ public class PostExhibitorAdminResponse implements Response {
         }
 
         /**
-         * Successfully created an Exhibitor Admin.
+         * Successfully created the exhibitor admin.
          */
         public Builder exhibitorAdminResponse(@Nullable ExhibitorAdminResponse exhibitorAdminResponse) {
             this.exhibitorAdminResponse = exhibitorAdminResponse;

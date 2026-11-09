@@ -26,7 +26,7 @@ public class BudgetCostDetail12 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("category")
-    private BudgetCategory category;
+    private BudgetCategory1 category;
 
     /**
      * This is used to denote the sub category for a budget.
@@ -62,7 +62,7 @@ public class BudgetCostDetail12 {
 
     @JsonCreator
     public BudgetCostDetail12(
-            @JsonProperty("category") @Nullable BudgetCategory category,
+            @JsonProperty("category") @Nullable BudgetCategory1 category,
             @JsonProperty("subCategory") @Nullable BudgetSubCategory subCategory,
             @JsonProperty("units") @Nullable Double units,
             @JsonProperty("cost") @Nullable Double cost,
@@ -81,7 +81,7 @@ public class BudgetCostDetail12 {
     /**
      * Denotes the category assigned to the budget item.
      */
-    public Optional<BudgetCategory> category() {
+    public Optional<BudgetCategory1> category() {
         return Optional.ofNullable(this.category);
     }
 
@@ -124,7 +124,7 @@ public class BudgetCostDetail12 {
     /**
      * Denotes the category assigned to the budget item.
      */
-    public BudgetCostDetail12 withCategory(@Nullable BudgetCategory category) {
+    public BudgetCostDetail12 withCategory(@Nullable BudgetCategory1 category) {
         this.category = category;
         return this;
     }
@@ -205,7 +205,7 @@ public class BudgetCostDetail12 {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private BudgetCategory category;
+        private BudgetCategory1 category;
 
         private BudgetSubCategory subCategory;
 
@@ -222,7 +222,7 @@ public class BudgetCostDetail12 {
         /**
          * Denotes the category assigned to the budget item.
          */
-        public Builder category(@Nullable BudgetCategory category) {
+        public Builder category(@Nullable BudgetCategory1 category) {
             this.category = category;
             return this;
         }

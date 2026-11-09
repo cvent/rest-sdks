@@ -36,7 +36,7 @@ import {
  * Get Events+ Hub Members
  *
  * @remarks
- * Fetches a list of members associated with a particular Events+ hub.
+ * Fetches a list of members associated with the Events+ hub you specify.
  */
 export function eventsPlusHubGetHubMembers(
   client: CventSDKCore,

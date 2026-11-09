@@ -209,6 +209,14 @@ namespace Cvent.SDK.Models.Components
         public EventType11 Type { get; set; } = default!;
 
         /// <summary>
+        /// An object that contains the image associated with the event.<br/>
+        /// <br/>
+        /// This is an **expandable** object. It is present only when `expand=image` is requested, and is `null` when the event has no image. It can be up to 60 seconds behind a change to the event's image.
+        /// </summary>
+        [JsonProperty("image")]
+        public EventImage? Image { get; set; } = null;
+
+        /// <summary>
         /// Represents the links associated with an event.
         /// </summary>
         [JsonProperty("_links")]

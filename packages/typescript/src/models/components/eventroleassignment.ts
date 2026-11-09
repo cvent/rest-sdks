@@ -4,12 +4,13 @@
 
 import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { EventRole, EventRole$inboundSchema } from "./eventrole.js";
 
 /**
- * The event where the user gets a role. For more details, use the [Get Event](#tag/Events/operation/getEventById) endpoint with the event ID.
+ * The event where the user gets a role.
  */
 export type EventRoleAssignmentEvent = {
   /**
@@ -19,13 +20,31 @@ export type EventRoleAssignmentEvent = {
 };
 
 /**
- * The user to whom the event role is assigned. For more details, use the [Get User](#tag/User-SCIM/operation/getUser) endpoint with the user ID.
+ * Whether the assigned user is an account user (ACCOUNT_USER) or a no-login user (NO_LOGIN_USER).
+ */
+export const EventRoleAssignmentType = {
+  AccountUser: "ACCOUNT_USER",
+  NoLoginUser: "NO_LOGIN_USER",
+} as const;
+/**
+ * Whether the assigned user is an account user (ACCOUNT_USER) or a no-login user (NO_LOGIN_USER).
+ */
+export type EventRoleAssignmentType = ClosedEnum<
+  typeof EventRoleAssignmentType
+>;
+
+/**
+ * The user to whom the event role is assigned. For a no-login user, the `id` is the resolved user ID, not the email address.
  */
 export type EventRoleAssignmentUser = {
   /**
    * The unique ID of the user.
    */
   id?: string | undefined;
+  /**
+   * Whether the assigned user is an account user (ACCOUNT_USER) or a no-login user (NO_LOGIN_USER).
+   */
+  type?: EventRoleAssignmentType | undefined;
 };
 
 /**
@@ -33,15 +52,15 @@ export type EventRoleAssignmentUser = {
  */
 export type EventRoleAssignment = {
   /**
-   * The unique ID of the event role assignment, which concatenates the IDs of the event, the event role, and the user assigned the role.
+   * The ID of the event role assignment. The ID joins the event ID, the event role ID, and the user ID, in that order, with `::` separators.
    */
-  id?: string | undefined;
+  id: string;
   /**
-   * The event where the user gets a role. For more details, use the [Get Event](#tag/Events/operation/getEventById) endpoint with the event ID.
+   * The event where the user gets a role.
    */
   event?: EventRoleAssignmentEvent | undefined;
   /**
-   * The user to whom the event role is assigned. For more details, use the [Get User](#tag/User-SCIM/operation/getUser) endpoint with the user ID.
+   * The user to whom the event role is assigned. For a no-login user, the `id` is the resolved user ID, not the email address.
    */
   user?: EventRoleAssignmentUser | undefined;
   /**
@@ -78,12 +97,18 @@ export function eventRoleAssignmentEventFromJSON(
 }
 
 /** @internal */
+export const EventRoleAssignmentType$inboundSchema: z.ZodNativeEnum<
+  typeof EventRoleAssignmentType
+> = z.nativeEnum(EventRoleAssignmentType);
+
+/** @internal */
 export const EventRoleAssignmentUser$inboundSchema: z.ZodType<
   EventRoleAssignmentUser,
   z.ZodTypeDef,
   unknown
 > = z.object({
   id: z.string().optional(),
+  type: EventRoleAssignmentType$inboundSchema.optional(),
 });
 
 export function eventRoleAssignmentUserFromJSON(
@@ -102,7 +127,7 @@ export const EventRoleAssignment$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
+  id: z.string(),
   event: z.lazy(() => EventRoleAssignmentEvent$inboundSchema).optional(),
   user: z.lazy(() => EventRoleAssignmentUser$inboundSchema).optional(),
   eventRole: EventRole$inboundSchema.optional(),

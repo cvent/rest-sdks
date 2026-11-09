@@ -16,18 +16,18 @@ import java.util.Optional;
 /**
  * BaseChoice
  *
- * <p>A JSON schema representing a base choice object
+ * <p>Choice of a question.
  */
 public class BaseChoice {
     /**
-     * Unique identifier for the choice
+     * Choice ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * Text value of the field
+     * Text of the choice.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("text")
@@ -44,14 +44,14 @@ public class BaseChoice {
     }
 
     /**
-     * Unique identifier for the choice
+     * Choice ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * Text value of the field
+     * Text of the choice.
      */
     public Optional<String> text() {
         return Optional.ofNullable(this.text);
@@ -62,7 +62,7 @@ public class BaseChoice {
     }
 
     /**
-     * Unique identifier for the choice
+     * Choice ID.
      */
     public BaseChoice withId(@Nullable String id) {
         this.id = id;
@@ -70,7 +70,7 @@ public class BaseChoice {
     }
 
     /**
-     * Text value of the field
+     * Text of the choice.
      */
     public BaseChoice withText(@Nullable String text) {
         this.text = text;
@@ -111,7 +111,7 @@ public class BaseChoice {
         }
 
         /**
-         * Unique identifier for the choice
+         * Choice ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -119,7 +119,7 @@ public class BaseChoice {
         }
 
         /**
-         * Text value of the field
+         * Text of the choice.
          */
         public Builder text(@Nullable String text) {
             this.text = text;

@@ -26,5 +26,5 @@ let value: QuestionResponse = {
 
 | Field                                                        | Type                                                         | Required                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `question`                                                   | [components.Question2](../../models/components/question2.md) | :heavy_minus_sign:                                           | The question that was answered.                              |
-| `answers`                                                    | [components.Answer21](../../models/components/answer21.md)[] | :heavy_minus_sign:                                           | List of answers.                                             |
+| `question`                                                   | [components.Question3](../../models/components/question3.md) | :heavy_minus_sign:                                           | The question that was answered.                              |
+| `answers`                                                    | [components.Answer3](../../models/components/answer3.md)[]   | :heavy_minus_sign:                                           | List of answers.                                             |

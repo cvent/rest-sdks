@@ -19,7 +19,7 @@ export class Leads extends ClientSDK {
    * @remarks
    * **Deprecated.** The E-literature Requests feature has been sunset.
    *
-   * Gets a paginated list of eliterature requests data
+   * Retrieves a paginated list of e-literature requests.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    *
@@ -42,7 +42,7 @@ export class Leads extends ClientSDK {
    * List Qualification Answers
    *
    * @remarks
-   * Gets a list of answers to lead qualification questions for a given lead id.
+   * Retrieves a list of the answers of a lead to the lead qualification questions.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -61,7 +61,7 @@ export class Leads extends ClientSDK {
    * List Leads
    *
    * @remarks
-   * Gets a paginated list of leads
+   * Retrieves a paginated list of leads.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -80,7 +80,7 @@ export class Leads extends ClientSDK {
    * List Leads
    *
    * @remarks
-   * Gets a paginated list of leads
+   * Retrieves a paginated list of leads.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */

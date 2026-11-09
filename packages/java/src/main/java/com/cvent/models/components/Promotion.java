@@ -16,7 +16,8 @@ import java.util.Optional;
 /**
  * Promotion
  *
- * <p>Promotion applied by planner while adding supplier on RFP.
+ * <p>Promotion applied by the planner to the supplier on the RFP. Can be set when the supplier is first
+ * associated, or added later by calling Associate Supplier to RFP again for the same supplier.
  */
 public class Promotion {
     /**

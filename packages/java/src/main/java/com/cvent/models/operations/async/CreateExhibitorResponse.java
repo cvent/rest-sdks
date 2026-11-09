@@ -33,7 +33,7 @@ public class CreateExhibitorResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully Created the exhibitor.
+     * Successfully created the exhibitor.
      */
     private ExhibitorResponse exhibitorResponse;
 
@@ -78,7 +78,7 @@ public class CreateExhibitorResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully Created the exhibitor.
+     * Successfully created the exhibitor.
      */
     public Optional<ExhibitorResponse> exhibitorResponse() {
         return Optional.ofNullable(this.exhibitorResponse);
@@ -113,7 +113,7 @@ public class CreateExhibitorResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully Created the exhibitor.
+     * Successfully created the exhibitor.
      */
     public CreateExhibitorResponse withExhibitorResponse(@Nullable ExhibitorResponse exhibitorResponse) {
         this.exhibitorResponse = exhibitorResponse;
@@ -194,7 +194,7 @@ public class CreateExhibitorResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully Created the exhibitor.
+         * Successfully created the exhibitor.
          */
         public Builder exhibitorResponse(@Nullable ExhibitorResponse exhibitorResponse) {
             this.exhibitorResponse = exhibitorResponse;

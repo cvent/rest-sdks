@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Represents a program item object that will be added to a session document.
+    /// A relationship between a session program item and a session document.
     /// </summary>
     public class ProgramItemSessionDocument
     {
@@ -50,19 +50,19 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// The related event object.
+        /// A reference to an event by its ID.
         /// </summary>
         [JsonProperty("event")]
         public EventId Event { get; set; } = default!;
 
         /// <summary>
-        /// The related session object.
+        /// A reference to a session by its ID.
         /// </summary>
         [JsonProperty("session")]
         public Session1 Session { get; set; } = default!;
 
         /// <summary>
-        /// The related document object.
+        /// A reference to a session document by its ID.
         /// </summary>
         [JsonProperty("document")]
         public SessionDocumentLite Document { get; set; } = default!;

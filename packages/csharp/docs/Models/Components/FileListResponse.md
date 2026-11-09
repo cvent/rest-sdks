@@ -1,6 +1,6 @@
 # FileListResponse
 
-A JSON object containing a list of files associated with an exhibitor.
+List of the files of an exhibitor.
 
 
 ## Fields

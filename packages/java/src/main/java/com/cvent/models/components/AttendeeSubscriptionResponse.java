@@ -14,7 +14,7 @@ import java.util.Optional;
 /**
  * AttendeeSubscriptionResponse
  *
- * <p>Response body for successful attendee subscription status update.
+ * <p>The attendee ID and updated email subscription status.
  */
 public class AttendeeSubscriptionResponse {
     /**

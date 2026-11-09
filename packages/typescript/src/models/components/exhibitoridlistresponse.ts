@@ -10,7 +10,7 @@ import { ExhibitorId, ExhibitorId$inboundSchema } from "./exhibitorid.js";
 import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
- * Exhibitor Id Paginated Response schema
+ * Paginated list of exhibitor IDs.
  */
 export type ExhibitorIdListResponse = {
   /**
@@ -18,7 +18,7 @@ export type ExhibitorIdListResponse = {
    */
   paging?: Paging | undefined;
   /**
-   * Paginated list of exhibitor Ids for an exhibitor category.
+   * Paginated list of the exhibitor IDs of an exhibitor category.
    */
   data?: Array<ExhibitorId> | undefined;
 };

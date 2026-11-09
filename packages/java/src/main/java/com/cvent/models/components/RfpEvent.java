@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
 import java.lang.Double;
@@ -32,7 +33,6 @@ public class RfpEvent {
     /**
      * Name of the event linked with the RFP.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("name")
     private String name;
 
@@ -130,7 +130,6 @@ public class RfpEvent {
     /**
      * Event format type.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("formatType")
     private EventFormatType formatType;
 
@@ -165,7 +164,7 @@ public class RfpEvent {
     @JsonCreator
     public RfpEvent(
             @JsonProperty("event") @Nullable Event12 event,
-            @JsonProperty("name") @Nullable String name,
+            @JsonProperty("name") @Nonnull String name,
             @JsonProperty("contractSignatureLocation") @Nullable String contractSignatureLocation,
             @JsonProperty("destinationsUnderConsideration") @Nullable String destinationsUnderConsideration,
             @JsonProperty("externalMeetingRequest") @Nullable Boolean externalMeetingRequest,
@@ -179,13 +178,13 @@ public class RfpEvent {
             @JsonProperty("referenceNumber") @Nullable String referenceNumber,
             @JsonProperty("largestMeetingSpaceRequired") @Nullable SpaceArea largestMeetingSpaceRequired,
             @JsonProperty("meetingRequestId") @Nullable String meetingRequestId,
-            @JsonProperty("formatType") @Nullable EventFormatType formatType,
+            @JsonProperty("formatType") @Nonnull EventFormatType formatType,
             @JsonProperty("virtualAttendeesPerDay") @Nullable Long virtualAttendeesPerDay,
             @JsonProperty("budget") @Nullable Double budget,
             @JsonProperty("roomRateBudget") @Nullable Double roomRateBudget,
             @JsonProperty("foodBeverageBudget") @Nullable Double foodBeverageBudget) {
         this.event = event;
-        this.name = name;
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.contractSignatureLocation = contractSignatureLocation;
         this.destinationsUnderConsideration = destinationsUnderConsideration;
         this.externalMeetingRequest = externalMeetingRequest;
@@ -199,16 +198,18 @@ public class RfpEvent {
         this.referenceNumber = referenceNumber;
         this.largestMeetingSpaceRequired = largestMeetingSpaceRequired;
         this.meetingRequestId = meetingRequestId;
-        this.formatType = formatType;
+        this.formatType = Optional.ofNullable(formatType)
+                .orElseThrow(() -> new IllegalArgumentException("formatType cannot be null"));
         this.virtualAttendeesPerDay = virtualAttendeesPerDay;
         this.budget = budget;
         this.roomRateBudget = roomRateBudget;
         this.foodBeverageBudget = foodBeverageBudget;
     }
 
-    public RfpEvent() {
+    public RfpEvent(@Nonnull String name, @Nonnull EventFormatType formatType) {
         this(
                 null,
+                name,
                 null,
                 null,
                 null,
@@ -222,8 +223,7 @@ public class RfpEvent {
                 null,
                 null,
                 null,
-                null,
-                null,
+                formatType,
                 null,
                 null,
                 null,
@@ -240,8 +240,8 @@ public class RfpEvent {
     /**
      * Name of the event linked with the RFP.
      */
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
+    public String name() {
+        return this.name;
     }
 
     /**
@@ -338,8 +338,8 @@ public class RfpEvent {
     /**
      * Event format type.
      */
-    public Optional<EventFormatType> formatType() {
-        return Optional.ofNullable(this.formatType);
+    public EventFormatType formatType() {
+        return this.formatType;
     }
 
     /**
@@ -385,8 +385,8 @@ public class RfpEvent {
     /**
      * Name of the event linked with the RFP.
      */
-    public RfpEvent withName(@Nullable String name) {
-        this.name = name;
+    public RfpEvent withName(@Nonnull String name) {
+        this.name = Utils.checkNotNull(name, "name");
         return this;
     }
 
@@ -497,8 +497,8 @@ public class RfpEvent {
     /**
      * Event format type.
      */
-    public RfpEvent withFormatType(@Nullable EventFormatType formatType) {
-        this.formatType = formatType;
+    public RfpEvent withFormatType(@Nonnull EventFormatType formatType) {
+        this.formatType = Utils.checkNotNull(formatType, "formatType");
         return this;
     }
 
@@ -694,8 +694,8 @@ public class RfpEvent {
         /**
          * Name of the event linked with the RFP.
          */
-        public Builder name(@Nullable String name) {
-            this.name = name;
+        public Builder name(@Nonnull String name) {
+            this.name = Utils.checkNotNull(name, "name");
             return this;
         }
 
@@ -806,8 +806,8 @@ public class RfpEvent {
         /**
          * Event format type.
          */
-        public Builder formatType(@Nullable EventFormatType formatType) {
-            this.formatType = formatType;
+        public Builder formatType(@Nonnull EventFormatType formatType) {
+            this.formatType = Utils.checkNotNull(formatType, "formatType");
             return this;
         }
 

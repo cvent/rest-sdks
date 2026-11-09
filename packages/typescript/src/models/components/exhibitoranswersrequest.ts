@@ -10,7 +10,7 @@ import {
 } from "./existingexhibitoranswerinput.js";
 
 /**
- * An object representing the request for exhibitor answers.
+ * Exhibitor answers to update.
  */
 export type ExhibitorAnswersRequest = {
   /**

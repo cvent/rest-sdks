@@ -13,12 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// A JSON schema representing Booth Staff entity.
+    /// Booth staff member of the lead.
     /// </summary>
     public class BoothStaff
     {
         /// <summary>
-        /// Booth Staff id.
+        /// Booth staff member ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

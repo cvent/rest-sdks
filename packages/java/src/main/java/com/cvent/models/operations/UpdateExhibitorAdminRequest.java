@@ -32,7 +32,7 @@ public class UpdateExhibitorAdminRequest {
     private String adminId;
 
     /**
-     * Exhibitor Admin details
+     * Exhibitor admin details.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private ExhibitorAdminRequest exhibitorAdminRequest;
@@ -74,7 +74,7 @@ public class UpdateExhibitorAdminRequest {
     }
 
     /**
-     * Exhibitor Admin details
+     * Exhibitor admin details.
      */
     public ExhibitorAdminRequest exhibitorAdminRequest() {
         return this.exhibitorAdminRequest;
@@ -109,7 +109,7 @@ public class UpdateExhibitorAdminRequest {
     }
 
     /**
-     * Exhibitor Admin details
+     * Exhibitor admin details.
      */
     public UpdateExhibitorAdminRequest withExhibitorAdminRequest(@Nonnull ExhibitorAdminRequest exhibitorAdminRequest) {
         this.exhibitorAdminRequest = Utils.checkNotNull(exhibitorAdminRequest, "exhibitorAdminRequest");
@@ -190,7 +190,7 @@ public class UpdateExhibitorAdminRequest {
         }
 
         /**
-         * Exhibitor Admin details
+         * Exhibitor admin details.
          */
         public Builder exhibitorAdminRequest(@Nonnull ExhibitorAdminRequest exhibitorAdminRequest) {
             this.exhibitorAdminRequest = Utils.checkNotNull(exhibitorAdminRequest, "exhibitorAdminRequest");

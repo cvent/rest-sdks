@@ -366,8 +366,7 @@ More about OAuth2 authorization code support for administrators
 package hello.world;
 
 import com.cvent.CventSDK;
-import com.cvent.models.components.SchemeOAuth2ClientCredentials;
-import com.cvent.models.components.Security;
+import com.cvent.models.components.*;
 import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.GetEventsRequest;
 import com.cvent.models.operations.GetEventsResponse;
@@ -394,6 +393,8 @@ public class Application {
                 .after(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
                 .before(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
                 .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
+                .expand(List.of(
+                    Expand1.IMAGE))
                 .sort("start:DESC")
                 .filter("status eq 'Accepted' or status eq 'Pending' and (id eq 'abc' or id eq 'def')")
                 .build();
@@ -424,6 +425,7 @@ public class Application {
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | models/errors/ErrorResponse12 | 400, 401, 403, 429            | application/json              |
+| models/errors/ErrorResponse12 | 503, 504                      | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## createEventAsync
@@ -702,7 +704,7 @@ public class Application {
             .build();
 
         SendEmailEventRequest req = SendEmailEventRequest.builder()
-                .event(EventJson3.builder()
+                .event(EventJson2.builder()
                     .id("a150f1ee-6c54-4b01-90e6-d701748f0851")
                     .build())
                 .email(EmailJson.builder()
@@ -852,6 +854,8 @@ public class Application {
                 .after(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
                 .before(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
                 .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
+                .expand(List.of(
+                    Expand1.IMAGE))
                 .sort("start:DESC")
                 .filter(Filter.builder()
                     .filter("status eq 'Accepted' or status eq 'Pending' and (id eq 'abc' or id eq 'def')")
@@ -884,6 +888,7 @@ public class Application {
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | models/errors/ErrorResponse12 | 400, 401, 403, 429            | application/json              |
+| models/errors/ErrorResponse12 | 503, 504                      | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## getEventById
@@ -900,8 +905,7 @@ More about OAuth2 authorization code support for administrators
 package hello.world;
 
 import com.cvent.CventSDK;
-import com.cvent.models.components.SchemeOAuth2ClientCredentials;
-import com.cvent.models.components.Security;
+import com.cvent.models.components.*;
 import com.cvent.models.errors.ErrorResponse12;
 import com.cvent.models.operations.GetEventByIdRequest;
 import com.cvent.models.operations.GetEventByIdResponse;
@@ -925,6 +929,8 @@ public class Application {
 
         GetEventByIdRequest req = GetEventByIdRequest.builder()
                 .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
+                .expand(List.of(
+                    Expand1.IMAGE))
                 .build();
 
         GetEventByIdResponse res = sdk.events().getEventById()
@@ -952,7 +958,8 @@ public class Application {
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| models/errors/ErrorResponse12 | 401, 403, 404, 429            | application/json              |
+| models/errors/ErrorResponse12 | 400, 401, 403, 404, 429       | application/json              |
+| models/errors/ErrorResponse12 | 503, 504                      | application/json              |
 | models/errors/APIException    | 4XX, 5XX                      | \*/\*                         |
 
 ## updateEvent

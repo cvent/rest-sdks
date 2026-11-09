@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Delete Registration Pack
  *
  * @remarks
- * Delete registration pack for an exhibitor
+ * Deletes the registration pack of an exhibitor.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

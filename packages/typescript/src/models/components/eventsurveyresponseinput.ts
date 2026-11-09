@@ -4,15 +4,11 @@
 
 import * as z from "zod/v3";
 import {
-  AnswerJson,
-  AnswerJson$Outbound,
-  AnswerJson$outboundSchema,
-} from "./answerjson.js";
-import {
-  UuidJson,
-  UuidJson$Outbound,
-  UuidJson$outboundSchema,
-} from "./uuidjson.js";
+  Answer11,
+  Answer11$Outbound,
+  Answer11$outboundSchema,
+} from "./answer11.js";
+import { Uuid, Uuid$Outbound, Uuid$outboundSchema } from "./uuid.js";
 
 /**
  * Response object for event survey respondent.
@@ -21,32 +17,32 @@ export type EventSurveyResponseInput = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  question: UuidJson;
+  question: Uuid;
   /**
    * List of responded survey answers.
    */
-  answers: Array<AnswerJson>;
+  answers: Array<Answer11>;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  survey?: UuidJson | undefined;
+  survey?: Uuid | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  session?: UuidJson | undefined;
+  session?: Uuid | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  speaker?: UuidJson | undefined;
+  speaker?: Uuid | undefined;
 };
 
 /** @internal */
 export type EventSurveyResponseInput$Outbound = {
-  question: UuidJson$Outbound;
-  answers: Array<AnswerJson$Outbound>;
-  survey?: UuidJson$Outbound | undefined;
-  session?: UuidJson$Outbound | undefined;
-  speaker?: UuidJson$Outbound | undefined;
+  question: Uuid$Outbound;
+  answers: Array<Answer11$Outbound>;
+  survey?: Uuid$Outbound | undefined;
+  session?: Uuid$Outbound | undefined;
+  speaker?: Uuid$Outbound | undefined;
 };
 
 /** @internal */
@@ -55,11 +51,11 @@ export const EventSurveyResponseInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EventSurveyResponseInput
 > = z.object({
-  question: UuidJson$outboundSchema,
-  answers: z.array(AnswerJson$outboundSchema),
-  survey: UuidJson$outboundSchema.optional(),
-  session: UuidJson$outboundSchema.optional(),
-  speaker: UuidJson$outboundSchema.optional(),
+  question: Uuid$outboundSchema,
+  answers: z.array(Answer11$outboundSchema),
+  survey: Uuid$outboundSchema.optional(),
+  session: Uuid$outboundSchema.optional(),
+  speaker: Uuid$outboundSchema.optional(),
 });
 
 export function eventSurveyResponseInputToJSON(

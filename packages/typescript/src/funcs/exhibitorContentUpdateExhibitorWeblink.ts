@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Update Exhibitor Weblink
  *
  * @remarks
- * Updates content weblink data in an event for a given exhibitor ID.
+ * Updates a content weblink of an exhibitor.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */
