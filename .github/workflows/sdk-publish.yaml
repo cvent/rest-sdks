@@ -54,8 +54,6 @@ on:
         required: false
       npm_token:
         required: false
-      nuget_api_key:
-        required: false
       speakeasy_api_key:
         required: true
 
@@ -291,21 +289,36 @@ jobs:
         with:
           dotnet-version: "8.x"
 
-      - name: Pack and publish to NuGet
-        run: |
-          dotnet pack -c Release -o .
+      - name: Pack NuGet package
+        run: dotnet pack -c Release -o .
 
+      # Trusted Publishing: exchanges this run's GitHub OIDC token for a NuGet API key
+      # that expires after 1 hour, so it must run right before the push. It also runs in
+      # test mode so a dry run proves the nuget.org policy matches without pushing anything.
+      # `user` must be the nuget.org profile name of the person who created the policy,
+      # not the owning org; the policy stops working if that person leaves the org.
+      - id: nuget-login
+        name: Get short-lived NuGet API key
+        uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841 # v1.2.0
+        with:
+          user: ${{ vars.NUGET_USER }}
+
+      - name: Publish to NuGet
+        env:
+          NUGET_API_KEY: ${{ steps.nuget-login.outputs.NUGET_API_KEY }}
+          TEST_MODE: ${{ inputs.test_mode || false }}
+        run: |
           if [[ "$TEST_MODE" == "true" ]]; then
             echo "Test mode enabled - skipping actual publish"
             for nupkg in *.nupkg; do
               echo "Would publish package: $nupkg"
             done
           else
-            echo "Production mode - publishing to NuGet (Testing only)"
+            echo "Production mode - publishing to NuGet"
             for nupkg in *.nupkg; do
               echo "Publishing package: $nupkg"
             done
-            dotnet nuget push *.nupkg --api-key ${{ secrets.nuget_api_key }} --source https://api.nuget.org/v3/index.json
+            dotnet nuget push *.nupkg --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json
           fi
       - id: publish-event
         name: Record C# publish event

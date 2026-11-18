@@ -19,6 +19,12 @@ targets:
     output: ./packages/csharp
     publish:
       nuget:
+        # Not a real credential: NuGet auth uses Trusted Publishing (see sdk-publish.yaml).
+        # Speakeasy's release action only sets publish_csharp=true when this is non-empty,
+        # so removing it silently skips the NuGet publish job.
+        # TODO: once the Speakeasy CLI and sdk-generation-action are upgraded to versions built on
+        # sdk-gen-config >= v1.62.0, replace apiKey with `useTrustedPublishing: true` and
+        # `username: <nuget.org profile name>` (apiKey must then be removed; the two are mutually exclusive).
         apiKey: $nuget_api_key
     codeSamples:
       registry:
