@@ -33,7 +33,7 @@ export type AudienceSegmentResponse = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * ID of the event.
+   * Represents an event by its ID.
    */
   event: Event3;
   /**
@@ -41,15 +41,15 @@ export type AudienceSegmentResponse = {
    */
   name: string;
   /**
-   * Description of the audience segment.
+   * Additional text about the audience segment.
    */
   description?: string | undefined;
   /**
-   * ID of the audience segment.
+   * Audience segment ID.
    */
   id?: string | undefined;
   /**
-   * Creation type of the audience segment.
+   * How the audience segment's membership is determined. MANUAL: a planner adds and removes attendees individually. RULE_BASED: attendees are added automatically when they match the segment's criteria rules.
    */
   creationType: ExistingAudienceSegmentCreationType;
   /**

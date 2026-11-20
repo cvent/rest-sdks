@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Representation of a leg detail in air request.
+    /// One air request itinerary leg with an origin, destination, date, and time.
     /// </summary>
     public class LegDetail
     {

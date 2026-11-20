@@ -21,7 +21,7 @@ namespace Cvent.SDK.Models.Requests
         public string Currency { get; set; } = default!;
 
         /// <summary>
-        /// Unique ID of currency conversion rate.
+        /// Currency conversion rate ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=conversionRateId")]
         public string ConversionRateId { get; set; } = default!;

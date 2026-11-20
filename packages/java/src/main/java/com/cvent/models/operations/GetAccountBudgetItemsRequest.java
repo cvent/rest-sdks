@@ -18,13 +18,13 @@ import java.util.Optional;
 
 public class GetAccountBudgetItemsRequest {
     /**
-     * Used to query records that have been modified after this time point.
+     * Used to query records that have been modified on or after this time point (inclusive, ≥).
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=after")
     private OffsetDateTime after;
 
     /**
-     * Used to query records that have been modified before this point
+     * Used to query records that have been modified strictly before this point (exclusive, &lt;).
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=before")
     private OffsetDateTime before;
@@ -49,31 +49,42 @@ public class GetAccountBudgetItemsRequest {
      *
      * <p>Supported fields and operators are listed below:
      *
-     * <p>| Field            | Operators  | Notes
+     * <p>| Field                 | Operators  | Notes
      * |
-     * |:-----------------|:-----------|:----------------------------------------------------------------------------------------------------------------------------------------------|
-     * | event.id         | `eq`, `ne` |
+     * |:----------------------|:-----------|:----------------------------------------------------------------------------------------------------------------------------------------------|
+     * | event.id              | `eq`, `ne` |
      * |
-     * | rfp.id           | `eq`, `ne` |
+     * | rfp.id                | `eq`, `ne` |
      * |
-     * | budgetVersion.id | `eq`, `ne` |
+     * | budgetVersion.id      | `eq`, `ne` |
      * |
-     * | id               | `eq`, `ne` |
+     * | budgetVersion.default | `eq`, `ne` | Use `'true'` or `'false'`. |
+     * | id                    | `eq`, `ne` |
      * |
-     * | category.id      | `eq`, `ne` |
+     * | category.id           | `eq`, `ne` |
      * |
-     * | category.name    | `eq`, `ne` |
+     * | category.name         | `eq`, `ne` |
      * |
-     * | subCategory.id   | `eq`, `ne` |
+     * | subCategory.id        | `eq`, `ne` |
      * |
-     * | subCategory.name | `eq`, `ne` |
+     * | subCategory.name      | `eq`, `ne` |
      * |
-     * | deleted          | `eq`, `ne` | Budget items that are deleted are available for 3 months after
-     * deletion. After this, they are removed and no longer appear in search results. |
+     * | deleted               | `eq`, `ne` | Budget items that are deleted are available for 3 months
+     * after deletion. After this, they are removed and no longer appear in search results. |
+     *
+     * <p>Changing an event's default budget version doesn't change its budget items' last modified dates. To
+     * see the change,
+     * read the event's budget items again with an `after` and `before` range that covers them.
      *
      * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
+     *
+     * <p>Example filters:
+     * * Budget items on default budget versions: `budgetVersion.default eq 'true'`
+     * * Budget items that aren't on a default budget version: `budgetVersion.default eq 'false'`
+     * * Budget items of one event that are on a default budget version: `event.id eq
+     * 'e7120b27-ca4c-46c1-b5de-cbe5ea0e26d5' and budgetVersion.default eq 'true'`
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
@@ -98,14 +109,14 @@ public class GetAccountBudgetItemsRequest {
     }
 
     /**
-     * Used to query records that have been modified after this time point.
+     * Used to query records that have been modified on or after this time point (inclusive, ≥).
      */
     public OffsetDateTime after() {
         return this.after;
     }
 
     /**
-     * Used to query records that have been modified before this point
+     * Used to query records that have been modified strictly before this point (exclusive, &lt;).
      */
     public OffsetDateTime before() {
         return this.before;
@@ -133,31 +144,42 @@ public class GetAccountBudgetItemsRequest {
      *
      * <p>Supported fields and operators are listed below:
      *
-     * <p>| Field            | Operators  | Notes
+     * <p>| Field                 | Operators  | Notes
      * |
-     * |:-----------------|:-----------|:----------------------------------------------------------------------------------------------------------------------------------------------|
-     * | event.id         | `eq`, `ne` |
+     * |:----------------------|:-----------|:----------------------------------------------------------------------------------------------------------------------------------------------|
+     * | event.id              | `eq`, `ne` |
      * |
-     * | rfp.id           | `eq`, `ne` |
+     * | rfp.id                | `eq`, `ne` |
      * |
-     * | budgetVersion.id | `eq`, `ne` |
+     * | budgetVersion.id      | `eq`, `ne` |
      * |
-     * | id               | `eq`, `ne` |
+     * | budgetVersion.default | `eq`, `ne` | Use `'true'` or `'false'`. |
+     * | id                    | `eq`, `ne` |
      * |
-     * | category.id      | `eq`, `ne` |
+     * | category.id           | `eq`, `ne` |
      * |
-     * | category.name    | `eq`, `ne` |
+     * | category.name         | `eq`, `ne` |
      * |
-     * | subCategory.id   | `eq`, `ne` |
+     * | subCategory.id        | `eq`, `ne` |
      * |
-     * | subCategory.name | `eq`, `ne` |
+     * | subCategory.name      | `eq`, `ne` |
      * |
-     * | deleted          | `eq`, `ne` | Budget items that are deleted are available for 3 months after
-     * deletion. After this, they are removed and no longer appear in search results. |
+     * | deleted               | `eq`, `ne` | Budget items that are deleted are available for 3 months
+     * after deletion. After this, they are removed and no longer appear in search results. |
+     *
+     * <p>Changing an event's default budget version doesn't change its budget items' last modified dates. To
+     * see the change,
+     * read the event's budget items again with an `after` and `before` range that covers them.
      *
      * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
+     *
+     * <p>Example filters:
+     * * Budget items on default budget versions: `budgetVersion.default eq 'true'`
+     * * Budget items that aren't on a default budget version: `budgetVersion.default eq 'false'`
+     * * Budget items of one event that are on a default budget version: `event.id eq
+     * 'e7120b27-ca4c-46c1-b5de-cbe5ea0e26d5' and budgetVersion.default eq 'true'`
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
@@ -168,7 +190,7 @@ public class GetAccountBudgetItemsRequest {
     }
 
     /**
-     * Used to query records that have been modified after this time point.
+     * Used to query records that have been modified on or after this time point (inclusive, ≥).
      */
     public GetAccountBudgetItemsRequest withAfter(@Nonnull OffsetDateTime after) {
         this.after = Utils.checkNotNull(after, "after");
@@ -176,7 +198,7 @@ public class GetAccountBudgetItemsRequest {
     }
 
     /**
-     * Used to query records that have been modified before this point
+     * Used to query records that have been modified strictly before this point (exclusive, &lt;).
      */
     public GetAccountBudgetItemsRequest withBefore(@Nonnull OffsetDateTime before) {
         this.before = Utils.checkNotNull(before, "before");
@@ -207,31 +229,42 @@ public class GetAccountBudgetItemsRequest {
      *
      * <p>Supported fields and operators are listed below:
      *
-     * <p>| Field            | Operators  | Notes
+     * <p>| Field                 | Operators  | Notes
      * |
-     * |:-----------------|:-----------|:----------------------------------------------------------------------------------------------------------------------------------------------|
-     * | event.id         | `eq`, `ne` |
+     * |:----------------------|:-----------|:----------------------------------------------------------------------------------------------------------------------------------------------|
+     * | event.id              | `eq`, `ne` |
      * |
-     * | rfp.id           | `eq`, `ne` |
+     * | rfp.id                | `eq`, `ne` |
      * |
-     * | budgetVersion.id | `eq`, `ne` |
+     * | budgetVersion.id      | `eq`, `ne` |
      * |
-     * | id               | `eq`, `ne` |
+     * | budgetVersion.default | `eq`, `ne` | Use `'true'` or `'false'`. |
+     * | id                    | `eq`, `ne` |
      * |
-     * | category.id      | `eq`, `ne` |
+     * | category.id           | `eq`, `ne` |
      * |
-     * | category.name    | `eq`, `ne` |
+     * | category.name         | `eq`, `ne` |
      * |
-     * | subCategory.id   | `eq`, `ne` |
+     * | subCategory.id        | `eq`, `ne` |
      * |
-     * | subCategory.name | `eq`, `ne` |
+     * | subCategory.name      | `eq`, `ne` |
      * |
-     * | deleted          | `eq`, `ne` | Budget items that are deleted are available for 3 months after
-     * deletion. After this, they are removed and no longer appear in search results. |
+     * | deleted               | `eq`, `ne` | Budget items that are deleted are available for 3 months
+     * after deletion. After this, they are removed and no longer appear in search results. |
+     *
+     * <p>Changing an event's default budget version doesn't change its budget items' last modified dates. To
+     * see the change,
+     * read the event's budget items again with an `after` and `before` range that covers them.
      *
      * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
+     *
+     * <p>Example filters:
+     * * Budget items on default budget versions: `budgetVersion.default eq 'true'`
+     * * Budget items that aren't on a default budget version: `budgetVersion.default eq 'false'`
+     * * Budget items of one event that are on a default budget version: `event.id eq
+     * 'e7120b27-ca4c-46c1-b5de-cbe5ea0e26d5' and budgetVersion.default eq 'true'`
      */
     public GetAccountBudgetItemsRequest withFilter(@Nullable String filter) {
         this.filter = filter;
@@ -293,7 +326,7 @@ public class GetAccountBudgetItemsRequest {
         }
 
         /**
-         * Used to query records that have been modified after this time point.
+         * Used to query records that have been modified on or after this time point (inclusive, ≥).
          */
         public Builder after(@Nonnull OffsetDateTime after) {
             this.after = Utils.checkNotNull(after, "after");
@@ -301,7 +334,7 @@ public class GetAccountBudgetItemsRequest {
         }
 
         /**
-         * Used to query records that have been modified before this point
+         * Used to query records that have been modified strictly before this point (exclusive, &lt;).
          */
         public Builder before(@Nonnull OffsetDateTime before) {
             this.before = Utils.checkNotNull(before, "before");
@@ -332,31 +365,42 @@ public class GetAccountBudgetItemsRequest {
          *
          * <p>Supported fields and operators are listed below:
          *
-         * <p>| Field            | Operators  | Notes
+         * <p>| Field                 | Operators  | Notes
          * |
-         * |:-----------------|:-----------|:----------------------------------------------------------------------------------------------------------------------------------------------|
-         * | event.id         | `eq`, `ne` |
+         * |:----------------------|:-----------|:----------------------------------------------------------------------------------------------------------------------------------------------|
+         * | event.id              | `eq`, `ne` |
          * |
-         * | rfp.id           | `eq`, `ne` |
+         * | rfp.id                | `eq`, `ne` |
          * |
-         * | budgetVersion.id | `eq`, `ne` |
+         * | budgetVersion.id      | `eq`, `ne` |
          * |
-         * | id               | `eq`, `ne` |
+         * | budgetVersion.default | `eq`, `ne` | Use `'true'` or `'false'`. |
+         * | id                    | `eq`, `ne` |
          * |
-         * | category.id      | `eq`, `ne` |
+         * | category.id           | `eq`, `ne` |
          * |
-         * | category.name    | `eq`, `ne` |
+         * | category.name         | `eq`, `ne` |
          * |
-         * | subCategory.id   | `eq`, `ne` |
+         * | subCategory.id        | `eq`, `ne` |
          * |
-         * | subCategory.name | `eq`, `ne` |
+         * | subCategory.name      | `eq`, `ne` |
          * |
-         * | deleted          | `eq`, `ne` | Budget items that are deleted are available for 3 months after
-         * deletion. After this, they are removed and no longer appear in search results. |
+         * | deleted               | `eq`, `ne` | Budget items that are deleted are available for 3 months
+         * after deletion. After this, they are removed and no longer appear in search results. |
+         *
+         * <p>Changing an event's default budget version doesn't change its budget items' last modified dates. To
+         * see the change,
+         * read the event's budget items again with an `after` and `before` range that covers them.
          *
          * <p>The following logical operators are supported for combining filters:
          * * and
          * * or
+         *
+         * <p>Example filters:
+         * * Budget items on default budget versions: `budgetVersion.default eq 'true'`
+         * * Budget items that aren't on a default budget version: `budgetVersion.default eq 'false'`
+         * * Budget items of one event that are on a default budget version: `event.id eq
+         * 'e7120b27-ca4c-46c1-b5de-cbe5ea0e26d5' and budgetVersion.default eq 'true'`
          */
         public Builder filter(@Nullable String filter) {
             this.filter = filter;

@@ -18,5 +18,10 @@ namespace Cvent.SDK.Models.Components
     {
         SevenHundred = 700,
         SevenHundredAndOne = 701,
+        SevenHundredAndTwo = 702,
+        SevenHundredAndThree = 703,
+        SevenHundredAndFour = 704,
+        SevenHundredAndFive = 705,
+        SevenHundredAndSix = 706,
     }
 }

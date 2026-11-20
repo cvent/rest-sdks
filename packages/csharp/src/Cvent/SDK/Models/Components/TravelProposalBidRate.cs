@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Components
     public class TravelProposalBidRate
     {
         /// <summary>
-        /// Rate level.
+        /// The rate level.
         /// </summary>
         [JsonProperty("level")]
         public RateLevelType? Level { get; set; }

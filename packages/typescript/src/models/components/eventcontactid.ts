@@ -5,7 +5,7 @@
 import * as z from "zod/v3";
 
 /**
- * A pair of event and contact id.
+ * An event ID and a contact ID pair.
  */
 export type EventContactId = {
   /**

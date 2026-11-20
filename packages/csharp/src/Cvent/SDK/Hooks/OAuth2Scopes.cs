@@ -126,7 +126,7 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("budget/budget-items:read")] BudgetBudgetItemsRead,
 
         /// <summary>
-        /// Allows creation/updation of budget item.
+        /// Allows the creation and update of budget items.
         /// </summary>
         [JsonProperty("budget/budget-items:write")] BudgetBudgetItemsWrite,
 
@@ -136,7 +136,7 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("budget/budget-totals:read")] BudgetBudgetTotalsRead,
 
         /// <summary>
-        /// Allows reading of account-level budget vendors.
+        /// Allows the reading of account-level budget vendors.
         /// </summary>
         [JsonProperty("budget/budget-vendors:read")] BudgetBudgetVendorsRead,
 
@@ -146,32 +146,32 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("budget/cards:read")] BudgetCardsRead,
 
         /// <summary>
-        /// Allows deletion of currency conversion rate for currency.
+        /// Allows the deletion of currency conversion rates.
         /// </summary>
         [JsonProperty("budget/currency-conversion-rate:delete")] BudgetCurrencyConversionRateDelete,
 
         /// <summary>
-        /// Allows reading of currency conversion rate for currency.
+        /// Allows the reading of currency conversion rates.
         /// </summary>
         [JsonProperty("budget/currency-conversion-rate:read")] BudgetCurrencyConversionRateRead,
 
         /// <summary>
-        /// Allows creation/update of currency conversion rate for currency.
+        /// Allows the creation and update of currency conversion rates.
         /// </summary>
         [JsonProperty("budget/currency-conversion-rate:write")] BudgetCurrencyConversionRateWrite,
 
         /// <summary>
-        /// Allows deletion of payments.
+        /// Allows the deletion of payments.
         /// </summary>
         [JsonProperty("budget/payments:delete")] BudgetPaymentsDelete,
 
         /// <summary>
-        /// Allows reading of payment for budget item.
+        /// Allows the reading of payments for budget items.
         /// </summary>
         [JsonProperty("budget/payments:read")] BudgetPaymentsRead,
 
         /// <summary>
-        /// Allows creation of payment in a budget item.
+        /// Allows the creation and update of payments for budget items.
         /// </summary>
         [JsonProperty("budget/payments:write")] BudgetPaymentsWrite,
 
@@ -181,12 +181,12 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("budget/transactions:delete")] BudgetTransactionsDelete,
 
         /// <summary>
-        /// Allows the reading of all card's transactions.
+        /// Allows the reading of all card transactions.
         /// </summary>
         [JsonProperty("budget/transactions:read")] BudgetTransactionsRead,
 
         /// <summary>
-        /// Allows creation of card transactions.
+        /// Allows the creation and update of card transactions.
         /// </summary>
         [JsonProperty("budget/transactions:write")] BudgetTransactionsWrite,
 
@@ -861,9 +861,24 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("remote-printing/badge-printer-pools:read")] RemotePrintingBadgePrinterPoolsRead,
 
         /// <summary>
+        /// Allows the deletion of RFP agenda items.
+        /// </summary>
+        [JsonProperty("rfp/rfp-agenda-items:delete")] RfpRfpAgendaItemsDelete,
+
+        /// <summary>
         /// Allows the reading of RFP agenda items.
         /// </summary>
         [JsonProperty("rfp/rfp-agenda-items:read")] RfpRfpAgendaItemsRead,
+
+        /// <summary>
+        /// Allows the creation and modification of RFP agenda items.
+        /// </summary>
+        [JsonProperty("rfp/rfp-agenda-items:write")] RfpRfpAgendaItemsWrite,
+
+        /// <summary>
+        /// Allows the disassociation of Attachments from an RFP.
+        /// </summary>
+        [JsonProperty("rfp/rfp-attachments:delete")] RfpRfpAttachmentsDelete,
 
         /// <summary>
         /// Allows the reading of RFP attachments.
@@ -871,9 +886,19 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("rfp/rfp-attachments:read")] RfpRfpAttachmentsRead,
 
         /// <summary>
+        /// Allows the association of Attachments with an RFP.
+        /// </summary>
+        [JsonProperty("rfp/rfp-attachments:write")] RfpRfpAttachmentsWrite,
+
+        /// <summary>
         /// Allows the reading of RFP custom fields.
         /// </summary>
         [JsonProperty("rfp/rfp-custom-fields:read")] RfpRfpCustomFieldsRead,
+
+        /// <summary>
+        /// Allows add/update answers to custom fields associated with an RFP.
+        /// </summary>
+        [JsonProperty("rfp/rfp-custom-fields:write")] RfpRfpCustomFieldsWrite,
 
         /// <summary>
         /// Allows the reading of RFP guest rooms.
@@ -881,9 +906,24 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("rfp/rfp-guest-rooms:read")] RfpRfpGuestRoomsRead,
 
         /// <summary>
+        /// Allows the creation and modification of RFP guest rooms.
+        /// </summary>
+        [JsonProperty("rfp/rfp-guest-rooms:write")] RfpRfpGuestRoomsWrite,
+
+        /// <summary>
+        /// Allows the disassociation of internal documents from an RFP.
+        /// </summary>
+        [JsonProperty("rfp/rfp-internal-documents:delete")] RfpRfpInternalDocumentsDelete,
+
+        /// <summary>
         /// Allows the reading of RFP internal documents.
         /// </summary>
         [JsonProperty("rfp/rfp-internal-documents:read")] RfpRfpInternalDocumentsRead,
+
+        /// <summary>
+        /// Allows the writing of RFP internal documents.
+        /// </summary>
+        [JsonProperty("rfp/rfp-internal-documents:write")] RfpRfpInternalDocumentsWrite,
 
         /// <summary>
         /// Allows the reading of RFP lead sources.
@@ -891,9 +931,24 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("rfp/rfp-lead-sources:read")] RfpRfpLeadSourcesRead,
 
         /// <summary>
+        /// Allows the deletion of RFP past events.
+        /// </summary>
+        [JsonProperty("rfp/rfp-past-events:delete")] RfpRfpPastEventsDelete,
+
+        /// <summary>
         /// Allows the reading of past events similar to rfp event.
         /// </summary>
         [JsonProperty("rfp/rfp-past-events:read")] RfpRfpPastEventsRead,
+
+        /// <summary>
+        /// Allows the creation and modification of RFP past events.
+        /// </summary>
+        [JsonProperty("rfp/rfp-past-events:write")] RfpRfpPastEventsWrite,
+
+        /// <summary>
+        /// Allows the deletion of RFP questions.
+        /// </summary>
+        [JsonProperty("rfp/rfp-questions:delete")] RfpRfpQuestionsDelete,
 
         /// <summary>
         /// Allows the reading of RFP questions.
@@ -901,9 +956,19 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("rfp/rfp-questions:read")] RfpRfpQuestionsRead,
 
         /// <summary>
+        /// Allows the creation and modification of RFP questions.
+        /// </summary>
+        [JsonProperty("rfp/rfp-questions:write")] RfpRfpQuestionsWrite,
+
+        /// <summary>
         /// Allows the reading of RFP recipients history.
         /// </summary>
         [JsonProperty("rfp/rfp-recipients-history:read")] RfpRfpRecipientsHistoryRead,
+
+        /// <summary>
+        /// Allows the disassociation of suppliers from an RFP.
+        /// </summary>
+        [JsonProperty("rfp/rfp-suppliers:delete")] RfpRfpSuppliersDelete,
 
         /// <summary>
         /// Allows the reading of RFP suppliers.
@@ -911,9 +976,19 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("rfp/rfp-suppliers:read")] RfpRfpSuppliersRead,
 
         /// <summary>
+        /// Allows the association of suppliers with an RFP.
+        /// </summary>
+        [JsonProperty("rfp/rfp-suppliers:write")] RfpRfpSuppliersWrite,
+
+        /// <summary>
         /// Allows the reading of basic details of RFP.
         /// </summary>
         [JsonProperty("rfp/rfps:read")] RfpRfpsRead,
+
+        /// <summary>
+        /// Allows the creation and modification of RFP.
+        /// </summary>
+        [JsonProperty("rfp/rfps:write")] RfpRfpsWrite,
 
         /// <summary>
         /// Allows to read attendee seat assignment information.
@@ -1313,7 +1388,7 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("budget/budget-items:read")] BudgetBudgetItemsRead,
 
         /// <summary>
-        /// Allows creation/updation of budget item.
+        /// Allows the creation and update of budget items.
         /// </summary>
         [JsonProperty("budget/budget-items:write")] BudgetBudgetItemsWrite,
 
@@ -1323,7 +1398,7 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("budget/budget-totals:read")] BudgetBudgetTotalsRead,
 
         /// <summary>
-        /// Allows reading of account-level budget vendors.
+        /// Allows the reading of account-level budget vendors.
         /// </summary>
         [JsonProperty("budget/budget-vendors:read")] BudgetBudgetVendorsRead,
 
@@ -1333,32 +1408,32 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("budget/cards:read")] BudgetCardsRead,
 
         /// <summary>
-        /// Allows deletion of currency conversion rate for currency.
+        /// Allows the deletion of currency conversion rates.
         /// </summary>
         [JsonProperty("budget/currency-conversion-rate:delete")] BudgetCurrencyConversionRateDelete,
 
         /// <summary>
-        /// Allows reading of currency conversion rate for currency.
+        /// Allows the reading of currency conversion rates.
         /// </summary>
         [JsonProperty("budget/currency-conversion-rate:read")] BudgetCurrencyConversionRateRead,
 
         /// <summary>
-        /// Allows creation/update of currency conversion rate for currency.
+        /// Allows the creation and update of currency conversion rates.
         /// </summary>
         [JsonProperty("budget/currency-conversion-rate:write")] BudgetCurrencyConversionRateWrite,
 
         /// <summary>
-        /// Allows deletion of payments.
+        /// Allows the deletion of payments.
         /// </summary>
         [JsonProperty("budget/payments:delete")] BudgetPaymentsDelete,
 
         /// <summary>
-        /// Allows reading of payment for budget item.
+        /// Allows the reading of payments for budget items.
         /// </summary>
         [JsonProperty("budget/payments:read")] BudgetPaymentsRead,
 
         /// <summary>
-        /// Allows creation of payment in a budget item.
+        /// Allows the creation and update of payments for budget items.
         /// </summary>
         [JsonProperty("budget/payments:write")] BudgetPaymentsWrite,
 
@@ -1368,12 +1443,12 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("budget/transactions:delete")] BudgetTransactionsDelete,
 
         /// <summary>
-        /// Allows the reading of all card's transactions.
+        /// Allows the reading of all card transactions.
         /// </summary>
         [JsonProperty("budget/transactions:read")] BudgetTransactionsRead,
 
         /// <summary>
-        /// Allows creation of card transactions.
+        /// Allows the creation and update of card transactions.
         /// </summary>
         [JsonProperty("budget/transactions:write")] BudgetTransactionsWrite,
 
@@ -2198,9 +2273,24 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("remote-printing/badge-printer-pools:read")] RemotePrintingBadgePrinterPoolsRead,
 
         /// <summary>
+        /// Allows the deletion of RFP agenda items.
+        /// </summary>
+        [JsonProperty("rfp/rfp-agenda-items:delete")] RfpRfpAgendaItemsDelete,
+
+        /// <summary>
         /// Allows the reading of RFP agenda items.
         /// </summary>
         [JsonProperty("rfp/rfp-agenda-items:read")] RfpRfpAgendaItemsRead,
+
+        /// <summary>
+        /// Allows the creation and modification of RFP agenda items.
+        /// </summary>
+        [JsonProperty("rfp/rfp-agenda-items:write")] RfpRfpAgendaItemsWrite,
+
+        /// <summary>
+        /// Allows the disassociation of Attachments from an RFP.
+        /// </summary>
+        [JsonProperty("rfp/rfp-attachments:delete")] RfpRfpAttachmentsDelete,
 
         /// <summary>
         /// Allows the reading of RFP attachments.
@@ -2208,9 +2298,19 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("rfp/rfp-attachments:read")] RfpRfpAttachmentsRead,
 
         /// <summary>
+        /// Allows the association of Attachments with an RFP.
+        /// </summary>
+        [JsonProperty("rfp/rfp-attachments:write")] RfpRfpAttachmentsWrite,
+
+        /// <summary>
         /// Allows the reading of RFP custom fields.
         /// </summary>
         [JsonProperty("rfp/rfp-custom-fields:read")] RfpRfpCustomFieldsRead,
+
+        /// <summary>
+        /// Allows add/update answers to custom fields associated with an RFP.
+        /// </summary>
+        [JsonProperty("rfp/rfp-custom-fields:write")] RfpRfpCustomFieldsWrite,
 
         /// <summary>
         /// Allows the reading of RFP guest rooms.
@@ -2218,9 +2318,24 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("rfp/rfp-guest-rooms:read")] RfpRfpGuestRoomsRead,
 
         /// <summary>
+        /// Allows the creation and modification of RFP guest rooms.
+        /// </summary>
+        [JsonProperty("rfp/rfp-guest-rooms:write")] RfpRfpGuestRoomsWrite,
+
+        /// <summary>
+        /// Allows the disassociation of internal documents from an RFP.
+        /// </summary>
+        [JsonProperty("rfp/rfp-internal-documents:delete")] RfpRfpInternalDocumentsDelete,
+
+        /// <summary>
         /// Allows the reading of RFP internal documents.
         /// </summary>
         [JsonProperty("rfp/rfp-internal-documents:read")] RfpRfpInternalDocumentsRead,
+
+        /// <summary>
+        /// Allows the writing of RFP internal documents.
+        /// </summary>
+        [JsonProperty("rfp/rfp-internal-documents:write")] RfpRfpInternalDocumentsWrite,
 
         /// <summary>
         /// Allows the reading of RFP lead sources.
@@ -2228,9 +2343,24 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("rfp/rfp-lead-sources:read")] RfpRfpLeadSourcesRead,
 
         /// <summary>
+        /// Allows the deletion of RFP past events.
+        /// </summary>
+        [JsonProperty("rfp/rfp-past-events:delete")] RfpRfpPastEventsDelete,
+
+        /// <summary>
         /// Allows the reading of past events similar to rfp event.
         /// </summary>
         [JsonProperty("rfp/rfp-past-events:read")] RfpRfpPastEventsRead,
+
+        /// <summary>
+        /// Allows the creation and modification of RFP past events.
+        /// </summary>
+        [JsonProperty("rfp/rfp-past-events:write")] RfpRfpPastEventsWrite,
+
+        /// <summary>
+        /// Allows the deletion of RFP questions.
+        /// </summary>
+        [JsonProperty("rfp/rfp-questions:delete")] RfpRfpQuestionsDelete,
 
         /// <summary>
         /// Allows the reading of RFP questions.
@@ -2238,9 +2368,19 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("rfp/rfp-questions:read")] RfpRfpQuestionsRead,
 
         /// <summary>
+        /// Allows the creation and modification of RFP questions.
+        /// </summary>
+        [JsonProperty("rfp/rfp-questions:write")] RfpRfpQuestionsWrite,
+
+        /// <summary>
         /// Allows the reading of RFP recipients history.
         /// </summary>
         [JsonProperty("rfp/rfp-recipients-history:read")] RfpRfpRecipientsHistoryRead,
+
+        /// <summary>
+        /// Allows the disassociation of suppliers from an RFP.
+        /// </summary>
+        [JsonProperty("rfp/rfp-suppliers:delete")] RfpRfpSuppliersDelete,
 
         /// <summary>
         /// Allows the reading of RFP suppliers.
@@ -2248,9 +2388,19 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("rfp/rfp-suppliers:read")] RfpRfpSuppliersRead,
 
         /// <summary>
+        /// Allows the association of suppliers with an RFP.
+        /// </summary>
+        [JsonProperty("rfp/rfp-suppliers:write")] RfpRfpSuppliersWrite,
+
+        /// <summary>
         /// Allows the reading of basic details of RFP.
         /// </summary>
         [JsonProperty("rfp/rfps:read")] RfpRfpsRead,
+
+        /// <summary>
+        /// Allows the creation and modification of RFP.
+        /// </summary>
+        [JsonProperty("rfp/rfps:write")] RfpRfpsWrite,
 
         /// <summary>
         /// Allows to read attendee seat assignment information.

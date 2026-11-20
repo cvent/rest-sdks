@@ -7,4 +7,4 @@ Promotion applied by the planner to the supplier on the RFP. Can be set when the
 
 | Field                                   | Type                                    | Required                                | Description                             | Example                                 |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| `Id`                                    | *string*                                | :heavy_minus_sign:                      | The unique identifier of the promotion. | 41cc09ag-61a0-5e21-942e-2d41232dc923    |
+| `Id`                                    | *string*                                | :heavy_minus_sign:                      | The unique identifier of the promotion. | 41cc09af-61a0-5e21-942e-2d41232dc923    |

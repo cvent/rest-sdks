@@ -15,18 +15,18 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Represent proposal disposition details.
+    /// The disposition of the travel proposal.
     /// </summary>
     public class TravelProposalDisposition
     {
         /// <summary>
-        /// List of bid dispositions.
+        /// The dispositions of the bids in the proposal.
         /// </summary>
         [JsonProperty("bidDispositions")]
         public List<TravelBidDisposition>? BidDispositions { get; set; }
 
         /// <summary>
-        /// Indicates if the group and meeting is accepted.
+        /// True indicates the group and meeting information is accepted.
         /// </summary>
         [JsonProperty("groupAndMeetingAccepted")]
         public bool? GroupAndMeetingAccepted { get; set; }

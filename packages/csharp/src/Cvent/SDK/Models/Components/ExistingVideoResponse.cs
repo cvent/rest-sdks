@@ -63,7 +63,7 @@ namespace Cvent.SDK.Models.Components
         public string? Filename { get; set; }
 
         /// <summary>
-        /// A list of events associated with this video asset.
+        /// A list of event IDs associated with this video asset.
         /// </summary>
         [JsonProperty("events")]
         public List<string>? Events { get; set; }
@@ -75,13 +75,13 @@ namespace Cvent.SDK.Models.Components
         public long? Duration { get; set; }
 
         /// <summary>
-        /// Video thumbnail.
+        /// Video thumbnail metadata, including its URL, size, dimensions, type, and status.
         /// </summary>
         [JsonProperty("thumbnail")]
         public VideoThumbnail? Thumbnail { get; set; }
 
         /// <summary>
-        /// Video thumbnail.
+        /// Video thumbnail metadata, including its URL, size, dimensions, type, and status.
         /// </summary>
         [JsonProperty("generatedThumbnail")]
         public VideoThumbnail? GeneratedThumbnail { get; set; }
@@ -93,13 +93,13 @@ namespace Cvent.SDK.Models.Components
         public VideoStatus? Status { get; set; }
 
         /// <summary>
-        /// Source of video.
+        /// Information about the video's external source, including its ID and status.
         /// </summary>
         [JsonProperty("source")]
         public VideoSource? Source { get; set; }
 
         /// <summary>
-        /// A list of tags associated with this video.  This feature is a developer extensability framework to add data to videos.
+        /// A list of tags associated with this video.  This feature is a developer extensibility framework to add data to videos.
         /// </summary>
         [JsonProperty("tags")]
         public List<string>? Tags { get; set; }
@@ -161,19 +161,19 @@ namespace Cvent.SDK.Models.Components
         public long? Size { get; set; }
 
         /// <summary>
-        /// Sessions associated with the video asset.
+        /// Session IDs associated with the video asset.
         /// </summary>
         [JsonProperty("sessions")]
         public List<string>? Sessions { get; set; }
 
         /// <summary>
-        /// Exhibitors associated with the video asset.
+        /// Exhibitor IDs associated with the video asset.
         /// </summary>
         [JsonProperty("exhibitors")]
         public List<string>? Exhibitors { get; set; }
 
         /// <summary>
-        /// Speakers associated with the video asset.
+        /// Speaker IDs associated with the video asset.
         /// </summary>
         [JsonProperty("speakers")]
         public List<string>? Speakers { get; set; }
@@ -185,7 +185,7 @@ namespace Cvent.SDK.Models.Components
         public DateTime? UploadStarted { get; set; }
 
         /// <summary>
-        /// The ISO 8601 zoned date time when the uploaded ended.
+        /// The ISO 8601 zoned date time when the upload ended.
         /// </summary>
         [JsonProperty("uploadCompleted")]
         public DateTime? UploadCompleted { get; set; }

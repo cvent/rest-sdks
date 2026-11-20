@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * Contact3
  *
- * <p>The contact details who watched a video
+ * <p>A contact ID associated with a video view.
  */
 public class Contact3 {
     /**

@@ -15,7 +15,7 @@ import {
 } from "./organizationtype1.js";
 
 /**
- * Details of organization which is hosting the event.
+ * Details of the organization hosting the event. When organization.id identifies one of the account's organization profiles, the organization details come from that profile and the other fields in this object are ignored on input. When organization.id is omitted or is the nil UUID, the fields in this object describe a new organization for this RFP, and name and type are required for an active RFP.
  */
 export type EventOrganization1 = {
   /**
@@ -33,17 +33,17 @@ export type EventOrganization1 = {
   /**
    * Name of the organization hosting the event.
    */
-  name: string;
+  name?: string | undefined;
   /**
    * Organization type.
    */
-  type: OrganizationType1;
+  type?: OrganizationType1 | undefined;
   /**
    * Address details.
    */
   address?: Address1 | undefined;
   /**
-   * Number of events per year.
+   * Number of events the organization hosts per year.
    */
   eventsPerYear?: number | undefined;
 };
@@ -57,8 +57,8 @@ export const EventOrganization1$inboundSchema: z.ZodType<
   organization: Organization$inboundSchema.optional(),
   confidentialProfile: z.boolean().optional(),
   industry: Industry1$inboundSchema.optional(),
-  name: z.string(),
-  type: OrganizationType1$inboundSchema,
+  name: z.string().optional(),
+  type: OrganizationType1$inboundSchema.optional(),
   address: Address1$inboundSchema.optional(),
   eventsPerYear: z.number().int().optional(),
 });

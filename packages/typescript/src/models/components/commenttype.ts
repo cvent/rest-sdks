@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Bid comment type
+ * The type of the bid comment.
  */
 export const CommentType = {
   Promotions: "promotions",
@@ -16,7 +16,7 @@ export const CommentType = {
   InternalComments: "internal_comments",
 } as const;
 /**
- * Bid comment type
+ * The type of the bid comment.
  */
 export type CommentType = ClosedEnum<typeof CommentType>;
 

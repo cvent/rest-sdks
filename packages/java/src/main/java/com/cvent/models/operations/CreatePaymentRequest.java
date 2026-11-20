@@ -14,13 +14,13 @@ import java.util.Optional;
 
 public class CreatePaymentRequest {
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
     /**
-     * Unique ID of a budget item.
+     * Budget item ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=budgetItemId")
     private String budgetItemId;
@@ -41,14 +41,14 @@ public class CreatePaymentRequest {
     }
 
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     public String id() {
         return this.id;
     }
 
     /**
-     * Unique ID of a budget item.
+     * Budget item ID.
      */
     public String budgetItemId() {
         return this.budgetItemId;
@@ -66,7 +66,7 @@ public class CreatePaymentRequest {
     }
 
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     public CreatePaymentRequest withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -74,7 +74,7 @@ public class CreatePaymentRequest {
     }
 
     /**
-     * Unique ID of a budget item.
+     * Budget item ID.
      */
     public CreatePaymentRequest withBudgetItemId(@Nonnull String budgetItemId) {
         this.budgetItemId = Utils.checkNotNull(budgetItemId, "budgetItemId");
@@ -127,7 +127,7 @@ public class CreatePaymentRequest {
         }
 
         /**
-         * Unique ID of an event.
+         * Event ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -135,7 +135,7 @@ public class CreatePaymentRequest {
         }
 
         /**
-         * Unique ID of a budget item.
+         * Budget item ID.
          */
         public Builder budgetItemId(@Nonnull String budgetItemId) {
             this.budgetItemId = Utils.checkNotNull(budgetItemId, "budgetItemId");

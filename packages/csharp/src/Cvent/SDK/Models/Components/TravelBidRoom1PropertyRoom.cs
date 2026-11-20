@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Property Room Detail.
+    /// The property room in the bid.
     /// </summary>
     public class TravelBidRoom1PropertyRoom
     {
@@ -30,7 +30,7 @@ namespace Cvent.SDK.Models.Components
         public string? Name { get; set; }
 
         /// <summary>
-        /// Room code of the property room.
+        /// The room code of the property room.
         /// </summary>
         [JsonProperty("code")]
         public string? Code { get; set; }

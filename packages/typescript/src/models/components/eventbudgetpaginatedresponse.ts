@@ -21,7 +21,7 @@ export type EventBudgetPaginatedResponse = {
    */
   paging: Paging;
   /**
-   * Collection of Event Budget Totals Information.
+   * Collection of event budget totals.
    */
   data: Array<EventBudgetTotals>;
 };

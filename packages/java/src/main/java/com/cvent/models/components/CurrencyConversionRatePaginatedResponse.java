@@ -25,7 +25,7 @@ public class CurrencyConversionRatePaginatedResponse {
     private Paging paging;
 
     /**
-     * Collection of conversion rate for a currency in an account.
+     * Collection of currency conversion rates for a currency in an account.
      */
     @JsonProperty("data")
     private List<CurrencyConversionRateListResponse> data;
@@ -47,7 +47,7 @@ public class CurrencyConversionRatePaginatedResponse {
     }
 
     /**
-     * Collection of conversion rate for a currency in an account.
+     * Collection of currency conversion rates for a currency in an account.
      */
     public List<CurrencyConversionRateListResponse> data() {
         return this.data;
@@ -66,7 +66,7 @@ public class CurrencyConversionRatePaginatedResponse {
     }
 
     /**
-     * Collection of conversion rate for a currency in an account.
+     * Collection of currency conversion rates for a currency in an account.
      */
     public CurrencyConversionRatePaginatedResponse withData(@Nonnull List<CurrencyConversionRateListResponse> data) {
         this.data = Utils.checkNotNull(data, "data");
@@ -115,7 +115,7 @@ public class CurrencyConversionRatePaginatedResponse {
         }
 
         /**
-         * Collection of conversion rate for a currency in an account.
+         * Collection of currency conversion rates for a currency in an account.
          */
         public Builder data(@Nonnull List<CurrencyConversionRateListResponse> data) {
             this.data = Utils.checkNotNull(data, "data");

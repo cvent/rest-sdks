@@ -44,15 +44,15 @@ public class TravelBidPolicy {
     private String value;
 
     /**
-     * Value type of the policy
+     * The value type of the policy.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("valueType")
     private PolicyValueType valueType;
 
     /**
-     * True indicates the policy fee included in the rate. Only applies to policies with a value type of
-     * money or percent.
+     * True indicates the policy fee is included in the rate. Applies only to a policy with the `money` or
+     * `percent` value type.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("included")
@@ -66,10 +66,11 @@ public class TravelBidPolicy {
     private String description;
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
@@ -119,15 +120,15 @@ public class TravelBidPolicy {
     }
 
     /**
-     * Value type of the policy
+     * The value type of the policy.
      */
     public Optional<PolicyValueType> valueType() {
         return Optional.ofNullable(this.valueType);
     }
 
     /**
-     * True indicates the policy fee included in the rate. Only applies to policies with a value type of
-     * money or percent.
+     * True indicates the policy fee is included in the rate. Applies only to a policy with the `money` or
+     * `percent` value type.
      */
     public Optional<Boolean> included() {
         return Optional.ofNullable(this.included);
@@ -141,10 +142,11 @@ public class TravelBidPolicy {
     }
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     public Optional<BidItemStatusType> status() {
         return Optional.ofNullable(this.status);
@@ -179,7 +181,7 @@ public class TravelBidPolicy {
     }
 
     /**
-     * Value type of the policy
+     * The value type of the policy.
      */
     public TravelBidPolicy withValueType(@Nullable PolicyValueType valueType) {
         this.valueType = valueType;
@@ -187,8 +189,8 @@ public class TravelBidPolicy {
     }
 
     /**
-     * True indicates the policy fee included in the rate. Only applies to policies with a value type of
-     * money or percent.
+     * True indicates the policy fee is included in the rate. Applies only to a policy with the `money` or
+     * `percent` value type.
      */
     public TravelBidPolicy withIncluded(@Nullable Boolean included) {
         this.included = included;
@@ -204,10 +206,11 @@ public class TravelBidPolicy {
     }
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     public TravelBidPolicy withStatus(@Nullable BidItemStatusType status) {
         this.status = status;
@@ -303,7 +306,7 @@ public class TravelBidPolicy {
         }
 
         /**
-         * Value type of the policy
+         * The value type of the policy.
          */
         public Builder valueType(@Nullable PolicyValueType valueType) {
             this.valueType = valueType;
@@ -311,8 +314,8 @@ public class TravelBidPolicy {
         }
 
         /**
-         * True indicates the policy fee included in the rate. Only applies to policies with a value type of
-         * money or percent.
+         * True indicates the policy fee is included in the rate. Applies only to a policy with the `money` or
+         * `percent` value type.
          */
         public Builder included(@Nullable Boolean included) {
             this.included = included;
@@ -328,10 +331,11 @@ public class TravelBidPolicy {
         }
 
         /**
-         * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-         * and the hotel, if they agree, can update the item to deleted.
+         * The negotiation status of the bid item. For example, the corporation marks an item as
+         * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+         * hotel does not offer the amenity.
          *
-         * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+         * <p>Applies only to the supply side.
          */
         public Builder status(@Nullable BidItemStatusType status) {
             this.status = status;

@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * List RFP Past Events
  *
  * @remarks
- * Returns list of past events saved by the planner at the time of RFP creation. These can be non-Cvent events.
+ * Retrieves a list of past events associated with an RFP. These can be non-Cvent events.
  */
 export function rfpAdditionalDetailsListRFPPastEvents(
   client: CventSDKCore,

@@ -29,7 +29,7 @@ import {
  */
 export type BudgetAllocationsPaginatedResponseBudgetVersion = {
   /**
-   * Identifier of a particular budget version.
+   * Budget version ID.
    */
   id?: string | undefined;
 };
@@ -59,7 +59,7 @@ export type BudgetAllocationsPaginatedResponse = {
    */
   generalLedger?: AllocationGeneralLedger | undefined;
   /**
-   * Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700 from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000 budget).
+   * Specifies how to allocate a budgeted cost. AMOUNT allocates a fixed amount; PERCENTAGE allocates a percentage of the budget item's cost. For example, AMOUNT can allocate $700 from a $1,000 budget, while PERCENTAGE can allocate 70% of a $1,000 budget.
    */
   method?: AllocateBy | undefined;
   /**

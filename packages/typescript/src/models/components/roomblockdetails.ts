@@ -6,7 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { GuestRoomType, GuestRoomType$inboundSchema } from "./guestroomtype.js";
+import {
+  GuestRoomType,
+  GuestRoomType$inboundSchema,
+  GuestRoomType$outboundSchema,
+} from "./guestroomtype.js";
 
 /**
  * Contains details related to room allotment for a room type.
@@ -31,7 +35,29 @@ export const RoomBlockDetails$inboundSchema: z.ZodType<
   quantity: z.number().int().optional(),
   type: GuestRoomType$inboundSchema.optional(),
 });
+/** @internal */
+export type RoomBlockDetails$Outbound = {
+  quantity?: number | undefined;
+  type?: string | undefined;
+};
 
+/** @internal */
+export const RoomBlockDetails$outboundSchema: z.ZodType<
+  RoomBlockDetails$Outbound,
+  z.ZodTypeDef,
+  RoomBlockDetails
+> = z.object({
+  quantity: z.number().int().optional(),
+  type: GuestRoomType$outboundSchema.optional(),
+});
+
+export function roomBlockDetailsToJSON(
+  roomBlockDetails: RoomBlockDetails,
+): string {
+  return JSON.stringify(
+    RoomBlockDetails$outboundSchema.parse(roomBlockDetails),
+  );
+}
 export function roomBlockDetailsFromJSON(
   jsonString: string,
 ): SafeParseResult<RoomBlockDetails, SDKValidationError> {

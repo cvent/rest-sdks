@@ -9,7 +9,7 @@ import { AttendeeAudienceSegmentAssociation } from "@cvent/sdk/models/components
 
 let value: AttendeeAudienceSegmentAssociation = {
   segment: {
-    id: "b13497ea-c117-4d62-a17b-e6c14d7e49d4",
+    id: "27c6bdc0-58c4-4d3c-b4be-4f57dbaa77b3",
   },
 };
 ```
@@ -18,4 +18,4 @@ let value: AttendeeAudienceSegmentAssociation = {
 
 | Field                                                    | Type                                                     | Required                                                 | Description                                              |
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `segment`                                                | [components.Segment](../../models/components/segment.md) | :heavy_check_mark:                                       | Segment details                                          |
+| `segment`                                                | [components.Segment](../../models/components/segment.md) | :heavy_check_mark:                                       | Represents a segment by its ID.                          |

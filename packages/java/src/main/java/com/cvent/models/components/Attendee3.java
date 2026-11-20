@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * Attendee3
  *
- * <p>Representation of the attendee
+ * <p>An attendee identified by an ID.
  */
 public class Attendee3 {
     /**

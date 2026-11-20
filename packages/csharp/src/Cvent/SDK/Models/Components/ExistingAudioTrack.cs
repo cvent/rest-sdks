@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Existing audio track.
+    /// An audio track with its ID and associated URL.
     /// </summary>
     public class ExistingAudioTrack
     {

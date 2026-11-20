@@ -1,6 +1,6 @@
 # Event3
 
-ID of the event.
+Represents an event by its ID.
 
 ## Example Usage
 
@@ -8,7 +8,7 @@ ID of the event.
 import { Event3 } from "@cvent/sdk/models/components";
 
 let value: Event3 = {
-  id: "103097a4-143d-11e5-9f99-d0a637ee0032",
+  id: "f8a930fa-1f3e-4d75-93d3-597aa6a321ea",
 };
 ```
 
@@ -16,4 +16,4 @@ let value: Event3 = {
 
 | Field                                | Type                                 | Required                             | Description                          | Example                              |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *string*                             | :heavy_check_mark:                   | UUID of the event.                   | 103097a4-143d-11e5-9f99-d0a637ee0032 |
+| `id`                                 | *string*                             | :heavy_check_mark:                   | Event ID.                            | f8a930fa-1f3e-4d75-93d3-597aa6a321ea |

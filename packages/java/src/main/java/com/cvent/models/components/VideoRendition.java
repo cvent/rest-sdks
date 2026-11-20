@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  * VideoRendition
  *
- * <p>Video rendition
+ * <p>A video rendition with its type, location, and dimensions.
  */
 public class VideoRendition {
     /**

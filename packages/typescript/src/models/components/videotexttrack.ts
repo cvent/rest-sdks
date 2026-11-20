@@ -18,7 +18,7 @@ import {
 } from "./videotexttrackstatus.js";
 
 /**
- * Video text track
+ * A video text track associated with a video, with its language, kind, publication state, and processing status.
  */
 export type VideoTextTrack = {
   /**

@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Amenity type
+ * The type of the amenity.
  */
 export const AmenityType = {
   IncludedAmenity: "included_amenity",
@@ -14,7 +14,7 @@ export const AmenityType = {
   BundledSupplement: "bundled_supplement",
 } as const;
 /**
- * Amenity type
+ * The type of the amenity.
  */
 export type AmenityType = ClosedEnum<typeof AmenityType>;
 

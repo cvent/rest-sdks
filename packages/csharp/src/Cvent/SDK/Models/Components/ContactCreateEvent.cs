@@ -20,7 +20,7 @@ namespace Cvent.SDK.Models.Components
     public class ContactCreateEvent
     {
         /// <summary>
-        /// ID of the event where the contact was created, applicable when contact snapshot is enabled for an event. This field has been deprecated. If the event has contact snapshot enabled, snapshot will be automatically created through the Add attendees API.
+        /// ID of the event where the contact was created, applicable when contact snapshot is enabled for an event. This field has been deprecated. If the event has contact snapshot enabled, snapshot will be automatically created through the Add Attendees API.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("id")]

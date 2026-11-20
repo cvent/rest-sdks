@@ -1,6 +1,6 @@
 # PolicyValueType
 
-Value type of the policy
+The value type of the policy.
 
 ## Example Usage
 

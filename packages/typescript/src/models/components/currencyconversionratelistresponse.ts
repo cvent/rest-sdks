@@ -25,7 +25,7 @@ export type CurrencyConversionRateListResponse = {
    */
   endDate?: RFCDate | undefined;
   /**
-   * The unique ID for this defined conversion rate.
+   * Currency conversion rate ID.
    */
   id: string;
   /**

@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  * SegmentAttendee
  *
- * <p>Represents the attendees that are associated/disassociated to/from a segment
+ * <p>Represents an attendee's association status with a segment.
  */
 public class SegmentAttendee {
     /**
@@ -50,21 +50,21 @@ public class SegmentAttendee {
     private String lastModifiedBy;
 
     /**
-     * Segment details
+     * Represents a segment by its ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("segment")
     private Segment segment;
 
     /**
-     * ID of the attendee.
+     * Attendee ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * Represents whether the attendee is dissociated from the segment. True if the attendee is
+     * Represents whether the attendee is disassociated from the segment. True if the attendee is
      * disassociated from the segment, false if the attendee is associated with the segment.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -122,21 +122,21 @@ public class SegmentAttendee {
     }
 
     /**
-     * Segment details
+     * Represents a segment by its ID.
      */
     public Optional<Segment> segment() {
         return Optional.ofNullable(this.segment);
     }
 
     /**
-     * ID of the attendee.
+     * Attendee ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * Represents whether the attendee is dissociated from the segment. True if the attendee is
+     * Represents whether the attendee is disassociated from the segment. True if the attendee is
      * disassociated from the segment, false if the attendee is associated with the segment.
      */
     public Optional<Boolean> disassociated() {
@@ -180,7 +180,7 @@ public class SegmentAttendee {
     }
 
     /**
-     * Segment details
+     * Represents a segment by its ID.
      */
     public SegmentAttendee withSegment(@Nullable Segment segment) {
         this.segment = segment;
@@ -188,7 +188,7 @@ public class SegmentAttendee {
     }
 
     /**
-     * ID of the attendee.
+     * Attendee ID.
      */
     public SegmentAttendee withId(@Nullable String id) {
         this.id = id;
@@ -196,7 +196,7 @@ public class SegmentAttendee {
     }
 
     /**
-     * Represents whether the attendee is dissociated from the segment. True if the attendee is
+     * Represents whether the attendee is disassociated from the segment. True if the attendee is
      * disassociated from the segment, false if the attendee is associated with the segment.
      */
     public SegmentAttendee withDisassociated(@Nullable Boolean disassociated) {
@@ -301,7 +301,7 @@ public class SegmentAttendee {
         }
 
         /**
-         * Segment details
+         * Represents a segment by its ID.
          */
         public Builder segment(@Nullable Segment segment) {
             this.segment = segment;
@@ -309,7 +309,7 @@ public class SegmentAttendee {
         }
 
         /**
-         * ID of the attendee.
+         * Attendee ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -317,7 +317,7 @@ public class SegmentAttendee {
         }
 
         /**
-         * Represents whether the attendee is dissociated from the segment. True if the attendee is
+         * Represents whether the attendee is disassociated from the segment. True if the attendee is
          * disassociated from the segment, false if the attendee is associated with the segment.
          */
         public Builder disassociated(@Nullable Boolean disassociated) {

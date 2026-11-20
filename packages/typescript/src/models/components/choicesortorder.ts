@@ -22,3 +22,7 @@ export type ChoiceSortOrder = ClosedEnum<typeof ChoiceSortOrder>;
 export const ChoiceSortOrder$inboundSchema: z.ZodNativeEnum<
   typeof ChoiceSortOrder
 > = z.nativeEnum(ChoiceSortOrder);
+/** @internal */
+export const ChoiceSortOrder$outboundSchema: z.ZodNativeEnum<
+  typeof ChoiceSortOrder
+> = ChoiceSortOrder$inboundSchema;

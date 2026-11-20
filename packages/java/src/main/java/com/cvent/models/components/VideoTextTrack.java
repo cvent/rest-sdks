@@ -20,7 +20,8 @@ import java.util.Optional;
 /**
  * VideoTextTrack
  *
- * <p>Video text track
+ * <p>A video text track associated with a video, with its language, kind, publication state, and
+ * processing status.
  */
 public class VideoTextTrack {
     /**

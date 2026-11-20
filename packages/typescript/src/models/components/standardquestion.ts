@@ -25,7 +25,27 @@ export const StandardQuestion$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string().optional(),
 });
+/** @internal */
+export type StandardQuestion$Outbound = {
+  id?: string | undefined;
+};
 
+/** @internal */
+export const StandardQuestion$outboundSchema: z.ZodType<
+  StandardQuestion$Outbound,
+  z.ZodTypeDef,
+  StandardQuestion
+> = z.object({
+  id: z.string().optional(),
+});
+
+export function standardQuestionToJSON(
+  standardQuestion: StandardQuestion,
+): string {
+  return JSON.stringify(
+    StandardQuestion$outboundSchema.parse(standardQuestion),
+  );
+}
 export function standardQuestionFromJSON(
   jsonString: string,
 ): SafeParseResult<StandardQuestion, SDKValidationError> {

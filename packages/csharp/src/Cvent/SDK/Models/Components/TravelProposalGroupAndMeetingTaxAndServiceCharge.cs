@@ -13,36 +13,36 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Tax and service charge information.
+    /// The tax and service charge information of the proposal.
     /// </summary>
     public class TravelProposalGroupAndMeetingTaxAndServiceCharge
     {
         /// <summary>
-        /// Tax amount.
+        /// The amount of the tax. The `taxPercent` field sets whether the amount is a percentage or a monetary value.
         /// </summary>
         [JsonProperty("taxAmount")]
         public double? TaxAmount { get; set; }
 
         /// <summary>
-        /// True indicates the tax amount represents a percentage, instead of a monetary value.
+        /// True indicates the tax amount is a percentage. False indicates a monetary value.
         /// </summary>
         [JsonProperty("taxPercent")]
         public bool? TaxPercent { get; set; }
 
         /// <summary>
-        /// True indicates the tax included.
+        /// True indicates the tax is included.
         /// </summary>
         [JsonProperty("taxIncluded")]
         public bool? TaxIncluded { get; set; }
 
         /// <summary>
-        /// Service charge amount.
+        /// The amount of the service charge. The `serviceChargePercent` field sets whether the amount is a percentage or a monetary value.
         /// </summary>
         [JsonProperty("serviceChargeAmount")]
         public double? ServiceChargeAmount { get; set; }
 
         /// <summary>
-        /// True indicates the service charge amount represents a percentage, instead of a monetary value.
+        /// True indicates the service charge amount is a percentage. False indicates a monetary value.
         /// </summary>
         [JsonProperty("serviceChargePercent")]
         public bool? ServiceChargePercent { get; set; }

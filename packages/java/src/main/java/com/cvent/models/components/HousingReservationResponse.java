@@ -17,18 +17,18 @@ import java.util.Optional;
 /**
  * HousingReservationResponse
  *
- * <p>Representation of the reservation request response.
+ * <p>A housing reservation response containing an attendee, reservation request, and last-modified value.
  */
 public class HousingReservationResponse {
     /**
-     * Representation of the attendee
+     * An attendee identified by an ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("attendee")
     private Attendee3 attendee;
 
     /**
-     * Representation of the housing reservation details.
+     * A housing reservation request with its bridge ID and booking-site link.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("reservationRequest")
@@ -56,14 +56,14 @@ public class HousingReservationResponse {
     }
 
     /**
-     * Representation of the attendee
+     * An attendee identified by an ID.
      */
     public Optional<Attendee3> attendee() {
         return Optional.ofNullable(this.attendee);
     }
 
     /**
-     * Representation of the housing reservation details.
+     * A housing reservation request with its bridge ID and booking-site link.
      */
     public Optional<HousingReservation> reservationRequest() {
         return Optional.ofNullable(this.reservationRequest);
@@ -81,7 +81,7 @@ public class HousingReservationResponse {
     }
 
     /**
-     * Representation of the attendee
+     * An attendee identified by an ID.
      */
     public HousingReservationResponse withAttendee(@Nullable Attendee3 attendee) {
         this.attendee = attendee;
@@ -89,7 +89,7 @@ public class HousingReservationResponse {
     }
 
     /**
-     * Representation of the housing reservation details.
+     * A housing reservation request with its bridge ID and booking-site link.
      */
     public HousingReservationResponse withReservationRequest(@Nullable HousingReservation reservationRequest) {
         this.reservationRequest = reservationRequest;
@@ -149,7 +149,7 @@ public class HousingReservationResponse {
         }
 
         /**
-         * Representation of the attendee
+         * An attendee identified by an ID.
          */
         public Builder attendee(@Nullable Attendee3 attendee) {
             this.attendee = attendee;
@@ -157,7 +157,7 @@ public class HousingReservationResponse {
         }
 
         /**
-         * Representation of the housing reservation details.
+         * A housing reservation request with its bridge ID and booking-site link.
          */
         public Builder reservationRequest(@Nullable HousingReservation reservationRequest) {
             this.reservationRequest = reservationRequest;

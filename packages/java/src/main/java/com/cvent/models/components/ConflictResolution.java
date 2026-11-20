@@ -22,33 +22,32 @@ import java.util.Optional;
  */
 public class ConflictResolution {
     /**
-     * For each event (designated by event id), choose a contact id whose linked attendee will be
-     * associated with the resulting merged contact. Use whenever at least two contacts exist as attendees
-     * in a single event.
+     * For each event (designated by event ID), the contact ID whose linked attendee is associated with the
+     * resulting merged contact. Applies when at least two contacts exist as attendees in a single event.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("events")
     private List<EventContactId> events;
 
     /**
-     * For each survey (designated by survey id), choose a contact id whose linked respondent will be
-     * associated with the resulting merged contact. Use whenever at least two contacts exist as
-     * respondents in a single survey.
+     * For each survey (designated by survey ID), the contact ID whose linked respondent is associated with
+     * the resulting merged contact. Applies when at least two contacts exist as respondents in a single
+     * survey.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("surveys")
     private List<SurveyContactId> surveys;
 
     /**
-     * The id of the contact to keep the relationships of in the resulting merged contact. Only one contact
-     * can be chosen, and relationships of the other contact(s) will be discarded.
+     * The ID of the contact whose relationships are kept in the resulting merged contact. Only one contact
+     * can be chosen. Relationships of the other contacts are discarded.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("relatedContacts")
     private String relatedContacts;
 
     /**
-     * Specify which contact to use values from for any contact field.
+     * Contact field and contact ID pairs that identify which contact's value to retain for each field.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contactFields")
@@ -71,33 +70,32 @@ public class ConflictResolution {
     }
 
     /**
-     * For each event (designated by event id), choose a contact id whose linked attendee will be
-     * associated with the resulting merged contact. Use whenever at least two contacts exist as attendees
-     * in a single event.
+     * For each event (designated by event ID), the contact ID whose linked attendee is associated with the
+     * resulting merged contact. Applies when at least two contacts exist as attendees in a single event.
      */
     public Optional<List<EventContactId>> events() {
         return Optional.ofNullable(this.events);
     }
 
     /**
-     * For each survey (designated by survey id), choose a contact id whose linked respondent will be
-     * associated with the resulting merged contact. Use whenever at least two contacts exist as
-     * respondents in a single survey.
+     * For each survey (designated by survey ID), the contact ID whose linked respondent is associated with
+     * the resulting merged contact. Applies when at least two contacts exist as respondents in a single
+     * survey.
      */
     public Optional<List<SurveyContactId>> surveys() {
         return Optional.ofNullable(this.surveys);
     }
 
     /**
-     * The id of the contact to keep the relationships of in the resulting merged contact. Only one contact
-     * can be chosen, and relationships of the other contact(s) will be discarded.
+     * The ID of the contact whose relationships are kept in the resulting merged contact. Only one contact
+     * can be chosen. Relationships of the other contacts are discarded.
      */
     public Optional<String> relatedContacts() {
         return Optional.ofNullable(this.relatedContacts);
     }
 
     /**
-     * Specify which contact to use values from for any contact field.
+     * Contact field and contact ID pairs that identify which contact's value to retain for each field.
      */
     public Optional<List<ContactMergeField>> contactFields() {
         return Optional.ofNullable(this.contactFields);
@@ -108,9 +106,8 @@ public class ConflictResolution {
     }
 
     /**
-     * For each event (designated by event id), choose a contact id whose linked attendee will be
-     * associated with the resulting merged contact. Use whenever at least two contacts exist as attendees
-     * in a single event.
+     * For each event (designated by event ID), the contact ID whose linked attendee is associated with the
+     * resulting merged contact. Applies when at least two contacts exist as attendees in a single event.
      */
     public ConflictResolution withEvents(@Nullable List<EventContactId> events) {
         this.events = events;
@@ -118,9 +115,9 @@ public class ConflictResolution {
     }
 
     /**
-     * For each survey (designated by survey id), choose a contact id whose linked respondent will be
-     * associated with the resulting merged contact. Use whenever at least two contacts exist as
-     * respondents in a single survey.
+     * For each survey (designated by survey ID), the contact ID whose linked respondent is associated with
+     * the resulting merged contact. Applies when at least two contacts exist as respondents in a single
+     * survey.
      */
     public ConflictResolution withSurveys(@Nullable List<SurveyContactId> surveys) {
         this.surveys = surveys;
@@ -128,8 +125,8 @@ public class ConflictResolution {
     }
 
     /**
-     * The id of the contact to keep the relationships of in the resulting merged contact. Only one contact
-     * can be chosen, and relationships of the other contact(s) will be discarded.
+     * The ID of the contact whose relationships are kept in the resulting merged contact. Only one contact
+     * can be chosen. Relationships of the other contacts are discarded.
      */
     public ConflictResolution withRelatedContacts(@Nullable String relatedContacts) {
         this.relatedContacts = relatedContacts;
@@ -137,7 +134,7 @@ public class ConflictResolution {
     }
 
     /**
-     * Specify which contact to use values from for any contact field.
+     * Contact field and contact ID pairs that identify which contact's value to retain for each field.
      */
     public ConflictResolution withContactFields(@Nullable List<ContactMergeField> contactFields) {
         this.contactFields = contactFields;
@@ -194,9 +191,8 @@ public class ConflictResolution {
         }
 
         /**
-         * For each event (designated by event id), choose a contact id whose linked attendee will be
-         * associated with the resulting merged contact. Use whenever at least two contacts exist as attendees
-         * in a single event.
+         * For each event (designated by event ID), the contact ID whose linked attendee is associated with the
+         * resulting merged contact. Applies when at least two contacts exist as attendees in a single event.
          */
         public Builder events(@Nullable List<EventContactId> events) {
             this.events = events;
@@ -204,9 +200,9 @@ public class ConflictResolution {
         }
 
         /**
-         * For each survey (designated by survey id), choose a contact id whose linked respondent will be
-         * associated with the resulting merged contact. Use whenever at least two contacts exist as
-         * respondents in a single survey.
+         * For each survey (designated by survey ID), the contact ID whose linked respondent is associated with
+         * the resulting merged contact. Applies when at least two contacts exist as respondents in a single
+         * survey.
          */
         public Builder surveys(@Nullable List<SurveyContactId> surveys) {
             this.surveys = surveys;
@@ -214,8 +210,8 @@ public class ConflictResolution {
         }
 
         /**
-         * The id of the contact to keep the relationships of in the resulting merged contact. Only one contact
-         * can be chosen, and relationships of the other contact(s) will be discarded.
+         * The ID of the contact whose relationships are kept in the resulting merged contact. Only one contact
+         * can be chosen. Relationships of the other contacts are discarded.
          */
         public Builder relatedContacts(@Nullable String relatedContacts) {
             this.relatedContacts = relatedContacts;
@@ -223,7 +219,7 @@ public class ConflictResolution {
         }
 
         /**
-         * Specify which contact to use values from for any contact field.
+         * Contact field and contact ID pairs that identify which contact's value to retain for each field.
          */
         public Builder contactFields(@Nullable List<ContactMergeField> contactFields) {
             this.contactFields = contactFields;

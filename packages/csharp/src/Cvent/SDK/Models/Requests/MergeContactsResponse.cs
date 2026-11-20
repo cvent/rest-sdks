@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// The successfully merged contact.
+        /// Successfully merged the contacts and returned the merged contact.
         /// </summary>
         public Contact? Contact { get; set; }
     }

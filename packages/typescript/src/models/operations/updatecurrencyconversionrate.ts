@@ -12,7 +12,7 @@ export type UpdateCurrencyConversionRateRequest = {
    */
   currency: string;
   /**
-   * Unique ID of currency conversion rate.
+   * Currency conversion rate ID.
    */
   conversionRateId: string;
   /**

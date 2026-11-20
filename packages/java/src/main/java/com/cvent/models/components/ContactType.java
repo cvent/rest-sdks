@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  * ContactType
  *
- * <p>This entity represents a contact type at contact level.
+ * <p>A contact type with an ID, code, name, description, and active status.
  */
 public class ContactType {
     /**

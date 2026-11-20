@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Days considered weekend days for pricing purposes in the travel bid.
+ * A day of the week that gets the weekend rates of the travel bid.
  */
 export const TravelBidWeekendDays = {
   Monday: "Monday",
@@ -18,7 +18,7 @@ export const TravelBidWeekendDays = {
   Sunday: "Sunday",
 } as const;
 /**
- * Days considered weekend days for pricing purposes in the travel bid.
+ * A day of the week that gets the weekend rates of the travel bid.
  */
 export type TravelBidWeekendDays = ClosedEnum<typeof TravelBidWeekendDays>;
 

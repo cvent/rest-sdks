@@ -13,7 +13,7 @@ import { Segment, Segment$inboundSchema } from "./segment.js";
  */
 export type AttendeeAudienceSegmentAssociation = {
   /**
-   * Segment details
+   * Represents a segment by its ID.
    */
   segment: Segment;
 };

@@ -5,7 +5,7 @@
 import * as z from "zod/v3";
 
 /**
- * This is used to denote the general ledger code associated with budget.
+ * General ledger code and details associated with a budget item.
  */
 export type GeneralLedger1Input = {
   /**

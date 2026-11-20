@@ -37,7 +37,7 @@ namespace Cvent.SDK.Models.Requests
         ///   - Currency (Positive decimal value, 10.5). Denoted by *Currency* in the response payload.<br/>
         ///   - Decimal (-20.5). Denoted by *Decimal* in the response payload.<br/>
         ///   - US Phone Number (123-456-7890). Denoted by *USPhoneNumber* in the response payload.<br/>
-        ///   - Email Address (h.potterfield@test.com). Denoted by *Email* in the response payload.<br/>
+        ///   - Email Address (h.potterfield@example.com). Denoted by *Email* in the response payload.<br/>
         /// * **Open Ended Text - Comment Box**. Answer format is free-text (any value). Denoted by *FreeText* in the<br/>
         ///     response payload.<br/>
         /// * **Choice - Single Answer (Drop-Down, Vertical, Horizontal).** Answer format is exactly one response to a<br/>

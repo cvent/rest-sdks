@@ -8,15 +8,15 @@ import * as components from "../components/index.js";
 
 export type UpdatePaymentRequest = {
   /**
-   * Unique ID of an event.
+   * Event ID.
    */
   id: string;
   /**
-   * Unique ID of a budget item.
+   * Budget item ID.
    */
   budgetItemId: string;
   /**
-   * Unique ID of a payment.
+   * Payment ID.
    */
   paymentId: string;
   /**

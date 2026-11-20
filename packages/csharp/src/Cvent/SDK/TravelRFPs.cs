@@ -29,7 +29,7 @@ namespace Cvent.SDK
     /// represents a request for proposal (RFP) that defines the specific travel needs and<br/>
     /// requirements of a travel account. The travel account solicits hotels and other travel<br/>
     /// suppliers to respond to the program with proposals, which provide detailed<br/>
-    /// information on rates and amenities.'
+    /// information on rates and amenities.
     /// </summary>
     public interface ITravelRFPs
     {
@@ -130,7 +130,7 @@ namespace Cvent.SDK
         /// List Travel Proposals.
         /// </summary>
         /// <remarks>
-        /// Get a paginated list of travel proposal details.
+        /// Gets a paginated list of travel proposals.
         /// </remarks>
         /// <param name="request">A <see cref="ListTravelProposalsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -148,7 +148,7 @@ namespace Cvent.SDK
         /// List Travel Proposal Bids.
         /// </summary>
         /// <remarks>
-        /// Get a paginated list of travel proposal bids.
+        /// Gets a paginated list of travel proposal bids.
         /// </remarks>
         /// <param name="request">A <see cref="ListTravelProposalBidsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -166,7 +166,7 @@ namespace Cvent.SDK
         /// Get Travel Proposal Bid.
         /// </summary>
         /// <remarks>
-        /// Gets a travel proposal bid for the given travel proposal bid ID.
+        /// Gets a travel proposal bid by its ID.
         /// </remarks>
         /// <param name="request">A <see cref="GetTravelProposalBidRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -185,7 +185,7 @@ namespace Cvent.SDK
         /// List Buyer Proposal Bids.
         /// </summary>
         /// <remarks>
-        /// Get a paginated list of travel buyer proposal bids.
+        /// Gets a paginated list of travel buyer proposal bids.
         /// </remarks>
         /// <param name="request">A <see cref="ListTravelBuyerProposalBidsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -203,7 +203,7 @@ namespace Cvent.SDK
         /// Get Buyer Proposal Bid.
         /// </summary>
         /// <remarks>
-        /// Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+        /// Gets a travel buyer proposal bid by its ID.
         /// </remarks>
         /// <param name="request">A <see cref="GetTravelBuyerProposalBidRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -222,7 +222,7 @@ namespace Cvent.SDK
         /// List Static Contents.
         /// </summary>
         /// <remarks>
-        /// Gets a paginated list of proposal static content across multiple proposals.
+        /// Gets a paginated list of the static content of travel proposals.
         /// </remarks>
         /// <param name="request">A <see cref="ListTravelProposalStaticContentRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -240,7 +240,7 @@ namespace Cvent.SDK
         /// Get Travel Proposal.
         /// </summary>
         /// <remarks>
-        /// Gets a travel proposal for the given travel proposal ID.
+        /// Gets a travel proposal by its ID.
         /// </remarks>
         /// <param name="request">A <see cref="GetTravelProposalRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -259,7 +259,7 @@ namespace Cvent.SDK
         /// Get Static Content.
         /// </summary>
         /// <remarks>
-        /// Retrieves static content for a specific proposal as a list of field-value pairs with sequence ordering.
+        /// Gets the static content of a travel proposal. The static content is a list of field-value pairs in sequence order.
         /// </remarks>
         /// <param name="request">A <see cref="GetTravelProposalStaticContentRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -280,7 +280,7 @@ namespace Cvent.SDK
     /// represents a request for proposal (RFP) that defines the specific travel needs and<br/>
     /// requirements of a travel account. The travel account solicits hotels and other travel<br/>
     /// suppliers to respond to the program with proposals, which provide detailed<br/>
-    /// information on rates and amenities.'
+    /// information on rates and amenities.
     /// </summary>
     public class TravelRFPs : ITravelRFPs
     {
@@ -1215,7 +1215,7 @@ namespace Cvent.SDK
         /// List Travel Proposals.
         /// </summary>
         /// <remarks>
-        /// Get a paginated list of travel proposal details.
+        /// Gets a paginated list of travel proposals.
         /// </remarks>
         /// <param name="request">A <see cref="ListTravelProposalsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1409,7 +1409,7 @@ namespace Cvent.SDK
         /// List Travel Proposal Bids.
         /// </summary>
         /// <remarks>
-        /// Get a paginated list of travel proposal bids.
+        /// Gets a paginated list of travel proposal bids.
         /// </remarks>
         /// <param name="request">A <see cref="ListTravelProposalBidsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1603,7 +1603,7 @@ namespace Cvent.SDK
         /// Get Travel Proposal Bid.
         /// </summary>
         /// <remarks>
-        /// Gets a travel proposal bid for the given travel proposal bid ID.
+        /// Gets a travel proposal bid by its ID.
         /// </remarks>
         /// <param name="request">A <see cref="GetTravelProposalBidRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1769,7 +1769,7 @@ namespace Cvent.SDK
         /// List Buyer Proposal Bids.
         /// </summary>
         /// <remarks>
-        /// Get a paginated list of travel buyer proposal bids.
+        /// Gets a paginated list of travel buyer proposal bids.
         /// </remarks>
         /// <param name="request">A <see cref="ListTravelBuyerProposalBidsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1963,7 +1963,7 @@ namespace Cvent.SDK
         /// Get Buyer Proposal Bid.
         /// </summary>
         /// <remarks>
-        /// Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+        /// Gets a travel buyer proposal bid by its ID.
         /// </remarks>
         /// <param name="request">A <see cref="GetTravelBuyerProposalBidRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2129,7 +2129,7 @@ namespace Cvent.SDK
         /// List Static Contents.
         /// </summary>
         /// <remarks>
-        /// Gets a paginated list of proposal static content across multiple proposals.
+        /// Gets a paginated list of the static content of travel proposals.
         /// </remarks>
         /// <param name="request">A <see cref="ListTravelProposalStaticContentRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2323,7 +2323,7 @@ namespace Cvent.SDK
         /// Get Travel Proposal.
         /// </summary>
         /// <remarks>
-        /// Gets a travel proposal for the given travel proposal ID.
+        /// Gets a travel proposal by its ID.
         /// </remarks>
         /// <param name="request">A <see cref="GetTravelProposalRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -2489,7 +2489,7 @@ namespace Cvent.SDK
         /// Get Static Content.
         /// </summary>
         /// <remarks>
-        /// Retrieves static content for a specific proposal as a list of field-value pairs with sequence ordering.
+        /// Gets the static content of a travel proposal. The static content is a list of field-value pairs in sequence order.
         /// </remarks>
         /// <param name="request">A <see cref="GetTravelProposalStaticContentRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

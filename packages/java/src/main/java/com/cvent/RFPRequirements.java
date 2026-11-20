@@ -5,9 +5,48 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.RequestOperation;
 
+import com.cvent.models.operations.AssociateRfpInternalDocumentRequest;
+import com.cvent.models.operations.AssociateRfpInternalDocumentRequestBuilder;
+import com.cvent.models.operations.AssociateRfpInternalDocumentResponse;
+import com.cvent.models.operations.CreateRfpAgendaItemRequest;
+import com.cvent.models.operations.CreateRfpAgendaItemRequestBuilder;
+import com.cvent.models.operations.CreateRfpAgendaItemResponse;
+import com.cvent.models.operations.CreateRfpAttachmentRequest;
+import com.cvent.models.operations.CreateRfpAttachmentRequestBuilder;
+import com.cvent.models.operations.CreateRfpAttachmentResponse;
+import com.cvent.models.operations.CreateRfpQuestionRequest;
+import com.cvent.models.operations.CreateRfpQuestionRequestBuilder;
+import com.cvent.models.operations.CreateRfpQuestionResponse;
+import com.cvent.models.operations.DeleteRfpAgendaItemRequest;
+import com.cvent.models.operations.DeleteRfpAgendaItemRequestBuilder;
+import com.cvent.models.operations.DeleteRfpAgendaItemResponse;
+import com.cvent.models.operations.DeleteRfpAttachmentRequest;
+import com.cvent.models.operations.DeleteRfpAttachmentRequestBuilder;
+import com.cvent.models.operations.DeleteRfpAttachmentResponse;
+import com.cvent.models.operations.DeleteRfpQuestionRequest;
+import com.cvent.models.operations.DeleteRfpQuestionRequestBuilder;
+import com.cvent.models.operations.DeleteRfpQuestionResponse;
+import com.cvent.models.operations.DisassociateRfpInternalDocumentRequest;
+import com.cvent.models.operations.DisassociateRfpInternalDocumentRequestBuilder;
+import com.cvent.models.operations.DisassociateRfpInternalDocumentResponse;
+import com.cvent.models.operations.GetRfpAgendaItemRequest;
+import com.cvent.models.operations.GetRfpAgendaItemRequestBuilder;
+import com.cvent.models.operations.GetRfpAgendaItemResponse;
+import com.cvent.models.operations.GetRfpAttachmentRequest;
+import com.cvent.models.operations.GetRfpAttachmentRequestBuilder;
+import com.cvent.models.operations.GetRfpAttachmentResponse;
+import com.cvent.models.operations.GetRfpCustomFieldAnswersRequest;
+import com.cvent.models.operations.GetRfpCustomFieldAnswersRequestBuilder;
+import com.cvent.models.operations.GetRfpCustomFieldAnswersResponse;
 import com.cvent.models.operations.GetRfpGuestRoomsRequest;
 import com.cvent.models.operations.GetRfpGuestRoomsRequestBuilder;
 import com.cvent.models.operations.GetRfpGuestRoomsResponse;
+import com.cvent.models.operations.GetRfpInternalDocumentRequest;
+import com.cvent.models.operations.GetRfpInternalDocumentRequestBuilder;
+import com.cvent.models.operations.GetRfpInternalDocumentResponse;
+import com.cvent.models.operations.GetRfpQuestionRequest;
+import com.cvent.models.operations.GetRfpQuestionRequestBuilder;
+import com.cvent.models.operations.GetRfpQuestionResponse;
 import com.cvent.models.operations.ListRfpAgendaItemSchedulesRequest;
 import com.cvent.models.operations.ListRfpAgendaItemSchedulesRequestBuilder;
 import com.cvent.models.operations.ListRfpAgendaItemSchedulesResponse;
@@ -26,13 +65,42 @@ import com.cvent.models.operations.ListRfpInternalDocumentsResponse;
 import com.cvent.models.operations.ListRfpQuestionsRequest;
 import com.cvent.models.operations.ListRfpQuestionsRequestBuilder;
 import com.cvent.models.operations.ListRfpQuestionsResponse;
+import com.cvent.models.operations.UpdateRfpAgendaItemRequest;
+import com.cvent.models.operations.UpdateRfpAgendaItemRequestBuilder;
+import com.cvent.models.operations.UpdateRfpAgendaItemResponse;
+import com.cvent.models.operations.UpdateRfpCustomFieldAnswersRequest;
+import com.cvent.models.operations.UpdateRfpCustomFieldAnswersRequestBuilder;
+import com.cvent.models.operations.UpdateRfpCustomFieldAnswersResponse;
+import com.cvent.models.operations.UpdateRfpGuestRoomsRequest;
+import com.cvent.models.operations.UpdateRfpGuestRoomsRequestBuilder;
+import com.cvent.models.operations.UpdateRfpGuestRoomsResponse;
+import com.cvent.models.operations.UpdateRfpQuestionRequest;
+import com.cvent.models.operations.UpdateRfpQuestionRequestBuilder;
+import com.cvent.models.operations.UpdateRfpQuestionResponse;
+import com.cvent.operations.AssociateRfpInternalDocument;
+import com.cvent.operations.CreateRfpAgendaItem;
+import com.cvent.operations.CreateRfpAttachment;
+import com.cvent.operations.CreateRfpQuestion;
+import com.cvent.operations.DeleteRfpAgendaItem;
+import com.cvent.operations.DeleteRfpAttachment;
+import com.cvent.operations.DeleteRfpQuestion;
+import com.cvent.operations.DisassociateRfpInternalDocument;
+import com.cvent.operations.GetRfpAgendaItem;
+import com.cvent.operations.GetRfpAttachment;
+import com.cvent.operations.GetRfpCustomFieldAnswers;
 import com.cvent.operations.GetRfpGuestRooms;
+import com.cvent.operations.GetRfpInternalDocument;
+import com.cvent.operations.GetRfpQuestion;
 import com.cvent.operations.ListRfpAgendaItemSchedules;
 import com.cvent.operations.ListRfpAgendaItems;
 import com.cvent.operations.ListRfpAttachments;
 import com.cvent.operations.ListRfpCustomFields;
 import com.cvent.operations.ListRfpInternalDocuments;
 import com.cvent.operations.ListRfpQuestions;
+import com.cvent.operations.UpdateRfpAgendaItem;
+import com.cvent.operations.UpdateRfpCustomFieldAnswers;
+import com.cvent.operations.UpdateRfpGuestRooms;
+import com.cvent.operations.UpdateRfpQuestion;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
@@ -103,9 +171,50 @@ public class RFPRequirements {
     }
 
     /**
+     * Create RFP Agenda Item
+     *
+     * <p>Creates a new agenda item for the specified RFP.
+     *
+     * @return The call builder
+     */
+    public CreateRfpAgendaItemRequestBuilder createRfpAgendaItem() {
+        return new CreateRfpAgendaItemRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Create RFP Agenda Item
+     *
+     * <p>Creates a new agenda item for the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateRfpAgendaItemResponse createRfpAgendaItem(@Nonnull CreateRfpAgendaItemRequest request) {
+        return createRfpAgendaItem(request, null);
+    }
+
+    /**
+     * Create RFP Agenda Item
+     *
+     * <p>Creates a new agenda item for the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateRfpAgendaItemResponse createRfpAgendaItem(
+            @Nonnull CreateRfpAgendaItemRequest request, @Nullable Options options) {
+        RequestOperation<CreateRfpAgendaItemRequest, CreateRfpAgendaItemResponse> operation =
+                new CreateRfpAgendaItem.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
      * List RFP Agenda Item Schedules
      *
-     * <p>Returns paginated list of schedules for agenda items added on an RFP.
+     * <p>Returns a paginated list of the schedules of the agenda items of an RFP.
      *
      * @return The call builder
      */
@@ -116,7 +225,7 @@ public class RFPRequirements {
     /**
      * List RFP Agenda Item Schedules
      *
-     * <p>Returns paginated list of schedules for agenda items added on an RFP.
+     * <p>Returns a paginated list of the schedules of the agenda items of an RFP.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -130,7 +239,7 @@ public class RFPRequirements {
     /**
      * List RFP Agenda Item Schedules
      *
-     * <p>Returns paginated list of schedules for agenda items added on an RFP.
+     * <p>Returns a paginated list of the schedules of the agenda items of an RFP.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -145,9 +254,132 @@ public class RFPRequirements {
     }
 
     /**
+     * Get RFP Agenda Item
+     *
+     * <p>Returns details of a specific agenda item associated with an RFP.
+     *
+     * @return The call builder
+     */
+    public GetRfpAgendaItemRequestBuilder getRfpAgendaItem() {
+        return new GetRfpAgendaItemRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get RFP Agenda Item
+     *
+     * <p>Returns details of a specific agenda item associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetRfpAgendaItemResponse getRfpAgendaItem(@Nonnull GetRfpAgendaItemRequest request) {
+        return getRfpAgendaItem(request, null);
+    }
+
+    /**
+     * Get RFP Agenda Item
+     *
+     * <p>Returns details of a specific agenda item associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetRfpAgendaItemResponse getRfpAgendaItem(
+            @Nonnull GetRfpAgendaItemRequest request, @Nullable Options options) {
+        RequestOperation<GetRfpAgendaItemRequest, GetRfpAgendaItemResponse> operation =
+                new GetRfpAgendaItem.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Update RFP Agenda Item
+     *
+     * <p>Updates an existing agenda item for the specified RFP.
+     *
+     * @return The call builder
+     */
+    public UpdateRfpAgendaItemRequestBuilder updateRfpAgendaItem() {
+        return new UpdateRfpAgendaItemRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update RFP Agenda Item
+     *
+     * <p>Updates an existing agenda item for the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateRfpAgendaItemResponse updateRfpAgendaItem(@Nonnull UpdateRfpAgendaItemRequest request) {
+        return updateRfpAgendaItem(request, null);
+    }
+
+    /**
+     * Update RFP Agenda Item
+     *
+     * <p>Updates an existing agenda item for the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateRfpAgendaItemResponse updateRfpAgendaItem(
+            @Nonnull UpdateRfpAgendaItemRequest request, @Nullable Options options) {
+        RequestOperation<UpdateRfpAgendaItemRequest, UpdateRfpAgendaItemResponse> operation =
+                new UpdateRfpAgendaItem.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Delete RFP Agenda Item
+     *
+     * <p>Deletes an existing agenda item from the specified RFP.
+     *
+     * @return The call builder
+     */
+    public DeleteRfpAgendaItemRequestBuilder deleteRfpAgendaItem() {
+        return new DeleteRfpAgendaItemRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Delete RFP Agenda Item
+     *
+     * <p>Deletes an existing agenda item from the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteRfpAgendaItemResponse deleteRfpAgendaItem(@Nonnull DeleteRfpAgendaItemRequest request) {
+        return deleteRfpAgendaItem(request, null);
+    }
+
+    /**
+     * Delete RFP Agenda Item
+     *
+     * <p>Deletes an existing agenda item from the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteRfpAgendaItemResponse deleteRfpAgendaItem(
+            @Nonnull DeleteRfpAgendaItemRequest request, @Nullable Options options) {
+        RequestOperation<DeleteRfpAgendaItemRequest, DeleteRfpAgendaItemResponse> operation =
+                new DeleteRfpAgendaItem.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
      * List RFP Attachments
      *
-     * <p>Returns paginated list of [attachments](#tag/RFP-Requirements) added on an RFP.
+     * <p>Returns a paginated list of [attachments](#tag/RFP-Requirements) added to an RFP.
      *
      * @return The call builder
      */
@@ -158,7 +390,7 @@ public class RFPRequirements {
     /**
      * List RFP Attachments
      *
-     * <p>Returns paginated list of [attachments](#tag/RFP-Requirements) added on an RFP.
+     * <p>Returns a paginated list of [attachments](#tag/RFP-Requirements) added to an RFP.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -171,7 +403,7 @@ public class RFPRequirements {
     /**
      * List RFP Attachments
      *
-     * <p>Returns paginated list of [attachments](#tag/RFP-Requirements) added on an RFP.
+     * <p>Returns a paginated list of [attachments](#tag/RFP-Requirements) added to an RFP.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -186,7 +418,133 @@ public class RFPRequirements {
     }
 
     /**
-     * List RFP Custom Fields Answers
+     * Create RFP Attachment
+     *
+     * <p>Creates a new attachment on the specified RFP by copying an existing file. The file must be uploaded
+     * with [Upload File](#tag/File-Management/operation/uploadFile) before it can be copied.
+     *
+     * @return The call builder
+     */
+    public CreateRfpAttachmentRequestBuilder createRfpAttachment() {
+        return new CreateRfpAttachmentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Create RFP Attachment
+     *
+     * <p>Creates a new attachment on the specified RFP by copying an existing file. The file must be uploaded
+     * with [Upload File](#tag/File-Management/operation/uploadFile) before it can be copied.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateRfpAttachmentResponse createRfpAttachment(@Nonnull CreateRfpAttachmentRequest request) {
+        return createRfpAttachment(request, null);
+    }
+
+    /**
+     * Create RFP Attachment
+     *
+     * <p>Creates a new attachment on the specified RFP by copying an existing file. The file must be uploaded
+     * with [Upload File](#tag/File-Management/operation/uploadFile) before it can be copied.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateRfpAttachmentResponse createRfpAttachment(
+            @Nonnull CreateRfpAttachmentRequest request, @Nullable Options options) {
+        RequestOperation<CreateRfpAttachmentRequest, CreateRfpAttachmentResponse> operation =
+                new CreateRfpAttachment.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Get RFP Attachment
+     *
+     * <p>Returns details of a specific attachment added on an RFP.
+     *
+     * @return The call builder
+     */
+    public GetRfpAttachmentRequestBuilder getRfpAttachment() {
+        return new GetRfpAttachmentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get RFP Attachment
+     *
+     * <p>Returns details of a specific attachment added on an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetRfpAttachmentResponse getRfpAttachment(@Nonnull GetRfpAttachmentRequest request) {
+        return getRfpAttachment(request, null);
+    }
+
+    /**
+     * Get RFP Attachment
+     *
+     * <p>Returns details of a specific attachment added on an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetRfpAttachmentResponse getRfpAttachment(
+            @Nonnull GetRfpAttachmentRequest request, @Nullable Options options) {
+        RequestOperation<GetRfpAttachmentRequest, GetRfpAttachmentResponse> operation =
+                new GetRfpAttachment.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Delete RFP Attachment
+     *
+     * <p>Deletes the specified attachment from an RFP.
+     *
+     * @return The call builder
+     */
+    public DeleteRfpAttachmentRequestBuilder deleteRfpAttachment() {
+        return new DeleteRfpAttachmentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Delete RFP Attachment
+     *
+     * <p>Deletes the specified attachment from an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteRfpAttachmentResponse deleteRfpAttachment(@Nonnull DeleteRfpAttachmentRequest request) {
+        return deleteRfpAttachment(request, null);
+    }
+
+    /**
+     * Delete RFP Attachment
+     *
+     * <p>Deletes the specified attachment from an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteRfpAttachmentResponse deleteRfpAttachment(
+            @Nonnull DeleteRfpAttachmentRequest request, @Nullable Options options) {
+        RequestOperation<DeleteRfpAttachmentRequest, DeleteRfpAttachmentResponse> operation =
+                new DeleteRfpAttachment.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * List RFP Custom Field Answers
      *
      * <p>Returns a paginated list of answers for each custom field associated with a given RFP.
      *
@@ -197,7 +555,7 @@ public class RFPRequirements {
     }
 
     /**
-     * List RFP Custom Fields Answers
+     * List RFP Custom Field Answers
      *
      * <p>Returns a paginated list of answers for each custom field associated with a given RFP.
      *
@@ -210,7 +568,7 @@ public class RFPRequirements {
     }
 
     /**
-     * List RFP Custom Fields Answers
+     * List RFP Custom Field Answers
      *
      * <p>Returns a paginated list of answers for each custom field associated with a given RFP.
      *
@@ -223,6 +581,92 @@ public class RFPRequirements {
             @Nonnull ListRfpCustomFieldsRequest request, @Nullable Options options) {
         RequestOperation<ListRfpCustomFieldsRequest, ListRfpCustomFieldsResponse> operation =
                 new ListRfpCustomFields.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Get RFP Custom Field Answers
+     *
+     * <p>Returns details of answers specific to a custom field associated to an RFP.
+     *
+     * @return The call builder
+     */
+    public GetRfpCustomFieldAnswersRequestBuilder getRfpCustomFieldAnswers() {
+        return new GetRfpCustomFieldAnswersRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get RFP Custom Field Answers
+     *
+     * <p>Returns details of answers specific to a custom field associated to an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetRfpCustomFieldAnswersResponse getRfpCustomFieldAnswers(@Nonnull GetRfpCustomFieldAnswersRequest request) {
+        return getRfpCustomFieldAnswers(request, null);
+    }
+
+    /**
+     * Get RFP Custom Field Answers
+     *
+     * <p>Returns details of answers specific to a custom field associated to an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetRfpCustomFieldAnswersResponse getRfpCustomFieldAnswers(
+            @Nonnull GetRfpCustomFieldAnswersRequest request, @Nullable Options options) {
+        RequestOperation<GetRfpCustomFieldAnswersRequest, GetRfpCustomFieldAnswersResponse> operation =
+                new GetRfpCustomFieldAnswers.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Update Custom Field Answers
+     *
+     * <p>Updates the answers to a custom field of an RFP. Create the custom field at the account level with
+     * [Create Custom Field](#tag/Custom-Fields/operation/createCustomField) before you update its answers.
+     *
+     * @return The call builder
+     */
+    public UpdateRfpCustomFieldAnswersRequestBuilder updateRfpCustomFieldAnswers() {
+        return new UpdateRfpCustomFieldAnswersRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update Custom Field Answers
+     *
+     * <p>Updates the answers to a custom field of an RFP. Create the custom field at the account level with
+     * [Create Custom Field](#tag/Custom-Fields/operation/createCustomField) before you update its answers.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateRfpCustomFieldAnswersResponse updateRfpCustomFieldAnswers(
+            @Nonnull UpdateRfpCustomFieldAnswersRequest request) {
+        return updateRfpCustomFieldAnswers(request, null);
+    }
+
+    /**
+     * Update Custom Field Answers
+     *
+     * <p>Updates the answers to a custom field of an RFP. Create the custom field at the account level with
+     * [Create Custom Field](#tag/Custom-Fields/operation/createCustomField) before you update its answers.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateRfpCustomFieldAnswersResponse updateRfpCustomFieldAnswers(
+            @Nonnull UpdateRfpCustomFieldAnswersRequest request, @Nullable Options options) {
+        RequestOperation<UpdateRfpCustomFieldAnswersRequest, UpdateRfpCustomFieldAnswersResponse> operation =
+                new UpdateRfpCustomFieldAnswers.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -268,9 +712,50 @@ public class RFPRequirements {
     }
 
     /**
+     * Update RFP Guest Rooms
+     *
+     * <p>Updates guest room requirements associated with an RFP.
+     *
+     * @return The call builder
+     */
+    public UpdateRfpGuestRoomsRequestBuilder updateRfpGuestRooms() {
+        return new UpdateRfpGuestRoomsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update RFP Guest Rooms
+     *
+     * <p>Updates guest room requirements associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateRfpGuestRoomsResponse updateRfpGuestRooms(@Nonnull UpdateRfpGuestRoomsRequest request) {
+        return updateRfpGuestRooms(request, null);
+    }
+
+    /**
+     * Update RFP Guest Rooms
+     *
+     * <p>Updates guest room requirements associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateRfpGuestRoomsResponse updateRfpGuestRooms(
+            @Nonnull UpdateRfpGuestRoomsRequest request, @Nullable Options options) {
+        RequestOperation<UpdateRfpGuestRoomsRequest, UpdateRfpGuestRoomsResponse> operation =
+                new UpdateRfpGuestRooms.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
      * List RFP Internal Documents
      *
-     * <p>Returns paginated list of [internal documents](#tag/RFP-Requirements) added on an RFP.
+     * <p>Returns a paginated list of [internal documents](#tag/RFP-Requirements) added to an RFP.
      *
      * @return The call builder
      */
@@ -281,7 +766,7 @@ public class RFPRequirements {
     /**
      * List RFP Internal Documents
      *
-     * <p>Returns paginated list of [internal documents](#tag/RFP-Requirements) added on an RFP.
+     * <p>Returns a paginated list of [internal documents](#tag/RFP-Requirements) added to an RFP.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -294,7 +779,7 @@ public class RFPRequirements {
     /**
      * List RFP Internal Documents
      *
-     * <p>Returns paginated list of [internal documents](#tag/RFP-Requirements) added on an RFP.
+     * <p>Returns a paginated list of [internal documents](#tag/RFP-Requirements) added to an RFP.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -305,6 +790,137 @@ public class RFPRequirements {
             @Nonnull ListRfpInternalDocumentsRequest request, @Nullable Options options) {
         RequestOperation<ListRfpInternalDocumentsRequest, ListRfpInternalDocumentsResponse> operation =
                 new ListRfpInternalDocuments.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Get RFP Internal Document
+     *
+     * <p>Returns details of an internal document associated with an RFP.
+     *
+     * @return The call builder
+     */
+    public GetRfpInternalDocumentRequestBuilder getRfpInternalDocument() {
+        return new GetRfpInternalDocumentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get RFP Internal Document
+     *
+     * <p>Returns details of an internal document associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetRfpInternalDocumentResponse getRfpInternalDocument(@Nonnull GetRfpInternalDocumentRequest request) {
+        return getRfpInternalDocument(request, null);
+    }
+
+    /**
+     * Get RFP Internal Document
+     *
+     * <p>Returns details of an internal document associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetRfpInternalDocumentResponse getRfpInternalDocument(
+            @Nonnull GetRfpInternalDocumentRequest request, @Nullable Options options) {
+        RequestOperation<GetRfpInternalDocumentRequest, GetRfpInternalDocumentResponse> operation =
+                new GetRfpInternalDocument.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Associate Internal Document
+     *
+     * <p>Associates a single document with an RFP. The `documentId` path parameter is the file ID that
+     * [Upload File](#tag/File-Management/operation/uploadFile) returns. A document with the same name or
+     * ID should not already exist.
+     *
+     * @return The call builder
+     */
+    public AssociateRfpInternalDocumentRequestBuilder associateRfpInternalDocument() {
+        return new AssociateRfpInternalDocumentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Associate Internal Document
+     *
+     * <p>Associates a single document with an RFP. The `documentId` path parameter is the file ID that
+     * [Upload File](#tag/File-Management/operation/uploadFile) returns. A document with the same name or
+     * ID should not already exist.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AssociateRfpInternalDocumentResponse associateRfpInternalDocument(
+            @Nonnull AssociateRfpInternalDocumentRequest request) {
+        return associateRfpInternalDocument(request, null);
+    }
+
+    /**
+     * Associate Internal Document
+     *
+     * <p>Associates a single document with an RFP. The `documentId` path parameter is the file ID that
+     * [Upload File](#tag/File-Management/operation/uploadFile) returns. A document with the same name or
+     * ID should not already exist.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AssociateRfpInternalDocumentResponse associateRfpInternalDocument(
+            @Nonnull AssociateRfpInternalDocumentRequest request, @Nullable Options options) {
+        RequestOperation<AssociateRfpInternalDocumentRequest, AssociateRfpInternalDocumentResponse> operation =
+                new AssociateRfpInternalDocument.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Disassociate Internal Document
+     *
+     * <p>Disassociates an internal document from an RFP.
+     *
+     * @return The call builder
+     */
+    public DisassociateRfpInternalDocumentRequestBuilder disassociateRfpInternalDocument() {
+        return new DisassociateRfpInternalDocumentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Disassociate Internal Document
+     *
+     * <p>Disassociates an internal document from an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DisassociateRfpInternalDocumentResponse disassociateRfpInternalDocument(
+            @Nonnull DisassociateRfpInternalDocumentRequest request) {
+        return disassociateRfpInternalDocument(request, null);
+    }
+
+    /**
+     * Disassociate Internal Document
+     *
+     * <p>Disassociates an internal document from an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DisassociateRfpInternalDocumentResponse disassociateRfpInternalDocument(
+            @Nonnull DisassociateRfpInternalDocumentRequest request, @Nullable Options options) {
+        RequestOperation<DisassociateRfpInternalDocumentRequest, DisassociateRfpInternalDocumentResponse> operation =
+                new DisassociateRfpInternalDocument.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -349,6 +965,169 @@ public class RFPRequirements {
             @Nonnull ListRfpQuestionsRequest request, @Nullable Options options) {
         RequestOperation<ListRfpQuestionsRequest, ListRfpQuestionsResponse> operation =
                 new ListRfpQuestions.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Create RFP Question
+     *
+     * <p>Creates a new question for the specified RFP.
+     *
+     * @return The call builder
+     */
+    public CreateRfpQuestionRequestBuilder createRfpQuestion() {
+        return new CreateRfpQuestionRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Create RFP Question
+     *
+     * <p>Creates a new question for the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateRfpQuestionResponse createRfpQuestion(@Nonnull CreateRfpQuestionRequest request) {
+        return createRfpQuestion(request, null);
+    }
+
+    /**
+     * Create RFP Question
+     *
+     * <p>Creates a new question for the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateRfpQuestionResponse createRfpQuestion(
+            @Nonnull CreateRfpQuestionRequest request, @Nullable Options options) {
+        RequestOperation<CreateRfpQuestionRequest, CreateRfpQuestionResponse> operation =
+                new CreateRfpQuestion.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Get RFP Question
+     *
+     * <p>Returns the details of a specific question associated with an RFP.
+     *
+     * @return The call builder
+     */
+    public GetRfpQuestionRequestBuilder getRfpQuestion() {
+        return new GetRfpQuestionRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get RFP Question
+     *
+     * <p>Returns the details of a specific question associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetRfpQuestionResponse getRfpQuestion(@Nonnull GetRfpQuestionRequest request) {
+        return getRfpQuestion(request, null);
+    }
+
+    /**
+     * Get RFP Question
+     *
+     * <p>Returns the details of a specific question associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetRfpQuestionResponse getRfpQuestion(@Nonnull GetRfpQuestionRequest request, @Nullable Options options) {
+        RequestOperation<GetRfpQuestionRequest, GetRfpQuestionResponse> operation =
+                new GetRfpQuestion.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Update RFP Question
+     *
+     * <p>Updates an existing question for the specified RFP.
+     *
+     * @return The call builder
+     */
+    public UpdateRfpQuestionRequestBuilder updateRfpQuestion() {
+        return new UpdateRfpQuestionRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update RFP Question
+     *
+     * <p>Updates an existing question for the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateRfpQuestionResponse updateRfpQuestion(@Nonnull UpdateRfpQuestionRequest request) {
+        return updateRfpQuestion(request, null);
+    }
+
+    /**
+     * Update RFP Question
+     *
+     * <p>Updates an existing question for the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateRfpQuestionResponse updateRfpQuestion(
+            @Nonnull UpdateRfpQuestionRequest request, @Nullable Options options) {
+        RequestOperation<UpdateRfpQuestionRequest, UpdateRfpQuestionResponse> operation =
+                new UpdateRfpQuestion.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Delete RFP Question
+     *
+     * <p>Deletes an existing question from the specified RFP.
+     *
+     * @return The call builder
+     */
+    public DeleteRfpQuestionRequestBuilder deleteRfpQuestion() {
+        return new DeleteRfpQuestionRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Delete RFP Question
+     *
+     * <p>Deletes an existing question from the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteRfpQuestionResponse deleteRfpQuestion(@Nonnull DeleteRfpQuestionRequest request) {
+        return deleteRfpQuestion(request, null);
+    }
+
+    /**
+     * Delete RFP Question
+     *
+     * <p>Deletes an existing question from the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteRfpQuestionResponse deleteRfpQuestion(
+            @Nonnull DeleteRfpQuestionRequest request, @Nullable Options options) {
+        RequestOperation<DeleteRfpQuestionRequest, DeleteRfpQuestionResponse> operation =
+                new DeleteRfpQuestion.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

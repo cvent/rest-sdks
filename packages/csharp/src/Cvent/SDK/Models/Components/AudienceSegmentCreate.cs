@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Components
     public class AudienceSegmentCreate
     {
         /// <summary>
-        /// ID of the event.
+        /// Represents an event by its ID.
         /// </summary>
         [JsonProperty("event")]
         public Event3 Event { get; set; } = default!;
@@ -31,7 +31,7 @@ namespace Cvent.SDK.Models.Components
         public string Name { get; set; } = default!;
 
         /// <summary>
-        /// Description of the audience segment.
+        /// Additional text about the audience segment.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }

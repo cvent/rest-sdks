@@ -20,25 +20,25 @@ namespace Cvent.SDK.Models.Components
     public class ConflictResolution
     {
         /// <summary>
-        /// For each event (designated by event id), choose a contact id whose linked attendee will be associated with the resulting merged contact. Use whenever at least two contacts exist as attendees in a single event.
+        /// For each event (designated by event ID), the contact ID whose linked attendee is associated with the resulting merged contact. Applies when at least two contacts exist as attendees in a single event.
         /// </summary>
         [JsonProperty("events")]
         public List<EventContactId>? Events { get; set; }
 
         /// <summary>
-        /// For each survey (designated by survey id), choose a contact id whose linked respondent will be associated with the resulting merged contact. Use whenever at least two contacts exist as respondents in a single survey.
+        /// For each survey (designated by survey ID), the contact ID whose linked respondent is associated with the resulting merged contact. Applies when at least two contacts exist as respondents in a single survey.
         /// </summary>
         [JsonProperty("surveys")]
         public List<SurveyContactId>? Surveys { get; set; }
 
         /// <summary>
-        /// The id of the contact to keep the relationships of in the resulting merged contact. Only one contact can be chosen, and relationships of the other contact(s) will be discarded.
+        /// The ID of the contact whose relationships are kept in the resulting merged contact. Only one contact can be chosen. Relationships of the other contacts are discarded.
         /// </summary>
         [JsonProperty("relatedContacts")]
         public string? RelatedContacts { get; set; }
 
         /// <summary>
-        /// Specify which contact to use values from for any contact field.
+        /// Contact field and contact ID pairs that identify which contact's value to retain for each field.
         /// </summary>
         [JsonProperty("contactFields")]
         public List<ContactMergeField>? ContactFields { get; set; }

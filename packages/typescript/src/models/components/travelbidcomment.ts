@@ -13,7 +13,7 @@ import { CommentType, CommentType$inboundSchema } from "./commenttype.js";
  */
 export type TravelBidComment = {
   /**
-   * Bid comment type
+   * The type of the bid comment.
    */
   commentType?: CommentType | undefined;
   /**

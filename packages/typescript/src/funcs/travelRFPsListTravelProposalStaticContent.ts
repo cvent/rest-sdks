@@ -36,7 +36,7 @@ import {
  * List Static Contents
  *
  * @remarks
- * Gets a paginated list of proposal static content across multiple proposals.
+ * Gets a paginated list of the static content of travel proposals.
  */
 export function travelRFPsListTravelProposalStaticContent(
   client: CventSDKCore,

@@ -12,15 +12,15 @@ import {
 } from "./travelbiddisposition.js";
 
 /**
- * Represent proposal disposition details.
+ * The disposition of the travel proposal.
  */
 export type TravelProposalDisposition = {
   /**
-   * List of bid dispositions.
+   * The dispositions of the bids in the proposal.
    */
   bidDispositions?: Array<TravelBidDisposition> | undefined;
   /**
-   * Indicates if the group and meeting is accepted.
+   * True indicates the group and meeting information is accepted.
    */
   groupAndMeetingAccepted?: boolean | undefined;
 };

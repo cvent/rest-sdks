@@ -14,19 +14,19 @@ import java.util.Optional;
 
 public class UpdateBudgetAllocationsRequest {
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
     /**
-     * Unique ID of a budget item.
+     * Budget item ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=budgetItemId")
     private String budgetItemId;
 
     /**
-     * The budget allocations to upsert.
+     * Budget allocations to create or update.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private BudgetAllocationsList budgetAllocationsList;
@@ -42,21 +42,21 @@ public class UpdateBudgetAllocationsRequest {
     }
 
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     public String id() {
         return this.id;
     }
 
     /**
-     * Unique ID of a budget item.
+     * Budget item ID.
      */
     public String budgetItemId() {
         return this.budgetItemId;
     }
 
     /**
-     * The budget allocations to upsert.
+     * Budget allocations to create or update.
      */
     public BudgetAllocationsList budgetAllocationsList() {
         return this.budgetAllocationsList;
@@ -67,7 +67,7 @@ public class UpdateBudgetAllocationsRequest {
     }
 
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     public UpdateBudgetAllocationsRequest withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -75,7 +75,7 @@ public class UpdateBudgetAllocationsRequest {
     }
 
     /**
-     * Unique ID of a budget item.
+     * Budget item ID.
      */
     public UpdateBudgetAllocationsRequest withBudgetItemId(@Nonnull String budgetItemId) {
         this.budgetItemId = Utils.checkNotNull(budgetItemId, "budgetItemId");
@@ -83,7 +83,7 @@ public class UpdateBudgetAllocationsRequest {
     }
 
     /**
-     * The budget allocations to upsert.
+     * Budget allocations to create or update.
      */
     public UpdateBudgetAllocationsRequest withBudgetAllocationsList(
             @Nonnull BudgetAllocationsList budgetAllocationsList) {
@@ -136,7 +136,7 @@ public class UpdateBudgetAllocationsRequest {
         }
 
         /**
-         * Unique ID of an event.
+         * Event ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -144,7 +144,7 @@ public class UpdateBudgetAllocationsRequest {
         }
 
         /**
-         * Unique ID of a budget item.
+         * Budget item ID.
          */
         public Builder budgetItemId(@Nonnull String budgetItemId) {
             this.budgetItemId = Utils.checkNotNull(budgetItemId, "budgetItemId");
@@ -152,7 +152,7 @@ public class UpdateBudgetAllocationsRequest {
         }
 
         /**
-         * The budget allocations to upsert.
+         * Budget allocations to create or update.
          */
         public Builder budgetAllocationsList(@Nonnull BudgetAllocationsList budgetAllocationsList) {
             this.budgetAllocationsList = Utils.checkNotNull(budgetAllocationsList, "budgetAllocationsList");

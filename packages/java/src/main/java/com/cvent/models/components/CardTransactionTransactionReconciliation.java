@@ -26,14 +26,14 @@ import java.util.Optional;
 @Deprecated
 public class CardTransactionTransactionReconciliation {
     /**
-     * The identifier of reconciled budget item.
+     * Reconciled budget item ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("budgetItem")
     private CardTransactionBudgetItem budgetItem;
 
     /**
-     * This is used to denote the reconciliation status for a transaction.
+     * Reconciliation status of the transaction: Reconciled or Not Reconciled.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
@@ -79,14 +79,14 @@ public class CardTransactionTransactionReconciliation {
     }
 
     /**
-     * The identifier of reconciled budget item.
+     * Reconciled budget item ID.
      */
     public Optional<CardTransactionBudgetItem> budgetItem() {
         return Optional.ofNullable(this.budgetItem);
     }
 
     /**
-     * This is used to denote the reconciliation status for a transaction.
+     * Reconciliation status of the transaction: Reconciled or Not Reconciled.
      */
     public Optional<ReconciliationStatus> status() {
         return Optional.ofNullable(this.status);
@@ -118,7 +118,7 @@ public class CardTransactionTransactionReconciliation {
     }
 
     /**
-     * The identifier of reconciled budget item.
+     * Reconciled budget item ID.
      */
     public CardTransactionTransactionReconciliation withBudgetItem(@Nullable CardTransactionBudgetItem budgetItem) {
         this.budgetItem = budgetItem;
@@ -126,7 +126,7 @@ public class CardTransactionTransactionReconciliation {
     }
 
     /**
-     * This is used to denote the reconciliation status for a transaction.
+     * Reconciliation status of the transaction: Reconciled or Not Reconciled.
      */
     public CardTransactionTransactionReconciliation withStatus(@Nullable ReconciliationStatus status) {
         this.status = status;
@@ -212,7 +212,7 @@ public class CardTransactionTransactionReconciliation {
         }
 
         /**
-         * The identifier of reconciled budget item.
+         * Reconciled budget item ID.
          */
         public Builder budgetItem(@Nullable CardTransactionBudgetItem budgetItem) {
             this.budgetItem = budgetItem;
@@ -220,7 +220,7 @@ public class CardTransactionTransactionReconciliation {
         }
 
         /**
-         * This is used to denote the reconciliation status for a transaction.
+         * Reconciliation status of the transaction: Reconciled or Not Reconciled.
          */
         public Builder status(@Nullable ReconciliationStatus status) {
             this.status = status;

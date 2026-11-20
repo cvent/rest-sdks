@@ -1,6 +1,6 @@
 # VideoSource
 
-Source of video.
+Information about the video's external source, including its ID and status.
 
 ## Example Usage
 
@@ -17,5 +17,5 @@ let value: VideoSource = {
 
 | Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  | Example                                                                      |
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `id`                                                                         | *string*                                                                     | :heavy_minus_sign:                                                           | The id of a video in the external system                                     | VD134567                                                                     |
+| `id`                                                                         | *string*                                                                     | :heavy_minus_sign:                                                           | The ID of a video in the external system.                                    | VD134567                                                                     |
 | `status`                                                                     | [components.VideoSourceStatus](../../models/components/videosourcestatus.md) | :heavy_minus_sign:                                                           | Denotes the status of the video in the third-party system.                   | Active                                                                       |

@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Group and meeting amenity info.
+ * The group and meeting amenities of the proposal.
  */
 export type TravelProposalGroupAndMeetingAmenity = {
   /**
@@ -16,7 +16,7 @@ export type TravelProposalGroupAndMeetingAmenity = {
    */
   lcdIncluded?: boolean | undefined;
   /**
-   * Price of the liquid crystal display (LCD).
+   * The price of the liquid crystal display (LCD).
    */
   lcdPrice?: number | undefined;
   /**
@@ -24,15 +24,15 @@ export type TravelProposalGroupAndMeetingAmenity = {
    */
   screenIncluded?: boolean | undefined;
   /**
-   * Price of the screen.
+   * The price of the screen.
    */
   screenPrice?: number | undefined;
   /**
-   * True indicates high speed internet access is included in the amenity.
+   * True indicates high-speed internet access (HSIA) is included in the amenity.
    */
   hsiaIncluded?: boolean | undefined;
   /**
-   * Price of high speed internet access (HSIA).
+   * The price of high-speed internet access (HSIA).
    */
   hsiaPrice?: number | undefined;
   /**
@@ -40,7 +40,7 @@ export type TravelProposalGroupAndMeetingAmenity = {
    */
   complementaryParkingIncluded?: boolean | undefined;
   /**
-   * Name of company providing AV equipment.
+   * The name of the company that provides the AV equipment.
    */
   whatCompanyProvidesAVEquipment?: string | undefined;
 };

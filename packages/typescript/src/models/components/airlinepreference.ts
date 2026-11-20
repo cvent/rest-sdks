@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Representation of airlines based on preference
+ * A preferred airline and its associated rewards code.
  */
 export type AirlinePreference = {
   /**

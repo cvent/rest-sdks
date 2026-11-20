@@ -26,14 +26,14 @@ public class GetAirRequestsRequest {
     private String id;
 
     /**
-     * Used to query records that have been added or updated after this time point. Default to the
-     * beginning of time of the data store.
+     * Returns records created or updated **strictly after** this date and time. Defaults to the beginning
+     * of the data store's time range.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=after")
     private OffsetDateTime after;
 
     /**
-     * Used to query records that have been added or updated before this time point.
+     * Returns records created or updated **strictly before** this date and time.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=before")
     private OffsetDateTime before;
@@ -92,8 +92,8 @@ public class GetAirRequestsRequest {
      * respective scopes for each expansion are required.
      *
      * <p>The following fields are expandable:
-     * * airRequestDetails.airRequestAnswers.question (<a href="#operation/getEventQuestions">List Event
-     * Questions</a>)
+     * * airRequestDetails.airRequestAnswers.question ([List Event
+     * Questions](#operation/getEventQuestions))
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=expand")
     private List<ExpandAirRequestQuestionAnswer> expand;
@@ -130,15 +130,15 @@ public class GetAirRequestsRequest {
     }
 
     /**
-     * Used to query records that have been added or updated after this time point. Default to the
-     * beginning of time of the data store.
+     * Returns records created or updated **strictly after** this date and time. Defaults to the beginning
+     * of the data store's time range.
      */
     public Optional<OffsetDateTime> after() {
         return Optional.ofNullable(this.after);
     }
 
     /**
-     * Used to query records that have been added or updated before this time point.
+     * Returns records created or updated **strictly before** this date and time.
      */
     public Optional<OffsetDateTime> before() {
         return Optional.ofNullable(this.before);
@@ -202,8 +202,8 @@ public class GetAirRequestsRequest {
      * respective scopes for each expansion are required.
      *
      * <p>The following fields are expandable:
-     * * airRequestDetails.airRequestAnswers.question (<a href="#operation/getEventQuestions">List Event
-     * Questions</a>)
+     * * airRequestDetails.airRequestAnswers.question ([List Event
+     * Questions](#operation/getEventQuestions))
      */
     public Optional<List<ExpandAirRequestQuestionAnswer>> expand() {
         return Optional.ofNullable(this.expand);
@@ -222,8 +222,8 @@ public class GetAirRequestsRequest {
     }
 
     /**
-     * Used to query records that have been added or updated after this time point. Default to the
-     * beginning of time of the data store.
+     * Returns records created or updated **strictly after** this date and time. Defaults to the beginning
+     * of the data store's time range.
      */
     public GetAirRequestsRequest withAfter(@Nullable OffsetDateTime after) {
         this.after = after;
@@ -231,7 +231,7 @@ public class GetAirRequestsRequest {
     }
 
     /**
-     * Used to query records that have been added or updated before this time point.
+     * Returns records created or updated **strictly before** this date and time.
      */
     public GetAirRequestsRequest withBefore(@Nullable OffsetDateTime before) {
         this.before = before;
@@ -300,8 +300,8 @@ public class GetAirRequestsRequest {
      * respective scopes for each expansion are required.
      *
      * <p>The following fields are expandable:
-     * * airRequestDetails.airRequestAnswers.question (<a href="#operation/getEventQuestions">List Event
-     * Questions</a>)
+     * * airRequestDetails.airRequestAnswers.question ([List Event
+     * Questions](#operation/getEventQuestions))
      */
     public GetAirRequestsRequest withExpand(@Nullable List<ExpandAirRequestQuestionAnswer> expand) {
         this.expand = expand;
@@ -386,8 +386,8 @@ public class GetAirRequestsRequest {
         }
 
         /**
-         * Used to query records that have been added or updated after this time point. Default to the
-         * beginning of time of the data store.
+         * Returns records created or updated **strictly after** this date and time. Defaults to the beginning
+         * of the data store's time range.
          */
         public Builder after(@Nullable OffsetDateTime after) {
             this.after = after;
@@ -395,7 +395,7 @@ public class GetAirRequestsRequest {
         }
 
         /**
-         * Used to query records that have been added or updated before this time point.
+         * Returns records created or updated **strictly before** this date and time.
          */
         public Builder before(@Nullable OffsetDateTime before) {
             this.before = before;
@@ -464,8 +464,8 @@ public class GetAirRequestsRequest {
          * respective scopes for each expansion are required.
          *
          * <p>The following fields are expandable:
-         * * airRequestDetails.airRequestAnswers.question (<a href="#operation/getEventQuestions">List Event
-         * Questions</a>)
+         * * airRequestDetails.airRequestAnswers.question ([List Event
+         * Questions](#operation/getEventQuestions))
          */
         public Builder expand(@Nullable List<ExpandAirRequestQuestionAnswer> expand) {
             this.expand = expand;

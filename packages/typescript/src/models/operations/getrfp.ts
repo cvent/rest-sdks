@@ -24,10 +24,10 @@ export type GetRFPRequest = {
    * The following fields are expandable:
    *   * leadSource
    *     * **Scope**: rfp/rfp-lead-sources:read
-   *     * **Reference**: <a href="#tag/RFP-Management/operation/getRfpLeadSource">Get RFP Lead Source</a>
+   *     * **Reference**: [Get RFP Lead Source](#tag/RFP-Management/operation/getRfpLeadSource)
    *   * leadSource.section
    *     * **Scope**: rfp/rfp-lead-sources:read
-   *     * **Reference**: <a href="#tag/RFP-Management/operation/getRfpLeadSourceSection">Get RFP Lead Source Section</a>
+   *     * **Reference**: [Get RFP Lead Source Section](#tag/RFP-Management/operation/getRfpLeadSourceSection)
    */
   expand?: Array<components.LeadSourceExpand> | undefined;
 };

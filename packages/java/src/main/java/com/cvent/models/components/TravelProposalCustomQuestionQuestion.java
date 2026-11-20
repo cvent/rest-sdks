@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * TravelProposalCustomQuestionQuestion
  *
- * <p>Travel account that the proposal is responding to.
+ * <p>The custom question.
  */
 public class TravelProposalCustomQuestionQuestion {
     /**

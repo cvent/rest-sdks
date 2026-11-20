@@ -32,7 +32,7 @@ public class GetCardsResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully retrieved a Paginated list of Cards.
+     * Successfully retrieved a paginated list of cards.
      */
     private CardDetailsPaginatedResponse cardDetailsPaginatedResponse;
 
@@ -77,7 +77,7 @@ public class GetCardsResponse implements Response {
     }
 
     /**
-     * Successfully retrieved a Paginated list of Cards.
+     * Successfully retrieved a paginated list of cards.
      */
     public Optional<CardDetailsPaginatedResponse> cardDetailsPaginatedResponse() {
         return Optional.ofNullable(this.cardDetailsPaginatedResponse);
@@ -112,7 +112,7 @@ public class GetCardsResponse implements Response {
     }
 
     /**
-     * Successfully retrieved a Paginated list of Cards.
+     * Successfully retrieved a paginated list of cards.
      */
     public GetCardsResponse withCardDetailsPaginatedResponse(
             @Nullable CardDetailsPaginatedResponse cardDetailsPaginatedResponse) {
@@ -194,7 +194,7 @@ public class GetCardsResponse implements Response {
         }
 
         /**
-         * Successfully retrieved a Paginated list of Cards.
+         * Successfully retrieved a paginated list of cards.
          */
         public Builder cardDetailsPaginatedResponse(
                 @Nullable CardDetailsPaginatedResponse cardDetailsPaginatedResponse) {

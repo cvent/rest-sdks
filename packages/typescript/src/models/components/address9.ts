@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Address of the hotel.
+ * Hotel address with a region, region code, and country.
  */
 export type Address9 = {
   /**

@@ -14,7 +14,12 @@ import java.util.Optional;
  */
 public enum VideoWarningCode {
     SEVEN_HUNDRED(700L),
-    SEVEN_HUNDRED_AND_ONE(701L);
+    SEVEN_HUNDRED_AND_ONE(701L),
+    SEVEN_HUNDRED_AND_TWO(702L),
+    SEVEN_HUNDRED_AND_THREE(703L),
+    SEVEN_HUNDRED_AND_FOUR(704L),
+    SEVEN_HUNDRED_AND_FIVE(705L),
+    SEVEN_HUNDRED_AND_SIX(706L);
 
     @JsonValue
     private final long value;

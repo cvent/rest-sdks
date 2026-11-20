@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// This is used to denote the card status for a card.
+    /// Status of a payment card.
     /// </summary>
     public enum CardStatus
     {

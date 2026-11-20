@@ -20,8 +20,8 @@ import java.util.Optional;
  */
 public class BudgetVendorInput {
     /**
-     * The vendor's unique ID. If the `type` field is `CSN`, this vendor ID correlates to a venueID in the
-     * [CSN APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects).
+     * Vendor ID. If the `type` field is `CSN`, this vendor ID correlates to a venue ID in the [CSN
+     * APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects).
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -37,8 +37,8 @@ public class BudgetVendorInput {
     }
 
     /**
-     * The vendor's unique ID. If the `type` field is `CSN`, this vendor ID correlates to a venueID in the
-     * [CSN APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects).
+     * Vendor ID. If the `type` field is `CSN`, this vendor ID correlates to a venue ID in the [CSN
+     * APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects).
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -49,8 +49,8 @@ public class BudgetVendorInput {
     }
 
     /**
-     * The vendor's unique ID. If the `type` field is `CSN`, this vendor ID correlates to a venueID in the
-     * [CSN APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects).
+     * Vendor ID. If the `type` field is `CSN`, this vendor ID correlates to a venue ID in the [CSN
+     * APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects).
      */
     public BudgetVendorInput withId(@Nullable String id) {
         this.id = id;
@@ -89,8 +89,8 @@ public class BudgetVendorInput {
         }
 
         /**
-         * The vendor's unique ID. If the `type` field is `CSN`, this vendor ID correlates to a venueID in the
-         * [CSN APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects).
+         * Vendor ID. If the `type` field is `CSN`, this vendor ID correlates to a venue ID in the [CSN
+         * APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects).
          */
         public Builder id(@Nullable String id) {
             this.id = id;

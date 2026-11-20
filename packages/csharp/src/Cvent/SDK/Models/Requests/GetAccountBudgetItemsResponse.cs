@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved a paginated list of budget items across all events linked to the account, filtered by the specified after and before date parameters.
+        /// Successfully retrieved a paginated list of budget items across all events linked to the account.
         /// </summary>
         public AccountBudgetItemsPaginatedResponse? AccountBudgetItemsPaginatedResponse { get; set; }
     }

@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Requests
     public class GetTravelBuyerProposalBidRequest
     {
         /// <summary>
-        /// Unique ID of a travel proposal bid.
+        /// The ID of the travel proposal bid.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=travelProposalBidId")]
         public string TravelProposalBidId { get; set; } = default!;

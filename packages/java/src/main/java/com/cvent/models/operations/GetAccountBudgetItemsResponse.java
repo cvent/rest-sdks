@@ -32,8 +32,7 @@ public class GetAccountBudgetItemsResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully retrieved a paginated list of budget items across all events linked to the account,
-     * filtered by the specified after and before date parameters.
+     * Successfully retrieved a paginated list of budget items across all events linked to the account.
      */
     private AccountBudgetItemsPaginatedResponse accountBudgetItemsPaginatedResponse;
 
@@ -78,8 +77,7 @@ public class GetAccountBudgetItemsResponse implements Response {
     }
 
     /**
-     * Successfully retrieved a paginated list of budget items across all events linked to the account,
-     * filtered by the specified after and before date parameters.
+     * Successfully retrieved a paginated list of budget items across all events linked to the account.
      */
     public Optional<AccountBudgetItemsPaginatedResponse> accountBudgetItemsPaginatedResponse() {
         return Optional.ofNullable(this.accountBudgetItemsPaginatedResponse);
@@ -114,8 +112,7 @@ public class GetAccountBudgetItemsResponse implements Response {
     }
 
     /**
-     * Successfully retrieved a paginated list of budget items across all events linked to the account,
-     * filtered by the specified after and before date parameters.
+     * Successfully retrieved a paginated list of budget items across all events linked to the account.
      */
     public GetAccountBudgetItemsResponse withAccountBudgetItemsPaginatedResponse(
             @Nullable AccountBudgetItemsPaginatedResponse accountBudgetItemsPaginatedResponse) {
@@ -197,8 +194,7 @@ public class GetAccountBudgetItemsResponse implements Response {
         }
 
         /**
-         * Successfully retrieved a paginated list of budget items across all events linked to the account,
-         * filtered by the specified after and before date parameters.
+         * Successfully retrieved a paginated list of budget items across all events linked to the account.
          */
         public Builder accountBudgetItemsPaginatedResponse(
                 @Nullable AccountBudgetItemsPaginatedResponse accountBudgetItemsPaginatedResponse) {

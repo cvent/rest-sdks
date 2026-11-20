@@ -40,7 +40,7 @@ import {
  */
 export type ContactCreateEvent = {
   /**
-   * ID of the event where the contact was created, applicable when contact snapshot is enabled for an event. This field has been deprecated. If the event has contact snapshot enabled, snapshot will be automatically created through the Add attendees API.
+   * ID of the event where the contact was created, applicable when contact snapshot is enabled for an event. This field has been deprecated. If the event has contact snapshot enabled, snapshot will be automatically created through the Add Attendees API.
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
@@ -48,7 +48,7 @@ export type ContactCreateEvent = {
 };
 
 /**
- * This entity is used to represent a single item that is posted for a contact create
+ * Field values used to create a contact
  */
 export type ContactCreate = {
   /**
@@ -124,7 +124,7 @@ export type ContactCreate = {
    */
   workFax?: string | undefined;
   /**
-   * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
+   * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
    */
   sourceId?: string | undefined;
   /**
@@ -152,11 +152,11 @@ export type ContactCreate = {
    */
   links?: ContactLinksInput | undefined;
   /**
-   * The date of birth of the contact.
+   * The contact's date of birth, in ISO 8601 date format.
    *
    * @remarks
    *
-   *  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively.
+   *  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes, respectively.
    */
   dateOfBirth?: RFCDate | undefined;
   /**
@@ -206,7 +206,7 @@ export type ContactCreate = {
    */
   pronouns?: string | undefined;
   /**
-   * ID of the parent contact, applicable with contact snapshot. This field has been deprecated. If the event has contact snapshot enabled, snapshot will be automatically created through the Add attendees API.
+   * ID of the parent contact, applicable with contact snapshot. This field has been deprecated. If the event has contact snapshot enabled, snapshot will be automatically created through the Add Attendees API.
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */

@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// If you omit `leadSource`, Cvent sets the default lead source. A caller can send only the default lead source. Any other `leadSource.id` or `leadSource.section.id` returns 400.
+    /// Lead source of the RFP. This field is set during RFP creation and cannot be modified afterwards.
     /// </summary>
     public class RfpLeadSource1
     {

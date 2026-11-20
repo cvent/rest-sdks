@@ -32,7 +32,7 @@ public class UpdateCardTransactionResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully updated a transaction record.
+     * Successfully updated a card transaction.
      */
     private CardTransactionCreateResponse cardTransactionCreateResponse;
 
@@ -77,7 +77,7 @@ public class UpdateCardTransactionResponse implements Response {
     }
 
     /**
-     * Successfully updated a transaction record.
+     * Successfully updated a card transaction.
      */
     public Optional<CardTransactionCreateResponse> cardTransactionCreateResponse() {
         return Optional.ofNullable(this.cardTransactionCreateResponse);
@@ -112,7 +112,7 @@ public class UpdateCardTransactionResponse implements Response {
     }
 
     /**
-     * Successfully updated a transaction record.
+     * Successfully updated a card transaction.
      */
     public UpdateCardTransactionResponse withCardTransactionCreateResponse(
             @Nullable CardTransactionCreateResponse cardTransactionCreateResponse) {
@@ -194,7 +194,7 @@ public class UpdateCardTransactionResponse implements Response {
         }
 
         /**
-         * Successfully updated a transaction record.
+         * Successfully updated a card transaction.
          */
         public Builder cardTransactionCreateResponse(
                 @Nullable CardTransactionCreateResponse cardTransactionCreateResponse) {

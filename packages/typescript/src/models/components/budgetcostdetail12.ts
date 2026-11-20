@@ -7,13 +7,13 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BudgetCategory1,
-  BudgetCategory1$inboundSchema,
-} from "./budgetcategory1.js";
+  BudgetCategory,
+  BudgetCategory$inboundSchema,
+} from "./budgetcategory.js";
 import {
-  BudgetSubCategory,
-  BudgetSubCategory$inboundSchema,
-} from "./budgetsubcategory.js";
+  BudgetSubCategory1,
+  BudgetSubCategory1$inboundSchema,
+} from "./budgetsubcategory1.js";
 
 /**
  * The budget entry in detail, which consists of the budget category or sub-category, the number of units, the cost per unit, and the total amount.
@@ -22,11 +22,11 @@ export type BudgetCostDetail12 = {
   /**
    * Denotes the category assigned to the budget item.
    */
-  category?: BudgetCategory1 | undefined;
+  category?: BudgetCategory | undefined;
   /**
    * This is used to denote the sub category for a budget.
    */
-  subCategory?: BudgetSubCategory | undefined;
+  subCategory?: BudgetSubCategory1 | undefined;
   /**
    * The number of units associated with a budget item. This field can be any number if the budget item is a *Variable* cost type. If the budget item uses a *Fixed* cost type, set this field to 1.
    */
@@ -47,8 +47,8 @@ export const BudgetCostDetail12$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  category: BudgetCategory1$inboundSchema.optional(),
-  subCategory: BudgetSubCategory$inboundSchema.optional(),
+  category: BudgetCategory$inboundSchema.optional(),
+  subCategory: BudgetSubCategory1$inboundSchema.optional(),
   units: z.number().optional(),
   cost: z.number().optional(),
   totalCost: z.number().optional(),

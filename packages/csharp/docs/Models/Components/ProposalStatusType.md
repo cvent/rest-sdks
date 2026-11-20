@@ -1,6 +1,6 @@
 # ProposalStatusType
 
-The status of the proposal
+The status of the proposal.
 
 ## Example Usage
 

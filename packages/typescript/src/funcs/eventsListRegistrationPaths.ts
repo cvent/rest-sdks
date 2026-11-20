@@ -114,6 +114,7 @@ async function $do(
   const path = pathToFunc("/events/{id}/registration-paths")(pathParams);
 
   const query = encodeFormQuery({
+    "filter": payload.filter,
     "limit": payload.limit,
     "locale": payload.locale,
     "token": payload.token,

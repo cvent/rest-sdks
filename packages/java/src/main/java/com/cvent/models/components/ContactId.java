@@ -14,7 +14,7 @@ import java.util.Optional;
 /**
  * ContactId
  *
- * <p>A contact id.
+ * <p>An object containing the ID of a contact.
  */
 public class ContactId {
     /**

@@ -1,6 +1,6 @@
 # HousingReservationLink
 
-Represents a link to a related resource.
+Link to the booking site for this reservation request.
 
 ## Example Usage
 

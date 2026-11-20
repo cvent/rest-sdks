@@ -123,7 +123,7 @@ export class TravelRFPs extends ClientSDK {
    * List Travel Proposals
    *
    * @remarks
-   * Get a paginated list of travel proposal details.
+   * Gets a paginated list of travel proposals.
    */
   async listTravelProposals(
     request: operations.ListTravelProposalsRequest,
@@ -142,7 +142,7 @@ export class TravelRFPs extends ClientSDK {
    * List Travel Proposal Bids
    *
    * @remarks
-   * Get a paginated list of travel proposal bids.
+   * Gets a paginated list of travel proposal bids.
    */
   async listTravelProposalBids(
     request: operations.ListTravelProposalBidsRequest,
@@ -161,7 +161,7 @@ export class TravelRFPs extends ClientSDK {
    * Get Travel Proposal Bid
    *
    * @remarks
-   * Gets a travel proposal bid for the given travel proposal bid ID.
+   * Gets a travel proposal bid by its ID.
    */
   async getTravelProposalBid(
     request: operations.GetTravelProposalBidRequest,
@@ -178,7 +178,7 @@ export class TravelRFPs extends ClientSDK {
    * List Buyer Proposal Bids
    *
    * @remarks
-   * Get a paginated list of travel buyer proposal bids.
+   * Gets a paginated list of travel buyer proposal bids.
    */
   async listTravelBuyerProposalBids(
     request: operations.ListTravelBuyerProposalBidsRequest,
@@ -200,7 +200,7 @@ export class TravelRFPs extends ClientSDK {
    * Get Buyer Proposal Bid
    *
    * @remarks
-   * Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+   * Gets a travel buyer proposal bid by its ID.
    */
   async getTravelBuyerProposalBid(
     request: operations.GetTravelBuyerProposalBidRequest,
@@ -217,7 +217,7 @@ export class TravelRFPs extends ClientSDK {
    * List Static Contents
    *
    * @remarks
-   * Gets a paginated list of proposal static content across multiple proposals.
+   * Gets a paginated list of the static content of travel proposals.
    */
   async listTravelProposalStaticContent(
     request: operations.ListTravelProposalStaticContentRequest,
@@ -239,7 +239,7 @@ export class TravelRFPs extends ClientSDK {
    * Get Travel Proposal
    *
    * @remarks
-   * Gets a travel proposal for the given travel proposal ID.
+   * Gets a travel proposal by its ID.
    */
   async getTravelProposal(
     request: operations.GetTravelProposalRequest,
@@ -256,7 +256,7 @@ export class TravelRFPs extends ClientSDK {
    * Get Static Content
    *
    * @remarks
-   * Retrieves static content for a specific proposal as a list of field-value pairs with sequence ordering.
+   * Gets the static content of a travel proposal. The static content is a list of field-value pairs in sequence order.
    */
   async getTravelProposalStaticContent(
     request: operations.GetTravelProposalStaticContentRequest,

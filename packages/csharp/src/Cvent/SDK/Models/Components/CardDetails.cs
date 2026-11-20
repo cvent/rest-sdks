@@ -21,13 +21,13 @@ namespace Cvent.SDK.Models.Components
     public class CardDetails
     {
         /// <summary>
-        /// The identifier of the Event.
+        /// Event ID.
         /// </summary>
         [JsonProperty("event")]
         public CardDetailsEvent? Event { get; set; }
 
         /// <summary>
-        /// The identifier of the Card.
+        /// Card ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -45,13 +45,13 @@ namespace Cvent.SDK.Models.Components
         public string? Last4 { get; set; }
 
         /// <summary>
-        /// This is used to denote the card type for a card.
+        /// Form of payment card: Virtual or Plastic.
         /// </summary>
         [JsonProperty("type")]
         public CardType1? Type { get; set; }
 
         /// <summary>
-        /// This is used to denote the card status for a card.
+        /// Status of a payment card.
         /// </summary>
         [JsonProperty("status")]
         public CardStatus? Status { get; set; }

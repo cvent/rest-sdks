@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Representation of airlines based on preference.
+    /// A preferred airline and its associated rewards code.
     /// </summary>
     public class AirlinePreference
     {

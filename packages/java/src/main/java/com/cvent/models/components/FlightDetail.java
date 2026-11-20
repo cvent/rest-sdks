@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * FlightDetail
  *
- * <p>Representation of a flight's details.
+ * <p>Details for one flight segment, including its airline, route, times, seat, and ticket class.
  */
 public class FlightDetail {
     /**

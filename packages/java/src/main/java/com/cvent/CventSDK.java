@@ -143,11 +143,12 @@ public class CventSDK {
     private final Emails emails;
 
     /**
-     * Budget is an event feature used to organize spending and track
-     * [allocations](https://support.cvent.com/s/communityarticle/Setting-Up-Budget-Allocations). Use this
-     * API to view budget items, cards and card transactions related to the budget module.
+     * Budget items and related configuration include planned expenses,
+     * [allocations](https://support.cvent.com/s/communityarticle/Setting-Up-Budget-Allocations), totals,
+     * custom fields, vendors, and currency conversion rates. Use these APIs to manage budget planning data
+     * and related account information.
      */
-    private final Budget budget;
+    private final Budgets budgets;
 
     /**
      * The Bulk API provides a simple interface to upload large amounts of data into Cvent. The API
@@ -191,6 +192,12 @@ public class CventSDK {
      * extra layer of security.
      */
     private final CardTokens cardTokens;
+
+    /**
+     * Budget cards and their transactions support payment activity associated with an account. Use these
+     * APIs to retrieve budget cards and create, retrieve, update, and delete card transactions.
+     */
+    private final BudgetCards budgetCards;
 
     /**
      * RegLink APIs allow you to exchange data with Cvent Passkey events and hotel reservation-booking
@@ -292,6 +299,12 @@ public class CventSDK {
      * Badge printer pools are set up from Cvent UI. You can use this API to retrieve badge printer pools.
      */
     private final BadgePrinterPools badgePrinterPools;
+
+    /**
+     * Budget payments record payments associated with budget items. Use these APIs to create, retrieve,
+     * update, and delete budget payments and assign invoices to payments.
+     */
+    private final BudgetPayments budgetPayments;
 
     /**
      * Discounts provide a way to reduce the cost of event registration items. Use these APIs to manage
@@ -500,7 +513,7 @@ public class CventSDK {
      * represents a request for proposal (RFP) that defines the specific travel needs and
      * requirements of a travel account. The travel account solicits hotels and other travel
      * suppliers to respond to the program with proposals, which provide detailed
-     * information on rates and amenities.'
+     * information on rates and amenities.
      */
     private final TravelRFPs travelRFPs;
 
@@ -693,12 +706,13 @@ public class CventSDK {
     }
 
     /**
-     * Budget is an event feature used to organize spending and track
-     * [allocations](https://support.cvent.com/s/communityarticle/Setting-Up-Budget-Allocations). Use this
-     * API to view budget items, cards and card transactions related to the budget module.
+     * Budget items and related configuration include planned expenses,
+     * [allocations](https://support.cvent.com/s/communityarticle/Setting-Up-Budget-Allocations), totals,
+     * custom fields, vendors, and currency conversion rates. Use these APIs to manage budget planning data
+     * and related account information.
      */
-    public Budget budget() {
-        return budget;
+    public Budgets budgets() {
+        return budgets;
     }
 
     /**
@@ -748,6 +762,14 @@ public class CventSDK {
      */
     public CardTokens cardTokens() {
         return cardTokens;
+    }
+
+    /**
+     * Budget cards and their transactions support payment activity associated with an account. Use these
+     * APIs to retrieve budget cards and create, retrieve, update, and delete card transactions.
+     */
+    public BudgetCards budgetCards() {
+        return budgetCards;
     }
 
     /**
@@ -869,6 +891,14 @@ public class CventSDK {
      */
     public BadgePrinterPools badgePrinterPools() {
         return badgePrinterPools;
+    }
+
+    /**
+     * Budget payments record payments associated with budget items. Use these APIs to create, retrieve,
+     * update, and delete budget payments and assign invoices to payments.
+     */
+    public BudgetPayments budgetPayments() {
+        return budgetPayments;
     }
 
     /**
@@ -1130,7 +1160,7 @@ public class CventSDK {
      * represents a request for proposal (RFP) that defines the specific travel needs and
      * requirements of a travel account. The travel account solicits hotels and other travel
      * suppliers to respond to the program with proposals, which provide detailed
-     * information on rates and amenities.'
+     * information on rates and amenities.
      */
     public TravelRFPs travelRFPs() {
         return travelRFPs;
@@ -1368,10 +1398,11 @@ public class CventSDK {
         this.attendeeActivities = new AttendeeActivities(sdkConfiguration);
         this.audienceSegments = new AudienceSegments(sdkConfiguration);
         this.emails = new Emails(sdkConfiguration);
-        this.budget = new Budget(sdkConfiguration);
+        this.budgets = new Budgets(sdkConfiguration);
         this.bulk = new Bulk(sdkConfiguration);
         this.campaigns = new Campaigns(sdkConfiguration);
         this.cardTokens = new CardTokens(sdkConfiguration);
+        this.budgetCards = new BudgetCards(sdkConfiguration);
         this.housing = new Housing(sdkConfiguration);
         this.contacts = new Contacts(sdkConfiguration);
         this.hooks = new Hooks(sdkConfiguration);
@@ -1382,6 +1413,7 @@ public class CventSDK {
         this.attendeeMessages = new AttendeeMessages(sdkConfiguration);
         this.badgePrintJob = new BadgePrintJob(sdkConfiguration);
         this.badgePrinterPools = new BadgePrinterPools(sdkConfiguration);
+        this.budgetPayments = new BudgetPayments(sdkConfiguration);
         this.discounts = new Discounts(sdkConfiguration);
         this.eventTravel = new EventTravel(sdkConfiguration);
         this.exhibitor = new Exhibitor(sdkConfiguration);

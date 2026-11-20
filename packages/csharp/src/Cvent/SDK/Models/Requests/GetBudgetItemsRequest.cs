@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Requests
     public class GetBudgetItemsRequest
     {
         /// <summary>
-        /// Unique ID of an event.
+        /// Event ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;

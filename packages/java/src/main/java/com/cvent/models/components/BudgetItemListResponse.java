@@ -24,14 +24,14 @@ import java.util.Optional;
  */
 public class BudgetItemListResponse {
     /**
-     * The identifier of the Event.
+     * Event ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
     private BudgetItemListResponseEvent event;
 
     /**
-     * The identifier of the budget item.
+     * Budget item ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -64,7 +64,7 @@ public class BudgetItemListResponse {
     private BudgetCategory category;
 
     /**
-     * This is used to denote the sub category for a budget.
+     * Subcategory assigned to a budget item.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("subCategory")
@@ -105,7 +105,7 @@ public class BudgetItemListResponse {
     private OffsetDateTime lastModifiedDate;
 
     /**
-     * This is used to denote the general ledger code associated with budget.
+     * General ledger code and details associated with a budget item.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generalLedger")
@@ -159,8 +159,7 @@ public class BudgetItemListResponse {
     private Boolean conversionRateLocked;
 
     /**
-     * Conversion rate for converting an amount into a different currency. Value must be greater than
-     * 0.000001
+     * Rate used to convert an amount into another currency. The value must be greater than 0.000001.
      */
     @JsonProperty("conversionRate")
     private double conversionRate;
@@ -325,14 +324,14 @@ public class BudgetItemListResponse {
     }
 
     /**
-     * The identifier of the Event.
+     * Event ID.
      */
     public Optional<BudgetItemListResponseEvent> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
-     * The identifier of the budget item.
+     * Budget item ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -368,7 +367,7 @@ public class BudgetItemListResponse {
     }
 
     /**
-     * This is used to denote the sub category for a budget.
+     * Subcategory assigned to a budget item.
      */
     public Optional<BudgetSubCategory> subCategory() {
         return Optional.ofNullable(this.subCategory);
@@ -411,7 +410,7 @@ public class BudgetItemListResponse {
     }
 
     /**
-     * This is used to denote the general ledger code associated with budget.
+     * General ledger code and details associated with a budget item.
      */
     public Optional<GeneralLedger1> generalLedger() {
         return Optional.ofNullable(this.generalLedger);
@@ -469,8 +468,7 @@ public class BudgetItemListResponse {
     }
 
     /**
-     * Conversion rate for converting an amount into a different currency. Value must be greater than
-     * 0.000001
+     * Rate used to convert an amount into another currency. The value must be greater than 0.000001.
      */
     public double conversionRate() {
         return this.conversionRate;
@@ -533,7 +531,7 @@ public class BudgetItemListResponse {
     }
 
     /**
-     * The identifier of the Event.
+     * Event ID.
      */
     public BudgetItemListResponse withEvent(@Nullable BudgetItemListResponseEvent event) {
         this.event = event;
@@ -541,7 +539,7 @@ public class BudgetItemListResponse {
     }
 
     /**
-     * The identifier of the budget item.
+     * Budget item ID.
      */
     public BudgetItemListResponse withId(@Nullable String id) {
         this.id = id;
@@ -582,7 +580,7 @@ public class BudgetItemListResponse {
     }
 
     /**
-     * This is used to denote the sub category for a budget.
+     * Subcategory assigned to a budget item.
      */
     public BudgetItemListResponse withSubCategory(@Nullable BudgetSubCategory subCategory) {
         this.subCategory = subCategory;
@@ -631,7 +629,7 @@ public class BudgetItemListResponse {
     }
 
     /**
-     * This is used to denote the general ledger code associated with budget.
+     * General ledger code and details associated with a budget item.
      */
     public BudgetItemListResponse withGeneralLedger(@Nullable GeneralLedger1 generalLedger) {
         this.generalLedger = generalLedger;
@@ -697,8 +695,7 @@ public class BudgetItemListResponse {
     }
 
     /**
-     * Conversion rate for converting an amount into a different currency. Value must be greater than
-     * 0.000001
+     * Rate used to convert an amount into another currency. The value must be greater than 0.000001.
      */
     public BudgetItemListResponse withConversionRate(double conversionRate) {
         this.conversionRate = conversionRate;
@@ -963,7 +960,7 @@ public class BudgetItemListResponse {
         }
 
         /**
-         * The identifier of the Event.
+         * Event ID.
          */
         public Builder event(@Nullable BudgetItemListResponseEvent event) {
             this.event = event;
@@ -971,7 +968,7 @@ public class BudgetItemListResponse {
         }
 
         /**
-         * The identifier of the budget item.
+         * Budget item ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -1012,7 +1009,7 @@ public class BudgetItemListResponse {
         }
 
         /**
-         * This is used to denote the sub category for a budget.
+         * Subcategory assigned to a budget item.
          */
         public Builder subCategory(@Nullable BudgetSubCategory subCategory) {
             this.subCategory = subCategory;
@@ -1061,7 +1058,7 @@ public class BudgetItemListResponse {
         }
 
         /**
-         * This is used to denote the general ledger code associated with budget.
+         * General ledger code and details associated with a budget item.
          */
         public Builder generalLedger(@Nullable GeneralLedger1 generalLedger) {
             this.generalLedger = generalLedger;
@@ -1127,8 +1124,7 @@ public class BudgetItemListResponse {
         }
 
         /**
-         * Conversion rate for converting an amount into a different currency. Value must be greater than
-         * 0.000001
+         * Rate used to convert an amount into another currency. The value must be greater than 0.000001.
          */
         public Builder conversionRate(double conversionRate) {
             this.conversionRate = conversionRate;

@@ -53,7 +53,7 @@ public class AudienceSegmentResponse {
     private String lastModifiedBy;
 
     /**
-     * ID of the event.
+     * Represents an event by its ID.
      */
     @JsonProperty("event")
     private Event3 event;
@@ -65,21 +65,23 @@ public class AudienceSegmentResponse {
     private String name;
 
     /**
-     * Description of the audience segment.
+     * Additional text about the audience segment.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("description")
     private String description;
 
     /**
-     * ID of the audience segment.
+     * Audience segment ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * Creation type of the audience segment.
+     * How the audience segment's membership is determined. MANUAL: a planner adds and removes attendees
+     * individually. RULE_BASED: attendees are added automatically when they match the segment's criteria
+     * rules.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("creationType")
@@ -149,7 +151,7 @@ public class AudienceSegmentResponse {
     }
 
     /**
-     * ID of the event.
+     * Represents an event by its ID.
      */
     public Event3 event() {
         return this.event;
@@ -163,21 +165,23 @@ public class AudienceSegmentResponse {
     }
 
     /**
-     * Description of the audience segment.
+     * Additional text about the audience segment.
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
 
     /**
-     * ID of the audience segment.
+     * Audience segment ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * Creation type of the audience segment.
+     * How the audience segment's membership is determined. MANUAL: a planner adds and removes attendees
+     * individually. RULE_BASED: attendees are added automatically when they match the segment's criteria
+     * rules.
      */
     public Optional<ExistingAudienceSegmentCreationType> creationType() {
         return Optional.ofNullable(this.creationType);
@@ -227,7 +231,7 @@ public class AudienceSegmentResponse {
     }
 
     /**
-     * ID of the event.
+     * Represents an event by its ID.
      */
     public AudienceSegmentResponse withEvent(@Nonnull Event3 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -243,7 +247,7 @@ public class AudienceSegmentResponse {
     }
 
     /**
-     * Description of the audience segment.
+     * Additional text about the audience segment.
      */
     public AudienceSegmentResponse withDescription(@Nullable String description) {
         this.description = description;
@@ -251,7 +255,7 @@ public class AudienceSegmentResponse {
     }
 
     /**
-     * ID of the audience segment.
+     * Audience segment ID.
      */
     public AudienceSegmentResponse withId(@Nullable String id) {
         this.id = id;
@@ -259,7 +263,9 @@ public class AudienceSegmentResponse {
     }
 
     /**
-     * Creation type of the audience segment.
+     * How the audience segment's membership is determined. MANUAL: a planner adds and removes attendees
+     * individually. RULE_BASED: attendees are added automatically when they match the segment's criteria
+     * rules.
      */
     public AudienceSegmentResponse withCreationType(@Nullable ExistingAudienceSegmentCreationType creationType) {
         this.creationType = creationType;
@@ -387,7 +393,7 @@ public class AudienceSegmentResponse {
         }
 
         /**
-         * ID of the event.
+         * Represents an event by its ID.
          */
         public Builder event(@Nonnull Event3 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -403,7 +409,7 @@ public class AudienceSegmentResponse {
         }
 
         /**
-         * Description of the audience segment.
+         * Additional text about the audience segment.
          */
         public Builder description(@Nullable String description) {
             this.description = description;
@@ -411,7 +417,7 @@ public class AudienceSegmentResponse {
         }
 
         /**
-         * ID of the audience segment.
+         * Audience segment ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -419,7 +425,9 @@ public class AudienceSegmentResponse {
         }
 
         /**
-         * Creation type of the audience segment.
+         * How the audience segment's membership is determined. MANUAL: a planner adds and removes attendees
+         * individually. RULE_BASED: attendees are added automatically when they match the segment's criteria
+         * rules.
          */
         public Builder creationType(@Nullable ExistingAudienceSegmentCreationType creationType) {
             this.creationType = creationType;

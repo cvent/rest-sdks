@@ -13,18 +13,18 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Meeting room basic information.
+    /// The basic information about the meeting rooms of the property.
     /// </summary>
     public class TravelProposalGroupAndMeetingMeetingRoomBasicInformation
     {
         /// <summary>
-        /// Size of the largest meeting room. Units of measurement determined by `unitOfMeasurement` field.
+        /// The size of the largest meeting room. The `unitOfMeasurement` field sets the unit.
         /// </summary>
         [JsonProperty("largestMeetingRoom")]
         public long? LargestMeetingRoom { get; set; }
 
         /// <summary>
-        /// Unit of measurement of the `largestMeetingRoom`'s size.
+        /// The unit of measurement of the `largestMeetingRoom` size.
         /// </summary>
         [JsonProperty("unitOfMeasurement")]
         public string? UnitOfMeasurement { get; set; }

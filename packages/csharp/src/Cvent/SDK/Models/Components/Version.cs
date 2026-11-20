@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The identifier of the Budget version for an event.
+    /// Budget version details for the event.
     /// </summary>
     public class Version
     {

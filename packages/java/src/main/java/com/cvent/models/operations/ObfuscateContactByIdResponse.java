@@ -34,8 +34,8 @@ public class ObfuscateContactByIdResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully initiated obfuscation of the contact. Check the <a
-     * href="#operation/getContactObfuscationStatusById">contact's obfuscation status</a>.
+     * Successfully initiated obfuscation of the contact. Check the [contact's obfuscation
+     * status](#operation/getContactObfuscationStatusById).
      */
     private ContactObfuscationStatus contactObfuscationStatus;
 
@@ -89,8 +89,8 @@ public class ObfuscateContactByIdResponse implements Response {
     }
 
     /**
-     * Successfully initiated obfuscation of the contact. Check the <a
-     * href="#operation/getContactObfuscationStatusById">contact's obfuscation status</a>.
+     * Successfully initiated obfuscation of the contact. Check the [contact's obfuscation
+     * status](#operation/getContactObfuscationStatusById).
      */
     public Optional<ContactObfuscationStatus> contactObfuscationStatus() {
         return Optional.ofNullable(this.contactObfuscationStatus);
@@ -129,8 +129,8 @@ public class ObfuscateContactByIdResponse implements Response {
     }
 
     /**
-     * Successfully initiated obfuscation of the contact. Check the <a
-     * href="#operation/getContactObfuscationStatusById">contact's obfuscation status</a>.
+     * Successfully initiated obfuscation of the contact. Check the [contact's obfuscation
+     * status](#operation/getContactObfuscationStatusById).
      */
     public ObfuscateContactByIdResponse withContactObfuscationStatus(
             @Nullable ContactObfuscationStatus contactObfuscationStatus) {
@@ -222,8 +222,8 @@ public class ObfuscateContactByIdResponse implements Response {
         }
 
         /**
-         * Successfully initiated obfuscation of the contact. Check the <a
-         * href="#operation/getContactObfuscationStatusById">contact's obfuscation status</a>.
+         * Successfully initiated obfuscation of the contact. Check the [contact's obfuscation
+         * status](#operation/getContactObfuscationStatusById).
          */
         public Builder contactObfuscationStatus(@Nullable ContactObfuscationStatus contactObfuscationStatus) {
             this.contactObfuscationStatus = contactObfuscationStatus;

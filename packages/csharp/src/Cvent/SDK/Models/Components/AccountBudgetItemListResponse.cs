@@ -44,7 +44,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Event ID Information.
+        /// Contains the ID of the event associated with the budget item.
         /// </summary>
         [JsonProperty("event")]
         public Event1? Event { get; set; }
@@ -56,13 +56,13 @@ namespace Cvent.SDK.Models.Components
         public Rfp1? Rfp { get; set; }
 
         /// <summary>
-        /// Budget version ID information. Defaults to the account's default budget version when creating or updating budget items.
+        /// Budget version of a budget item in the account-wide list, including whether it's a default budget version.
         /// </summary>
         [JsonProperty("budgetVersion")]
-        public BudgetVersion? BudgetVersion { get; set; }
+        public AccountBudgetVersion? BudgetVersion { get; set; }
 
         /// <summary>
-        /// The identifier of the budget item.
+        /// Budget item ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -86,7 +86,7 @@ namespace Cvent.SDK.Models.Components
         public BudgetCategory? Category { get; set; }
 
         /// <summary>
-        /// This is used to denote the sub category for a budget.
+        /// Subcategory assigned to a budget item.
         /// </summary>
         [JsonProperty("subCategory")]
         public BudgetSubCategory? SubCategory { get; set; }

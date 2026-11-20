@@ -40,7 +40,7 @@ export type ListRfpCustomFieldsRequest = {
    * The following fields are expandable:
    *   * customField
    *     * **Scope**: event/custom-fields:read
-   *     * **Reference**: <a href="#tag/Custom-Fields/operation/getCustomField">Get Custom Field</a>
+   *     * **Reference**: [Get Custom Field](#tag/Custom-Fields/operation/getCustomField)
    */
   expand?: Array<components.CustomFieldExpand> | undefined;
 };

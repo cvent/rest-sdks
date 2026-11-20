@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * Version
  *
- * <p>The identifier of the Budget version for an event.
+ * <p>Budget version details for the event.
  */
 public class Version {
     /**

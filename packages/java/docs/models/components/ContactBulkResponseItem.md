@@ -1,6 +1,6 @@
 # ContactBulkResponseItem
 
-This entity is used to represent a single item that is returned as part of a Bulk request call.
+Result for one contact in a bulk contact operation.
 
 
 ## Fields

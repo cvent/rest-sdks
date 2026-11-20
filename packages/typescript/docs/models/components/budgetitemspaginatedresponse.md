@@ -31,7 +31,7 @@ let value: BudgetItemsPaginatedResponse = {
       event: {
         id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
       },
-      id: "9463c74e-18c6-401a-a710-ae0f485bf959",
+      id: "ed6f63fa-e08a-4ce7-9e43-4b660f201f6f",
       costType: "FIXED",
       name: "Airport Transportation",
       code: "AIRTRP",
@@ -108,7 +108,7 @@ let value: BudgetItemsPaginatedResponse = {
           contactId: "0c478ddc-cf11-4026-a8e5-e6a59ae1c902",
         },
       ],
-      associatedSession: "9463c74e-18c6-401a-a710-ae0f485bf959",
+      associatedSession: "9b21167c-6d2b-473d-8a56-662fbddabafb",
       budgetVersion: {
         id: "b2e8f1a4-7c3d-4b9e-8f6a-2d1c5e0b7a9f",
       },

@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * SupplierProperty
  *
- * <p>Supplier property that the proposal is tied to.
+ * <p>The supplier property of the proposal.
  */
 public class SupplierProperty {
     /**

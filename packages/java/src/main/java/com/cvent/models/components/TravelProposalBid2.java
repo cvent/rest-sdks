@@ -39,29 +39,29 @@ public class TravelProposalBid2 {
     private String id;
 
     /**
-     * Bid stay type.
+     * The stay type of the bid.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("stayType")
     private BidStayType stayType;
 
     /**
-     * The order of the bid compared to other bids of the same stay type. This is used to distinguish
-     * between extended stay 1 vs extended stay 2.
+     * The order of the bid among the bids of the same stay type. For example, the order separates extended
+     * stay 1 from extended stay 2.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("order")
     private Long order;
 
     /**
-     * Bid status type.
+     * The status of the bid.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
     private BidStatusType status;
 
     /**
-     * Name given to the bid.
+     * The name of the bid.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("name")
@@ -89,29 +89,29 @@ public class TravelProposalBid2 {
     private String currencyCode;
 
     /**
-     * Days of the week that are considered weekend days, to apply weekend rates. Does not apply when
-     * format is GBTA2013.
+     * The days of the week that get the weekend rates. Does not apply to a proposal with the `gbta2013`
+     * format.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("weekendDays")
     private List<TravelBidWeekendDays> weekendDays;
 
     /**
-     * Does the bid include LRA (Last Room Availability) rates?
+     * True indicates the bid includes last room availability (LRA) rates.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("lra")
     private Boolean lra;
 
     /**
-     * Does the bid include non-LRA rates?
+     * True indicates the bid includes non-last room availability (NLRA) rates.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("nlra")
     private Boolean nlra;
 
     /**
-     * Are the fair date rates LRA (Last Room Availability)?
+     * True indicates the fair date rates are last room availability (LRA) rates.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("fairDateLra")
@@ -125,56 +125,56 @@ public class TravelProposalBid2 {
     private String internalNote;
 
     /**
-     * Additional Info
+     * The comments on the bid.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("comments")
     private List<TravelBidComment> comments;
 
     /**
-     * Room Types associated with the bid
+     * The room types of the bid.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("roomTypes")
     private List<TravelBidRoom> roomTypes;
 
     /**
-     * Seasons associated with the bid
+     * The seasons of the bid.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("seasons")
     private List<TravelBidSeason> seasons;
 
     /**
-     * Dynamic discounts associated with the bid
+     * The dynamic rate discounts of the bid.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("discounts")
     private List<TravelBidDiscount> discounts;
 
     /**
-     * Fair seasons associated with the bid
+     * The fair seasons of the bid.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("fairSeasons")
     private List<TravelBidFairSeason> fairSeasons;
 
     /**
-     * Amenities associated with the bid
+     * The amenities of the bid.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("amenities")
     private List<TravelBidAmenity> amenities;
 
     /**
-     * Policies associated with the bid
+     * The policies of the bid.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("policies")
     private List<TravelBidPolicy> policies;
 
     /**
-     * Taxes &amp; fees associated with the bid
+     * The taxes and fees of the bid.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("taxesAndFees")
@@ -269,29 +269,29 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Bid stay type.
+     * The stay type of the bid.
      */
     public Optional<BidStayType> stayType() {
         return Optional.ofNullable(this.stayType);
     }
 
     /**
-     * The order of the bid compared to other bids of the same stay type. This is used to distinguish
-     * between extended stay 1 vs extended stay 2.
+     * The order of the bid among the bids of the same stay type. For example, the order separates extended
+     * stay 1 from extended stay 2.
      */
     public Optional<Long> order() {
         return Optional.ofNullable(this.order);
     }
 
     /**
-     * Bid status type.
+     * The status of the bid.
      */
     public Optional<BidStatusType> status() {
         return Optional.ofNullable(this.status);
     }
 
     /**
-     * Name given to the bid.
+     * The name of the bid.
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
@@ -319,29 +319,29 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Days of the week that are considered weekend days, to apply weekend rates. Does not apply when
-     * format is GBTA2013.
+     * The days of the week that get the weekend rates. Does not apply to a proposal with the `gbta2013`
+     * format.
      */
     public Optional<List<TravelBidWeekendDays>> weekendDays() {
         return Optional.ofNullable(this.weekendDays);
     }
 
     /**
-     * Does the bid include LRA (Last Room Availability) rates?
+     * True indicates the bid includes last room availability (LRA) rates.
      */
     public Optional<Boolean> lra() {
         return Optional.ofNullable(this.lra);
     }
 
     /**
-     * Does the bid include non-LRA rates?
+     * True indicates the bid includes non-last room availability (NLRA) rates.
      */
     public Optional<Boolean> nlra() {
         return Optional.ofNullable(this.nlra);
     }
 
     /**
-     * Are the fair date rates LRA (Last Room Availability)?
+     * True indicates the fair date rates are last room availability (LRA) rates.
      */
     public Optional<Boolean> fairDateLra() {
         return Optional.ofNullable(this.fairDateLra);
@@ -355,56 +355,56 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Additional Info
+     * The comments on the bid.
      */
     public Optional<List<TravelBidComment>> comments() {
         return Optional.ofNullable(this.comments);
     }
 
     /**
-     * Room Types associated with the bid
+     * The room types of the bid.
      */
     public Optional<List<TravelBidRoom>> roomTypes() {
         return Optional.ofNullable(this.roomTypes);
     }
 
     /**
-     * Seasons associated with the bid
+     * The seasons of the bid.
      */
     public Optional<List<TravelBidSeason>> seasons() {
         return Optional.ofNullable(this.seasons);
     }
 
     /**
-     * Dynamic discounts associated with the bid
+     * The dynamic rate discounts of the bid.
      */
     public Optional<List<TravelBidDiscount>> discounts() {
         return Optional.ofNullable(this.discounts);
     }
 
     /**
-     * Fair seasons associated with the bid
+     * The fair seasons of the bid.
      */
     public Optional<List<TravelBidFairSeason>> fairSeasons() {
         return Optional.ofNullable(this.fairSeasons);
     }
 
     /**
-     * Amenities associated with the bid
+     * The amenities of the bid.
      */
     public Optional<List<TravelBidAmenity>> amenities() {
         return Optional.ofNullable(this.amenities);
     }
 
     /**
-     * Policies associated with the bid
+     * The policies of the bid.
      */
     public Optional<List<TravelBidPolicy>> policies() {
         return Optional.ofNullable(this.policies);
     }
 
     /**
-     * Taxes &amp; fees associated with the bid
+     * The taxes and fees of the bid.
      */
     public Optional<List<TravelBidTaxAndFee>> taxesAndFees() {
         return Optional.ofNullable(this.taxesAndFees);
@@ -431,7 +431,7 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Bid stay type.
+     * The stay type of the bid.
      */
     public TravelProposalBid2 withStayType(@Nullable BidStayType stayType) {
         this.stayType = stayType;
@@ -439,8 +439,8 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * The order of the bid compared to other bids of the same stay type. This is used to distinguish
-     * between extended stay 1 vs extended stay 2.
+     * The order of the bid among the bids of the same stay type. For example, the order separates extended
+     * stay 1 from extended stay 2.
      */
     public TravelProposalBid2 withOrder(@Nullable Long order) {
         this.order = order;
@@ -448,7 +448,7 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Bid status type.
+     * The status of the bid.
      */
     public TravelProposalBid2 withStatus(@Nullable BidStatusType status) {
         this.status = status;
@@ -456,7 +456,7 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Name given to the bid.
+     * The name of the bid.
      */
     public TravelProposalBid2 withName(@Nullable String name) {
         this.name = name;
@@ -488,8 +488,8 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Days of the week that are considered weekend days, to apply weekend rates. Does not apply when
-     * format is GBTA2013.
+     * The days of the week that get the weekend rates. Does not apply to a proposal with the `gbta2013`
+     * format.
      */
     public TravelProposalBid2 withWeekendDays(@Nullable List<TravelBidWeekendDays> weekendDays) {
         this.weekendDays = weekendDays;
@@ -497,7 +497,7 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Does the bid include LRA (Last Room Availability) rates?
+     * True indicates the bid includes last room availability (LRA) rates.
      */
     public TravelProposalBid2 withLra(@Nullable Boolean lra) {
         this.lra = lra;
@@ -505,7 +505,7 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Does the bid include non-LRA rates?
+     * True indicates the bid includes non-last room availability (NLRA) rates.
      */
     public TravelProposalBid2 withNlra(@Nullable Boolean nlra) {
         this.nlra = nlra;
@@ -513,7 +513,7 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Are the fair date rates LRA (Last Room Availability)?
+     * True indicates the fair date rates are last room availability (LRA) rates.
      */
     public TravelProposalBid2 withFairDateLra(@Nullable Boolean fairDateLra) {
         this.fairDateLra = fairDateLra;
@@ -529,7 +529,7 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Additional Info
+     * The comments on the bid.
      */
     public TravelProposalBid2 withComments(@Nullable List<TravelBidComment> comments) {
         this.comments = comments;
@@ -537,7 +537,7 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Room Types associated with the bid
+     * The room types of the bid.
      */
     public TravelProposalBid2 withRoomTypes(@Nullable List<TravelBidRoom> roomTypes) {
         this.roomTypes = roomTypes;
@@ -545,7 +545,7 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Seasons associated with the bid
+     * The seasons of the bid.
      */
     public TravelProposalBid2 withSeasons(@Nullable List<TravelBidSeason> seasons) {
         this.seasons = seasons;
@@ -553,7 +553,7 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Dynamic discounts associated with the bid
+     * The dynamic rate discounts of the bid.
      */
     public TravelProposalBid2 withDiscounts(@Nullable List<TravelBidDiscount> discounts) {
         this.discounts = discounts;
@@ -561,7 +561,7 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Fair seasons associated with the bid
+     * The fair seasons of the bid.
      */
     public TravelProposalBid2 withFairSeasons(@Nullable List<TravelBidFairSeason> fairSeasons) {
         this.fairSeasons = fairSeasons;
@@ -569,7 +569,7 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Amenities associated with the bid
+     * The amenities of the bid.
      */
     public TravelProposalBid2 withAmenities(@Nullable List<TravelBidAmenity> amenities) {
         this.amenities = amenities;
@@ -577,7 +577,7 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Policies associated with the bid
+     * The policies of the bid.
      */
     public TravelProposalBid2 withPolicies(@Nullable List<TravelBidPolicy> policies) {
         this.policies = policies;
@@ -585,7 +585,7 @@ public class TravelProposalBid2 {
     }
 
     /**
-     * Taxes &amp; fees associated with the bid
+     * The taxes and fees of the bid.
      */
     public TravelProposalBid2 withTaxesAndFees(@Nullable List<TravelBidTaxAndFee> taxesAndFees) {
         this.taxesAndFees = taxesAndFees;
@@ -770,7 +770,7 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * Bid stay type.
+         * The stay type of the bid.
          */
         public Builder stayType(@Nullable BidStayType stayType) {
             this.stayType = stayType;
@@ -778,8 +778,8 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * The order of the bid compared to other bids of the same stay type. This is used to distinguish
-         * between extended stay 1 vs extended stay 2.
+         * The order of the bid among the bids of the same stay type. For example, the order separates extended
+         * stay 1 from extended stay 2.
          */
         public Builder order(@Nullable Long order) {
             this.order = order;
@@ -787,7 +787,7 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * Bid status type.
+         * The status of the bid.
          */
         public Builder status(@Nullable BidStatusType status) {
             this.status = status;
@@ -795,7 +795,7 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * Name given to the bid.
+         * The name of the bid.
          */
         public Builder name(@Nullable String name) {
             this.name = name;
@@ -827,8 +827,8 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * Days of the week that are considered weekend days, to apply weekend rates. Does not apply when
-         * format is GBTA2013.
+         * The days of the week that get the weekend rates. Does not apply to a proposal with the `gbta2013`
+         * format.
          */
         public Builder weekendDays(@Nullable List<TravelBidWeekendDays> weekendDays) {
             this.weekendDays = weekendDays;
@@ -836,7 +836,7 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * Does the bid include LRA (Last Room Availability) rates?
+         * True indicates the bid includes last room availability (LRA) rates.
          */
         public Builder lra(@Nullable Boolean lra) {
             this.lra = lra;
@@ -844,7 +844,7 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * Does the bid include non-LRA rates?
+         * True indicates the bid includes non-last room availability (NLRA) rates.
          */
         public Builder nlra(@Nullable Boolean nlra) {
             this.nlra = nlra;
@@ -852,7 +852,7 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * Are the fair date rates LRA (Last Room Availability)?
+         * True indicates the fair date rates are last room availability (LRA) rates.
          */
         public Builder fairDateLra(@Nullable Boolean fairDateLra) {
             this.fairDateLra = fairDateLra;
@@ -868,7 +868,7 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * Additional Info
+         * The comments on the bid.
          */
         public Builder comments(@Nullable List<TravelBidComment> comments) {
             this.comments = comments;
@@ -876,7 +876,7 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * Room Types associated with the bid
+         * The room types of the bid.
          */
         public Builder roomTypes(@Nullable List<TravelBidRoom> roomTypes) {
             this.roomTypes = roomTypes;
@@ -884,7 +884,7 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * Seasons associated with the bid
+         * The seasons of the bid.
          */
         public Builder seasons(@Nullable List<TravelBidSeason> seasons) {
             this.seasons = seasons;
@@ -892,7 +892,7 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * Dynamic discounts associated with the bid
+         * The dynamic rate discounts of the bid.
          */
         public Builder discounts(@Nullable List<TravelBidDiscount> discounts) {
             this.discounts = discounts;
@@ -900,7 +900,7 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * Fair seasons associated with the bid
+         * The fair seasons of the bid.
          */
         public Builder fairSeasons(@Nullable List<TravelBidFairSeason> fairSeasons) {
             this.fairSeasons = fairSeasons;
@@ -908,7 +908,7 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * Amenities associated with the bid
+         * The amenities of the bid.
          */
         public Builder amenities(@Nullable List<TravelBidAmenity> amenities) {
             this.amenities = amenities;
@@ -916,7 +916,7 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * Policies associated with the bid
+         * The policies of the bid.
          */
         public Builder policies(@Nullable List<TravelBidPolicy> policies) {
             this.policies = policies;
@@ -924,7 +924,7 @@ public class TravelProposalBid2 {
         }
 
         /**
-         * Taxes &amp; fees associated with the bid
+         * The taxes and fees of the bid.
          */
         public Builder taxesAndFees(@Nullable List<TravelBidTaxAndFee> taxesAndFees) {
             this.taxesAndFees = taxesAndFees;

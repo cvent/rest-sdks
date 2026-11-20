@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * BudgetSubCategoryInput
  *
- * <p>This is used to denote the sub category for a budget.
+ * <p>Subcategory assigned to a budget item.
  */
 public class BudgetSubCategoryInput {
     /**

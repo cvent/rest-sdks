@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Get RFP
  *
  * @remarks
- * Returns basic details of the given RFP.
+ * Returns the basic details of an RFP.
  */
 export function rfpManagementGetRFP(
   client: CventSDKCore,

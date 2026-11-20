@@ -20,7 +20,7 @@ import java.util.Optional;
  */
 public class AllocationBudgetItemId {
     /**
-     * Identifier of a particular budget item.
+     * Budget item ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -36,7 +36,7 @@ public class AllocationBudgetItemId {
     }
 
     /**
-     * Identifier of a particular budget item.
+     * Budget item ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -47,7 +47,7 @@ public class AllocationBudgetItemId {
     }
 
     /**
-     * Identifier of a particular budget item.
+     * Budget item ID.
      */
     public AllocationBudgetItemId withId(@Nullable String id) {
         this.id = id;
@@ -86,7 +86,7 @@ public class AllocationBudgetItemId {
         }
 
         /**
-         * Identifier of a particular budget item.
+         * Budget item ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

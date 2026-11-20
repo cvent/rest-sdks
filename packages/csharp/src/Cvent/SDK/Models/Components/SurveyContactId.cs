@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// A pair of survey and contact id.
+    /// A survey ID and a contact ID pair.
     /// </summary>
     public class SurveyContactId
     {

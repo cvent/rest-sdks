@@ -36,7 +36,7 @@ import {
  * List Travel Proposal Bids
  *
  * @remarks
- * Get a paginated list of travel proposal bids.
+ * Gets a paginated list of travel proposal bids.
  */
 export function travelRFPsListTravelProposalBids(
   client: CventSDKCore,

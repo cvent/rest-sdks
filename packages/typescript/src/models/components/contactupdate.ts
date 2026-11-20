@@ -34,7 +34,7 @@ import {
 } from "./passportinput.js";
 
 /**
- * This entity is used to represent a single item that is requested for a contact update
+ * Field values used to update an existing contact
  */
 export type ContactUpdate = {
   /**
@@ -110,7 +110,7 @@ export type ContactUpdate = {
    */
   workFax?: string | undefined;
   /**
-   * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
+   * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
    */
   sourceId?: string | undefined;
   /**
@@ -138,11 +138,11 @@ export type ContactUpdate = {
    */
   links?: ContactLinksInput | undefined;
   /**
-   * The date of birth of the contact.
+   * The contact's date of birth, in ISO 8601 date format.
    *
    * @remarks
    *
-   *  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively.
+   *  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes, respectively.
    */
   dateOfBirth?: RFCDate | undefined;
   /**

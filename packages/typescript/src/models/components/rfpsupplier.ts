@@ -10,6 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LeadSourceSection,
   LeadSourceSection$inboundSchema,
+  LeadSourceSection$Outbound,
+  LeadSourceSection$outboundSchema,
 } from "./leadsourcesection.js";
 import {
   RfpResponseReason,
@@ -251,6 +253,20 @@ export type RfpSupplier = {
   sentToNso?: boolean | undefined;
 };
 
+/**
+ * Supplier data for an RFP.
+ */
+export type RfpSupplierInput = {
+  /**
+   * Lead source: only `leadSource.section.id` is used; `leadSource.id` is ignored. If you omit the section, Cvent sets the default section. A caller can send only the default section. Another section is rejected with 400.
+   */
+  leadSource?: RfpSupplierLeadSource | undefined;
+  /**
+   * Promotion applied by the planner to the supplier on the RFP. Can be set when the supplier is first associated, or added later by calling Associate Supplier to RFP again for the same supplier.
+   */
+  promotion?: Promotion | undefined;
+};
+
 /** @internal */
 export const ReferenceToSupplier$inboundSchema: z.ZodType<
   ReferenceToSupplier,
@@ -375,7 +391,29 @@ export const RfpSupplierLeadSource$inboundSchema: z.ZodType<
   id: z.string().optional(),
   section: LeadSourceSection$inboundSchema.optional(),
 });
+/** @internal */
+export type RfpSupplierLeadSource$Outbound = {
+  id?: string | undefined;
+  section?: LeadSourceSection$Outbound | undefined;
+};
 
+/** @internal */
+export const RfpSupplierLeadSource$outboundSchema: z.ZodType<
+  RfpSupplierLeadSource$Outbound,
+  z.ZodTypeDef,
+  RfpSupplierLeadSource
+> = z.object({
+  id: z.string().optional(),
+  section: LeadSourceSection$outboundSchema.optional(),
+});
+
+export function rfpSupplierLeadSourceToJSON(
+  rfpSupplierLeadSource: RfpSupplierLeadSource,
+): string {
+  return JSON.stringify(
+    RfpSupplierLeadSource$outboundSchema.parse(rfpSupplierLeadSource),
+  );
+}
 export function rfpSupplierLeadSourceFromJSON(
   jsonString: string,
 ): SafeParseResult<RfpSupplierLeadSource, SDKValidationError> {
@@ -394,7 +432,23 @@ export const Promotion$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string().optional(),
 });
+/** @internal */
+export type Promotion$Outbound = {
+  id?: string | undefined;
+};
 
+/** @internal */
+export const Promotion$outboundSchema: z.ZodType<
+  Promotion$Outbound,
+  z.ZodTypeDef,
+  Promotion
+> = z.object({
+  id: z.string().optional(),
+});
+
+export function promotionToJSON(promotion: Promotion): string {
+  return JSON.stringify(Promotion$outboundSchema.parse(promotion));
+}
 export function promotionFromJSON(
   jsonString: string,
 ): SafeParseResult<Promotion, SDKValidationError> {
@@ -489,5 +543,29 @@ export function rfpSupplierFromJSON(
     jsonString,
     (x) => RfpSupplier$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'RfpSupplier' from JSON`,
+  );
+}
+
+/** @internal */
+export type RfpSupplierInput$Outbound = {
+  leadSource?: RfpSupplierLeadSource$Outbound | undefined;
+  promotion?: Promotion$Outbound | undefined;
+};
+
+/** @internal */
+export const RfpSupplierInput$outboundSchema: z.ZodType<
+  RfpSupplierInput$Outbound,
+  z.ZodTypeDef,
+  RfpSupplierInput
+> = z.object({
+  leadSource: z.lazy(() => RfpSupplierLeadSource$outboundSchema).optional(),
+  promotion: z.lazy(() => Promotion$outboundSchema).optional(),
+});
+
+export function rfpSupplierInputToJSON(
+  rfpSupplierInput: RfpSupplierInput,
+): string {
+  return JSON.stringify(
+    RfpSupplierInput$outboundSchema.parse(rfpSupplierInput),
   );
 }

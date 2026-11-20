@@ -32,7 +32,7 @@ public class UpdateBudgetItemResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully updated a Budget Item.
+     * Successfully updated a budget item.
      */
     private BudgetItemResponse budgetItemResponse;
 
@@ -77,7 +77,7 @@ public class UpdateBudgetItemResponse implements Response {
     }
 
     /**
-     * Successfully updated a Budget Item.
+     * Successfully updated a budget item.
      */
     public Optional<BudgetItemResponse> budgetItemResponse() {
         return Optional.ofNullable(this.budgetItemResponse);
@@ -112,7 +112,7 @@ public class UpdateBudgetItemResponse implements Response {
     }
 
     /**
-     * Successfully updated a Budget Item.
+     * Successfully updated a budget item.
      */
     public UpdateBudgetItemResponse withBudgetItemResponse(@Nullable BudgetItemResponse budgetItemResponse) {
         this.budgetItemResponse = budgetItemResponse;
@@ -193,7 +193,7 @@ public class UpdateBudgetItemResponse implements Response {
         }
 
         /**
-         * Successfully updated a Budget Item.
+         * Successfully updated a budget item.
          */
         public Builder budgetItemResponse(@Nullable BudgetItemResponse budgetItemResponse) {
             this.budgetItemResponse = budgetItemResponse;

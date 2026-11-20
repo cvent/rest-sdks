@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Representation of a hotel room rate
+ * A hotel room rate for a specific night.
  */
 export type HotelRoomRate = {
   /**

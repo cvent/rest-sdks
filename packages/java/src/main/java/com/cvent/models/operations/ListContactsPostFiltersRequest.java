@@ -44,8 +44,8 @@ public class ListContactsPostFiltersRequest {
     private String token;
 
     /**
-     * See the request body of <a href="#operation/listContacts">GET List Contacts</a> for full filtering
-     * information
+     * See the `filter` query parameter description of [List Contacts](#operation/listContacts) for full
+     * filtering information.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private Filter filter;
@@ -99,8 +99,8 @@ public class ListContactsPostFiltersRequest {
     }
 
     /**
-     * See the request body of <a href="#operation/listContacts">GET List Contacts</a> for full filtering
-     * information
+     * See the `filter` query parameter description of [List Contacts](#operation/listContacts) for full
+     * filtering information.
      */
     public Optional<Filter> filter() {
         return Optional.ofNullable(this.filter);
@@ -145,8 +145,8 @@ public class ListContactsPostFiltersRequest {
     }
 
     /**
-     * See the request body of <a href="#operation/listContacts">GET List Contacts</a> for full filtering
-     * information
+     * See the `filter` query parameter description of [List Contacts](#operation/listContacts) for full
+     * filtering information.
      */
     public ListContactsPostFiltersRequest withFilter(@Nullable Filter filter) {
         this.filter = filter;
@@ -242,8 +242,8 @@ public class ListContactsPostFiltersRequest {
         }
 
         /**
-         * See the request body of <a href="#operation/listContacts">GET List Contacts</a> for full filtering
-         * information
+         * See the `filter` query parameter description of [List Contacts](#operation/listContacts) for full
+         * filtering information.
          */
         public Builder filter(@Nullable Filter filter) {
             this.filter = filter;

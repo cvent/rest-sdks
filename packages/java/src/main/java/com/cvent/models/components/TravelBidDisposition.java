@@ -19,7 +19,7 @@ import java.util.Optional;
 /**
  * TravelBidDisposition
  *
- * <p>Represents bid disposition details.
+ * <p>The disposition of a bid.
  */
 public class TravelBidDisposition {
     /**
@@ -30,7 +30,7 @@ public class TravelBidDisposition {
     private TravelProposalBid1 bid;
 
     /**
-     * List of accepted bid rooms.
+     * The accepted rooms of the bid.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("acceptedBidRooms")
@@ -65,7 +65,7 @@ public class TravelBidDisposition {
     }
 
     /**
-     * List of accepted bid rooms.
+     * The accepted rooms of the bid.
      */
     public Optional<List<TravelBidDispositionAcceptedRoom>> acceptedBidRooms() {
         return Optional.ofNullable(this.acceptedBidRooms);
@@ -91,7 +91,7 @@ public class TravelBidDisposition {
     }
 
     /**
-     * List of accepted bid rooms.
+     * The accepted rooms of the bid.
      */
     public TravelBidDisposition withAcceptedBidRooms(
             @Nullable List<TravelBidDispositionAcceptedRoom> acceptedBidRooms) {
@@ -154,7 +154,7 @@ public class TravelBidDisposition {
         }
 
         /**
-         * List of accepted bid rooms.
+         * The accepted rooms of the bid.
          */
         public Builder acceptedBidRooms(@Nullable List<TravelBidDispositionAcceptedRoom> acceptedBidRooms) {
             this.acceptedBidRooms = acceptedBidRooms;

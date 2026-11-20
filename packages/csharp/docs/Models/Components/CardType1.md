@@ -1,6 +1,6 @@
 # CardType1
 
-This is used to denote the card type for a card.
+Form of payment card: Virtual or Plastic.
 
 ## Example Usage
 

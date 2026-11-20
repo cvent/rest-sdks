@@ -41,6 +41,13 @@ public class ExistingRegistrationPath {
     private String description;
 
     /**
+     * True indicates a waitlist is enabled on the registration path, so registrants on this path can join
+     * a waitlist once capacity is reached. False indicates a waitlist isn't enabled.
+     */
+    @JsonProperty("waitlistEnabled")
+    private boolean waitlistEnabled;
+
+    /**
      * A unique identifier of the registration path.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -52,15 +59,17 @@ public class ExistingRegistrationPath {
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("description") @Nullable String description,
+            @JsonProperty("waitlistEnabled") boolean waitlistEnabled,
             @JsonProperty("id") @Nullable String id) {
         this.name = name;
         this.code = code;
         this.description = description;
+        this.waitlistEnabled = waitlistEnabled;
         this.id = id;
     }
 
-    public ExistingRegistrationPath() {
-        this(null, null, null, null);
+    public ExistingRegistrationPath(boolean waitlistEnabled) {
+        this(null, null, null, waitlistEnabled, null);
     }
 
     /**
@@ -82,6 +91,14 @@ public class ExistingRegistrationPath {
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * True indicates a waitlist is enabled on the registration path, so registrants on this path can join
+     * a waitlist once capacity is reached. False indicates a waitlist isn't enabled.
+     */
+    public boolean waitlistEnabled() {
+        return this.waitlistEnabled;
     }
 
     /**
@@ -120,6 +137,15 @@ public class ExistingRegistrationPath {
     }
 
     /**
+     * True indicates a waitlist is enabled on the registration path, so registrants on this path can join
+     * a waitlist once capacity is reached. False indicates a waitlist isn't enabled.
+     */
+    public ExistingRegistrationPath withWaitlistEnabled(boolean waitlistEnabled) {
+        this.waitlistEnabled = waitlistEnabled;
+        return this;
+    }
+
+    /**
      * A unique identifier of the registration path.
      */
     public ExistingRegistrationPath withId(@Nullable String id) {
@@ -139,18 +165,29 @@ public class ExistingRegistrationPath {
         return Utils.enhancedDeepEquals(this.name, other.name)
                 && Utils.enhancedDeepEquals(this.code, other.code)
                 && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.waitlistEnabled, other.waitlistEnabled)
                 && Utils.enhancedDeepEquals(this.id, other.id);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(name, code, description, id);
+        return Utils.enhancedHash(name, code, description, waitlistEnabled, id);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
-                ExistingRegistrationPath.class, "name", name, "code", code, "description", description, "id", id);
+                ExistingRegistrationPath.class,
+                "name",
+                name,
+                "code",
+                code,
+                "description",
+                description,
+                "waitlistEnabled",
+                waitlistEnabled,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -161,6 +198,8 @@ public class ExistingRegistrationPath {
         private String code;
 
         private String description;
+
+        private boolean waitlistEnabled;
 
         private String id;
 
@@ -193,6 +232,15 @@ public class ExistingRegistrationPath {
         }
 
         /**
+         * True indicates a waitlist is enabled on the registration path, so registrants on this path can join
+         * a waitlist once capacity is reached. False indicates a waitlist isn't enabled.
+         */
+        public Builder waitlistEnabled(boolean waitlistEnabled) {
+            this.waitlistEnabled = waitlistEnabled;
+            return this;
+        }
+
+        /**
          * A unique identifier of the registration path.
          */
         public Builder id(@Nullable String id) {
@@ -201,7 +249,7 @@ public class ExistingRegistrationPath {
         }
 
         public ExistingRegistrationPath build() {
-            return new ExistingRegistrationPath(name, code, description, id);
+            return new ExistingRegistrationPath(name, code, description, waitlistEnabled, id);
         }
     }
 }

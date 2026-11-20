@@ -5,12 +5,24 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
+import com.cvent.models.operations.AssociateRfpSupplierRequest;
+import com.cvent.models.operations.DisassociateRfpSupplierRequest;
+import com.cvent.models.operations.GetRfpSupplierRequest;
 import com.cvent.models.operations.GetRfpSuppliersRequest;
 import com.cvent.models.operations.ListRfpRecipientsHistoryRequest;
+import com.cvent.models.operations.async.AssociateRfpSupplierRequestBuilder;
+import com.cvent.models.operations.async.AssociateRfpSupplierResponse;
+import com.cvent.models.operations.async.DisassociateRfpSupplierRequestBuilder;
+import com.cvent.models.operations.async.DisassociateRfpSupplierResponse;
+import com.cvent.models.operations.async.GetRfpSupplierRequestBuilder;
+import com.cvent.models.operations.async.GetRfpSupplierResponse;
 import com.cvent.models.operations.async.GetRfpSuppliersRequestBuilder;
 import com.cvent.models.operations.async.GetRfpSuppliersResponse;
 import com.cvent.models.operations.async.ListRfpRecipientsHistoryRequestBuilder;
 import com.cvent.models.operations.async.ListRfpRecipientsHistoryResponse;
+import com.cvent.operations.AssociateRfpSupplier;
+import com.cvent.operations.DisassociateRfpSupplier;
+import com.cvent.operations.GetRfpSupplier;
 import com.cvent.operations.GetRfpSuppliers;
 import com.cvent.operations.ListRfpRecipientsHistory;
 import com.cvent.utils.Headers;
@@ -118,6 +130,149 @@ public class AsyncRFPSuppliers {
             @Nonnull GetRfpSuppliersRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetRfpSuppliersRequest, GetRfpSuppliersResponse> operation =
                 new GetRfpSuppliers.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Get RFP Supplier
+     *
+     * <p>Returns details of a specific supplier associated with an RFP.
+     *
+     * @return The async call builder
+     */
+    public GetRfpSupplierRequestBuilder getRfpSupplier() {
+        return new GetRfpSupplierRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get RFP Supplier
+     *
+     * <p>Returns details of a specific supplier associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<GetRfpSupplierResponse>} - The async response
+     */
+    public CompletableFuture<GetRfpSupplierResponse> getRfpSupplier(@Nonnull GetRfpSupplierRequest request) {
+        return getRfpSupplier(request, null);
+    }
+
+    /**
+     * Get RFP Supplier
+     *
+     * <p>Returns details of a specific supplier associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetRfpSupplierResponse>} - The async response
+     */
+    public CompletableFuture<GetRfpSupplierResponse> getRfpSupplier(
+            @Nonnull GetRfpSupplierRequest request, @Nullable Options options) {
+        AsyncRequestOperation<GetRfpSupplierRequest, GetRfpSupplierResponse> operation =
+                new GetRfpSupplier.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Associate Supplier to RFP
+     *
+     * <p>Associates a given supplier to an RFP.
+     *
+     * <p>Lead source: only `leadSource.section.id` is used; `leadSource.id` is ignored. If you omit the
+     * section, Cvent sets the default section. A caller can send only the default section.
+     *
+     * <p>Another section is rejected with 400.
+     *
+     * <p>If the supplier is already associated with the RFP, only the `promotion` in the request is applied.
+     * The rest of the existing association, including its lead source, is left unchanged.
+     *
+     * @return The async call builder
+     */
+    public AssociateRfpSupplierRequestBuilder associateRfpSupplier() {
+        return new AssociateRfpSupplierRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Associate Supplier to RFP
+     *
+     * <p>Associates a given supplier to an RFP.
+     *
+     * <p>Lead source: only `leadSource.section.id` is used; `leadSource.id` is ignored. If you omit the
+     * section, Cvent sets the default section. A caller can send only the default section.
+     *
+     * <p>Another section is rejected with 400.
+     *
+     * <p>If the supplier is already associated with the RFP, only the `promotion` in the request is applied.
+     * The rest of the existing association, including its lead source, is left unchanged.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<AssociateRfpSupplierResponse>} - The async response
+     */
+    public CompletableFuture<AssociateRfpSupplierResponse> associateRfpSupplier(
+            @Nonnull AssociateRfpSupplierRequest request) {
+        return associateRfpSupplier(request, null);
+    }
+
+    /**
+     * Associate Supplier to RFP
+     *
+     * <p>Associates a given supplier to an RFP.
+     *
+     * <p>Lead source: only `leadSource.section.id` is used; `leadSource.id` is ignored. If you omit the
+     * section, Cvent sets the default section. A caller can send only the default section.
+     *
+     * <p>Another section is rejected with 400.
+     *
+     * <p>If the supplier is already associated with the RFP, only the `promotion` in the request is applied.
+     * The rest of the existing association, including its lead source, is left unchanged.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<AssociateRfpSupplierResponse>} - The async response
+     */
+    public CompletableFuture<AssociateRfpSupplierResponse> associateRfpSupplier(
+            @Nonnull AssociateRfpSupplierRequest request, @Nullable Options options) {
+        AsyncRequestOperation<AssociateRfpSupplierRequest, AssociateRfpSupplierResponse> operation =
+                new AssociateRfpSupplier.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Disassociate RFP Supplier
+     *
+     * <p>Disassociates the specified supplier from an RFP.
+     *
+     * @return The async call builder
+     */
+    public DisassociateRfpSupplierRequestBuilder disassociateRfpSupplier() {
+        return new DisassociateRfpSupplierRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Disassociate RFP Supplier
+     *
+     * <p>Disassociates the specified supplier from an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<DisassociateRfpSupplierResponse>} - The async response
+     */
+    public CompletableFuture<DisassociateRfpSupplierResponse> disassociateRfpSupplier(
+            @Nonnull DisassociateRfpSupplierRequest request) {
+        return disassociateRfpSupplier(request, null);
+    }
+
+    /**
+     * Disassociate RFP Supplier
+     *
+     * <p>Disassociates the specified supplier from an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DisassociateRfpSupplierResponse>} - The async response
+     */
+    public CompletableFuture<DisassociateRfpSupplierResponse> disassociateRfpSupplier(
+            @Nonnull DisassociateRfpSupplierRequest request, @Nullable Options options) {
+        AsyncRequestOperation<DisassociateRfpSupplierRequest, DisassociateRfpSupplierResponse> operation =
+                new DisassociateRfpSupplier.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

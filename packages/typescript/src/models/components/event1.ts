@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Event ID Information.
+ * Contains the ID of the event associated with the budget item.
  */
 export type Event1 = {
   /**
-   * Identifier of a particular Event.
+   * Event ID.
    */
   id?: string | undefined;
 };

@@ -22,7 +22,7 @@ import java.util.Optional;
  */
 public class TravelProposalBidRate {
     /**
-     * Rate level
+     * The rate level.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("level")
@@ -66,7 +66,7 @@ public class TravelProposalBidRate {
     }
 
     /**
-     * Rate level
+     * The rate level.
      */
     public Optional<RateLevelType> level() {
         return Optional.ofNullable(this.level);
@@ -98,7 +98,7 @@ public class TravelProposalBidRate {
     }
 
     /**
-     * Rate level
+     * The rate level.
      */
     public TravelProposalBidRate withLevel(@Nullable RateLevelType level) {
         this.level = level;
@@ -171,7 +171,7 @@ public class TravelProposalBidRate {
         }
 
         /**
-         * Rate level
+         * The rate level.
          */
         public Builder level(@Nullable RateLevelType level) {
             this.level = level;

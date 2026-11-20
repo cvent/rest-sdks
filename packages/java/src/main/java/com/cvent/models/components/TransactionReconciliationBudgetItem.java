@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * TransactionReconciliationBudgetItem
  *
- * <p>The identifier of reconciled budget item.
+ * <p>Reconciled budget item ID.
  */
 public class TransactionReconciliationBudgetItem {
     /**

@@ -6,14 +6,14 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Bid stay type.
+ * The stay type of the bid.
  */
 export const BidStayType = {
   Daily: "daily",
   Extended: "extended",
 } as const;
 /**
- * Bid stay type.
+ * The stay type of the bid.
  */
 export type BidStayType = ClosedEnum<typeof BidStayType>;
 

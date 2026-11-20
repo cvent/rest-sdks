@@ -40,11 +40,11 @@ export type BudgetItemCustomFieldCustomFieldType = ClosedEnum<
 >;
 
 /**
- * A Budget Item Custom Field
+ * Custom field and answer values associated with a budget item.
  */
 export type BudgetItemCustomField = {
   /**
-   * The unique ID representing this budget item custom field.
+   * Budget item custom field ID.
    */
   id: string;
   /**

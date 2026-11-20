@@ -30,7 +30,29 @@ export const AdditionalChoice$inboundSchema: z.ZodType<
   text: z.string().optional(),
   shortText: z.string().optional(),
 });
+/** @internal */
+export type AdditionalChoice$Outbound = {
+  text?: string | undefined;
+  shortText?: string | undefined;
+};
 
+/** @internal */
+export const AdditionalChoice$outboundSchema: z.ZodType<
+  AdditionalChoice$Outbound,
+  z.ZodTypeDef,
+  AdditionalChoice
+> = z.object({
+  text: z.string().optional(),
+  shortText: z.string().optional(),
+});
+
+export function additionalChoiceToJSON(
+  additionalChoice: AdditionalChoice,
+): string {
+  return JSON.stringify(
+    AdditionalChoice$outboundSchema.parse(additionalChoice),
+  );
+}
 export function additionalChoiceFromJSON(
   jsonString: string,
 ): SafeParseResult<AdditionalChoice, SDKValidationError> {

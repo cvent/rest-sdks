@@ -50,7 +50,7 @@ public class BudgetItemInput {
     private BudgetCategoryInput category;
 
     /**
-     * This is used to denote the sub category for a budget.
+     * Subcategory assigned to a budget item.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("subCategory")
@@ -77,7 +77,7 @@ public class BudgetItemInput {
     private OffsetDateTime date;
 
     /**
-     * This is used to denote the general ledger code associated with budget.
+     * General ledger code and details associated with a budget item.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generalLedger")
@@ -131,8 +131,7 @@ public class BudgetItemInput {
     private Boolean conversionRateLocked;
 
     /**
-     * Conversion rate for converting an amount into a different currency. Value must be greater than
-     * 0.000001
+     * Rate used to convert an amount into another currency. The value must be greater than 0.000001.
      */
     @JsonProperty("conversionRate")
     private double conversionRate;
@@ -273,7 +272,7 @@ public class BudgetItemInput {
     }
 
     /**
-     * This is used to denote the sub category for a budget.
+     * Subcategory assigned to a budget item.
      */
     public Optional<BudgetSubCategoryInput> subCategory() {
         return Optional.ofNullable(this.subCategory);
@@ -302,7 +301,7 @@ public class BudgetItemInput {
     }
 
     /**
-     * This is used to denote the general ledger code associated with budget.
+     * General ledger code and details associated with a budget item.
      */
     public Optional<GeneralLedger1Input> generalLedger() {
         return Optional.ofNullable(this.generalLedger);
@@ -360,8 +359,7 @@ public class BudgetItemInput {
     }
 
     /**
-     * Conversion rate for converting an amount into a different currency. Value must be greater than
-     * 0.000001
+     * Rate used to convert an amount into another currency. The value must be greater than 0.000001.
      */
     public double conversionRate() {
         return this.conversionRate;
@@ -427,7 +425,7 @@ public class BudgetItemInput {
     }
 
     /**
-     * This is used to denote the sub category for a budget.
+     * Subcategory assigned to a budget item.
      */
     public BudgetItemInput withSubCategory(@Nullable BudgetSubCategoryInput subCategory) {
         this.subCategory = subCategory;
@@ -460,7 +458,7 @@ public class BudgetItemInput {
     }
 
     /**
-     * This is used to denote the general ledger code associated with budget.
+     * General ledger code and details associated with a budget item.
      */
     public BudgetItemInput withGeneralLedger(@Nullable GeneralLedger1Input generalLedger) {
         this.generalLedger = generalLedger;
@@ -526,8 +524,7 @@ public class BudgetItemInput {
     }
 
     /**
-     * Conversion rate for converting an amount into a different currency. Value must be greater than
-     * 0.000001
+     * Rate used to convert an amount into another currency. The value must be greater than 0.000001.
      */
     public BudgetItemInput withConversionRate(double conversionRate) {
         this.conversionRate = conversionRate;
@@ -743,7 +740,7 @@ public class BudgetItemInput {
         }
 
         /**
-         * This is used to denote the sub category for a budget.
+         * Subcategory assigned to a budget item.
          */
         public Builder subCategory(@Nullable BudgetSubCategoryInput subCategory) {
             this.subCategory = subCategory;
@@ -776,7 +773,7 @@ public class BudgetItemInput {
         }
 
         /**
-         * This is used to denote the general ledger code associated with budget.
+         * General ledger code and details associated with a budget item.
          */
         public Builder generalLedger(@Nullable GeneralLedger1Input generalLedger) {
             this.generalLedger = generalLedger;
@@ -842,8 +839,7 @@ public class BudgetItemInput {
         }
 
         /**
-         * Conversion rate for converting an amount into a different currency. Value must be greater than
-         * 0.000001
+         * Rate used to convert an amount into another currency. The value must be greater than 0.000001.
          */
         public Builder conversionRate(double conversionRate) {
             this.conversionRate = conversionRate;

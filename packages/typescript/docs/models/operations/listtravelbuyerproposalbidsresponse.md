@@ -43,7 +43,7 @@ let value: ListTravelBuyerProposalBidsResponse = {
         weekendDays: [
           "Sunday",
         ],
-        internalNote: "",
+        internalNote: "Rates include breakfast.",
         comments: [
           {
             commentType: "promotions",
@@ -66,7 +66,7 @@ let value: ListTravelBuyerProposalBidsResponse = {
           {
             name: "Season 1",
             startDate: new RFCDate("2021-07-13"),
-            endDate: new RFCDate("2021-07-13"),
+            endDate: new RFCDate("2021-09-30"),
             releasePeriod: 1,
             weekendReleasePeriod: 2,
             rates: [
@@ -115,7 +115,7 @@ let value: ListTravelBuyerProposalBidsResponse = {
           {
             name: "Fair season 1",
             startDate: new RFCDate("2021-07-13"),
-            endDate: new RFCDate("2021-07-13"),
+            endDate: new RFCDate("2021-09-30"),
             minLengthOfStay: 1,
             releasePeriod: 1,
             rates: [
@@ -159,7 +159,7 @@ let value: ListTravelBuyerProposalBidsResponse = {
           {
             code: "city_tax",
             amount: 20,
-            notes: "This is a tax",
+            notes: "Applies to each room night.",
             status: "requested",
           },
         ],

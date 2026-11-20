@@ -40,3 +40,6 @@ export type QuestionType = ClosedEnum<typeof QuestionType>;
 /** @internal */
 export const QuestionType$inboundSchema: z.ZodNativeEnum<typeof QuestionType> =
   z.nativeEnum(QuestionType);
+/** @internal */
+export const QuestionType$outboundSchema: z.ZodNativeEnum<typeof QuestionType> =
+  QuestionType$inboundSchema;

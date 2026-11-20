@@ -4,7 +4,6 @@
 
 import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Address9, Address9$inboundSchema } from "./address9.js";
@@ -14,27 +13,14 @@ import {
 } from "./attendeeanswer1.js";
 import { Gender1, Gender1$inboundSchema } from "./gender1.js";
 import { HotelRoomRate, HotelRoomRate$inboundSchema } from "./hotelroomrate.js";
+import { RequesterType, RequesterType$inboundSchema } from "./requestertype.js";
 import {
   TravelRequestStatus,
   TravelRequestStatus$inboundSchema,
 } from "./travelrequeststatus.js";
 
 /**
- * Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
- */
-export const HotelRequestRequesterType = {
-  Contact: "Contact",
-  Guest: "Guest",
-} as const;
-/**
- * Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
- */
-export type HotelRequestRequesterType = ClosedEnum<
-  typeof HotelRequestRequesterType
->;
-
-/**
- * Representation of a hotel request.
+ * A hotel request with requester, hotel, room, stay, billing, and answer details.
  */
 export type HotelRequest = {
   /**
@@ -58,13 +44,13 @@ export type HotelRequest = {
    */
   hotelRequestId?: string | undefined;
   /**
-   * ID of the flight requester. For an event attendee, this field is contact ID. For guest, this field is guest ID.
+   * ID of the hotel requester. For an event attendee, this is the contact ID. For a guest, this is the guest ID.
    */
   requesterId?: string | undefined;
   /**
-   * Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
+   * Attendee type of the requester. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
    */
-  requesterType?: HotelRequestRequesterType | undefined;
+  requesterType?: RequesterType | undefined;
   /**
    * First name of the hotel requester.
    */
@@ -146,7 +132,7 @@ export type HotelRequest = {
    */
   gender?: Gender1 | undefined;
   /**
-   * Total cost of the hotel stay.
+   * Total cost of the hotel stay in the currency specified by currencyCode.
    */
   totalAmount?: number | undefined;
   /**
@@ -154,7 +140,7 @@ export type HotelRequest = {
    */
   currencyCode?: string | undefined;
   /**
-   * Specifies if the planner will charge for the hotel.
+   * True indicates that the planner will charge for the hotel.
    */
   roomCharge?: boolean | undefined;
   /**
@@ -186,7 +172,7 @@ export type HotelRequest = {
    */
   incidentalBillingExceptions?: string | undefined;
   /**
-   * Address of the hotel.
+   * Hotel address with a region, region code, and country.
    */
   hotelAddress?: Address9 | undefined;
   /**
@@ -198,11 +184,6 @@ export type HotelRequest = {
    */
   hotelRequestAnswers?: Array<AttendeeAnswer1> | undefined;
 };
-
-/** @internal */
-export const HotelRequestRequesterType$inboundSchema: z.ZodNativeEnum<
-  typeof HotelRequestRequesterType
-> = z.nativeEnum(HotelRequestRequesterType);
 
 /** @internal */
 export const HotelRequest$inboundSchema: z.ZodType<
@@ -219,7 +200,7 @@ export const HotelRequest$inboundSchema: z.ZodType<
   lastModifiedBy: z.string().optional(),
   hotelRequestId: z.string().optional(),
   requesterId: z.string().optional(),
-  requesterType: HotelRequestRequesterType$inboundSchema.optional(),
+  requesterType: RequesterType$inboundSchema.optional(),
   requesterFirstName: z.string().optional(),
   requesterLastName: z.string().optional(),
   hotelName: z.string().optional(),

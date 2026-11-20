@@ -16,7 +16,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Represents travel proposals. Travel proposals are created by the travel supplier in response to a travel account's program.
+    /// A travel proposal. The travel supplier creates a travel proposal in response to the travel program of a travel account.
     /// </summary>
     public class TravelProposal
     {
@@ -51,13 +51,13 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// Supplier property that the proposal is tied to.
+        /// The supplier property of the proposal.
         /// </summary>
         [JsonProperty("supplierProperty")]
         public SupplierProperty? SupplierProperty { get; set; }
 
         /// <summary>
-        /// Travel program that the proposal is in response to.
+        /// The travel program that the proposal responds to.
         /// </summary>
         [JsonProperty("travelProgram")]
         public TravelProposalTravelProgram? TravelProgram { get; set; }
@@ -99,25 +99,25 @@ namespace Cvent.SDK.Models.Components
         public FormatType? Format { get; set; }
 
         /// <summary>
-        /// True indicates the documents been read by the supply-side.
+        /// True indicates the supplier has read the documents.
         /// </summary>
         [JsonProperty("documentRead")]
         public bool? DocumentRead { get; set; } = false;
 
         /// <summary>
-        /// Reason the reject/decline action was performed. Used for certain actions/statuses.
+        /// The reason code of the reject or decline action.
         /// </summary>
         [JsonProperty("rejectReasonCode")]
         public string? RejectReasonCode { get; set; }
 
         /// <summary>
-        /// Comments regarding the reasoning for the reject/decline action. This only comes into play for certain actions/statuses.
+        /// The comment on the reason for the reject or decline action.
         /// </summary>
         [JsonProperty("rejectComment")]
         public string? RejectComment { get; set; }
 
         /// <summary>
-        /// The ISO 8601 datetime when proposal was submitted by the hotel.
+        /// The ISO 8601 date and time when the hotel submitted the proposal.
         /// </summary>
         [JsonProperty("submitDate")]
         public DateTime? SubmitDate { get; set; }
@@ -129,7 +129,7 @@ namespace Cvent.SDK.Models.Components
         public long? NegotiationRound { get; set; }
 
         /// <summary>
-        /// The ISO 8601 datetime when the negotiation response is due.
+        /// The ISO 8601 date and time when the negotiation response is due.
         /// </summary>
         [JsonProperty("negotiationDueDate")]
         public DateTime? NegotiationDueDate { get; set; }
@@ -147,25 +147,25 @@ namespace Cvent.SDK.Models.Components
         public bool? Draft { get; set; }
 
         /// <summary>
-        /// Collection of bid IDs attached to the proposal.
+        /// The bids attached to the proposal.
         /// </summary>
         [JsonProperty("bids")]
         public List<TravelProposalBid1>? Bids { get; set; }
 
         /// <summary>
-        /// Collection of custom questions.
+        /// The answers to the custom questions of the travel program.
         /// </summary>
         [JsonProperty("customQuestionAnswers")]
         public List<TravelProposalCustomQuestion>? CustomQuestionAnswers { get; set; }
 
         /// <summary>
-        /// Group and meeting information.
+        /// The group and meeting information of the proposal.
         /// </summary>
         [JsonProperty("groupAndMeeting")]
         public TravelProposalGroupAndMeeting? GroupAndMeeting { get; set; }
 
         /// <summary>
-        /// Represent proposal disposition details.
+        /// The disposition of the travel proposal.
         /// </summary>
         [JsonProperty("proposalDisposition")]
         public TravelProposalDisposition? ProposalDisposition { get; set; }

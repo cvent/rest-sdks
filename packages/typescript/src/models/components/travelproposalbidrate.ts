@@ -14,7 +14,7 @@ import { RateType, RateType$inboundSchema } from "./ratetype.js";
  */
 export type TravelProposalBidRate = {
   /**
-   * Rate level
+   * The rate level.
    */
   level?: RateLevelType | undefined;
   /**

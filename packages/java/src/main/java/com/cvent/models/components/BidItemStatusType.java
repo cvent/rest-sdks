@@ -11,10 +11,11 @@ import java.util.Optional;
 /**
  * BidItemStatusType
  *
- * <p>The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
- * and the hotel, if they agree, can update the item to deleted.
+ * <p>The negotiation status of the bid item. For example, the corporation marks an item as
+ * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+ * hotel does not offer the amenity.
  *
- * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+ * <p>Applies only to the supply side.
  */
 public enum BidItemStatusType {
     REQUESTED("requested"),

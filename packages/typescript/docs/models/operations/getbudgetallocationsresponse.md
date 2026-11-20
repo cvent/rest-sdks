@@ -28,10 +28,10 @@ let value: GetBudgetAllocationsResponse = {
     data: [
       {
         budgetVersion: {
-          id: "3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329",
+          id: "6b6f2a1f-33f6-4794-8428-49c83b9f388c",
         },
         budgetItem: {
-          id: "49037583-aec5-4ca7-8f2a-0afd499b10da",
+          id: "569f22e0-1070-4434-884e-5e422ee3354e",
         },
         category: {
           id: "e9ee2669-65db-46f8-872c-dbafbf9b0e92",

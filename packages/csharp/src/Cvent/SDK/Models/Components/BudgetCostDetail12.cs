@@ -22,13 +22,13 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the category assigned to the budget item.
         /// </summary>
         [JsonProperty("category")]
-        public BudgetCategory1? Category { get; set; }
+        public BudgetCategory? Category { get; set; }
 
         /// <summary>
         /// This is used to denote the sub category for a budget.
         /// </summary>
         [JsonProperty("subCategory")]
-        public BudgetSubCategory? SubCategory { get; set; }
+        public BudgetSubCategory1? SubCategory { get; set; }
 
         /// <summary>
         /// The number of units associated with a budget item. This field can be any number if the budget item is a *Variable* cost type. If the budget item uses a *Fixed* cost type, set this field to 1.

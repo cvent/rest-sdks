@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Supplier property that the proposal is tied to.
+    /// The supplier property of the proposal.
     /// </summary>
     public class SupplierProperty
     {

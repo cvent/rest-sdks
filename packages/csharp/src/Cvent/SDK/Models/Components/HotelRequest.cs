@@ -16,7 +16,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Representation of a hotel request.
+    /// A hotel request with requester, hotel, room, stay, billing, and answer details.
     /// </summary>
     public class HotelRequest
     {
@@ -51,16 +51,16 @@ namespace Cvent.SDK.Models.Components
         public string? HotelRequestId { get; set; }
 
         /// <summary>
-        /// ID of the flight requester. For an event attendee, this field is contact ID. For guest, this field is guest ID.
+        /// ID of the hotel requester. For an event attendee, this is the contact ID. For a guest, this is the guest ID.
         /// </summary>
         [JsonProperty("requesterId")]
         public string? RequesterId { get; set; }
 
         /// <summary>
-        /// Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
+        /// Attendee type of the requester. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
         /// </summary>
         [JsonProperty("requesterType")]
-        public HotelRequestRequesterType? RequesterType { get; set; }
+        public RequesterType? RequesterType { get; set; }
 
         /// <summary>
         /// First name of the hotel requester.
@@ -183,7 +183,7 @@ namespace Cvent.SDK.Models.Components
         public Gender1? Gender { get; set; }
 
         /// <summary>
-        /// Total cost of the hotel stay.
+        /// Total cost of the hotel stay in the currency specified by currencyCode.
         /// </summary>
         [JsonProperty("totalAmount")]
         public double? TotalAmount { get; set; }
@@ -195,7 +195,7 @@ namespace Cvent.SDK.Models.Components
         public string? CurrencyCode { get; set; }
 
         /// <summary>
-        /// Specifies if the planner will charge for the hotel.
+        /// True indicates that the planner will charge for the hotel.
         /// </summary>
         [JsonProperty("roomCharge")]
         public bool? RoomCharge { get; set; }
@@ -243,7 +243,7 @@ namespace Cvent.SDK.Models.Components
         public string? IncidentalBillingExceptions { get; set; }
 
         /// <summary>
-        /// Address of the hotel.
+        /// Hotel address with a region, region code, and country.
         /// </summary>
         [JsonProperty("hotelAddress")]
         public Address9? HotelAddress { get; set; }

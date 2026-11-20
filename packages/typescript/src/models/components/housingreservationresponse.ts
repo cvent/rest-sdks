@@ -13,15 +13,15 @@ import {
 } from "./housingreservation.js";
 
 /**
- * Representation of the reservation request response.
+ * A housing reservation response containing an attendee, reservation request, and last-modified value.
  */
 export type HousingReservationResponse = {
   /**
-   * Representation of the attendee
+   * An attendee identified by an ID.
    */
   attendee?: Attendee3 | undefined;
   /**
-   * Representation of the housing reservation details.
+   * A housing reservation request with its bridge ID and booking-site link.
    */
   reservationRequest?: HousingReservation | undefined;
   /**

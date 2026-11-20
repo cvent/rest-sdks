@@ -28,7 +28,7 @@ public class TravelProposalPaginatedResponse {
     private Paging paging;
 
     /**
-     * Paginated list of business transient proposals.
+     * The travel proposals on the page.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
@@ -54,7 +54,7 @@ public class TravelProposalPaginatedResponse {
     }
 
     /**
-     * Paginated list of business transient proposals.
+     * The travel proposals on the page.
      */
     public Optional<List<TravelProposal>> data() {
         return Optional.ofNullable(this.data);
@@ -73,7 +73,7 @@ public class TravelProposalPaginatedResponse {
     }
 
     /**
-     * Paginated list of business transient proposals.
+     * The travel proposals on the page.
      */
     public TravelProposalPaginatedResponse withData(@Nullable List<TravelProposal> data) {
         this.data = data;
@@ -122,7 +122,7 @@ public class TravelProposalPaginatedResponse {
         }
 
         /**
-         * Paginated list of business transient proposals.
+         * The travel proposals on the page.
          */
         public Builder data(@Nullable List<TravelProposal> data) {
             this.data = data;

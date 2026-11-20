@@ -33,7 +33,7 @@ public class UpdateCardTransactionResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully updated a transaction record.
+     * Successfully updated a card transaction.
      */
     private CardTransactionCreateResponse cardTransactionCreateResponse;
 
@@ -78,7 +78,7 @@ public class UpdateCardTransactionResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully updated a transaction record.
+     * Successfully updated a card transaction.
      */
     public Optional<CardTransactionCreateResponse> cardTransactionCreateResponse() {
         return Optional.ofNullable(this.cardTransactionCreateResponse);
@@ -113,7 +113,7 @@ public class UpdateCardTransactionResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully updated a transaction record.
+     * Successfully updated a card transaction.
      */
     public UpdateCardTransactionResponse withCardTransactionCreateResponse(
             @Nullable CardTransactionCreateResponse cardTransactionCreateResponse) {
@@ -195,7 +195,7 @@ public class UpdateCardTransactionResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully updated a transaction record.
+         * Successfully updated a card transaction.
          */
         public Builder cardTransactionCreateResponse(
                 @Nullable CardTransactionCreateResponse cardTransactionCreateResponse) {

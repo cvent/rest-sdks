@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Bid comment type.
+    /// The type of the bid comment.
     /// </summary>
     public enum CommentType
     {

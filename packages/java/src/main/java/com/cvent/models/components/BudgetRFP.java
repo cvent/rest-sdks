@@ -20,8 +20,8 @@ import java.util.Optional;
  */
 public class BudgetRFP {
     /**
-     * The identifier of the related RFP. If an ID is present, the budget item originates from an RFP. You
-     * can use this ID to get more details on the related RFP via the [CSN
+     * Related RFP ID. If present, the budget item originates from an RFP. Use this ID to get more details
+     * on the related RFP via the [CSN
      * APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/rfp-objects).
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -38,8 +38,8 @@ public class BudgetRFP {
     }
 
     /**
-     * The identifier of the related RFP. If an ID is present, the budget item originates from an RFP. You
-     * can use this ID to get more details on the related RFP via the [CSN
+     * Related RFP ID. If present, the budget item originates from an RFP. Use this ID to get more details
+     * on the related RFP via the [CSN
      * APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/rfp-objects).
      */
     public Optional<String> id() {
@@ -51,8 +51,8 @@ public class BudgetRFP {
     }
 
     /**
-     * The identifier of the related RFP. If an ID is present, the budget item originates from an RFP. You
-     * can use this ID to get more details on the related RFP via the [CSN
+     * Related RFP ID. If present, the budget item originates from an RFP. Use this ID to get more details
+     * on the related RFP via the [CSN
      * APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/rfp-objects).
      */
     public BudgetRFP withId(@Nullable String id) {
@@ -92,8 +92,8 @@ public class BudgetRFP {
         }
 
         /**
-         * The identifier of the related RFP. If an ID is present, the budget item originates from an RFP. You
-         * can use this ID to get more details on the related RFP via the [CSN
+         * Related RFP ID. If present, the budget item originates from an RFP. Use this ID to get more details
+         * on the related RFP via the [CSN
          * APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/rfp-objects).
          */
         public Builder id(@Nullable String id) {

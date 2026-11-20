@@ -32,25 +32,25 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// Bid stay type.
+        /// The stay type of the bid.
         /// </summary>
         [JsonProperty("stayType")]
         public BidStayType? StayType { get; set; } = Cvent.SDK.Models.Components.BidStayType.Daily;
 
         /// <summary>
-        /// The order of the bid compared to other bids of the same stay type. This is used to distinguish between extended stay 1 vs extended stay 2.
+        /// The order of the bid among the bids of the same stay type. For example, the order separates extended stay 1 from extended stay 2.
         /// </summary>
         [JsonProperty("order")]
         public long? Order { get; set; } = 1;
 
         /// <summary>
-        /// Bid status type.
+        /// The status of the bid.
         /// </summary>
         [JsonProperty("status")]
         public BidStatusType? Status { get; set; } = Cvent.SDK.Models.Components.BidStatusType.InProgress;
 
         /// <summary>
-        /// Name given to the bid.
+        /// The name of the bid.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
@@ -74,25 +74,25 @@ namespace Cvent.SDK.Models.Components
         public string? CurrencyCode { get; set; }
 
         /// <summary>
-        /// Days of the week that are considered weekend days, to apply weekend rates. Does not apply when format is GBTA2013.
+        /// The days of the week that get the weekend rates. Does not apply to a proposal with the `gbta2013` format.
         /// </summary>
         [JsonProperty("weekendDays")]
         public List<TravelBidWeekendDays>? WeekendDays { get; set; }
 
         /// <summary>
-        /// Does the bid include LRA (Last Room Availability) rates?
+        /// True indicates the bid includes last room availability (LRA) rates.
         /// </summary>
         [JsonProperty("lra")]
         public bool? Lra { get; set; } = true;
 
         /// <summary>
-        /// Does the bid include non-LRA rates?
+        /// True indicates the bid includes non-last room availability (NLRA) rates.
         /// </summary>
         [JsonProperty("nlra")]
         public bool? Nlra { get; set; } = true;
 
         /// <summary>
-        /// Are the fair date rates LRA (Last Room Availability)?
+        /// True indicates the fair date rates are last room availability (LRA) rates.
         /// </summary>
         [JsonProperty("fairDateLra")]
         public bool? FairDateLra { get; set; } = true;
@@ -104,49 +104,49 @@ namespace Cvent.SDK.Models.Components
         public string? InternalNote { get; set; }
 
         /// <summary>
-        /// Additional Info.
+        /// The comments on the bid.
         /// </summary>
         [JsonProperty("comments")]
         public List<TravelBidComment>? Comments { get; set; }
 
         /// <summary>
-        /// Room Types associated with the bid.
+        /// The room types of the bid.
         /// </summary>
         [JsonProperty("roomTypes")]
         public List<TravelBidRoom1>? RoomTypes { get; set; }
 
         /// <summary>
-        /// Seasons associated with the bid.
+        /// The seasons of the bid.
         /// </summary>
         [JsonProperty("seasons")]
         public List<TravelBidSeason>? Seasons { get; set; }
 
         /// <summary>
-        /// Dynamic discounts associated with the bid.
+        /// The dynamic rate discounts of the bid.
         /// </summary>
         [JsonProperty("discounts")]
         public List<TravelBidDiscount>? Discounts { get; set; }
 
         /// <summary>
-        /// Fair seasons associated with the bid.
+        /// The fair seasons of the bid.
         /// </summary>
         [JsonProperty("fairSeasons")]
         public List<TravelBidFairSeason>? FairSeasons { get; set; }
 
         /// <summary>
-        /// Amenities associated with the bid.
+        /// The amenities of the bid.
         /// </summary>
         [JsonProperty("amenities")]
         public List<TravelBidAmenity>? Amenities { get; set; }
 
         /// <summary>
-        /// Policies associated with the bid.
+        /// The policies of the bid.
         /// </summary>
         [JsonProperty("policies")]
         public List<TravelBidPolicy>? Policies { get; set; }
 
         /// <summary>
-        /// Taxes &amp; fees associated with the bid.
+        /// The taxes and fees of the bid.
         /// </summary>
         [JsonProperty("taxesAndFees")]
         public List<TravelBidTaxAndFee>? TaxesAndFees { get; set; }

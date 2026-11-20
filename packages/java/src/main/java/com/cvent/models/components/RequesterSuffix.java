@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * RequesterSuffix
  *
- * <p>Suffix of the flight requester.
+ * <p>Suffix of the requester.
  */
 public enum RequesterSuffix {
     II("II"),

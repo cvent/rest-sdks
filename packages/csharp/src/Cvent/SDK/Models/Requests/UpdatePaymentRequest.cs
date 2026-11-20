@@ -15,19 +15,19 @@ namespace Cvent.SDK.Models.Requests
     public class UpdatePaymentRequest
     {
         /// <summary>
-        /// Unique ID of an event.
+        /// Event ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Unique ID of a budget item.
+        /// Budget item ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=budgetItemId")]
         public string BudgetItemId { get; set; } = default!;
 
         /// <summary>
-        /// Unique ID of a payment.
+        /// Payment ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=paymentId")]
         public string PaymentId { get; set; } = default!;

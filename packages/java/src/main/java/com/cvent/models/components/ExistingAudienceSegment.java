@@ -53,7 +53,7 @@ public class ExistingAudienceSegment {
     private String lastModifiedBy;
 
     /**
-     * ID of the event.
+     * Represents an event by its ID.
      */
     @JsonProperty("event")
     private Event3 event;
@@ -65,14 +65,14 @@ public class ExistingAudienceSegment {
     private String name;
 
     /**
-     * Description of the audience segment.
+     * Additional text about the audience segment.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("description")
     private String description;
 
     /**
-     * ID of the audience segment.
+     * Audience segment ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -149,7 +149,7 @@ public class ExistingAudienceSegment {
     }
 
     /**
-     * ID of the event.
+     * Represents an event by its ID.
      */
     public Event3 event() {
         return this.event;
@@ -163,14 +163,14 @@ public class ExistingAudienceSegment {
     }
 
     /**
-     * Description of the audience segment.
+     * Additional text about the audience segment.
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
 
     /**
-     * ID of the audience segment.
+     * Audience segment ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -227,7 +227,7 @@ public class ExistingAudienceSegment {
     }
 
     /**
-     * ID of the event.
+     * Represents an event by its ID.
      */
     public ExistingAudienceSegment withEvent(@Nonnull Event3 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -243,7 +243,7 @@ public class ExistingAudienceSegment {
     }
 
     /**
-     * Description of the audience segment.
+     * Additional text about the audience segment.
      */
     public ExistingAudienceSegment withDescription(@Nullable String description) {
         this.description = description;
@@ -251,7 +251,7 @@ public class ExistingAudienceSegment {
     }
 
     /**
-     * ID of the audience segment.
+     * Audience segment ID.
      */
     public ExistingAudienceSegment withId(@Nullable String id) {
         this.id = id;
@@ -387,7 +387,7 @@ public class ExistingAudienceSegment {
         }
 
         /**
-         * ID of the event.
+         * Represents an event by its ID.
          */
         public Builder event(@Nonnull Event3 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -403,7 +403,7 @@ public class ExistingAudienceSegment {
         }
 
         /**
-         * Description of the audience segment.
+         * Additional text about the audience segment.
          */
         public Builder description(@Nullable String description) {
             this.description = description;
@@ -411,7 +411,7 @@ public class ExistingAudienceSegment {
         }
 
         /**
-         * ID of the audience segment.
+         * Audience segment ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

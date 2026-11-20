@@ -66,11 +66,11 @@ public class GetRfpSuppliersRequest {
      * <p>The following fields are expandable:
      * * leadSource
      * * **Scope**: rfp/rfp-lead-sources:read
-     * * **Reference**: <a href="#tag/RFP-Management/operation/getRfpLeadSource">Get RFP Lead Source</a>
+     * * **Reference**: [Get RFP Lead Source](#tag/RFP-Management/operation/getRfpLeadSource)
      * * leadSource.section
      * * **Scope**: rfp/rfp-lead-sources:read
-     * * **Reference**: <a href="#tag/RFP-Management/operation/getRfpLeadSourceSection">Get RFP Lead Source
-     * Section</a>
+     * * **Reference**: [Get RFP Lead Source
+     * Section](#tag/RFP-Management/operation/getRfpLeadSourceSection)
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=false,name=expand")
     private List<LeadSourceExpand> expand;
@@ -145,11 +145,11 @@ public class GetRfpSuppliersRequest {
      * <p>The following fields are expandable:
      * * leadSource
      * * **Scope**: rfp/rfp-lead-sources:read
-     * * **Reference**: <a href="#tag/RFP-Management/operation/getRfpLeadSource">Get RFP Lead Source</a>
+     * * **Reference**: [Get RFP Lead Source](#tag/RFP-Management/operation/getRfpLeadSource)
      * * leadSource.section
      * * **Scope**: rfp/rfp-lead-sources:read
-     * * **Reference**: <a href="#tag/RFP-Management/operation/getRfpLeadSourceSection">Get RFP Lead Source
-     * Section</a>
+     * * **Reference**: [Get RFP Lead Source
+     * Section](#tag/RFP-Management/operation/getRfpLeadSourceSection)
      */
     public Optional<List<LeadSourceExpand>> expand() {
         return Optional.ofNullable(this.expand);
@@ -215,11 +215,11 @@ public class GetRfpSuppliersRequest {
      * <p>The following fields are expandable:
      * * leadSource
      * * **Scope**: rfp/rfp-lead-sources:read
-     * * **Reference**: <a href="#tag/RFP-Management/operation/getRfpLeadSource">Get RFP Lead Source</a>
+     * * **Reference**: [Get RFP Lead Source](#tag/RFP-Management/operation/getRfpLeadSource)
      * * leadSource.section
      * * **Scope**: rfp/rfp-lead-sources:read
-     * * **Reference**: <a href="#tag/RFP-Management/operation/getRfpLeadSourceSection">Get RFP Lead Source
-     * Section</a>
+     * * **Reference**: [Get RFP Lead Source
+     * Section](#tag/RFP-Management/operation/getRfpLeadSourceSection)
      */
     public GetRfpSuppliersRequest withExpand(@Nullable List<LeadSourceExpand> expand) {
         this.expand = expand;
@@ -336,11 +336,11 @@ public class GetRfpSuppliersRequest {
          * <p>The following fields are expandable:
          * * leadSource
          * * **Scope**: rfp/rfp-lead-sources:read
-         * * **Reference**: <a href="#tag/RFP-Management/operation/getRfpLeadSource">Get RFP Lead Source</a>
+         * * **Reference**: [Get RFP Lead Source](#tag/RFP-Management/operation/getRfpLeadSource)
          * * leadSource.section
          * * **Scope**: rfp/rfp-lead-sources:read
-         * * **Reference**: <a href="#tag/RFP-Management/operation/getRfpLeadSourceSection">Get RFP Lead Source
-         * Section</a>
+         * * **Reference**: [Get RFP Lead Source
+         * Section](#tag/RFP-Management/operation/getRfpLeadSourceSection)
          */
         public Builder expand(@Nullable List<LeadSourceExpand> expand) {
             this.expand = expand;

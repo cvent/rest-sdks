@@ -9,7 +9,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type InvoiceFileFile = {
   /**
-   * The ID of the invoice.
+   * The invoice ID.
    */
   id?: string | undefined;
 };

@@ -51,7 +51,7 @@ namespace Cvent.SDK.Models.Components
         public string? Note { get; set; }
 
         /// <summary>
-        /// Model representing a distribution list info. Only required if the contact group type is DISTRIBUTION_LIST.
+        /// Distribution list settings for a contact group, including its security type, internal note, and status. This object is required only when the contact group type is `DISTRIBUTION_LIST`.
         /// </summary>
         [JsonProperty("distributionListInfo")]
         public DistributionListInfoInput? DistributionListInfo { get; set; }

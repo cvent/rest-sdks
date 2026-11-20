@@ -23,7 +23,7 @@ export type VideoRenditionLink = {
 };
 
 /**
- * Video rendition
+ * A video rendition with its type, location, and dimensions.
  */
 export type VideoRendition = {
   /**

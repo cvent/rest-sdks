@@ -5,18 +5,30 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
+import com.cvent.models.components.RfpRequest;
 import com.cvent.models.operations.GetRFPRequest;
 import com.cvent.models.operations.GetRfpLeadSourceRequest;
 import com.cvent.models.operations.GetRfpLeadSourceSectionRequest;
+import com.cvent.models.operations.SubmitRFPRequest;
+import com.cvent.models.operations.UpdateRFPRequest;
+import com.cvent.models.operations.async.CreateRFPRequestBuilder;
+import com.cvent.models.operations.async.CreateRFPResponse;
 import com.cvent.models.operations.async.GetRFPRequestBuilder;
 import com.cvent.models.operations.async.GetRFPResponse;
 import com.cvent.models.operations.async.GetRfpLeadSourceRequestBuilder;
 import com.cvent.models.operations.async.GetRfpLeadSourceResponse;
 import com.cvent.models.operations.async.GetRfpLeadSourceSectionRequestBuilder;
 import com.cvent.models.operations.async.GetRfpLeadSourceSectionResponse;
+import com.cvent.models.operations.async.SubmitRFPRequestBuilder;
+import com.cvent.models.operations.async.SubmitRFPResponse;
+import com.cvent.models.operations.async.UpdateRFPRequestBuilder;
+import com.cvent.models.operations.async.UpdateRFPResponse;
+import com.cvent.operations.CreateRFP;
 import com.cvent.operations.GetRFP;
 import com.cvent.operations.GetRfpLeadSource;
 import com.cvent.operations.GetRfpLeadSourceSection;
+import com.cvent.operations.SubmitRFP;
+import com.cvent.operations.UpdateRFP;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
@@ -44,6 +56,44 @@ public class AsyncRFPManagement {
      */
     public RFPManagement sync() {
         return syncSDK;
+    }
+
+    /**
+     * Create RFP
+     *
+     * <p>Creates a new RFP with the provided details.
+     *
+     * @return The async call builder
+     */
+    public CreateRFPRequestBuilder createRFP() {
+        return new CreateRFPRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Create RFP
+     *
+     * <p>Creates a new RFP with the provided details.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<CreateRFPResponse>} - The async response
+     */
+    public CompletableFuture<CreateRFPResponse> createRFP(@Nonnull RfpRequest request) {
+        return createRFP(request, null);
+    }
+
+    /**
+     * Create RFP
+     *
+     * <p>Creates a new RFP with the provided details.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateRFPResponse>} - The async response
+     */
+    public CompletableFuture<CreateRFPResponse> createRFP(@Nonnull RfpRequest request, @Nullable Options options) {
+        AsyncRequestOperation<RfpRequest, CreateRFPResponse> operation =
+                new CreateRFP.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
     /**
@@ -149,7 +199,7 @@ public class AsyncRFPManagement {
     /**
      * Get RFP
      *
-     * <p>Returns basic details of the given RFP.
+     * <p>Returns the basic details of an RFP.
      *
      * @return The async call builder
      */
@@ -160,7 +210,7 @@ public class AsyncRFPManagement {
     /**
      * Get RFP
      *
-     * <p>Returns basic details of the given RFP.
+     * <p>Returns the basic details of an RFP.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetRFPResponse>} - The async response
@@ -172,7 +222,7 @@ public class AsyncRFPManagement {
     /**
      * Get RFP
      *
-     * <p>Returns basic details of the given RFP.
+     * <p>Returns the basic details of an RFP.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -181,6 +231,87 @@ public class AsyncRFPManagement {
     public CompletableFuture<GetRFPResponse> getRFP(@Nonnull GetRFPRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetRFPRequest, GetRFPResponse> operation =
                 new GetRFP.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Update RFP
+     *
+     * <p>Updates an existing RFP with the provided details.
+     *
+     * @return The async call builder
+     */
+    public UpdateRFPRequestBuilder updateRFP() {
+        return new UpdateRFPRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update RFP
+     *
+     * <p>Updates an existing RFP with the provided details.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<UpdateRFPResponse>} - The async response
+     */
+    public CompletableFuture<UpdateRFPResponse> updateRFP(@Nonnull UpdateRFPRequest request) {
+        return updateRFP(request, null);
+    }
+
+    /**
+     * Update RFP
+     *
+     * <p>Updates an existing RFP with the provided details.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateRFPResponse>} - The async response
+     */
+    public CompletableFuture<UpdateRFPResponse> updateRFP(
+            @Nonnull UpdateRFPRequest request, @Nullable Options options) {
+        AsyncRequestOperation<UpdateRFPRequest, UpdateRFPResponse> operation =
+                new UpdateRFP.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Submit RFP
+     *
+     * <p>Submits an existing RFP. Transitions the RFP from draft status to active or pending status based on
+     * whether the RFP approval process is enabled.
+     *
+     * @return The async call builder
+     */
+    public SubmitRFPRequestBuilder submitRFP() {
+        return new SubmitRFPRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Submit RFP
+     *
+     * <p>Submits an existing RFP. Transitions the RFP from draft status to active or pending status based on
+     * whether the RFP approval process is enabled.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<SubmitRFPResponse>} - The async response
+     */
+    public CompletableFuture<SubmitRFPResponse> submitRFP(@Nonnull SubmitRFPRequest request) {
+        return submitRFP(request, null);
+    }
+
+    /**
+     * Submit RFP
+     *
+     * <p>Submits an existing RFP. Transitions the RFP from draft status to active or pending status based on
+     * whether the RFP approval process is enabled.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<SubmitRFPResponse>} - The async response
+     */
+    public CompletableFuture<SubmitRFPResponse> submitRFP(
+            @Nonnull SubmitRFPRequest request, @Nullable Options options) {
+        AsyncRequestOperation<SubmitRFPRequest, SubmitRFPResponse> operation =
+                new SubmitRFP.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

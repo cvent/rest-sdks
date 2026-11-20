@@ -20,7 +20,7 @@ namespace Cvent.SDK.Models.Components
     public class VideoView
     {
         /// <summary>
-        /// The contact details who watched a video.
+        /// A contact ID associated with a video view.
         /// </summary>
         [JsonProperty("contact")]
         public Contact3? Contact { get; set; }
@@ -39,7 +39,7 @@ namespace Cvent.SDK.Models.Components
         public Device1? Device { get; set; }
 
         /// <summary>
-        /// The details of a video.
+        /// A video ID associated with a video view.
         /// </summary>
         [JsonProperty("video")]
         public Video1? Video { get; set; }

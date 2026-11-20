@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Paginated response containing alternate travel answers submitted by attendees who opt out of air or hotel bookings.
+    /// Paginated response containing alternate travel answers submitted by attendees who opt out of air, hotel, or train bookings.
     /// </summary>
     public class AlternateTravelPaginatedResponse
     {

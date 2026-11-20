@@ -16,7 +16,7 @@ import java.lang.String;
  */
 public class BudgetCategoryInput {
     /**
-     * Unique identifier of the budget category.
+     * Budget category ID.
      */
     @JsonProperty("id")
     private long id;
@@ -27,7 +27,7 @@ public class BudgetCategoryInput {
     }
 
     /**
-     * Unique identifier of the budget category.
+     * Budget category ID.
      */
     public long id() {
         return this.id;
@@ -38,7 +38,7 @@ public class BudgetCategoryInput {
     }
 
     /**
-     * Unique identifier of the budget category.
+     * Budget category ID.
      */
     public BudgetCategoryInput withId(long id) {
         this.id = id;
@@ -77,7 +77,7 @@ public class BudgetCategoryInput {
         }
 
         /**
-         * Unique identifier of the budget category.
+         * Budget category ID.
          */
         public Builder id(long id) {
             this.id = id;

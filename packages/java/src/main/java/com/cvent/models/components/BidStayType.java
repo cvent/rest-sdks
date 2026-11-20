@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * BidStayType
  *
- * <p>Bid stay type.
+ * <p>The stay type of the bid.
  */
 public enum BidStayType {
     DAILY("daily"),

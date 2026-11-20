@@ -12,7 +12,7 @@ import {
 } from "./reconciliationstatus.js";
 
 /**
- * The identifier of reconciled budget item.
+ * Reconciled budget item ID.
  */
 export type TransactionReconciliationBudgetItem = {
   /**
@@ -26,11 +26,11 @@ export type TransactionReconciliationBudgetItem = {
  */
 export type TransactionReconciliation = {
   /**
-   * The identifier of reconciled budget item.
+   * Reconciled budget item ID.
    */
   budgetItem?: TransactionReconciliationBudgetItem | undefined;
   /**
-   * This is used to denote the reconciliation status for a transaction.
+   * Reconciliation status of the transaction: Reconciled or Not Reconciled.
    */
   status?: ReconciliationStatus | undefined;
   /**

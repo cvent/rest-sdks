@@ -1,6 +1,6 @@
 # BudgetItemResponseEvent
 
-The identifier of the Event.
+Event ID.
 
 ## Example Usage
 

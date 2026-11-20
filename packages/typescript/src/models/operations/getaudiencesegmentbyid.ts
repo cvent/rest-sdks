@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 
 export type GetAudienceSegmentByIdRequest = {
   /**
-   * ID of an audience segment.
+   * Audience segment ID.
    */
   audienceSegmentId: string;
 };

@@ -14,42 +14,42 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Group and meeting information.
+    /// The group and meeting information of the proposal.
     /// </summary>
     public class TravelProposalGroupAndMeeting
     {
         /// <summary>
-        /// Run of house rate information.
+        /// The run of house rates of the proposal.
         /// </summary>
         [JsonProperty("runOfHouseRate")]
         public TravelProposalGroupAndMeetingRunOfHouseRate? RunOfHouseRate { get; set; }
 
         /// <summary>
-        /// Day delegate rate information. This represents the costs for hosting meeting at the venue for a half or full day.
+        /// The day delegate rates of the proposal. A day delegate rate is the cost to host a meeting at the venue for a half day or a full day.
         /// </summary>
         [JsonProperty("dayDelegateRate")]
         public TravelProposalGroupAndMeetingDayDelegateRate? DayDelegateRate { get; set; }
 
         /// <summary>
-        /// Tax and service charge information.
+        /// The tax and service charge information of the proposal.
         /// </summary>
         [JsonProperty("taxAndServiceCharge")]
         public TravelProposalGroupAndMeetingTaxAndServiceCharge? TaxAndServiceCharge { get; set; }
 
         /// <summary>
-        /// Meeting room basic information.
+        /// The basic information about the meeting rooms of the property.
         /// </summary>
         [JsonProperty("meetingRoomBasicInformation")]
         public TravelProposalGroupAndMeetingMeetingRoomBasicInformation? MeetingRoomBasicInformation { get; set; }
 
         /// <summary>
-        /// Group and meeting amenity info.
+        /// The group and meeting amenities of the proposal.
         /// </summary>
         [JsonProperty("amenity")]
         public TravelProposalGroupAndMeetingAmenity? Amenity { get; set; }
 
         /// <summary>
-        /// Break-out room information.
+        /// The break-out room information of the proposal.
         /// </summary>
         [JsonProperty("breakOutRoom")]
         public TravelProposalGroupAndMeetingBreakOutRoom? BreakOutRoom { get; set; }

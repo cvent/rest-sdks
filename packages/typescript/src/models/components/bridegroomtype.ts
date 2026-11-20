@@ -21,3 +21,7 @@ export type BrideGroomType = ClosedEnum<typeof BrideGroomType>;
 export const BrideGroomType$inboundSchema: z.ZodNativeEnum<
   typeof BrideGroomType
 > = z.nativeEnum(BrideGroomType);
+/** @internal */
+export const BrideGroomType$outboundSchema: z.ZodNativeEnum<
+  typeof BrideGroomType
+> = BrideGroomType$inboundSchema;

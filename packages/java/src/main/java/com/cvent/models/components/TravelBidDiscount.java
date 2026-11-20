@@ -21,7 +21,7 @@ import java.util.Optional;
  */
 public class TravelBidDiscount {
     /**
-     * ID of the property's room.
+     * The property room that the discount applies to.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("propertyRoom")
@@ -35,10 +35,11 @@ public class TravelBidDiscount {
     private Long discount;
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
@@ -59,7 +60,7 @@ public class TravelBidDiscount {
     }
 
     /**
-     * ID of the property's room.
+     * The property room that the discount applies to.
      */
     public Optional<TravelBidDiscountPropertyRoom> propertyRoom() {
         return Optional.ofNullable(this.propertyRoom);
@@ -73,10 +74,11 @@ public class TravelBidDiscount {
     }
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     public Optional<BidItemStatusType> status() {
         return Optional.ofNullable(this.status);
@@ -87,7 +89,7 @@ public class TravelBidDiscount {
     }
 
     /**
-     * ID of the property's room.
+     * The property room that the discount applies to.
      */
     public TravelBidDiscount withPropertyRoom(@Nullable TravelBidDiscountPropertyRoom propertyRoom) {
         this.propertyRoom = propertyRoom;
@@ -103,10 +105,11 @@ public class TravelBidDiscount {
     }
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     public TravelBidDiscount withStatus(@Nullable BidItemStatusType status) {
         this.status = status;
@@ -152,7 +155,7 @@ public class TravelBidDiscount {
         }
 
         /**
-         * ID of the property's room.
+         * The property room that the discount applies to.
          */
         public Builder propertyRoom(@Nullable TravelBidDiscountPropertyRoom propertyRoom) {
             this.propertyRoom = propertyRoom;
@@ -168,10 +171,11 @@ public class TravelBidDiscount {
         }
 
         /**
-         * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-         * and the hotel, if they agree, can update the item to deleted.
+         * The negotiation status of the bid item. For example, the corporation marks an item as
+         * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+         * hotel does not offer the amenity.
          *
-         * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+         * <p>Applies only to the supply side.
          */
         public Builder status(@Nullable BidItemStatusType status) {
             this.status = status;

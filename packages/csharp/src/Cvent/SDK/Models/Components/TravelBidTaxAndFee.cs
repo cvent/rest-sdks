@@ -19,37 +19,37 @@ namespace Cvent.SDK.Models.Components
     public class TravelBidTaxAndFee
     {
         /// <summary>
-        /// Bid tax type.
+        /// The type of the tax or fee.
         /// </summary>
         [JsonProperty("code")]
         public TaxType1? Code { get; set; }
 
         /// <summary>
-        /// The amount of the tax/fee. This may be a percent or monetary value depending on the value in `percent`.
+        /// The amount of the tax or fee. The `percent` field sets whether the amount is a percentage or a monetary value.
         /// </summary>
         [JsonProperty("amount")]
         public double? Amount { get; set; }
 
         /// <summary>
-        /// True indicates the tax/fee amount represents a percentage, instead of a monetary value.
+        /// True indicates the amount is a percentage. False indicates a monetary value.
         /// </summary>
         [JsonProperty("percent")]
         public bool? Percent { get; set; } = false;
 
         /// <summary>
-        /// True indicates the tax/fee included in the negotiated rate.
+        /// True indicates the tax or fee is included in the negotiated rate.
         /// </summary>
         [JsonProperty("included")]
         public bool? Included { get; set; } = false;
 
         /// <summary>
-        /// Additional notes on the tax/fee.
+        /// Additional notes on the tax or fee.
         /// </summary>
         [JsonProperty("notes")]
         public string? Notes { get; set; }
 
         /// <summary>
-        /// The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested, and the hotel, if they agree, can update the item to deleted. not_offered indicates the hotel does not offer this amenity (supply side only).
+        /// The negotiation status of the bid item. For example, the corporation marks an item as `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The hotel does not offer the amenity. Applies only to the supply side.
         /// </summary>
         [JsonProperty("status")]
         public BidItemStatusType? Status { get; set; }

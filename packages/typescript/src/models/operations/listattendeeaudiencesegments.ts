@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListAttendeeAudienceSegmentsRequest = {
   /**
-   * ID of an attendee.
+   * Attendee ID.
    */
   attendeeId: string;
   /**

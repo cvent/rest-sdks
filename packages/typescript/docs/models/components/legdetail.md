@@ -1,6 +1,6 @@
 # LegDetail
 
-Representation of a leg detail in air request.
+One air request itinerary leg with an origin, destination, date, and time.
 
 ## Example Usage
 

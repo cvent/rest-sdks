@@ -13,7 +13,7 @@ import java.util.Optional;
 
 public class DeleteCardTransactionRequest {
     /**
-     * Unique ID of a transaction.
+     * Transaction ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=transactionId")
     private String transactionId;
@@ -25,7 +25,7 @@ public class DeleteCardTransactionRequest {
     }
 
     /**
-     * Unique ID of a transaction.
+     * Transaction ID.
      */
     public String transactionId() {
         return this.transactionId;
@@ -36,7 +36,7 @@ public class DeleteCardTransactionRequest {
     }
 
     /**
-     * Unique ID of a transaction.
+     * Transaction ID.
      */
     public DeleteCardTransactionRequest withTransactionId(@Nonnull String transactionId) {
         this.transactionId = Utils.checkNotNull(transactionId, "transactionId");
@@ -75,7 +75,7 @@ public class DeleteCardTransactionRequest {
         }
 
         /**
-         * Unique ID of a transaction.
+         * Transaction ID.
          */
         public Builder transactionId(@Nonnull String transactionId) {
             this.transactionId = Utils.checkNotNull(transactionId, "transactionId");

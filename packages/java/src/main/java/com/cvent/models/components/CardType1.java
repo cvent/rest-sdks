@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * CardType1
  *
- * <p>This is used to denote the card type for a card.
+ * <p>Form of payment card: Virtual or Plastic.
  */
 public enum CardType1 {
     VIRTUAL("Virtual"),

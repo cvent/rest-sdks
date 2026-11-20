@@ -92,3 +92,6 @@ export type SpaceArea = ClosedEnum<typeof SpaceArea>;
 /** @internal */
 export const SpaceArea$inboundSchema: z.ZodNativeEnum<typeof SpaceArea> = z
   .nativeEnum(SpaceArea);
+/** @internal */
+export const SpaceArea$outboundSchema: z.ZodNativeEnum<typeof SpaceArea> =
+  SpaceArea$inboundSchema;

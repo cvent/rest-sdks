@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 
 export type DisassociateAttendeeFromAudienceSegmentsRequest = {
   /**
-   * ID of an attendee.
+   * Attendee ID.
    */
   attendeeId: string;
 };

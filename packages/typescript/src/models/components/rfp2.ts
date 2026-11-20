@@ -58,20 +58,6 @@ import {
 } from "./weddingdetails1.js";
 
 /**
- * If you omit `leadSource`, Cvent sets the default lead source. A caller can send only the default lead source. Any other `leadSource.id` or `leadSource.section.id` returns 400.
- */
-export type RfpLeadSource1 = {
-  /**
-   * Unique identifier for source generating the RFP. Details about this lead source can be fetched using <a href="#tag/RFP-Management/operation/getRfpLeadSource">lead source API.</a>
-   */
-  id?: string | undefined;
-  /**
-   * Represents lead source section details, which is a sub area of source generating the RFP.
-   */
-  section?: LeadSourceSection | undefined;
-};
-
-/**
  * RFP types based on event requirements.
  */
 export const RfpType = {
@@ -85,6 +71,20 @@ export const RfpType = {
  * RFP types based on event requirements.
  */
 export type RfpType = ClosedEnum<typeof RfpType>;
+
+/**
+ * Lead source of the RFP. This field is set during RFP creation and cannot be modified afterwards.
+ */
+export type RfpLeadSource1 = {
+  /**
+   * Unique identifier for source generating the RFP. Details about this lead source can be fetched using <a href="#tag/RFP-Management/operation/getRfpLeadSource">lead source API.</a>
+   */
+  id?: string | undefined;
+  /**
+   * Represents lead source section details, which is a sub area of source generating the RFP.
+   */
+  section?: LeadSourceSection | undefined;
+};
 
 /**
  * Basic RFP details
@@ -135,7 +135,7 @@ export type Rfp2 = {
    */
   contact?: Contact1 | undefined;
   /**
-   * Details of organization which is hosting the event.
+   * Details of the organization hosting the event. When organization.id identifies one of the account's organization profiles, the organization details come from that profile and the other fields in this object are ignored on input. When organization.id is omitted or is the nil UUID, the fields in this object describe a new organization for this RFP, and name and type are required for an active RFP.
    */
   rfpEventOrganization?: EventOrganization1 | undefined;
   /**
@@ -204,10 +204,6 @@ export type Rfp2 = {
    * True indicates award details can be shared with other suppliers added in RFP.
    */
   shareAwardDetails?: boolean | undefined;
-  /**
-   * If you omit `leadSource`, Cvent sets the default lead source. A caller can send only the default lead source. Any other `leadSource.id` or `leadSource.section.id` returns 400.
-   */
-  leadSource?: RfpLeadSource1 | undefined;
   /**
    * Unique identifier for RFPs originating from outside Cvent network provided by source system where RFP was created.
    */
@@ -311,7 +307,15 @@ export type Rfp2 = {
    * Represents the AI generation source for the RFP. This field is set during RFP creation and cannot be modified afterwards.
    */
   aiRfpGenerationSource?: string | undefined;
+  /**
+   * Lead source of the RFP. This field is set during RFP creation and cannot be modified afterwards.
+   */
+  leadSource?: RfpLeadSource1 | undefined;
 };
+
+/** @internal */
+export const RfpType$inboundSchema: z.ZodNativeEnum<typeof RfpType> = z
+  .nativeEnum(RfpType);
 
 /** @internal */
 export const RfpLeadSource1$inboundSchema: z.ZodType<
@@ -332,10 +336,6 @@ export function rfpLeadSource1FromJSON(
     `Failed to parse 'RfpLeadSource1' from JSON`,
   );
 }
-
-/** @internal */
-export const RfpType$inboundSchema: z.ZodNativeEnum<typeof RfpType> = z
-  .nativeEnum(RfpType);
 
 /** @internal */
 export const Rfp2$inboundSchema: z.ZodType<Rfp2, z.ZodTypeDef, unknown> = z
@@ -370,7 +370,6 @@ export const Rfp2$inboundSchema: z.ZodType<Rfp2, z.ZodTypeDef, unknown> = z
     allowEmailNotifications: z.boolean().optional(),
     notificationRecipients: z.array(RecipientInfo$inboundSchema).optional(),
     shareAwardDetails: z.boolean().optional(),
-    leadSource: z.lazy(() => RfpLeadSource1$inboundSchema).optional(),
     sourceId: z.string().optional(),
     showcaseEnabled: z.boolean().optional(),
     autoAddToShowcaseEnabled: z.boolean().optional(),
@@ -409,6 +408,7 @@ export const Rfp2$inboundSchema: z.ZodType<Rfp2, z.ZodTypeDef, unknown> = z
     awardedExternally: z.boolean().default(false),
     finishedAwarding: z.boolean().default(false),
     aiRfpGenerationSource: z.string().optional(),
+    leadSource: z.lazy(() => RfpLeadSource1$inboundSchema).optional(),
   });
 
 export function rfp2FromJSON(

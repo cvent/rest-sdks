@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Model representing an obfuscation status of a contact.
+    /// The status, job ID, and contact ID for a contact obfuscation request.
     /// </summary>
     public class ContactObfuscationStatus
     {
@@ -35,13 +35,13 @@ namespace Cvent.SDK.Models.Components
         public ContactObfuscationStatusType? Status { get; set; }
 
         /// <summary>
-        /// The obfuscation job identifier.
+        /// The ID of the obfuscation job.
         /// </summary>
         [JsonProperty("obfuscateId")]
         public string? ObfuscateId { get; set; }
 
         /// <summary>
-        /// A contact id.
+        /// An object containing the ID of a contact.
         /// </summary>
         [JsonProperty("contact")]
         public ContactId? Contact { get; set; }

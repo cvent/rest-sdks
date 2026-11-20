@@ -21,13 +21,13 @@ namespace Cvent.SDK.Models.Components
     public class CardTransaction
     {
         /// <summary>
-        /// The identifier of the Event.
+        /// Event ID.
         /// </summary>
         [JsonProperty("event")]
         public CardTransactionEvent? Event { get; set; }
 
         /// <summary>
-        /// The identifier of the Card.
+        /// Card ID.
         /// </summary>
         [JsonProperty("card")]
         public Card? Card { get; set; }
@@ -72,13 +72,13 @@ namespace Cvent.SDK.Models.Components
         public CardTransactionTransactionReconciliation? Reconciliation { get; set; }
 
         /// <summary>
-        /// The list of reconciled item.
+        /// List of reconciliation records.
         /// </summary>
         [JsonProperty("reconciliations")]
         public List<TransactionReconciliation>? Reconciliations { get; set; }
 
         /// <summary>
-        /// The list of transaction description.
+        /// List of transaction descriptions.
         /// </summary>
         [JsonProperty("descriptions")]
         public List<string>? Descriptions { get; set; }

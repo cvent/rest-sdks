@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The identifier of the Card.
+    /// Card ID.
     /// </summary>
     public class Card
     {

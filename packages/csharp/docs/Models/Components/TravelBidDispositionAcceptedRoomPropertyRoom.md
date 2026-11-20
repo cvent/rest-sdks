@@ -1,6 +1,6 @@
 # TravelBidDispositionAcceptedRoomPropertyRoom
 
-ID of the property's room.
+The accepted property room.
 
 
 ## Fields

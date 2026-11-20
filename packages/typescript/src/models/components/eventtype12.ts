@@ -40,3 +40,6 @@ export type EventType12 = ClosedEnum<typeof EventType12>;
 /** @internal */
 export const EventType12$inboundSchema: z.ZodNativeEnum<typeof EventType12> = z
   .nativeEnum(EventType12);
+/** @internal */
+export const EventType12$outboundSchema: z.ZodNativeEnum<typeof EventType12> =
+  EventType12$inboundSchema;

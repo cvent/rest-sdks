@@ -1,6 +1,6 @@
 # VideoThumbnail
 
-Video thumbnail
+Video thumbnail metadata, including its URL, size, dimensions, type, and status.
 
 
 ## Fields

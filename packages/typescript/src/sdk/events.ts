@@ -1080,7 +1080,7 @@ export class Events extends ClientSDK {
    * present on the event's registration path. See the following
    * [article](https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown) for
    * more information.
-   * The request is processed asynchronously after the downstream registration call returns. A successful response means that the enrollment request was accepted for processing; it does not guarantee that the attendee is already enrolled or immediately queryable.
+   * The API returns `204` when the registration system accepts the enrollment request. The registration system then enrolls the attendee asynchronously. A read of the session registrations can omit the attendee until the enrollment completes. To confirm the enrollment, wait, and then repeat the read.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */

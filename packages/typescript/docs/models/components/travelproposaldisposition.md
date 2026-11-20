@@ -1,6 +1,6 @@
 # TravelProposalDisposition
 
-Represent proposal disposition details.
+The disposition of the travel proposal.
 
 ## Example Usage
 
@@ -32,5 +32,5 @@ let value: TravelProposalDisposition = {
 
 | Field                                                                                | Type                                                                                 | Required                                                                             | Description                                                                          | Example                                                                              |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `bidDispositions`                                                                    | [components.TravelBidDisposition](../../models/components/travelbiddisposition.md)[] | :heavy_minus_sign:                                                                   | List of bid dispositions.                                                            |                                                                                      |
-| `groupAndMeetingAccepted`                                                            | *boolean*                                                                            | :heavy_minus_sign:                                                                   | Indicates if the group and meeting is accepted.                                      | true                                                                                 |
+| `bidDispositions`                                                                    | [components.TravelBidDisposition](../../models/components/travelbiddisposition.md)[] | :heavy_minus_sign:                                                                   | The dispositions of the bids in the proposal.                                        |                                                                                      |
+| `groupAndMeetingAccepted`                                                            | *boolean*                                                                            | :heavy_minus_sign:                                                                   | True indicates the group and meeting information is accepted.                        | true                                                                                 |

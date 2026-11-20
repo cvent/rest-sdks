@@ -9,6 +9,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BrideGroomType,
   BrideGroomType$inboundSchema,
+  BrideGroomType$outboundSchema,
 } from "./bridegroomtype.js";
 
 /**
@@ -34,7 +35,25 @@ export const WeddingPartner$inboundSchema: z.ZodType<
   type: BrideGroomType$inboundSchema.optional(),
   name: z.string().optional(),
 });
+/** @internal */
+export type WeddingPartner$Outbound = {
+  type?: string | undefined;
+  name?: string | undefined;
+};
 
+/** @internal */
+export const WeddingPartner$outboundSchema: z.ZodType<
+  WeddingPartner$Outbound,
+  z.ZodTypeDef,
+  WeddingPartner
+> = z.object({
+  type: BrideGroomType$outboundSchema.optional(),
+  name: z.string().optional(),
+});
+
+export function weddingPartnerToJSON(weddingPartner: WeddingPartner): string {
+  return JSON.stringify(WeddingPartner$outboundSchema.parse(weddingPartner));
+}
 export function weddingPartnerFromJSON(
   jsonString: string,
 ): SafeParseResult<WeddingPartner, SDKValidationError> {

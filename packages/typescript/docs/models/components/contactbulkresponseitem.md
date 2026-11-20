@@ -1,6 +1,6 @@
 # ContactBulkResponseItem
 
-This entity is used to represent a single item that is returned as part of a Bulk request call.
+Result for one contact in a bulk contact operation.
 
 ## Example Usage
 
@@ -18,8 +18,8 @@ let value: ContactBulkResponseItem = {
     lastName: "Potterfield",
     middleName: "A",
     nickname: "Harry",
-    email: "h.potterfield@test.com",
-    ccEmail: "h.porter@tesing.com",
+    email: "h.potterfield@example.com",
+    ccEmail: "h.porter@example.com",
     gender: "Male",
     company: "Cvent Inc.",
     designation: "CPA",

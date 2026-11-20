@@ -18,7 +18,7 @@ namespace Cvent.SDK.Models.Components
     public class Organization
     {
         /// <summary>
-        /// Unique identifier for the organization.
+        /// ID of one of the account's organization profiles. Omit it or send the nil UUID (00000000-0000-0000-0000-000000000000) to describe a new organization in the parent rfpEventOrganization object. Responses return the nil UUID for a new organization.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

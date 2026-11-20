@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * TravelBidRoom1PropertyRoom
  *
- * <p>Property Room Detail
+ * <p>The property room in the bid.
  */
 public class TravelBidRoom1PropertyRoom {
     /**
@@ -34,7 +34,7 @@ public class TravelBidRoom1PropertyRoom {
     private String name;
 
     /**
-     * Room code of the property room.
+     * The room code of the property room.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("code")
@@ -69,7 +69,7 @@ public class TravelBidRoom1PropertyRoom {
     }
 
     /**
-     * Room code of the property room.
+     * The room code of the property room.
      */
     public Optional<String> code() {
         return Optional.ofNullable(this.code);
@@ -96,7 +96,7 @@ public class TravelBidRoom1PropertyRoom {
     }
 
     /**
-     * Room code of the property room.
+     * The room code of the property room.
      */
     public TravelBidRoom1PropertyRoom withCode(@Nullable String code) {
         this.code = code;
@@ -157,7 +157,7 @@ public class TravelBidRoom1PropertyRoom {
         }
 
         /**
-         * Room code of the property room.
+         * The room code of the property room.
          */
         public Builder code(@Nullable String code) {
             this.code = code;

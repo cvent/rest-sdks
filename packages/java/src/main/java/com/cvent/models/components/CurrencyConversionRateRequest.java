@@ -44,7 +44,7 @@ public class CurrencyConversionRateRequest {
     private LocalDate endDate;
 
     /**
-     * The unique ID for this defined conversion rate.
+     * Currency conversion rate ID.
      */
     @JsonProperty("id")
     private String id;
@@ -91,7 +91,7 @@ public class CurrencyConversionRateRequest {
     }
 
     /**
-     * The unique ID for this defined conversion rate.
+     * Currency conversion rate ID.
      */
     public String id() {
         return this.id;
@@ -129,7 +129,7 @@ public class CurrencyConversionRateRequest {
     }
 
     /**
-     * The unique ID for this defined conversion rate.
+     * Currency conversion rate ID.
      */
     public CurrencyConversionRateRequest withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -213,7 +213,7 @@ public class CurrencyConversionRateRequest {
         }
 
         /**
-         * The unique ID for this defined conversion rate.
+         * Currency conversion rate ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

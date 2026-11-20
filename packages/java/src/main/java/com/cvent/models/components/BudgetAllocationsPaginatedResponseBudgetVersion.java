@@ -20,7 +20,7 @@ import java.util.Optional;
  */
 public class BudgetAllocationsPaginatedResponseBudgetVersion {
     /**
-     * Identifier of a particular budget version.
+     * Budget version ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -36,7 +36,7 @@ public class BudgetAllocationsPaginatedResponseBudgetVersion {
     }
 
     /**
-     * Identifier of a particular budget version.
+     * Budget version ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -47,7 +47,7 @@ public class BudgetAllocationsPaginatedResponseBudgetVersion {
     }
 
     /**
-     * Identifier of a particular budget version.
+     * Budget version ID.
      */
     public BudgetAllocationsPaginatedResponseBudgetVersion withId(@Nullable String id) {
         this.id = id;
@@ -86,7 +86,7 @@ public class BudgetAllocationsPaginatedResponseBudgetVersion {
         }
 
         /**
-         * Identifier of a particular budget version.
+         * Budget version ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

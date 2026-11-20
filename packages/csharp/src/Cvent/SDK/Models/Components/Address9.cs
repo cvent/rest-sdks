@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Address of the hotel.
+    /// Hotel address with a region, region code, and country.
     /// </summary>
     public class Address9
     {

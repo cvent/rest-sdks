@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved a paginated list of proposal static content.
+        /// Successfully retrieved a paginated list of the static content of travel proposals.
         /// </summary>
         public TravelProposalStaticContentListResponse? TravelProposalStaticContentListResponse { get; set; }
     }

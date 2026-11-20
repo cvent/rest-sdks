@@ -17,7 +17,7 @@ import {
 } from "./travelproposalbid1.js";
 
 /**
- * Represents bid disposition details.
+ * The disposition of a bid.
  */
 export type TravelBidDisposition = {
   /**
@@ -25,7 +25,7 @@ export type TravelBidDisposition = {
    */
   bid?: TravelProposalBid1 | undefined;
   /**
-   * List of accepted bid rooms.
+   * The accepted rooms of the bid.
    */
   acceptedBidRooms?: Array<TravelBidDispositionAcceptedRoom> | undefined;
   /**

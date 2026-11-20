@@ -87,7 +87,7 @@ namespace Cvent.SDK.Models.Components
         public Contact1? Contact { get; set; }
 
         /// <summary>
-        /// Details of organization which is hosting the event.
+        /// Details of the organization hosting the event. When organization.id identifies one of the account's organization profiles, the organization details come from that profile and the other fields in this object are ignored on input. When organization.id is omitted or is the nil UUID, the fields in this object describe a new organization for this RFP, and name and type are required for an active RFP.
         /// </summary>
         [JsonProperty("rfpEventOrganization")]
         public EventOrganization1? RfpEventOrganization { get; set; }
@@ -185,12 +185,6 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [JsonProperty("shareAwardDetails")]
         public bool? ShareAwardDetails { get; set; }
-
-        /// <summary>
-        /// If you omit `leadSource`, Cvent sets the default lead source. A caller can send only the default lead source. Any other `leadSource.id` or `leadSource.section.id` returns 400.
-        /// </summary>
-        [JsonProperty("leadSource")]
-        public RfpLeadSource1? LeadSource { get; set; }
 
         /// <summary>
         /// Unique identifier for RFPs originating from outside Cvent network provided by source system where RFP was created.
@@ -345,5 +339,11 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [JsonProperty("aiRfpGenerationSource")]
         public string? AiRfpGenerationSource { get; set; }
+
+        /// <summary>
+        /// Lead source of the RFP. This field is set during RFP creation and cannot be modified afterwards.
+        /// </summary>
+        [JsonProperty("leadSource")]
+        public RfpLeadSource1? LeadSource { get; set; }
     }
 }

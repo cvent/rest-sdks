@@ -12,7 +12,7 @@ import {
 } from "./budgetcostdetail.js";
 
 /**
- * The identifier of the Event.
+ * Event ID.
  */
 export type EventBudgetTotalsEvent = {
   /**
@@ -22,7 +22,7 @@ export type EventBudgetTotalsEvent = {
 };
 
 /**
- * The identifier of the Budget version for an event.
+ * Budget version details for the event.
  */
 export type Version = {
   /**
@@ -54,11 +54,11 @@ export type TotalHighLevelEstimate = {
  */
 export type EventBudgetTotals = {
   /**
-   * The identifier of the Event.
+   * Event ID.
    */
   event?: EventBudgetTotalsEvent | undefined;
   /**
-   * The identifier of the Budget version for an event.
+   * Budget version details for the event.
    */
   version?: Version | undefined;
   /**

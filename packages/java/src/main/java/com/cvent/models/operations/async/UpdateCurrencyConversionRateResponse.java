@@ -33,7 +33,7 @@ public class UpdateCurrencyConversionRateResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully updated currency conversion rate.
+     * Successfully updated a currency conversion rate.
      */
     private CurrencyConversionRateResponse currencyConversionRateResponse;
 
@@ -78,7 +78,7 @@ public class UpdateCurrencyConversionRateResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully updated currency conversion rate.
+     * Successfully updated a currency conversion rate.
      */
     public Optional<CurrencyConversionRateResponse> currencyConversionRateResponse() {
         return Optional.ofNullable(this.currencyConversionRateResponse);
@@ -113,7 +113,7 @@ public class UpdateCurrencyConversionRateResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully updated currency conversion rate.
+     * Successfully updated a currency conversion rate.
      */
     public UpdateCurrencyConversionRateResponse withCurrencyConversionRateResponse(
             @Nullable CurrencyConversionRateResponse currencyConversionRateResponse) {
@@ -195,7 +195,7 @@ public class UpdateCurrencyConversionRateResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully updated currency conversion rate.
+         * Successfully updated a currency conversion rate.
          */
         public Builder currencyConversionRateResponse(
                 @Nullable CurrencyConversionRateResponse currencyConversionRateResponse) {

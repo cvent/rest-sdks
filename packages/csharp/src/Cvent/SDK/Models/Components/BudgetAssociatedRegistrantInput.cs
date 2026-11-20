@@ -18,13 +18,13 @@ namespace Cvent.SDK.Models.Components
     public class BudgetAssociatedRegistrantInput
     {
         /// <summary>
-        /// Unique identifier for the invitee associated with the budget.
+        /// Invitee ID associated with the budget.
         /// </summary>
         [JsonProperty("inviteeId")]
         public string? InviteeId { get; set; }
 
         /// <summary>
-        /// Unique identifier for the contact associated with the budget.
+        /// Contact ID associated with the budget.
         /// </summary>
         [JsonProperty("contactId")]
         public string? ContactId { get; set; }

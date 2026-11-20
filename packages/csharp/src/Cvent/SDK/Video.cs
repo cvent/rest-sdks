@@ -108,7 +108,7 @@ namespace Cvent.SDK
         /// Create Text Track.
         /// </summary>
         /// <remarks>
-        /// Creates a new text track (VTT) object for a specific video. This endpoint does not directly handle the upload of VTT files but instead returns a location URL that you use to perform the upload.
+        /// Creates a new text track (VTT) object for a specific video using the details in the request body. This endpoint does not directly handle the upload of VTT files but instead returns a location URL that you use to perform the upload.
         /// </remarks>
         /// <param name="request">A <see cref="CreateTextTrackRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -905,7 +905,7 @@ namespace Cvent.SDK
         /// Create Text Track.
         /// </summary>
         /// <remarks>
-        /// Creates a new text track (VTT) object for a specific video. This endpoint does not directly handle the upload of VTT files but instead returns a location URL that you use to perform the upload.
+        /// Creates a new text track (VTT) object for a specific video using the details in the request body. This endpoint does not directly handle the upload of VTT files but instead returns a location URL that you use to perform the upload.
         /// </remarks>
         /// <param name="request">A <see cref="CreateTextTrackRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

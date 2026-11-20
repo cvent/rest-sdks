@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Bid status type.
+    /// The status of the bid.
     /// </summary>
     public enum BidStatusType
     {

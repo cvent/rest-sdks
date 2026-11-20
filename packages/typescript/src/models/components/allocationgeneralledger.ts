@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type AllocationGeneralLedger = {
   /**
-   * Identifier of a particular general ledger.
+   * General ledger ID.
    */
   id?: string | undefined;
 };

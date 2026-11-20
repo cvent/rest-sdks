@@ -13,7 +13,7 @@ import {
 } from "./contactobfuscationstatustype.js";
 
 /**
- * Model representing an obfuscation status of a contact.
+ * The status, job ID, and contact ID for a contact obfuscation request.
  */
 export type ContactObfuscationStatus = {
   /**
@@ -33,11 +33,11 @@ export type ContactObfuscationStatus = {
    */
   status?: ContactObfuscationStatusType | undefined;
   /**
-   * The obfuscation job identifier.
+   * The ID of the obfuscation job.
    */
   obfuscateId?: string | undefined;
   /**
-   * A contact id.
+   * An object containing the ID of a contact.
    */
   contact?: ContactId | undefined;
 };

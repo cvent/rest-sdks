@@ -33,7 +33,7 @@ public class MergeContactsResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * The successfully merged contact.
+     * Successfully merged the contacts and returned the merged contact.
      */
     private Contact contact;
 
@@ -77,7 +77,7 @@ public class MergeContactsResponse implements AsyncResponse {
     }
 
     /**
-     * The successfully merged contact.
+     * Successfully merged the contacts and returned the merged contact.
      */
     public Optional<Contact> contact() {
         return Optional.ofNullable(this.contact);
@@ -112,7 +112,7 @@ public class MergeContactsResponse implements AsyncResponse {
     }
 
     /**
-     * The successfully merged contact.
+     * Successfully merged the contacts and returned the merged contact.
      */
     public MergeContactsResponse withContact(@Nullable Contact contact) {
         this.contact = contact;
@@ -193,7 +193,7 @@ public class MergeContactsResponse implements AsyncResponse {
         }
 
         /**
-         * The successfully merged contact.
+         * Successfully merged the contacts and returned the merged contact.
          */
         public Builder contact(@Nullable Contact contact) {
             this.contact = contact;

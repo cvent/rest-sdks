@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved paginated list of videos watched.
+        /// Successfully retrieved a paginated list of video views.
         /// </summary>
         public VideoViewsPaginatedResponse? VideoViewsPaginatedResponse { get; set; }
     }

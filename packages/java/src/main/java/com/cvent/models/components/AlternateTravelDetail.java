@@ -50,7 +50,7 @@ public class AlternateTravelDetail {
     private String lastModifiedBy;
 
     /**
-     * Representation of the attendee
+     * An attendee identified by an ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("attendee")
@@ -65,12 +65,12 @@ public class AlternateTravelDetail {
     private String requesterId;
 
     /**
-     * Attendee type of the entity this alternate travel belongs to. Contact means the requester is an
-     * independent attendee. Guest means the attendee is accompanying another attendee.
+     * Attendee type of the requester. Contact means the requester is an independent attendee. Guest means
+     * the attendee is accompanying another attendee.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("requesterType")
-    private AlternateTravelDetailRequesterType requesterType;
+    private RequesterType requesterType;
 
     /**
      * Type of travel alternate question. Supported values: AirRequest = attendee requested air travel;
@@ -105,7 +105,7 @@ public class AlternateTravelDetail {
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("attendee") @Nullable Attendee3 attendee,
             @JsonProperty("requesterId") @Nullable String requesterId,
-            @JsonProperty("requesterType") @Nullable AlternateTravelDetailRequesterType requesterType,
+            @JsonProperty("requesterType") @Nullable RequesterType requesterType,
             @JsonProperty("travelType") @Nullable TravelType travelType,
             @JsonProperty("question") @Nullable AlternateQuestion question,
             @JsonProperty("answer") @Nullable AlternateAnswer answer) {
@@ -154,7 +154,7 @@ public class AlternateTravelDetail {
     }
 
     /**
-     * Representation of the attendee
+     * An attendee identified by an ID.
      */
     public Optional<Attendee3> attendee() {
         return Optional.ofNullable(this.attendee);
@@ -169,10 +169,10 @@ public class AlternateTravelDetail {
     }
 
     /**
-     * Attendee type of the entity this alternate travel belongs to. Contact means the requester is an
-     * independent attendee. Guest means the attendee is accompanying another attendee.
+     * Attendee type of the requester. Contact means the requester is an independent attendee. Guest means
+     * the attendee is accompanying another attendee.
      */
-    public Optional<AlternateTravelDetailRequesterType> requesterType() {
+    public Optional<RequesterType> requesterType() {
         return Optional.ofNullable(this.requesterType);
     }
 
@@ -238,7 +238,7 @@ public class AlternateTravelDetail {
     }
 
     /**
-     * Representation of the attendee
+     * An attendee identified by an ID.
      */
     public AlternateTravelDetail withAttendee(@Nullable Attendee3 attendee) {
         this.attendee = attendee;
@@ -255,10 +255,10 @@ public class AlternateTravelDetail {
     }
 
     /**
-     * Attendee type of the entity this alternate travel belongs to. Contact means the requester is an
-     * independent attendee. Guest means the attendee is accompanying another attendee.
+     * Attendee type of the requester. Contact means the requester is an independent attendee. Guest means
+     * the attendee is accompanying another attendee.
      */
-    public AlternateTravelDetail withRequesterType(@Nullable AlternateTravelDetailRequesterType requesterType) {
+    public AlternateTravelDetail withRequesterType(@Nullable RequesterType requesterType) {
         this.requesterType = requesterType;
         return this;
     }
@@ -368,7 +368,7 @@ public class AlternateTravelDetail {
 
         private String requesterId;
 
-        private AlternateTravelDetailRequesterType requesterType;
+        private RequesterType requesterType;
 
         private TravelType travelType;
 
@@ -413,7 +413,7 @@ public class AlternateTravelDetail {
         }
 
         /**
-         * Representation of the attendee
+         * An attendee identified by an ID.
          */
         public Builder attendee(@Nullable Attendee3 attendee) {
             this.attendee = attendee;
@@ -430,10 +430,10 @@ public class AlternateTravelDetail {
         }
 
         /**
-         * Attendee type of the entity this alternate travel belongs to. Contact means the requester is an
-         * independent attendee. Guest means the attendee is accompanying another attendee.
+         * Attendee type of the requester. Contact means the requester is an independent attendee. Guest means
+         * the attendee is accompanying another attendee.
          */
-        public Builder requesterType(@Nullable AlternateTravelDetailRequesterType requesterType) {
+        public Builder requesterType(@Nullable RequesterType requesterType) {
             this.requesterType = requesterType;
             return this;
         }

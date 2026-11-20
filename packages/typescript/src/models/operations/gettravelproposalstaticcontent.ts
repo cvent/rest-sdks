@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 
 export type GetTravelProposalStaticContentRequest = {
   /**
-   * Unique ID of a travel proposal.
+   * The ID of the travel proposal.
    */
   travelProposalId: string;
 };

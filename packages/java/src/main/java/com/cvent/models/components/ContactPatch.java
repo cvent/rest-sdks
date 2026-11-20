@@ -19,7 +19,7 @@ import java.util.Optional;
 /**
  * ContactPatch
  *
- * <p>This entity is used to represent a single item that is requested for a contact patch.
+ * <p>Field values used to patch an existing contact.
  */
 public class ContactPatch {
     /**
@@ -134,7 +134,7 @@ public class ContactPatch {
     private String workFax;
 
     /**
-     * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
+     * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -479,7 +479,7 @@ public class ContactPatch {
     }
 
     /**
-     * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
+     * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
      */
     public Optional<String> sourceId() {
@@ -734,7 +734,7 @@ public class ContactPatch {
     }
 
     /**
-     * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
+     * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
      */
     public ContactPatch withSourceId(@Nullable String sourceId) {
@@ -1242,7 +1242,7 @@ public class ContactPatch {
         }
 
         /**
-         * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
+         * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
          * each contact within an account. Consider adding the external system name as part of the ID.
          */
         public Builder sourceId(@Nullable String sourceId) {

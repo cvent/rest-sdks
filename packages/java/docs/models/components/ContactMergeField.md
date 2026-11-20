@@ -1,6 +1,6 @@
 # ContactMergeField
 
-A pair of a contact field name and a contact id.
+A contact field name and contact ID pair.
 
 
 ## Fields

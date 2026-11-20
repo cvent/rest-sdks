@@ -6,14 +6,14 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Fair season type. Blackout means that no special rate is negotiated for that date and Best Available Rates will apply
+ * The type of the fair season. `blackout`: No special rate is negotiated for the dates, and the Best Available Rates apply.
  */
 export const FairSeasonType = {
   Negotiated: "negotiated",
   Blackout: "blackout",
 } as const;
 /**
- * Fair season type. Blackout means that no special rate is negotiated for that date and Best Available Rates will apply
+ * The type of the fair season. `blackout`: No special rate is negotiated for the dates, and the Best Available Rates apply.
  */
 export type FairSeasonType = ClosedEnum<typeof FairSeasonType>;
 

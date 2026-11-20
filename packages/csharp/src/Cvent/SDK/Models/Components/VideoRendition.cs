@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Video rendition.
+    /// A video rendition with its type, location, and dimensions.
     /// </summary>
     public class VideoRendition
     {

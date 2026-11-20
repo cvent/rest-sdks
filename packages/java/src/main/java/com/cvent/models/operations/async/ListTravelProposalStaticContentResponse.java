@@ -33,7 +33,7 @@ public class ListTravelProposalStaticContentResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully retrieved a paginated list of proposal static content.
+     * Successfully retrieved a paginated list of the static content of travel proposals.
      */
     private TravelProposalStaticContentListResponse travelProposalStaticContentListResponse;
 
@@ -78,7 +78,7 @@ public class ListTravelProposalStaticContentResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully retrieved a paginated list of proposal static content.
+     * Successfully retrieved a paginated list of the static content of travel proposals.
      */
     public Optional<TravelProposalStaticContentListResponse> travelProposalStaticContentListResponse() {
         return Optional.ofNullable(this.travelProposalStaticContentListResponse);
@@ -113,7 +113,7 @@ public class ListTravelProposalStaticContentResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully retrieved a paginated list of proposal static content.
+     * Successfully retrieved a paginated list of the static content of travel proposals.
      */
     public ListTravelProposalStaticContentResponse withTravelProposalStaticContentListResponse(
             @Nullable TravelProposalStaticContentListResponse travelProposalStaticContentListResponse) {
@@ -196,7 +196,7 @@ public class ListTravelProposalStaticContentResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully retrieved a paginated list of proposal static content.
+         * Successfully retrieved a paginated list of the static content of travel proposals.
          */
         public Builder travelProposalStaticContentListResponse(
                 @Nullable TravelProposalStaticContentListResponse travelProposalStaticContentListResponse) {

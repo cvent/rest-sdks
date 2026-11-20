@@ -13,7 +13,7 @@ import {
 } from "./segmentattendee.js";
 
 /**
- * The response from a request to get the paginated list of attendees associated/disassociated to/from an audience segment.
+ * A paginated collection of attendees associated with or disassociated from an audience segment.
  */
 export type SegmentAttendeesAssociatedPaginatedResponse = {
   /**
@@ -21,7 +21,7 @@ export type SegmentAttendeesAssociatedPaginatedResponse = {
    */
   paging: Paging;
   /**
-   * Collection of list of attendees associated/disassociated to/from an audience segment.
+   * Collection of attendees associated with or disassociated from an audience segment.
    */
   data: Array<SegmentAttendee>;
 };

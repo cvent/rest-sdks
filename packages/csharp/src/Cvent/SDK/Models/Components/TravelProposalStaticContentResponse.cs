@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Response containing static content for a specific proposal as a list of field-value pairs with sequence ordering.
+    /// The static content of a travel proposal, as a list of field-value pairs in sequence order.
     /// </summary>
     public class TravelProposalStaticContentResponse
     {
@@ -26,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public TravelProposalStaticContentResponseTravelProposal TravelProposal { get; set; } = default!;
 
         /// <summary>
-        /// List of static content items for the proposal.
+        /// The static content items of the travel proposal.
         /// </summary>
         [JsonProperty("staticContents")]
         public List<StaticContentItem> StaticContents { get; set; } = default!;

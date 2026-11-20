@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * Card
  *
- * <p>The identifier of the Card.
+ * <p>Card ID.
  */
 public class Card {
     /**

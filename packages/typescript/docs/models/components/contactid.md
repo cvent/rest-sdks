@@ -1,6 +1,6 @@
 # ContactId
 
-A contact id.
+An object containing the ID of a contact.
 
 ## Example Usage
 

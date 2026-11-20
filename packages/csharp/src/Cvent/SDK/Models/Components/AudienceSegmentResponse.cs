@@ -44,7 +44,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// ID of the event.
+        /// Represents an event by its ID.
         /// </summary>
         [JsonProperty("event")]
         public Event3 Event { get; set; } = default!;
@@ -56,19 +56,19 @@ namespace Cvent.SDK.Models.Components
         public string Name { get; set; } = default!;
 
         /// <summary>
-        /// Description of the audience segment.
+        /// Additional text about the audience segment.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
 
         /// <summary>
-        /// ID of the audience segment.
+        /// Audience segment ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Creation type of the audience segment.
+        /// How the audience segment's membership is determined. MANUAL: a planner adds and removes attendees individually. RULE_BASED: attendees are added automatically when they match the segment's criteria rules.
         /// </summary>
         [JsonProperty("creationType")]
         public ExistingAudienceSegmentCreationType? CreationType { get; set; } = Cvent.SDK.Models.Components.ExistingAudienceSegmentCreationType.Manual;

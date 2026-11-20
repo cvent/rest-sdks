@@ -21,3 +21,7 @@ export type VenueIntegrationType = ClosedEnum<typeof VenueIntegrationType>;
 export const VenueIntegrationType$inboundSchema: z.ZodNativeEnum<
   typeof VenueIntegrationType
 > = z.nativeEnum(VenueIntegrationType);
+/** @internal */
+export const VenueIntegrationType$outboundSchema: z.ZodNativeEnum<
+  typeof VenueIntegrationType
+> = VenueIntegrationType$inboundSchema;

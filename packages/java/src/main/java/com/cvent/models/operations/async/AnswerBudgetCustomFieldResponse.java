@@ -33,7 +33,7 @@ public class AnswerBudgetCustomFieldResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully updated custom field answer in the budget.
+     * Successfully updated the custom field answer in the budget.
      */
     private CustomField customField;
 
@@ -78,7 +78,7 @@ public class AnswerBudgetCustomFieldResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully updated custom field answer in the budget.
+     * Successfully updated the custom field answer in the budget.
      */
     public Optional<CustomField> customField() {
         return Optional.ofNullable(this.customField);
@@ -113,7 +113,7 @@ public class AnswerBudgetCustomFieldResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully updated custom field answer in the budget.
+     * Successfully updated the custom field answer in the budget.
      */
     public AnswerBudgetCustomFieldResponse withCustomField(@Nullable CustomField customField) {
         this.customField = customField;
@@ -194,7 +194,7 @@ public class AnswerBudgetCustomFieldResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully updated custom field answer in the budget.
+         * Successfully updated the custom field answer in the budget.
          */
         public Builder customField(@Nullable CustomField customField) {
             this.customField = customField;

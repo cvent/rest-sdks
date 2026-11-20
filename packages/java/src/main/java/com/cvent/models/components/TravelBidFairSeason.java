@@ -25,15 +25,15 @@ import java.util.Optional;
  */
 public class TravelBidFairSeason {
     /**
-     * Fair season type. Blackout means that no special rate is negotiated for that date and Best Available
-     * Rates will apply
+     * The type of the fair season. `blackout`: No special rate is negotiated for the dates, and the Best
+     * Available Rates apply.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
     private FairSeasonType type;
 
     /**
-     * Fair season name.
+     * The name of the fair season.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("name")
@@ -76,10 +76,11 @@ public class TravelBidFairSeason {
     private List<TravelBidFairSeasonRate> rates;
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
@@ -110,15 +111,15 @@ public class TravelBidFairSeason {
     }
 
     /**
-     * Fair season type. Blackout means that no special rate is negotiated for that date and Best Available
-     * Rates will apply
+     * The type of the fair season. `blackout`: No special rate is negotiated for the dates, and the Best
+     * Available Rates apply.
      */
     public Optional<FairSeasonType> type() {
         return Optional.ofNullable(this.type);
     }
 
     /**
-     * Fair season name.
+     * The name of the fair season.
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
@@ -161,10 +162,11 @@ public class TravelBidFairSeason {
     }
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     public Optional<BidItemStatusType> status() {
         return Optional.ofNullable(this.status);
@@ -175,8 +177,8 @@ public class TravelBidFairSeason {
     }
 
     /**
-     * Fair season type. Blackout means that no special rate is negotiated for that date and Best Available
-     * Rates will apply
+     * The type of the fair season. `blackout`: No special rate is negotiated for the dates, and the Best
+     * Available Rates apply.
      */
     public TravelBidFairSeason withType(@Nullable FairSeasonType type) {
         this.type = type;
@@ -184,7 +186,7 @@ public class TravelBidFairSeason {
     }
 
     /**
-     * Fair season name.
+     * The name of the fair season.
      */
     public TravelBidFairSeason withName(@Nullable String name) {
         this.name = name;
@@ -233,10 +235,11 @@ public class TravelBidFairSeason {
     }
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     public TravelBidFairSeason withStatus(@Nullable BidItemStatusType status) {
         this.status = status;
@@ -313,8 +316,8 @@ public class TravelBidFairSeason {
         }
 
         /**
-         * Fair season type. Blackout means that no special rate is negotiated for that date and Best Available
-         * Rates will apply
+         * The type of the fair season. `blackout`: No special rate is negotiated for the dates, and the Best
+         * Available Rates apply.
          */
         public Builder type(@Nullable FairSeasonType type) {
             this.type = type;
@@ -322,7 +325,7 @@ public class TravelBidFairSeason {
         }
 
         /**
-         * Fair season name.
+         * The name of the fair season.
          */
         public Builder name(@Nullable String name) {
             this.name = name;
@@ -371,10 +374,11 @@ public class TravelBidFairSeason {
         }
 
         /**
-         * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-         * and the hotel, if they agree, can update the item to deleted.
+         * The negotiation status of the bid item. For example, the corporation marks an item as
+         * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+         * hotel does not offer the amenity.
          *
-         * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+         * <p>Applies only to the supply side.
          */
         public Builder status(@Nullable BidItemStatusType status) {
             this.status = status;

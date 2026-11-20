@@ -23,7 +23,7 @@ import java.util.Optional;
 /**
  * Contact
  *
- * <p>Represents a contact that has been created and has an id.
+ * <p>A contact that has been created and assigned an ID.
  */
 public class Contact {
     /**
@@ -195,7 +195,7 @@ public class Contact {
     private List<CustomField> customFields;
 
     /**
-     * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
+     * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -210,7 +210,7 @@ public class Contact {
     private String mobilePhone;
 
     /**
-     * Detail related to compliance with the contact's privacy rights under various legislation.
+     * Collection of compliance details about the contact's privacy rights under applicable legislation.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("compliance")
@@ -269,10 +269,10 @@ public class Contact {
     private ContactLinks links;
 
     /**
-     * The date of birth of the contact.
+     * The contact's date of birth, in ISO 8601 date format.
      *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
-     * `event/contacts:write-sensitive` scopes respectively.
+     * `event/contacts:write-sensitive` scopes, respectively.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("dateOfBirth")
@@ -683,7 +683,7 @@ public class Contact {
     }
 
     /**
-     * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
+     * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
      */
     public Optional<String> sourceId() {
@@ -698,7 +698,7 @@ public class Contact {
     }
 
     /**
-     * Detail related to compliance with the contact's privacy rights under various legislation.
+     * Collection of compliance details about the contact's privacy rights under applicable legislation.
      */
     public Optional<List<Compliance>> compliance() {
         return Optional.ofNullable(this.compliance);
@@ -757,10 +757,10 @@ public class Contact {
     }
 
     /**
-     * The date of birth of the contact.
+     * The contact's date of birth, in ISO 8601 date format.
      *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
-     * `event/contacts:write-sensitive` scopes respectively.
+     * `event/contacts:write-sensitive` scopes, respectively.
      */
     public Optional<LocalDate> dateOfBirth() {
         return Optional.ofNullable(this.dateOfBirth);
@@ -1053,7 +1053,7 @@ public class Contact {
     }
 
     /**
-     * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
+     * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
      */
     public Contact withSourceId(@Nullable String sourceId) {
@@ -1070,7 +1070,7 @@ public class Contact {
     }
 
     /**
-     * Detail related to compliance with the contact's privacy rights under various legislation.
+     * Collection of compliance details about the contact's privacy rights under applicable legislation.
      */
     public Contact withCompliance(@Nullable List<Compliance> compliance) {
         this.compliance = compliance;
@@ -1137,10 +1137,10 @@ public class Contact {
     }
 
     /**
-     * The date of birth of the contact.
+     * The contact's date of birth, in ISO 8601 date format.
      *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
-     * `event/contacts:write-sensitive` scopes respectively.
+     * `event/contacts:write-sensitive` scopes, respectively.
      */
     public Contact withDateOfBirth(@Nullable LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
@@ -1747,7 +1747,7 @@ public class Contact {
         }
 
         /**
-         * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
+         * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
          * each contact within an account. Consider adding the external system name as part of the ID.
          */
         public Builder sourceId(@Nullable String sourceId) {
@@ -1764,7 +1764,7 @@ public class Contact {
         }
 
         /**
-         * Detail related to compliance with the contact's privacy rights under various legislation.
+         * Collection of compliance details about the contact's privacy rights under applicable legislation.
          */
         public Builder compliance(@Nullable List<Compliance> compliance) {
             this.compliance = compliance;
@@ -1831,10 +1831,10 @@ public class Contact {
         }
 
         /**
-         * The date of birth of the contact.
+         * The contact's date of birth, in ISO 8601 date format.
          *
          * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
-         * `event/contacts:write-sensitive` scopes respectively.
+         * `event/contacts:write-sensitive` scopes, respectively.
          */
         public Builder dateOfBirth(@Nullable LocalDate dateOfBirth) {
             this.dateOfBirth = dateOfBirth;

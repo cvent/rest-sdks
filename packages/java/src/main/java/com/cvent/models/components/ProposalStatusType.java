@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * ProposalStatusType
  *
- * <p>The status of the proposal
+ * <p>The status of the proposal.
  */
 public enum ProposalStatusType {
     PARTICIPATION_REQUESTED("participation_requested"),

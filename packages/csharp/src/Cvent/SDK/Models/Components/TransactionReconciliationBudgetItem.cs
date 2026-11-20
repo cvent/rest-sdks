@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The identifier of reconciled budget item.
+    /// Reconciled budget item ID.
     /// </summary>
     public class TransactionReconciliationBudgetItem
     {

@@ -13,7 +13,7 @@ import {
 } from "./travelproposalbid2.js";
 
 /**
- * A paginated list of travel proposals.
+ * A paginated list of travel proposal bids.
  */
 export type TravelProposalBidPaginatedResponse = {
   /**
@@ -21,7 +21,7 @@ export type TravelProposalBidPaginatedResponse = {
    */
   paging?: Paging | undefined;
   /**
-   * Paginated list of business transient proposal bids.
+   * The travel proposal bids on the page.
    */
   data?: Array<TravelProposalBid2> | undefined;
 };

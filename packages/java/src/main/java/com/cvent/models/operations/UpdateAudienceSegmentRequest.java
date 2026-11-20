@@ -14,7 +14,7 @@ import java.util.Optional;
 
 public class UpdateAudienceSegmentRequest {
     /**
-     * ID of an audience segment.
+     * Audience segment ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=audienceSegmentId")
     private String audienceSegmentId;
@@ -34,7 +34,7 @@ public class UpdateAudienceSegmentRequest {
     }
 
     /**
-     * ID of an audience segment.
+     * Audience segment ID.
      */
     public String audienceSegmentId() {
         return this.audienceSegmentId;
@@ -52,7 +52,7 @@ public class UpdateAudienceSegmentRequest {
     }
 
     /**
-     * ID of an audience segment.
+     * Audience segment ID.
      */
     public UpdateAudienceSegmentRequest withAudienceSegmentId(@Nonnull String audienceSegmentId) {
         this.audienceSegmentId = Utils.checkNotNull(audienceSegmentId, "audienceSegmentId");
@@ -107,7 +107,7 @@ public class UpdateAudienceSegmentRequest {
         }
 
         /**
-         * ID of an audience segment.
+         * Audience segment ID.
          */
         public Builder audienceSegmentId(@Nonnull String audienceSegmentId) {
             this.audienceSegmentId = Utils.checkNotNull(audienceSegmentId, "audienceSegmentId");

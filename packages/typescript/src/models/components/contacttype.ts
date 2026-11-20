@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * This entity represents a contact type at contact level.
+ * A contact type with an ID, code, name, description, and active status.
  */
 export type ContactType = {
   /**

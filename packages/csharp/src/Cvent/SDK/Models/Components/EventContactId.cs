@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// A pair of event and contact id.
+    /// An event ID and a contact ID pair.
     /// </summary>
     public class EventContactId
     {

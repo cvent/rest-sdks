@@ -1,6 +1,6 @@
 # TravelBidRoomPropertyRoom
 
-ID of the property's room.
+The property room in the bid.
 
 
 ## Fields

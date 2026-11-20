@@ -23,14 +23,14 @@ import java.util.Optional;
  */
 public class CardTransaction {
     /**
-     * The identifier of the Event.
+     * Event ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
     private CardTransactionEvent event;
 
     /**
-     * The identifier of the Card.
+     * Card ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("card")
@@ -83,14 +83,14 @@ public class CardTransaction {
     private CardTransactionTransactionReconciliation reconciliation;
 
     /**
-     * The list of reconciled item.
+     * List of reconciliation records.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("reconciliations")
     private List<TransactionReconciliation> reconciliations;
 
     /**
-     * The list of transaction description.
+     * List of transaction descriptions.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("descriptions")
@@ -127,14 +127,14 @@ public class CardTransaction {
     }
 
     /**
-     * The identifier of the Event.
+     * Event ID.
      */
     public Optional<CardTransactionEvent> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
-     * The identifier of the Card.
+     * Card ID.
      */
     public Optional<Card> card() {
         return Optional.ofNullable(this.card);
@@ -187,14 +187,14 @@ public class CardTransaction {
     }
 
     /**
-     * The list of reconciled item.
+     * List of reconciliation records.
      */
     public Optional<List<TransactionReconciliation>> reconciliations() {
         return Optional.ofNullable(this.reconciliations);
     }
 
     /**
-     * The list of transaction description.
+     * List of transaction descriptions.
      */
     public Optional<List<String>> descriptions() {
         return Optional.ofNullable(this.descriptions);
@@ -205,7 +205,7 @@ public class CardTransaction {
     }
 
     /**
-     * The identifier of the Event.
+     * Event ID.
      */
     public CardTransaction withEvent(@Nullable CardTransactionEvent event) {
         this.event = event;
@@ -213,7 +213,7 @@ public class CardTransaction {
     }
 
     /**
-     * The identifier of the Card.
+     * Card ID.
      */
     public CardTransaction withCard(@Nullable Card card) {
         this.card = card;
@@ -274,7 +274,7 @@ public class CardTransaction {
     }
 
     /**
-     * The list of reconciled item.
+     * List of reconciliation records.
      */
     public CardTransaction withReconciliations(@Nullable List<TransactionReconciliation> reconciliations) {
         this.reconciliations = reconciliations;
@@ -282,7 +282,7 @@ public class CardTransaction {
     }
 
     /**
-     * The list of transaction description.
+     * List of transaction descriptions.
      */
     public CardTransaction withDescriptions(@Nullable List<String> descriptions) {
         this.descriptions = descriptions;
@@ -385,7 +385,7 @@ public class CardTransaction {
         }
 
         /**
-         * The identifier of the Event.
+         * Event ID.
          */
         public Builder event(@Nullable CardTransactionEvent event) {
             this.event = event;
@@ -393,7 +393,7 @@ public class CardTransaction {
         }
 
         /**
-         * The identifier of the Card.
+         * Card ID.
          */
         public Builder card(@Nullable Card card) {
             this.card = card;
@@ -454,7 +454,7 @@ public class CardTransaction {
         }
 
         /**
-         * The list of reconciled item.
+         * List of reconciliation records.
          */
         public Builder reconciliations(@Nullable List<TransactionReconciliation> reconciliations) {
             this.reconciliations = reconciliations;
@@ -462,7 +462,7 @@ public class CardTransaction {
         }
 
         /**
-         * The list of transaction description.
+         * List of transaction descriptions.
          */
         public Builder descriptions(@Nullable List<String> descriptions) {
             this.descriptions = descriptions;

@@ -6,14 +6,14 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * This is used to denote the card type for a card.
+ * Form of payment card: Virtual or Plastic.
  */
 export const CardType1 = {
   Virtual: "Virtual",
   Plastic: "Plastic",
 } as const;
 /**
- * This is used to denote the card type for a card.
+ * Form of payment card: Virtual or Plastic.
  */
 export type CardType1 = ClosedEnum<typeof CardType1>;
 

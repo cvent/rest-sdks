@@ -21,7 +21,7 @@ export type CurrencyConversionRatePaginatedResponse = {
    */
   paging: Paging;
   /**
-   * Collection of conversion rate for a currency in an account.
+   * Collection of currency conversion rates for a currency in an account.
    */
   data: Array<CurrencyConversionRateListResponse>;
 };

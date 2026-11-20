@@ -36,6 +36,12 @@ namespace Cvent.SDK.Models.Components
         public string? Description { get; set; }
 
         /// <summary>
+        /// True indicates a waitlist is enabled on the registration path, so registrants on this path can join a waitlist once capacity is reached. False indicates a waitlist isn't enabled.
+        /// </summary>
+        [JsonProperty("waitlistEnabled")]
+        public bool WaitlistEnabled { get; set; } = default!;
+
+        /// <summary>
         /// A unique identifier of the registration path.
         /// </summary>
         [JsonProperty("id")]

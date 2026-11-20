@@ -20,3 +20,6 @@ export type RebateType = ClosedEnum<typeof RebateType>;
 /** @internal */
 export const RebateType$inboundSchema: z.ZodNativeEnum<typeof RebateType> = z
   .nativeEnum(RebateType);
+/** @internal */
+export const RebateType$outboundSchema: z.ZodNativeEnum<typeof RebateType> =
+  RebateType$inboundSchema;

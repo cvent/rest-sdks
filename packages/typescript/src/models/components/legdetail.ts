@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Representation of a leg detail in air request.
+ * One air request itinerary leg with an origin, destination, date, and time.
  */
 export type LegDetail = {
   /**

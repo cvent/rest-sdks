@@ -11,11 +11,11 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAccountBudgetItemsRequest = {
   /**
-   * Used to query records that have been modified after this time point.
+   * Used to query records that have been modified on or after this time point (inclusive, ≥).
    */
   after: Date;
   /**
-   * Used to query records that have been modified before this point
+   * Used to query records that have been modified strictly before this point (exclusive, <).
    */
   before: Date;
   /**
@@ -38,21 +38,30 @@ export type GetAccountBudgetItemsRequest = {
    *
    * Supported fields and operators are listed below:
    *
-   * | Field            | Operators  | Notes                                                                                                                                         |
-   * |:-----------------|:-----------|:----------------------------------------------------------------------------------------------------------------------------------------------|
-   * | event.id         | `eq`, `ne` |                                                                                                                                               |
-   * | rfp.id           | `eq`, `ne` |                                                                                                                                               |
-   * | budgetVersion.id | `eq`, `ne` |                                                                                                                                               |
-   * | id               | `eq`, `ne` |                                                                                                                                               |
-   * | category.id      | `eq`, `ne` |                                                                                                                                               |
-   * | category.name    | `eq`, `ne` |                                                                                                                                               |
-   * | subCategory.id   | `eq`, `ne` |                                                                                                                                               |
-   * | subCategory.name | `eq`, `ne` |                                                                                                                                               |
-   * | deleted          | `eq`, `ne` | Budget items that are deleted are available for 3 months after deletion. After this, they are removed and no longer appear in search results. |
+   * | Field                 | Operators  | Notes                                                                                                                                         |
+   * |:----------------------|:-----------|:----------------------------------------------------------------------------------------------------------------------------------------------|
+   * | event.id              | `eq`, `ne` |                                                                                                                                               |
+   * | rfp.id                | `eq`, `ne` |                                                                                                                                               |
+   * | budgetVersion.id      | `eq`, `ne` |                                                                                                                                               |
+   * | budgetVersion.default | `eq`, `ne` | Use `'true'` or `'false'`.                                                                                                                    |
+   * | id                    | `eq`, `ne` |                                                                                                                                               |
+   * | category.id           | `eq`, `ne` |                                                                                                                                               |
+   * | category.name         | `eq`, `ne` |                                                                                                                                               |
+   * | subCategory.id        | `eq`, `ne` |                                                                                                                                               |
+   * | subCategory.name      | `eq`, `ne` |                                                                                                                                               |
+   * | deleted               | `eq`, `ne` | Budget items that are deleted are available for 3 months after deletion. After this, they are removed and no longer appear in search results. |
+   *
+   * Changing an event's default budget version doesn't change its budget items' last modified dates. To see the change,
+   * read the event's budget items again with an `after` and `before` range that covers them.
    *
    * The following logical operators are supported for combining filters:
    * * and
    * * or
+   *
+   * Example filters:
+   * * Budget items on default budget versions: `budgetVersion.default eq 'true'`
+   * * Budget items that aren't on a default budget version: `budgetVersion.default eq 'false'`
+   * * Budget items of one event that are on a default budget version: `event.id eq 'e7120b27-ca4c-46c1-b5de-cbe5ea0e26d5' and budgetVersion.default eq 'true'`
    */
   filter?: string | undefined;
 };

@@ -39,11 +39,11 @@ export type ListAudienceSegmentsPostFilterRequest = {
    */
   sort?: string | undefined;
   /**
-   * Used to query records that have been added or updated before this time point.
+   * Returns records created or updated **on or before** this date and time.
    */
   before?: Date | undefined;
   /**
-   * Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
+   * Returns records created or updated **on or after** this date and time. Defaults to the beginning of the data store's time range.
    */
   after?: Date | undefined;
   /**

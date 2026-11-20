@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Bid stay type.
+    /// The stay type of the bid.
     /// </summary>
     public enum BidStayType
     {

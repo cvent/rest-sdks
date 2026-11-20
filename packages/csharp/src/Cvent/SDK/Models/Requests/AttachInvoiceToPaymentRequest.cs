@@ -14,19 +14,19 @@ namespace Cvent.SDK.Models.Requests
     public class AttachInvoiceToPaymentRequest
     {
         /// <summary>
-        /// Unique ID of an event.
+        /// Event ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Unique ID of a payment.
+        /// Payment ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=paymentId")]
         public string PaymentId { get; set; } = default!;
 
         /// <summary>
-        /// Unique ID of an invoice.
+        /// Invoice ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=invoiceId")]
         public string InvoiceId { get; set; } = default!;

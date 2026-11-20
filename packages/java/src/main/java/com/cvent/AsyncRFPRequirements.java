@@ -5,15 +5,58 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
+import com.cvent.models.operations.AssociateRfpInternalDocumentRequest;
+import com.cvent.models.operations.CreateRfpAgendaItemRequest;
+import com.cvent.models.operations.CreateRfpAttachmentRequest;
+import com.cvent.models.operations.CreateRfpQuestionRequest;
+import com.cvent.models.operations.DeleteRfpAgendaItemRequest;
+import com.cvent.models.operations.DeleteRfpAttachmentRequest;
+import com.cvent.models.operations.DeleteRfpQuestionRequest;
+import com.cvent.models.operations.DisassociateRfpInternalDocumentRequest;
+import com.cvent.models.operations.GetRfpAgendaItemRequest;
+import com.cvent.models.operations.GetRfpAttachmentRequest;
+import com.cvent.models.operations.GetRfpCustomFieldAnswersRequest;
 import com.cvent.models.operations.GetRfpGuestRoomsRequest;
+import com.cvent.models.operations.GetRfpInternalDocumentRequest;
+import com.cvent.models.operations.GetRfpQuestionRequest;
 import com.cvent.models.operations.ListRfpAgendaItemSchedulesRequest;
 import com.cvent.models.operations.ListRfpAgendaItemsRequest;
 import com.cvent.models.operations.ListRfpAttachmentsRequest;
 import com.cvent.models.operations.ListRfpCustomFieldsRequest;
 import com.cvent.models.operations.ListRfpInternalDocumentsRequest;
 import com.cvent.models.operations.ListRfpQuestionsRequest;
+import com.cvent.models.operations.UpdateRfpAgendaItemRequest;
+import com.cvent.models.operations.UpdateRfpCustomFieldAnswersRequest;
+import com.cvent.models.operations.UpdateRfpGuestRoomsRequest;
+import com.cvent.models.operations.UpdateRfpQuestionRequest;
+import com.cvent.models.operations.async.AssociateRfpInternalDocumentRequestBuilder;
+import com.cvent.models.operations.async.AssociateRfpInternalDocumentResponse;
+import com.cvent.models.operations.async.CreateRfpAgendaItemRequestBuilder;
+import com.cvent.models.operations.async.CreateRfpAgendaItemResponse;
+import com.cvent.models.operations.async.CreateRfpAttachmentRequestBuilder;
+import com.cvent.models.operations.async.CreateRfpAttachmentResponse;
+import com.cvent.models.operations.async.CreateRfpQuestionRequestBuilder;
+import com.cvent.models.operations.async.CreateRfpQuestionResponse;
+import com.cvent.models.operations.async.DeleteRfpAgendaItemRequestBuilder;
+import com.cvent.models.operations.async.DeleteRfpAgendaItemResponse;
+import com.cvent.models.operations.async.DeleteRfpAttachmentRequestBuilder;
+import com.cvent.models.operations.async.DeleteRfpAttachmentResponse;
+import com.cvent.models.operations.async.DeleteRfpQuestionRequestBuilder;
+import com.cvent.models.operations.async.DeleteRfpQuestionResponse;
+import com.cvent.models.operations.async.DisassociateRfpInternalDocumentRequestBuilder;
+import com.cvent.models.operations.async.DisassociateRfpInternalDocumentResponse;
+import com.cvent.models.operations.async.GetRfpAgendaItemRequestBuilder;
+import com.cvent.models.operations.async.GetRfpAgendaItemResponse;
+import com.cvent.models.operations.async.GetRfpAttachmentRequestBuilder;
+import com.cvent.models.operations.async.GetRfpAttachmentResponse;
+import com.cvent.models.operations.async.GetRfpCustomFieldAnswersRequestBuilder;
+import com.cvent.models.operations.async.GetRfpCustomFieldAnswersResponse;
 import com.cvent.models.operations.async.GetRfpGuestRoomsRequestBuilder;
 import com.cvent.models.operations.async.GetRfpGuestRoomsResponse;
+import com.cvent.models.operations.async.GetRfpInternalDocumentRequestBuilder;
+import com.cvent.models.operations.async.GetRfpInternalDocumentResponse;
+import com.cvent.models.operations.async.GetRfpQuestionRequestBuilder;
+import com.cvent.models.operations.async.GetRfpQuestionResponse;
 import com.cvent.models.operations.async.ListRfpAgendaItemSchedulesRequestBuilder;
 import com.cvent.models.operations.async.ListRfpAgendaItemSchedulesResponse;
 import com.cvent.models.operations.async.ListRfpAgendaItemsRequestBuilder;
@@ -26,13 +69,38 @@ import com.cvent.models.operations.async.ListRfpInternalDocumentsRequestBuilder;
 import com.cvent.models.operations.async.ListRfpInternalDocumentsResponse;
 import com.cvent.models.operations.async.ListRfpQuestionsRequestBuilder;
 import com.cvent.models.operations.async.ListRfpQuestionsResponse;
+import com.cvent.models.operations.async.UpdateRfpAgendaItemRequestBuilder;
+import com.cvent.models.operations.async.UpdateRfpAgendaItemResponse;
+import com.cvent.models.operations.async.UpdateRfpCustomFieldAnswersRequestBuilder;
+import com.cvent.models.operations.async.UpdateRfpCustomFieldAnswersResponse;
+import com.cvent.models.operations.async.UpdateRfpGuestRoomsRequestBuilder;
+import com.cvent.models.operations.async.UpdateRfpGuestRoomsResponse;
+import com.cvent.models.operations.async.UpdateRfpQuestionRequestBuilder;
+import com.cvent.models.operations.async.UpdateRfpQuestionResponse;
+import com.cvent.operations.AssociateRfpInternalDocument;
+import com.cvent.operations.CreateRfpAgendaItem;
+import com.cvent.operations.CreateRfpAttachment;
+import com.cvent.operations.CreateRfpQuestion;
+import com.cvent.operations.DeleteRfpAgendaItem;
+import com.cvent.operations.DeleteRfpAttachment;
+import com.cvent.operations.DeleteRfpQuestion;
+import com.cvent.operations.DisassociateRfpInternalDocument;
+import com.cvent.operations.GetRfpAgendaItem;
+import com.cvent.operations.GetRfpAttachment;
+import com.cvent.operations.GetRfpCustomFieldAnswers;
 import com.cvent.operations.GetRfpGuestRooms;
+import com.cvent.operations.GetRfpInternalDocument;
+import com.cvent.operations.GetRfpQuestion;
 import com.cvent.operations.ListRfpAgendaItemSchedules;
 import com.cvent.operations.ListRfpAgendaItems;
 import com.cvent.operations.ListRfpAttachments;
 import com.cvent.operations.ListRfpCustomFields;
 import com.cvent.operations.ListRfpInternalDocuments;
 import com.cvent.operations.ListRfpQuestions;
+import com.cvent.operations.UpdateRfpAgendaItem;
+import com.cvent.operations.UpdateRfpCustomFieldAnswers;
+import com.cvent.operations.UpdateRfpGuestRooms;
+import com.cvent.operations.UpdateRfpQuestion;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
@@ -103,9 +171,49 @@ public class AsyncRFPRequirements {
     }
 
     /**
+     * Create RFP Agenda Item
+     *
+     * <p>Creates a new agenda item for the specified RFP.
+     *
+     * @return The async call builder
+     */
+    public CreateRfpAgendaItemRequestBuilder createRfpAgendaItem() {
+        return new CreateRfpAgendaItemRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Create RFP Agenda Item
+     *
+     * <p>Creates a new agenda item for the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<CreateRfpAgendaItemResponse>} - The async response
+     */
+    public CompletableFuture<CreateRfpAgendaItemResponse> createRfpAgendaItem(
+            @Nonnull CreateRfpAgendaItemRequest request) {
+        return createRfpAgendaItem(request, null);
+    }
+
+    /**
+     * Create RFP Agenda Item
+     *
+     * <p>Creates a new agenda item for the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateRfpAgendaItemResponse>} - The async response
+     */
+    public CompletableFuture<CreateRfpAgendaItemResponse> createRfpAgendaItem(
+            @Nonnull CreateRfpAgendaItemRequest request, @Nullable Options options) {
+        AsyncRequestOperation<CreateRfpAgendaItemRequest, CreateRfpAgendaItemResponse> operation =
+                new CreateRfpAgendaItem.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
      * List RFP Agenda Item Schedules
      *
-     * <p>Returns paginated list of schedules for agenda items added on an RFP.
+     * <p>Returns a paginated list of the schedules of the agenda items of an RFP.
      *
      * @return The async call builder
      */
@@ -116,7 +224,7 @@ public class AsyncRFPRequirements {
     /**
      * List RFP Agenda Item Schedules
      *
-     * <p>Returns paginated list of schedules for agenda items added on an RFP.
+     * <p>Returns a paginated list of the schedules of the agenda items of an RFP.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListRfpAgendaItemSchedulesResponse>} - The async response
@@ -129,7 +237,7 @@ public class AsyncRFPRequirements {
     /**
      * List RFP Agenda Item Schedules
      *
-     * <p>Returns paginated list of schedules for agenda items added on an RFP.
+     * <p>Returns a paginated list of the schedules of the agenda items of an RFP.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -143,9 +251,128 @@ public class AsyncRFPRequirements {
     }
 
     /**
+     * Get RFP Agenda Item
+     *
+     * <p>Returns details of a specific agenda item associated with an RFP.
+     *
+     * @return The async call builder
+     */
+    public GetRfpAgendaItemRequestBuilder getRfpAgendaItem() {
+        return new GetRfpAgendaItemRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get RFP Agenda Item
+     *
+     * <p>Returns details of a specific agenda item associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<GetRfpAgendaItemResponse>} - The async response
+     */
+    public CompletableFuture<GetRfpAgendaItemResponse> getRfpAgendaItem(@Nonnull GetRfpAgendaItemRequest request) {
+        return getRfpAgendaItem(request, null);
+    }
+
+    /**
+     * Get RFP Agenda Item
+     *
+     * <p>Returns details of a specific agenda item associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetRfpAgendaItemResponse>} - The async response
+     */
+    public CompletableFuture<GetRfpAgendaItemResponse> getRfpAgendaItem(
+            @Nonnull GetRfpAgendaItemRequest request, @Nullable Options options) {
+        AsyncRequestOperation<GetRfpAgendaItemRequest, GetRfpAgendaItemResponse> operation =
+                new GetRfpAgendaItem.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Update RFP Agenda Item
+     *
+     * <p>Updates an existing agenda item for the specified RFP.
+     *
+     * @return The async call builder
+     */
+    public UpdateRfpAgendaItemRequestBuilder updateRfpAgendaItem() {
+        return new UpdateRfpAgendaItemRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update RFP Agenda Item
+     *
+     * <p>Updates an existing agenda item for the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<UpdateRfpAgendaItemResponse>} - The async response
+     */
+    public CompletableFuture<UpdateRfpAgendaItemResponse> updateRfpAgendaItem(
+            @Nonnull UpdateRfpAgendaItemRequest request) {
+        return updateRfpAgendaItem(request, null);
+    }
+
+    /**
+     * Update RFP Agenda Item
+     *
+     * <p>Updates an existing agenda item for the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateRfpAgendaItemResponse>} - The async response
+     */
+    public CompletableFuture<UpdateRfpAgendaItemResponse> updateRfpAgendaItem(
+            @Nonnull UpdateRfpAgendaItemRequest request, @Nullable Options options) {
+        AsyncRequestOperation<UpdateRfpAgendaItemRequest, UpdateRfpAgendaItemResponse> operation =
+                new UpdateRfpAgendaItem.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Delete RFP Agenda Item
+     *
+     * <p>Deletes an existing agenda item from the specified RFP.
+     *
+     * @return The async call builder
+     */
+    public DeleteRfpAgendaItemRequestBuilder deleteRfpAgendaItem() {
+        return new DeleteRfpAgendaItemRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Delete RFP Agenda Item
+     *
+     * <p>Deletes an existing agenda item from the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<DeleteRfpAgendaItemResponse>} - The async response
+     */
+    public CompletableFuture<DeleteRfpAgendaItemResponse> deleteRfpAgendaItem(
+            @Nonnull DeleteRfpAgendaItemRequest request) {
+        return deleteRfpAgendaItem(request, null);
+    }
+
+    /**
+     * Delete RFP Agenda Item
+     *
+     * <p>Deletes an existing agenda item from the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteRfpAgendaItemResponse>} - The async response
+     */
+    public CompletableFuture<DeleteRfpAgendaItemResponse> deleteRfpAgendaItem(
+            @Nonnull DeleteRfpAgendaItemRequest request, @Nullable Options options) {
+        AsyncRequestOperation<DeleteRfpAgendaItemRequest, DeleteRfpAgendaItemResponse> operation =
+                new DeleteRfpAgendaItem.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
      * List RFP Attachments
      *
-     * <p>Returns paginated list of [attachments](#tag/RFP-Requirements) added on an RFP.
+     * <p>Returns a paginated list of [attachments](#tag/RFP-Requirements) added to an RFP.
      *
      * @return The async call builder
      */
@@ -156,7 +383,7 @@ public class AsyncRFPRequirements {
     /**
      * List RFP Attachments
      *
-     * <p>Returns paginated list of [attachments](#tag/RFP-Requirements) added on an RFP.
+     * <p>Returns a paginated list of [attachments](#tag/RFP-Requirements) added to an RFP.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListRfpAttachmentsResponse>} - The async response
@@ -169,7 +396,7 @@ public class AsyncRFPRequirements {
     /**
      * List RFP Attachments
      *
-     * <p>Returns paginated list of [attachments](#tag/RFP-Requirements) added on an RFP.
+     * <p>Returns a paginated list of [attachments](#tag/RFP-Requirements) added to an RFP.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -183,7 +410,129 @@ public class AsyncRFPRequirements {
     }
 
     /**
-     * List RFP Custom Fields Answers
+     * Create RFP Attachment
+     *
+     * <p>Creates a new attachment on the specified RFP by copying an existing file. The file must be uploaded
+     * with [Upload File](#tag/File-Management/operation/uploadFile) before it can be copied.
+     *
+     * @return The async call builder
+     */
+    public CreateRfpAttachmentRequestBuilder createRfpAttachment() {
+        return new CreateRfpAttachmentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Create RFP Attachment
+     *
+     * <p>Creates a new attachment on the specified RFP by copying an existing file. The file must be uploaded
+     * with [Upload File](#tag/File-Management/operation/uploadFile) before it can be copied.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<CreateRfpAttachmentResponse>} - The async response
+     */
+    public CompletableFuture<CreateRfpAttachmentResponse> createRfpAttachment(
+            @Nonnull CreateRfpAttachmentRequest request) {
+        return createRfpAttachment(request, null);
+    }
+
+    /**
+     * Create RFP Attachment
+     *
+     * <p>Creates a new attachment on the specified RFP by copying an existing file. The file must be uploaded
+     * with [Upload File](#tag/File-Management/operation/uploadFile) before it can be copied.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateRfpAttachmentResponse>} - The async response
+     */
+    public CompletableFuture<CreateRfpAttachmentResponse> createRfpAttachment(
+            @Nonnull CreateRfpAttachmentRequest request, @Nullable Options options) {
+        AsyncRequestOperation<CreateRfpAttachmentRequest, CreateRfpAttachmentResponse> operation =
+                new CreateRfpAttachment.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Get RFP Attachment
+     *
+     * <p>Returns details of a specific attachment added on an RFP.
+     *
+     * @return The async call builder
+     */
+    public GetRfpAttachmentRequestBuilder getRfpAttachment() {
+        return new GetRfpAttachmentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get RFP Attachment
+     *
+     * <p>Returns details of a specific attachment added on an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<GetRfpAttachmentResponse>} - The async response
+     */
+    public CompletableFuture<GetRfpAttachmentResponse> getRfpAttachment(@Nonnull GetRfpAttachmentRequest request) {
+        return getRfpAttachment(request, null);
+    }
+
+    /**
+     * Get RFP Attachment
+     *
+     * <p>Returns details of a specific attachment added on an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetRfpAttachmentResponse>} - The async response
+     */
+    public CompletableFuture<GetRfpAttachmentResponse> getRfpAttachment(
+            @Nonnull GetRfpAttachmentRequest request, @Nullable Options options) {
+        AsyncRequestOperation<GetRfpAttachmentRequest, GetRfpAttachmentResponse> operation =
+                new GetRfpAttachment.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Delete RFP Attachment
+     *
+     * <p>Deletes the specified attachment from an RFP.
+     *
+     * @return The async call builder
+     */
+    public DeleteRfpAttachmentRequestBuilder deleteRfpAttachment() {
+        return new DeleteRfpAttachmentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Delete RFP Attachment
+     *
+     * <p>Deletes the specified attachment from an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<DeleteRfpAttachmentResponse>} - The async response
+     */
+    public CompletableFuture<DeleteRfpAttachmentResponse> deleteRfpAttachment(
+            @Nonnull DeleteRfpAttachmentRequest request) {
+        return deleteRfpAttachment(request, null);
+    }
+
+    /**
+     * Delete RFP Attachment
+     *
+     * <p>Deletes the specified attachment from an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteRfpAttachmentResponse>} - The async response
+     */
+    public CompletableFuture<DeleteRfpAttachmentResponse> deleteRfpAttachment(
+            @Nonnull DeleteRfpAttachmentRequest request, @Nullable Options options) {
+        AsyncRequestOperation<DeleteRfpAttachmentRequest, DeleteRfpAttachmentResponse> operation =
+                new DeleteRfpAttachment.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * List RFP Custom Field Answers
      *
      * <p>Returns a paginated list of answers for each custom field associated with a given RFP.
      *
@@ -194,7 +543,7 @@ public class AsyncRFPRequirements {
     }
 
     /**
-     * List RFP Custom Fields Answers
+     * List RFP Custom Field Answers
      *
      * <p>Returns a paginated list of answers for each custom field associated with a given RFP.
      *
@@ -207,7 +556,7 @@ public class AsyncRFPRequirements {
     }
 
     /**
-     * List RFP Custom Fields Answers
+     * List RFP Custom Field Answers
      *
      * <p>Returns a paginated list of answers for each custom field associated with a given RFP.
      *
@@ -219,6 +568,89 @@ public class AsyncRFPRequirements {
             @Nonnull ListRfpCustomFieldsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListRfpCustomFieldsRequest, ListRfpCustomFieldsResponse> operation =
                 new ListRfpCustomFields.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Get RFP Custom Field Answers
+     *
+     * <p>Returns details of answers specific to a custom field associated to an RFP.
+     *
+     * @return The async call builder
+     */
+    public GetRfpCustomFieldAnswersRequestBuilder getRfpCustomFieldAnswers() {
+        return new GetRfpCustomFieldAnswersRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get RFP Custom Field Answers
+     *
+     * <p>Returns details of answers specific to a custom field associated to an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<GetRfpCustomFieldAnswersResponse>} - The async response
+     */
+    public CompletableFuture<GetRfpCustomFieldAnswersResponse> getRfpCustomFieldAnswers(
+            @Nonnull GetRfpCustomFieldAnswersRequest request) {
+        return getRfpCustomFieldAnswers(request, null);
+    }
+
+    /**
+     * Get RFP Custom Field Answers
+     *
+     * <p>Returns details of answers specific to a custom field associated to an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetRfpCustomFieldAnswersResponse>} - The async response
+     */
+    public CompletableFuture<GetRfpCustomFieldAnswersResponse> getRfpCustomFieldAnswers(
+            @Nonnull GetRfpCustomFieldAnswersRequest request, @Nullable Options options) {
+        AsyncRequestOperation<GetRfpCustomFieldAnswersRequest, GetRfpCustomFieldAnswersResponse> operation =
+                new GetRfpCustomFieldAnswers.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Update Custom Field Answers
+     *
+     * <p>Updates the answers to a custom field of an RFP. Create the custom field at the account level with
+     * [Create Custom Field](#tag/Custom-Fields/operation/createCustomField) before you update its answers.
+     *
+     * @return The async call builder
+     */
+    public UpdateRfpCustomFieldAnswersRequestBuilder updateRfpCustomFieldAnswers() {
+        return new UpdateRfpCustomFieldAnswersRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update Custom Field Answers
+     *
+     * <p>Updates the answers to a custom field of an RFP. Create the custom field at the account level with
+     * [Create Custom Field](#tag/Custom-Fields/operation/createCustomField) before you update its answers.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<UpdateRfpCustomFieldAnswersResponse>} - The async response
+     */
+    public CompletableFuture<UpdateRfpCustomFieldAnswersResponse> updateRfpCustomFieldAnswers(
+            @Nonnull UpdateRfpCustomFieldAnswersRequest request) {
+        return updateRfpCustomFieldAnswers(request, null);
+    }
+
+    /**
+     * Update Custom Field Answers
+     *
+     * <p>Updates the answers to a custom field of an RFP. Create the custom field at the account level with
+     * [Create Custom Field](#tag/Custom-Fields/operation/createCustomField) before you update its answers.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateRfpCustomFieldAnswersResponse>} - The async response
+     */
+    public CompletableFuture<UpdateRfpCustomFieldAnswersResponse> updateRfpCustomFieldAnswers(
+            @Nonnull UpdateRfpCustomFieldAnswersRequest request, @Nullable Options options) {
+        AsyncRequestOperation<UpdateRfpCustomFieldAnswersRequest, UpdateRfpCustomFieldAnswersResponse> operation =
+                new UpdateRfpCustomFieldAnswers.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -262,9 +694,49 @@ public class AsyncRFPRequirements {
     }
 
     /**
+     * Update RFP Guest Rooms
+     *
+     * <p>Updates guest room requirements associated with an RFP.
+     *
+     * @return The async call builder
+     */
+    public UpdateRfpGuestRoomsRequestBuilder updateRfpGuestRooms() {
+        return new UpdateRfpGuestRoomsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update RFP Guest Rooms
+     *
+     * <p>Updates guest room requirements associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<UpdateRfpGuestRoomsResponse>} - The async response
+     */
+    public CompletableFuture<UpdateRfpGuestRoomsResponse> updateRfpGuestRooms(
+            @Nonnull UpdateRfpGuestRoomsRequest request) {
+        return updateRfpGuestRooms(request, null);
+    }
+
+    /**
+     * Update RFP Guest Rooms
+     *
+     * <p>Updates guest room requirements associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateRfpGuestRoomsResponse>} - The async response
+     */
+    public CompletableFuture<UpdateRfpGuestRoomsResponse> updateRfpGuestRooms(
+            @Nonnull UpdateRfpGuestRoomsRequest request, @Nullable Options options) {
+        AsyncRequestOperation<UpdateRfpGuestRoomsRequest, UpdateRfpGuestRoomsResponse> operation =
+                new UpdateRfpGuestRooms.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
      * List RFP Internal Documents
      *
-     * <p>Returns paginated list of [internal documents](#tag/RFP-Requirements) added on an RFP.
+     * <p>Returns a paginated list of [internal documents](#tag/RFP-Requirements) added to an RFP.
      *
      * @return The async call builder
      */
@@ -275,7 +747,7 @@ public class AsyncRFPRequirements {
     /**
      * List RFP Internal Documents
      *
-     * <p>Returns paginated list of [internal documents](#tag/RFP-Requirements) added on an RFP.
+     * <p>Returns a paginated list of [internal documents](#tag/RFP-Requirements) added to an RFP.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListRfpInternalDocumentsResponse>} - The async response
@@ -288,7 +760,7 @@ public class AsyncRFPRequirements {
     /**
      * List RFP Internal Documents
      *
-     * <p>Returns paginated list of [internal documents](#tag/RFP-Requirements) added on an RFP.
+     * <p>Returns a paginated list of [internal documents](#tag/RFP-Requirements) added to an RFP.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -298,6 +770,133 @@ public class AsyncRFPRequirements {
             @Nonnull ListRfpInternalDocumentsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListRfpInternalDocumentsRequest, ListRfpInternalDocumentsResponse> operation =
                 new ListRfpInternalDocuments.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Get RFP Internal Document
+     *
+     * <p>Returns details of an internal document associated with an RFP.
+     *
+     * @return The async call builder
+     */
+    public GetRfpInternalDocumentRequestBuilder getRfpInternalDocument() {
+        return new GetRfpInternalDocumentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get RFP Internal Document
+     *
+     * <p>Returns details of an internal document associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<GetRfpInternalDocumentResponse>} - The async response
+     */
+    public CompletableFuture<GetRfpInternalDocumentResponse> getRfpInternalDocument(
+            @Nonnull GetRfpInternalDocumentRequest request) {
+        return getRfpInternalDocument(request, null);
+    }
+
+    /**
+     * Get RFP Internal Document
+     *
+     * <p>Returns details of an internal document associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetRfpInternalDocumentResponse>} - The async response
+     */
+    public CompletableFuture<GetRfpInternalDocumentResponse> getRfpInternalDocument(
+            @Nonnull GetRfpInternalDocumentRequest request, @Nullable Options options) {
+        AsyncRequestOperation<GetRfpInternalDocumentRequest, GetRfpInternalDocumentResponse> operation =
+                new GetRfpInternalDocument.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Associate Internal Document
+     *
+     * <p>Associates a single document with an RFP. The `documentId` path parameter is the file ID that
+     * [Upload File](#tag/File-Management/operation/uploadFile) returns. A document with the same name or
+     * ID should not already exist.
+     *
+     * @return The async call builder
+     */
+    public AssociateRfpInternalDocumentRequestBuilder associateRfpInternalDocument() {
+        return new AssociateRfpInternalDocumentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Associate Internal Document
+     *
+     * <p>Associates a single document with an RFP. The `documentId` path parameter is the file ID that
+     * [Upload File](#tag/File-Management/operation/uploadFile) returns. A document with the same name or
+     * ID should not already exist.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<AssociateRfpInternalDocumentResponse>} - The async response
+     */
+    public CompletableFuture<AssociateRfpInternalDocumentResponse> associateRfpInternalDocument(
+            @Nonnull AssociateRfpInternalDocumentRequest request) {
+        return associateRfpInternalDocument(request, null);
+    }
+
+    /**
+     * Associate Internal Document
+     *
+     * <p>Associates a single document with an RFP. The `documentId` path parameter is the file ID that
+     * [Upload File](#tag/File-Management/operation/uploadFile) returns. A document with the same name or
+     * ID should not already exist.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<AssociateRfpInternalDocumentResponse>} - The async response
+     */
+    public CompletableFuture<AssociateRfpInternalDocumentResponse> associateRfpInternalDocument(
+            @Nonnull AssociateRfpInternalDocumentRequest request, @Nullable Options options) {
+        AsyncRequestOperation<AssociateRfpInternalDocumentRequest, AssociateRfpInternalDocumentResponse> operation =
+                new AssociateRfpInternalDocument.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Disassociate Internal Document
+     *
+     * <p>Disassociates an internal document from an RFP.
+     *
+     * @return The async call builder
+     */
+    public DisassociateRfpInternalDocumentRequestBuilder disassociateRfpInternalDocument() {
+        return new DisassociateRfpInternalDocumentRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Disassociate Internal Document
+     *
+     * <p>Disassociates an internal document from an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<DisassociateRfpInternalDocumentResponse>} - The async response
+     */
+    public CompletableFuture<DisassociateRfpInternalDocumentResponse> disassociateRfpInternalDocument(
+            @Nonnull DisassociateRfpInternalDocumentRequest request) {
+        return disassociateRfpInternalDocument(request, null);
+    }
+
+    /**
+     * Disassociate Internal Document
+     *
+     * <p>Disassociates an internal document from an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DisassociateRfpInternalDocumentResponse>} - The async response
+     */
+    public CompletableFuture<DisassociateRfpInternalDocumentResponse> disassociateRfpInternalDocument(
+            @Nonnull DisassociateRfpInternalDocumentRequest request, @Nullable Options options) {
+        AsyncRequestOperation<DisassociateRfpInternalDocumentRequest, DisassociateRfpInternalDocumentResponse> operation =
+                new DisassociateRfpInternalDocument.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -340,6 +939,162 @@ public class AsyncRFPRequirements {
             @Nonnull ListRfpQuestionsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListRfpQuestionsRequest, ListRfpQuestionsResponse> operation =
                 new ListRfpQuestions.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Create RFP Question
+     *
+     * <p>Creates a new question for the specified RFP.
+     *
+     * @return The async call builder
+     */
+    public CreateRfpQuestionRequestBuilder createRfpQuestion() {
+        return new CreateRfpQuestionRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Create RFP Question
+     *
+     * <p>Creates a new question for the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<CreateRfpQuestionResponse>} - The async response
+     */
+    public CompletableFuture<CreateRfpQuestionResponse> createRfpQuestion(@Nonnull CreateRfpQuestionRequest request) {
+        return createRfpQuestion(request, null);
+    }
+
+    /**
+     * Create RFP Question
+     *
+     * <p>Creates a new question for the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateRfpQuestionResponse>} - The async response
+     */
+    public CompletableFuture<CreateRfpQuestionResponse> createRfpQuestion(
+            @Nonnull CreateRfpQuestionRequest request, @Nullable Options options) {
+        AsyncRequestOperation<CreateRfpQuestionRequest, CreateRfpQuestionResponse> operation =
+                new CreateRfpQuestion.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Get RFP Question
+     *
+     * <p>Returns the details of a specific question associated with an RFP.
+     *
+     * @return The async call builder
+     */
+    public GetRfpQuestionRequestBuilder getRfpQuestion() {
+        return new GetRfpQuestionRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get RFP Question
+     *
+     * <p>Returns the details of a specific question associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<GetRfpQuestionResponse>} - The async response
+     */
+    public CompletableFuture<GetRfpQuestionResponse> getRfpQuestion(@Nonnull GetRfpQuestionRequest request) {
+        return getRfpQuestion(request, null);
+    }
+
+    /**
+     * Get RFP Question
+     *
+     * <p>Returns the details of a specific question associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetRfpQuestionResponse>} - The async response
+     */
+    public CompletableFuture<GetRfpQuestionResponse> getRfpQuestion(
+            @Nonnull GetRfpQuestionRequest request, @Nullable Options options) {
+        AsyncRequestOperation<GetRfpQuestionRequest, GetRfpQuestionResponse> operation =
+                new GetRfpQuestion.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Update RFP Question
+     *
+     * <p>Updates an existing question for the specified RFP.
+     *
+     * @return The async call builder
+     */
+    public UpdateRfpQuestionRequestBuilder updateRfpQuestion() {
+        return new UpdateRfpQuestionRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update RFP Question
+     *
+     * <p>Updates an existing question for the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<UpdateRfpQuestionResponse>} - The async response
+     */
+    public CompletableFuture<UpdateRfpQuestionResponse> updateRfpQuestion(@Nonnull UpdateRfpQuestionRequest request) {
+        return updateRfpQuestion(request, null);
+    }
+
+    /**
+     * Update RFP Question
+     *
+     * <p>Updates an existing question for the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateRfpQuestionResponse>} - The async response
+     */
+    public CompletableFuture<UpdateRfpQuestionResponse> updateRfpQuestion(
+            @Nonnull UpdateRfpQuestionRequest request, @Nullable Options options) {
+        AsyncRequestOperation<UpdateRfpQuestionRequest, UpdateRfpQuestionResponse> operation =
+                new UpdateRfpQuestion.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Delete RFP Question
+     *
+     * <p>Deletes an existing question from the specified RFP.
+     *
+     * @return The async call builder
+     */
+    public DeleteRfpQuestionRequestBuilder deleteRfpQuestion() {
+        return new DeleteRfpQuestionRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Delete RFP Question
+     *
+     * <p>Deletes an existing question from the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<DeleteRfpQuestionResponse>} - The async response
+     */
+    public CompletableFuture<DeleteRfpQuestionResponse> deleteRfpQuestion(@Nonnull DeleteRfpQuestionRequest request) {
+        return deleteRfpQuestion(request, null);
+    }
+
+    /**
+     * Delete RFP Question
+     *
+     * <p>Deletes an existing question from the specified RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteRfpQuestionResponse>} - The async response
+     */
+    public CompletableFuture<DeleteRfpQuestionResponse> deleteRfpQuestion(
+            @Nonnull DeleteRfpQuestionRequest request, @Nullable Options options) {
+        AsyncRequestOperation<DeleteRfpQuestionRequest, DeleteRfpQuestionResponse> operation =
+                new DeleteRfpQuestion.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

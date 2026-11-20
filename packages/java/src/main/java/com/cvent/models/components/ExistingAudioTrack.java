@@ -22,7 +22,7 @@ import java.util.Optional;
 /**
  * ExistingAudioTrack
  *
- * <p>Existing audio track.
+ * <p>An audio track with its ID and associated URL.
  */
 public class ExistingAudioTrack {
     /**

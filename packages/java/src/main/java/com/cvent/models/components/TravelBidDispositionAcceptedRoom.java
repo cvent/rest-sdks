@@ -17,25 +17,25 @@ import java.util.Optional;
 /**
  * TravelBidDispositionAcceptedRoom
  *
- * <p>Represents bid disposition's accepted room.
+ * <p>A room that the bid disposition accepts.
  */
 public class TravelBidDispositionAcceptedRoom {
     /**
-     * ID of the property's room.
+     * The accepted property room.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("propertyRoom")
     private TravelBidDispositionAcceptedRoomPropertyRoom propertyRoom;
 
     /**
-     * Indicates whether the LRA rates are accepted.
+     * True indicates the last room availability (LRA) rates are accepted.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("lraRateAccepted")
     private Boolean lraRateAccepted;
 
     /**
-     * Indicates whether the NLRA rates are accepted.
+     * True indicates the non-last room availability (NLRA) rates are accepted.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("nlraRateAccepted")
@@ -56,21 +56,21 @@ public class TravelBidDispositionAcceptedRoom {
     }
 
     /**
-     * ID of the property's room.
+     * The accepted property room.
      */
     public Optional<TravelBidDispositionAcceptedRoomPropertyRoom> propertyRoom() {
         return Optional.ofNullable(this.propertyRoom);
     }
 
     /**
-     * Indicates whether the LRA rates are accepted.
+     * True indicates the last room availability (LRA) rates are accepted.
      */
     public Optional<Boolean> lraRateAccepted() {
         return Optional.ofNullable(this.lraRateAccepted);
     }
 
     /**
-     * Indicates whether the NLRA rates are accepted.
+     * True indicates the non-last room availability (NLRA) rates are accepted.
      */
     public Optional<Boolean> nlraRateAccepted() {
         return Optional.ofNullable(this.nlraRateAccepted);
@@ -81,7 +81,7 @@ public class TravelBidDispositionAcceptedRoom {
     }
 
     /**
-     * ID of the property's room.
+     * The accepted property room.
      */
     public TravelBidDispositionAcceptedRoom withPropertyRoom(
             @Nullable TravelBidDispositionAcceptedRoomPropertyRoom propertyRoom) {
@@ -90,7 +90,7 @@ public class TravelBidDispositionAcceptedRoom {
     }
 
     /**
-     * Indicates whether the LRA rates are accepted.
+     * True indicates the last room availability (LRA) rates are accepted.
      */
     public TravelBidDispositionAcceptedRoom withLraRateAccepted(@Nullable Boolean lraRateAccepted) {
         this.lraRateAccepted = lraRateAccepted;
@@ -98,7 +98,7 @@ public class TravelBidDispositionAcceptedRoom {
     }
 
     /**
-     * Indicates whether the NLRA rates are accepted.
+     * True indicates the non-last room availability (NLRA) rates are accepted.
      */
     public TravelBidDispositionAcceptedRoom withNlraRateAccepted(@Nullable Boolean nlraRateAccepted) {
         this.nlraRateAccepted = nlraRateAccepted;
@@ -150,7 +150,7 @@ public class TravelBidDispositionAcceptedRoom {
         }
 
         /**
-         * ID of the property's room.
+         * The accepted property room.
          */
         public Builder propertyRoom(@Nullable TravelBidDispositionAcceptedRoomPropertyRoom propertyRoom) {
             this.propertyRoom = propertyRoom;
@@ -158,7 +158,7 @@ public class TravelBidDispositionAcceptedRoom {
         }
 
         /**
-         * Indicates whether the LRA rates are accepted.
+         * True indicates the last room availability (LRA) rates are accepted.
          */
         public Builder lraRateAccepted(@Nullable Boolean lraRateAccepted) {
             this.lraRateAccepted = lraRateAccepted;
@@ -166,7 +166,7 @@ public class TravelBidDispositionAcceptedRoom {
         }
 
         /**
-         * Indicates whether the NLRA rates are accepted.
+         * True indicates the non-last room availability (NLRA) rates are accepted.
          */
         public Builder nlraRateAccepted(@Nullable Boolean nlraRateAccepted) {
             this.nlraRateAccepted = nlraRateAccepted;

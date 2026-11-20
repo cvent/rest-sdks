@@ -8,15 +8,15 @@ import * as components from "../components/index.js";
 
 export type AnswerBudgetCustomFieldRequest = {
   /**
-   * Unique ID of an event.
+   * Event ID.
    */
   id: string;
   /**
-   * Unique ID of a budget item.
+   * Budget item ID.
    */
   budgetItemId: string;
   /**
-   * Unique ID of the custom field.
+   * Custom field ID.
    */
   customFieldId: string;
   /**

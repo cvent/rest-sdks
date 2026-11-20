@@ -8,15 +8,15 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Meeting room basic information.
+ * The basic information about the meeting rooms of the property.
  */
 export type TravelProposalGroupAndMeetingMeetingRoomBasicInformation = {
   /**
-   * Size of the largest meeting room. Units of measurement determined by `unitOfMeasurement` field.
+   * The size of the largest meeting room. The `unitOfMeasurement` field sets the unit.
    */
   largestMeetingRoom?: number | undefined;
   /**
-   * Unit of measurement of the `largestMeetingRoom`'s size.
+   * The unit of measurement of the `largestMeetingRoom` size.
    */
   unitOfMeasurement?: string | undefined;
   /**

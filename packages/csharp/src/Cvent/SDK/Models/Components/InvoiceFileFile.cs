@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     public class InvoiceFileFile
     {
         /// <summary>
-        /// The ID of the invoice.
+        /// The invoice ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

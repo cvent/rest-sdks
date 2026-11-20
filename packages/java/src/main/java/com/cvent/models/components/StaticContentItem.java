@@ -18,23 +18,24 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * StaticContentItem
  *
- * <p>Represents a single static content field with its value and sequence order
+ * <p>A static content field with its value and its sequence order.
  */
 public class StaticContentItem {
     /**
-     * The name of the static content field (e.g., propertyName, numberOfRooms, extendedStay)
+     * The name of the static content field, for example `propertyName`, `numberOfRooms`, or
+     * `extendedStay`.
      */
     @JsonProperty("fieldName")
     private String fieldName;
 
     /**
-     * Sequence number for ordering the static content items
+     * The position of the item in the order of the static content items.
      */
     @JsonProperty("sequence")
     private long sequence;
 
     /**
-     * The value of the static content field
+     * The value of the static content field.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("value")
@@ -56,21 +57,22 @@ public class StaticContentItem {
     }
 
     /**
-     * The name of the static content field (e.g., propertyName, numberOfRooms, extendedStay)
+     * The name of the static content field, for example `propertyName`, `numberOfRooms`, or
+     * `extendedStay`.
      */
     public String fieldName() {
         return this.fieldName;
     }
 
     /**
-     * Sequence number for ordering the static content items
+     * The position of the item in the order of the static content items.
      */
     public long sequence() {
         return this.sequence;
     }
 
     /**
-     * The value of the static content field
+     * The value of the static content field.
      */
     public JsonNullable<String> value() {
         return this.value;
@@ -81,7 +83,8 @@ public class StaticContentItem {
     }
 
     /**
-     * The name of the static content field (e.g., propertyName, numberOfRooms, extendedStay)
+     * The name of the static content field, for example `propertyName`, `numberOfRooms`, or
+     * `extendedStay`.
      */
     public StaticContentItem withFieldName(@Nonnull String fieldName) {
         this.fieldName = Utils.checkNotNull(fieldName, "fieldName");
@@ -89,7 +92,7 @@ public class StaticContentItem {
     }
 
     /**
-     * Sequence number for ordering the static content items
+     * The position of the item in the order of the static content items.
      */
     public StaticContentItem withSequence(long sequence) {
         this.sequence = sequence;
@@ -97,7 +100,7 @@ public class StaticContentItem {
     }
 
     /**
-     * The value of the static content field
+     * The value of the static content field.
      */
     public StaticContentItem withValue(@Nullable String value) {
         this.value = JsonNullable.of(value);
@@ -142,7 +145,8 @@ public class StaticContentItem {
         }
 
         /**
-         * The name of the static content field (e.g., propertyName, numberOfRooms, extendedStay)
+         * The name of the static content field, for example `propertyName`, `numberOfRooms`, or
+         * `extendedStay`.
          */
         public Builder fieldName(@Nonnull String fieldName) {
             this.fieldName = Utils.checkNotNull(fieldName, "fieldName");
@@ -150,7 +154,7 @@ public class StaticContentItem {
         }
 
         /**
-         * Sequence number for ordering the static content items
+         * The position of the item in the order of the static content items.
          */
         public Builder sequence(long sequence) {
             this.sequence = sequence;
@@ -158,7 +162,7 @@ public class StaticContentItem {
         }
 
         /**
-         * The value of the static content field
+         * The value of the static content field.
          */
         public Builder value(@Nullable String value) {
             this.value = JsonNullable.of(value);

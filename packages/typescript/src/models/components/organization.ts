@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type Organization = {
   /**
-   * Unique identifier for the organization.
+   * ID of one of the account's organization profiles. Omit it or send the nil UUID (00000000-0000-0000-0000-000000000000) to describe a new organization in the parent rfpEventOrganization object. Responses return the nil UUID for a new organization.
    */
   id?: string | undefined;
 };
@@ -25,7 +25,23 @@ export const Organization$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string().optional(),
 });
+/** @internal */
+export type Organization$Outbound = {
+  id?: string | undefined;
+};
 
+/** @internal */
+export const Organization$outboundSchema: z.ZodType<
+  Organization$Outbound,
+  z.ZodTypeDef,
+  Organization
+> = z.object({
+  id: z.string().optional(),
+});
+
+export function organizationToJSON(organization: Organization): string {
+  return JSON.stringify(Organization$outboundSchema.parse(organization));
+}
 export function organizationFromJSON(
   jsonString: string,
 ): SafeParseResult<Organization, SDKValidationError> {

@@ -27,7 +27,7 @@ export type BudgetVendorType = ClosedEnum<typeof BudgetVendorType>;
  */
 export type BudgetVendor = {
   /**
-   * The vendor's unique ID. If the `type` field is `CSN`, this vendor ID correlates to a venueID in the [CSN APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects).
+   * Vendor ID. If the `type` field is `CSN`, this vendor ID correlates to a venue ID in the [CSN APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects).
    */
   id?: string | undefined;
   /**

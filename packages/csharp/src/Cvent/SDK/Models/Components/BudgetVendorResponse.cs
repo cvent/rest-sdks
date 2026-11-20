@@ -20,7 +20,7 @@ namespace Cvent.SDK.Models.Components
     public class BudgetVendorResponse
     {
         /// <summary>
-        /// The unique identifier for the budget vendor.
+        /// Budget vendor ID.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

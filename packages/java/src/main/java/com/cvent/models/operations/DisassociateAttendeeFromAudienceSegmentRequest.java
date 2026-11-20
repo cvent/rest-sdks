@@ -13,13 +13,13 @@ import java.util.Optional;
 
 public class DisassociateAttendeeFromAudienceSegmentRequest {
     /**
-     * ID of an audience segment.
+     * Audience segment ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=audienceSegmentId")
     private String audienceSegmentId;
 
     /**
-     * ID of an attendee.
+     * Attendee ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=attendeeId")
     private String attendeeId;
@@ -34,14 +34,14 @@ public class DisassociateAttendeeFromAudienceSegmentRequest {
     }
 
     /**
-     * ID of an audience segment.
+     * Audience segment ID.
      */
     public String audienceSegmentId() {
         return this.audienceSegmentId;
     }
 
     /**
-     * ID of an attendee.
+     * Attendee ID.
      */
     public String attendeeId() {
         return this.attendeeId;
@@ -52,7 +52,7 @@ public class DisassociateAttendeeFromAudienceSegmentRequest {
     }
 
     /**
-     * ID of an audience segment.
+     * Audience segment ID.
      */
     public DisassociateAttendeeFromAudienceSegmentRequest withAudienceSegmentId(@Nonnull String audienceSegmentId) {
         this.audienceSegmentId = Utils.checkNotNull(audienceSegmentId, "audienceSegmentId");
@@ -60,7 +60,7 @@ public class DisassociateAttendeeFromAudienceSegmentRequest {
     }
 
     /**
-     * ID of an attendee.
+     * Attendee ID.
      */
     public DisassociateAttendeeFromAudienceSegmentRequest withAttendeeId(@Nonnull String attendeeId) {
         this.attendeeId = Utils.checkNotNull(attendeeId, "attendeeId");
@@ -107,7 +107,7 @@ public class DisassociateAttendeeFromAudienceSegmentRequest {
         }
 
         /**
-         * ID of an audience segment.
+         * Audience segment ID.
          */
         public Builder audienceSegmentId(@Nonnull String audienceSegmentId) {
             this.audienceSegmentId = Utils.checkNotNull(audienceSegmentId, "audienceSegmentId");
@@ -115,7 +115,7 @@ public class DisassociateAttendeeFromAudienceSegmentRequest {
         }
 
         /**
-         * ID of an attendee.
+         * Attendee ID.
          */
         public Builder attendeeId(@Nonnull String attendeeId) {
             this.attendeeId = Utils.checkNotNull(attendeeId, "attendeeId");

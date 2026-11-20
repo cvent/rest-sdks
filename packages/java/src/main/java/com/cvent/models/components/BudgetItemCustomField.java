@@ -19,11 +19,11 @@ import java.util.Optional;
 /**
  * BudgetItemCustomField
  *
- * <p>A Budget Item Custom Field
+ * <p>Custom field and answer values associated with a budget item.
  */
 public class BudgetItemCustomField {
     /**
-     * The unique ID representing this budget item custom field.
+     * Budget item custom field ID.
      */
     @JsonProperty("id")
     private String id;
@@ -74,7 +74,7 @@ public class BudgetItemCustomField {
     }
 
     /**
-     * The unique ID representing this budget item custom field.
+     * Budget item custom field ID.
      */
     public String id() {
         return this.id;
@@ -113,7 +113,7 @@ public class BudgetItemCustomField {
     }
 
     /**
-     * The unique ID representing this budget item custom field.
+     * Budget item custom field ID.
      */
     public BudgetItemCustomField withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -197,7 +197,7 @@ public class BudgetItemCustomField {
         }
 
         /**
-         * The unique ID representing this budget item custom field.
+         * Budget item custom field ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

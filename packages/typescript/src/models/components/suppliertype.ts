@@ -22,3 +22,6 @@ export type SupplierType = ClosedEnum<typeof SupplierType>;
 /** @internal */
 export const SupplierType$inboundSchema: z.ZodNativeEnum<typeof SupplierType> =
   z.nativeEnum(SupplierType);
+/** @internal */
+export const SupplierType$outboundSchema: z.ZodNativeEnum<typeof SupplierType> =
+  SupplierType$inboundSchema;

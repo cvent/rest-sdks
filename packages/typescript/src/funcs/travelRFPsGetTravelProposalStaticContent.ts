@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Get Static Content
  *
  * @remarks
- * Retrieves static content for a specific proposal as a list of field-value pairs with sequence ordering.
+ * Gets the static content of a travel proposal. The static content is a list of field-value pairs in sequence order.
  */
 export function travelRFPsGetTravelProposalStaticContent(
   client: CventSDKCore,

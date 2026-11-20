@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// This entity is used to represent a single item that is requested for a contact patch.
+    /// Field values used to patch an existing contact.
     /// </summary>
     public class ContactPatch
     {
@@ -113,7 +113,7 @@ namespace Cvent.SDK.Models.Components
         public string? WorkFax { get; set; }
 
         /// <summary>
-        /// This is a ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
+        /// This is an ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
         /// </summary>
         [JsonProperty("sourceId")]
         public string? SourceId { get; set; }

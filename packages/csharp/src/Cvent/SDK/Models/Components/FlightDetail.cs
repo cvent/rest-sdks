@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Representation of a flight's details.
+    /// Details for one flight segment, including its airline, route, times, seat, and ticket class.
     /// </summary>
     public class FlightDetail
     {

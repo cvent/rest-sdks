@@ -22,49 +22,49 @@ import java.util.Optional;
  */
 public class TravelBidSeasonRate {
     /**
-     * ID of the property's room.
+     * The property room that the rates apply to.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("propertyRoom")
     private TravelBidSeasonRatePropertyRoom propertyRoom;
 
     /**
-     * The last room available (LRA) single rate.
+     * The last room availability (LRA) single room rate.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("singleRate")
     private Double singleRate;
 
     /**
-     * The last room available (LRA) double rate.
+     * The last room availability (LRA) double room rate.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("doubleRate")
     private Double doubleRate;
 
     /**
-     * The last room available (LRA) triple rate.
+     * The last room availability (LRA) triple room rate.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("tripleRate")
     private Double tripleRate;
 
     /**
-     * The last room available (LRA) quad rate.
+     * The last room availability (LRA) quadruple room rate.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("quadRate")
     private Double quadRate;
 
     /**
-     * The non last room available (NLRA) single rate.
+     * The non-last room availability (NLRA) single room rate.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("nlraSingleRate")
     private Double nlraSingleRate;
 
     /**
-     * The non last room available (NLRA) double rate.
+     * The non-last room availability (NLRA) double room rate.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("nlraDoubleRate")
@@ -78,10 +78,11 @@ public class TravelBidSeasonRate {
     private Long allotment;
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
@@ -114,49 +115,49 @@ public class TravelBidSeasonRate {
     }
 
     /**
-     * ID of the property's room.
+     * The property room that the rates apply to.
      */
     public Optional<TravelBidSeasonRatePropertyRoom> propertyRoom() {
         return Optional.ofNullable(this.propertyRoom);
     }
 
     /**
-     * The last room available (LRA) single rate.
+     * The last room availability (LRA) single room rate.
      */
     public Optional<Double> singleRate() {
         return Optional.ofNullable(this.singleRate);
     }
 
     /**
-     * The last room available (LRA) double rate.
+     * The last room availability (LRA) double room rate.
      */
     public Optional<Double> doubleRate() {
         return Optional.ofNullable(this.doubleRate);
     }
 
     /**
-     * The last room available (LRA) triple rate.
+     * The last room availability (LRA) triple room rate.
      */
     public Optional<Double> tripleRate() {
         return Optional.ofNullable(this.tripleRate);
     }
 
     /**
-     * The last room available (LRA) quad rate.
+     * The last room availability (LRA) quadruple room rate.
      */
     public Optional<Double> quadRate() {
         return Optional.ofNullable(this.quadRate);
     }
 
     /**
-     * The non last room available (NLRA) single rate.
+     * The non-last room availability (NLRA) single room rate.
      */
     public Optional<Double> nlraSingleRate() {
         return Optional.ofNullable(this.nlraSingleRate);
     }
 
     /**
-     * The non last room available (NLRA) double rate.
+     * The non-last room availability (NLRA) double room rate.
      */
     public Optional<Double> nlraDoubleRate() {
         return Optional.ofNullable(this.nlraDoubleRate);
@@ -170,10 +171,11 @@ public class TravelBidSeasonRate {
     }
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     public Optional<BidItemStatusType> status() {
         return Optional.ofNullable(this.status);
@@ -184,7 +186,7 @@ public class TravelBidSeasonRate {
     }
 
     /**
-     * ID of the property's room.
+     * The property room that the rates apply to.
      */
     public TravelBidSeasonRate withPropertyRoom(@Nullable TravelBidSeasonRatePropertyRoom propertyRoom) {
         this.propertyRoom = propertyRoom;
@@ -192,7 +194,7 @@ public class TravelBidSeasonRate {
     }
 
     /**
-     * The last room available (LRA) single rate.
+     * The last room availability (LRA) single room rate.
      */
     public TravelBidSeasonRate withSingleRate(@Nullable Double singleRate) {
         this.singleRate = singleRate;
@@ -200,7 +202,7 @@ public class TravelBidSeasonRate {
     }
 
     /**
-     * The last room available (LRA) double rate.
+     * The last room availability (LRA) double room rate.
      */
     public TravelBidSeasonRate withDoubleRate(@Nullable Double doubleRate) {
         this.doubleRate = doubleRate;
@@ -208,7 +210,7 @@ public class TravelBidSeasonRate {
     }
 
     /**
-     * The last room available (LRA) triple rate.
+     * The last room availability (LRA) triple room rate.
      */
     public TravelBidSeasonRate withTripleRate(@Nullable Double tripleRate) {
         this.tripleRate = tripleRate;
@@ -216,7 +218,7 @@ public class TravelBidSeasonRate {
     }
 
     /**
-     * The last room available (LRA) quad rate.
+     * The last room availability (LRA) quadruple room rate.
      */
     public TravelBidSeasonRate withQuadRate(@Nullable Double quadRate) {
         this.quadRate = quadRate;
@@ -224,7 +226,7 @@ public class TravelBidSeasonRate {
     }
 
     /**
-     * The non last room available (NLRA) single rate.
+     * The non-last room availability (NLRA) single room rate.
      */
     public TravelBidSeasonRate withNlraSingleRate(@Nullable Double nlraSingleRate) {
         this.nlraSingleRate = nlraSingleRate;
@@ -232,7 +234,7 @@ public class TravelBidSeasonRate {
     }
 
     /**
-     * The non last room available (NLRA) double rate.
+     * The non-last room availability (NLRA) double room rate.
      */
     public TravelBidSeasonRate withNlraDoubleRate(@Nullable Double nlraDoubleRate) {
         this.nlraDoubleRate = nlraDoubleRate;
@@ -248,10 +250,11 @@ public class TravelBidSeasonRate {
     }
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     public TravelBidSeasonRate withStatus(@Nullable BidItemStatusType status) {
         this.status = status;
@@ -342,7 +345,7 @@ public class TravelBidSeasonRate {
         }
 
         /**
-         * ID of the property's room.
+         * The property room that the rates apply to.
          */
         public Builder propertyRoom(@Nullable TravelBidSeasonRatePropertyRoom propertyRoom) {
             this.propertyRoom = propertyRoom;
@@ -350,7 +353,7 @@ public class TravelBidSeasonRate {
         }
 
         /**
-         * The last room available (LRA) single rate.
+         * The last room availability (LRA) single room rate.
          */
         public Builder singleRate(@Nullable Double singleRate) {
             this.singleRate = singleRate;
@@ -358,7 +361,7 @@ public class TravelBidSeasonRate {
         }
 
         /**
-         * The last room available (LRA) double rate.
+         * The last room availability (LRA) double room rate.
          */
         public Builder doubleRate(@Nullable Double doubleRate) {
             this.doubleRate = doubleRate;
@@ -366,7 +369,7 @@ public class TravelBidSeasonRate {
         }
 
         /**
-         * The last room available (LRA) triple rate.
+         * The last room availability (LRA) triple room rate.
          */
         public Builder tripleRate(@Nullable Double tripleRate) {
             this.tripleRate = tripleRate;
@@ -374,7 +377,7 @@ public class TravelBidSeasonRate {
         }
 
         /**
-         * The last room available (LRA) quad rate.
+         * The last room availability (LRA) quadruple room rate.
          */
         public Builder quadRate(@Nullable Double quadRate) {
             this.quadRate = quadRate;
@@ -382,7 +385,7 @@ public class TravelBidSeasonRate {
         }
 
         /**
-         * The non last room available (NLRA) single rate.
+         * The non-last room availability (NLRA) single room rate.
          */
         public Builder nlraSingleRate(@Nullable Double nlraSingleRate) {
             this.nlraSingleRate = nlraSingleRate;
@@ -390,7 +393,7 @@ public class TravelBidSeasonRate {
         }
 
         /**
-         * The non last room available (NLRA) double rate.
+         * The non-last room availability (NLRA) double room rate.
          */
         public Builder nlraDoubleRate(@Nullable Double nlraDoubleRate) {
             this.nlraDoubleRate = nlraDoubleRate;
@@ -406,10 +409,11 @@ public class TravelBidSeasonRate {
         }
 
         /**
-         * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-         * and the hotel, if they agree, can update the item to deleted.
+         * The negotiation status of the bid item. For example, the corporation marks an item as
+         * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+         * hotel does not offer the amenity.
          *
-         * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+         * <p>Applies only to the supply side.
          */
         public Builder status(@Nullable BidItemStatusType status) {
             this.status = status;

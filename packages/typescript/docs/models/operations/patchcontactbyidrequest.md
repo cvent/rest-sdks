@@ -12,8 +12,8 @@ let value: PatchContactByIdRequest = {
     lastName: "Potterfield",
     middleName: "A",
     nickname: "Harry",
-    email: "h.potterfield@test.com",
-    ccEmail: "h.porter@tesing.com",
+    email: "h.potterfield@example.com",
+    ccEmail: "h.porter@example.com",
     designation: "CPA",
     type: {
       id: "861B51EC-AA7E-475F-B38D-4C8E35C47D63",

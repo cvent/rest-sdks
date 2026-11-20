@@ -1,6 +1,6 @@
 # TravelProposalStaticContentListResponse
 
-Paginated response containing a list of proposal static content across multiple proposals
+A paginated list of the static content of travel proposals.
 
 ## Example Usage
 
@@ -69,5 +69,5 @@ let value: TravelProposalStaticContentListResponse = {
 
 | Field                                                                                                              | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
 | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `data`                                                                                                             | [components.TravelProposalStaticContentResponse](../../models/components/travelproposalstaticcontentresponse.md)[] | :heavy_check_mark:                                                                                                 | Array of proposal static content responses                                                                         |
+| `data`                                                                                                             | [components.TravelProposalStaticContentResponse](../../models/components/travelproposalstaticcontentresponse.md)[] | :heavy_check_mark:                                                                                                 | The static content of each travel proposal on the page.                                                            |
 | `paging`                                                                                                           | [components.Paging](../../models/components/paging.md)                                                             | :heavy_check_mark:                                                                                                 | Represents pagination information for a collection of resources.                                                   |

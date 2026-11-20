@@ -33,10 +33,10 @@ import { Result } from "../types/fp.js";
  * Updates a list of contacts based on the values provided only, keeping the existing values intact for every contact.
  *
  * For information on PATCH behavior, see the description of
- * <a href="#operation/patchContactById">PATCH Contact</a>.
+ * [PATCH Contact](#operation/patchContactById).
  *
  * For information on updating secure contact fields, see the description of
- * <a href="#operation/updateContactById">PUT Contact</a>.
+ * [PUT Contact](#operation/updateContactById).
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

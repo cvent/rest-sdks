@@ -18,7 +18,7 @@ import java.util.Optional;
  */
 public class AttendeeAudienceSegmentAssociation {
     /**
-     * Segment details
+     * Represents a segment by its ID.
      */
     @JsonProperty("segment")
     private Segment segment;
@@ -30,7 +30,7 @@ public class AttendeeAudienceSegmentAssociation {
     }
 
     /**
-     * Segment details
+     * Represents a segment by its ID.
      */
     public Segment segment() {
         return this.segment;
@@ -41,7 +41,7 @@ public class AttendeeAudienceSegmentAssociation {
     }
 
     /**
-     * Segment details
+     * Represents a segment by its ID.
      */
     public AttendeeAudienceSegmentAssociation withSegment(@Nonnull Segment segment) {
         this.segment = Utils.checkNotNull(segment, "segment");
@@ -80,7 +80,7 @@ public class AttendeeAudienceSegmentAssociation {
         }
 
         /**
-         * Segment details
+         * Represents a segment by its ID.
          */
         public Builder segment(@Nonnull Segment segment) {
             this.segment = Utils.checkNotNull(segment, "segment");

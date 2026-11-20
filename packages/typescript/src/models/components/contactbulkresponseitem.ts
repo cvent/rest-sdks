@@ -15,7 +15,7 @@ import {
 export type ContactBulkResponseItemData = ErrorResponse12 | Contact;
 
 /**
- * This entity is used to represent a single item that is returned as part of a Bulk request call.
+ * Result for one contact in a bulk contact operation.
  */
 export type ContactBulkResponseItem = {
   data: ErrorResponse12 | Contact;

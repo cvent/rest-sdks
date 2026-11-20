@@ -1,6 +1,6 @@
 # Attendee3
 
-Representation of the attendee
+An attendee identified by an ID.
 
 
 ## Fields

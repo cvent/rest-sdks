@@ -16,11 +16,11 @@ import java.util.Optional;
 /**
  * VideoSource
  *
- * <p>Source of video.
+ * <p>Information about the video's external source, including its ID and status.
  */
 public class VideoSource {
     /**
-     * The id of a video in the external system
+     * The ID of a video in the external system.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -45,7 +45,7 @@ public class VideoSource {
     }
 
     /**
-     * The id of a video in the external system
+     * The ID of a video in the external system.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -63,7 +63,7 @@ public class VideoSource {
     }
 
     /**
-     * The id of a video in the external system
+     * The ID of a video in the external system.
      */
     public VideoSource withId(@Nullable String id) {
         this.id = id;
@@ -112,7 +112,7 @@ public class VideoSource {
         }
 
         /**
-         * The id of a video in the external system
+         * The ID of a video in the external system.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

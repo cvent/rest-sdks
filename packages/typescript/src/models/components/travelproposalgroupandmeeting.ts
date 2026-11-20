@@ -32,35 +32,35 @@ import {
 } from "./travelproposalgroupandmeetingtaxandservicecharge.js";
 
 /**
- * Group and meeting information.
+ * The group and meeting information of the proposal.
  */
 export type TravelProposalGroupAndMeeting = {
   /**
-   * Run of house rate information.
+   * The run of house rates of the proposal.
    */
   runOfHouseRate?: TravelProposalGroupAndMeetingRunOfHouseRate | undefined;
   /**
-   * Day delegate rate information. This represents the costs for hosting meeting at the venue for a half or full day.
+   * The day delegate rates of the proposal. A day delegate rate is the cost to host a meeting at the venue for a half day or a full day.
    */
   dayDelegateRate?: TravelProposalGroupAndMeetingDayDelegateRate | undefined;
   /**
-   * Tax and service charge information.
+   * The tax and service charge information of the proposal.
    */
   taxAndServiceCharge?:
     | TravelProposalGroupAndMeetingTaxAndServiceCharge
     | undefined;
   /**
-   * Meeting room basic information.
+   * The basic information about the meeting rooms of the property.
    */
   meetingRoomBasicInformation?:
     | TravelProposalGroupAndMeetingMeetingRoomBasicInformation
     | undefined;
   /**
-   * Group and meeting amenity info.
+   * The group and meeting amenities of the proposal.
    */
   amenity?: TravelProposalGroupAndMeetingAmenity | undefined;
   /**
-   * Break-out room information.
+   * The break-out room information of the proposal.
    */
   breakOutRoom?: TravelProposalGroupAndMeetingBreakOutRoom | undefined;
 };

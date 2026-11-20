@@ -12,7 +12,7 @@ import {
 } from "./biditemstatustype.js";
 
 /**
- * ID of the property's room.
+ * The property room that the rates apply to.
  */
 export type TravelBidSeasonRatePropertyRoom = {
   /**
@@ -26,31 +26,31 @@ export type TravelBidSeasonRatePropertyRoom = {
  */
 export type TravelBidSeasonRate = {
   /**
-   * ID of the property's room.
+   * The property room that the rates apply to.
    */
   propertyRoom?: TravelBidSeasonRatePropertyRoom | undefined;
   /**
-   * The last room available (LRA) single rate.
+   * The last room availability (LRA) single room rate.
    */
   singleRate?: number | undefined;
   /**
-   * The last room available (LRA) double rate.
+   * The last room availability (LRA) double room rate.
    */
   doubleRate?: number | undefined;
   /**
-   * The last room available (LRA) triple rate.
+   * The last room availability (LRA) triple room rate.
    */
   tripleRate?: number | undefined;
   /**
-   * The last room available (LRA) quad rate.
+   * The last room availability (LRA) quadruple room rate.
    */
   quadRate?: number | undefined;
   /**
-   * The non last room available (NLRA) single rate.
+   * The non-last room availability (NLRA) single room rate.
    */
   nlraSingleRate?: number | undefined;
   /**
-   * The non last room available (NLRA) double rate.
+   * The non-last room availability (NLRA) double room rate.
    */
   nlraDoubleRate?: number | undefined;
   /**
@@ -58,7 +58,7 @@ export type TravelBidSeasonRate = {
    */
   allotment?: number | undefined;
   /**
-   * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested, and the hotel, if they agree, can update the item to deleted. not_offered indicates the hotel does not offer this amenity (supply side only).
+   * The negotiation status of the bid item. For example, the corporation marks an item as `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The hotel does not offer the amenity. Applies only to the supply side.
    */
   status?: BidItemStatusType | undefined;
 };

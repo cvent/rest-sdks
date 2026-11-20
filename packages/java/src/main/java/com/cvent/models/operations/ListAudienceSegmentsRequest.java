@@ -73,14 +73,14 @@ public class ListAudienceSegmentsRequest {
     private String filter;
 
     /**
-     * Used to query records that have been added or updated before this time point.
+     * Returns records created or updated **on or before** this date and time.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=before")
     private OffsetDateTime before;
 
     /**
-     * Used to query records that have been added or updated after this time point. Default to the
-     * beginning of time of the data store.
+     * Returns records created or updated **on or after** this date and time. Defaults to the beginning of
+     * the data store's time range.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=after")
     private OffsetDateTime after;
@@ -166,15 +166,15 @@ public class ListAudienceSegmentsRequest {
     }
 
     /**
-     * Used to query records that have been added or updated before this time point.
+     * Returns records created or updated **on or before** this date and time.
      */
     public Optional<OffsetDateTime> before() {
         return Optional.ofNullable(this.before);
     }
 
     /**
-     * Used to query records that have been added or updated after this time point. Default to the
-     * beginning of time of the data store.
+     * Returns records created or updated **on or after** this date and time. Defaults to the beginning of
+     * the data store's time range.
      */
     public Optional<OffsetDateTime> after() {
         return Optional.ofNullable(this.after);
@@ -248,7 +248,7 @@ public class ListAudienceSegmentsRequest {
     }
 
     /**
-     * Used to query records that have been added or updated before this time point.
+     * Returns records created or updated **on or before** this date and time.
      */
     public ListAudienceSegmentsRequest withBefore(@Nullable OffsetDateTime before) {
         this.before = before;
@@ -256,8 +256,8 @@ public class ListAudienceSegmentsRequest {
     }
 
     /**
-     * Used to query records that have been added or updated after this time point. Default to the
-     * beginning of time of the data store.
+     * Returns records created or updated **on or after** this date and time. Defaults to the beginning of
+     * the data store's time range.
      */
     public ListAudienceSegmentsRequest withAfter(@Nullable OffsetDateTime after) {
         this.after = after;
@@ -387,7 +387,7 @@ public class ListAudienceSegmentsRequest {
         }
 
         /**
-         * Used to query records that have been added or updated before this time point.
+         * Returns records created or updated **on or before** this date and time.
          */
         public Builder before(@Nullable OffsetDateTime before) {
             this.before = before;
@@ -395,8 +395,8 @@ public class ListAudienceSegmentsRequest {
         }
 
         /**
-         * Used to query records that have been added or updated after this time point. Default to the
-         * beginning of time of the data store.
+         * Returns records created or updated **on or after** this date and time. Defaults to the beginning of
+         * the data store's time range.
          */
         public Builder after(@Nullable OffsetDateTime after) {
             this.after = after;

@@ -4,7 +4,6 @@
 
 import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -16,36 +15,8 @@ import {
   AlternateQuestion$inboundSchema,
 } from "./alternatequestion.js";
 import { Attendee3, Attendee3$inboundSchema } from "./attendee3.js";
-
-/**
- * Attendee type of the entity this alternate travel belongs to. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
- */
-export const AlternateTravelDetailRequesterType = {
-  Contact: "Contact",
-  Guest: "Guest",
-} as const;
-/**
- * Attendee type of the entity this alternate travel belongs to. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
- */
-export type AlternateTravelDetailRequesterType = ClosedEnum<
-  typeof AlternateTravelDetailRequesterType
->;
-
-/**
- * Type of travel alternate question. Supported values: AirRequest = attendee requested air travel; HotelRequest = attendee requested hotel travel; AirActual = actual air travel booked; GroupFlight = group flight booking; TrainRequest = attendee requested train travel; AirAndTrainRequest = attendee did not want air or train travel and submitted an alternate response.
- */
-export const TravelType = {
-  AirRequest: "AirRequest",
-  HotelRequest: "HotelRequest",
-  AirActual: "AirActual",
-  GroupFlight: "GroupFlight",
-  TrainRequest: "TrainRequest",
-  AirAndTrainRequest: "AirAndTrainRequest",
-} as const;
-/**
- * Type of travel alternate question. Supported values: AirRequest = attendee requested air travel; HotelRequest = attendee requested hotel travel; AirActual = actual air travel booked; GroupFlight = group flight booking; TrainRequest = attendee requested train travel; AirAndTrainRequest = attendee did not want air or train travel and submitted an alternate response.
- */
-export type TravelType = ClosedEnum<typeof TravelType>;
+import { RequesterType, RequesterType$inboundSchema } from "./requestertype.js";
+import { TravelType, TravelType$inboundSchema } from "./traveltype.js";
 
 /**
  * Details of an alternate travel answer submitted by an attendee who opted out of air, hotel, or train bookings.
@@ -68,7 +39,7 @@ export type AlternateTravelDetail = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * Representation of the attendee
+   * An attendee identified by an ID.
    */
   attendee?: Attendee3 | undefined;
   /**
@@ -76,9 +47,9 @@ export type AlternateTravelDetail = {
    */
   requesterId?: string | undefined;
   /**
-   * Attendee type of the entity this alternate travel belongs to. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
+   * Attendee type of the requester. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
    */
-  requesterType?: AlternateTravelDetailRequesterType | undefined;
+  requesterType?: RequesterType | undefined;
   /**
    * Type of travel alternate question. Supported values: AirRequest = attendee requested air travel; HotelRequest = attendee requested hotel travel; AirActual = actual air travel booked; GroupFlight = group flight booking; TrainRequest = attendee requested train travel; AirAndTrainRequest = attendee did not want air or train travel and submitted an alternate response.
    */
@@ -92,15 +63,6 @@ export type AlternateTravelDetail = {
    */
   answer?: AlternateAnswer | undefined;
 };
-
-/** @internal */
-export const AlternateTravelDetailRequesterType$inboundSchema: z.ZodNativeEnum<
-  typeof AlternateTravelDetailRequesterType
-> = z.nativeEnum(AlternateTravelDetailRequesterType);
-
-/** @internal */
-export const TravelType$inboundSchema: z.ZodNativeEnum<typeof TravelType> = z
-  .nativeEnum(TravelType);
 
 /** @internal */
 export const AlternateTravelDetail$inboundSchema: z.ZodType<
@@ -117,7 +79,7 @@ export const AlternateTravelDetail$inboundSchema: z.ZodType<
   lastModifiedBy: z.string().optional(),
   attendee: Attendee3$inboundSchema.optional(),
   requesterId: z.string().optional(),
-  requesterType: AlternateTravelDetailRequesterType$inboundSchema.optional(),
+  requesterType: RequesterType$inboundSchema.optional(),
   travelType: TravelType$inboundSchema.optional(),
   question: AlternateQuestion$inboundSchema.optional(),
   answer: AlternateAnswer$inboundSchema.optional(),

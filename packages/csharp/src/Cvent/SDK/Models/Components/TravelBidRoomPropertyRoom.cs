@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// ID of the property's room.
+    /// The property room in the bid.
     /// </summary>
     public class TravelBidRoomPropertyRoom
     {

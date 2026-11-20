@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// A pair of a contact field name and a contact id.
+    /// A contact field name and contact ID pair.
     /// </summary>
     public class ContactMergeField
     {

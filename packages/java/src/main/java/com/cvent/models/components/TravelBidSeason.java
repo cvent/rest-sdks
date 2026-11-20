@@ -23,7 +23,7 @@ import java.util.Optional;
  */
 public class TravelBidSeason {
     /**
-     * Season name.
+     * The name of the season.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("name")
@@ -72,10 +72,11 @@ public class TravelBidSeason {
     private List<TravelBidSeasonRate> weekendRates;
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
@@ -106,7 +107,7 @@ public class TravelBidSeason {
     }
 
     /**
-     * Season name.
+     * The name of the season.
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
@@ -155,10 +156,11 @@ public class TravelBidSeason {
     }
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     public Optional<BidItemStatusType> status() {
         return Optional.ofNullable(this.status);
@@ -169,7 +171,7 @@ public class TravelBidSeason {
     }
 
     /**
-     * Season name.
+     * The name of the season.
      */
     public TravelBidSeason withName(@Nullable String name) {
         this.name = name;
@@ -225,10 +227,11 @@ public class TravelBidSeason {
     }
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     public TravelBidSeason withStatus(@Nullable BidItemStatusType status) {
         this.status = status;
@@ -306,7 +309,7 @@ public class TravelBidSeason {
         }
 
         /**
-         * Season name.
+         * The name of the season.
          */
         public Builder name(@Nullable String name) {
             this.name = name;
@@ -362,10 +365,11 @@ public class TravelBidSeason {
         }
 
         /**
-         * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-         * and the hotel, if they agree, can update the item to deleted.
+         * The negotiation status of the bid item. For example, the corporation marks an item as
+         * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+         * hotel does not offer the amenity.
          *
-         * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+         * <p>Applies only to the supply side.
          */
         public Builder status(@Nullable BidItemStatusType status) {
             this.status = status;

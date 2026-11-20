@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  * AirRequest
  *
- * <p>Representation of an air request.
+ * <p>An air travel request with requester details, itinerary, preferences, and answers.
  */
 public class AirRequest {
     /**
@@ -98,7 +98,7 @@ public class AirRequest {
     private String requesterLastName;
 
     /**
-     * Suffix of the flight requester.
+     * Suffix of the requester.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("requesterSuffix")
@@ -126,14 +126,14 @@ public class AirRequest {
     private String knownTravelerNumber;
 
     /**
-     * Representation of a leg detail in air request.
+     * One air request itinerary leg with an origin, destination, date, and time.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("outgoingLeg")
     private LegDetail outgoingLeg;
 
     /**
-     * Representation of a leg detail in air request.
+     * One air request itinerary leg with an origin, destination, date, and time.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("incomingLeg")
@@ -382,7 +382,7 @@ public class AirRequest {
     }
 
     /**
-     * Suffix of the flight requester.
+     * Suffix of the requester.
      */
     public Optional<RequesterSuffix> requesterSuffix() {
         return Optional.ofNullable(this.requesterSuffix);
@@ -410,14 +410,14 @@ public class AirRequest {
     }
 
     /**
-     * Representation of a leg detail in air request.
+     * One air request itinerary leg with an origin, destination, date, and time.
      */
     public Optional<LegDetail> outgoingLeg() {
         return Optional.ofNullable(this.outgoingLeg);
     }
 
     /**
-     * Representation of a leg detail in air request.
+     * One air request itinerary leg with an origin, destination, date, and time.
      */
     public Optional<LegDetail> incomingLeg() {
         return Optional.ofNullable(this.incomingLeg);
@@ -591,7 +591,7 @@ public class AirRequest {
     }
 
     /**
-     * Suffix of the flight requester.
+     * Suffix of the requester.
      */
     public AirRequest withRequesterSuffix(@Nullable RequesterSuffix requesterSuffix) {
         this.requesterSuffix = requesterSuffix;
@@ -623,7 +623,7 @@ public class AirRequest {
     }
 
     /**
-     * Representation of a leg detail in air request.
+     * One air request itinerary leg with an origin, destination, date, and time.
      */
     public AirRequest withOutgoingLeg(@Nullable LegDetail outgoingLeg) {
         this.outgoingLeg = outgoingLeg;
@@ -631,7 +631,7 @@ public class AirRequest {
     }
 
     /**
-     * Representation of a leg detail in air request.
+     * One air request itinerary leg with an origin, destination, date, and time.
      */
     public AirRequest withIncomingLeg(@Nullable LegDetail incomingLeg) {
         this.incomingLeg = incomingLeg;
@@ -1004,7 +1004,7 @@ public class AirRequest {
         }
 
         /**
-         * Suffix of the flight requester.
+         * Suffix of the requester.
          */
         public Builder requesterSuffix(@Nullable RequesterSuffix requesterSuffix) {
             this.requesterSuffix = requesterSuffix;
@@ -1036,7 +1036,7 @@ public class AirRequest {
         }
 
         /**
-         * Representation of a leg detail in air request.
+         * One air request itinerary leg with an origin, destination, date, and time.
          */
         public Builder outgoingLeg(@Nullable LegDetail outgoingLeg) {
             this.outgoingLeg = outgoingLeg;
@@ -1044,7 +1044,7 @@ public class AirRequest {
         }
 
         /**
-         * Representation of a leg detail in air request.
+         * One air request itinerary leg with an origin, destination, date, and time.
          */
         public Builder incomingLeg(@Nullable LegDetail incomingLeg) {
             this.incomingLeg = incomingLeg;

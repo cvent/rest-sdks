@@ -16,11 +16,11 @@ import java.util.Optional;
 /**
  * TravelProposalCustomQuestion
  *
- * <p>Represents custom question associated with a travel proposal.
+ * <p>An answer to a custom question of the travel program.
  */
 public class TravelProposalCustomQuestion {
     /**
-     * Travel account that the proposal is responding to.
+     * The custom question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("question")
@@ -46,7 +46,7 @@ public class TravelProposalCustomQuestion {
     }
 
     /**
-     * Travel account that the proposal is responding to.
+     * The custom question.
      */
     public Optional<TravelProposalCustomQuestionQuestion> question() {
         return Optional.ofNullable(this.question);
@@ -64,7 +64,7 @@ public class TravelProposalCustomQuestion {
     }
 
     /**
-     * Travel account that the proposal is responding to.
+     * The custom question.
      */
     public TravelProposalCustomQuestion withQuestion(@Nullable TravelProposalCustomQuestionQuestion question) {
         this.question = question;
@@ -114,7 +114,7 @@ public class TravelProposalCustomQuestion {
         }
 
         /**
-         * Travel account that the proposal is responding to.
+         * The custom question.
          */
         public Builder question(@Nullable TravelProposalCustomQuestionQuestion question) {
             this.question = question;

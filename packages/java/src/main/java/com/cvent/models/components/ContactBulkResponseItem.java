@@ -19,7 +19,7 @@ import java.util.Optional;
 /**
  * ContactBulkResponseItem
  *
- * <p>This entity is used to represent a single item that is returned as part of a Bulk request call.
+ * <p>Result for one contact in a bulk contact operation.
  */
 public class ContactBulkResponseItem {
 

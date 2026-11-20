@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * The contact details who watched a video
+ * A contact ID associated with a video view.
  */
 export type Contact3 = {
   /**

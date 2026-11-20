@@ -14,7 +14,7 @@ import {
 import { ThumbnailType, ThumbnailType$inboundSchema } from "./thumbnailtype.js";
 
 /**
- * Video thumbnail
+ * Video thumbnail metadata, including its URL, size, dimensions, type, and status.
  */
 export type VideoThumbnail = {
   /**

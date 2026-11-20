@@ -32,7 +32,7 @@ let value: CurrencyConversionRatePaginatedResponse = {
       conversionRate: 5.2,
       startDate: new RFCDate("2020-02-07"),
       endDate: new RFCDate("2020-02-08"),
-      id: "9463c74e-18c6-401a-a710-ae0f485bf959",
+      id: "2bb5698d-cb34-458f-9917-2d388b2116e2",
       baseCurrency: "USD",
       currency: "EUR",
       lastModified: new Date("2020-02-07T00:00:00.000Z"),
@@ -47,4 +47,4 @@ let value: CurrencyConversionRatePaginatedResponse = {
 | Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
 | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | `paging`                                                                                                         | [components.Paging](../../models/components/paging.md)                                                           | :heavy_check_mark:                                                                                               | Represents pagination information for a collection of resources.                                                 |
-| `data`                                                                                                           | [components.CurrencyConversionRateListResponse](../../models/components/currencyconversionratelistresponse.md)[] | :heavy_check_mark:                                                                                               | Collection of conversion rate for a currency in an account.                                                      |
+| `data`                                                                                                           | [components.CurrencyConversionRateListResponse](../../models/components/currencyconversionratelistresponse.md)[] | :heavy_check_mark:                                                                                               | Collection of currency conversion rates for a currency in an account.                                            |

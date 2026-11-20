@@ -31,7 +31,7 @@ let value: GetCurrencyConversionRateResponse = {
         conversionRate: 5.2,
         startDate: new RFCDate("2020-02-07"),
         endDate: new RFCDate("2020-02-08"),
-        id: "9463c74e-18c6-401a-a710-ae0f485bf959",
+        id: "2bb5698d-cb34-458f-9917-2d388b2116e2",
         baseCurrency: "USD",
         currency: "EUR",
         lastModified: new Date("2020-02-07T00:00:00.000Z"),

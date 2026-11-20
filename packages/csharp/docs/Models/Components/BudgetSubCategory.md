@@ -1,6 +1,6 @@
 # BudgetSubCategory
 
-This is used to denote the sub category for a budget.
+Subcategory assigned to a budget item.
 
 
 ## Fields

@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * AmenityType
  *
- * <p>Amenity type
+ * <p>The type of the amenity.
  */
 public enum AmenityType {
     INCLUDED_AMENITY("included_amenity"),

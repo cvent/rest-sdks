@@ -12,7 +12,7 @@ import {
 } from "./biditemstatustype.js";
 
 /**
- * Property Room Detail
+ * The property room in the bid.
  */
 export type TravelBidRoom1PropertyRoom = {
   /**
@@ -24,7 +24,7 @@ export type TravelBidRoom1PropertyRoom = {
    */
   name?: string | undefined;
   /**
-   * Room code of the property room.
+   * The room code of the property room.
    */
   code?: string | undefined;
 };
@@ -34,7 +34,7 @@ export type TravelBidRoom1PropertyRoom = {
  */
 export type TravelBidRoom1 = {
   /**
-   * Property Room Detail
+   * The property room in the bid.
    */
   propertyRoom?: TravelBidRoom1PropertyRoom | undefined;
   /**
@@ -46,7 +46,7 @@ export type TravelBidRoom1 = {
    */
   order?: number | undefined;
   /**
-   * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested, and the hotel, if they agree, can update the item to deleted. not_offered indicates the hotel does not offer this amenity (supply side only).
+   * The negotiation status of the bid item. For example, the corporation marks an item as `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The hotel does not offer the amenity. Applies only to the supply side.
    */
   status?: BidItemStatusType | undefined;
 };

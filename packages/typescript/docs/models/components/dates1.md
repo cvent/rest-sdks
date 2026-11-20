@@ -11,8 +11,8 @@ import { RFCDate } from "@cvent/sdk/types";
 let value: Dates1 = {
   preferred: true,
   id: "50dc08af-24a9-4d01-84be-3d43133dc945",
-  endDate: new RFCDate("2016-10-13"),
-  startDate: new RFCDate("2016-10-15"),
+  endDate: new RFCDate("2016-10-15"),
+  startDate: new RFCDate("2016-10-13"),
   note: "Flexible dates",
 };
 ```
@@ -23,6 +23,6 @@ let value: Dates1 = {
 | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
 | `preferred`                                      | *boolean*                                        | :heavy_minus_sign:                               | True indicates these are preferred dates.        | true                                             |
 | `id`                                             | *string*                                         | :heavy_minus_sign:                               | Unique identifier for dates.                     | 50dc08af-24a9-4d01-84be-3d43133dc945             |
-| `endDate`                                        | [RFCDate](../../types/rfcdate.md)                | :heavy_minus_sign:                               | The ISO 8601 end date of the event.              | 2016-10-13                                       |
-| `startDate`                                      | [RFCDate](../../types/rfcdate.md)                | :heavy_minus_sign:                               | The ISO 8601 start date of the event.            | 2016-10-15                                       |
+| `endDate`                                        | [RFCDate](../../types/rfcdate.md)                | :heavy_minus_sign:                               | The ISO 8601 end date of the event.              | 2016-10-15                                       |
+| `startDate`                                      | [RFCDate](../../types/rfcdate.md)                | :heavy_minus_sign:                               | The ISO 8601 start date of the event.            | 2016-10-13                                       |
 | `note`                                           | *string*                                         | :heavy_minus_sign:                               | A note detailing the requirements for the dates. | Flexible dates                                   |

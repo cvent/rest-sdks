@@ -8,27 +8,27 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Tax and service charge information.
+ * The tax and service charge information of the proposal.
  */
 export type TravelProposalGroupAndMeetingTaxAndServiceCharge = {
   /**
-   * Tax amount.
+   * The amount of the tax. The `taxPercent` field sets whether the amount is a percentage or a monetary value.
    */
   taxAmount?: number | undefined;
   /**
-   * True indicates the tax amount represents a percentage, instead of a monetary value.
+   * True indicates the tax amount is a percentage. False indicates a monetary value.
    */
   taxPercent?: boolean | undefined;
   /**
-   * True indicates the tax included.
+   * True indicates the tax is included.
    */
   taxIncluded?: boolean | undefined;
   /**
-   * Service charge amount.
+   * The amount of the service charge. The `serviceChargePercent` field sets whether the amount is a percentage or a monetary value.
    */
   serviceChargeAmount?: number | undefined;
   /**
-   * True indicates the service charge amount represents a percentage, instead of a monetary value
+   * True indicates the service charge amount is a percentage. False indicates a monetary value.
    */
   serviceChargePercent?: boolean | undefined;
   /**

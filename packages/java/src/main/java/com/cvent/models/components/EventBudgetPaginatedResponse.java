@@ -25,7 +25,7 @@ public class EventBudgetPaginatedResponse {
     private Paging paging;
 
     /**
-     * Collection of Event Budget Totals Information.
+     * Collection of event budget totals.
      */
     @JsonProperty("data")
     private List<EventBudgetTotals> data;
@@ -47,7 +47,7 @@ public class EventBudgetPaginatedResponse {
     }
 
     /**
-     * Collection of Event Budget Totals Information.
+     * Collection of event budget totals.
      */
     public List<EventBudgetTotals> data() {
         return this.data;
@@ -66,7 +66,7 @@ public class EventBudgetPaginatedResponse {
     }
 
     /**
-     * Collection of Event Budget Totals Information.
+     * Collection of event budget totals.
      */
     public EventBudgetPaginatedResponse withData(@Nonnull List<EventBudgetTotals> data) {
         this.data = Utils.checkNotNull(data, "data");
@@ -115,7 +115,7 @@ public class EventBudgetPaginatedResponse {
         }
 
         /**
-         * Collection of Event Budget Totals Information.
+         * Collection of event budget totals.
          */
         public Builder data(@Nonnull List<EventBudgetTotals> data) {
             this.data = Utils.checkNotNull(data, "data");

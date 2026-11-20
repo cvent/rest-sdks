@@ -56,9 +56,9 @@ public class BudgetAllocationsPaginatedResponse {
     private AllocationGeneralLedger generalLedger;
 
     /**
-     * Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700
-     * from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000
-     * budget).
+     * Specifies how to allocate a budgeted cost. AMOUNT allocates a fixed amount; PERCENTAGE allocates a
+     * percentage of the budget item's cost. For example, AMOUNT can allocate $700 from a $1,000 budget,
+     * while PERCENTAGE can allocate 70% of a $1,000 budget.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("method")
@@ -139,9 +139,9 @@ public class BudgetAllocationsPaginatedResponse {
     }
 
     /**
-     * Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700
-     * from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000
-     * budget).
+     * Specifies how to allocate a budgeted cost. AMOUNT allocates a fixed amount; PERCENTAGE allocates a
+     * percentage of the budget item's cost. For example, AMOUNT can allocate $700 from a $1,000 budget,
+     * while PERCENTAGE can allocate 70% of a $1,000 budget.
      */
     public Optional<AllocateBy> method() {
         return Optional.ofNullable(this.method);
@@ -208,9 +208,9 @@ public class BudgetAllocationsPaginatedResponse {
     }
 
     /**
-     * Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700
-     * from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000
-     * budget).
+     * Specifies how to allocate a budgeted cost. AMOUNT allocates a fixed amount; PERCENTAGE allocates a
+     * percentage of the budget item's cost. For example, AMOUNT can allocate $700 from a $1,000 budget,
+     * while PERCENTAGE can allocate 70% of a $1,000 budget.
      */
     public BudgetAllocationsPaginatedResponse withMethod(@Nullable AllocateBy method) {
         this.method = method;
@@ -344,9 +344,9 @@ public class BudgetAllocationsPaginatedResponse {
         }
 
         /**
-         * Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700
-         * from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000
-         * budget).
+         * Specifies how to allocate a budgeted cost. AMOUNT allocates a fixed amount; PERCENTAGE allocates a
+         * percentage of the budget item's cost. For example, AMOUNT can allocate $700 from a $1,000 budget,
+         * while PERCENTAGE can allocate 70% of a $1,000 budget.
          */
         public Builder method(@Nullable AllocateBy method) {
             this.method = method;

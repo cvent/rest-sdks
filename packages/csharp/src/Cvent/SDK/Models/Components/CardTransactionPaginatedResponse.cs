@@ -26,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public Paging Paging { get; set; } = default!;
 
         /// <summary>
-        /// Collection of virtual card transaction.
+        /// Collection of virtual card transactions.
         /// </summary>
         [JsonProperty("data")]
         public List<CardTransaction> Data { get; set; } = default!;

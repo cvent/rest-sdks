@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  * TravelProposalGroupAndMeetingAmenity
  *
- * <p>Group and meeting amenity info.
+ * <p>The group and meeting amenities of the proposal.
  */
 public class TravelProposalGroupAndMeetingAmenity {
     /**
@@ -29,7 +29,7 @@ public class TravelProposalGroupAndMeetingAmenity {
     private Boolean lcdIncluded;
 
     /**
-     * Price of the liquid crystal display (LCD).
+     * The price of the liquid crystal display (LCD).
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("lcdPrice")
@@ -43,21 +43,21 @@ public class TravelProposalGroupAndMeetingAmenity {
     private Boolean screenIncluded;
 
     /**
-     * Price of the screen.
+     * The price of the screen.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("screenPrice")
     private Double screenPrice;
 
     /**
-     * True indicates high speed internet access is included in the amenity.
+     * True indicates high-speed internet access (HSIA) is included in the amenity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("hsiaIncluded")
     private Boolean hsiaIncluded;
 
     /**
-     * Price of high speed internet access (HSIA).
+     * The price of high-speed internet access (HSIA).
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("hsiaPrice")
@@ -71,7 +71,7 @@ public class TravelProposalGroupAndMeetingAmenity {
     private Boolean complementaryParkingIncluded;
 
     /**
-     * Name of company providing AV equipment.
+     * The name of the company that provides the AV equipment.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("whatCompanyProvidesAVEquipment")
@@ -109,7 +109,7 @@ public class TravelProposalGroupAndMeetingAmenity {
     }
 
     /**
-     * Price of the liquid crystal display (LCD).
+     * The price of the liquid crystal display (LCD).
      */
     public Optional<Double> lcdPrice() {
         return Optional.ofNullable(this.lcdPrice);
@@ -123,21 +123,21 @@ public class TravelProposalGroupAndMeetingAmenity {
     }
 
     /**
-     * Price of the screen.
+     * The price of the screen.
      */
     public Optional<Double> screenPrice() {
         return Optional.ofNullable(this.screenPrice);
     }
 
     /**
-     * True indicates high speed internet access is included in the amenity.
+     * True indicates high-speed internet access (HSIA) is included in the amenity.
      */
     public Optional<Boolean> hsiaIncluded() {
         return Optional.ofNullable(this.hsiaIncluded);
     }
 
     /**
-     * Price of high speed internet access (HSIA).
+     * The price of high-speed internet access (HSIA).
      */
     public Optional<Double> hsiaPrice() {
         return Optional.ofNullable(this.hsiaPrice);
@@ -151,7 +151,7 @@ public class TravelProposalGroupAndMeetingAmenity {
     }
 
     /**
-     * Name of company providing AV equipment.
+     * The name of the company that provides the AV equipment.
      */
     public Optional<String> whatCompanyProvidesAVEquipment() {
         return Optional.ofNullable(this.whatCompanyProvidesAVEquipment);
@@ -170,7 +170,7 @@ public class TravelProposalGroupAndMeetingAmenity {
     }
 
     /**
-     * Price of the liquid crystal display (LCD).
+     * The price of the liquid crystal display (LCD).
      */
     public TravelProposalGroupAndMeetingAmenity withLcdPrice(@Nullable Double lcdPrice) {
         this.lcdPrice = lcdPrice;
@@ -186,7 +186,7 @@ public class TravelProposalGroupAndMeetingAmenity {
     }
 
     /**
-     * Price of the screen.
+     * The price of the screen.
      */
     public TravelProposalGroupAndMeetingAmenity withScreenPrice(@Nullable Double screenPrice) {
         this.screenPrice = screenPrice;
@@ -194,7 +194,7 @@ public class TravelProposalGroupAndMeetingAmenity {
     }
 
     /**
-     * True indicates high speed internet access is included in the amenity.
+     * True indicates high-speed internet access (HSIA) is included in the amenity.
      */
     public TravelProposalGroupAndMeetingAmenity withHsiaIncluded(@Nullable Boolean hsiaIncluded) {
         this.hsiaIncluded = hsiaIncluded;
@@ -202,7 +202,7 @@ public class TravelProposalGroupAndMeetingAmenity {
     }
 
     /**
-     * Price of high speed internet access (HSIA).
+     * The price of high-speed internet access (HSIA).
      */
     public TravelProposalGroupAndMeetingAmenity withHsiaPrice(@Nullable Double hsiaPrice) {
         this.hsiaPrice = hsiaPrice;
@@ -219,7 +219,7 @@ public class TravelProposalGroupAndMeetingAmenity {
     }
 
     /**
-     * Name of company providing AV equipment.
+     * The name of the company that provides the AV equipment.
      */
     public TravelProposalGroupAndMeetingAmenity withWhatCompanyProvidesAVEquipment(
             @Nullable String whatCompanyProvidesAVEquipment) {
@@ -313,7 +313,7 @@ public class TravelProposalGroupAndMeetingAmenity {
         }
 
         /**
-         * Price of the liquid crystal display (LCD).
+         * The price of the liquid crystal display (LCD).
          */
         public Builder lcdPrice(@Nullable Double lcdPrice) {
             this.lcdPrice = lcdPrice;
@@ -329,7 +329,7 @@ public class TravelProposalGroupAndMeetingAmenity {
         }
 
         /**
-         * Price of the screen.
+         * The price of the screen.
          */
         public Builder screenPrice(@Nullable Double screenPrice) {
             this.screenPrice = screenPrice;
@@ -337,7 +337,7 @@ public class TravelProposalGroupAndMeetingAmenity {
         }
 
         /**
-         * True indicates high speed internet access is included in the amenity.
+         * True indicates high-speed internet access (HSIA) is included in the amenity.
          */
         public Builder hsiaIncluded(@Nullable Boolean hsiaIncluded) {
             this.hsiaIncluded = hsiaIncluded;
@@ -345,7 +345,7 @@ public class TravelProposalGroupAndMeetingAmenity {
         }
 
         /**
-         * Price of high speed internet access (HSIA).
+         * The price of high-speed internet access (HSIA).
          */
         public Builder hsiaPrice(@Nullable Double hsiaPrice) {
             this.hsiaPrice = hsiaPrice;
@@ -361,7 +361,7 @@ public class TravelProposalGroupAndMeetingAmenity {
         }
 
         /**
-         * Name of company providing AV equipment.
+         * The name of the company that provides the AV equipment.
          */
         public Builder whatCompanyProvidesAVEquipment(@Nullable String whatCompanyProvidesAVEquipment) {
             this.whatCompanyProvidesAVEquipment = whatCompanyProvidesAVEquipment;

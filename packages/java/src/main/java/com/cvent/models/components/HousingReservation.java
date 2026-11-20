@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * HousingReservation
  *
- * <p>Representation of the housing reservation details.
+ * <p>A housing reservation request with its bridge ID and booking-site link.
  */
 public class HousingReservation {
     /**
@@ -27,7 +27,7 @@ public class HousingReservation {
     private String id;
 
     /**
-     * Represents a link to a related resource.
+     * Link to the booking site for this reservation request.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bookingSite")
@@ -53,7 +53,7 @@ public class HousingReservation {
     }
 
     /**
-     * Represents a link to a related resource.
+     * Link to the booking site for this reservation request.
      */
     public Optional<HousingReservationLink> bookingSite() {
         return Optional.ofNullable(this.bookingSite);
@@ -72,7 +72,7 @@ public class HousingReservation {
     }
 
     /**
-     * Represents a link to a related resource.
+     * Link to the booking site for this reservation request.
      */
     public HousingReservation withBookingSite(@Nullable HousingReservationLink bookingSite) {
         this.bookingSite = bookingSite;
@@ -121,7 +121,7 @@ public class HousingReservation {
         }
 
         /**
-         * Represents a link to a related resource.
+         * Link to the booking site for this reservation request.
          */
         public Builder bookingSite(@Nullable HousingReservationLink bookingSite) {
             this.bookingSite = bookingSite;

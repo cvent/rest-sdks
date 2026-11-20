@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved a Paginated list of Event Budget Totals.
+        /// Successfully retrieved a paginated list of event budget totals.
         /// </summary>
         public EventBudgetPaginatedResponse? EventBudgetPaginatedResponse { get; set; }
     }

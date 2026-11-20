@@ -72,19 +72,19 @@ export type TravelBuyerProposalBid = {
    */
   id?: string | undefined;
   /**
-   * Bid stay type.
+   * The stay type of the bid.
    */
   stayType: BidStayType;
   /**
-   * The order of the bid compared to other bids of the same stay type. This is used to distinguish between extended stay 1 vs extended stay 2.
+   * The order of the bid among the bids of the same stay type. For example, the order separates extended stay 1 from extended stay 2.
    */
   order: number;
   /**
-   * Bid status type.
+   * The status of the bid.
    */
   status: BidStatusType;
   /**
-   * Name given to the bid.
+   * The name of the bid.
    */
   name?: string | undefined;
   /**
@@ -100,19 +100,19 @@ export type TravelBuyerProposalBid = {
    */
   currencyCode?: string | undefined;
   /**
-   * Days of the week that are considered weekend days, to apply weekend rates. Does not apply when format is GBTA2013.
+   * The days of the week that get the weekend rates. Does not apply to a proposal with the `gbta2013` format.
    */
   weekendDays?: Array<TravelBidWeekendDays> | undefined;
   /**
-   * Does the bid include LRA (Last Room Availability) rates?
+   * True indicates the bid includes last room availability (LRA) rates.
    */
   lra: boolean;
   /**
-   * Does the bid include non-LRA rates?
+   * True indicates the bid includes non-last room availability (NLRA) rates.
    */
   nlra: boolean;
   /**
-   * Are the fair date rates LRA (Last Room Availability)?
+   * True indicates the fair date rates are last room availability (LRA) rates.
    */
   fairDateLra: boolean;
   /**
@@ -120,35 +120,35 @@ export type TravelBuyerProposalBid = {
    */
   internalNote?: string | undefined;
   /**
-   * Additional Info
+   * The comments on the bid.
    */
   comments?: Array<TravelBidComment> | undefined;
   /**
-   * Room Types associated with the bid
+   * The room types of the bid.
    */
   roomTypes?: Array<TravelBidRoom1> | undefined;
   /**
-   * Seasons associated with the bid
+   * The seasons of the bid.
    */
   seasons?: Array<TravelBidSeason> | undefined;
   /**
-   * Dynamic discounts associated with the bid
+   * The dynamic rate discounts of the bid.
    */
   discounts?: Array<TravelBidDiscount> | undefined;
   /**
-   * Fair seasons associated with the bid
+   * The fair seasons of the bid.
    */
   fairSeasons?: Array<TravelBidFairSeason> | undefined;
   /**
-   * Amenities associated with the bid
+   * The amenities of the bid.
    */
   amenities?: Array<TravelBidAmenity> | undefined;
   /**
-   * Policies associated with the bid
+   * The policies of the bid.
    */
   policies?: Array<TravelBidPolicy> | undefined;
   /**
-   * Taxes & fees associated with the bid
+   * The taxes and fees of the bid.
    */
   taxesAndFees?: Array<TravelBidTaxAndFee> | undefined;
 };

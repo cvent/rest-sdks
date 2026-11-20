@@ -119,11 +119,12 @@ public class AsyncCventSDK {
      */
     private final AsyncEmails emails;
     /**
-     * Budget is an event feature used to organize spending and track
-     * [allocations](https://support.cvent.com/s/communityarticle/Setting-Up-Budget-Allocations). Use this
-     * API to view budget items, cards and card transactions related to the budget module.
+     * Budget items and related configuration include planned expenses,
+     * [allocations](https://support.cvent.com/s/communityarticle/Setting-Up-Budget-Allocations), totals,
+     * custom fields, vendors, and currency conversion rates. Use these APIs to manage budget planning data
+     * and related account information.
      */
-    private final AsyncBudget budget;
+    private final AsyncBudgets budgets;
     /**
      * The Bulk API provides a simple interface to upload large amounts of data into Cvent. The API
      * processes the uploaded data asynchronously making API calls on behalf of the caller.
@@ -164,6 +165,11 @@ public class AsyncCventSDK {
      * extra layer of security.
      */
     private final AsyncCardTokens cardTokens;
+    /**
+     * Budget cards and their transactions support payment activity associated with an account. Use these
+     * APIs to retrieve budget cards and create, retrieve, update, and delete card transactions.
+     */
+    private final AsyncBudgetCards budgetCards;
     /**
      * RegLink APIs allow you to exchange data with Cvent Passkey events and hotel reservation-booking
      * engines.
@@ -255,6 +261,11 @@ public class AsyncCventSDK {
      * Badge printer pools are set up from Cvent UI. You can use this API to retrieve badge printer pools.
      */
     private final AsyncBadgePrinterPools badgePrinterPools;
+    /**
+     * Budget payments record payments associated with budget items. Use these APIs to create, retrieve,
+     * update, and delete budget payments and assign invoices to payments.
+     */
+    private final AsyncBudgetPayments budgetPayments;
     /**
      * Discounts provide a way to reduce the cost of event registration items. Use these APIs to manage
      * event discounts, including creating, updating, and linking discounts to agenda items.
@@ -436,7 +447,7 @@ public class AsyncCventSDK {
      * represents a request for proposal (RFP) that defines the specific travel needs and
      * requirements of a travel account. The travel account solicits hotels and other travel
      * suppliers to respond to the program with proposals, which provide detailed
-     * information on rates and amenities.'
+     * information on rates and amenities.
      */
     private final AsyncTravelRFPs travelRFPs;
     /**
@@ -610,12 +621,13 @@ public class AsyncCventSDK {
         return emails;
     }
     /**
-     * Budget is an event feature used to organize spending and track
-     * [allocations](https://support.cvent.com/s/communityarticle/Setting-Up-Budget-Allocations). Use this
-     * API to view budget items, cards and card transactions related to the budget module.
+     * Budget items and related configuration include planned expenses,
+     * [allocations](https://support.cvent.com/s/communityarticle/Setting-Up-Budget-Allocations), totals,
+     * custom fields, vendors, and currency conversion rates. Use these APIs to manage budget planning data
+     * and related account information.
      */
-    public AsyncBudget budget() {
-        return budget;
+    public AsyncBudgets budgets() {
+        return budgets;
     }
     /**
      * The Bulk API provides a simple interface to upload large amounts of data into Cvent. The API
@@ -662,6 +674,13 @@ public class AsyncCventSDK {
      */
     public AsyncCardTokens cardTokens() {
         return cardTokens;
+    }
+    /**
+     * Budget cards and their transactions support payment activity associated with an account. Use these
+     * APIs to retrieve budget cards and create, retrieve, update, and delete card transactions.
+     */
+    public AsyncBudgetCards budgetCards() {
+        return budgetCards;
     }
     /**
      * RegLink APIs allow you to exchange data with Cvent Passkey events and hotel reservation-booking
@@ -773,6 +792,13 @@ public class AsyncCventSDK {
      */
     public AsyncBadgePrinterPools badgePrinterPools() {
         return badgePrinterPools;
+    }
+    /**
+     * Budget payments record payments associated with budget items. Use these APIs to create, retrieve,
+     * update, and delete budget payments and assign invoices to payments.
+     */
+    public AsyncBudgetPayments budgetPayments() {
+        return budgetPayments;
     }
     /**
      * Discounts provide a way to reduce the cost of event registration items. Use these APIs to manage
@@ -1007,7 +1033,7 @@ public class AsyncCventSDK {
      * represents a request for proposal (RFP) that defines the specific travel needs and
      * requirements of a travel account. The travel account solicits hotels and other travel
      * suppliers to respond to the program with proposals, which provide detailed
-     * information on rates and amenities.'
+     * information on rates and amenities.
      */
     public AsyncTravelRFPs travelRFPs() {
         return travelRFPs;
@@ -1095,10 +1121,11 @@ public class AsyncCventSDK {
         this.attendeeActivities = new AsyncAttendeeActivities(syncSDK.attendeeActivities(), sdkConfiguration);
         this.audienceSegments = new AsyncAudienceSegments(syncSDK.audienceSegments(), sdkConfiguration);
         this.emails = new AsyncEmails(syncSDK.emails(), sdkConfiguration);
-        this.budget = new AsyncBudget(syncSDK.budget(), sdkConfiguration);
+        this.budgets = new AsyncBudgets(syncSDK.budgets(), sdkConfiguration);
         this.bulk = new AsyncBulk(syncSDK.bulk(), sdkConfiguration);
         this.campaigns = new AsyncCampaigns(syncSDK.campaigns(), sdkConfiguration);
         this.cardTokens = new AsyncCardTokens(syncSDK.cardTokens(), sdkConfiguration);
+        this.budgetCards = new AsyncBudgetCards(syncSDK.budgetCards(), sdkConfiguration);
         this.housing = new AsyncHousing(syncSDK.housing(), sdkConfiguration);
         this.contacts = new AsyncContacts(syncSDK.contacts(), sdkConfiguration);
         this.hooks = new AsyncHooks(syncSDK.hooks(), sdkConfiguration);
@@ -1109,6 +1136,7 @@ public class AsyncCventSDK {
         this.attendeeMessages = new AsyncAttendeeMessages(syncSDK.attendeeMessages(), sdkConfiguration);
         this.badgePrintJob = new AsyncBadgePrintJob(syncSDK.badgePrintJob(), sdkConfiguration);
         this.badgePrinterPools = new AsyncBadgePrinterPools(syncSDK.badgePrinterPools(), sdkConfiguration);
+        this.budgetPayments = new AsyncBudgetPayments(syncSDK.budgetPayments(), sdkConfiguration);
         this.discounts = new AsyncDiscounts(syncSDK.discounts(), sdkConfiguration);
         this.eventTravel = new AsyncEventTravel(syncSDK.eventTravel(), sdkConfiguration);
         this.exhibitor = new AsyncExhibitor(syncSDK.exhibitor(), sdkConfiguration);

@@ -16,7 +16,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Represents a contact that has been created and has an id.
+    /// A contact that has been created and assigned an ID.
     /// </summary>
     public class Contact
     {
@@ -165,7 +165,7 @@ namespace Cvent.SDK.Models.Components
         public List<CustomField>? CustomFields { get; set; }
 
         /// <summary>
-        /// This is a ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
+        /// This is an ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
         /// </summary>
         [JsonProperty("sourceId")]
         public string? SourceId { get; set; }
@@ -177,7 +177,7 @@ namespace Cvent.SDK.Models.Components
         public string? MobilePhone { get; set; }
 
         /// <summary>
-        /// Detail related to compliance with the contact's privacy rights under various legislation.
+        /// Collection of compliance details about the contact's privacy rights under applicable legislation.
         /// </summary>
         [JsonProperty("compliance")]
         public List<Models.Components.Compliance>? Compliance { get; set; }
@@ -225,9 +225,9 @@ namespace Cvent.SDK.Models.Components
         public ContactLinks? Links { get; set; }
 
         /// <summary>
-        /// The date of birth of the contact.<br/>
+        /// The contact's date of birth, in ISO 8601 date format.<br/>
         /// <br/>
-        ///  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively.
+        ///  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes, respectively.
         /// </summary>
         [JsonProperty("dateOfBirth")]
         public DateOnly? DateOfBirth { get; set; }

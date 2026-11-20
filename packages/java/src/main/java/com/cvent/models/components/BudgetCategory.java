@@ -20,7 +20,7 @@ import java.util.Optional;
  */
 public class BudgetCategory {
     /**
-     * Unique identifier of the budget category.
+     * Budget category ID.
      */
     @JsonProperty("id")
     private long id;
@@ -43,7 +43,7 @@ public class BudgetCategory {
     }
 
     /**
-     * Unique identifier of the budget category.
+     * Budget category ID.
      */
     public long id() {
         return this.id;
@@ -61,7 +61,7 @@ public class BudgetCategory {
     }
 
     /**
-     * Unique identifier of the budget category.
+     * Budget category ID.
      */
     public BudgetCategory withId(long id) {
         this.id = id;
@@ -110,7 +110,7 @@ public class BudgetCategory {
         }
 
         /**
-         * Unique identifier of the budget category.
+         * Budget category ID.
          */
         public Builder id(long id) {
             this.id = id;

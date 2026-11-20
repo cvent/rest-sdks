@@ -33,7 +33,7 @@ export type ExistingAudienceSegment = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * ID of the event.
+   * Represents an event by its ID.
    */
   event: Event3;
   /**
@@ -41,11 +41,11 @@ export type ExistingAudienceSegment = {
    */
   name: string;
   /**
-   * Description of the audience segment.
+   * Additional text about the audience segment.
    */
   description?: string | undefined;
   /**
-   * ID of the audience segment.
+   * Audience segment ID.
    */
   id?: string | undefined;
   /**

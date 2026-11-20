@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Rate level.
+    /// The rate level.
     /// </summary>
     public enum RateLevelType
     {

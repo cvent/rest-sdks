@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * This is used to denote the sub category for a budget.
+ * Subcategory assigned to a budget item.
  */
 export type BudgetSubCategory = {
   /**

@@ -22,7 +22,7 @@ export type TravelProposalStaticContentResponseTravelProposal = {
 };
 
 /**
- * Response containing static content for a specific proposal as a list of field-value pairs with sequence ordering
+ * The static content of a travel proposal, as a list of field-value pairs in sequence order.
  */
 export type TravelProposalStaticContentResponse = {
   /**
@@ -30,7 +30,7 @@ export type TravelProposalStaticContentResponse = {
    */
   travelProposal: TravelProposalStaticContentResponseTravelProposal;
   /**
-   * List of static content items for the proposal
+   * The static content items of the travel proposal.
    */
   staticContents: Array<StaticContentItem>;
 };

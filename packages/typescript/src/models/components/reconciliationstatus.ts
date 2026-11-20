@@ -6,14 +6,14 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * This is used to denote the reconciliation status for a transaction.
+ * Reconciliation status of the transaction: Reconciled or Not Reconciled.
  */
 export const ReconciliationStatus = {
   Reconciled: "Reconciled",
   NotReconciled: "Not Reconciled",
 } as const;
 /**
- * This is used to denote the reconciliation status for a transaction.
+ * Reconciliation status of the transaction: Reconciled or Not Reconciled.
  */
 export type ReconciliationStatus = ClosedEnum<typeof ReconciliationStatus>;
 

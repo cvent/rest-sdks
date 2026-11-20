@@ -1,6 +1,6 @@
 # Contact3
 
-The contact details who watched a video
+A contact ID associated with a video view.
 
 
 ## Fields

@@ -1,6 +1,6 @@
 # ExistingAudioTrack
 
-Existing audio track.
+An audio track with its ID and associated URL.
 
 
 ## Fields

@@ -23,3 +23,7 @@ export type TextAnswerFormat = ClosedEnum<typeof TextAnswerFormat>;
 export const TextAnswerFormat$inboundSchema: z.ZodNativeEnum<
   typeof TextAnswerFormat
 > = z.nativeEnum(TextAnswerFormat);
+/** @internal */
+export const TextAnswerFormat$outboundSchema: z.ZodNativeEnum<
+  typeof TextAnswerFormat
+> = TextAnswerFormat$inboundSchema;

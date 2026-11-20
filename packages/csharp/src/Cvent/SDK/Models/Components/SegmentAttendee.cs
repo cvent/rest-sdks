@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Represents the attendees that are associated/disassociated to/from a segment.
+    /// Represents an attendee's association status with a segment.
     /// </summary>
     public class SegmentAttendee
     {
@@ -44,19 +44,19 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Segment details.
+        /// Represents a segment by its ID.
         /// </summary>
         [JsonProperty("segment")]
         public Segment? Segment { get; set; }
 
         /// <summary>
-        /// ID of the attendee.
+        /// Attendee ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Represents whether the attendee is dissociated from the segment. True if the attendee is disassociated from the segment, false if the attendee is associated with the segment.
+        /// Represents whether the attendee is disassociated from the segment. True if the attendee is disassociated from the segment, false if the attendee is associated with the segment.
         /// </summary>
         [JsonProperty("disassociated")]
         public bool? Disassociated { get; set; }

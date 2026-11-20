@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Bid tax type.
+ * The type of the tax or fee.
  */
 export const TaxType1 = {
   CityTax: "city_tax",
@@ -20,7 +20,7 @@ export const TaxType1 = {
   ResortFee: "resort_fee",
 } as const;
 /**
- * Bid tax type.
+ * The type of the tax or fee.
  */
 export type TaxType1 = ClosedEnum<typeof TaxType1>;
 

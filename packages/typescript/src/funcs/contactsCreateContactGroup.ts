@@ -29,7 +29,7 @@ import { Result } from "../types/fp.js";
  * Create Contact Group
  *
  * @remarks
- * Create a contact group
+ * Creates a contact group using the details provided in the request body.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * This is used to denote the card status for a card.
+ * Status of a payment card.
  */
 export const CardStatus = {
   Pending: "Pending",
@@ -16,7 +16,7 @@ export const CardStatus = {
   Cancelled: "Cancelled",
 } as const;
 /**
- * This is used to denote the card status for a card.
+ * Status of a payment card.
  */
 export type CardStatus = ClosedEnum<typeof CardStatus>;
 

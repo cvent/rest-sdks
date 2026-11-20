@@ -21,13 +21,13 @@ namespace Cvent.SDK.Models.Components
     public class BudgetItemListResponse
     {
         /// <summary>
-        /// The identifier of the Event.
+        /// Event ID.
         /// </summary>
         [JsonProperty("event")]
         public BudgetItemListResponseEvent? Event { get; set; }
 
         /// <summary>
-        /// The identifier of the budget item.
+        /// Budget item ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -57,7 +57,7 @@ namespace Cvent.SDK.Models.Components
         public BudgetCategory Category { get; set; } = default!;
 
         /// <summary>
-        /// This is used to denote the sub category for a budget.
+        /// Subcategory assigned to a budget item.
         /// </summary>
         [JsonProperty("subCategory")]
         public BudgetSubCategory? SubCategory { get; set; }
@@ -93,7 +93,7 @@ namespace Cvent.SDK.Models.Components
         public DateTime? LastModifiedDate { get; set; }
 
         /// <summary>
-        /// This is used to denote the general ledger code associated with budget.
+        /// General ledger code and details associated with a budget item.
         /// </summary>
         [JsonProperty("generalLedger")]
         public GeneralLedger1? GeneralLedger { get; set; }
@@ -141,7 +141,7 @@ namespace Cvent.SDK.Models.Components
         public bool? ConversionRateLocked { get; set; }
 
         /// <summary>
-        /// Conversion rate for converting an amount into a different currency. Value must be greater than 0.000001.
+        /// Rate used to convert an amount into another currency. The value must be greater than 0.000001.
         /// </summary>
         [JsonProperty("conversionRate")]
         public double ConversionRate { get; set; } = default!;

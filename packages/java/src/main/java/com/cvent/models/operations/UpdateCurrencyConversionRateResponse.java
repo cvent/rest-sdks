@@ -32,7 +32,7 @@ public class UpdateCurrencyConversionRateResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully updated currency conversion rate.
+     * Successfully updated a currency conversion rate.
      */
     private CurrencyConversionRateResponse currencyConversionRateResponse;
 
@@ -77,7 +77,7 @@ public class UpdateCurrencyConversionRateResponse implements Response {
     }
 
     /**
-     * Successfully updated currency conversion rate.
+     * Successfully updated a currency conversion rate.
      */
     public Optional<CurrencyConversionRateResponse> currencyConversionRateResponse() {
         return Optional.ofNullable(this.currencyConversionRateResponse);
@@ -112,7 +112,7 @@ public class UpdateCurrencyConversionRateResponse implements Response {
     }
 
     /**
-     * Successfully updated currency conversion rate.
+     * Successfully updated a currency conversion rate.
      */
     public UpdateCurrencyConversionRateResponse withCurrencyConversionRateResponse(
             @Nullable CurrencyConversionRateResponse currencyConversionRateResponse) {
@@ -194,7 +194,7 @@ public class UpdateCurrencyConversionRateResponse implements Response {
         }
 
         /**
-         * Successfully updated currency conversion rate.
+         * Successfully updated a currency conversion rate.
          */
         public Builder currencyConversionRateResponse(
                 @Nullable CurrencyConversionRateResponse currencyConversionRateResponse) {

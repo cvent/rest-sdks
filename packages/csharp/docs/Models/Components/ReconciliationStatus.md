@@ -1,6 +1,6 @@
 # ReconciliationStatus
 
-This is used to denote the reconciliation status for a transaction.
+Reconciliation status of the transaction: Reconciled or Not Reconciled.
 
 ## Example Usage
 

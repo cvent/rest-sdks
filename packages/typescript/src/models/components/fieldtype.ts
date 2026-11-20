@@ -23,3 +23,6 @@ export type FieldType = ClosedEnum<typeof FieldType>;
 /** @internal */
 export const FieldType$inboundSchema: z.ZodNativeEnum<typeof FieldType> = z
   .nativeEnum(FieldType);
+/** @internal */
+export const FieldType$outboundSchema: z.ZodNativeEnum<typeof FieldType> =
+  FieldType$inboundSchema;

@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// This is used to denote the reconciliation status for a transaction.
+    /// Reconciliation status of the transaction: Reconciled or Not Reconciled.
     /// </summary>
     public enum ReconciliationStatus
     {

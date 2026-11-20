@@ -22,14 +22,14 @@ import java.util.Optional;
  */
 public class EventBudgetTotals {
     /**
-     * The identifier of the Event.
+     * Event ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
     private EventBudgetTotalsEvent event;
 
     /**
-     * The identifier of the Budget version for an event.
+     * Budget version details for the event.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("version")
@@ -84,14 +84,14 @@ public class EventBudgetTotals {
     }
 
     /**
-     * The identifier of the Event.
+     * Event ID.
      */
     public Optional<EventBudgetTotalsEvent> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
-     * The identifier of the Budget version for an event.
+     * Budget version details for the event.
      */
     public Optional<Version> version() {
         return Optional.ofNullable(this.version);
@@ -130,7 +130,7 @@ public class EventBudgetTotals {
     }
 
     /**
-     * The identifier of the Event.
+     * Event ID.
      */
     public EventBudgetTotals withEvent(@Nullable EventBudgetTotalsEvent event) {
         this.event = event;
@@ -138,7 +138,7 @@ public class EventBudgetTotals {
     }
 
     /**
-     * The identifier of the Budget version for an event.
+     * Budget version details for the event.
      */
     public EventBudgetTotals withVersion(@Nullable Version version) {
         this.version = version;
@@ -237,7 +237,7 @@ public class EventBudgetTotals {
         }
 
         /**
-         * The identifier of the Event.
+         * Event ID.
          */
         public Builder event(@Nullable EventBudgetTotalsEvent event) {
             this.event = event;
@@ -245,7 +245,7 @@ public class EventBudgetTotals {
         }
 
         /**
-         * The identifier of the Budget version for an event.
+         * Budget version details for the event.
          */
         public Builder version(@Nullable Version version) {
             this.version = version;

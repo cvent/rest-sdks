@@ -51,7 +51,27 @@ export const ExpandableCustomObject$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
+/** @internal */
+export type ExpandableCustomObject$Outbound = {
+  id: string;
+};
 
+/** @internal */
+export const ExpandableCustomObject$outboundSchema: z.ZodType<
+  ExpandableCustomObject$Outbound,
+  z.ZodTypeDef,
+  ExpandableCustomObject
+> = z.object({
+  id: z.string(),
+});
+
+export function expandableCustomObjectToJSON(
+  expandableCustomObject: ExpandableCustomObject,
+): string {
+  return JSON.stringify(
+    ExpandableCustomObject$outboundSchema.parse(expandableCustomObject),
+  );
+}
 export function expandableCustomObjectFromJSON(
   jsonString: string,
 ): SafeParseResult<ExpandableCustomObject, SDKValidationError> {
@@ -71,7 +91,29 @@ export const CustomFieldAnswers$inboundSchema: z.ZodType<
   customField: z.lazy(() => ExpandableCustomObject$inboundSchema),
   answers: z.array(z.string()),
 });
+/** @internal */
+export type CustomFieldAnswers$Outbound = {
+  customField: ExpandableCustomObject$Outbound;
+  answers: Array<string>;
+};
 
+/** @internal */
+export const CustomFieldAnswers$outboundSchema: z.ZodType<
+  CustomFieldAnswers$Outbound,
+  z.ZodTypeDef,
+  CustomFieldAnswers
+> = z.object({
+  customField: z.lazy(() => ExpandableCustomObject$outboundSchema),
+  answers: z.array(z.string()),
+});
+
+export function customFieldAnswersToJSON(
+  customFieldAnswers: CustomFieldAnswers,
+): string {
+  return JSON.stringify(
+    CustomFieldAnswers$outboundSchema.parse(customFieldAnswers),
+  );
+}
 export function customFieldAnswersFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomFieldAnswers, SDKValidationError> {

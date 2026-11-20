@@ -14,6 +14,6 @@ let value: AllocationSubCategory = {
 
 ## Fields
 
-| Field                                   | Type                                    | Required                                | Description                             | Example                                 |
-| --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| `id`                                    | *string*                                | :heavy_minus_sign:                      | Identifier of a particular subcategory. | b2f194bd-a62c-4e27-a713-48b08196b8a7    |
+| Field                                | Type                                 | Required                             | Description                          | Example                              |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| `id`                                 | *string*                             | :heavy_minus_sign:                   | Allocation Subcategory ID.           | b2f194bd-a62c-4e27-a713-48b08196b8a7 |

@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Value type of the policy.
+    /// The value type of the policy.
     /// </summary>
     public enum PolicyValueType
     {

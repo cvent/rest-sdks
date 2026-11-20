@@ -1,11 +1,11 @@
 # TravelProposalStaticContentListResponse
 
-Paginated response containing a list of proposal static content across multiple proposals
+A paginated list of the static content of travel proposals.
 
 
 ## Fields
 
 | Field                                                                                                       | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
 | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `Data`                                                                                                      | List<[TravelProposalStaticContentResponse](../../Models/Components/TravelProposalStaticContentResponse.md)> | :heavy_check_mark:                                                                                          | Array of proposal static content responses                                                                  |
+| `Data`                                                                                                      | List<[TravelProposalStaticContentResponse](../../Models/Components/TravelProposalStaticContentResponse.md)> | :heavy_check_mark:                                                                                          | The static content of each travel proposal on the page.                                                     |
 | `Paging`                                                                                                    | [Paging](../../Models/Components/Paging.md)                                                                 | :heavy_check_mark:                                                                                          | Represents pagination information for a collection of resources.                                            |

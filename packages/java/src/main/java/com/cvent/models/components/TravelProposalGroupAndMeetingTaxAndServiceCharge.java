@@ -18,39 +18,41 @@ import java.util.Optional;
 /**
  * TravelProposalGroupAndMeetingTaxAndServiceCharge
  *
- * <p>Tax and service charge information.
+ * <p>The tax and service charge information of the proposal.
  */
 public class TravelProposalGroupAndMeetingTaxAndServiceCharge {
     /**
-     * Tax amount.
+     * The amount of the tax. The `taxPercent` field sets whether the amount is a percentage or a monetary
+     * value.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("taxAmount")
     private Double taxAmount;
 
     /**
-     * True indicates the tax amount represents a percentage, instead of a monetary value.
+     * True indicates the tax amount is a percentage. False indicates a monetary value.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("taxPercent")
     private Boolean taxPercent;
 
     /**
-     * True indicates the tax included.
+     * True indicates the tax is included.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("taxIncluded")
     private Boolean taxIncluded;
 
     /**
-     * Service charge amount.
+     * The amount of the service charge. The `serviceChargePercent` field sets whether the amount is a
+     * percentage or a monetary value.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("serviceChargeAmount")
     private Double serviceChargeAmount;
 
     /**
-     * True indicates the service charge amount represents a percentage, instead of a monetary value
+     * True indicates the service charge amount is a percentage. False indicates a monetary value.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("serviceChargePercent")
@@ -84,35 +86,37 @@ public class TravelProposalGroupAndMeetingTaxAndServiceCharge {
     }
 
     /**
-     * Tax amount.
+     * The amount of the tax. The `taxPercent` field sets whether the amount is a percentage or a monetary
+     * value.
      */
     public Optional<Double> taxAmount() {
         return Optional.ofNullable(this.taxAmount);
     }
 
     /**
-     * True indicates the tax amount represents a percentage, instead of a monetary value.
+     * True indicates the tax amount is a percentage. False indicates a monetary value.
      */
     public Optional<Boolean> taxPercent() {
         return Optional.ofNullable(this.taxPercent);
     }
 
     /**
-     * True indicates the tax included.
+     * True indicates the tax is included.
      */
     public Optional<Boolean> taxIncluded() {
         return Optional.ofNullable(this.taxIncluded);
     }
 
     /**
-     * Service charge amount.
+     * The amount of the service charge. The `serviceChargePercent` field sets whether the amount is a
+     * percentage or a monetary value.
      */
     public Optional<Double> serviceChargeAmount() {
         return Optional.ofNullable(this.serviceChargeAmount);
     }
 
     /**
-     * True indicates the service charge amount represents a percentage, instead of a monetary value
+     * True indicates the service charge amount is a percentage. False indicates a monetary value.
      */
     public Optional<Boolean> serviceChargePercent() {
         return Optional.ofNullable(this.serviceChargePercent);
@@ -130,7 +134,8 @@ public class TravelProposalGroupAndMeetingTaxAndServiceCharge {
     }
 
     /**
-     * Tax amount.
+     * The amount of the tax. The `taxPercent` field sets whether the amount is a percentage or a monetary
+     * value.
      */
     public TravelProposalGroupAndMeetingTaxAndServiceCharge withTaxAmount(@Nullable Double taxAmount) {
         this.taxAmount = taxAmount;
@@ -138,7 +143,7 @@ public class TravelProposalGroupAndMeetingTaxAndServiceCharge {
     }
 
     /**
-     * True indicates the tax amount represents a percentage, instead of a monetary value.
+     * True indicates the tax amount is a percentage. False indicates a monetary value.
      */
     public TravelProposalGroupAndMeetingTaxAndServiceCharge withTaxPercent(@Nullable Boolean taxPercent) {
         this.taxPercent = taxPercent;
@@ -146,7 +151,7 @@ public class TravelProposalGroupAndMeetingTaxAndServiceCharge {
     }
 
     /**
-     * True indicates the tax included.
+     * True indicates the tax is included.
      */
     public TravelProposalGroupAndMeetingTaxAndServiceCharge withTaxIncluded(@Nullable Boolean taxIncluded) {
         this.taxIncluded = taxIncluded;
@@ -154,7 +159,8 @@ public class TravelProposalGroupAndMeetingTaxAndServiceCharge {
     }
 
     /**
-     * Service charge amount.
+     * The amount of the service charge. The `serviceChargePercent` field sets whether the amount is a
+     * percentage or a monetary value.
      */
     public TravelProposalGroupAndMeetingTaxAndServiceCharge withServiceChargeAmount(
             @Nullable Double serviceChargeAmount) {
@@ -163,7 +169,7 @@ public class TravelProposalGroupAndMeetingTaxAndServiceCharge {
     }
 
     /**
-     * True indicates the service charge amount represents a percentage, instead of a monetary value
+     * True indicates the service charge amount is a percentage. False indicates a monetary value.
      */
     public TravelProposalGroupAndMeetingTaxAndServiceCharge withServiceChargePercent(
             @Nullable Boolean serviceChargePercent) {
@@ -241,7 +247,8 @@ public class TravelProposalGroupAndMeetingTaxAndServiceCharge {
         }
 
         /**
-         * Tax amount.
+         * The amount of the tax. The `taxPercent` field sets whether the amount is a percentage or a monetary
+         * value.
          */
         public Builder taxAmount(@Nullable Double taxAmount) {
             this.taxAmount = taxAmount;
@@ -249,7 +256,7 @@ public class TravelProposalGroupAndMeetingTaxAndServiceCharge {
         }
 
         /**
-         * True indicates the tax amount represents a percentage, instead of a monetary value.
+         * True indicates the tax amount is a percentage. False indicates a monetary value.
          */
         public Builder taxPercent(@Nullable Boolean taxPercent) {
             this.taxPercent = taxPercent;
@@ -257,7 +264,7 @@ public class TravelProposalGroupAndMeetingTaxAndServiceCharge {
         }
 
         /**
-         * True indicates the tax included.
+         * True indicates the tax is included.
          */
         public Builder taxIncluded(@Nullable Boolean taxIncluded) {
             this.taxIncluded = taxIncluded;
@@ -265,7 +272,8 @@ public class TravelProposalGroupAndMeetingTaxAndServiceCharge {
         }
 
         /**
-         * Service charge amount.
+         * The amount of the service charge. The `serviceChargePercent` field sets whether the amount is a
+         * percentage or a monetary value.
          */
         public Builder serviceChargeAmount(@Nullable Double serviceChargeAmount) {
             this.serviceChargeAmount = serviceChargeAmount;
@@ -273,7 +281,7 @@ public class TravelProposalGroupAndMeetingTaxAndServiceCharge {
         }
 
         /**
-         * True indicates the service charge amount represents a percentage, instead of a monetary value
+         * True indicates the service charge amount is a percentage. False indicates a monetary value.
          */
         public Builder serviceChargePercent(@Nullable Boolean serviceChargePercent) {
             this.serviceChargePercent = serviceChargePercent;

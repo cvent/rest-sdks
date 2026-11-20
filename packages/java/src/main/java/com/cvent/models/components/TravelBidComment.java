@@ -20,7 +20,7 @@ import java.util.Optional;
  */
 public class TravelBidComment {
     /**
-     * Bid comment type
+     * The type of the bid comment.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("commentType")
@@ -46,7 +46,7 @@ public class TravelBidComment {
     }
 
     /**
-     * Bid comment type
+     * The type of the bid comment.
      */
     public Optional<CommentType> commentType() {
         return Optional.ofNullable(this.commentType);
@@ -64,7 +64,7 @@ public class TravelBidComment {
     }
 
     /**
-     * Bid comment type
+     * The type of the bid comment.
      */
     public TravelBidComment withCommentType(@Nullable CommentType commentType) {
         this.commentType = commentType;
@@ -114,7 +114,7 @@ public class TravelBidComment {
         }
 
         /**
-         * Bid comment type
+         * The type of the bid comment.
          */
         public Builder commentType(@Nullable CommentType commentType) {
             this.commentType = commentType;

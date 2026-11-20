@@ -22,3 +22,7 @@ export type DateAnswerFormat = ClosedEnum<typeof DateAnswerFormat>;
 export const DateAnswerFormat$inboundSchema: z.ZodNativeEnum<
   typeof DateAnswerFormat
 > = z.nativeEnum(DateAnswerFormat);
+/** @internal */
+export const DateAnswerFormat$outboundSchema: z.ZodNativeEnum<
+  typeof DateAnswerFormat
+> = DateAnswerFormat$inboundSchema;

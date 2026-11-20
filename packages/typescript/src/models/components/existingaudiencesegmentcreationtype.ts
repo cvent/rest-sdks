@@ -6,14 +6,14 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Creation type of the audience segment.
+ * How the audience segment's membership is determined. MANUAL: a planner adds and removes attendees individually. RULE_BASED: attendees are added automatically when they match the segment's criteria rules.
  */
 export const ExistingAudienceSegmentCreationType = {
   Manual: "MANUAL",
   RuleBased: "RULE_BASED",
 } as const;
 /**
- * Creation type of the audience segment.
+ * How the audience segment's membership is determined. MANUAL: a planner adds and removes attendees individually. RULE_BASED: attendees are added automatically when they match the segment's criteria rules.
  */
 export type ExistingAudienceSegmentCreationType = ClosedEnum<
   typeof ExistingAudienceSegmentCreationType

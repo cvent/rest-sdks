@@ -5,10 +5,26 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
+import com.cvent.models.operations.CreateRfpPastEventRequest;
+import com.cvent.models.operations.DeleteRfpPastEventRequest;
+import com.cvent.models.operations.GetRfpPastEventRequest;
 import com.cvent.models.operations.ListRfpPastEventsRequest;
+import com.cvent.models.operations.UpdateRfpPastEventRequest;
+import com.cvent.models.operations.async.CreateRfpPastEventRequestBuilder;
+import com.cvent.models.operations.async.CreateRfpPastEventResponse;
+import com.cvent.models.operations.async.DeleteRfpPastEventRequestBuilder;
+import com.cvent.models.operations.async.DeleteRfpPastEventResponse;
+import com.cvent.models.operations.async.GetRfpPastEventRequestBuilder;
+import com.cvent.models.operations.async.GetRfpPastEventResponse;
 import com.cvent.models.operations.async.ListRfpPastEventsRequestBuilder;
 import com.cvent.models.operations.async.ListRfpPastEventsResponse;
+import com.cvent.models.operations.async.UpdateRfpPastEventRequestBuilder;
+import com.cvent.models.operations.async.UpdateRfpPastEventResponse;
+import com.cvent.operations.CreateRfpPastEvent;
+import com.cvent.operations.DeleteRfpPastEvent;
+import com.cvent.operations.GetRfpPastEvent;
 import com.cvent.operations.ListRfpPastEvents;
+import com.cvent.operations.UpdateRfpPastEvent;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
@@ -41,8 +57,7 @@ public class AsyncRFPAdditionalDetails {
     /**
      * List RFP Past Events
      *
-     * <p>Returns list of past events saved by the planner at the time of RFP creation. These can be non-Cvent
-     * events.
+     * <p>Retrieves a list of past events associated with an RFP. These can be non-Cvent events.
      *
      * @return The async call builder
      */
@@ -53,8 +68,7 @@ public class AsyncRFPAdditionalDetails {
     /**
      * List RFP Past Events
      *
-     * <p>Returns list of past events saved by the planner at the time of RFP creation. These can be non-Cvent
-     * events.
+     * <p>Retrieves a list of past events associated with an RFP. These can be non-Cvent events.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListRfpPastEventsResponse>} - The async response
@@ -66,8 +80,7 @@ public class AsyncRFPAdditionalDetails {
     /**
      * List RFP Past Events
      *
-     * <p>Returns list of past events saved by the planner at the time of RFP creation. These can be non-Cvent
-     * events.
+     * <p>Retrieves a list of past events associated with an RFP. These can be non-Cvent events.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -77,6 +90,168 @@ public class AsyncRFPAdditionalDetails {
             @Nonnull ListRfpPastEventsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListRfpPastEventsRequest, ListRfpPastEventsResponse> operation =
                 new ListRfpPastEvents.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Create RFP Past Event
+     *
+     * <p>Adds a past event that is similar to the event associated with the specified RFP. An RFP can have at
+     * most 3 past events.
+     *
+     * @return The async call builder
+     */
+    public CreateRfpPastEventRequestBuilder createRfpPastEvent() {
+        return new CreateRfpPastEventRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Create RFP Past Event
+     *
+     * <p>Adds a past event that is similar to the event associated with the specified RFP. An RFP can have at
+     * most 3 past events.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<CreateRfpPastEventResponse>} - The async response
+     */
+    public CompletableFuture<CreateRfpPastEventResponse> createRfpPastEvent(
+            @Nonnull CreateRfpPastEventRequest request) {
+        return createRfpPastEvent(request, null);
+    }
+
+    /**
+     * Create RFP Past Event
+     *
+     * <p>Adds a past event that is similar to the event associated with the specified RFP. An RFP can have at
+     * most 3 past events.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateRfpPastEventResponse>} - The async response
+     */
+    public CompletableFuture<CreateRfpPastEventResponse> createRfpPastEvent(
+            @Nonnull CreateRfpPastEventRequest request, @Nullable Options options) {
+        AsyncRequestOperation<CreateRfpPastEventRequest, CreateRfpPastEventResponse> operation =
+                new CreateRfpPastEvent.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Get RFP Past Event
+     *
+     * <p>Returns details of a past event associated with the RFP.
+     *
+     * @return The async call builder
+     */
+    public GetRfpPastEventRequestBuilder getRfpPastEvent() {
+        return new GetRfpPastEventRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get RFP Past Event
+     *
+     * <p>Returns details of a past event associated with the RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<GetRfpPastEventResponse>} - The async response
+     */
+    public CompletableFuture<GetRfpPastEventResponse> getRfpPastEvent(@Nonnull GetRfpPastEventRequest request) {
+        return getRfpPastEvent(request, null);
+    }
+
+    /**
+     * Get RFP Past Event
+     *
+     * <p>Returns details of a past event associated with the RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetRfpPastEventResponse>} - The async response
+     */
+    public CompletableFuture<GetRfpPastEventResponse> getRfpPastEvent(
+            @Nonnull GetRfpPastEventRequest request, @Nullable Options options) {
+        AsyncRequestOperation<GetRfpPastEventRequest, GetRfpPastEventResponse> operation =
+                new GetRfpPastEvent.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Update RFP Past Event
+     *
+     * <p>Updates a past event associated with the RFP.
+     *
+     * @return The async call builder
+     */
+    public UpdateRfpPastEventRequestBuilder updateRfpPastEvent() {
+        return new UpdateRfpPastEventRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update RFP Past Event
+     *
+     * <p>Updates a past event associated with the RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<UpdateRfpPastEventResponse>} - The async response
+     */
+    public CompletableFuture<UpdateRfpPastEventResponse> updateRfpPastEvent(
+            @Nonnull UpdateRfpPastEventRequest request) {
+        return updateRfpPastEvent(request, null);
+    }
+
+    /**
+     * Update RFP Past Event
+     *
+     * <p>Updates a past event associated with the RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateRfpPastEventResponse>} - The async response
+     */
+    public CompletableFuture<UpdateRfpPastEventResponse> updateRfpPastEvent(
+            @Nonnull UpdateRfpPastEventRequest request, @Nullable Options options) {
+        AsyncRequestOperation<UpdateRfpPastEventRequest, UpdateRfpPastEventResponse> operation =
+                new UpdateRfpPastEvent.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * Delete RFP Past Event
+     *
+     * <p>Deletes the past event associated with the RFP.
+     *
+     * @return The async call builder
+     */
+    public DeleteRfpPastEventRequestBuilder deleteRfpPastEvent() {
+        return new DeleteRfpPastEventRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Delete RFP Past Event
+     *
+     * <p>Deletes the past event associated with the RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<DeleteRfpPastEventResponse>} - The async response
+     */
+    public CompletableFuture<DeleteRfpPastEventResponse> deleteRfpPastEvent(
+            @Nonnull DeleteRfpPastEventRequest request) {
+        return deleteRfpPastEvent(request, null);
+    }
+
+    /**
+     * Delete RFP Past Event
+     *
+     * <p>Deletes the past event associated with the RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteRfpPastEventResponse>} - The async response
+     */
+    public CompletableFuture<DeleteRfpPastEventResponse> deleteRfpPastEvent(
+            @Nonnull DeleteRfpPastEventRequest request, @Nullable Options options) {
+        AsyncRequestOperation<DeleteRfpPastEventRequest, DeleteRfpPastEventResponse> operation =
+                new DeleteRfpPastEvent.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

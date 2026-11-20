@@ -12,7 +12,7 @@ export type AssignContactProfileImageRequest = {
    */
   id: string;
   /**
-   * The file ID provided by the <a href="#operation/uploadFile">file upload</a> endpoint.
+   * The file ID provided by the [file upload](#operation/uploadFile) endpoint.
    *
    * @remarks
    */

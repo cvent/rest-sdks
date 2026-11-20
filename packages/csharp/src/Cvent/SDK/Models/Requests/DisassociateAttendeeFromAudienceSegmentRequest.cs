@@ -14,13 +14,13 @@ namespace Cvent.SDK.Models.Requests
     public class DisassociateAttendeeFromAudienceSegmentRequest
     {
         /// <summary>
-        /// ID of an audience segment.
+        /// Audience segment ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=audienceSegmentId")]
         public string AudienceSegmentId { get; set; } = default!;
 
         /// <summary>
-        /// ID of an attendee.
+        /// Attendee ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=attendeeId")]
         public string AttendeeId { get; set; } = default!;

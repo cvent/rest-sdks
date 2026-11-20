@@ -37,5 +37,37 @@ namespace Cvent.SDK.Models.Requests
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=locale")]
         public string? Locale { get; set; }
+
+        /// <summary>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="https://developers.cvent.com/docs/rest-api/reference/filters">Filters</a> for details.<br/>
+        /// <br/>
+        /// The filter adheres to the pattern filter='field' comparisonType<br/>
+        /// 'value'.<br/>
+        /// <br/>
+        /// Only the equal (`eq`) comparison type can be used in filter<br/>
+        /// expressions.<br/>
+        /// <br/>
+        /// No logical operators are supported.<br/>
+        /// <br/>
+        /// The following field is filterable:<br/>
+        ///   * waitlistEnabled (eq)<br/>
+        /// <br/>
+        /// The `waitlistEnabled` field accepts `'true'` or `'false'`:<br/>
+        ///   * `waitlistEnabled eq 'true'` returns only registration paths that have a waitlist enabled.<br/>
+        ///   * `waitlistEnabled eq 'false'` returns only registration paths that don't have a waitlist enabled.<br/>
+        /// <br/>
+        /// When no filter is provided, all registration paths for the event are returned.<br/>
+        /// <br/>
+        /// The request fails with a `400 Bad Request` error if the filter:<br/>
+        ///   * Uses a field other than `waitlistEnabled`. Field names are case-sensitive.<br/>
+        ///   * Uses an operator other than `eq`, such as `waitlistEnabled ne 'true'`.<br/>
+        ///   * Uses a value other than `'true'` or `'false'`, such as `waitlistEnabled eq 'yes'` or the unquoted `waitlistEnabled eq true`.<br/>
+        ///   * Combines expressions with `and` or `or`.<br/>
+        ///   * Is malformed.
+        /// </summary>
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
+        public string? Filter { get; set; }
     }
 }

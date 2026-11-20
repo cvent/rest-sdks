@@ -23,7 +23,7 @@ import java.util.Optional;
  */
 public class AudienceSegment {
     /**
-     * ID of the event.
+     * Represents an event by its ID.
      */
     @JsonProperty("event")
     private Event3 event;
@@ -35,7 +35,7 @@ public class AudienceSegment {
     private String name;
 
     /**
-     * Description of the audience segment.
+     * Additional text about the audience segment.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("description")
@@ -56,7 +56,7 @@ public class AudienceSegment {
     }
 
     /**
-     * ID of the event.
+     * Represents an event by its ID.
      */
     public Event3 event() {
         return this.event;
@@ -70,7 +70,7 @@ public class AudienceSegment {
     }
 
     /**
-     * Description of the audience segment.
+     * Additional text about the audience segment.
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
@@ -81,7 +81,7 @@ public class AudienceSegment {
     }
 
     /**
-     * ID of the event.
+     * Represents an event by its ID.
      */
     public AudienceSegment withEvent(@Nonnull Event3 event) {
         this.event = Utils.checkNotNull(event, "event");
@@ -97,7 +97,7 @@ public class AudienceSegment {
     }
 
     /**
-     * Description of the audience segment.
+     * Additional text about the audience segment.
      */
     public AudienceSegment withDescription(@Nullable String description) {
         this.description = description;
@@ -142,7 +142,7 @@ public class AudienceSegment {
         }
 
         /**
-         * ID of the event.
+         * Represents an event by its ID.
          */
         public Builder event(@Nonnull Event3 event) {
             this.event = Utils.checkNotNull(event, "event");
@@ -158,7 +158,7 @@ public class AudienceSegment {
         }
 
         /**
-         * Description of the audience segment.
+         * Additional text about the audience segment.
          */
         public Builder description(@Nullable String description) {
             this.description = description;

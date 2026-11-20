@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * TravelProposalBidPaginatedResponse
  *
- * <p>A paginated list of travel proposals.
+ * <p>A paginated list of travel proposal bids.
  */
 public class TravelProposalBidPaginatedResponse {
     /**
@@ -28,7 +28,7 @@ public class TravelProposalBidPaginatedResponse {
     private Paging paging;
 
     /**
-     * Paginated list of business transient proposal bids.
+     * The travel proposal bids on the page.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
@@ -54,7 +54,7 @@ public class TravelProposalBidPaginatedResponse {
     }
 
     /**
-     * Paginated list of business transient proposal bids.
+     * The travel proposal bids on the page.
      */
     public Optional<List<TravelProposalBid2>> data() {
         return Optional.ofNullable(this.data);
@@ -73,7 +73,7 @@ public class TravelProposalBidPaginatedResponse {
     }
 
     /**
-     * Paginated list of business transient proposal bids.
+     * The travel proposal bids on the page.
      */
     public TravelProposalBidPaginatedResponse withData(@Nullable List<TravelProposalBid2> data) {
         this.data = data;
@@ -122,7 +122,7 @@ public class TravelProposalBidPaginatedResponse {
         }
 
         /**
-         * Paginated list of business transient proposal bids.
+         * The travel proposal bids on the page.
          */
         public Builder data(@Nullable List<TravelProposalBid2> data) {
             this.data = data;

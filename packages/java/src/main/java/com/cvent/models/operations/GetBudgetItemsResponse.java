@@ -32,7 +32,7 @@ public class GetBudgetItemsResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully retrieved a Paginated list of Budget Items.
+     * Successfully retrieved a paginated list of budget items.
      */
     private BudgetItemsPaginatedResponse budgetItemsPaginatedResponse;
 
@@ -77,7 +77,7 @@ public class GetBudgetItemsResponse implements Response {
     }
 
     /**
-     * Successfully retrieved a Paginated list of Budget Items.
+     * Successfully retrieved a paginated list of budget items.
      */
     public Optional<BudgetItemsPaginatedResponse> budgetItemsPaginatedResponse() {
         return Optional.ofNullable(this.budgetItemsPaginatedResponse);
@@ -112,7 +112,7 @@ public class GetBudgetItemsResponse implements Response {
     }
 
     /**
-     * Successfully retrieved a Paginated list of Budget Items.
+     * Successfully retrieved a paginated list of budget items.
      */
     public GetBudgetItemsResponse withBudgetItemsPaginatedResponse(
             @Nullable BudgetItemsPaginatedResponse budgetItemsPaginatedResponse) {
@@ -194,7 +194,7 @@ public class GetBudgetItemsResponse implements Response {
         }
 
         /**
-         * Successfully retrieved a Paginated list of Budget Items.
+         * Successfully retrieved a paginated list of budget items.
          */
         public Builder budgetItemsPaginatedResponse(
                 @Nullable BudgetItemsPaginatedResponse budgetItemsPaginatedResponse) {

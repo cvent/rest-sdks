@@ -23,7 +23,7 @@ import java.util.Optional;
  */
 public class VideoView {
     /**
-     * The contact details who watched a video
+     * A contact ID associated with a video view.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contact")
@@ -48,7 +48,7 @@ public class VideoView {
     private Device1 device;
 
     /**
-     * The details of a video
+     * A video ID associated with a video view.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("video")
@@ -107,7 +107,7 @@ public class VideoView {
     }
 
     /**
-     * The contact details who watched a video
+     * A contact ID associated with a video view.
      */
     public Optional<Contact3> contact() {
         return Optional.ofNullable(this.contact);
@@ -132,7 +132,7 @@ public class VideoView {
     }
 
     /**
-     * The details of a video
+     * A video ID associated with a video view.
      */
     public Optional<Video1> video() {
         return Optional.ofNullable(this.video);
@@ -171,7 +171,7 @@ public class VideoView {
     }
 
     /**
-     * The contact details who watched a video
+     * A contact ID associated with a video view.
      */
     public VideoView withContact(@Nullable Contact3 contact) {
         this.contact = contact;
@@ -199,7 +199,7 @@ public class VideoView {
     }
 
     /**
-     * The details of a video
+     * A video ID associated with a video view.
      */
     public VideoView withVideo(@Nullable Video1 video) {
         this.video = video;
@@ -310,7 +310,7 @@ public class VideoView {
         }
 
         /**
-         * The contact details who watched a video
+         * A contact ID associated with a video view.
          */
         public Builder contact(@Nullable Contact3 contact) {
             this.contact = contact;
@@ -338,7 +338,7 @@ public class VideoView {
         }
 
         /**
-         * The details of a video
+         * A video ID associated with a video view.
          */
         public Builder video(@Nullable Video1 video) {
             this.video = video;

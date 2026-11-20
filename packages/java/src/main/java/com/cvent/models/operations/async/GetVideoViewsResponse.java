@@ -33,7 +33,7 @@ public class GetVideoViewsResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully retrieved paginated list of videos watched.
+     * Successfully retrieved a paginated list of video views.
      */
     private VideoViewsPaginatedResponse videoViewsPaginatedResponse;
 
@@ -77,7 +77,7 @@ public class GetVideoViewsResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully retrieved paginated list of videos watched.
+     * Successfully retrieved a paginated list of video views.
      */
     public Optional<VideoViewsPaginatedResponse> videoViewsPaginatedResponse() {
         return Optional.ofNullable(this.videoViewsPaginatedResponse);
@@ -112,7 +112,7 @@ public class GetVideoViewsResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully retrieved paginated list of videos watched.
+     * Successfully retrieved a paginated list of video views.
      */
     public GetVideoViewsResponse withVideoViewsPaginatedResponse(
             @Nullable VideoViewsPaginatedResponse videoViewsPaginatedResponse) {
@@ -194,7 +194,7 @@ public class GetVideoViewsResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully retrieved paginated list of videos watched.
+         * Successfully retrieved a paginated list of video views.
          */
         public Builder videoViewsPaginatedResponse(@Nullable VideoViewsPaginatedResponse videoViewsPaginatedResponse) {
             this.videoViewsPaginatedResponse = videoViewsPaginatedResponse;

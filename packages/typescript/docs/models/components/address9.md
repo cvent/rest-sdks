@@ -1,6 +1,6 @@
 # Address9
 
-Address of the hotel.
+Hotel address with a region, region code, and country.
 
 ## Example Usage
 

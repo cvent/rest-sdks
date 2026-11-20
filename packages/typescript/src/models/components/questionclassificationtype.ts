@@ -24,3 +24,7 @@ export type QuestionClassificationType = ClosedEnum<
 export const QuestionClassificationType$inboundSchema: z.ZodNativeEnum<
   typeof QuestionClassificationType
 > = z.nativeEnum(QuestionClassificationType);
+/** @internal */
+export const QuestionClassificationType$outboundSchema: z.ZodNativeEnum<
+  typeof QuestionClassificationType
+> = QuestionClassificationType$inboundSchema;

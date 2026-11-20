@@ -18,7 +18,7 @@ namespace Cvent.SDK.Models.Components
     public class AllocationGeneralLedger
     {
         /// <summary>
-        /// Identifier of a particular general ledger.
+        /// General ledger ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

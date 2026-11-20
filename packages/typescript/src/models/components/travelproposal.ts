@@ -34,7 +34,7 @@ import {
 } from "./travelproposalgroupandmeeting.js";
 
 /**
- * Supplier property that the proposal is tied to.
+ * The supplier property of the proposal.
  */
 export type SupplierProperty = {
   /**
@@ -44,7 +44,7 @@ export type SupplierProperty = {
 };
 
 /**
- * Travel program that the proposal is in response to.
+ * The travel program that the proposal responds to.
  */
 export type TravelProposalTravelProgram = {
   /**
@@ -54,7 +54,7 @@ export type TravelProposalTravelProgram = {
 };
 
 /**
- * Represents travel proposals. Travel proposals are created by the travel supplier in response to a travel account's program.
+ * A travel proposal. The travel supplier creates a travel proposal in response to the travel program of a travel account.
  */
 export type TravelProposal = {
   /**
@@ -78,11 +78,11 @@ export type TravelProposal = {
    */
   id?: string | undefined;
   /**
-   * Supplier property that the proposal is tied to.
+   * The supplier property of the proposal.
    */
   supplierProperty?: SupplierProperty | undefined;
   /**
-   * Travel program that the proposal is in response to.
+   * The travel program that the proposal responds to.
    */
   travelProgram?: TravelProposalTravelProgram | undefined;
   /**
@@ -90,7 +90,7 @@ export type TravelProposal = {
    */
   contractPeriod?: number | undefined;
   /**
-   * The status of the proposal
+   * The status of the proposal.
    */
   status?: ProposalStatusType | undefined;
   /**
@@ -98,7 +98,7 @@ export type TravelProposal = {
    */
   deleted: boolean;
   /**
-   * The rate review status of the proposal
+   * The rate review status of the proposal.
    */
   rateReviewStatus?: RateReviewStatusType | undefined;
   /**
@@ -110,19 +110,19 @@ export type TravelProposal = {
    */
   format?: FormatType | undefined;
   /**
-   * True indicates the documents been read by the supply-side.
+   * True indicates the supplier has read the documents.
    */
   documentRead: boolean;
   /**
-   * Reason the reject/decline action was performed. Used for certain actions/statuses.
+   * The reason code of the reject or decline action.
    */
   rejectReasonCode?: string | undefined;
   /**
-   * Comments regarding the reasoning for the reject/decline action. This only comes into play for certain actions/statuses.
+   * The comment on the reason for the reject or decline action.
    */
   rejectComment?: string | undefined;
   /**
-   * The ISO 8601 datetime when proposal was submitted by the hotel.
+   * The ISO 8601 date and time when the hotel submitted the proposal.
    */
   submitDate?: Date | undefined;
   /**
@@ -130,7 +130,7 @@ export type TravelProposal = {
    */
   negotiationRound?: number | undefined;
   /**
-   * The ISO 8601 datetime when the negotiation response is due.
+   * The ISO 8601 date and time when the negotiation response is due.
    */
   negotiationDueDate?: Date | undefined;
   /**
@@ -142,19 +142,19 @@ export type TravelProposal = {
    */
   draft?: boolean | undefined;
   /**
-   * Collection of bid IDs attached to the proposal.
+   * The bids attached to the proposal.
    */
   bids?: Array<TravelProposalBid1> | undefined;
   /**
-   * Collection of custom questions.
+   * The answers to the custom questions of the travel program.
    */
   customQuestionAnswers?: Array<TravelProposalCustomQuestion> | undefined;
   /**
-   * Group and meeting information.
+   * The group and meeting information of the proposal.
    */
   groupAndMeeting?: TravelProposalGroupAndMeeting | undefined;
   /**
-   * Represent proposal disposition details.
+   * The disposition of the travel proposal.
    */
   proposalDisposition?: TravelProposalDisposition | undefined;
 };

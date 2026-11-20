@@ -14,7 +14,7 @@ import java.util.Optional;
 
 public class CreateBudgetItemRequest {
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
@@ -33,7 +33,7 @@ public class CreateBudgetItemRequest {
     }
 
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     public String id() {
         return this.id;
@@ -51,7 +51,7 @@ public class CreateBudgetItemRequest {
     }
 
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     public CreateBudgetItemRequest withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -100,7 +100,7 @@ public class CreateBudgetItemRequest {
         }
 
         /**
-         * Unique ID of an event.
+         * Event ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
