@@ -92,7 +92,7 @@ export class Video extends ClientSDK {
    * Create Text Track
    *
    * @remarks
-   * Creates a new text track (VTT) object for a specific video. This endpoint does not directly handle the upload of VTT files but instead returns a location URL that you use to perform the upload.
+   * Creates a new text track (VTT) object for a specific video using the details in the request body. This endpoint does not directly handle the upload of VTT files but instead returns a location URL that you use to perform the upload.
    */
   async createTextTrack(
     request: operations.CreateTextTrackRequest,

@@ -24,6 +24,10 @@ export type ExistingRegistrationPath = {
    */
   description?: string | undefined;
   /**
+   * True indicates a waitlist is enabled on the registration path, so registrants on this path can join a waitlist once capacity is reached. False indicates a waitlist isn't enabled.
+   */
+  waitlistEnabled: boolean;
+  /**
    * A unique identifier of the registration path.
    */
   id?: string | undefined;
@@ -38,6 +42,7 @@ export const ExistingRegistrationPath$inboundSchema: z.ZodType<
   name: z.string().optional(),
   code: z.string().optional(),
   description: z.string().optional(),
+  waitlistEnabled: z.boolean(),
   id: z.string().optional(),
 });
 

@@ -31,3 +31,6 @@ export type RfpMeal = ClosedEnum<typeof RfpMeal>;
 /** @internal */
 export const RfpMeal$inboundSchema: z.ZodNativeEnum<typeof RfpMeal> = z
   .nativeEnum(RfpMeal);
+/** @internal */
+export const RfpMeal$outboundSchema: z.ZodNativeEnum<typeof RfpMeal> =
+  RfpMeal$inboundSchema;

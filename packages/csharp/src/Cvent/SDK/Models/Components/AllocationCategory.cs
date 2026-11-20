@@ -18,7 +18,7 @@ namespace Cvent.SDK.Models.Components
     public class AllocationCategory
     {
         /// <summary>
-        /// Identifier of a particular category.
+        /// Allocation Category ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

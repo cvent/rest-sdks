@@ -14,24 +14,24 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Represents bid disposition's accepted room.
+    /// A room that the bid disposition accepts.
     /// </summary>
     public class TravelBidDispositionAcceptedRoom
     {
         /// <summary>
-        /// ID of the property's room.
+        /// The accepted property room.
         /// </summary>
         [JsonProperty("propertyRoom")]
         public TravelBidDispositionAcceptedRoomPropertyRoom? PropertyRoom { get; set; }
 
         /// <summary>
-        /// Indicates whether the LRA rates are accepted.
+        /// True indicates the last room availability (LRA) rates are accepted.
         /// </summary>
         [JsonProperty("lraRateAccepted")]
         public bool? LraRateAccepted { get; set; }
 
         /// <summary>
-        /// Indicates whether the NLRA rates are accepted.
+        /// True indicates the non-last room availability (NLRA) rates are accepted.
         /// </summary>
         [JsonProperty("nlraRateAccepted")]
         public bool? NlraRateAccepted { get; set; }

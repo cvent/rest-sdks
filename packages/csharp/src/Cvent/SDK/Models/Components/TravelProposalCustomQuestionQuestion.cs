@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Travel account that the proposal is responding to.
+    /// The custom question.
     /// </summary>
     public class TravelProposalCustomQuestionQuestion
     {

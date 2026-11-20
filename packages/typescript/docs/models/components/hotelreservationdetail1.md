@@ -1,6 +1,6 @@
 # HotelReservationDetail1
 
-Representation of a hotel reservation detail response.
+Hotel request details for an attendee and any guest.
 
 ## Example Usage
 
@@ -80,5 +80,5 @@ let value: HotelReservationDetail1 = {
 
 | Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
 | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `attendee`                                                           | [components.Attendee3](../../models/components/attendee3.md)         | :heavy_minus_sign:                                                   | Representation of the attendee                                       |
+| `attendee`                                                           | [components.Attendee3](../../models/components/attendee3.md)         | :heavy_minus_sign:                                                   | An attendee identified by an ID.                                     |
 | `hotelRequestDetails`                                                | [components.HotelRequest](../../models/components/hotelrequest.md)[] | :heavy_minus_sign:                                                   | List of all the hotel requests by attendee and its guest.            |

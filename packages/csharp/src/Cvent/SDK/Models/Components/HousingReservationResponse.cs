@@ -15,18 +15,18 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Representation of the reservation request response.
+    /// A housing reservation response containing an attendee, reservation request, and last-modified value.
     /// </summary>
     public class HousingReservationResponse
     {
         /// <summary>
-        /// Representation of the attendee.
+        /// An attendee identified by an ID.
         /// </summary>
         [JsonProperty("attendee")]
         public Attendee3? Attendee { get; set; }
 
         /// <summary>
-        /// Representation of the housing reservation details.
+        /// A housing reservation request with its bridge ID and booking-site link.
         /// </summary>
         [JsonProperty("reservationRequest")]
         public HousingReservation? ReservationRequest { get; set; }

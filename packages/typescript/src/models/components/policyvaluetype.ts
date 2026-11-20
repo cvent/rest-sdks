@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Value type of the policy
+ * The value type of the policy.
  */
 export const PolicyValueType = {
   SelectionList: "selection_list",
@@ -19,7 +19,7 @@ export const PolicyValueType = {
   Boolean: "boolean",
 } as const;
 /**
- * Value type of the policy
+ * The value type of the policy.
  */
 export type PolicyValueType = ClosedEnum<typeof PolicyValueType>;
 

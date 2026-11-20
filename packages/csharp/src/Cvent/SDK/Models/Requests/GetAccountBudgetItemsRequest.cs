@@ -15,13 +15,13 @@ namespace Cvent.SDK.Models.Requests
     public class GetAccountBudgetItemsRequest
     {
         /// <summary>
-        /// Used to query records that have been modified after this time point.
+        /// Used to query records that have been modified on or after this time point (inclusive, ≥).
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=after")]
         public DateTime After { get; set; } = default!;
 
         /// <summary>
-        /// Used to query records that have been modified before this point.
+        /// Used to query records that have been modified strictly before this point (exclusive, &lt;).
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=before")]
         public DateTime Before { get; set; } = default!;
@@ -46,21 +46,30 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// | Field            | Operators  | Notes                                                                                                                                         |<br/>
-        /// |:-----------------|:-----------|:----------------------------------------------------------------------------------------------------------------------------------------------|<br/>
-        /// | event.id         | `eq`, `ne` |                                                                                                                                               |<br/>
-        /// | rfp.id           | `eq`, `ne` |                                                                                                                                               |<br/>
-        /// | budgetVersion.id | `eq`, `ne` |                                                                                                                                               |<br/>
-        /// | id               | `eq`, `ne` |                                                                                                                                               |<br/>
-        /// | category.id      | `eq`, `ne` |                                                                                                                                               |<br/>
-        /// | category.name    | `eq`, `ne` |                                                                                                                                               |<br/>
-        /// | subCategory.id   | `eq`, `ne` |                                                                                                                                               |<br/>
-        /// | subCategory.name | `eq`, `ne` |                                                                                                                                               |<br/>
-        /// | deleted          | `eq`, `ne` | Budget items that are deleted are available for 3 months after deletion. After this, they are removed and no longer appear in search results. |<br/>
+        /// | Field                 | Operators  | Notes                                                                                                                                         |<br/>
+        /// |:----------------------|:-----------|:----------------------------------------------------------------------------------------------------------------------------------------------|<br/>
+        /// | event.id              | `eq`, `ne` |                                                                                                                                               |<br/>
+        /// | rfp.id                | `eq`, `ne` |                                                                                                                                               |<br/>
+        /// | budgetVersion.id      | `eq`, `ne` |                                                                                                                                               |<br/>
+        /// | budgetVersion.default | `eq`, `ne` | Use `'true'` or `'false'`.                                                                                                                    |<br/>
+        /// | id                    | `eq`, `ne` |                                                                                                                                               |<br/>
+        /// | category.id           | `eq`, `ne` |                                                                                                                                               |<br/>
+        /// | category.name         | `eq`, `ne` |                                                                                                                                               |<br/>
+        /// | subCategory.id        | `eq`, `ne` |                                                                                                                                               |<br/>
+        /// | subCategory.name      | `eq`, `ne` |                                                                                                                                               |<br/>
+        /// | deleted               | `eq`, `ne` | Budget items that are deleted are available for 3 months after deletion. After this, they are removed and no longer appear in search results. |<br/>
+        /// <br/>
+        /// Changing an event's default budget version doesn't change its budget items' last modified dates. To see the change,<br/>
+        /// read the event's budget items again with an `after` and `before` range that covers them.<br/>
         /// <br/>
         /// The following logical operators are supported for combining filters:<br/>
         /// * and<br/>
-        /// * or.
+        /// * or<br/>
+        /// <br/>
+        /// Example filters:<br/>
+        /// * Budget items on default budget versions: `budgetVersion.default eq 'true'`<br/>
+        /// * Budget items that aren't on a default budget version: `budgetVersion.default eq 'false'`<br/>
+        /// * Budget items of one event that are on a default budget version: `event.id eq 'e7120b27-ca4c-46c1-b5de-cbe5ea0e26d5' and budgetVersion.default eq 'true'`
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

@@ -34,7 +34,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Create a contact group.
+        /// Creates a contact group using the details provided in the request body.
         /// </remarks>
         /// <param name="request">Contact Group to be created.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -322,7 +322,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Get the obfuscation status of a contact by the Obfuscate ID provided.
+        /// Gets the status of the obfuscation request identified by `obfuscateId`.
         /// </remarks>
         /// <param name="request">A <see cref="GetContactObfuscationStatusByIdRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -478,7 +478,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Merges two or three contacts into a single contact.
+        /// Merges the contact identified in the path with one or two secondary contacts provided in the request body.
         /// </remarks>
         /// <param name="request">A <see cref="MergeContactsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -639,7 +639,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Create a contact group.
+        /// Creates a contact group using the details provided in the request body.
         /// </remarks>
         /// <param name="request">Contact Group to be created.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -3113,7 +3113,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Get the obfuscation status of a contact by the Obfuscate ID provided.
+        /// Gets the status of the obfuscation request identified by `obfuscateId`.
         /// </remarks>
         /// <param name="request">A <see cref="GetContactObfuscationStatusByIdRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -4329,7 +4329,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Merges two or three contacts into a single contact.
+        /// Merges the contact identified in the path with one or two secondary contacts provided in the request body.
         /// </remarks>
         /// <param name="request">A <see cref="MergeContactsRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

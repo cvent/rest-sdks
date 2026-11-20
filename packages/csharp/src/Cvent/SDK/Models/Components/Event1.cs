@@ -13,12 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Event ID Information.
+    /// Contains the ID of the event associated with the budget item.
     /// </summary>
     public class Event1
     {
         /// <summary>
-        /// Identifier of a particular Event.
+        /// Event ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

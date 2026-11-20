@@ -1,6 +1,6 @@
 # HotelRoomRate
 
-Representation of a hotel room rate
+A hotel room rate for a specific night.
 
 
 ## Fields

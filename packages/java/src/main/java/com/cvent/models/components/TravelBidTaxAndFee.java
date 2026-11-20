@@ -24,46 +24,47 @@ import java.util.Optional;
  */
 public class TravelBidTaxAndFee {
     /**
-     * Bid tax type.
+     * The type of the tax or fee.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("code")
     private TaxType1 code;
 
     /**
-     * The amount of the tax/fee. This may be a percent or monetary value depending on the value in
-     * `percent`.
+     * The amount of the tax or fee. The `percent` field sets whether the amount is a percentage or a
+     * monetary value.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("amount")
     private Double amount;
 
     /**
-     * True indicates the tax/fee amount represents a percentage, instead of a monetary value.
+     * True indicates the amount is a percentage. False indicates a monetary value.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("percent")
     private Boolean percent;
 
     /**
-     * True indicates the tax/fee included in the negotiated rate.
+     * True indicates the tax or fee is included in the negotiated rate.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("included")
     private Boolean included;
 
     /**
-     * Additional notes on the tax/fee.
+     * Additional notes on the tax or fee.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("notes")
     private String notes;
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
@@ -90,46 +91,47 @@ public class TravelBidTaxAndFee {
     }
 
     /**
-     * Bid tax type.
+     * The type of the tax or fee.
      */
     public Optional<TaxType1> code() {
         return Optional.ofNullable(this.code);
     }
 
     /**
-     * The amount of the tax/fee. This may be a percent or monetary value depending on the value in
-     * `percent`.
+     * The amount of the tax or fee. The `percent` field sets whether the amount is a percentage or a
+     * monetary value.
      */
     public Optional<Double> amount() {
         return Optional.ofNullable(this.amount);
     }
 
     /**
-     * True indicates the tax/fee amount represents a percentage, instead of a monetary value.
+     * True indicates the amount is a percentage. False indicates a monetary value.
      */
     public Optional<Boolean> percent() {
         return Optional.ofNullable(this.percent);
     }
 
     /**
-     * True indicates the tax/fee included in the negotiated rate.
+     * True indicates the tax or fee is included in the negotiated rate.
      */
     public Optional<Boolean> included() {
         return Optional.ofNullable(this.included);
     }
 
     /**
-     * Additional notes on the tax/fee.
+     * Additional notes on the tax or fee.
      */
     public Optional<String> notes() {
         return Optional.ofNullable(this.notes);
     }
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     public Optional<BidItemStatusType> status() {
         return Optional.ofNullable(this.status);
@@ -140,7 +142,7 @@ public class TravelBidTaxAndFee {
     }
 
     /**
-     * Bid tax type.
+     * The type of the tax or fee.
      */
     public TravelBidTaxAndFee withCode(@Nullable TaxType1 code) {
         this.code = code;
@@ -148,8 +150,8 @@ public class TravelBidTaxAndFee {
     }
 
     /**
-     * The amount of the tax/fee. This may be a percent or monetary value depending on the value in
-     * `percent`.
+     * The amount of the tax or fee. The `percent` field sets whether the amount is a percentage or a
+     * monetary value.
      */
     public TravelBidTaxAndFee withAmount(@Nullable Double amount) {
         this.amount = amount;
@@ -157,7 +159,7 @@ public class TravelBidTaxAndFee {
     }
 
     /**
-     * True indicates the tax/fee amount represents a percentage, instead of a monetary value.
+     * True indicates the amount is a percentage. False indicates a monetary value.
      */
     public TravelBidTaxAndFee withPercent(@Nullable Boolean percent) {
         this.percent = percent;
@@ -165,7 +167,7 @@ public class TravelBidTaxAndFee {
     }
 
     /**
-     * True indicates the tax/fee included in the negotiated rate.
+     * True indicates the tax or fee is included in the negotiated rate.
      */
     public TravelBidTaxAndFee withIncluded(@Nullable Boolean included) {
         this.included = included;
@@ -173,7 +175,7 @@ public class TravelBidTaxAndFee {
     }
 
     /**
-     * Additional notes on the tax/fee.
+     * Additional notes on the tax or fee.
      */
     public TravelBidTaxAndFee withNotes(@Nullable String notes) {
         this.notes = notes;
@@ -181,10 +183,11 @@ public class TravelBidTaxAndFee {
     }
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     public TravelBidTaxAndFee withStatus(@Nullable BidItemStatusType status) {
         this.status = status;
@@ -251,7 +254,7 @@ public class TravelBidTaxAndFee {
         }
 
         /**
-         * Bid tax type.
+         * The type of the tax or fee.
          */
         public Builder code(@Nullable TaxType1 code) {
             this.code = code;
@@ -259,8 +262,8 @@ public class TravelBidTaxAndFee {
         }
 
         /**
-         * The amount of the tax/fee. This may be a percent or monetary value depending on the value in
-         * `percent`.
+         * The amount of the tax or fee. The `percent` field sets whether the amount is a percentage or a
+         * monetary value.
          */
         public Builder amount(@Nullable Double amount) {
             this.amount = amount;
@@ -268,7 +271,7 @@ public class TravelBidTaxAndFee {
         }
 
         /**
-         * True indicates the tax/fee amount represents a percentage, instead of a monetary value.
+         * True indicates the amount is a percentage. False indicates a monetary value.
          */
         public Builder percent(@Nullable Boolean percent) {
             this.percent = percent;
@@ -276,7 +279,7 @@ public class TravelBidTaxAndFee {
         }
 
         /**
-         * True indicates the tax/fee included in the negotiated rate.
+         * True indicates the tax or fee is included in the negotiated rate.
          */
         public Builder included(@Nullable Boolean included) {
             this.included = included;
@@ -284,7 +287,7 @@ public class TravelBidTaxAndFee {
         }
 
         /**
-         * Additional notes on the tax/fee.
+         * Additional notes on the tax or fee.
          */
         public Builder notes(@Nullable String notes) {
             this.notes = notes;
@@ -292,10 +295,11 @@ public class TravelBidTaxAndFee {
         }
 
         /**
-         * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-         * and the hotel, if they agree, can update the item to deleted.
+         * The negotiation status of the bid item. For example, the corporation marks an item as
+         * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+         * hotel does not offer the amenity.
          *
-         * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+         * <p>Applies only to the supply side.
          */
         public Builder status(@Nullable BidItemStatusType status) {
             this.status = status;

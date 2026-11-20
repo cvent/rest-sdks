@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListSegmentAssociatedAttendeesRequest = {
   /**
-   * ID of an audience segment.
+   * Audience segment ID.
    */
   audienceSegmentId: string;
   /**

@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * Address9
  *
- * <p>Address of the hotel.
+ * <p>Hotel address with a region, region code, and country.
  */
 public class Address9 {
     /**

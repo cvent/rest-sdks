@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// The response from a request to get the paginated list of attendees associated/disassociated to/from an audience segment.
+    /// A paginated collection of attendees associated with or disassociated from an audience segment.
     /// </summary>
     public class SegmentAttendeesAssociatedPaginatedResponse
     {
@@ -26,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public Paging Paging { get; set; } = default!;
 
         /// <summary>
-        /// Collection of list of attendees associated/disassociated to/from an audience segment.
+        /// Collection of attendees associated with or disassociated from an audience segment.
         /// </summary>
         [JsonProperty("data")]
         public List<SegmentAttendee> Data { get; set; } = default!;

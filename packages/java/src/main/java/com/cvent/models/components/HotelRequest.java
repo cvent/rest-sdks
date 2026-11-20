@@ -21,7 +21,7 @@ import java.util.Optional;
 /**
  * HotelRequest
  *
- * <p>Representation of a hotel request.
+ * <p>A hotel request with requester, hotel, room, stay, billing, and answer details.
  */
 public class HotelRequest {
     /**
@@ -60,20 +60,20 @@ public class HotelRequest {
     private String hotelRequestId;
 
     /**
-     * ID of the flight requester. For an event attendee, this field is contact ID. For guest, this field
-     * is guest ID.
+     * ID of the hotel requester. For an event attendee, this is the contact ID. For a guest, this is the
+     * guest ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("requesterId")
     private String requesterId;
 
     /**
-     * Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest
-     * means the attendee is accompanying another attendee.
+     * Attendee type of the requester. Contact means the requester is an independent attendee. Guest means
+     * the attendee is accompanying another attendee.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("requesterType")
-    private HotelRequestRequesterType requesterType;
+    private RequesterType requesterType;
 
     /**
      * First name of the hotel requester.
@@ -217,7 +217,7 @@ public class HotelRequest {
     private Gender1 gender;
 
     /**
-     * Total cost of the hotel stay.
+     * Total cost of the hotel stay in the currency specified by currencyCode.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("totalAmount")
@@ -231,7 +231,7 @@ public class HotelRequest {
     private String currencyCode;
 
     /**
-     * Specifies if the planner will charge for the hotel.
+     * True indicates that the planner will charge for the hotel.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("roomCharge")
@@ -290,7 +290,7 @@ public class HotelRequest {
     private String incidentalBillingExceptions;
 
     /**
-     * Address of the hotel.
+     * Hotel address with a region, region code, and country.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("hotelAddress")
@@ -318,7 +318,7 @@ public class HotelRequest {
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("hotelRequestId") @Nullable String hotelRequestId,
             @JsonProperty("requesterId") @Nullable String requesterId,
-            @JsonProperty("requesterType") @Nullable HotelRequestRequesterType requesterType,
+            @JsonProperty("requesterType") @Nullable RequesterType requesterType,
             @JsonProperty("requesterFirstName") @Nullable String requesterFirstName,
             @JsonProperty("requesterLastName") @Nullable String requesterLastName,
             @JsonProperty("hotelName") @Nullable String hotelName,
@@ -474,18 +474,18 @@ public class HotelRequest {
     }
 
     /**
-     * ID of the flight requester. For an event attendee, this field is contact ID. For guest, this field
-     * is guest ID.
+     * ID of the hotel requester. For an event attendee, this is the contact ID. For a guest, this is the
+     * guest ID.
      */
     public Optional<String> requesterId() {
         return Optional.ofNullable(this.requesterId);
     }
 
     /**
-     * Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest
-     * means the attendee is accompanying another attendee.
+     * Attendee type of the requester. Contact means the requester is an independent attendee. Guest means
+     * the attendee is accompanying another attendee.
      */
-    public Optional<HotelRequestRequesterType> requesterType() {
+    public Optional<RequesterType> requesterType() {
         return Optional.ofNullable(this.requesterType);
     }
 
@@ -631,7 +631,7 @@ public class HotelRequest {
     }
 
     /**
-     * Total cost of the hotel stay.
+     * Total cost of the hotel stay in the currency specified by currencyCode.
      */
     public Optional<Double> totalAmount() {
         return Optional.ofNullable(this.totalAmount);
@@ -645,7 +645,7 @@ public class HotelRequest {
     }
 
     /**
-     * Specifies if the planner will charge for the hotel.
+     * True indicates that the planner will charge for the hotel.
      */
     public Optional<Boolean> roomCharge() {
         return Optional.ofNullable(this.roomCharge);
@@ -704,7 +704,7 @@ public class HotelRequest {
     }
 
     /**
-     * Address of the hotel.
+     * Hotel address with a region, region code, and country.
      */
     public Optional<Address9> hotelAddress() {
         return Optional.ofNullable(this.hotelAddress);
@@ -769,8 +769,8 @@ public class HotelRequest {
     }
 
     /**
-     * ID of the flight requester. For an event attendee, this field is contact ID. For guest, this field
-     * is guest ID.
+     * ID of the hotel requester. For an event attendee, this is the contact ID. For a guest, this is the
+     * guest ID.
      */
     public HotelRequest withRequesterId(@Nullable String requesterId) {
         this.requesterId = requesterId;
@@ -778,10 +778,10 @@ public class HotelRequest {
     }
 
     /**
-     * Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest
-     * means the attendee is accompanying another attendee.
+     * Attendee type of the requester. Contact means the requester is an independent attendee. Guest means
+     * the attendee is accompanying another attendee.
      */
-    public HotelRequest withRequesterType(@Nullable HotelRequestRequesterType requesterType) {
+    public HotelRequest withRequesterType(@Nullable RequesterType requesterType) {
         this.requesterType = requesterType;
         return this;
     }
@@ -948,7 +948,7 @@ public class HotelRequest {
     }
 
     /**
-     * Total cost of the hotel stay.
+     * Total cost of the hotel stay in the currency specified by currencyCode.
      */
     public HotelRequest withTotalAmount(@Nullable Double totalAmount) {
         this.totalAmount = totalAmount;
@@ -964,7 +964,7 @@ public class HotelRequest {
     }
 
     /**
-     * Specifies if the planner will charge for the hotel.
+     * True indicates that the planner will charge for the hotel.
      */
     public HotelRequest withRoomCharge(@Nullable Boolean roomCharge) {
         this.roomCharge = roomCharge;
@@ -1031,7 +1031,7 @@ public class HotelRequest {
     }
 
     /**
-     * Address of the hotel.
+     * Hotel address with a region, region code, and country.
      */
     public HotelRequest withHotelAddress(@Nullable Address9 hotelAddress) {
         this.hotelAddress = hotelAddress;
@@ -1251,7 +1251,7 @@ public class HotelRequest {
 
         private String requesterId;
 
-        private HotelRequestRequesterType requesterType;
+        private RequesterType requesterType;
 
         private String requesterFirstName;
 
@@ -1364,8 +1364,8 @@ public class HotelRequest {
         }
 
         /**
-         * ID of the flight requester. For an event attendee, this field is contact ID. For guest, this field
-         * is guest ID.
+         * ID of the hotel requester. For an event attendee, this is the contact ID. For a guest, this is the
+         * guest ID.
          */
         public Builder requesterId(@Nullable String requesterId) {
             this.requesterId = requesterId;
@@ -1373,10 +1373,10 @@ public class HotelRequest {
         }
 
         /**
-         * Attendee type of the hotel requester. Contact means the requester is an independent attendee. Guest
-         * means the attendee is accompanying another attendee.
+         * Attendee type of the requester. Contact means the requester is an independent attendee. Guest means
+         * the attendee is accompanying another attendee.
          */
-        public Builder requesterType(@Nullable HotelRequestRequesterType requesterType) {
+        public Builder requesterType(@Nullable RequesterType requesterType) {
             this.requesterType = requesterType;
             return this;
         }
@@ -1543,7 +1543,7 @@ public class HotelRequest {
         }
 
         /**
-         * Total cost of the hotel stay.
+         * Total cost of the hotel stay in the currency specified by currencyCode.
          */
         public Builder totalAmount(@Nullable Double totalAmount) {
             this.totalAmount = totalAmount;
@@ -1559,7 +1559,7 @@ public class HotelRequest {
         }
 
         /**
-         * Specifies if the planner will charge for the hotel.
+         * True indicates that the planner will charge for the hotel.
          */
         public Builder roomCharge(@Nullable Boolean roomCharge) {
             this.roomCharge = roomCharge;
@@ -1626,7 +1626,7 @@ public class HotelRequest {
         }
 
         /**
-         * Address of the hotel.
+         * Hotel address with a region, region code, and country.
          */
         public Builder hotelAddress(@Nullable Address9 hotelAddress) {
             this.hotelAddress = hotelAddress;

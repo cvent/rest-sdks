@@ -24,14 +24,14 @@ import java.util.Optional;
  */
 public class CardDetails {
     /**
-     * The identifier of the Event.
+     * Event ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
     private CardDetailsEvent event;
 
     /**
-     * The identifier of the Card.
+     * Card ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -52,14 +52,14 @@ public class CardDetails {
     private String last4;
 
     /**
-     * This is used to denote the card type for a card.
+     * Form of payment card: Virtual or Plastic.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
     private CardType1 type;
 
     /**
-     * This is used to denote the card status for a card.
+     * Status of a payment card.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
@@ -237,14 +237,14 @@ public class CardDetails {
     }
 
     /**
-     * The identifier of the Event.
+     * Event ID.
      */
     public Optional<CardDetailsEvent> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
-     * The identifier of the Card.
+     * Card ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -265,14 +265,14 @@ public class CardDetails {
     }
 
     /**
-     * This is used to denote the card type for a card.
+     * Form of payment card: Virtual or Plastic.
      */
     public Optional<CardType1> type() {
         return Optional.ofNullable(this.type);
     }
 
     /**
-     * This is used to denote the card status for a card.
+     * Status of a payment card.
      */
     public Optional<CardStatus> status() {
         return Optional.ofNullable(this.status);
@@ -386,7 +386,7 @@ public class CardDetails {
     }
 
     /**
-     * The identifier of the Event.
+     * Event ID.
      */
     public CardDetails withEvent(@Nullable CardDetailsEvent event) {
         this.event = event;
@@ -394,7 +394,7 @@ public class CardDetails {
     }
 
     /**
-     * The identifier of the Card.
+     * Card ID.
      */
     public CardDetails withId(@Nullable String id) {
         this.id = id;
@@ -418,7 +418,7 @@ public class CardDetails {
     }
 
     /**
-     * This is used to denote the card type for a card.
+     * Form of payment card: Virtual or Plastic.
      */
     public CardDetails withType(@Nullable CardType1 type) {
         this.type = type;
@@ -426,7 +426,7 @@ public class CardDetails {
     }
 
     /**
-     * This is used to denote the card status for a card.
+     * Status of a payment card.
      */
     public CardDetails withStatus(@Nullable CardStatus status) {
         this.status = status;
@@ -701,7 +701,7 @@ public class CardDetails {
         }
 
         /**
-         * The identifier of the Event.
+         * Event ID.
          */
         public Builder event(@Nullable CardDetailsEvent event) {
             this.event = event;
@@ -709,7 +709,7 @@ public class CardDetails {
         }
 
         /**
-         * The identifier of the Card.
+         * Card ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -733,7 +733,7 @@ public class CardDetails {
         }
 
         /**
-         * This is used to denote the card type for a card.
+         * Form of payment card: Virtual or Plastic.
          */
         public Builder type(@Nullable CardType1 type) {
             this.type = type;
@@ -741,7 +741,7 @@ public class CardDetails {
         }
 
         /**
-         * This is used to denote the card status for a card.
+         * Status of a payment card.
          */
         public Builder status(@Nullable CardStatus status) {
             this.status = status;

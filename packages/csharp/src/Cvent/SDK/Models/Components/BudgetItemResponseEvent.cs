@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The identifier of the Event.
+    /// Event ID.
     /// </summary>
     public class BudgetItemResponseEvent
     {

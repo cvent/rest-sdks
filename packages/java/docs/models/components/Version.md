@@ -1,6 +1,6 @@
 # Version
 
-The identifier of the Budget version for an event.
+Budget version details for the event.
 
 
 ## Fields

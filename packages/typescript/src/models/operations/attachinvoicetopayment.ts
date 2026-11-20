@@ -6,15 +6,15 @@ import * as z from "zod/v3";
 
 export type AttachInvoiceToPaymentRequest = {
   /**
-   * Unique ID of an event.
+   * Event ID.
    */
   id: string;
   /**
-   * Unique ID of a payment.
+   * Payment ID.
    */
   paymentId: string;
   /**
-   * Unique ID of an invoice.
+   * Invoice ID.
    */
   invoiceId: string;
 };

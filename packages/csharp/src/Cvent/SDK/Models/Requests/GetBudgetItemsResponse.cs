@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved a Paginated list of Budget Items.
+        /// Successfully retrieved a paginated list of budget items.
         /// </summary>
         public BudgetItemsPaginatedResponse? BudgetItemsPaginatedResponse { get; set; }
     }

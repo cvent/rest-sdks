@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * PolicyValueType
  *
- * <p>Value type of the policy
+ * <p>The value type of the policy.
  */
 public enum PolicyValueType {
     SELECTION_LIST("selection_list"),

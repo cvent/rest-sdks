@@ -15,12 +15,12 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Paginated response containing a list of proposal static content across multiple proposals.
+    /// A paginated list of the static content of travel proposals.
     /// </summary>
     public class TravelProposalStaticContentListResponse
     {
         /// <summary>
-        /// Array of proposal static content responses.
+        /// The static content of each travel proposal on the page.
         /// </summary>
         [JsonProperty("data")]
         public List<TravelProposalStaticContentResponse> Data { get; set; } = default!;

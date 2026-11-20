@@ -151,7 +151,7 @@ public class Contacts {
     /**
      * Create Contact Group
      *
-     * <p>Create a contact group
+     * <p>Creates a contact group using the details provided in the request body.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -164,7 +164,7 @@ public class Contacts {
     /**
      * Create Contact Group
      *
-     * <p>Create a contact group
+     * <p>Creates a contact group using the details provided in the request body.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -179,7 +179,7 @@ public class Contacts {
     /**
      * Create Contact Group
      *
-     * <p>Create a contact group
+     * <p>Creates a contact group using the details provided in the request body.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -579,7 +579,7 @@ public class Contacts {
      * <p>Gets a paginated list of Contacts.
      *
      * <p>For information on reading secure contact fields, see the description of
-     * <a href="#operation/getContactById">GET Contact</a>.
+     * [GET Contact](#operation/getContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -595,7 +595,7 @@ public class Contacts {
      * <p>Gets a paginated list of Contacts.
      *
      * <p>For information on reading secure contact fields, see the description of
-     * <a href="#operation/getContactById">GET Contact</a>.
+     * [GET Contact](#operation/getContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -613,7 +613,7 @@ public class Contacts {
      * <p>Gets a paginated list of Contacts.
      *
      * <p>For information on reading secure contact fields, see the description of
-     * <a href="#operation/getContactById">GET Contact</a>.
+     * [GET Contact](#operation/getContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -635,8 +635,8 @@ public class Contacts {
      * [de-duplication
      * fields](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address),
      * the new values must be unique in your account.
-     * For information on updating secure contact fields, see the description of <a
-     * href="#operation/updateContactById">PUT Contact</a>.
+     * For information on updating secure contact fields, see the description of [PUT
+     * Contact](#operation/updateContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -653,8 +653,8 @@ public class Contacts {
      * [de-duplication
      * fields](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address),
      * the new values must be unique in your account.
-     * For information on updating secure contact fields, see the description of <a
-     * href="#operation/updateContactById">PUT Contact</a>.
+     * For information on updating secure contact fields, see the description of [PUT
+     * Contact](#operation/updateContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -673,8 +673,8 @@ public class Contacts {
      * [de-duplication
      * fields](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address),
      * the new values must be unique in your account.
-     * For information on updating secure contact fields, see the description of <a
-     * href="#operation/updateContactById">PUT Contact</a>.
+     * For information on updating secure contact fields, see the description of [PUT
+     * Contact](#operation/updateContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -696,10 +696,10 @@ public class Contacts {
      * every contact.
      *
      * <p>For information on PATCH behavior, see the description of
-     * <a href="#operation/patchContactById">PATCH Contact</a>.
+     * [PATCH Contact](#operation/patchContactById).
      *
      * <p>For information on updating secure contact fields, see the description of
-     * <a href="#operation/updateContactById">PUT Contact</a>.
+     * [PUT Contact](#operation/updateContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -716,10 +716,10 @@ public class Contacts {
      * every contact.
      *
      * <p>For information on PATCH behavior, see the description of
-     * <a href="#operation/patchContactById">PATCH Contact</a>.
+     * [PATCH Contact](#operation/patchContactById).
      *
      * <p>For information on updating secure contact fields, see the description of
-     * <a href="#operation/updateContactById">PUT Contact</a>.
+     * [PUT Contact](#operation/updateContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -738,10 +738,10 @@ public class Contacts {
      * every contact.
      *
      * <p>For information on PATCH behavior, see the description of
-     * <a href="#operation/patchContactById">PATCH Contact</a>.
+     * [PATCH Contact](#operation/patchContactById).
      *
      * <p>For information on updating secure contact fields, see the description of
-     * <a href="#operation/updateContactById">PUT Contact</a>.
+     * [PUT Contact](#operation/updateContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -763,8 +763,8 @@ public class Contacts {
      * [de-duplication
      * fields](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address),
      * the new values must be unique in your account.
-     * For information on creating contacts with secure contact fields, see the description of <a
-     * href="#operation/updateContactById">PUT Contact</a>.
+     * For information on creating contacts with secure contact fields, see the description of [PUT
+     * Contact](#operation/updateContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -781,8 +781,8 @@ public class Contacts {
      * [de-duplication
      * fields](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address),
      * the new values must be unique in your account.
-     * For information on creating contacts with secure contact fields, see the description of <a
-     * href="#operation/updateContactById">PUT Contact</a>.
+     * For information on creating contacts with secure contact fields, see the description of [PUT
+     * Contact](#operation/updateContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -801,8 +801,8 @@ public class Contacts {
      * [de-duplication
      * fields](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address),
      * the new values must be unique in your account.
-     * For information on creating contacts with secure contact fields, see the description of <a
-     * href="#operation/updateContactById">PUT Contact</a>.
+     * For information on creating contacts with secure contact fields, see the description of [PUT
+     * Contact](#operation/updateContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -822,8 +822,8 @@ public class Contacts {
      *
      * <p>Gets a paginated list of Contacts by sending a filter in the body of the request. This method will
      * return the same data as the GET List Contacts but allows for longer filters.
-     * For information on reading secure contact fields, see the description of  <a
-     * href="#operation/getContactById">GET Contact</a>.
+     * For information on reading secure contact fields, see the description of  [GET
+     * Contact](#operation/getContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -838,8 +838,8 @@ public class Contacts {
      *
      * <p>Gets a paginated list of Contacts by sending a filter in the body of the request. This method will
      * return the same data as the GET List Contacts but allows for longer filters.
-     * For information on reading secure contact fields, see the description of  <a
-     * href="#operation/getContactById">GET Contact</a>.
+     * For information on reading secure contact fields, see the description of  [GET
+     * Contact](#operation/getContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -856,8 +856,8 @@ public class Contacts {
      *
      * <p>Gets a paginated list of Contacts by sending a filter in the body of the request. This method will
      * return the same data as the GET List Contacts but allows for longer filters.
-     * For information on reading secure contact fields, see the description of  <a
-     * href="#operation/getContactById">GET Contact</a>.
+     * For information on reading secure contact fields, see the description of  [GET
+     * Contact](#operation/getContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -876,7 +876,7 @@ public class Contacts {
     /**
      * Get Obfuscation Status
      *
-     * <p>Get the obfuscation status of a contact by the Obfuscate ID provided.
+     * <p>Gets the status of the obfuscation request identified by `obfuscateId`.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -889,7 +889,7 @@ public class Contacts {
     /**
      * Get Obfuscation Status
      *
-     * <p>Get the obfuscation status of a contact by the Obfuscate ID provided.
+     * <p>Gets the status of the obfuscation request identified by `obfuscateId`.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -905,7 +905,7 @@ public class Contacts {
     /**
      * Get Obfuscation Status
      *
-     * <p>Get the obfuscation status of a contact by the Obfuscate ID provided.
+     * <p>Gets the status of the obfuscation request identified by `obfuscateId`.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1119,7 +1119,7 @@ public class Contacts {
      * not passed in the request body will remain unchanged.
      *
      * <p>For information on updating secure contact fields, see the description of
-     * <a href="#operation/updateContactById">PUT Contact</a>.
+     * [PUT Contact](#operation/updateContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1138,7 +1138,7 @@ public class Contacts {
      * not passed in the request body will remain unchanged.
      *
      * <p>For information on updating secure contact fields, see the description of
-     * <a href="#operation/updateContactById">PUT Contact</a>.
+     * [PUT Contact](#operation/updateContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1159,7 +1159,7 @@ public class Contacts {
      * not passed in the request body will remain unchanged.
      *
      * <p>For information on updating secure contact fields, see the description of
-     * <a href="#operation/updateContactById">PUT Contact</a>.
+     * [PUT Contact](#operation/updateContactById).
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1267,7 +1267,8 @@ public class Contacts {
     /**
      * Merge Contacts
      *
-     * <p>Merges two or three contacts into a single contact.
+     * <p>Merges the contact identified in the path with one or two secondary contacts provided in the request
+     * body.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1280,7 +1281,8 @@ public class Contacts {
     /**
      * Merge Contacts
      *
-     * <p>Merges two or three contacts into a single contact.
+     * <p>Merges the contact identified in the path with one or two secondary contacts provided in the request
+     * body.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1295,7 +1297,8 @@ public class Contacts {
     /**
      * Merge Contacts
      *
-     * <p>Merges two or three contacts into a single contact.
+     * <p>Merges the contact identified in the path with one or two secondary contacts provided in the request
+     * body.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1423,8 +1426,8 @@ public class Contacts {
     /**
      * Assign Contact Profile Picture
      *
-     * <p>Assign a profile picture to a contact with a file UUID from <a href="#operation/uploadFile">file
-     * upload</a> endpoint. This will replace the current profile picture if one is assigned.
+     * <p>Assign a profile picture to a contact with a file UUID from [file upload](#operation/uploadFile)
+     * endpoint. This will replace the current profile picture if one is assigned.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1437,8 +1440,8 @@ public class Contacts {
     /**
      * Assign Contact Profile Picture
      *
-     * <p>Assign a profile picture to a contact with a file UUID from <a href="#operation/uploadFile">file
-     * upload</a> endpoint. This will replace the current profile picture if one is assigned.
+     * <p>Assign a profile picture to a contact with a file UUID from [file upload](#operation/uploadFile)
+     * endpoint. This will replace the current profile picture if one is assigned.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -1454,8 +1457,8 @@ public class Contacts {
     /**
      * Assign Contact Profile Picture
      *
-     * <p>Assign a profile picture to a contact with a file UUID from <a href="#operation/uploadFile">file
-     * upload</a> endpoint. This will replace the current profile picture if one is assigned.
+     * <p>Assign a profile picture to a contact with a file UUID from [file upload](#operation/uploadFile)
+     * endpoint. This will replace the current profile picture if one is assigned.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *

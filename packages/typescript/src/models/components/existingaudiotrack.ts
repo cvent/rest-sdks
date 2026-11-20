@@ -22,7 +22,7 @@ import {
 import { VideoAssetID, VideoAssetID$inboundSchema } from "./videoassetid.js";
 
 /**
- * Existing audio track.
+ * An audio track with its ID and associated URL.
  */
 export type ExistingAudioTrack = {
   /**

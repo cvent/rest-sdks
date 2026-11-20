@@ -33,7 +33,7 @@ public class GetEventBudgetTotalsResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully retrieved a Paginated list of Event Budget Totals.
+     * Successfully retrieved a paginated list of event budget totals.
      */
     private EventBudgetPaginatedResponse eventBudgetPaginatedResponse;
 
@@ -78,7 +78,7 @@ public class GetEventBudgetTotalsResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully retrieved a Paginated list of Event Budget Totals.
+     * Successfully retrieved a paginated list of event budget totals.
      */
     public Optional<EventBudgetPaginatedResponse> eventBudgetPaginatedResponse() {
         return Optional.ofNullable(this.eventBudgetPaginatedResponse);
@@ -113,7 +113,7 @@ public class GetEventBudgetTotalsResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully retrieved a Paginated list of Event Budget Totals.
+     * Successfully retrieved a paginated list of event budget totals.
      */
     public GetEventBudgetTotalsResponse withEventBudgetPaginatedResponse(
             @Nullable EventBudgetPaginatedResponse eventBudgetPaginatedResponse) {
@@ -195,7 +195,7 @@ public class GetEventBudgetTotalsResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully retrieved a Paginated list of Event Budget Totals.
+         * Successfully retrieved a paginated list of event budget totals.
          */
         public Builder eventBudgetPaginatedResponse(
                 @Nullable EventBudgetPaginatedResponse eventBudgetPaginatedResponse) {

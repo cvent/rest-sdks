@@ -14,7 +14,7 @@ import {
 } from "./virtualcardreportingfieldandvalue.js";
 
 /**
- * The identifier of the Event.
+ * Event ID.
  */
 export type CardDetailsEvent = {
   /**
@@ -28,11 +28,11 @@ export type CardDetailsEvent = {
  */
 export type CardDetails = {
   /**
-   * The identifier of the Event.
+   * Event ID.
    */
   event?: CardDetailsEvent | undefined;
   /**
-   * The identifier of the Card.
+   * Card ID.
    */
   id?: string | undefined;
   /**
@@ -44,11 +44,11 @@ export type CardDetails = {
    */
   last4?: string | undefined;
   /**
-   * This is used to denote the card type for a card.
+   * Form of payment card: Virtual or Plastic.
    */
   type?: CardType1 | undefined;
   /**
-   * This is used to denote the card status for a card.
+   * Status of a payment card.
    */
   status?: CardStatus | undefined;
   /**

@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully updated custom field answer in the budget.
+        /// Successfully updated the custom field answer in the budget.
         /// </summary>
         public CustomField? CustomField { get; set; }
     }

@@ -17,27 +17,27 @@ import { TaxType1, TaxType1$inboundSchema } from "./taxtype1.js";
  */
 export type TravelBidTaxAndFee = {
   /**
-   * Bid tax type.
+   * The type of the tax or fee.
    */
   code?: TaxType1 | undefined;
   /**
-   * The amount of the tax/fee. This may be a percent or monetary value depending on the value in `percent`.
+   * The amount of the tax or fee. The `percent` field sets whether the amount is a percentage or a monetary value.
    */
   amount?: number | undefined;
   /**
-   * True indicates the tax/fee amount represents a percentage, instead of a monetary value.
+   * True indicates the amount is a percentage. False indicates a monetary value.
    */
   percent: boolean;
   /**
-   * True indicates the tax/fee included in the negotiated rate.
+   * True indicates the tax or fee is included in the negotiated rate.
    */
   included: boolean;
   /**
-   * Additional notes on the tax/fee.
+   * Additional notes on the tax or fee.
    */
   notes?: string | undefined;
   /**
-   * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested, and the hotel, if they agree, can update the item to deleted. not_offered indicates the hotel does not offer this amenity (supply side only).
+   * The negotiation status of the bid item. For example, the corporation marks an item as `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The hotel does not offer the amenity. Applies only to the supply side.
    */
   status?: BidItemStatusType | undefined;
 };

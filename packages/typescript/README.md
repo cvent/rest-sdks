@@ -271,32 +271,38 @@ run();
 * [getBadgePrinterPools](docs/sdks/badgeprinterpools/README.md#getbadgeprinterpools) - List Badge Printer Pools
 * [getBadgePrinterPool](docs/sdks/badgeprinterpools/README.md#getbadgeprinterpool) - Get Badge Printer Pool
 
-### [Budget](docs/sdks/budget/README.md)
+### [BudgetCards](docs/sdks/budgetcards/README.md)
 
-* [getAccountBudgetItems](docs/sdks/budget/README.md#getaccountbudgetitems) - List Budget Items
-* [getAccountVendors](docs/sdks/budget/README.md#getaccountvendors) - List Account Vendors
-* [getCards](docs/sdks/budget/README.md#getcards) - List Cards
-* [getCardTransactions](docs/sdks/budget/README.md#getcardtransactions) - List Card Transactions
-* [createCardTransaction](docs/sdks/budget/README.md#createcardtransaction) - Create Card Transaction
-* [deleteCardTransaction](docs/sdks/budget/README.md#deletecardtransaction) - Delete Card Transaction
-* [updateCardTransaction](docs/sdks/budget/README.md#updatecardtransaction) - Update Card Transaction
-* [getCurrencyConversionRate](docs/sdks/budget/README.md#getcurrencyconversionrate) - List Currency Conversion Rates
-* [createCurrencyConversionRate](docs/sdks/budget/README.md#createcurrencyconversionrate) - Create Conversion Rate
-* [updateCurrencyConversionRate](docs/sdks/budget/README.md#updatecurrencyconversionrate) - Update Conversion Rate
-* [deleteCurrencyConversionRate](docs/sdks/budget/README.md#deletecurrencyconversionrate) - Delete Conversion Rate
-* [getBudgetItems](docs/sdks/budget/README.md#getbudgetitems) - List Event Budget Items
-* [createBudgetItem](docs/sdks/budget/README.md#createbudgetitem) - Create Budget Item
-* [getBudgetAllocations](docs/sdks/budget/README.md#getbudgetallocations) - List Budget Allocations
-* [updateBudgetItem](docs/sdks/budget/README.md#updatebudgetitem) - Update Budget Item
-* [updateBudgetAllocations](docs/sdks/budget/README.md#updatebudgetallocations) - Update Budget Allocations
-* [deleteBudgetAllocations](docs/sdks/budget/README.md#deletebudgetallocations) - Delete  Budget Allocations
-* [createPayment](docs/sdks/budget/README.md#createpayment) - Create Budget Payment
-* [updatePayment](docs/sdks/budget/README.md#updatepayment) - Update Budget Payment
-* [deletePayment](docs/sdks/budget/README.md#deletepayment) - Delete Budget Payment
-* [answerBudgetCustomField](docs/sdks/budget/README.md#answerbudgetcustomfield) - Update Budget Cstm Fld Answers
-* [getPayments](docs/sdks/budget/README.md#getpayments) - List Budget Payments
-* [attachInvoiceToPayment](docs/sdks/budget/README.md#attachinvoicetopayment) - Assign Invoice To Payment
-* [getEventBudgetTotals](docs/sdks/budget/README.md#geteventbudgettotals) - List Budget Totals
+* [getCards](docs/sdks/budgetcards/README.md#getcards) - List Cards
+* [getCardTransactions](docs/sdks/budgetcards/README.md#getcardtransactions) - List Card Transactions
+* [createCardTransaction](docs/sdks/budgetcards/README.md#createcardtransaction) - Create Card Transaction
+* [deleteCardTransaction](docs/sdks/budgetcards/README.md#deletecardtransaction) - Delete Card Transaction
+* [updateCardTransaction](docs/sdks/budgetcards/README.md#updatecardtransaction) - Update Card Transaction
+
+### [BudgetPayments](docs/sdks/budgetpayments/README.md)
+
+* [createPayment](docs/sdks/budgetpayments/README.md#createpayment) - Create Budget Payment
+* [updatePayment](docs/sdks/budgetpayments/README.md#updatepayment) - Update Budget Payment
+* [deletePayment](docs/sdks/budgetpayments/README.md#deletepayment) - Delete Budget Payment
+* [getPayments](docs/sdks/budgetpayments/README.md#getpayments) - List Budget Payments
+* [attachInvoiceToPayment](docs/sdks/budgetpayments/README.md#attachinvoicetopayment) - Assign Invoice To Payment
+
+### [Budgets](docs/sdks/budgets/README.md)
+
+* [getAccountBudgetItems](docs/sdks/budgets/README.md#getaccountbudgetitems) - List Budget Items
+* [getAccountVendors](docs/sdks/budgets/README.md#getaccountvendors) - List Account Vendors
+* [getCurrencyConversionRate](docs/sdks/budgets/README.md#getcurrencyconversionrate) - List Currency Conversion Rates
+* [createCurrencyConversionRate](docs/sdks/budgets/README.md#createcurrencyconversionrate) - Create Conversion Rate
+* [updateCurrencyConversionRate](docs/sdks/budgets/README.md#updatecurrencyconversionrate) - Update Conversion Rate
+* [deleteCurrencyConversionRate](docs/sdks/budgets/README.md#deletecurrencyconversionrate) - Delete Conversion Rate
+* [getBudgetItems](docs/sdks/budgets/README.md#getbudgetitems) - List Event Budget Items
+* [createBudgetItem](docs/sdks/budgets/README.md#createbudgetitem) - Create Budget Item
+* [getBudgetAllocations](docs/sdks/budgets/README.md#getbudgetallocations) - List Budget Allocations
+* [updateBudgetItem](docs/sdks/budgets/README.md#updatebudgetitem) - Update Budget Item
+* [updateBudgetAllocations](docs/sdks/budgets/README.md#updatebudgetallocations) - Update Budget Allocations
+* [deleteBudgetAllocations](docs/sdks/budgets/README.md#deletebudgetallocations) - Delete Budget Allocations
+* [answerBudgetCustomField](docs/sdks/budgets/README.md#answerbudgetcustomfield) - Update Custom Field Answers
+* [getEventBudgetTotals](docs/sdks/budgets/README.md#geteventbudgettotals) - List Budget Totals
 
 ### [Bulk](docs/sdks/bulk/README.md)
 
@@ -602,27 +608,54 @@ run();
 ### [RFPAdditionalDetails](docs/sdks/rfpadditionaldetails/README.md)
 
 * [listRfpPastEvents](docs/sdks/rfpadditionaldetails/README.md#listrfppastevents) - List RFP Past Events
+* [createRfpPastEvent](docs/sdks/rfpadditionaldetails/README.md#createrfppastevent) - Create RFP Past Event
+* [getRfpPastEvent](docs/sdks/rfpadditionaldetails/README.md#getrfppastevent) - Get RFP Past Event
+* [updateRfpPastEvent](docs/sdks/rfpadditionaldetails/README.md#updaterfppastevent) - Update RFP Past Event
+* [deleteRfpPastEvent](docs/sdks/rfpadditionaldetails/README.md#deleterfppastevent) - Delete RFP Past Event
 
 ### [RFPManagement](docs/sdks/rfpmanagement/README.md)
 
+* [createRFP](docs/sdks/rfpmanagement/README.md#createrfp) - Create RFP
 * [getRfpLeadSource](docs/sdks/rfpmanagement/README.md#getrfpleadsource) - Get RFP Lead Source
 * [getRfpLeadSourceSection](docs/sdks/rfpmanagement/README.md#getrfpleadsourcesection) - Get RFP Lead Source Section
 * [getRFP](docs/sdks/rfpmanagement/README.md#getrfp) - Get RFP
+* [updateRFP](docs/sdks/rfpmanagement/README.md#updaterfp) - Update RFP
+* [submitRFP](docs/sdks/rfpmanagement/README.md#submitrfp) - Submit RFP
 
 ### [RFPRequirements](docs/sdks/rfprequirements/README.md)
 
 * [listRfpAgendaItems](docs/sdks/rfprequirements/README.md#listrfpagendaitems) - List RFP Agenda Items
+* [createRfpAgendaItem](docs/sdks/rfprequirements/README.md#createrfpagendaitem) - Create RFP Agenda Item
 * [listRfpAgendaItemSchedules](docs/sdks/rfprequirements/README.md#listrfpagendaitemschedules) - List RFP Agenda Item Schedules
+* [getRfpAgendaItem](docs/sdks/rfprequirements/README.md#getrfpagendaitem) - Get RFP Agenda Item
+* [updateRfpAgendaItem](docs/sdks/rfprequirements/README.md#updaterfpagendaitem) - Update RFP Agenda Item
+* [deleteRfpAgendaItem](docs/sdks/rfprequirements/README.md#deleterfpagendaitem) - Delete RFP Agenda Item
 * [listRfpAttachments](docs/sdks/rfprequirements/README.md#listrfpattachments) - List RFP Attachments
-* [listRfpCustomFields](docs/sdks/rfprequirements/README.md#listrfpcustomfields) - List RFP Custom Fields Answers
+* [createRfpAttachment](docs/sdks/rfprequirements/README.md#createrfpattachment) - Create RFP Attachment
+* [getRfpAttachment](docs/sdks/rfprequirements/README.md#getrfpattachment) - Get RFP Attachment
+* [deleteRfpAttachment](docs/sdks/rfprequirements/README.md#deleterfpattachment) - Delete RFP Attachment
+* [listRfpCustomFields](docs/sdks/rfprequirements/README.md#listrfpcustomfields) - List RFP Custom Field Answers
+* [getRfpCustomFieldAnswers](docs/sdks/rfprequirements/README.md#getrfpcustomfieldanswers) - Get RFP Custom Field Answers
+* [updateRfpCustomFieldAnswers](docs/sdks/rfprequirements/README.md#updaterfpcustomfieldanswers) - Update Custom Field Answers
 * [getRfpGuestRooms](docs/sdks/rfprequirements/README.md#getrfpguestrooms) - Get RFP Guest Rooms
+* [updateRfpGuestRooms](docs/sdks/rfprequirements/README.md#updaterfpguestrooms) - Update RFP Guest Rooms
 * [listRfpInternalDocuments](docs/sdks/rfprequirements/README.md#listrfpinternaldocuments) - List RFP Internal Documents
+* [getRfpInternalDocument](docs/sdks/rfprequirements/README.md#getrfpinternaldocument) - Get RFP Internal Document
+* [associateRfpInternalDocument](docs/sdks/rfprequirements/README.md#associaterfpinternaldocument) - Associate Internal Document
+* [disassociateRfpInternalDocument](docs/sdks/rfprequirements/README.md#disassociaterfpinternaldocument) - Disassociate Internal Document
 * [listRfpQuestions](docs/sdks/rfprequirements/README.md#listrfpquestions) - List RFP Questions
+* [createRfpQuestion](docs/sdks/rfprequirements/README.md#createrfpquestion) - Create RFP Question
+* [getRfpQuestion](docs/sdks/rfprequirements/README.md#getrfpquestion) - Get RFP Question
+* [updateRfpQuestion](docs/sdks/rfprequirements/README.md#updaterfpquestion) - Update RFP Question
+* [deleteRfpQuestion](docs/sdks/rfprequirements/README.md#deleterfpquestion) - Delete RFP Question
 
 ### [RFPSuppliers](docs/sdks/rfpsuppliers/README.md)
 
 * [listRfpRecipientsHistory](docs/sdks/rfpsuppliers/README.md#listrfprecipientshistory) - List RFP Recipients History
 * [getRfpSuppliers](docs/sdks/rfpsuppliers/README.md#getrfpsuppliers) - List RFP Suppliers
+* [getRfpSupplier](docs/sdks/rfpsuppliers/README.md#getrfpsupplier) - Get RFP Supplier
+* [associateRfpSupplier](docs/sdks/rfpsuppliers/README.md#associaterfpsupplier) - Associate Supplier to RFP
+* [disassociateRfpSupplier](docs/sdks/rfpsuppliers/README.md#disassociaterfpsupplier) - Disassociate RFP Supplier
 
 ### [Seating](docs/sdks/seating/README.md)
 
@@ -954,30 +987,30 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`badgePrintJobCreateBadgePrintJob`](docs/sdks/badgeprintjob/README.md#createbadgeprintjob) - Create Badge Print Job
 - [`badgePrintJobGetBadgePrintJob`](docs/sdks/badgeprintjob/README.md#getbadgeprintjob) - Get Badge Print Job
 - [`badgePrintJobGetEventBadgePrintJobs`](docs/sdks/badgeprintjob/README.md#geteventbadgeprintjobs) - List Badge Print Jobs
-- [`budgetAnswerBudgetCustomField`](docs/sdks/budget/README.md#answerbudgetcustomfield) - Update Budget Cstm Fld Answers
-- [`budgetAttachInvoiceToPayment`](docs/sdks/budget/README.md#attachinvoicetopayment) - Assign Invoice To Payment
-- [`budgetCreateBudgetItem`](docs/sdks/budget/README.md#createbudgetitem) - Create Budget Item
-- [`budgetCreateCardTransaction`](docs/sdks/budget/README.md#createcardtransaction) - Create Card Transaction
-- [`budgetCreateCurrencyConversionRate`](docs/sdks/budget/README.md#createcurrencyconversionrate) - Create Conversion Rate
-- [`budgetCreatePayment`](docs/sdks/budget/README.md#createpayment) - Create Budget Payment
-- [`budgetDeleteBudgetAllocations`](docs/sdks/budget/README.md#deletebudgetallocations) - Delete  Budget Allocations
-- [`budgetDeleteCardTransaction`](docs/sdks/budget/README.md#deletecardtransaction) - Delete Card Transaction
-- [`budgetDeleteCurrencyConversionRate`](docs/sdks/budget/README.md#deletecurrencyconversionrate) - Delete Conversion Rate
-- [`budgetDeletePayment`](docs/sdks/budget/README.md#deletepayment) - Delete Budget Payment
-- [`budgetGetAccountBudgetItems`](docs/sdks/budget/README.md#getaccountbudgetitems) - List Budget Items
-- [`budgetGetAccountVendors`](docs/sdks/budget/README.md#getaccountvendors) - List Account Vendors
-- [`budgetGetBudgetAllocations`](docs/sdks/budget/README.md#getbudgetallocations) - List Budget Allocations
-- [`budgetGetBudgetItems`](docs/sdks/budget/README.md#getbudgetitems) - List Event Budget Items
-- [`budgetGetCards`](docs/sdks/budget/README.md#getcards) - List Cards
-- [`budgetGetCardTransactions`](docs/sdks/budget/README.md#getcardtransactions) - List Card Transactions
-- [`budgetGetCurrencyConversionRate`](docs/sdks/budget/README.md#getcurrencyconversionrate) - List Currency Conversion Rates
-- [`budgetGetEventBudgetTotals`](docs/sdks/budget/README.md#geteventbudgettotals) - List Budget Totals
-- [`budgetGetPayments`](docs/sdks/budget/README.md#getpayments) - List Budget Payments
-- [`budgetUpdateBudgetAllocations`](docs/sdks/budget/README.md#updatebudgetallocations) - Update Budget Allocations
-- [`budgetUpdateBudgetItem`](docs/sdks/budget/README.md#updatebudgetitem) - Update Budget Item
-- [`budgetUpdateCardTransaction`](docs/sdks/budget/README.md#updatecardtransaction) - Update Card Transaction
-- [`budgetUpdateCurrencyConversionRate`](docs/sdks/budget/README.md#updatecurrencyconversionrate) - Update Conversion Rate
-- [`budgetUpdatePayment`](docs/sdks/budget/README.md#updatepayment) - Update Budget Payment
+- [`budgetCardsCreateCardTransaction`](docs/sdks/budgetcards/README.md#createcardtransaction) - Create Card Transaction
+- [`budgetCardsDeleteCardTransaction`](docs/sdks/budgetcards/README.md#deletecardtransaction) - Delete Card Transaction
+- [`budgetCardsGetCards`](docs/sdks/budgetcards/README.md#getcards) - List Cards
+- [`budgetCardsGetCardTransactions`](docs/sdks/budgetcards/README.md#getcardtransactions) - List Card Transactions
+- [`budgetCardsUpdateCardTransaction`](docs/sdks/budgetcards/README.md#updatecardtransaction) - Update Card Transaction
+- [`budgetPaymentsAttachInvoiceToPayment`](docs/sdks/budgetpayments/README.md#attachinvoicetopayment) - Assign Invoice To Payment
+- [`budgetPaymentsCreatePayment`](docs/sdks/budgetpayments/README.md#createpayment) - Create Budget Payment
+- [`budgetPaymentsDeletePayment`](docs/sdks/budgetpayments/README.md#deletepayment) - Delete Budget Payment
+- [`budgetPaymentsGetPayments`](docs/sdks/budgetpayments/README.md#getpayments) - List Budget Payments
+- [`budgetPaymentsUpdatePayment`](docs/sdks/budgetpayments/README.md#updatepayment) - Update Budget Payment
+- [`budgetsAnswerBudgetCustomField`](docs/sdks/budgets/README.md#answerbudgetcustomfield) - Update Custom Field Answers
+- [`budgetsCreateBudgetItem`](docs/sdks/budgets/README.md#createbudgetitem) - Create Budget Item
+- [`budgetsCreateCurrencyConversionRate`](docs/sdks/budgets/README.md#createcurrencyconversionrate) - Create Conversion Rate
+- [`budgetsDeleteBudgetAllocations`](docs/sdks/budgets/README.md#deletebudgetallocations) - Delete Budget Allocations
+- [`budgetsDeleteCurrencyConversionRate`](docs/sdks/budgets/README.md#deletecurrencyconversionrate) - Delete Conversion Rate
+- [`budgetsGetAccountBudgetItems`](docs/sdks/budgets/README.md#getaccountbudgetitems) - List Budget Items
+- [`budgetsGetAccountVendors`](docs/sdks/budgets/README.md#getaccountvendors) - List Account Vendors
+- [`budgetsGetBudgetAllocations`](docs/sdks/budgets/README.md#getbudgetallocations) - List Budget Allocations
+- [`budgetsGetBudgetItems`](docs/sdks/budgets/README.md#getbudgetitems) - List Event Budget Items
+- [`budgetsGetCurrencyConversionRate`](docs/sdks/budgets/README.md#getcurrencyconversionrate) - List Currency Conversion Rates
+- [`budgetsGetEventBudgetTotals`](docs/sdks/budgets/README.md#geteventbudgettotals) - List Budget Totals
+- [`budgetsUpdateBudgetAllocations`](docs/sdks/budgets/README.md#updatebudgetallocations) - Update Budget Allocations
+- [`budgetsUpdateBudgetItem`](docs/sdks/budgets/README.md#updatebudgetitem) - Update Budget Item
+- [`budgetsUpdateCurrencyConversionRate`](docs/sdks/budgets/README.md#updatecurrencyconversionrate) - Update Conversion Rate
 - [`bulkCancelBulkJob`](docs/sdks/bulk/README.md#cancelbulkjob) - Cancel Bulk Job
 - [`bulkCreateBulkJob`](docs/sdks/bulk/README.md#createbulkjob) - Create Bulk Job
 - [`bulkGetBulkJobById`](docs/sdks/bulk/README.md#getbulkjobbyid) - Get Bulk Job
@@ -1199,17 +1232,44 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`ordersGetAccountOrders`](docs/sdks/orders/README.md#getaccountorders) - List Account Orders
 - [`processFormListProcessFormSubmission`](docs/sdks/processform/README.md#listprocessformsubmission) - List Process Form Submissions
 - [`proposalDraftCreateProposalDraft`](docs/sdks/proposaldraft/README.md#createproposaldraft) - Beta - Create Proposal Draft
+- [`rfpAdditionalDetailsCreateRFPPastEvent`](docs/sdks/rfpadditionaldetails/README.md#createrfppastevent) - Create RFP Past Event
+- [`rfpAdditionalDetailsDeleteRFPPastEvent`](docs/sdks/rfpadditionaldetails/README.md#deleterfppastevent) - Delete RFP Past Event
+- [`rfpAdditionalDetailsGetRFPPastEvent`](docs/sdks/rfpadditionaldetails/README.md#getrfppastevent) - Get RFP Past Event
 - [`rfpAdditionalDetailsListRFPPastEvents`](docs/sdks/rfpadditionaldetails/README.md#listrfppastevents) - List RFP Past Events
+- [`rfpAdditionalDetailsUpdateRFPPastEvent`](docs/sdks/rfpadditionaldetails/README.md#updaterfppastevent) - Update RFP Past Event
+- [`rfpManagementCreateRFP`](docs/sdks/rfpmanagement/README.md#createrfp) - Create RFP
 - [`rfpManagementGetRFP`](docs/sdks/rfpmanagement/README.md#getrfp) - Get RFP
 - [`rfpManagementGetRFPLeadSource`](docs/sdks/rfpmanagement/README.md#getrfpleadsource) - Get RFP Lead Source
 - [`rfpManagementGetRFPLeadSourceSection`](docs/sdks/rfpmanagement/README.md#getrfpleadsourcesection) - Get RFP Lead Source Section
+- [`rfpManagementSubmitRFP`](docs/sdks/rfpmanagement/README.md#submitrfp) - Submit RFP
+- [`rfpManagementUpdateRFP`](docs/sdks/rfpmanagement/README.md#updaterfp) - Update RFP
+- [`rfpRequirementsAssociateRFPInternalDocument`](docs/sdks/rfprequirements/README.md#associaterfpinternaldocument) - Associate Internal Document
+- [`rfpRequirementsCreateRFPAgendaItem`](docs/sdks/rfprequirements/README.md#createrfpagendaitem) - Create RFP Agenda Item
+- [`rfpRequirementsCreateRFPAttachment`](docs/sdks/rfprequirements/README.md#createrfpattachment) - Create RFP Attachment
+- [`rfpRequirementsCreateRFPQuestion`](docs/sdks/rfprequirements/README.md#createrfpquestion) - Create RFP Question
+- [`rfpRequirementsDeleteRFPAgendaItem`](docs/sdks/rfprequirements/README.md#deleterfpagendaitem) - Delete RFP Agenda Item
+- [`rfpRequirementsDeleteRFPAttachment`](docs/sdks/rfprequirements/README.md#deleterfpattachment) - Delete RFP Attachment
+- [`rfpRequirementsDeleteRFPQuestion`](docs/sdks/rfprequirements/README.md#deleterfpquestion) - Delete RFP Question
+- [`rfpRequirementsDisassociateRFPInternalDocument`](docs/sdks/rfprequirements/README.md#disassociaterfpinternaldocument) - Disassociate Internal Document
+- [`rfpRequirementsGetRFPAgendaItem`](docs/sdks/rfprequirements/README.md#getrfpagendaitem) - Get RFP Agenda Item
+- [`rfpRequirementsGetRFPAttachment`](docs/sdks/rfprequirements/README.md#getrfpattachment) - Get RFP Attachment
+- [`rfpRequirementsGetRFPCustomFieldAnswers`](docs/sdks/rfprequirements/README.md#getrfpcustomfieldanswers) - Get RFP Custom Field Answers
 - [`rfpRequirementsGetRFPGuestRooms`](docs/sdks/rfprequirements/README.md#getrfpguestrooms) - Get RFP Guest Rooms
+- [`rfpRequirementsGetRFPInternalDocument`](docs/sdks/rfprequirements/README.md#getrfpinternaldocument) - Get RFP Internal Document
+- [`rfpRequirementsGetRFPQuestion`](docs/sdks/rfprequirements/README.md#getrfpquestion) - Get RFP Question
 - [`rfpRequirementsListRFPAgendaItems`](docs/sdks/rfprequirements/README.md#listrfpagendaitems) - List RFP Agenda Items
 - [`rfpRequirementsListRFPAgendaItemSchedules`](docs/sdks/rfprequirements/README.md#listrfpagendaitemschedules) - List RFP Agenda Item Schedules
 - [`rfpRequirementsListRFPAttachments`](docs/sdks/rfprequirements/README.md#listrfpattachments) - List RFP Attachments
-- [`rfpRequirementsListRFPCustomFields`](docs/sdks/rfprequirements/README.md#listrfpcustomfields) - List RFP Custom Fields Answers
+- [`rfpRequirementsListRFPCustomFields`](docs/sdks/rfprequirements/README.md#listrfpcustomfields) - List RFP Custom Field Answers
 - [`rfpRequirementsListRFPInternalDocuments`](docs/sdks/rfprequirements/README.md#listrfpinternaldocuments) - List RFP Internal Documents
 - [`rfpRequirementsListRFPQuestions`](docs/sdks/rfprequirements/README.md#listrfpquestions) - List RFP Questions
+- [`rfpRequirementsUpdateRFPAgendaItem`](docs/sdks/rfprequirements/README.md#updaterfpagendaitem) - Update RFP Agenda Item
+- [`rfpRequirementsUpdateRFPCustomFieldAnswers`](docs/sdks/rfprequirements/README.md#updaterfpcustomfieldanswers) - Update Custom Field Answers
+- [`rfpRequirementsUpdateRFPGuestRooms`](docs/sdks/rfprequirements/README.md#updaterfpguestrooms) - Update RFP Guest Rooms
+- [`rfpRequirementsUpdateRFPQuestion`](docs/sdks/rfprequirements/README.md#updaterfpquestion) - Update RFP Question
+- [`rfpSuppliersAssociateRFPSupplier`](docs/sdks/rfpsuppliers/README.md#associaterfpsupplier) - Associate Supplier to RFP
+- [`rfpSuppliersDisassociateRFPSupplier`](docs/sdks/rfpsuppliers/README.md#disassociaterfpsupplier) - Disassociate RFP Supplier
+- [`rfpSuppliersGetRFPSupplier`](docs/sdks/rfpsuppliers/README.md#getrfpsupplier) - Get RFP Supplier
 - [`rfpSuppliersGetRFPSuppliers`](docs/sdks/rfpsuppliers/README.md#getrfpsuppliers) - List RFP Suppliers
 - [`rfpSuppliersListRFPRecipientsHistory`](docs/sdks/rfpsuppliers/README.md#listrfprecipientshistory) - List RFP Recipients History
 - [`seatingGetEventTableAssignments`](docs/sdks/seating/README.md#geteventtableassignments) - List All Seating Assignments
@@ -1665,11 +1725,11 @@ run();
 
 
 **Inherit from [`CventSDKError`](./src/models/errors/cventsdkerror.ts)**:
-* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 511 methods.*
-* [`ErrorResponse17`](./src/models/errors/errorresponse17.ts): The error response. Applicable to 11 of 511 methods.*
-* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 511 methods.*
-* [`Oauth2TokenPostResponse0Error`](./src/models/errors/oauth2tokenpostresponse0error.ts): A bad token response. Status code `400`. Applicable to 1 of 511 methods.*
-* [`EventRoleAssignmentNotificationFailureResponseError`](./src/models/errors/eventroleassignmentnotificationfailureresponseerror.ts): Standard error response for a notification failure while creating an event-role assignment. The top-level code and details[].code are the integer HTTP status code (503). Status code `503`. Applicable to 1 of 511 methods.*
+* [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 538 methods.*
+* [`ErrorResponse17`](./src/models/errors/errorresponse17.ts): The error response. Applicable to 11 of 538 methods.*
+* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 538 methods.*
+* [`Oauth2TokenPostResponse0Error`](./src/models/errors/oauth2tokenpostresponse0error.ts): A bad token response. Status code `400`. Applicable to 1 of 538 methods.*
+* [`EventRoleAssignmentNotificationFailureResponseError`](./src/models/errors/eventroleassignmentnotificationfailureresponseerror.ts): Standard error response for a notification failure while creating an event-role assignment. The top-level code and details[].code are the integer HTTP status code (503). Status code `503`. Applicable to 1 of 538 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

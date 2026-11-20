@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Represents a link to a related resource.
+ * Link to the booking site for this reservation request.
  */
 export type HousingReservationLink = {
   /**
@@ -18,7 +18,7 @@ export type HousingReservationLink = {
 };
 
 /**
- * Representation of the housing reservation details.
+ * A housing reservation request with its bridge ID and booking-site link.
  */
 export type HousingReservation = {
   /**
@@ -26,7 +26,7 @@ export type HousingReservation = {
    */
   id?: string | undefined;
   /**
-   * Represents a link to a related resource.
+   * Link to the booking site for this reservation request.
    */
   bookingSite?: HousingReservationLink | undefined;
 };

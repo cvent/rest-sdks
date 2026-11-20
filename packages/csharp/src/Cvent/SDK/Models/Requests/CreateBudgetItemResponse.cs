@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully created a Budget Item.
+        /// Successfully created a budget item.
         /// </summary>
         public BudgetItemResponse? BudgetItemResponse { get; set; }
     }

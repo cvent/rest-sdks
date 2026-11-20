@@ -36,7 +36,7 @@ import {
  * List RFP Attachments
  *
  * @remarks
- * Returns paginated list of [attachments](#tag/RFP-Requirements) added on an RFP.
+ * Returns a paginated list of [attachments](#tag/RFP-Requirements) added to an RFP.
  */
 export function rfpRequirementsListRFPAttachments(
   client: CventSDKCore,

@@ -44,7 +44,7 @@ namespace Cvent.SDK.Models.Components
         public double Amount { get; set; } = default!;
 
         /// <summary>
-        /// The ISO 8601 zoned date assigned to the payment, typically denotes the date of payment.
+        /// The ISO 8601 date assigned to the payment. It typically denotes the date of payment.
         /// </summary>
         [JsonProperty("date")]
         public DateOnly Date { get; set; } = default!;

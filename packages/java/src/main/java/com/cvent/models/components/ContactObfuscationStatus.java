@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * ContactObfuscationStatus
  *
- * <p>Model representing an obfuscation status of a contact.
+ * <p>The status, job ID, and contact ID for a contact obfuscation request.
  */
 public class ContactObfuscationStatus {
     /**
@@ -37,14 +37,14 @@ public class ContactObfuscationStatus {
     private ContactObfuscationStatusType status;
 
     /**
-     * The obfuscation job identifier.
+     * The ID of the obfuscation job.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("obfuscateId")
     private String obfuscateId;
 
     /**
-     * A contact id.
+     * An object containing the ID of a contact.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contact")
@@ -82,14 +82,14 @@ public class ContactObfuscationStatus {
     }
 
     /**
-     * The obfuscation job identifier.
+     * The ID of the obfuscation job.
      */
     public Optional<String> obfuscateId() {
         return Optional.ofNullable(this.obfuscateId);
     }
 
     /**
-     * A contact id.
+     * An object containing the ID of a contact.
      */
     public Optional<ContactId> contact() {
         return Optional.ofNullable(this.contact);
@@ -118,7 +118,7 @@ public class ContactObfuscationStatus {
     }
 
     /**
-     * The obfuscation job identifier.
+     * The ID of the obfuscation job.
      */
     public ContactObfuscationStatus withObfuscateId(@Nullable String obfuscateId) {
         this.obfuscateId = obfuscateId;
@@ -126,7 +126,7 @@ public class ContactObfuscationStatus {
     }
 
     /**
-     * A contact id.
+     * An object containing the ID of a contact.
      */
     public ContactObfuscationStatus withContact(@Nullable ContactId contact) {
         this.contact = contact;
@@ -190,7 +190,7 @@ public class ContactObfuscationStatus {
         }
 
         /**
-         * The obfuscation job identifier.
+         * The ID of the obfuscation job.
          */
         public Builder obfuscateId(@Nullable String obfuscateId) {
             this.obfuscateId = obfuscateId;
@@ -198,7 +198,7 @@ public class ContactObfuscationStatus {
         }
 
         /**
-         * A contact id.
+         * An object containing the ID of a contact.
          */
         public Builder contact(@Nullable ContactId contact) {
             this.contact = contact;

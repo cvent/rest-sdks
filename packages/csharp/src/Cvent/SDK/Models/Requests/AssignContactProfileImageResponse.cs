@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully added the profile picture to the contact.
+        /// Successfully assigned the profile picture to the contact.
         /// </summary>
         public ContactFile? ContactFile { get; set; }
     }

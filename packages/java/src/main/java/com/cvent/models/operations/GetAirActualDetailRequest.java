@@ -57,8 +57,7 @@ public class GetAirActualDetailRequest {
      * respective scopes for each expansion are required.
      *
      * <p>The following fields are expandable:
-     * * airActualDetails.airActualAnswers.question (<a href="#operation/getEventQuestions">List Event
-     * Questions</a>)
+     * * airActualDetails.airActualAnswers.question ([List Event Questions](#operation/getEventQuestions))
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=expand")
     private List<ExpandAirActualQuestionAnswer> expand;
@@ -165,8 +164,7 @@ public class GetAirActualDetailRequest {
      * respective scopes for each expansion are required.
      *
      * <p>The following fields are expandable:
-     * * airActualDetails.airActualAnswers.question (<a href="#operation/getEventQuestions">List Event
-     * Questions</a>)
+     * * airActualDetails.airActualAnswers.question ([List Event Questions](#operation/getEventQuestions))
      */
     public Optional<List<ExpandAirActualQuestionAnswer>> expand() {
         return Optional.ofNullable(this.expand);
@@ -261,8 +259,7 @@ public class GetAirActualDetailRequest {
      * respective scopes for each expansion are required.
      *
      * <p>The following fields are expandable:
-     * * airActualDetails.airActualAnswers.question (<a href="#operation/getEventQuestions">List Event
-     * Questions</a>)
+     * * airActualDetails.airActualAnswers.question ([List Event Questions](#operation/getEventQuestions))
      */
     public GetAirActualDetailRequest withExpand(@Nullable List<ExpandAirActualQuestionAnswer> expand) {
         this.expand = expand;
@@ -425,8 +422,7 @@ public class GetAirActualDetailRequest {
          * respective scopes for each expansion are required.
          *
          * <p>The following fields are expandable:
-         * * airActualDetails.airActualAnswers.question (<a href="#operation/getEventQuestions">List Event
-         * Questions</a>)
+         * * airActualDetails.airActualAnswers.question ([List Event Questions](#operation/getEventQuestions))
          */
         public Builder expand(@Nullable List<ExpandAirActualQuestionAnswer> expand) {
             this.expand = expand;

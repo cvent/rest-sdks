@@ -25,3 +25,6 @@ export type DayOfWeek = ClosedEnum<typeof DayOfWeek>;
 /** @internal */
 export const DayOfWeek$inboundSchema: z.ZodNativeEnum<typeof DayOfWeek> = z
   .nativeEnum(DayOfWeek);
+/** @internal */
+export const DayOfWeek$outboundSchema: z.ZodNativeEnum<typeof DayOfWeek> =
+  DayOfWeek$inboundSchema;

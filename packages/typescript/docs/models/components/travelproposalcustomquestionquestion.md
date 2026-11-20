@@ -1,6 +1,6 @@
 # TravelProposalCustomQuestionQuestion
 
-Travel account that the proposal is responding to.
+The custom question.
 
 ## Example Usage
 

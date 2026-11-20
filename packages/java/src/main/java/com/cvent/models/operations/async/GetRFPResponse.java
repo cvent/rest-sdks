@@ -33,7 +33,7 @@ public class GetRFPResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully returns the basic details of the RFP.
+     * Successfully retrieved the basic details of the RFP.
      */
     private Rfp2 rfp;
 
@@ -74,7 +74,7 @@ public class GetRFPResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully returns the basic details of the RFP.
+     * Successfully retrieved the basic details of the RFP.
      */
     public Optional<Rfp2> rfp() {
         return Optional.ofNullable(this.rfp);
@@ -109,7 +109,7 @@ public class GetRFPResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully returns the basic details of the RFP.
+     * Successfully retrieved the basic details of the RFP.
      */
     public GetRFPResponse withRfp(@Nullable Rfp2 rfp) {
         this.rfp = rfp;
@@ -190,7 +190,7 @@ public class GetRFPResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully returns the basic details of the RFP.
+         * Successfully retrieved the basic details of the RFP.
          */
         public Builder rfp(@Nullable Rfp2 rfp) {
             this.rfp = rfp;

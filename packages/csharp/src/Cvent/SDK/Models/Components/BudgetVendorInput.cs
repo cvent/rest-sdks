@@ -18,7 +18,7 @@ namespace Cvent.SDK.Models.Components
     public class BudgetVendorInput
     {
         /// <summary>
-        /// The vendor's unique ID. If the `type` field is `CSN`, this vendor ID correlates to a venueID in the <a href="https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects">CSN APIs</a>.
+        /// Vendor ID. If the `type` field is `CSN`, this vendor ID correlates to a venue ID in the <a href="https://developers.cvent.com/docs/legacy-api/csn/planner-guide/venue-objects">CSN APIs</a>.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

@@ -1,6 +1,6 @@
 # ContactType
 
-This entity represents a contact type at contact level.
+A contact type with an ID, code, name, description, and active status.
 
 
 ## Fields

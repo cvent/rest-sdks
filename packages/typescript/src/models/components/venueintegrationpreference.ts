@@ -9,6 +9,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   VenueIntegrationType,
   VenueIntegrationType$inboundSchema,
+  VenueIntegrationType$outboundSchema,
 } from "./venueintegrationtype.js";
 
 /**
@@ -34,7 +35,29 @@ export const VenueIntegrationPreference$inboundSchema: z.ZodType<
   type: VenueIntegrationType$inboundSchema,
   optIn: z.boolean(),
 });
+/** @internal */
+export type VenueIntegrationPreference$Outbound = {
+  type: string;
+  optIn: boolean;
+};
 
+/** @internal */
+export const VenueIntegrationPreference$outboundSchema: z.ZodType<
+  VenueIntegrationPreference$Outbound,
+  z.ZodTypeDef,
+  VenueIntegrationPreference
+> = z.object({
+  type: VenueIntegrationType$outboundSchema,
+  optIn: z.boolean(),
+});
+
+export function venueIntegrationPreferenceToJSON(
+  venueIntegrationPreference: VenueIntegrationPreference,
+): string {
+  return JSON.stringify(
+    VenueIntegrationPreference$outboundSchema.parse(venueIntegrationPreference),
+  );
+}
 export function venueIntegrationPreferenceFromJSON(
   jsonString: string,
 ): SafeParseResult<VenueIntegrationPreference, SDKValidationError> {

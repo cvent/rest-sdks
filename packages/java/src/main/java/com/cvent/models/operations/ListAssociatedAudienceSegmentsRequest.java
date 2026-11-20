@@ -18,7 +18,7 @@ import java.util.Optional;
 
 public class ListAssociatedAudienceSegmentsRequest {
     /**
-     * ID of an attendee.
+     * Attendee ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=attendeeId")
     private String attendeeId;
@@ -68,7 +68,7 @@ public class ListAssociatedAudienceSegmentsRequest {
     }
 
     /**
-     * ID of an attendee.
+     * Attendee ID.
      */
     public String attendeeId() {
         return this.attendeeId;
@@ -111,7 +111,7 @@ public class ListAssociatedAudienceSegmentsRequest {
     }
 
     /**
-     * ID of an attendee.
+     * Attendee ID.
      */
     public ListAssociatedAudienceSegmentsRequest withAttendeeId(@Nonnull String attendeeId) {
         this.attendeeId = Utils.checkNotNull(attendeeId, "attendeeId");
@@ -203,7 +203,7 @@ public class ListAssociatedAudienceSegmentsRequest {
         }
 
         /**
-         * ID of an attendee.
+         * Attendee ID.
          */
         public Builder attendeeId(@Nonnull String attendeeId) {
             this.attendeeId = Utils.checkNotNull(attendeeId, "attendeeId");

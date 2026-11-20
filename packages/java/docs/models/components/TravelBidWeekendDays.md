@@ -1,6 +1,6 @@
 # TravelBidWeekendDays
 
-Days considered weekend days for pricing purposes in the travel bid.
+A day of the week that gets the weekend rates of the travel bid.
 
 ## Example Usage
 

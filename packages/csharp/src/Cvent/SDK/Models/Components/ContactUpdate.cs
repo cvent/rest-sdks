@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// This entity is used to represent a single item that is requested for a contact update.
+    /// Field values used to update an existing contact.
     /// </summary>
     public class ContactUpdate
     {
@@ -128,7 +128,7 @@ namespace Cvent.SDK.Models.Components
         public string? WorkFax { get; set; }
 
         /// <summary>
-        /// This is a ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
+        /// This is an ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
         /// </summary>
         [JsonProperty("sourceId")]
         public string? SourceId { get; set; }
@@ -170,9 +170,9 @@ namespace Cvent.SDK.Models.Components
         public ContactLinksInput? Links { get; set; }
 
         /// <summary>
-        /// The date of birth of the contact.<br/>
+        /// The contact's date of birth, in ISO 8601 date format.<br/>
         /// <br/>
-        ///  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively.
+        ///  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes, respectively.
         /// </summary>
         [JsonProperty("dateOfBirth")]
         public DateOnly? DateOfBirth { get; set; }

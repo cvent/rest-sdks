@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Travel account that the proposal is responding to.
+ * The custom question.
  */
 export type TravelProposalCustomQuestionQuestion = {
   /**
@@ -18,11 +18,11 @@ export type TravelProposalCustomQuestionQuestion = {
 };
 
 /**
- * Represents custom question associated with a travel proposal.
+ * An answer to a custom question of the travel program.
  */
 export type TravelProposalCustomQuestion = {
   /**
-   * Travel account that the proposal is responding to.
+   * The custom question.
    */
   question?: TravelProposalCustomQuestionQuestion | undefined;
   /**

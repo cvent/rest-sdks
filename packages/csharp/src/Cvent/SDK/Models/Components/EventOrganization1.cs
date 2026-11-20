@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Details of organization which is hosting the event.
+    /// Details of the organization hosting the event. When organization.id identifies one of the account's organization profiles, the organization details come from that profile and the other fields in this object are ignored on input. When organization.id is omitted or is the nil UUID, the fields in this object describe a new organization for this RFP, and name and type are required for an active RFP.
     /// </summary>
     public class EventOrganization1
     {
@@ -40,13 +40,13 @@ namespace Cvent.SDK.Models.Components
         /// Name of the organization hosting the event.
         /// </summary>
         [JsonProperty("name")]
-        public string Name { get; set; } = default!;
+        public string? Name { get; set; }
 
         /// <summary>
         /// Organization type.
         /// </summary>
         [JsonProperty("type")]
-        public OrganizationType1 Type { get; set; } = default!;
+        public OrganizationType1? Type { get; set; }
 
         /// <summary>
         /// Address details.
@@ -55,7 +55,7 @@ namespace Cvent.SDK.Models.Components
         public Address1? Address { get; set; }
 
         /// <summary>
-        /// Number of events per year.
+        /// Number of events the organization hosts per year.
         /// </summary>
         [JsonProperty("eventsPerYear")]
         public long? EventsPerYear { get; set; }

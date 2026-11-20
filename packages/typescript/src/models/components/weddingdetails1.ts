@@ -9,6 +9,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   WeddingPartner,
   WeddingPartner$inboundSchema,
+  WeddingPartner$Outbound,
+  WeddingPartner$outboundSchema,
 } from "./weddingpartner.js";
 
 /**
@@ -54,7 +56,35 @@ export const WeddingDetails1$inboundSchema: z.ZodType<
   farewellBrunch: z.boolean().optional(),
   rehearsalDinner: z.boolean().optional(),
 });
+/** @internal */
+export type WeddingDetails1$Outbound = {
+  firstPartner?: WeddingPartner$Outbound | undefined;
+  secondPartner?: WeddingPartner$Outbound | undefined;
+  ceremony?: boolean | undefined;
+  reception?: boolean | undefined;
+  farewellBrunch?: boolean | undefined;
+  rehearsalDinner?: boolean | undefined;
+};
 
+/** @internal */
+export const WeddingDetails1$outboundSchema: z.ZodType<
+  WeddingDetails1$Outbound,
+  z.ZodTypeDef,
+  WeddingDetails1
+> = z.object({
+  firstPartner: WeddingPartner$outboundSchema.optional(),
+  secondPartner: WeddingPartner$outboundSchema.optional(),
+  ceremony: z.boolean().optional(),
+  reception: z.boolean().optional(),
+  farewellBrunch: z.boolean().optional(),
+  rehearsalDinner: z.boolean().optional(),
+});
+
+export function weddingDetails1ToJSON(
+  weddingDetails1: WeddingDetails1,
+): string {
+  return JSON.stringify(WeddingDetails1$outboundSchema.parse(weddingDetails1));
+}
 export function weddingDetails1FromJSON(
   jsonString: string,
 ): SafeParseResult<WeddingDetails1, SDKValidationError> {

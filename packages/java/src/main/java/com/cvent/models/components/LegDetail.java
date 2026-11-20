@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * LegDetail
  *
- * <p>Representation of a leg detail in air request.
+ * <p>One air request itinerary leg with an origin, destination, date, and time.
  */
 public class LegDetail {
     /**

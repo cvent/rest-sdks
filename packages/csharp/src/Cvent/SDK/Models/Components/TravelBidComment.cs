@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Components
     public class TravelBidComment
     {
         /// <summary>
-        /// Bid comment type.
+        /// The type of the bid comment.
         /// </summary>
         [JsonProperty("commentType")]
         public CommentType? CommentType { get; set; }

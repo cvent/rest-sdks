@@ -20,7 +20,7 @@ public class AssignContactProfileImageRequest {
     private String id;
 
     /**
-     * The file ID provided by the <a href="#operation/uploadFile">file upload</a> endpoint.
+     * The file ID provided by the [file upload](#operation/uploadFile) endpoint.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     private ContactFileInput contactFile;
@@ -40,7 +40,7 @@ public class AssignContactProfileImageRequest {
     }
 
     /**
-     * The file ID provided by the <a href="#operation/uploadFile">file upload</a> endpoint.
+     * The file ID provided by the [file upload](#operation/uploadFile) endpoint.
      */
     public ContactFileInput contactFile() {
         return this.contactFile;
@@ -59,7 +59,7 @@ public class AssignContactProfileImageRequest {
     }
 
     /**
-     * The file ID provided by the <a href="#operation/uploadFile">file upload</a> endpoint.
+     * The file ID provided by the [file upload](#operation/uploadFile) endpoint.
      */
     public AssignContactProfileImageRequest withContactFile(@Nonnull ContactFileInput contactFile) {
         this.contactFile = Utils.checkNotNull(contactFile, "contactFile");
@@ -108,7 +108,7 @@ public class AssignContactProfileImageRequest {
         }
 
         /**
-         * The file ID provided by the <a href="#operation/uploadFile">file upload</a> endpoint.
+         * The file ID provided by the [file upload](#operation/uploadFile) endpoint.
          */
         public Builder contactFile(@Nonnull ContactFileInput contactFile) {
             this.contactFile = Utils.checkNotNull(contactFile, "contactFile");

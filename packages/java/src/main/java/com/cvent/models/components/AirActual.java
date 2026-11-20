@@ -19,7 +19,8 @@ import java.util.Optional;
 /**
  * AirActual
  *
- * <p>Representation of an air actual.
+ * <p>Flight booking details for a passenger, including flight segments and answers to air actual
+ * questions.
  */
 public class AirActual {
     /**
@@ -85,7 +86,7 @@ public class AirActual {
     private AirRequesterType requesterType;
 
     /**
-     * Name of the attendee booked for the flight.
+     * Name of the passenger booked for the flight.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("name")
@@ -99,7 +100,7 @@ public class AirActual {
     private String confirmationNumber;
 
     /**
-     * Total cost of the flight.
+     * Total cost of the flight in the currency specified by currencyCode.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("totalAmount")
@@ -280,7 +281,7 @@ public class AirActual {
     }
 
     /**
-     * Name of the attendee booked for the flight.
+     * Name of the passenger booked for the flight.
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
@@ -294,7 +295,7 @@ public class AirActual {
     }
 
     /**
-     * Total cost of the flight.
+     * Total cost of the flight in the currency specified by currencyCode.
      */
     public Optional<Double> totalAmount() {
         return Optional.ofNullable(this.totalAmount);
@@ -425,7 +426,7 @@ public class AirActual {
     }
 
     /**
-     * Name of the attendee booked for the flight.
+     * Name of the passenger booked for the flight.
      */
     public AirActual withName(@Nullable String name) {
         this.name = name;
@@ -441,7 +442,7 @@ public class AirActual {
     }
 
     /**
-     * Total cost of the flight.
+     * Total cost of the flight in the currency specified by currencyCode.
      */
     public AirActual withTotalAmount(@Nullable Double totalAmount) {
         this.totalAmount = totalAmount;
@@ -713,7 +714,7 @@ public class AirActual {
         }
 
         /**
-         * Name of the attendee booked for the flight.
+         * Name of the passenger booked for the flight.
          */
         public Builder name(@Nullable String name) {
             this.name = name;
@@ -729,7 +730,7 @@ public class AirActual {
         }
 
         /**
-         * Total cost of the flight.
+         * Total cost of the flight in the currency specified by currencyCode.
          */
         public Builder totalAmount(@Nullable Double totalAmount) {
             this.totalAmount = totalAmount;

@@ -23,7 +23,7 @@ import java.util.Optional;
  */
 public class BudgetVendorResponse {
     /**
-     * The unique identifier for the budget vendor.
+     * Budget vendor ID.
      */
     @JsonProperty("id")
     private String id;
@@ -137,7 +137,7 @@ public class BudgetVendorResponse {
     }
 
     /**
-     * The unique identifier for the budget vendor.
+     * Budget vendor ID.
      */
     public String id() {
         return this.id;
@@ -225,7 +225,7 @@ public class BudgetVendorResponse {
     }
 
     /**
-     * The unique identifier for the budget vendor.
+     * Budget vendor ID.
      */
     public BudgetVendorResponse withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -422,7 +422,7 @@ public class BudgetVendorResponse {
         }
 
         /**
-         * The unique identifier for the budget vendor.
+         * Budget vendor ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

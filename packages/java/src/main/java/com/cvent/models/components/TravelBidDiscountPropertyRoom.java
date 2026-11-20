@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * TravelBidDiscountPropertyRoom
  *
- * <p>ID of the property's room.
+ * <p>The property room that the discount applies to.
  */
 public class TravelBidDiscountPropertyRoom {
     /**

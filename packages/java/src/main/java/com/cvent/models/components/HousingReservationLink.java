@@ -14,7 +14,7 @@ import java.util.Optional;
 /**
  * HousingReservationLink
  *
- * <p>Represents a link to a related resource.
+ * <p>Link to the booking site for this reservation request.
  */
 public class HousingReservationLink {
     /**

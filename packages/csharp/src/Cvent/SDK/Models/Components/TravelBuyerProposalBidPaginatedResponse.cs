@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// A paginated list of travel buyer proposals.
+    /// A paginated list of travel buyer proposal bids.
     /// </summary>
     public class TravelBuyerProposalBidPaginatedResponse
     {
@@ -26,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public Paging? Paging { get; set; }
 
         /// <summary>
-        /// Paginated list of business transient buyer proposal bids.
+        /// The travel buyer proposal bids on the page.
         /// </summary>
         [JsonProperty("data")]
         public List<TravelBuyerProposalBid>? Data { get; set; }

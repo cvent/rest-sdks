@@ -47,7 +47,7 @@ export type AlternateTravelPaginatedResponsePaging = {
 };
 
 /**
- * Paginated response containing alternate travel answers submitted by attendees who opt out of air or hotel bookings.
+ * Paginated response containing alternate travel answers submitted by attendees who opt out of air, hotel, or train bookings.
  */
 export type AlternateTravelPaginatedResponse = {
   /**

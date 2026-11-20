@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * The rate review status of the proposal
+ * The rate review status of the proposal.
  */
 export const RateReviewStatusType = {
   Requested: "requested",
@@ -15,7 +15,7 @@ export const RateReviewStatusType = {
   Rejected: "rejected",
 } as const;
 /**
- * The rate review status of the proposal
+ * The rate review status of the proposal.
  */
 export type RateReviewStatusType = ClosedEnum<typeof RateReviewStatusType>;
 

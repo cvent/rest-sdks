@@ -1,6 +1,6 @@
 # Card
 
-The identifier of the Card.
+Card ID.
 
 ## Example Usage
 

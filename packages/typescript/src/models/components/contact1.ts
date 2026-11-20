@@ -6,10 +6,22 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Address1, Address1$inboundSchema } from "./address1.js";
+import {
+  Address1,
+  Address1$inboundSchema,
+  Address1$Outbound,
+  Address1$outboundSchema,
+} from "./address1.js";
+import {
+  CommissionApplicable1,
+  CommissionApplicable1$inboundSchema,
+  CommissionApplicable1$Outbound,
+  CommissionApplicable1$outboundSchema,
+} from "./commissionapplicable1.js";
 import {
   ContactMethods,
   ContactMethods$inboundSchema,
+  ContactMethods$outboundSchema,
 } from "./contactmethods.js";
 
 /**
@@ -41,6 +53,10 @@ export type Contact1 = {
    */
   commissionable?: boolean | undefined;
   /**
+   * The hotel or venue service categories to which the commission applies.
+   */
+  commissionApplicableTypes?: Array<CommissionApplicable1> | undefined;
+  /**
    * Phone number of the planner.
    */
   phone: string;
@@ -70,12 +86,51 @@ export const Contact1$inboundSchema: z.ZodType<
   address: Address1$inboundSchema.optional(),
   commissionRate: z.number().optional(),
   commissionable: z.boolean().optional(),
+  commissionApplicableTypes: z.array(CommissionApplicable1$inboundSchema)
+    .optional(),
   phone: z.string(),
   organizationName: z.string(),
   thirdPartyPlanner: z.boolean().optional(),
   preferredContactMethods: z.array(ContactMethods$inboundSchema).optional(),
 });
+/** @internal */
+export type Contact1$Outbound = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  address?: Address1$Outbound | undefined;
+  commissionRate?: number | undefined;
+  commissionable?: boolean | undefined;
+  commissionApplicableTypes?: Array<CommissionApplicable1$Outbound> | undefined;
+  phone: string;
+  organizationName: string;
+  thirdPartyPlanner?: boolean | undefined;
+  preferredContactMethods?: Array<string> | undefined;
+};
 
+/** @internal */
+export const Contact1$outboundSchema: z.ZodType<
+  Contact1$Outbound,
+  z.ZodTypeDef,
+  Contact1
+> = z.object({
+  firstName: z.string(),
+  lastName: z.string(),
+  email: z.string(),
+  address: Address1$outboundSchema.optional(),
+  commissionRate: z.number().optional(),
+  commissionable: z.boolean().optional(),
+  commissionApplicableTypes: z.array(CommissionApplicable1$outboundSchema)
+    .optional(),
+  phone: z.string(),
+  organizationName: z.string(),
+  thirdPartyPlanner: z.boolean().optional(),
+  preferredContactMethods: z.array(ContactMethods$outboundSchema).optional(),
+});
+
+export function contact1ToJSON(contact1: Contact1): string {
+  return JSON.stringify(Contact1$outboundSchema.parse(contact1));
+}
 export function contact1FromJSON(
   jsonString: string,
 ): SafeParseResult<Contact1, SDKValidationError> {

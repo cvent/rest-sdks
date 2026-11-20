@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Rate level
+ * The rate level.
  */
 export const RateLevelType = {
   Corporate: "corporate",
@@ -14,7 +14,7 @@ export const RateLevelType = {
   Government: "government",
 } as const;
 /**
- * Rate level
+ * The rate level.
  */
 export type RateLevelType = ClosedEnum<typeof RateLevelType>;
 

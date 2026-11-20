@@ -16,8 +16,8 @@ import java.util.Optional;
 /**
  * DistributionListInfoInput
  *
- * <p>Model representing a distribution list info. Only required if the contact group type is
- * DISTRIBUTION_LIST.
+ * <p>Distribution list settings for a contact group, including its security type, internal note, and
+ * status. This object is required only when the contact group type is `DISTRIBUTION_LIST`.
  */
 public class DistributionListInfoInput {
     /**

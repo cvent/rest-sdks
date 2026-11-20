@@ -30,7 +30,7 @@ export type Payment = {
    */
   amount: number;
   /**
-   * The ISO 8601 zoned date assigned to the payment, typically denotes the date of payment.
+   * The ISO 8601 date assigned to the payment. It typically denotes the date of payment.
    */
   date: RFCDate;
   /**

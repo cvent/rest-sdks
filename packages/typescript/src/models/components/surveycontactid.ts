@@ -5,7 +5,7 @@
 import * as z from "zod/v3";
 
 /**
- * A pair of survey and contact id.
+ * A survey ID and a contact ID pair.
  */
 export type SurveyContactId = {
   /**

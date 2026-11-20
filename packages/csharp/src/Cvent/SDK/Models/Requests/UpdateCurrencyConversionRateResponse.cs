@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully updated currency conversion rate.
+        /// Successfully updated a currency conversion rate.
         /// </summary>
         public CurrencyConversionRateResponse? CurrencyConversionRateResponse { get; set; }
     }

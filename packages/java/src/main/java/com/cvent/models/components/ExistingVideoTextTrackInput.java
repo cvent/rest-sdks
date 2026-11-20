@@ -20,7 +20,7 @@ import java.util.Optional;
 /**
  * ExistingVideoTextTrackInput
  *
- * <p>An existing video text track.
+ * <p>A video text track with its ID, status, associated URL, and processing error message, if any.
  */
 public class ExistingVideoTextTrackInput {
     /**

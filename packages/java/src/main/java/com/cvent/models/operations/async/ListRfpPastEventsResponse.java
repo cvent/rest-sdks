@@ -33,7 +33,7 @@ public class ListRfpPastEventsResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully retrieved list of past events.
+     * Successfully retrieved a list of RFP past events.
      */
     private RfpPastEvents rfpPastEvents;
 
@@ -78,7 +78,7 @@ public class ListRfpPastEventsResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully retrieved list of past events.
+     * Successfully retrieved a list of RFP past events.
      */
     public Optional<RfpPastEvents> rfpPastEvents() {
         return Optional.ofNullable(this.rfpPastEvents);
@@ -113,7 +113,7 @@ public class ListRfpPastEventsResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully retrieved list of past events.
+     * Successfully retrieved a list of RFP past events.
      */
     public ListRfpPastEventsResponse withRfpPastEvents(@Nullable RfpPastEvents rfpPastEvents) {
         this.rfpPastEvents = rfpPastEvents;
@@ -194,7 +194,7 @@ public class ListRfpPastEventsResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully retrieved list of past events.
+         * Successfully retrieved a list of RFP past events.
          */
         public Builder rfpPastEvents(@Nullable RfpPastEvents rfpPastEvents) {
             this.rfpPastEvents = rfpPastEvents;

@@ -19,7 +19,7 @@ import java.util.Optional;
 /**
  * ContactUpdate
  *
- * <p>This entity is used to represent a single item that is requested for a contact update
+ * <p>Field values used to update an existing contact
  */
 public class ContactUpdate {
     /**
@@ -149,7 +149,7 @@ public class ContactUpdate {
     private String workFax;
 
     /**
-     * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
+     * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -200,10 +200,10 @@ public class ContactUpdate {
     private ContactLinksInput links;
 
     /**
-     * The date of birth of the contact.
+     * The contact's date of birth, in ISO 8601 date format.
      *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
-     * `event/contacts:write-sensitive` scopes respectively.
+     * `event/contacts:write-sensitive` scopes, respectively.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("dateOfBirth")
@@ -524,7 +524,7 @@ public class ContactUpdate {
     }
 
     /**
-     * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
+     * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
      */
     public Optional<String> sourceId() {
@@ -575,10 +575,10 @@ public class ContactUpdate {
     }
 
     /**
-     * The date of birth of the contact.
+     * The contact's date of birth, in ISO 8601 date format.
      *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
-     * `event/contacts:write-sensitive` scopes respectively.
+     * `event/contacts:write-sensitive` scopes, respectively.
      */
     public Optional<LocalDate> dateOfBirth() {
         return Optional.ofNullable(this.dateOfBirth);
@@ -809,7 +809,7 @@ public class ContactUpdate {
     }
 
     /**
-     * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
+     * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
      */
     public ContactUpdate withSourceId(@Nullable String sourceId) {
@@ -867,10 +867,10 @@ public class ContactUpdate {
     }
 
     /**
-     * The date of birth of the contact.
+     * The contact's date of birth, in ISO 8601 date format.
      *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
-     * `event/contacts:write-sensitive` scopes respectively.
+     * `event/contacts:write-sensitive` scopes, respectively.
      */
     public ContactUpdate withDateOfBirth(@Nullable LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
@@ -1347,7 +1347,7 @@ public class ContactUpdate {
         }
 
         /**
-         * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
+         * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
          * each contact within an account. Consider adding the external system name as part of the ID.
          */
         public Builder sourceId(@Nullable String sourceId) {
@@ -1405,10 +1405,10 @@ public class ContactUpdate {
         }
 
         /**
-         * The date of birth of the contact.
+         * The contact's date of birth, in ISO 8601 date format.
          *
          * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
-         * `event/contacts:write-sensitive` scopes respectively.
+         * `event/contacts:write-sensitive` scopes, respectively.
          */
         public Builder dateOfBirth(@Nullable LocalDate dateOfBirth) {
             this.dateOfBirth = dateOfBirth;

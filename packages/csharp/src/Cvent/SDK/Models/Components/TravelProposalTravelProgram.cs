@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Travel program that the proposal is in response to.
+    /// The travel program that the proposal responds to.
     /// </summary>
     public class TravelProposalTravelProgram
     {

@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * Video1
  *
- * <p>The details of a video
+ * <p>A video ID associated with a video view.
  */
 public class Video1 {
     /**

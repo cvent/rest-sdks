@@ -232,8 +232,9 @@ public class AsyncVideo {
     /**
      * Create Text Track
      *
-     * <p>Creates a new text track (VTT) object for a specific video. This endpoint does not directly handle
-     * the upload of VTT files but instead returns a location URL that you use to perform the upload.
+     * <p>Creates a new text track (VTT) object for a specific video using the details in the request body.
+     * This endpoint does not directly handle the upload of VTT files but instead returns a location URL
+     * that you use to perform the upload.
      *
      * @return The async call builder
      */
@@ -244,8 +245,9 @@ public class AsyncVideo {
     /**
      * Create Text Track
      *
-     * <p>Creates a new text track (VTT) object for a specific video. This endpoint does not directly handle
-     * the upload of VTT files but instead returns a location URL that you use to perform the upload.
+     * <p>Creates a new text track (VTT) object for a specific video using the details in the request body.
+     * This endpoint does not directly handle the upload of VTT files but instead returns a location URL
+     * that you use to perform the upload.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateTextTrackResponse>} - The async response
@@ -257,8 +259,9 @@ public class AsyncVideo {
     /**
      * Create Text Track
      *
-     * <p>Creates a new text track (VTT) object for a specific video. This endpoint does not directly handle
-     * the upload of VTT files but instead returns a location URL that you use to perform the upload.
+     * <p>Creates a new text track (VTT) object for a specific video using the details in the request body.
+     * This endpoint does not directly handle the upload of VTT files but instead returns a location URL
+     * that you use to perform the upload.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options

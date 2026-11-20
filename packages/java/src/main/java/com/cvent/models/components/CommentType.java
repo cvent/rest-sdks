@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * CommentType
  *
- * <p>Bid comment type
+ * <p>The type of the bid comment.
  */
 public enum CommentType {
     PROMOTIONS("promotions"),

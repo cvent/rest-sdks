@@ -24,7 +24,7 @@ import java.util.Optional;
  */
 public class TravelBidAmenity {
     /**
-     * Amenity type
+     * The type of the amenity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
@@ -66,7 +66,7 @@ public class TravelBidAmenity {
     private Double discountAmount;
 
     /**
-     * Internal cost of the amenity.
+     * The internal cost of the amenity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("internalCost")
@@ -80,10 +80,11 @@ public class TravelBidAmenity {
     private String description;
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
@@ -116,7 +117,7 @@ public class TravelBidAmenity {
     }
 
     /**
-     * Amenity type
+     * The type of the amenity.
      */
     public Optional<AmenityType> type() {
         return Optional.ofNullable(this.type);
@@ -158,7 +159,7 @@ public class TravelBidAmenity {
     }
 
     /**
-     * Internal cost of the amenity.
+     * The internal cost of the amenity.
      */
     public Optional<Double> internalCost() {
         return Optional.ofNullable(this.internalCost);
@@ -172,10 +173,11 @@ public class TravelBidAmenity {
     }
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     public Optional<BidItemStatusType> status() {
         return Optional.ofNullable(this.status);
@@ -186,7 +188,7 @@ public class TravelBidAmenity {
     }
 
     /**
-     * Amenity type
+     * The type of the amenity.
      */
     public TravelBidAmenity withType(@Nullable AmenityType type) {
         this.type = type;
@@ -234,7 +236,7 @@ public class TravelBidAmenity {
     }
 
     /**
-     * Internal cost of the amenity.
+     * The internal cost of the amenity.
      */
     public TravelBidAmenity withInternalCost(@Nullable Double internalCost) {
         this.internalCost = internalCost;
@@ -250,10 +252,11 @@ public class TravelBidAmenity {
     }
 
     /**
-     * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-     * and the hotel, if they agree, can update the item to deleted.
+     * The negotiation status of the bid item. For example, the corporation marks an item as
+     * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+     * hotel does not offer the amenity.
      *
-     * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+     * <p>Applies only to the supply side.
      */
     public TravelBidAmenity withStatus(@Nullable BidItemStatusType status) {
         this.status = status;
@@ -336,7 +339,7 @@ public class TravelBidAmenity {
         }
 
         /**
-         * Amenity type
+         * The type of the amenity.
          */
         public Builder type(@Nullable AmenityType type) {
             this.type = type;
@@ -384,7 +387,7 @@ public class TravelBidAmenity {
         }
 
         /**
-         * Internal cost of the amenity.
+         * The internal cost of the amenity.
          */
         public Builder internalCost(@Nullable Double internalCost) {
             this.internalCost = internalCost;
@@ -400,10 +403,11 @@ public class TravelBidAmenity {
         }
 
         /**
-         * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
-         * and the hotel, if they agree, can update the item to deleted.
+         * The negotiation status of the bid item. For example, the corporation marks an item as
+         * `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The
+         * hotel does not offer the amenity.
          *
-         * <p>not_offered indicates the hotel does not offer this amenity (supply side only).
+         * <p>Applies only to the supply side.
          */
         public Builder status(@Nullable BidItemStatusType status) {
             this.status = status;

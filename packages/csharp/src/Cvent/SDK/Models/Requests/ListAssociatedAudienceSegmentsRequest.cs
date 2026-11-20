@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Requests
     public class ListAssociatedAudienceSegmentsRequest
     {
         /// <summary>
-        /// ID of an attendee.
+        /// Attendee ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=attendeeId")]
         public string AttendeeId { get; set; } = default!;

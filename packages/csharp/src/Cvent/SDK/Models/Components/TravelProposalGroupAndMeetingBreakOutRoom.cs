@@ -13,36 +13,36 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Break-out room information.
+    /// The break-out room information of the proposal.
     /// </summary>
     public class TravelProposalGroupAndMeetingBreakOutRoom
     {
         /// <summary>
-        /// True indicates a 10 person room is included.
+        /// True indicates a 10-person room is included.
         /// </summary>
         [JsonProperty("10PersonRoomIncluded")]
         public bool? TenPersonRoomIncluded { get; set; }
 
         /// <summary>
-        /// Price for 10 person room.
+        /// The price of a 10-person room.
         /// </summary>
         [JsonProperty("price10PersonRoom")]
         public double? Price10PersonRoom { get; set; }
 
         /// <summary>
-        /// True indicates a 25 person room included.
+        /// True indicates a 25-person room is included.
         /// </summary>
         [JsonProperty("25PersonRoomIncluded")]
         public bool? TwentyFivePersonRoomIncluded { get; set; }
 
         /// <summary>
-        /// Price for 25 person room.
+        /// The price of a 25-person room.
         /// </summary>
         [JsonProperty("price25PersonRoom")]
         public double? Price25PersonRoom { get; set; }
 
         /// <summary>
-        /// True indicates there is a permanent board room set up.
+        /// True indicates a permanent board room setup is available.
         /// </summary>
         [JsonProperty("permanentBoardRoomSetUp")]
         public bool? PermanentBoardRoomSetUp { get; set; }

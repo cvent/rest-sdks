@@ -30,7 +30,7 @@ export type ListContactsPostFiltersRequest = {
    */
   token?: string | undefined;
   /**
-   * See the request body of <a href="#operation/listContacts">GET List Contacts</a> for full filtering information
+   * See the `filter` query parameter description of [List Contacts](#operation/listContacts) for full filtering information.
    */
   filter?: components.Filter | undefined;
 };

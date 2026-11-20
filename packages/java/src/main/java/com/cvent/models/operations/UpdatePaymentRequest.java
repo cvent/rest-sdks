@@ -14,19 +14,19 @@ import java.util.Optional;
 
 public class UpdatePaymentRequest {
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
     /**
-     * Unique ID of a budget item.
+     * Budget item ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=budgetItemId")
     private String budgetItemId;
 
     /**
-     * Unique ID of a payment.
+     * Payment ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=paymentId")
     private String paymentId;
@@ -53,21 +53,21 @@ public class UpdatePaymentRequest {
     }
 
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     public String id() {
         return this.id;
     }
 
     /**
-     * Unique ID of a budget item.
+     * Budget item ID.
      */
     public String budgetItemId() {
         return this.budgetItemId;
     }
 
     /**
-     * Unique ID of a payment.
+     * Payment ID.
      */
     public String paymentId() {
         return this.paymentId;
@@ -85,7 +85,7 @@ public class UpdatePaymentRequest {
     }
 
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     public UpdatePaymentRequest withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -93,7 +93,7 @@ public class UpdatePaymentRequest {
     }
 
     /**
-     * Unique ID of a budget item.
+     * Budget item ID.
      */
     public UpdatePaymentRequest withBudgetItemId(@Nonnull String budgetItemId) {
         this.budgetItemId = Utils.checkNotNull(budgetItemId, "budgetItemId");
@@ -101,7 +101,7 @@ public class UpdatePaymentRequest {
     }
 
     /**
-     * Unique ID of a payment.
+     * Payment ID.
      */
     public UpdatePaymentRequest withPaymentId(@Nonnull String paymentId) {
         this.paymentId = Utils.checkNotNull(paymentId, "paymentId");
@@ -166,7 +166,7 @@ public class UpdatePaymentRequest {
         }
 
         /**
-         * Unique ID of an event.
+         * Event ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -174,7 +174,7 @@ public class UpdatePaymentRequest {
         }
 
         /**
-         * Unique ID of a budget item.
+         * Budget item ID.
          */
         public Builder budgetItemId(@Nonnull String budgetItemId) {
             this.budgetItemId = Utils.checkNotNull(budgetItemId, "budgetItemId");
@@ -182,7 +182,7 @@ public class UpdatePaymentRequest {
         }
 
         /**
-         * Unique ID of a payment.
+         * Payment ID.
          */
         public Builder paymentId(@Nonnull String paymentId) {
             this.paymentId = Utils.checkNotNull(paymentId, "paymentId");

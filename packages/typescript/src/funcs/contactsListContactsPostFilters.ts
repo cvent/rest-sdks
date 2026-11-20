@@ -37,7 +37,7 @@ import {
  *
  * @remarks
  * Gets a paginated list of Contacts by sending a filter in the body of the request. This method will return the same data as the GET List Contacts but allows for longer filters.
- * For information on reading secure contact fields, see the description of  <a href="#operation/getContactById">GET Contact</a>.
+ * For information on reading secure contact fields, see the description of  [GET Contact](#operation/getContactById).
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

@@ -7,4 +7,4 @@ Allocation category in which budget item cost is allocated.
 
 | Field                                | Type                                 | Required                             | Description                          | Example                              |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *Optional\<String>*                  | :heavy_minus_sign:                   | Identifier of a particular category. | e9ee2669-65db-46f8-872c-dbafbf9b0e92 |
+| `id`                                 | *Optional\<String>*                  | :heavy_minus_sign:                   | Allocation Category ID.              | e9ee2669-65db-46f8-872c-dbafbf9b0e92 |

@@ -8,7 +8,7 @@ import * as components from "../components/index.js";
 
 export type UpdateAudienceSegmentRequest = {
   /**
-   * ID of an audience segment.
+   * Audience segment ID.
    */
   audienceSegmentId: string;
   /**

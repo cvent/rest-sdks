@@ -24,3 +24,7 @@ export type GuestRoomType = ClosedEnum<typeof GuestRoomType>;
 export const GuestRoomType$inboundSchema: z.ZodNativeEnum<
   typeof GuestRoomType
 > = z.nativeEnum(GuestRoomType);
+/** @internal */
+export const GuestRoomType$outboundSchema: z.ZodNativeEnum<
+  typeof GuestRoomType
+> = GuestRoomType$inboundSchema;

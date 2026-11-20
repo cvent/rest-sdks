@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * VideoThumbnail
  *
- * <p>Video thumbnail
+ * <p>Video thumbnail metadata, including its URL, size, dimensions, type, and status.
  */
 public class VideoThumbnail {
     /**

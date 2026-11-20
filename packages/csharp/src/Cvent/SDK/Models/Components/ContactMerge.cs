@@ -20,7 +20,7 @@ namespace Cvent.SDK.Models.Components
     public class ContactMerge
     {
         /// <summary>
-        /// Id of the contact(s) to be merged to the main contact.
+        /// IDs of the contacts to merge into the main contact.
         /// </summary>
         [JsonProperty("secondaryContacts")]
         public List<string> SecondaryContacts { get; set; } = default!;

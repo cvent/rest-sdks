@@ -81,3 +81,7 @@ export type OfferingCostType1 = ClosedEnum<typeof OfferingCostType1>;
 export const OfferingCostType1$inboundSchema: z.ZodNativeEnum<
   typeof OfferingCostType1
 > = z.nativeEnum(OfferingCostType1);
+/** @internal */
+export const OfferingCostType1$outboundSchema: z.ZodNativeEnum<
+  typeof OfferingCostType1
+> = OfferingCostType1$inboundSchema;

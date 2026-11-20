@@ -1,10 +1,10 @@
 # Event1
 
-Event ID Information.
+Contains the ID of the event associated with the budget item.
 
 
 ## Fields
 
 | Field                                | Type                                 | Required                             | Description                          | Example                              |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `Id`                                 | *string*                             | :heavy_minus_sign:                   | Identifier of a particular Event.    | 3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329 |
+| `Id`                                 | *string*                             | :heavy_minus_sign:                   | Event ID.                            | 6c1d1dd2-e805-4c52-949b-d1b8b0703138 |

@@ -56,6 +56,12 @@ namespace Cvent.SDK.Models.Components
         public bool? Commissionable { get; set; }
 
         /// <summary>
+        /// The hotel or venue service categories to which the commission applies.
+        /// </summary>
+        [JsonProperty("commissionApplicableTypes")]
+        public List<CommissionApplicable1>? CommissionApplicableTypes { get; set; }
+
+        /// <summary>
         /// Phone number of the planner.
         /// </summary>
         [JsonProperty("phone")]

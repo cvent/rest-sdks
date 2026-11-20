@@ -9,6 +9,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CancelledReason1,
   CancelledReason1$inboundSchema,
+  CancelledReason1$outboundSchema,
 } from "./cancelledreason1.js";
 
 /**
@@ -40,7 +41,31 @@ export const CancellationDetails$inboundSchema: z.ZodType<
   reason: CancelledReason1$inboundSchema.optional(),
   comments: z.string().optional(),
 });
+/** @internal */
+export type CancellationDetails$Outbound = {
+  dateTime?: string | undefined;
+  reason?: string | undefined;
+  comments?: string | undefined;
+};
 
+/** @internal */
+export const CancellationDetails$outboundSchema: z.ZodType<
+  CancellationDetails$Outbound,
+  z.ZodTypeDef,
+  CancellationDetails
+> = z.object({
+  dateTime: z.date().transform(v => v.toISOString()).optional(),
+  reason: CancelledReason1$outboundSchema.optional(),
+  comments: z.string().optional(),
+});
+
+export function cancellationDetailsToJSON(
+  cancellationDetails: CancellationDetails,
+): string {
+  return JSON.stringify(
+    CancellationDetails$outboundSchema.parse(cancellationDetails),
+  );
+}
 export function cancellationDetailsFromJSON(
   jsonString: string,
 ): SafeParseResult<CancellationDetails, SDKValidationError> {

@@ -11,6 +11,11 @@ import { ClosedEnum } from "../../types/enums.js";
 export const VideoWarningCode = {
   SevenHundred: 700,
   SevenHundredAndOne: 701,
+  SevenHundredAndTwo: 702,
+  SevenHundredAndThree: 703,
+  SevenHundredAndFour: 704,
+  SevenHundredAndFive: 705,
+  SevenHundredAndSix: 706,
 } as const;
 /**
  * This is used to denote the warning codes for a video entity.

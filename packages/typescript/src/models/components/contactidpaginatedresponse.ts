@@ -10,7 +10,7 @@ import { IdOnlyEntity, IdOnlyEntity$inboundSchema } from "./idonlyentity.js";
 import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
- * The response from a request to get the ids of contacts in a contact group or relationship. This includes the paging object as well as the collection of contact ids.
+ * The response from a request to get the IDs of contacts in a contact group or relationship. This includes the paging object as well as the collection of contact IDs.
  */
 export type ContactIdPaginatedResponse = {
   /**
@@ -18,7 +18,7 @@ export type ContactIdPaginatedResponse = {
    */
   paging: Paging;
   /**
-   * Collection of contact ids.
+   * Collection of contact IDs.
    */
   data: Array<IdOnlyEntity>;
 };

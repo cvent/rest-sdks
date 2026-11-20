@@ -12,7 +12,9 @@ import { AudienceSegments } from "./audiencesegments.js";
 import { Authentication } from "./authentication.js";
 import { BadgePrinterPools } from "./badgeprinterpools.js";
 import { BadgePrintJob } from "./badgeprintjob.js";
-import { Budget } from "./budget.js";
+import { BudgetCards } from "./budgetcards.js";
+import { BudgetPayments } from "./budgetpayments.js";
+import { Budgets } from "./budgets.js";
 import { Bulk } from "./bulk.js";
 import { Campaigns } from "./campaigns.js";
 import { CardTokens } from "./cardtokens.js";
@@ -109,9 +111,9 @@ export class CventSDK extends ClientSDK {
     return (this._emails ??= new Emails(this._options));
   }
 
-  private _budget?: Budget;
-  get budget(): Budget {
-    return (this._budget ??= new Budget(this._options));
+  private _budgets?: Budgets;
+  get budgets(): Budgets {
+    return (this._budgets ??= new Budgets(this._options));
   }
 
   private _bulk?: Bulk;
@@ -127,6 +129,11 @@ export class CventSDK extends ClientSDK {
   private _cardTokens?: CardTokens;
   get cardTokens(): CardTokens {
     return (this._cardTokens ??= new CardTokens(this._options));
+  }
+
+  private _budgetCards?: BudgetCards;
+  get budgetCards(): BudgetCards {
+    return (this._budgetCards ??= new BudgetCards(this._options));
   }
 
   private _housing?: Housing;
@@ -177,6 +184,11 @@ export class CventSDK extends ClientSDK {
   private _badgePrinterPools?: BadgePrinterPools;
   get badgePrinterPools(): BadgePrinterPools {
     return (this._badgePrinterPools ??= new BadgePrinterPools(this._options));
+  }
+
+  private _budgetPayments?: BudgetPayments;
+  get budgetPayments(): BudgetPayments {
+    return (this._budgetPayments ??= new BudgetPayments(this._options));
   }
 
   private _discounts?: Discounts;

@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Video thumbnail.
+    /// Video thumbnail metadata, including its URL, size, dimensions, type, and status.
     /// </summary>
     public class VideoThumbnail
     {

@@ -6,7 +6,7 @@ The Travel RFP APIs provide access to travel programs and proposals. A travel pr
 represents a request for proposal (RFP) that defines the specific travel needs and
 requirements of a travel account. The travel account solicits hotels and other travel
 suppliers to respond to the program with proposals, which provide detailed
-information on rates and amenities.'
+information on rates and amenities.
 
 
 ### Available Operations
@@ -369,7 +369,7 @@ public class Application {
 
 ## listTravelProposals
 
-Get a paginated list of travel proposal details.
+Gets a paginated list of travel proposals.
 
 ### Example Usage
 
@@ -439,7 +439,7 @@ public class Application {
 
 ## listTravelProposalBids
 
-Get a paginated list of travel proposal bids.
+Gets a paginated list of travel proposal bids.
 
 ### Example Usage
 
@@ -509,7 +509,7 @@ public class Application {
 
 ## getTravelProposalBid
 
-Gets a travel proposal bid for the given travel proposal bid ID.
+Gets a travel proposal bid by its ID.
 
 ### Example Usage
 
@@ -575,7 +575,7 @@ public class Application {
 
 ## listTravelBuyerProposalBids
 
-Get a paginated list of travel buyer proposal bids.
+Gets a paginated list of travel buyer proposal bids.
 
 ### Example Usage
 
@@ -645,7 +645,7 @@ public class Application {
 
 ## getTravelBuyerProposalBid
 
-Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+Gets a travel buyer proposal bid by its ID.
 
 ### Example Usage
 
@@ -711,7 +711,7 @@ public class Application {
 
 ## listTravelProposalStaticContent
 
-Gets a paginated list of proposal static content across multiple proposals.
+Gets a paginated list of the static content of travel proposals.
 
 ### Example Usage
 
@@ -781,7 +781,7 @@ public class Application {
 
 ## getTravelProposal
 
-Gets a travel proposal for the given travel proposal ID.
+Gets a travel proposal by its ID.
 
 ### Example Usage
 
@@ -847,7 +847,7 @@ public class Application {
 
 ## getTravelProposalStaticContent
 
-Retrieves static content for a specific proposal as a list of field-value pairs with sequence ordering.
+Gets the static content of a travel proposal. The static content is a list of field-value pairs in sequence order.
 
 ### Example Usage
 

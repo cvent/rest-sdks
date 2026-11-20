@@ -11,8 +11,8 @@ import java.util.Optional;
 /**
  * FairSeasonType
  *
- * <p>Fair season type. Blackout means that no special rate is negotiated for that date and Best Available
- * Rates will apply
+ * <p>The type of the fair season. `blackout`: No special rate is negotiated for the dates, and the Best
+ * Available Rates apply.
  */
 public enum FairSeasonType {
     NEGOTIATED("negotiated"),

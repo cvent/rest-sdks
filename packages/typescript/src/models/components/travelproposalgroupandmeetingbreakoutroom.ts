@@ -9,27 +9,27 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Break-out room information.
+ * The break-out room information of the proposal.
  */
 export type TravelProposalGroupAndMeetingBreakOutRoom = {
   /**
-   * True indicates a 10 person room is included.
+   * True indicates a 10-person room is included.
    */
   tenPersonRoomIncluded?: boolean | undefined;
   /**
-   * Price for 10 person room.
+   * The price of a 10-person room.
    */
   price10PersonRoom?: number | undefined;
   /**
-   * True indicates a 25 person room included.
+   * True indicates a 25-person room is included.
    */
   twentyFivePersonRoomIncluded?: boolean | undefined;
   /**
-   * Price for 25 person room.
+   * The price of a 25-person room.
    */
   price25PersonRoom?: number | undefined;
   /**
-   * True indicates there is a permanent board room set up.
+   * True indicates a permanent board room setup is available.
    */
   permanentBoardRoomSetUp?: boolean | undefined;
 };

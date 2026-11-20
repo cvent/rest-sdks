@@ -18,7 +18,7 @@ namespace Cvent.SDK.Models.Components
     public class BudgetAllocationsPaginatedResponseBudgetVersion
     {
         /// <summary>
-        /// Identifier of a particular budget version.
+        /// Budget version ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

@@ -37,7 +37,7 @@ namespace Cvent.SDK.Models.Components
         public DateOnly? EndDate { get; set; }
 
         /// <summary>
-        /// The unique ID for this defined conversion rate.
+        /// Currency conversion rate ID.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

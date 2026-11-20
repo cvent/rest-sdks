@@ -1,6 +1,6 @@
 # CardStatus
 
-This is used to denote the card status for a card.
+Status of a payment card.
 
 ## Example Usage
 

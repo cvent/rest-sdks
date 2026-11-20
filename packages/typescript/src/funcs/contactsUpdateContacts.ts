@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Updates a list of contacts based on the values provided in the request body. If you're changing  [de-duplication fields](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address),  the new values must be unique in your account.
- * For information on updating secure contact fields, see the description of <a href="#operation/updateContactById">PUT Contact</a>.
+ * For information on updating secure contact fields, see the description of [PUT Contact](#operation/updateContactById).
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

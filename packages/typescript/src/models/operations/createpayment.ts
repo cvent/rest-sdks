@@ -7,11 +7,11 @@ import * as components from "../components/index.js";
 
 export type CreatePaymentRequest = {
   /**
-   * Unique ID of an event.
+   * Event ID.
    */
   id: string;
   /**
-   * Unique ID of a budget item.
+   * Budget item ID.
    */
   budgetItemId: string;
   /**

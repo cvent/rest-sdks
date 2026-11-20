@@ -14,7 +14,7 @@ import java.util.Optional;
 
 public class UpdateCardTransactionRequest {
     /**
-     * Unique ID of a transaction.
+     * Transaction ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=transactionId")
     private String transactionId;
@@ -35,7 +35,7 @@ public class UpdateCardTransactionRequest {
     }
 
     /**
-     * Unique ID of a transaction.
+     * Transaction ID.
      */
     public String transactionId() {
         return this.transactionId;
@@ -53,7 +53,7 @@ public class UpdateCardTransactionRequest {
     }
 
     /**
-     * Unique ID of a transaction.
+     * Transaction ID.
      */
     public UpdateCardTransactionRequest withTransactionId(@Nonnull String transactionId) {
         this.transactionId = Utils.checkNotNull(transactionId, "transactionId");
@@ -109,7 +109,7 @@ public class UpdateCardTransactionRequest {
         }
 
         /**
-         * Unique ID of a transaction.
+         * Transaction ID.
          */
         public Builder transactionId(@Nonnull String transactionId) {
             this.transactionId = Utils.checkNotNull(transactionId, "transactionId");

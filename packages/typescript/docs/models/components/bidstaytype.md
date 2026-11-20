@@ -1,6 +1,6 @@
 # BidStayType
 
-Bid stay type.
+The stay type of the bid.
 
 ## Example Usage
 

@@ -16,11 +16,11 @@ import java.util.Optional;
 /**
  * Event1
  *
- * <p>Event ID Information.
+ * <p>Contains the ID of the event associated with the budget item.
  */
 public class Event1 {
     /**
-     * Identifier of a particular Event.
+     * Event ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -36,7 +36,7 @@ public class Event1 {
     }
 
     /**
-     * Identifier of a particular Event.
+     * Event ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -47,7 +47,7 @@ public class Event1 {
     }
 
     /**
-     * Identifier of a particular Event.
+     * Event ID.
      */
     public Event1 withId(@Nullable String id) {
         this.id = id;
@@ -86,7 +86,7 @@ public class Event1 {
         }
 
         /**
-         * Identifier of a particular Event.
+         * Event ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The details of a video.
+    /// A video ID associated with a video view.
     /// </summary>
     public class Video1
     {

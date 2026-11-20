@@ -17,7 +17,7 @@ import { ViewType1, ViewType1$inboundSchema } from "./viewtype1.js";
  */
 export type VideoView = {
   /**
-   * The contact details who watched a video
+   * A contact ID associated with a video view.
    */
   contact?: Contact3 | undefined;
   /**
@@ -31,7 +31,7 @@ export type VideoView = {
    */
   device?: Device1 | undefined;
   /**
-   * The details of a video
+   * A video ID associated with a video view.
    */
   video?: Video1 | undefined;
   /**

@@ -1,6 +1,6 @@
 # TravelBidFairSeasonRatePropertyRoom
 
-ID of the property's room.
+The property room that the rates apply to.
 
 
 ## Fields

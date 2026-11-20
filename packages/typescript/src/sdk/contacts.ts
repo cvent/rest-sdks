@@ -41,7 +41,7 @@ export class Contacts extends ClientSDK {
    * Create Contact Group
    *
    * @remarks
-   * Create a contact group
+   * Creates a contact group using the details provided in the request body.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -224,7 +224,7 @@ export class Contacts extends ClientSDK {
    * Gets a paginated list of Contacts.
    *
    * For information on reading secure contact fields, see the description of
-   * <a href="#operation/getContactById">GET Contact</a>.
+   * [GET Contact](#operation/getContactById).
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -246,7 +246,7 @@ export class Contacts extends ClientSDK {
    *
    * @remarks
    * Updates a list of contacts based on the values provided in the request body. If you're changing  [de-duplication fields](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address),  the new values must be unique in your account.
-   * For information on updating secure contact fields, see the description of <a href="#operation/updateContactById">PUT Contact</a>.
+   * For information on updating secure contact fields, see the description of [PUT Contact](#operation/updateContactById).
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -268,10 +268,10 @@ export class Contacts extends ClientSDK {
    * Updates a list of contacts based on the values provided only, keeping the existing values intact for every contact.
    *
    * For information on PATCH behavior, see the description of
-   * <a href="#operation/patchContactById">PATCH Contact</a>.
+   * [PATCH Contact](#operation/patchContactById).
    *
    * For information on updating secure contact fields, see the description of
-   * <a href="#operation/updateContactById">PUT Contact</a>.
+   * [PUT Contact](#operation/updateContactById).
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -291,7 +291,7 @@ export class Contacts extends ClientSDK {
    *
    * @remarks
    * Creates a list of contacts based on the values provided in the request body. If you're changing  [de-duplication fields](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address),  the new values must be unique in your account.
-   * For information on creating contacts with secure contact fields, see the description of <a href="#operation/updateContactById">PUT Contact</a>.
+   * For information on creating contacts with secure contact fields, see the description of [PUT Contact](#operation/updateContactById).
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -311,7 +311,7 @@ export class Contacts extends ClientSDK {
    *
    * @remarks
    * Gets a paginated list of Contacts by sending a filter in the body of the request. This method will return the same data as the GET List Contacts but allows for longer filters.
-   * For information on reading secure contact fields, see the description of  <a href="#operation/getContactById">GET Contact</a>.
+   * For information on reading secure contact fields, see the description of  [GET Contact](#operation/getContactById).
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -332,7 +332,7 @@ export class Contacts extends ClientSDK {
    * Get Obfuscation Status
    *
    * @remarks
-   * Get the obfuscation status of a contact by the Obfuscate ID provided.
+   * Gets the status of the obfuscation request identified by `obfuscateId`.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -430,7 +430,7 @@ export class Contacts extends ClientSDK {
    * To update a field, pass the value to be updated. To delete a field, set the field to null. Fields not passed in the request body will remain unchanged.
    *
    * For information on updating secure contact fields, see the description of
-   * <a href="#operation/updateContactById">PUT Contact</a>.
+   * [PUT Contact](#operation/updateContactById).
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -485,7 +485,7 @@ export class Contacts extends ClientSDK {
    * Merge Contacts
    *
    * @remarks
-   * Merges two or three contacts into a single contact.
+   * Merges the contact identified in the path with one or two secondary contacts provided in the request body.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
@@ -546,7 +546,7 @@ export class Contacts extends ClientSDK {
    * Assign Contact Profile Picture
    *
    * @remarks
-   * Assign a profile picture to a contact with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current profile picture if one is assigned.
+   * Assign a profile picture to a contact with a file UUID from [file upload](#operation/uploadFile) endpoint. This will replace the current profile picture if one is assigned.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */

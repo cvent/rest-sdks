@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved proposal static content.
+        /// Successfully retrieved the static content of a travel proposal.
         /// </summary>
         public TravelProposalStaticContentResponse? TravelProposalStaticContentResponse { get; set; }
     }

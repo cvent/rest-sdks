@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * A contact id.
+ * An object containing the ID of a contact.
  */
 export type ContactId = {
   /**

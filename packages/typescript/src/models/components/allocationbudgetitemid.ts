@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type AllocationBudgetItemId = {
   /**
-   * Identifier of a particular budget item.
+   * Budget item ID.
    */
   id?: string | undefined;
 };

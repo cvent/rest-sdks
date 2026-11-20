@@ -14,7 +14,7 @@ import java.util.Optional;
 /**
  * EventContactId
  *
- * <p>A pair of event and contact id.
+ * <p>An event ID and a contact ID pair.
  */
 public class EventContactId {
     /**

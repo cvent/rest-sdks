@@ -13,12 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Segment details.
+    /// Represents a segment by its ID.
     /// </summary>
     public class Segment
     {
         /// <summary>
-        /// Segment Id.
+        /// Segment ID.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

@@ -54,7 +54,7 @@ public class ListRfpCustomFieldsRequest {
      * <p>The following fields are expandable:
      * * customField
      * * **Scope**: event/custom-fields:read
-     * * **Reference**: <a href="#tag/Custom-Fields/operation/getCustomField">Get Custom Field</a>
+     * * **Reference**: [Get Custom Field](#tag/Custom-Fields/operation/getCustomField)
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=false,name=expand")
     private List<CustomFieldExpand> expand;
@@ -114,7 +114,7 @@ public class ListRfpCustomFieldsRequest {
      * <p>The following fields are expandable:
      * * customField
      * * **Scope**: event/custom-fields:read
-     * * **Reference**: <a href="#tag/Custom-Fields/operation/getCustomField">Get Custom Field</a>
+     * * **Reference**: [Get Custom Field](#tag/Custom-Fields/operation/getCustomField)
      */
     public Optional<List<CustomFieldExpand>> expand() {
         return Optional.ofNullable(this.expand);
@@ -166,7 +166,7 @@ public class ListRfpCustomFieldsRequest {
      * <p>The following fields are expandable:
      * * customField
      * * **Scope**: event/custom-fields:read
-     * * **Reference**: <a href="#tag/Custom-Fields/operation/getCustomField">Get Custom Field</a>
+     * * **Reference**: [Get Custom Field](#tag/Custom-Fields/operation/getCustomField)
      */
     public ListRfpCustomFieldsRequest withExpand(@Nullable List<CustomFieldExpand> expand) {
         this.expand = expand;
@@ -256,7 +256,7 @@ public class ListRfpCustomFieldsRequest {
          * <p>The following fields are expandable:
          * * customField
          * * **Scope**: event/custom-fields:read
-         * * **Reference**: <a href="#tag/Custom-Fields/operation/getCustomField">Get Custom Field</a>
+         * * **Reference**: [Get Custom Field](#tag/Custom-Fields/operation/getCustomField)
          */
         public Builder expand(@Nullable List<CustomFieldExpand> expand) {
             this.expand = expand;

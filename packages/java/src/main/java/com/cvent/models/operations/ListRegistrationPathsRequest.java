@@ -41,17 +41,55 @@ public class ListRegistrationPathsRequest {
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=locale")
     private String locale;
 
+    /**
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+     *
+     * <p>The filter adheres to the pattern filter='field' comparisonType
+     * 'value'.
+     *
+     * <p>Only the equal (`eq`) comparison type can be used in filter
+     * expressions.
+     *
+     * <p>No logical operators are supported.
+     *
+     * <p>The following field is filterable:
+     * * waitlistEnabled (eq)
+     *
+     * <p>The `waitlistEnabled` field accepts `'true'` or `'false'`:
+     * * `waitlistEnabled eq 'true'` returns only registration paths that have a waitlist enabled.
+     * * `waitlistEnabled eq 'false'` returns only registration paths that don't have a waitlist enabled.
+     *
+     * <p>When no filter is provided, all registration paths for the event are returned.
+     *
+     * <p>The request fails with a `400 Bad Request` error if the filter:
+     * * Uses a field other than `waitlistEnabled`. Field names are case-sensitive.
+     * * Uses an operator other than `eq`, such as `waitlistEnabled ne 'true'`.
+     * * Uses a value other than `'true'` or `'false'`, such as `waitlistEnabled eq 'yes'` or the unquoted
+     * `waitlistEnabled eq true`.
+     * * Combines expressions with `and` or `or`.
+     * * Is malformed.
+     */
+    @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
+    private String filter;
+
     @JsonCreator
     public ListRegistrationPathsRequest(
-            @Nonnull String id, @Nullable Long limit, @Nullable String token, @Nullable String locale) {
+            @Nonnull String id,
+            @Nullable Long limit,
+            @Nullable String token,
+            @Nullable String locale,
+            @Nullable String filter) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.locale = locale;
+        this.filter = filter;
     }
 
     public ListRegistrationPathsRequest(@Nonnull String id) {
-        this(id, null, null, null);
+        this(id, null, null, null, null);
     }
 
     /**
@@ -81,6 +119,40 @@ public class ListRegistrationPathsRequest {
      */
     public Optional<String> locale() {
         return Optional.ofNullable(this.locale);
+    }
+
+    /**
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+     *
+     * <p>The filter adheres to the pattern filter='field' comparisonType
+     * 'value'.
+     *
+     * <p>Only the equal (`eq`) comparison type can be used in filter
+     * expressions.
+     *
+     * <p>No logical operators are supported.
+     *
+     * <p>The following field is filterable:
+     * * waitlistEnabled (eq)
+     *
+     * <p>The `waitlistEnabled` field accepts `'true'` or `'false'`:
+     * * `waitlistEnabled eq 'true'` returns only registration paths that have a waitlist enabled.
+     * * `waitlistEnabled eq 'false'` returns only registration paths that don't have a waitlist enabled.
+     *
+     * <p>When no filter is provided, all registration paths for the event are returned.
+     *
+     * <p>The request fails with a `400 Bad Request` error if the filter:
+     * * Uses a field other than `waitlistEnabled`. Field names are case-sensitive.
+     * * Uses an operator other than `eq`, such as `waitlistEnabled ne 'true'`.
+     * * Uses a value other than `'true'` or `'false'`, such as `waitlistEnabled eq 'yes'` or the unquoted
+     * `waitlistEnabled eq true`.
+     * * Combines expressions with `and` or `or`.
+     * * Is malformed.
+     */
+    public Optional<String> filter() {
+        return Optional.ofNullable(this.filter);
     }
 
     public static Builder builder() {
@@ -120,6 +192,41 @@ public class ListRegistrationPathsRequest {
         return this;
     }
 
+    /**
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+     *
+     * <p>The filter adheres to the pattern filter='field' comparisonType
+     * 'value'.
+     *
+     * <p>Only the equal (`eq`) comparison type can be used in filter
+     * expressions.
+     *
+     * <p>No logical operators are supported.
+     *
+     * <p>The following field is filterable:
+     * * waitlistEnabled (eq)
+     *
+     * <p>The `waitlistEnabled` field accepts `'true'` or `'false'`:
+     * * `waitlistEnabled eq 'true'` returns only registration paths that have a waitlist enabled.
+     * * `waitlistEnabled eq 'false'` returns only registration paths that don't have a waitlist enabled.
+     *
+     * <p>When no filter is provided, all registration paths for the event are returned.
+     *
+     * <p>The request fails with a `400 Bad Request` error if the filter:
+     * * Uses a field other than `waitlistEnabled`. Field names are case-sensitive.
+     * * Uses an operator other than `eq`, such as `waitlistEnabled ne 'true'`.
+     * * Uses a value other than `'true'` or `'false'`, such as `waitlistEnabled eq 'yes'` or the unquoted
+     * `waitlistEnabled eq true`.
+     * * Combines expressions with `and` or `or`.
+     * * Is malformed.
+     */
+    public ListRegistrationPathsRequest withFilter(@Nullable String filter) {
+        this.filter = filter;
+        return this;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -132,18 +239,29 @@ public class ListRegistrationPathsRequest {
         return Utils.enhancedDeepEquals(this.id, other.id)
                 && Utils.enhancedDeepEquals(this.limit, other.limit)
                 && Utils.enhancedDeepEquals(this.token, other.token)
-                && Utils.enhancedDeepEquals(this.locale, other.locale);
+                && Utils.enhancedDeepEquals(this.locale, other.locale)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, limit, token, locale);
+        return Utils.enhancedHash(id, limit, token, locale, filter);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
-                ListRegistrationPathsRequest.class, "id", id, "limit", limit, "token", token, "locale", locale);
+                ListRegistrationPathsRequest.class,
+                "id",
+                id,
+                "limit",
+                limit,
+                "token",
+                token,
+                "locale",
+                locale,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -156,6 +274,8 @@ public class ListRegistrationPathsRequest {
         private String token;
 
         private String locale;
+
+        private String filter;
 
         private Builder() {
             // force use of static builder() method
@@ -194,8 +314,43 @@ public class ListRegistrationPathsRequest {
             return this;
         }
 
+        /**
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+         *
+         * <p>The filter adheres to the pattern filter='field' comparisonType
+         * 'value'.
+         *
+         * <p>Only the equal (`eq`) comparison type can be used in filter
+         * expressions.
+         *
+         * <p>No logical operators are supported.
+         *
+         * <p>The following field is filterable:
+         * * waitlistEnabled (eq)
+         *
+         * <p>The `waitlistEnabled` field accepts `'true'` or `'false'`:
+         * * `waitlistEnabled eq 'true'` returns only registration paths that have a waitlist enabled.
+         * * `waitlistEnabled eq 'false'` returns only registration paths that don't have a waitlist enabled.
+         *
+         * <p>When no filter is provided, all registration paths for the event are returned.
+         *
+         * <p>The request fails with a `400 Bad Request` error if the filter:
+         * * Uses a field other than `waitlistEnabled`. Field names are case-sensitive.
+         * * Uses an operator other than `eq`, such as `waitlistEnabled ne 'true'`.
+         * * Uses a value other than `'true'` or `'false'`, such as `waitlistEnabled eq 'yes'` or the unquoted
+         * `waitlistEnabled eq true`.
+         * * Combines expressions with `and` or `or`.
+         * * Is malformed.
+         */
+        public Builder filter(@Nullable String filter) {
+            this.filter = filter;
+            return this;
+        }
+
         public ListRegistrationPathsRequest build() {
-            return new ListRegistrationPathsRequest(id, limit, token, locale);
+            return new ListRegistrationPathsRequest(id, limit, token, locale, filter);
         }
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =

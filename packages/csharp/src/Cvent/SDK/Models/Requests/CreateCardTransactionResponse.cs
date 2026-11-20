@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully created a transaction record.
+        /// Successfully created a card transaction.
         /// </summary>
         public CardTransactionCreateResponse? CardTransactionCreateResponse { get; set; }
     }

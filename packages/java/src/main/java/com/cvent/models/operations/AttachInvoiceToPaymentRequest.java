@@ -13,19 +13,19 @@ import java.util.Optional;
 
 public class AttachInvoiceToPaymentRequest {
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
     /**
-     * Unique ID of a payment.
+     * Payment ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=paymentId")
     private String paymentId;
 
     /**
-     * Unique ID of an invoice.
+     * Invoice ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=invoiceId")
     private String invoiceId;
@@ -40,21 +40,21 @@ public class AttachInvoiceToPaymentRequest {
     }
 
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     public String id() {
         return this.id;
     }
 
     /**
-     * Unique ID of a payment.
+     * Payment ID.
      */
     public String paymentId() {
         return this.paymentId;
     }
 
     /**
-     * Unique ID of an invoice.
+     * Invoice ID.
      */
     public String invoiceId() {
         return this.invoiceId;
@@ -65,7 +65,7 @@ public class AttachInvoiceToPaymentRequest {
     }
 
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     public AttachInvoiceToPaymentRequest withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -73,7 +73,7 @@ public class AttachInvoiceToPaymentRequest {
     }
 
     /**
-     * Unique ID of a payment.
+     * Payment ID.
      */
     public AttachInvoiceToPaymentRequest withPaymentId(@Nonnull String paymentId) {
         this.paymentId = Utils.checkNotNull(paymentId, "paymentId");
@@ -81,7 +81,7 @@ public class AttachInvoiceToPaymentRequest {
     }
 
     /**
-     * Unique ID of an invoice.
+     * Invoice ID.
      */
     public AttachInvoiceToPaymentRequest withInvoiceId(@Nonnull String invoiceId) {
         this.invoiceId = Utils.checkNotNull(invoiceId, "invoiceId");
@@ -127,7 +127,7 @@ public class AttachInvoiceToPaymentRequest {
         }
 
         /**
-         * Unique ID of an event.
+         * Event ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -135,7 +135,7 @@ public class AttachInvoiceToPaymentRequest {
         }
 
         /**
-         * Unique ID of a payment.
+         * Payment ID.
          */
         public Builder paymentId(@Nonnull String paymentId) {
             this.paymentId = Utils.checkNotNull(paymentId, "paymentId");
@@ -143,7 +143,7 @@ public class AttachInvoiceToPaymentRequest {
         }
 
         /**
-         * Unique ID of an invoice.
+         * Invoice ID.
          */
         public Builder invoiceId(@Nonnull String invoiceId) {
             this.invoiceId = Utils.checkNotNull(invoiceId, "invoiceId");

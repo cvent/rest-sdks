@@ -17,11 +17,11 @@ import java.util.Optional;
 /**
  * AirReservationDetail1
  *
- * <p>Representation of an air reservation detail response.
+ * <p>Air request details for an attendee and any guest.
  */
 public class AirReservationDetail1 {
     /**
-     * Representation of the attendee
+     * An attendee identified by an ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("attendee")
@@ -47,7 +47,7 @@ public class AirReservationDetail1 {
     }
 
     /**
-     * Representation of the attendee
+     * An attendee identified by an ID.
      */
     public Optional<Attendee3> attendee() {
         return Optional.ofNullable(this.attendee);
@@ -65,7 +65,7 @@ public class AirReservationDetail1 {
     }
 
     /**
-     * Representation of the attendee
+     * An attendee identified by an ID.
      */
     public AirReservationDetail1 withAttendee(@Nullable Attendee3 attendee) {
         this.attendee = attendee;
@@ -116,7 +116,7 @@ public class AirReservationDetail1 {
         }
 
         /**
-         * Representation of the attendee
+         * An attendee identified by an ID.
          */
         public Builder attendee(@Nullable Attendee3 attendee) {
             this.attendee = attendee;

@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * GeneralLedger1Input
  *
- * <p>This is used to denote the general ledger code associated with budget.
+ * <p>General ledger code and details associated with a budget item.
  */
 public class GeneralLedger1Input {
     /**

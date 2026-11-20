@@ -20,9 +20,9 @@ import java.util.Optional;
  */
 public class BudgetAllocationsList {
     /**
-     * Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700
-     * from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000
-     * budget).
+     * Specifies how to allocate a budgeted cost. AMOUNT allocates a fixed amount; PERCENTAGE allocates a
+     * percentage of the budget item's cost. For example, AMOUNT can allocate $700 from a $1,000 budget,
+     * while PERCENTAGE can allocate 70% of a $1,000 budget.
      */
     @JsonProperty("allocateBy")
     private AllocateBy allocateBy;
@@ -44,9 +44,9 @@ public class BudgetAllocationsList {
     }
 
     /**
-     * Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700
-     * from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000
-     * budget).
+     * Specifies how to allocate a budgeted cost. AMOUNT allocates a fixed amount; PERCENTAGE allocates a
+     * percentage of the budget item's cost. For example, AMOUNT can allocate $700 from a $1,000 budget,
+     * while PERCENTAGE can allocate 70% of a $1,000 budget.
      */
     public AllocateBy allocateBy() {
         return this.allocateBy;
@@ -64,9 +64,9 @@ public class BudgetAllocationsList {
     }
 
     /**
-     * Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700
-     * from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000
-     * budget).
+     * Specifies how to allocate a budgeted cost. AMOUNT allocates a fixed amount; PERCENTAGE allocates a
+     * percentage of the budget item's cost. For example, AMOUNT can allocate $700 from a $1,000 budget,
+     * while PERCENTAGE can allocate 70% of a $1,000 budget.
      */
     public BudgetAllocationsList withAllocateBy(@Nonnull AllocateBy allocateBy) {
         this.allocateBy = Utils.checkNotNull(allocateBy, "allocateBy");
@@ -116,9 +116,9 @@ public class BudgetAllocationsList {
         }
 
         /**
-         * Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700
-         * from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000
-         * budget).
+         * Specifies how to allocate a budgeted cost. AMOUNT allocates a fixed amount; PERCENTAGE allocates a
+         * percentage of the budget item's cost. For example, AMOUNT can allocate $700 from a $1,000 budget,
+         * while PERCENTAGE can allocate 70% of a $1,000 budget.
          */
         public Builder allocateBy(@Nonnull AllocateBy allocateBy) {
             this.allocateBy = Utils.checkNotNull(allocateBy, "allocateBy");

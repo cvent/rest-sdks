@@ -25,7 +25,7 @@ public class CardTransactionPaginatedResponse {
     private Paging paging;
 
     /**
-     * Collection of virtual card transaction.
+     * Collection of virtual card transactions.
      */
     @JsonProperty("data")
     private List<CardTransaction> data;
@@ -46,7 +46,7 @@ public class CardTransactionPaginatedResponse {
     }
 
     /**
-     * Collection of virtual card transaction.
+     * Collection of virtual card transactions.
      */
     public List<CardTransaction> data() {
         return this.data;
@@ -65,7 +65,7 @@ public class CardTransactionPaginatedResponse {
     }
 
     /**
-     * Collection of virtual card transaction.
+     * Collection of virtual card transactions.
      */
     public CardTransactionPaginatedResponse withData(@Nonnull List<CardTransaction> data) {
         this.data = Utils.checkNotNull(data, "data");
@@ -114,7 +114,7 @@ public class CardTransactionPaginatedResponse {
         }
 
         /**
-         * Collection of virtual card transaction.
+         * Collection of virtual card transactions.
          */
         public Builder data(@Nonnull List<CardTransaction> data) {
             this.data = Utils.checkNotNull(data, "data");

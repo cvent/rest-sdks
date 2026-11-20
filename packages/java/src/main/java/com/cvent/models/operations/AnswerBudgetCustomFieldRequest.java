@@ -14,19 +14,19 @@ import java.util.Optional;
 
 public class AnswerBudgetCustomFieldRequest {
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
     /**
-     * Unique ID of a budget item.
+     * Budget item ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=budgetItemId")
     private String budgetItemId;
 
     /**
-     * Unique ID of the custom field.
+     * Custom field ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=customFieldId")
     private String customFieldId;
@@ -53,21 +53,21 @@ public class AnswerBudgetCustomFieldRequest {
     }
 
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     public String id() {
         return this.id;
     }
 
     /**
-     * Unique ID of a budget item.
+     * Budget item ID.
      */
     public String budgetItemId() {
         return this.budgetItemId;
     }
 
     /**
-     * Unique ID of the custom field.
+     * Custom field ID.
      */
     public String customFieldId() {
         return this.customFieldId;
@@ -85,7 +85,7 @@ public class AnswerBudgetCustomFieldRequest {
     }
 
     /**
-     * Unique ID of an event.
+     * Event ID.
      */
     public AnswerBudgetCustomFieldRequest withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -93,7 +93,7 @@ public class AnswerBudgetCustomFieldRequest {
     }
 
     /**
-     * Unique ID of a budget item.
+     * Budget item ID.
      */
     public AnswerBudgetCustomFieldRequest withBudgetItemId(@Nonnull String budgetItemId) {
         this.budgetItemId = Utils.checkNotNull(budgetItemId, "budgetItemId");
@@ -101,7 +101,7 @@ public class AnswerBudgetCustomFieldRequest {
     }
 
     /**
-     * Unique ID of the custom field.
+     * Custom field ID.
      */
     public AnswerBudgetCustomFieldRequest withCustomFieldId(@Nonnull String customFieldId) {
         this.customFieldId = Utils.checkNotNull(customFieldId, "customFieldId");
@@ -166,7 +166,7 @@ public class AnswerBudgetCustomFieldRequest {
         }
 
         /**
-         * Unique ID of an event.
+         * Event ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -174,7 +174,7 @@ public class AnswerBudgetCustomFieldRequest {
         }
 
         /**
-         * Unique ID of a budget item.
+         * Budget item ID.
          */
         public Builder budgetItemId(@Nonnull String budgetItemId) {
             this.budgetItemId = Utils.checkNotNull(budgetItemId, "budgetItemId");
@@ -182,7 +182,7 @@ public class AnswerBudgetCustomFieldRequest {
         }
 
         /**
-         * Unique ID of the custom field.
+         * Custom field ID.
          */
         public Builder customFieldId(@Nonnull String customFieldId) {
             this.customFieldId = Utils.checkNotNull(customFieldId, "customFieldId");

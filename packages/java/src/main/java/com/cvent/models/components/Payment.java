@@ -48,7 +48,7 @@ public class Payment {
     private double amount;
 
     /**
-     * The ISO 8601 zoned date assigned to the payment, typically denotes the date of payment.
+     * The ISO 8601 date assigned to the payment. It typically denotes the date of payment.
      */
     @JsonProperty("date")
     private LocalDate date;
@@ -120,7 +120,7 @@ public class Payment {
     }
 
     /**
-     * The ISO 8601 zoned date assigned to the payment, typically denotes the date of payment.
+     * The ISO 8601 date assigned to the payment. It typically denotes the date of payment.
      */
     public LocalDate date() {
         return this.date;
@@ -178,7 +178,7 @@ public class Payment {
     }
 
     /**
-     * The ISO 8601 zoned date assigned to the payment, typically denotes the date of payment.
+     * The ISO 8601 date assigned to the payment. It typically denotes the date of payment.
      */
     public Payment withDate(@Nonnull LocalDate date) {
         this.date = Utils.checkNotNull(date, "date");
@@ -299,7 +299,7 @@ public class Payment {
         }
 
         /**
-         * The ISO 8601 zoned date assigned to the payment, typically denotes the date of payment.
+         * The ISO 8601 date assigned to the payment. It typically denotes the date of payment.
          */
         public Builder date(@Nonnull LocalDate date) {
             this.date = Utils.checkNotNull(date, "date");

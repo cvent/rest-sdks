@@ -70,7 +70,41 @@ export const RfpPastEvent$inboundSchema: z.ZodType<
   notes: z.string().optional(),
   id: z.string(),
 });
+/** @internal */
+export type RfpPastEvent$Outbound = {
+  venueName?: string | undefined;
+  city?: string | undefined;
+  stateProvince?: string | undefined;
+  date?: string | undefined;
+  attendeeCount?: number | undefined;
+  guestRoomsPickedUp?: number | undefined;
+  guestRoomsBlocked?: number | undefined;
+  foodBeverageSpend?: string | undefined;
+  notes?: string | undefined;
+  id: string;
+};
 
+/** @internal */
+export const RfpPastEvent$outboundSchema: z.ZodType<
+  RfpPastEvent$Outbound,
+  z.ZodTypeDef,
+  RfpPastEvent
+> = z.object({
+  venueName: z.string().optional(),
+  city: z.string().optional(),
+  stateProvince: z.string().optional(),
+  date: z.string().optional(),
+  attendeeCount: z.number().int().optional(),
+  guestRoomsPickedUp: z.number().int().optional(),
+  guestRoomsBlocked: z.number().int().optional(),
+  foodBeverageSpend: z.string().optional(),
+  notes: z.string().optional(),
+  id: z.string(),
+});
+
+export function rfpPastEventToJSON(rfpPastEvent: RfpPastEvent): string {
+  return JSON.stringify(RfpPastEvent$outboundSchema.parse(rfpPastEvent));
+}
 export function rfpPastEventFromJSON(
   jsonString: string,
 ): SafeParseResult<RfpPastEvent, SDKValidationError> {

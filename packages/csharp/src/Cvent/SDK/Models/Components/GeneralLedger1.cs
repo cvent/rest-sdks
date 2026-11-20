@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// This is used to denote the general ledger code associated with budget.
+    /// General ledger code and details associated with a budget item.
     /// </summary>
     public class GeneralLedger1
     {

@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Merge Contacts
  *
  * @remarks
- * Merges two or three contacts into a single contact.
+ * Merges the contact identified in the path with one or two secondary contacts provided in the request body.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

@@ -42,14 +42,14 @@ public class BudgetAssociatedRegistrant {
     private Boolean hcpStatus;
 
     /**
-     * Unique identifier for the invitee associated with the budget.
+     * Invitee ID associated with the budget.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("inviteeId")
     private String inviteeId;
 
     /**
-     * Unique identifier for the contact associated with the budget.
+     * Contact ID associated with the budget.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contactId")
@@ -95,14 +95,14 @@ public class BudgetAssociatedRegistrant {
     }
 
     /**
-     * Unique identifier for the invitee associated with the budget.
+     * Invitee ID associated with the budget.
      */
     public Optional<String> inviteeId() {
         return Optional.ofNullable(this.inviteeId);
     }
 
     /**
-     * Unique identifier for the contact associated with the budget.
+     * Contact ID associated with the budget.
      */
     public Optional<String> contactId() {
         return Optional.ofNullable(this.contactId);
@@ -137,7 +137,7 @@ public class BudgetAssociatedRegistrant {
     }
 
     /**
-     * Unique identifier for the invitee associated with the budget.
+     * Invitee ID associated with the budget.
      */
     public BudgetAssociatedRegistrant withInviteeId(@Nullable String inviteeId) {
         this.inviteeId = inviteeId;
@@ -145,7 +145,7 @@ public class BudgetAssociatedRegistrant {
     }
 
     /**
-     * Unique identifier for the contact associated with the budget.
+     * Contact ID associated with the budget.
      */
     public BudgetAssociatedRegistrant withContactId(@Nullable String contactId) {
         this.contactId = contactId;
@@ -231,7 +231,7 @@ public class BudgetAssociatedRegistrant {
         }
 
         /**
-         * Unique identifier for the invitee associated with the budget.
+         * Invitee ID associated with the budget.
          */
         public Builder inviteeId(@Nullable String inviteeId) {
             this.inviteeId = inviteeId;
@@ -239,7 +239,7 @@ public class BudgetAssociatedRegistrant {
         }
 
         /**
-         * Unique identifier for the contact associated with the budget.
+         * Contact ID associated with the budget.
          */
         public Builder contactId(@Nullable String contactId) {
             this.contactId = contactId;

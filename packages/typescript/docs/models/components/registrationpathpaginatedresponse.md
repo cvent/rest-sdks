@@ -32,6 +32,7 @@ let value: RegistrationPathPaginatedResponse = {
       code: "RegistrationPath1",
       description:
         "Registration path used for storing the default registration configuration",
+      waitlistEnabled: true,
     },
   ],
 };

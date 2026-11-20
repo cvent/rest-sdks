@@ -10,11 +10,11 @@ import { Attendee3, Attendee3$inboundSchema } from "./attendee3.js";
 import { HotelRequest, HotelRequest$inboundSchema } from "./hotelrequest.js";
 
 /**
- * Representation of a hotel reservation detail response.
+ * Hotel request details for an attendee and any guest.
  */
 export type HotelReservationDetail1 = {
   /**
-   * Representation of the attendee
+   * An attendee identified by an ID.
    */
   attendee?: Attendee3 | undefined;
   /**

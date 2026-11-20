@@ -1,6 +1,6 @@
 # CardTransactionBudgetItem
 
-The identifier of reconciled budget item.
+Reconciled budget item ID.
 
 
 ## Fields

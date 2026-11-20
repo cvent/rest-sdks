@@ -1,6 +1,6 @@
 # VideoTextTrack
 
-Video text track
+A video text track associated with a video, with its language, kind, publication state, and processing status.
 
 ## Example Usage
 

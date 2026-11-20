@@ -41,7 +41,7 @@ let value: RfpSupplier = {
   numberOfGuestRoomsMet: true,
   totalMeetingSpaceMet: true,
   promotion: {
-    id: "41cc09ag-61a0-5e21-942e-2d41232dc923",
+    id: "41cc09af-61a0-5e21-942e-2d41232dc923",
   },
   recommendationNote: "The staff should be courteous.",
   shortlistOrder: 45,

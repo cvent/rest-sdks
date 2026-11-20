@@ -75,7 +75,7 @@ public class ExistingVideoResponse {
     private String filename;
 
     /**
-     * A list of events associated with this video asset
+     * A list of event IDs associated with this video asset.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("events")
@@ -89,14 +89,14 @@ public class ExistingVideoResponse {
     private Long duration;
 
     /**
-     * Video thumbnail
+     * Video thumbnail metadata, including its URL, size, dimensions, type, and status.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("thumbnail")
     private VideoThumbnail thumbnail;
 
     /**
-     * Video thumbnail
+     * Video thumbnail metadata, including its URL, size, dimensions, type, and status.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generatedThumbnail")
@@ -118,14 +118,14 @@ public class ExistingVideoResponse {
     private VideoStatus status;
 
     /**
-     * Source of video.
+     * Information about the video's external source, including its ID and status.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("source")
     private VideoSource source;
 
     /**
-     * A list of tags associated with this video. This feature is a developer extensability framework to
+     * A list of tags associated with this video. This feature is a developer extensibility framework to
      * add data to videos.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -205,21 +205,21 @@ public class ExistingVideoResponse {
     private Long size;
 
     /**
-     * Sessions associated with the video asset.
+     * Session IDs associated with the video asset.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("sessions")
     private List<String> sessions;
 
     /**
-     * Exhibitors associated with the video asset.
+     * Exhibitor IDs associated with the video asset.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitors")
     private List<String> exhibitors;
 
     /**
-     * Speakers associated with the video asset.
+     * Speaker IDs associated with the video asset.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("speakers")
@@ -233,7 +233,7 @@ public class ExistingVideoResponse {
     private OffsetDateTime uploadStarted;
 
     /**
-     * The ISO 8601 zoned date time when the uploaded ended.
+     * The ISO 8601 zoned date time when the upload ended.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("uploadCompleted")
@@ -412,7 +412,7 @@ public class ExistingVideoResponse {
     }
 
     /**
-     * A list of events associated with this video asset
+     * A list of event IDs associated with this video asset.
      */
     public Optional<List<String>> events() {
         return Optional.ofNullable(this.events);
@@ -426,14 +426,14 @@ public class ExistingVideoResponse {
     }
 
     /**
-     * Video thumbnail
+     * Video thumbnail metadata, including its URL, size, dimensions, type, and status.
      */
     public Optional<VideoThumbnail> thumbnail() {
         return Optional.ofNullable(this.thumbnail);
     }
 
     /**
-     * Video thumbnail
+     * Video thumbnail metadata, including its URL, size, dimensions, type, and status.
      */
     public Optional<VideoThumbnail> generatedThumbnail() {
         return Optional.ofNullable(this.generatedThumbnail);
@@ -455,14 +455,14 @@ public class ExistingVideoResponse {
     }
 
     /**
-     * Source of video.
+     * Information about the video's external source, including its ID and status.
      */
     public Optional<VideoSource> source() {
         return Optional.ofNullable(this.source);
     }
 
     /**
-     * A list of tags associated with this video. This feature is a developer extensability framework to
+     * A list of tags associated with this video. This feature is a developer extensibility framework to
      * add data to videos.
      */
     public Optional<List<String>> tags() {
@@ -543,21 +543,21 @@ public class ExistingVideoResponse {
     }
 
     /**
-     * Sessions associated with the video asset.
+     * Session IDs associated with the video asset.
      */
     public Optional<List<String>> sessions() {
         return Optional.ofNullable(this.sessions);
     }
 
     /**
-     * Exhibitors associated with the video asset.
+     * Exhibitor IDs associated with the video asset.
      */
     public Optional<List<String>> exhibitors() {
         return Optional.ofNullable(this.exhibitors);
     }
 
     /**
-     * Speakers associated with the video asset.
+     * Speaker IDs associated with the video asset.
      */
     public Optional<List<String>> speakers() {
         return Optional.ofNullable(this.speakers);
@@ -571,7 +571,7 @@ public class ExistingVideoResponse {
     }
 
     /**
-     * The ISO 8601 zoned date time when the uploaded ended.
+     * The ISO 8601 zoned date time when the upload ended.
      */
     public Optional<OffsetDateTime> uploadCompleted() {
         return Optional.ofNullable(this.uploadCompleted);
@@ -659,7 +659,7 @@ public class ExistingVideoResponse {
     }
 
     /**
-     * A list of events associated with this video asset
+     * A list of event IDs associated with this video asset.
      */
     public ExistingVideoResponse withEvents(@Nullable List<String> events) {
         this.events = events;
@@ -675,7 +675,7 @@ public class ExistingVideoResponse {
     }
 
     /**
-     * Video thumbnail
+     * Video thumbnail metadata, including its URL, size, dimensions, type, and status.
      */
     public ExistingVideoResponse withThumbnail(@Nullable VideoThumbnail thumbnail) {
         this.thumbnail = thumbnail;
@@ -683,7 +683,7 @@ public class ExistingVideoResponse {
     }
 
     /**
-     * Video thumbnail
+     * Video thumbnail metadata, including its URL, size, dimensions, type, and status.
      */
     public ExistingVideoResponse withGeneratedThumbnail(@Nullable VideoThumbnail generatedThumbnail) {
         this.generatedThumbnail = generatedThumbnail;
@@ -707,7 +707,7 @@ public class ExistingVideoResponse {
     }
 
     /**
-     * Source of video.
+     * Information about the video's external source, including its ID and status.
      */
     public ExistingVideoResponse withSource(@Nullable VideoSource source) {
         this.source = source;
@@ -715,7 +715,7 @@ public class ExistingVideoResponse {
     }
 
     /**
-     * A list of tags associated with this video. This feature is a developer extensability framework to
+     * A list of tags associated with this video. This feature is a developer extensibility framework to
      * add data to videos.
      */
     public ExistingVideoResponse withTags(@Nullable List<String> tags) {
@@ -806,7 +806,7 @@ public class ExistingVideoResponse {
     }
 
     /**
-     * Sessions associated with the video asset.
+     * Session IDs associated with the video asset.
      */
     public ExistingVideoResponse withSessions(@Nullable List<String> sessions) {
         this.sessions = sessions;
@@ -814,7 +814,7 @@ public class ExistingVideoResponse {
     }
 
     /**
-     * Exhibitors associated with the video asset.
+     * Exhibitor IDs associated with the video asset.
      */
     public ExistingVideoResponse withExhibitors(@Nullable List<String> exhibitors) {
         this.exhibitors = exhibitors;
@@ -822,7 +822,7 @@ public class ExistingVideoResponse {
     }
 
     /**
-     * Speakers associated with the video asset.
+     * Speaker IDs associated with the video asset.
      */
     public ExistingVideoResponse withSpeakers(@Nullable List<String> speakers) {
         this.speakers = speakers;
@@ -838,7 +838,7 @@ public class ExistingVideoResponse {
     }
 
     /**
-     * The ISO 8601 zoned date time when the uploaded ended.
+     * The ISO 8601 zoned date time when the upload ended.
      */
     public ExistingVideoResponse withUploadCompleted(@Nullable OffsetDateTime uploadCompleted) {
         this.uploadCompleted = uploadCompleted;
@@ -1143,7 +1143,7 @@ public class ExistingVideoResponse {
         }
 
         /**
-         * A list of events associated with this video asset
+         * A list of event IDs associated with this video asset.
          */
         public Builder events(@Nullable List<String> events) {
             this.events = events;
@@ -1159,7 +1159,7 @@ public class ExistingVideoResponse {
         }
 
         /**
-         * Video thumbnail
+         * Video thumbnail metadata, including its URL, size, dimensions, type, and status.
          */
         public Builder thumbnail(@Nullable VideoThumbnail thumbnail) {
             this.thumbnail = thumbnail;
@@ -1167,7 +1167,7 @@ public class ExistingVideoResponse {
         }
 
         /**
-         * Video thumbnail
+         * Video thumbnail metadata, including its URL, size, dimensions, type, and status.
          */
         public Builder generatedThumbnail(@Nullable VideoThumbnail generatedThumbnail) {
             this.generatedThumbnail = generatedThumbnail;
@@ -1191,7 +1191,7 @@ public class ExistingVideoResponse {
         }
 
         /**
-         * Source of video.
+         * Information about the video's external source, including its ID and status.
          */
         public Builder source(@Nullable VideoSource source) {
             this.source = source;
@@ -1199,7 +1199,7 @@ public class ExistingVideoResponse {
         }
 
         /**
-         * A list of tags associated with this video. This feature is a developer extensability framework to
+         * A list of tags associated with this video. This feature is a developer extensibility framework to
          * add data to videos.
          */
         public Builder tags(@Nullable List<String> tags) {
@@ -1290,7 +1290,7 @@ public class ExistingVideoResponse {
         }
 
         /**
-         * Sessions associated with the video asset.
+         * Session IDs associated with the video asset.
          */
         public Builder sessions(@Nullable List<String> sessions) {
             this.sessions = sessions;
@@ -1298,7 +1298,7 @@ public class ExistingVideoResponse {
         }
 
         /**
-         * Exhibitors associated with the video asset.
+         * Exhibitor IDs associated with the video asset.
          */
         public Builder exhibitors(@Nullable List<String> exhibitors) {
             this.exhibitors = exhibitors;
@@ -1306,7 +1306,7 @@ public class ExistingVideoResponse {
         }
 
         /**
-         * Speakers associated with the video asset.
+         * Speaker IDs associated with the video asset.
          */
         public Builder speakers(@Nullable List<String> speakers) {
             this.speakers = speakers;
@@ -1322,7 +1322,7 @@ public class ExistingVideoResponse {
         }
 
         /**
-         * The ISO 8601 zoned date time when the uploaded ended.
+         * The ISO 8601 zoned date time when the upload ended.
          */
         public Builder uploadCompleted(@Nullable OffsetDateTime uploadCompleted) {
             this.uploadCompleted = uploadCompleted;

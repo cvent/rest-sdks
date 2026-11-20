@@ -1,6 +1,6 @@
 # GeneralLedger1Input
 
-This is used to denote the general ledger code associated with budget.
+General ledger code and details associated with a budget item.
 
 ## Example Usage
 

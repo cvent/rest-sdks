@@ -7,6 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  AccountBudgetVersion,
+  AccountBudgetVersion$inboundSchema,
+} from "./accountbudgetversion.js";
+import {
   BudgetCategory,
   BudgetCategory$inboundSchema,
 } from "./budgetcategory.js";
@@ -14,7 +18,6 @@ import {
   BudgetSubCategory,
   BudgetSubCategory$inboundSchema,
 } from "./budgetsubcategory.js";
-import { BudgetVersion, BudgetVersion$inboundSchema } from "./budgetversion.js";
 import { Event1, Event1$inboundSchema } from "./event1.js";
 import { Rfp1, Rfp1$inboundSchema } from "./rfp1.js";
 
@@ -39,7 +42,7 @@ export type AccountBudgetItemListResponse = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * Event ID Information.
+   * Contains the ID of the event associated with the budget item.
    */
   event?: Event1 | undefined;
   /**
@@ -47,11 +50,11 @@ export type AccountBudgetItemListResponse = {
    */
   rfp?: Rfp1 | undefined;
   /**
-   * Budget version ID information. Defaults to the account's default budget version when creating or updating budget items.
+   * Budget version of a budget item in the account-wide list, including whether it's a default budget version.
    */
-  budgetVersion?: BudgetVersion | undefined;
+  budgetVersion?: AccountBudgetVersion | undefined;
   /**
-   * The identifier of the budget item.
+   * Budget item ID.
    */
   id?: string | undefined;
   /**
@@ -67,7 +70,7 @@ export type AccountBudgetItemListResponse = {
    */
   category?: BudgetCategory | undefined;
   /**
-   * This is used to denote the sub category for a budget.
+   * Subcategory assigned to a budget item.
    */
   subCategory?: BudgetSubCategory | undefined;
   /**
@@ -91,7 +94,7 @@ export const AccountBudgetItemListResponse$inboundSchema: z.ZodType<
   lastModifiedBy: z.string().optional(),
   event: Event1$inboundSchema.optional(),
   rfp: Rfp1$inboundSchema.optional(),
-  budgetVersion: BudgetVersion$inboundSchema.optional(),
+  budgetVersion: AccountBudgetVersion$inboundSchema.optional(),
   id: z.string().optional(),
   name: z.string().optional(),
   code: z.string().optional(),

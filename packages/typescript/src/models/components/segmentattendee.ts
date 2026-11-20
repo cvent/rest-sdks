@@ -9,7 +9,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Segment, Segment$inboundSchema } from "./segment.js";
 
 /**
- * Represents the attendees that are associated/disassociated to/from a segment
+ * Represents an attendee's association status with a segment.
  */
 export type SegmentAttendee = {
   /**
@@ -29,15 +29,15 @@ export type SegmentAttendee = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * Segment details
+   * Represents a segment by its ID.
    */
   segment?: Segment | undefined;
   /**
-   * ID of the attendee.
+   * Attendee ID.
    */
   id?: string | undefined;
   /**
-   * Represents whether the attendee is dissociated from the segment. True if the attendee is disassociated from the segment, false if the attendee is associated with the segment.
+   * Represents whether the attendee is disassociated from the segment. True if the attendee is disassociated from the segment, false if the attendee is associated with the segment.
    */
   disassociated?: boolean | undefined;
 };

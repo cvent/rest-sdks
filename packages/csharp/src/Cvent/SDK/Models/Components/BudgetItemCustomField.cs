@@ -15,12 +15,12 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// A Budget Item Custom Field.
+    /// Custom field and answer values associated with a budget item.
     /// </summary>
     public class BudgetItemCustomField
     {
         /// <summary>
-        /// The unique ID representing this budget item custom field.
+        /// Budget item custom field ID.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

@@ -17,18 +17,18 @@ import java.util.Optional;
 /**
  * TravelProposalGroupAndMeetingMeetingRoomBasicInformation
  *
- * <p>Meeting room basic information.
+ * <p>The basic information about the meeting rooms of the property.
  */
 public class TravelProposalGroupAndMeetingMeetingRoomBasicInformation {
     /**
-     * Size of the largest meeting room. Units of measurement determined by `unitOfMeasurement` field.
+     * The size of the largest meeting room. The `unitOfMeasurement` field sets the unit.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("largestMeetingRoom")
     private Long largestMeetingRoom;
 
     /**
-     * Unit of measurement of the `largestMeetingRoom`'s size.
+     * The unit of measurement of the `largestMeetingRoom` size.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("unitOfMeasurement")
@@ -56,14 +56,14 @@ public class TravelProposalGroupAndMeetingMeetingRoomBasicInformation {
     }
 
     /**
-     * Size of the largest meeting room. Units of measurement determined by `unitOfMeasurement` field.
+     * The size of the largest meeting room. The `unitOfMeasurement` field sets the unit.
      */
     public Optional<Long> largestMeetingRoom() {
         return Optional.ofNullable(this.largestMeetingRoom);
     }
 
     /**
-     * Unit of measurement of the `largestMeetingRoom`'s size.
+     * The unit of measurement of the `largestMeetingRoom` size.
      */
     public Optional<String> unitOfMeasurement() {
         return Optional.ofNullable(this.unitOfMeasurement);
@@ -81,7 +81,7 @@ public class TravelProposalGroupAndMeetingMeetingRoomBasicInformation {
     }
 
     /**
-     * Size of the largest meeting room. Units of measurement determined by `unitOfMeasurement` field.
+     * The size of the largest meeting room. The `unitOfMeasurement` field sets the unit.
      */
     public TravelProposalGroupAndMeetingMeetingRoomBasicInformation withLargestMeetingRoom(
             @Nullable Long largestMeetingRoom) {
@@ -90,7 +90,7 @@ public class TravelProposalGroupAndMeetingMeetingRoomBasicInformation {
     }
 
     /**
-     * Unit of measurement of the `largestMeetingRoom`'s size.
+     * The unit of measurement of the `largestMeetingRoom` size.
      */
     public TravelProposalGroupAndMeetingMeetingRoomBasicInformation withUnitOfMeasurement(
             @Nullable String unitOfMeasurement) {
@@ -152,7 +152,7 @@ public class TravelProposalGroupAndMeetingMeetingRoomBasicInformation {
         }
 
         /**
-         * Size of the largest meeting room. Units of measurement determined by `unitOfMeasurement` field.
+         * The size of the largest meeting room. The `unitOfMeasurement` field sets the unit.
          */
         public Builder largestMeetingRoom(@Nullable Long largestMeetingRoom) {
             this.largestMeetingRoom = largestMeetingRoom;
@@ -160,7 +160,7 @@ public class TravelProposalGroupAndMeetingMeetingRoomBasicInformation {
         }
 
         /**
-         * Unit of measurement of the `largestMeetingRoom`'s size.
+         * The unit of measurement of the `largestMeetingRoom` size.
          */
         public Builder unitOfMeasurement(@Nullable String unitOfMeasurement) {
             this.unitOfMeasurement = unitOfMeasurement;

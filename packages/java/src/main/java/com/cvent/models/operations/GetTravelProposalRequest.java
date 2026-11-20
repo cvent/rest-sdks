@@ -13,7 +13,7 @@ import java.util.Optional;
 
 public class GetTravelProposalRequest {
     /**
-     * Unique ID of a travel proposal.
+     * The ID of the travel proposal.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=travelProposalId")
     private String travelProposalId;
@@ -25,7 +25,7 @@ public class GetTravelProposalRequest {
     }
 
     /**
-     * Unique ID of a travel proposal.
+     * The ID of the travel proposal.
      */
     public String travelProposalId() {
         return this.travelProposalId;
@@ -36,7 +36,7 @@ public class GetTravelProposalRequest {
     }
 
     /**
-     * Unique ID of a travel proposal.
+     * The ID of the travel proposal.
      */
     public GetTravelProposalRequest withTravelProposalId(@Nonnull String travelProposalId) {
         this.travelProposalId = Utils.checkNotNull(travelProposalId, "travelProposalId");
@@ -75,7 +75,7 @@ public class GetTravelProposalRequest {
         }
 
         /**
-         * Unique ID of a travel proposal.
+         * The ID of the travel proposal.
          */
         public Builder travelProposalId(@Nonnull String travelProposalId) {
             this.travelProposalId = Utils.checkNotNull(travelProposalId, "travelProposalId");

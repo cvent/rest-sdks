@@ -14,7 +14,7 @@ import { Event3, Event3$Outbound, Event3$outboundSchema } from "./event3.js";
  */
 export type AudienceSegmentCreate = {
   /**
-   * ID of the event.
+   * Represents an event by its ID.
    */
   event: Event3;
   /**
@@ -22,7 +22,7 @@ export type AudienceSegmentCreate = {
    */
   name: string;
   /**
-   * Description of the audience segment.
+   * Additional text about the audience segment.
    */
   description?: string | undefined;
   /**

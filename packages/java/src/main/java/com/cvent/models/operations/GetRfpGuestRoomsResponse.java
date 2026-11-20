@@ -32,7 +32,7 @@ public class GetRfpGuestRoomsResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully returns the guest room requirements associated with an RFP.
+     * Successfully retrieved the guest room requirements of the RFP.
      */
     private RfpGuestRooms rfpGuestRooms;
 
@@ -77,7 +77,7 @@ public class GetRfpGuestRoomsResponse implements Response {
     }
 
     /**
-     * Successfully returns the guest room requirements associated with an RFP.
+     * Successfully retrieved the guest room requirements of the RFP.
      */
     public Optional<RfpGuestRooms> rfpGuestRooms() {
         return Optional.ofNullable(this.rfpGuestRooms);
@@ -112,7 +112,7 @@ public class GetRfpGuestRoomsResponse implements Response {
     }
 
     /**
-     * Successfully returns the guest room requirements associated with an RFP.
+     * Successfully retrieved the guest room requirements of the RFP.
      */
     public GetRfpGuestRoomsResponse withRfpGuestRooms(@Nullable RfpGuestRooms rfpGuestRooms) {
         this.rfpGuestRooms = rfpGuestRooms;
@@ -193,7 +193,7 @@ public class GetRfpGuestRoomsResponse implements Response {
         }
 
         /**
-         * Successfully returns the guest room requirements associated with an RFP.
+         * Successfully retrieved the guest room requirements of the RFP.
          */
         public Builder rfpGuestRooms(@Nullable RfpGuestRooms rfpGuestRooms) {
             this.rfpGuestRooms = rfpGuestRooms;

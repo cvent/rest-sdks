@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * BidStatusType
  *
- * <p>Bid status type.
+ * <p>The status of the bid.
  */
 public enum BidStatusType {
     IN_PROGRESS("in_progress"),

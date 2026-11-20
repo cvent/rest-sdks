@@ -22,7 +22,7 @@ import {
 } from "./travelrequeststatus.js";
 
 /**
- * Representation of an air actual.
+ * Flight booking details for a passenger, including flight segments and answers to air actual questions.
  */
 export type AirActual = {
   /**
@@ -58,7 +58,7 @@ export type AirActual = {
    */
   requesterType?: AirRequesterType | undefined;
   /**
-   * Name of the attendee booked for the flight.
+   * Name of the passenger booked for the flight.
    */
   name?: string | undefined;
   /**
@@ -66,7 +66,7 @@ export type AirActual = {
    */
   confirmationNumber?: string | undefined;
   /**
-   * Total cost of the flight.
+   * Total cost of the flight in the currency specified by currencyCode.
    */
   totalAmount?: number | undefined;
   /**

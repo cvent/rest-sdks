@@ -9,11 +9,11 @@ import * as z from "zod/v3";
  */
 export type BudgetAssociatedRegistrantInput = {
   /**
-   * Unique identifier for the invitee associated with the budget.
+   * Invitee ID associated with the budget.
    */
   inviteeId?: string | undefined;
   /**
-   * Unique identifier for the contact associated with the budget.
+   * Contact ID associated with the budget.
    */
   contactId?: string | undefined;
 };

@@ -15,11 +15,11 @@ import java.util.Optional;
 /**
  * TravelProposalStaticContentListResponse
  *
- * <p>Paginated response containing a list of proposal static content across multiple proposals
+ * <p>A paginated list of the static content of travel proposals.
  */
 public class TravelProposalStaticContentListResponse {
     /**
-     * Array of proposal static content responses
+     * The static content of each travel proposal on the page.
      */
     @JsonProperty("data")
     private List<TravelProposalStaticContentResponse> data;
@@ -40,7 +40,7 @@ public class TravelProposalStaticContentListResponse {
     }
 
     /**
-     * Array of proposal static content responses
+     * The static content of each travel proposal on the page.
      */
     public List<TravelProposalStaticContentResponse> data() {
         return this.data;
@@ -58,7 +58,7 @@ public class TravelProposalStaticContentListResponse {
     }
 
     /**
-     * Array of proposal static content responses
+     * The static content of each travel proposal on the page.
      */
     public TravelProposalStaticContentListResponse withData(@Nonnull List<TravelProposalStaticContentResponse> data) {
         this.data = Utils.checkNotNull(data, "data");
@@ -107,7 +107,7 @@ public class TravelProposalStaticContentListResponse {
         }
 
         /**
-         * Array of proposal static content responses
+         * The static content of each travel proposal on the page.
          */
         public Builder data(@Nonnull List<TravelProposalStaticContentResponse> data) {
             this.data = Utils.checkNotNull(data, "data");

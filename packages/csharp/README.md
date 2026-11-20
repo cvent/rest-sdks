@@ -248,32 +248,38 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [GetBadgePrinterPools](docs/sdks/badgeprinterpools/README.md#getbadgeprinterpools) - List Badge Printer Pools
 * [GetBadgePrinterPool](docs/sdks/badgeprinterpools/README.md#getbadgeprinterpool) - Get Badge Printer Pool
 
-### [Budget](docs/sdks/budget/README.md)
+### [BudgetCards](docs/sdks/budgetcards/README.md)
 
-* [GetAccountBudgetItems](docs/sdks/budget/README.md#getaccountbudgetitems) - List Budget Items
-* [GetAccountVendors](docs/sdks/budget/README.md#getaccountvendors) - List Account Vendors
-* [GetCards](docs/sdks/budget/README.md#getcards) - List Cards
-* [GetCardTransactions](docs/sdks/budget/README.md#getcardtransactions) - List Card Transactions
-* [CreateCardTransaction](docs/sdks/budget/README.md#createcardtransaction) - Create Card Transaction
-* [DeleteCardTransaction](docs/sdks/budget/README.md#deletecardtransaction) - Delete Card Transaction
-* [UpdateCardTransaction](docs/sdks/budget/README.md#updatecardtransaction) - Update Card Transaction
-* [GetCurrencyConversionRate](docs/sdks/budget/README.md#getcurrencyconversionrate) - List Currency Conversion Rates
-* [CreateCurrencyConversionRate](docs/sdks/budget/README.md#createcurrencyconversionrate) - Create Conversion Rate
-* [UpdateCurrencyConversionRate](docs/sdks/budget/README.md#updatecurrencyconversionrate) - Update Conversion Rate
-* [DeleteCurrencyConversionRate](docs/sdks/budget/README.md#deletecurrencyconversionrate) - Delete Conversion Rate
-* [GetBudgetItems](docs/sdks/budget/README.md#getbudgetitems) - List Event Budget Items
-* [CreateBudgetItem](docs/sdks/budget/README.md#createbudgetitem) - Create Budget Item
-* [GetBudgetAllocations](docs/sdks/budget/README.md#getbudgetallocations) - List Budget Allocations
-* [UpdateBudgetItem](docs/sdks/budget/README.md#updatebudgetitem) - Update Budget Item
-* [UpdateBudgetAllocations](docs/sdks/budget/README.md#updatebudgetallocations) - Update Budget Allocations
-* [DeleteBudgetAllocations](docs/sdks/budget/README.md#deletebudgetallocations) - Delete  Budget Allocations
-* [CreatePayment](docs/sdks/budget/README.md#createpayment) - Create Budget Payment
-* [UpdatePayment](docs/sdks/budget/README.md#updatepayment) - Update Budget Payment
-* [DeletePayment](docs/sdks/budget/README.md#deletepayment) - Delete Budget Payment
-* [AnswerBudgetCustomField](docs/sdks/budget/README.md#answerbudgetcustomfield) - Update Budget Cstm Fld Answers
-* [GetPayments](docs/sdks/budget/README.md#getpayments) - List Budget Payments
-* [AttachInvoiceToPayment](docs/sdks/budget/README.md#attachinvoicetopayment) - Assign Invoice To Payment
-* [GetEventBudgetTotals](docs/sdks/budget/README.md#geteventbudgettotals) - List Budget Totals
+* [GetCards](docs/sdks/budgetcards/README.md#getcards) - List Cards
+* [GetCardTransactions](docs/sdks/budgetcards/README.md#getcardtransactions) - List Card Transactions
+* [CreateCardTransaction](docs/sdks/budgetcards/README.md#createcardtransaction) - Create Card Transaction
+* [DeleteCardTransaction](docs/sdks/budgetcards/README.md#deletecardtransaction) - Delete Card Transaction
+* [UpdateCardTransaction](docs/sdks/budgetcards/README.md#updatecardtransaction) - Update Card Transaction
+
+### [BudgetPayments](docs/sdks/budgetpayments/README.md)
+
+* [CreatePayment](docs/sdks/budgetpayments/README.md#createpayment) - Create Budget Payment
+* [UpdatePayment](docs/sdks/budgetpayments/README.md#updatepayment) - Update Budget Payment
+* [DeletePayment](docs/sdks/budgetpayments/README.md#deletepayment) - Delete Budget Payment
+* [GetPayments](docs/sdks/budgetpayments/README.md#getpayments) - List Budget Payments
+* [AttachInvoiceToPayment](docs/sdks/budgetpayments/README.md#attachinvoicetopayment) - Assign Invoice To Payment
+
+### [Budgets](docs/sdks/budgets/README.md)
+
+* [GetAccountBudgetItems](docs/sdks/budgets/README.md#getaccountbudgetitems) - List Budget Items
+* [GetAccountVendors](docs/sdks/budgets/README.md#getaccountvendors) - List Account Vendors
+* [GetCurrencyConversionRate](docs/sdks/budgets/README.md#getcurrencyconversionrate) - List Currency Conversion Rates
+* [CreateCurrencyConversionRate](docs/sdks/budgets/README.md#createcurrencyconversionrate) - Create Conversion Rate
+* [UpdateCurrencyConversionRate](docs/sdks/budgets/README.md#updatecurrencyconversionrate) - Update Conversion Rate
+* [DeleteCurrencyConversionRate](docs/sdks/budgets/README.md#deletecurrencyconversionrate) - Delete Conversion Rate
+* [GetBudgetItems](docs/sdks/budgets/README.md#getbudgetitems) - List Event Budget Items
+* [CreateBudgetItem](docs/sdks/budgets/README.md#createbudgetitem) - Create Budget Item
+* [GetBudgetAllocations](docs/sdks/budgets/README.md#getbudgetallocations) - List Budget Allocations
+* [UpdateBudgetItem](docs/sdks/budgets/README.md#updatebudgetitem) - Update Budget Item
+* [UpdateBudgetAllocations](docs/sdks/budgets/README.md#updatebudgetallocations) - Update Budget Allocations
+* [DeleteBudgetAllocations](docs/sdks/budgets/README.md#deletebudgetallocations) - Delete Budget Allocations
+* [AnswerBudgetCustomField](docs/sdks/budgets/README.md#answerbudgetcustomfield) - Update Custom Field Answers
+* [GetEventBudgetTotals](docs/sdks/budgets/README.md#geteventbudgettotals) - List Budget Totals
 
 ### [Bulk](docs/sdks/bulk/README.md)
 
@@ -579,27 +585,54 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 ### [RFPAdditionalDetails](docs/sdks/rfpadditionaldetails/README.md)
 
 * [ListRfpPastEvents](docs/sdks/rfpadditionaldetails/README.md#listrfppastevents) - List RFP Past Events
+* [CreateRfpPastEvent](docs/sdks/rfpadditionaldetails/README.md#createrfppastevent) - Create RFP Past Event
+* [GetRfpPastEvent](docs/sdks/rfpadditionaldetails/README.md#getrfppastevent) - Get RFP Past Event
+* [UpdateRfpPastEvent](docs/sdks/rfpadditionaldetails/README.md#updaterfppastevent) - Update RFP Past Event
+* [DeleteRfpPastEvent](docs/sdks/rfpadditionaldetails/README.md#deleterfppastevent) - Delete RFP Past Event
 
 ### [RFPManagement](docs/sdks/rfpmanagement/README.md)
 
+* [CreateRFP](docs/sdks/rfpmanagement/README.md#createrfp) - Create RFP
 * [GetRfpLeadSource](docs/sdks/rfpmanagement/README.md#getrfpleadsource) - Get RFP Lead Source
 * [GetRfpLeadSourceSection](docs/sdks/rfpmanagement/README.md#getrfpleadsourcesection) - Get RFP Lead Source Section
 * [GetRFP](docs/sdks/rfpmanagement/README.md#getrfp) - Get RFP
+* [UpdateRFP](docs/sdks/rfpmanagement/README.md#updaterfp) - Update RFP
+* [SubmitRFP](docs/sdks/rfpmanagement/README.md#submitrfp) - Submit RFP
 
 ### [RFPRequirements](docs/sdks/rfprequirements/README.md)
 
 * [ListRfpAgendaItems](docs/sdks/rfprequirements/README.md#listrfpagendaitems) - List RFP Agenda Items
+* [CreateRfpAgendaItem](docs/sdks/rfprequirements/README.md#createrfpagendaitem) - Create RFP Agenda Item
 * [ListRfpAgendaItemSchedules](docs/sdks/rfprequirements/README.md#listrfpagendaitemschedules) - List RFP Agenda Item Schedules
+* [GetRfpAgendaItem](docs/sdks/rfprequirements/README.md#getrfpagendaitem) - Get RFP Agenda Item
+* [UpdateRfpAgendaItem](docs/sdks/rfprequirements/README.md#updaterfpagendaitem) - Update RFP Agenda Item
+* [DeleteRfpAgendaItem](docs/sdks/rfprequirements/README.md#deleterfpagendaitem) - Delete RFP Agenda Item
 * [ListRfpAttachments](docs/sdks/rfprequirements/README.md#listrfpattachments) - List RFP Attachments
-* [ListRfpCustomFields](docs/sdks/rfprequirements/README.md#listrfpcustomfields) - List RFP Custom Fields Answers
+* [CreateRfpAttachment](docs/sdks/rfprequirements/README.md#createrfpattachment) - Create RFP Attachment
+* [GetRfpAttachment](docs/sdks/rfprequirements/README.md#getrfpattachment) - Get RFP Attachment
+* [DeleteRfpAttachment](docs/sdks/rfprequirements/README.md#deleterfpattachment) - Delete RFP Attachment
+* [ListRfpCustomFields](docs/sdks/rfprequirements/README.md#listrfpcustomfields) - List RFP Custom Field Answers
+* [GetRfpCustomFieldAnswers](docs/sdks/rfprequirements/README.md#getrfpcustomfieldanswers) - Get RFP Custom Field Answers
+* [UpdateRfpCustomFieldAnswers](docs/sdks/rfprequirements/README.md#updaterfpcustomfieldanswers) - Update Custom Field Answers
 * [GetRfpGuestRooms](docs/sdks/rfprequirements/README.md#getrfpguestrooms) - Get RFP Guest Rooms
+* [UpdateRfpGuestRooms](docs/sdks/rfprequirements/README.md#updaterfpguestrooms) - Update RFP Guest Rooms
 * [ListRfpInternalDocuments](docs/sdks/rfprequirements/README.md#listrfpinternaldocuments) - List RFP Internal Documents
+* [GetRfpInternalDocument](docs/sdks/rfprequirements/README.md#getrfpinternaldocument) - Get RFP Internal Document
+* [AssociateRfpInternalDocument](docs/sdks/rfprequirements/README.md#associaterfpinternaldocument) - Associate Internal Document
+* [DisassociateRfpInternalDocument](docs/sdks/rfprequirements/README.md#disassociaterfpinternaldocument) - Disassociate Internal Document
 * [ListRfpQuestions](docs/sdks/rfprequirements/README.md#listrfpquestions) - List RFP Questions
+* [CreateRfpQuestion](docs/sdks/rfprequirements/README.md#createrfpquestion) - Create RFP Question
+* [GetRfpQuestion](docs/sdks/rfprequirements/README.md#getrfpquestion) - Get RFP Question
+* [UpdateRfpQuestion](docs/sdks/rfprequirements/README.md#updaterfpquestion) - Update RFP Question
+* [DeleteRfpQuestion](docs/sdks/rfprequirements/README.md#deleterfpquestion) - Delete RFP Question
 
 ### [RFPSuppliers](docs/sdks/rfpsuppliers/README.md)
 
 * [ListRfpRecipientsHistory](docs/sdks/rfpsuppliers/README.md#listrfprecipientshistory) - List RFP Recipients History
 * [GetRfpSuppliers](docs/sdks/rfpsuppliers/README.md#getrfpsuppliers) - List RFP Suppliers
+* [GetRfpSupplier](docs/sdks/rfpsuppliers/README.md#getrfpsupplier) - Get RFP Supplier
+* [AssociateRfpSupplier](docs/sdks/rfpsuppliers/README.md#associaterfpsupplier) - Associate Supplier to RFP
+* [DisassociateRfpSupplier](docs/sdks/rfpsuppliers/README.md#disassociaterfpsupplier) - Disassociate RFP Supplier
 
 ### [Seating](docs/sdks/seating/README.md)
 
@@ -1073,11 +1106,11 @@ catch (System.Net.Http.HttpRequestException ex)
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs):
-  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 18 of 511 methods.*
-  * [`ErrorResponse17`](./src/Cvent/SDK/Models/Errors/ErrorResponse17.cs): The error response. Applicable to 11 of 511 methods.*
-  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 511 methods.*
-  * [`Oauth2TokenPostResponse0Exception`](./src/Cvent/SDK/Models/Errors/Oauth2TokenPostResponse0Exception.cs): A bad token response. Status code `400`. Applicable to 1 of 511 methods.*
-  * [`EventRoleAssignmentNotificationFailureResponseException`](./src/Cvent/SDK/Models/Errors/EventRoleAssignmentNotificationFailureResponseException.cs): Standard error response for a notification failure while creating an event-role assignment. The top-level code and details[].code are the integer HTTP status code (503). Status code `503`. Applicable to 1 of 511 methods.*
+  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. Applicable to 18 of 538 methods.*
+  * [`ErrorResponse17`](./src/Cvent/SDK/Models/Errors/ErrorResponse17.cs): The error response. Applicable to 11 of 538 methods.*
+  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 538 methods.*
+  * [`Oauth2TokenPostResponse0Exception`](./src/Cvent/SDK/Models/Errors/Oauth2TokenPostResponse0Exception.cs): A bad token response. Status code `400`. Applicable to 1 of 538 methods.*
+  * [`EventRoleAssignmentNotificationFailureResponseException`](./src/Cvent/SDK/Models/Errors/EventRoleAssignmentNotificationFailureResponseException.cs): Standard error response for a notification failure while creating an event-role assignment. The top-level code and details[].code are the integer HTTP status code (503). Status code `503`. Applicable to 1 of 538 methods.*
   * [`ResponseValidationError`](./src/Cvent/SDK/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
 </details>
 

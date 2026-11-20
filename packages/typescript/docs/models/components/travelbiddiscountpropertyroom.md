@@ -1,6 +1,6 @@
 # TravelBidDiscountPropertyRoom
 
-ID of the property's room.
+The property room that the discount applies to.
 
 ## Example Usage
 

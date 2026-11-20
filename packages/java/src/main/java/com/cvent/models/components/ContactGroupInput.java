@@ -65,8 +65,8 @@ public class ContactGroupInput {
     private String note;
 
     /**
-     * Model representing a distribution list info. Only required if the contact group type is
-     * DISTRIBUTION_LIST.
+     * Distribution list settings for a contact group, including its security type, internal note, and
+     * status. This object is required only when the contact group type is `DISTRIBUTION_LIST`.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("distributionListInfo")
@@ -135,8 +135,8 @@ public class ContactGroupInput {
     }
 
     /**
-     * Model representing a distribution list info. Only required if the contact group type is
-     * DISTRIBUTION_LIST.
+     * Distribution list settings for a contact group, including its security type, internal note, and
+     * status. This object is required only when the contact group type is `DISTRIBUTION_LIST`.
      */
     public Optional<DistributionListInfoInput> distributionListInfo() {
         return Optional.ofNullable(this.distributionListInfo);
@@ -194,8 +194,8 @@ public class ContactGroupInput {
     }
 
     /**
-     * Model representing a distribution list info. Only required if the contact group type is
-     * DISTRIBUTION_LIST.
+     * Distribution list settings for a contact group, including its security type, internal note, and
+     * status. This object is required only when the contact group type is `DISTRIBUTION_LIST`.
      */
     public ContactGroupInput withDistributionListInfo(@Nullable DistributionListInfoInput distributionListInfo) {
         this.distributionListInfo = distributionListInfo;
@@ -310,8 +310,8 @@ public class ContactGroupInput {
         }
 
         /**
-         * Model representing a distribution list info. Only required if the contact group type is
-         * DISTRIBUTION_LIST.
+         * Distribution list settings for a contact group, including its security type, internal note, and
+         * status. This object is required only when the contact group type is `DISTRIBUTION_LIST`.
          */
         public Builder distributionListInfo(@Nullable DistributionListInfoInput distributionListInfo) {
             this.distributionListInfo = distributionListInfo;

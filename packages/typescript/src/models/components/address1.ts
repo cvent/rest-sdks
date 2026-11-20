@@ -35,7 +35,27 @@ export const Address1$inboundSchema: z.ZodType<
   city: z.string(),
   regionCode: z.string().optional(),
 });
+/** @internal */
+export type Address1$Outbound = {
+  countryCode: string;
+  city: string;
+  regionCode?: string | undefined;
+};
 
+/** @internal */
+export const Address1$outboundSchema: z.ZodType<
+  Address1$Outbound,
+  z.ZodTypeDef,
+  Address1
+> = z.object({
+  countryCode: z.string(),
+  city: z.string(),
+  regionCode: z.string().optional(),
+});
+
+export function address1ToJSON(address1: Address1): string {
+  return JSON.stringify(Address1$outboundSchema.parse(address1));
+}
 export function address1FromJSON(
   jsonString: string,
 ): SafeParseResult<Address1, SDKValidationError> {

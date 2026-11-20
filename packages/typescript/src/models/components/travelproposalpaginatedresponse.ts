@@ -21,7 +21,7 @@ export type TravelProposalPaginatedResponse = {
    */
   paging?: Paging | undefined;
   /**
-   * Paginated list of business transient proposals.
+   * The travel proposals on the page.
    */
   data?: Array<TravelProposal> | undefined;
 };

@@ -1,6 +1,6 @@
 # TaxType1
 
-Bid tax type.
+The type of the tax or fee.
 
 ## Example Usage
 

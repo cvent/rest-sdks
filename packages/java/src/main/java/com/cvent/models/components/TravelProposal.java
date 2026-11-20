@@ -22,8 +22,8 @@ import java.util.Optional;
 /**
  * TravelProposal
  *
- * <p>Represents travel proposals. Travel proposals are created by the travel supplier in response to a
- * travel account's program.
+ * <p>A travel proposal. The travel supplier creates a travel proposal in response to the travel program
+ * of a travel account.
  */
 public class TravelProposal {
     /**
@@ -62,14 +62,14 @@ public class TravelProposal {
     private String id;
 
     /**
-     * Supplier property that the proposal is tied to.
+     * The supplier property of the proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("supplierProperty")
     private SupplierProperty supplierProperty;
 
     /**
-     * Travel program that the proposal is in response to.
+     * The travel program that the proposal responds to.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("travelProgram")
@@ -83,7 +83,7 @@ public class TravelProposal {
     private Long contractPeriod;
 
     /**
-     * The status of the proposal
+     * The status of the proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
@@ -97,7 +97,7 @@ public class TravelProposal {
     private Boolean deleted;
 
     /**
-     * The rate review status of the proposal
+     * The rate review status of the proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rateReviewStatus")
@@ -118,29 +118,28 @@ public class TravelProposal {
     private FormatType format;
 
     /**
-     * True indicates the documents been read by the supply-side.
+     * True indicates the supplier has read the documents.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("documentRead")
     private Boolean documentRead;
 
     /**
-     * Reason the reject/decline action was performed. Used for certain actions/statuses.
+     * The reason code of the reject or decline action.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rejectReasonCode")
     private String rejectReasonCode;
 
     /**
-     * Comments regarding the reasoning for the reject/decline action. This only comes into play for
-     * certain actions/statuses.
+     * The comment on the reason for the reject or decline action.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rejectComment")
     private String rejectComment;
 
     /**
-     * The ISO 8601 datetime when proposal was submitted by the hotel.
+     * The ISO 8601 date and time when the hotel submitted the proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("submitDate")
@@ -154,7 +153,7 @@ public class TravelProposal {
     private Long negotiationRound;
 
     /**
-     * The ISO 8601 datetime when the negotiation response is due.
+     * The ISO 8601 date and time when the negotiation response is due.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("negotiationDueDate")
@@ -175,28 +174,28 @@ public class TravelProposal {
     private Boolean draft;
 
     /**
-     * Collection of bid IDs attached to the proposal.
+     * The bids attached to the proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bids")
     private List<TravelProposalBid1> bids;
 
     /**
-     * Collection of custom questions.
+     * The answers to the custom questions of the travel program.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customQuestionAnswers")
     private List<TravelProposalCustomQuestion> customQuestionAnswers;
 
     /**
-     * Group and meeting information.
+     * The group and meeting information of the proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("groupAndMeeting")
     private TravelProposalGroupAndMeeting groupAndMeeting;
 
     /**
-     * Represent proposal disposition details.
+     * The disposition of the travel proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("proposalDisposition")
@@ -321,14 +320,14 @@ public class TravelProposal {
     }
 
     /**
-     * Supplier property that the proposal is tied to.
+     * The supplier property of the proposal.
      */
     public Optional<SupplierProperty> supplierProperty() {
         return Optional.ofNullable(this.supplierProperty);
     }
 
     /**
-     * Travel program that the proposal is in response to.
+     * The travel program that the proposal responds to.
      */
     public Optional<TravelProposalTravelProgram> travelProgram() {
         return Optional.ofNullable(this.travelProgram);
@@ -342,7 +341,7 @@ public class TravelProposal {
     }
 
     /**
-     * The status of the proposal
+     * The status of the proposal.
      */
     public Optional<ProposalStatusType> status() {
         return Optional.ofNullable(this.status);
@@ -356,7 +355,7 @@ public class TravelProposal {
     }
 
     /**
-     * The rate review status of the proposal
+     * The rate review status of the proposal.
      */
     public Optional<RateReviewStatusType> rateReviewStatus() {
         return Optional.ofNullable(this.rateReviewStatus);
@@ -377,29 +376,28 @@ public class TravelProposal {
     }
 
     /**
-     * True indicates the documents been read by the supply-side.
+     * True indicates the supplier has read the documents.
      */
     public Optional<Boolean> documentRead() {
         return Optional.ofNullable(this.documentRead);
     }
 
     /**
-     * Reason the reject/decline action was performed. Used for certain actions/statuses.
+     * The reason code of the reject or decline action.
      */
     public Optional<String> rejectReasonCode() {
         return Optional.ofNullable(this.rejectReasonCode);
     }
 
     /**
-     * Comments regarding the reasoning for the reject/decline action. This only comes into play for
-     * certain actions/statuses.
+     * The comment on the reason for the reject or decline action.
      */
     public Optional<String> rejectComment() {
         return Optional.ofNullable(this.rejectComment);
     }
 
     /**
-     * The ISO 8601 datetime when proposal was submitted by the hotel.
+     * The ISO 8601 date and time when the hotel submitted the proposal.
      */
     public Optional<OffsetDateTime> submitDate() {
         return Optional.ofNullable(this.submitDate);
@@ -413,7 +411,7 @@ public class TravelProposal {
     }
 
     /**
-     * The ISO 8601 datetime when the negotiation response is due.
+     * The ISO 8601 date and time when the negotiation response is due.
      */
     public Optional<OffsetDateTime> negotiationDueDate() {
         return Optional.ofNullable(this.negotiationDueDate);
@@ -434,28 +432,28 @@ public class TravelProposal {
     }
 
     /**
-     * Collection of bid IDs attached to the proposal.
+     * The bids attached to the proposal.
      */
     public Optional<List<TravelProposalBid1>> bids() {
         return Optional.ofNullable(this.bids);
     }
 
     /**
-     * Collection of custom questions.
+     * The answers to the custom questions of the travel program.
      */
     public Optional<List<TravelProposalCustomQuestion>> customQuestionAnswers() {
         return Optional.ofNullable(this.customQuestionAnswers);
     }
 
     /**
-     * Group and meeting information.
+     * The group and meeting information of the proposal.
      */
     public Optional<TravelProposalGroupAndMeeting> groupAndMeeting() {
         return Optional.ofNullable(this.groupAndMeeting);
     }
 
     /**
-     * Represent proposal disposition details.
+     * The disposition of the travel proposal.
      */
     public Optional<TravelProposalDisposition> proposalDisposition() {
         return Optional.ofNullable(this.proposalDisposition);
@@ -506,7 +504,7 @@ public class TravelProposal {
     }
 
     /**
-     * Supplier property that the proposal is tied to.
+     * The supplier property of the proposal.
      */
     public TravelProposal withSupplierProperty(@Nullable SupplierProperty supplierProperty) {
         this.supplierProperty = supplierProperty;
@@ -514,7 +512,7 @@ public class TravelProposal {
     }
 
     /**
-     * Travel program that the proposal is in response to.
+     * The travel program that the proposal responds to.
      */
     public TravelProposal withTravelProgram(@Nullable TravelProposalTravelProgram travelProgram) {
         this.travelProgram = travelProgram;
@@ -530,7 +528,7 @@ public class TravelProposal {
     }
 
     /**
-     * The status of the proposal
+     * The status of the proposal.
      */
     public TravelProposal withStatus(@Nullable ProposalStatusType status) {
         this.status = status;
@@ -546,7 +544,7 @@ public class TravelProposal {
     }
 
     /**
-     * The rate review status of the proposal
+     * The rate review status of the proposal.
      */
     public TravelProposal withRateReviewStatus(@Nullable RateReviewStatusType rateReviewStatus) {
         this.rateReviewStatus = rateReviewStatus;
@@ -570,7 +568,7 @@ public class TravelProposal {
     }
 
     /**
-     * True indicates the documents been read by the supply-side.
+     * True indicates the supplier has read the documents.
      */
     public TravelProposal withDocumentRead(@Nullable Boolean documentRead) {
         this.documentRead = documentRead;
@@ -578,7 +576,7 @@ public class TravelProposal {
     }
 
     /**
-     * Reason the reject/decline action was performed. Used for certain actions/statuses.
+     * The reason code of the reject or decline action.
      */
     public TravelProposal withRejectReasonCode(@Nullable String rejectReasonCode) {
         this.rejectReasonCode = rejectReasonCode;
@@ -586,8 +584,7 @@ public class TravelProposal {
     }
 
     /**
-     * Comments regarding the reasoning for the reject/decline action. This only comes into play for
-     * certain actions/statuses.
+     * The comment on the reason for the reject or decline action.
      */
     public TravelProposal withRejectComment(@Nullable String rejectComment) {
         this.rejectComment = rejectComment;
@@ -595,7 +592,7 @@ public class TravelProposal {
     }
 
     /**
-     * The ISO 8601 datetime when proposal was submitted by the hotel.
+     * The ISO 8601 date and time when the hotel submitted the proposal.
      */
     public TravelProposal withSubmitDate(@Nullable OffsetDateTime submitDate) {
         this.submitDate = submitDate;
@@ -611,7 +608,7 @@ public class TravelProposal {
     }
 
     /**
-     * The ISO 8601 datetime when the negotiation response is due.
+     * The ISO 8601 date and time when the negotiation response is due.
      */
     public TravelProposal withNegotiationDueDate(@Nullable OffsetDateTime negotiationDueDate) {
         this.negotiationDueDate = negotiationDueDate;
@@ -635,7 +632,7 @@ public class TravelProposal {
     }
 
     /**
-     * Collection of bid IDs attached to the proposal.
+     * The bids attached to the proposal.
      */
     public TravelProposal withBids(@Nullable List<TravelProposalBid1> bids) {
         this.bids = bids;
@@ -643,7 +640,7 @@ public class TravelProposal {
     }
 
     /**
-     * Collection of custom questions.
+     * The answers to the custom questions of the travel program.
      */
     public TravelProposal withCustomQuestionAnswers(
             @Nullable List<TravelProposalCustomQuestion> customQuestionAnswers) {
@@ -652,7 +649,7 @@ public class TravelProposal {
     }
 
     /**
-     * Group and meeting information.
+     * The group and meeting information of the proposal.
      */
     public TravelProposal withGroupAndMeeting(@Nullable TravelProposalGroupAndMeeting groupAndMeeting) {
         this.groupAndMeeting = groupAndMeeting;
@@ -660,7 +657,7 @@ public class TravelProposal {
     }
 
     /**
-     * Represent proposal disposition details.
+     * The disposition of the travel proposal.
      */
     public TravelProposal withProposalDisposition(@Nullable TravelProposalDisposition proposalDisposition) {
         this.proposalDisposition = proposalDisposition;
@@ -887,7 +884,7 @@ public class TravelProposal {
         }
 
         /**
-         * Supplier property that the proposal is tied to.
+         * The supplier property of the proposal.
          */
         public Builder supplierProperty(@Nullable SupplierProperty supplierProperty) {
             this.supplierProperty = supplierProperty;
@@ -895,7 +892,7 @@ public class TravelProposal {
         }
 
         /**
-         * Travel program that the proposal is in response to.
+         * The travel program that the proposal responds to.
          */
         public Builder travelProgram(@Nullable TravelProposalTravelProgram travelProgram) {
             this.travelProgram = travelProgram;
@@ -911,7 +908,7 @@ public class TravelProposal {
         }
 
         /**
-         * The status of the proposal
+         * The status of the proposal.
          */
         public Builder status(@Nullable ProposalStatusType status) {
             this.status = status;
@@ -927,7 +924,7 @@ public class TravelProposal {
         }
 
         /**
-         * The rate review status of the proposal
+         * The rate review status of the proposal.
          */
         public Builder rateReviewStatus(@Nullable RateReviewStatusType rateReviewStatus) {
             this.rateReviewStatus = rateReviewStatus;
@@ -951,7 +948,7 @@ public class TravelProposal {
         }
 
         /**
-         * True indicates the documents been read by the supply-side.
+         * True indicates the supplier has read the documents.
          */
         public Builder documentRead(@Nullable Boolean documentRead) {
             this.documentRead = documentRead;
@@ -959,7 +956,7 @@ public class TravelProposal {
         }
 
         /**
-         * Reason the reject/decline action was performed. Used for certain actions/statuses.
+         * The reason code of the reject or decline action.
          */
         public Builder rejectReasonCode(@Nullable String rejectReasonCode) {
             this.rejectReasonCode = rejectReasonCode;
@@ -967,8 +964,7 @@ public class TravelProposal {
         }
 
         /**
-         * Comments regarding the reasoning for the reject/decline action. This only comes into play for
-         * certain actions/statuses.
+         * The comment on the reason for the reject or decline action.
          */
         public Builder rejectComment(@Nullable String rejectComment) {
             this.rejectComment = rejectComment;
@@ -976,7 +972,7 @@ public class TravelProposal {
         }
 
         /**
-         * The ISO 8601 datetime when proposal was submitted by the hotel.
+         * The ISO 8601 date and time when the hotel submitted the proposal.
          */
         public Builder submitDate(@Nullable OffsetDateTime submitDate) {
             this.submitDate = submitDate;
@@ -992,7 +988,7 @@ public class TravelProposal {
         }
 
         /**
-         * The ISO 8601 datetime when the negotiation response is due.
+         * The ISO 8601 date and time when the negotiation response is due.
          */
         public Builder negotiationDueDate(@Nullable OffsetDateTime negotiationDueDate) {
             this.negotiationDueDate = negotiationDueDate;
@@ -1016,7 +1012,7 @@ public class TravelProposal {
         }
 
         /**
-         * Collection of bid IDs attached to the proposal.
+         * The bids attached to the proposal.
          */
         public Builder bids(@Nullable List<TravelProposalBid1> bids) {
             this.bids = bids;
@@ -1024,7 +1020,7 @@ public class TravelProposal {
         }
 
         /**
-         * Collection of custom questions.
+         * The answers to the custom questions of the travel program.
          */
         public Builder customQuestionAnswers(@Nullable List<TravelProposalCustomQuestion> customQuestionAnswers) {
             this.customQuestionAnswers = customQuestionAnswers;
@@ -1032,7 +1028,7 @@ public class TravelProposal {
         }
 
         /**
-         * Group and meeting information.
+         * The group and meeting information of the proposal.
          */
         public Builder groupAndMeeting(@Nullable TravelProposalGroupAndMeeting groupAndMeeting) {
             this.groupAndMeeting = groupAndMeeting;
@@ -1040,7 +1036,7 @@ public class TravelProposal {
         }
 
         /**
-         * Represent proposal disposition details.
+         * The disposition of the travel proposal.
          */
         public Builder proposalDisposition(@Nullable TravelProposalDisposition proposalDisposition) {
             this.proposalDisposition = proposalDisposition;

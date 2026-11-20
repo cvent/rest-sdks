@@ -18,39 +18,39 @@ import java.util.Optional;
 /**
  * TravelProposalGroupAndMeetingBreakOutRoom
  *
- * <p>Break-out room information.
+ * <p>The break-out room information of the proposal.
  */
 public class TravelProposalGroupAndMeetingBreakOutRoom {
     /**
-     * True indicates a 10 person room is included.
+     * True indicates a 10-person room is included.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("10PersonRoomIncluded")
     private Boolean tenPersonRoomIncluded;
 
     /**
-     * Price for 10 person room.
+     * The price of a 10-person room.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("price10PersonRoom")
     private Double price10PersonRoom;
 
     /**
-     * True indicates a 25 person room included.
+     * True indicates a 25-person room is included.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("25PersonRoomIncluded")
     private Boolean twentyFivePersonRoomIncluded;
 
     /**
-     * Price for 25 person room.
+     * The price of a 25-person room.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("price25PersonRoom")
     private Double price25PersonRoom;
 
     /**
-     * True indicates there is a permanent board room set up.
+     * True indicates a permanent board room setup is available.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("permanentBoardRoomSetUp")
@@ -75,35 +75,35 @@ public class TravelProposalGroupAndMeetingBreakOutRoom {
     }
 
     /**
-     * True indicates a 10 person room is included.
+     * True indicates a 10-person room is included.
      */
     public Optional<Boolean> tenPersonRoomIncluded() {
         return Optional.ofNullable(this.tenPersonRoomIncluded);
     }
 
     /**
-     * Price for 10 person room.
+     * The price of a 10-person room.
      */
     public Optional<Double> price10PersonRoom() {
         return Optional.ofNullable(this.price10PersonRoom);
     }
 
     /**
-     * True indicates a 25 person room included.
+     * True indicates a 25-person room is included.
      */
     public Optional<Boolean> twentyFivePersonRoomIncluded() {
         return Optional.ofNullable(this.twentyFivePersonRoomIncluded);
     }
 
     /**
-     * Price for 25 person room.
+     * The price of a 25-person room.
      */
     public Optional<Double> price25PersonRoom() {
         return Optional.ofNullable(this.price25PersonRoom);
     }
 
     /**
-     * True indicates there is a permanent board room set up.
+     * True indicates a permanent board room setup is available.
      */
     public Optional<Boolean> permanentBoardRoomSetUp() {
         return Optional.ofNullable(this.permanentBoardRoomSetUp);
@@ -114,7 +114,7 @@ public class TravelProposalGroupAndMeetingBreakOutRoom {
     }
 
     /**
-     * True indicates a 10 person room is included.
+     * True indicates a 10-person room is included.
      */
     public TravelProposalGroupAndMeetingBreakOutRoom withTenPersonRoomIncluded(
             @Nullable Boolean tenPersonRoomIncluded) {
@@ -123,7 +123,7 @@ public class TravelProposalGroupAndMeetingBreakOutRoom {
     }
 
     /**
-     * Price for 10 person room.
+     * The price of a 10-person room.
      */
     public TravelProposalGroupAndMeetingBreakOutRoom withPrice10PersonRoom(@Nullable Double price10PersonRoom) {
         this.price10PersonRoom = price10PersonRoom;
@@ -131,7 +131,7 @@ public class TravelProposalGroupAndMeetingBreakOutRoom {
     }
 
     /**
-     * True indicates a 25 person room included.
+     * True indicates a 25-person room is included.
      */
     public TravelProposalGroupAndMeetingBreakOutRoom withTwentyFivePersonRoomIncluded(
             @Nullable Boolean twentyFivePersonRoomIncluded) {
@@ -140,7 +140,7 @@ public class TravelProposalGroupAndMeetingBreakOutRoom {
     }
 
     /**
-     * Price for 25 person room.
+     * The price of a 25-person room.
      */
     public TravelProposalGroupAndMeetingBreakOutRoom withPrice25PersonRoom(@Nullable Double price25PersonRoom) {
         this.price25PersonRoom = price25PersonRoom;
@@ -148,7 +148,7 @@ public class TravelProposalGroupAndMeetingBreakOutRoom {
     }
 
     /**
-     * True indicates there is a permanent board room set up.
+     * True indicates a permanent board room setup is available.
      */
     public TravelProposalGroupAndMeetingBreakOutRoom withPermanentBoardRoomSetUp(
             @Nullable Boolean permanentBoardRoomSetUp) {
@@ -216,7 +216,7 @@ public class TravelProposalGroupAndMeetingBreakOutRoom {
         }
 
         /**
-         * True indicates a 10 person room is included.
+         * True indicates a 10-person room is included.
          */
         public Builder tenPersonRoomIncluded(@Nullable Boolean tenPersonRoomIncluded) {
             this.tenPersonRoomIncluded = tenPersonRoomIncluded;
@@ -224,7 +224,7 @@ public class TravelProposalGroupAndMeetingBreakOutRoom {
         }
 
         /**
-         * Price for 10 person room.
+         * The price of a 10-person room.
          */
         public Builder price10PersonRoom(@Nullable Double price10PersonRoom) {
             this.price10PersonRoom = price10PersonRoom;
@@ -232,7 +232,7 @@ public class TravelProposalGroupAndMeetingBreakOutRoom {
         }
 
         /**
-         * True indicates a 25 person room included.
+         * True indicates a 25-person room is included.
          */
         public Builder twentyFivePersonRoomIncluded(@Nullable Boolean twentyFivePersonRoomIncluded) {
             this.twentyFivePersonRoomIncluded = twentyFivePersonRoomIncluded;
@@ -240,7 +240,7 @@ public class TravelProposalGroupAndMeetingBreakOutRoom {
         }
 
         /**
-         * Price for 25 person room.
+         * The price of a 25-person room.
          */
         public Builder price25PersonRoom(@Nullable Double price25PersonRoom) {
             this.price25PersonRoom = price25PersonRoom;
@@ -248,7 +248,7 @@ public class TravelProposalGroupAndMeetingBreakOutRoom {
         }
 
         /**
-         * True indicates there is a permanent board room set up.
+         * True indicates a permanent board room setup is available.
          */
         public Builder permanentBoardRoomSetUp(@Nullable Boolean permanentBoardRoomSetUp) {
             this.permanentBoardRoomSetUp = permanentBoardRoomSetUp;

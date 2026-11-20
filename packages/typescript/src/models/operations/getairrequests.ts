@@ -15,11 +15,11 @@ export type GetAirRequestsRequest = {
    */
   id: string;
   /**
-   * Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
+   * Returns records created or updated **strictly after** this date and time. Defaults to the beginning of the data store's time range.
    */
   after?: Date | undefined;
   /**
-   * Used to query records that have been added or updated before this time point.
+   * Returns records created or updated **strictly before** this date and time.
    */
   before?: Date | undefined;
   /**
@@ -72,7 +72,7 @@ export type GetAirRequestsRequest = {
    * @remarks
    *
    * The following fields are expandable:
-   *   * airRequestDetails.airRequestAnswers.question (<a href="#operation/getEventQuestions">List Event Questions</a>)
+   *   * airRequestDetails.airRequestAnswers.question ([List Event Questions](#operation/getEventQuestions))
    */
   expand?: Array<components.ExpandAirRequestQuestionAnswer> | undefined;
 };

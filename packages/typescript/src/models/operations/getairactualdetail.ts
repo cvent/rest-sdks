@@ -39,7 +39,7 @@ export type GetAirActualDetailRequest = {
    * @remarks
    *
    * The following fields are expandable:
-   *   * airActualDetails.airActualAnswers.question (<a href="#operation/getEventQuestions">List Event Questions</a>)
+   *   * airActualDetails.airActualAnswers.question ([List Event Questions](#operation/getEventQuestions))
    */
   expand?: Array<components.ExpandAirActualQuestionAnswer> | undefined;
   /**

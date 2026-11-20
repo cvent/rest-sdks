@@ -25,11 +25,11 @@ import {
  */
 export type TravelBidFairSeason = {
   /**
-   * Fair season type. Blackout means that no special rate is negotiated for that date and Best Available Rates will apply
+   * The type of the fair season. `blackout`: No special rate is negotiated for the dates, and the Best Available Rates apply.
    */
   type: FairSeasonType;
   /**
-   * Fair season name.
+   * The name of the fair season.
    */
   name?: string | undefined;
   /**
@@ -53,7 +53,7 @@ export type TravelBidFairSeason = {
    */
   rates?: Array<TravelBidFairSeasonRate> | undefined;
   /**
-   * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested, and the hotel, if they agree, can update the item to deleted. not_offered indicates the hotel does not offer this amenity (supply side only).
+   * The negotiation status of the bid item. For example, the corporation marks an item as `delete_requested`, and the hotel updates the item to `deleted` when it agrees. `not_offered`: The hotel does not offer the amenity. Applies only to the supply side.
    */
   status?: BidItemStatusType | undefined;
 };

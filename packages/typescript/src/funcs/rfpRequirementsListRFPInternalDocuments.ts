@@ -36,7 +36,7 @@ import {
  * List RFP Internal Documents
  *
  * @remarks
- * Returns paginated list of [internal documents](#tag/RFP-Requirements) added on an RFP.
+ * Returns a paginated list of [internal documents](#tag/RFP-Requirements) added to an RFP.
  */
 export function rfpRequirementsListRFPInternalDocuments(
   client: CventSDKCore,

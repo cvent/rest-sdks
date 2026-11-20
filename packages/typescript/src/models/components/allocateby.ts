@@ -6,14 +6,14 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700 from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000 budget).
+ * Specifies how to allocate a budgeted cost. AMOUNT allocates a fixed amount; PERCENTAGE allocates a percentage of the budget item's cost. For example, AMOUNT can allocate $700 from a $1,000 budget, while PERCENTAGE can allocate 70% of a $1,000 budget.
  */
 export const AllocateBy = {
   Percentage: "PERCENTAGE",
   Amount: "AMOUNT",
 } as const;
 /**
- * Specifies the method of budget allocation. Select "AMOUNT" to allocate a fixed amount (e.g., $700 from a $1000 budget), or "PERCENTAGE" to allocate based on a percentage (e.g., 70% of a $1000 budget).
+ * Specifies how to allocate a budgeted cost. AMOUNT allocates a fixed amount; PERCENTAGE allocates a percentage of the budget item's cost. For example, AMOUNT can allocate $700 from a $1,000 budget, while PERCENTAGE can allocate 70% of a $1,000 budget.
  */
 export type AllocateBy = ClosedEnum<typeof AllocateBy>;
 

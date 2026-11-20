@@ -36,7 +36,7 @@ import {
  * List RFP Agenda Item Schedules
  *
  * @remarks
- * Returns paginated list of schedules for agenda items added on an RFP.
+ * Returns a paginated list of the schedules of the agenda items of an RFP.
  */
 export function rfpRequirementsListRFPAgendaItemSchedules(
   client: CventSDKCore,

@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Requests
     public class UpdateAudienceSegmentRequest
     {
         /// <summary>
-        /// ID of an audience segment.
+        /// Audience segment ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=audienceSegmentId")]
         public string AudienceSegmentId { get; set; } = default!;

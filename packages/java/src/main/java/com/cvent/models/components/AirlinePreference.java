@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * AirlinePreference
  *
- * <p>Representation of airlines based on preference
+ * <p>A preferred airline and its associated rewards code.
  */
 public class AirlinePreference {
     /**

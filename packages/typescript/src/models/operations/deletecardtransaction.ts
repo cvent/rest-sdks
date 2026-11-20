@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 
 export type DeleteCardTransactionRequest = {
   /**
-   * Unique ID of a transaction.
+   * Transaction ID.
    */
   transactionId: string;
 };

@@ -6,7 +6,7 @@ The Travel RFP APIs provide access to travel programs and proposals. A travel pr
 represents a request for proposal (RFP) that defines the specific travel needs and
 requirements of a travel account. The travel account solicits hotels and other travel
 suppliers to respond to the program with proposals, which provide detailed
-information on rates and amenities.'
+information on rates and amenities.
 
 
 ### Available Operations
@@ -289,7 +289,7 @@ var res = await sdk.TravelRFPs.GetTravelProgramQuestionAsync(req);
 
 ## ListTravelProposals
 
-Get a paginated list of travel proposal details.
+Gets a paginated list of travel proposals.
 
 ### Example Usage
 
@@ -345,7 +345,7 @@ while(res != null)
 
 ## ListTravelProposalBids
 
-Get a paginated list of travel proposal bids.
+Gets a paginated list of travel proposal bids.
 
 ### Example Usage
 
@@ -401,7 +401,7 @@ while(res != null)
 
 ## GetTravelProposalBid
 
-Gets a travel proposal bid for the given travel proposal bid ID.
+Gets a travel proposal bid by its ID.
 
 ### Example Usage
 
@@ -448,7 +448,7 @@ var res = await sdk.TravelRFPs.GetTravelProposalBidAsync(req);
 
 ## ListTravelBuyerProposalBids
 
-Get a paginated list of travel buyer proposal bids.
+Gets a paginated list of travel buyer proposal bids.
 
 ### Example Usage
 
@@ -504,7 +504,7 @@ while(res != null)
 
 ## GetTravelBuyerProposalBid
 
-Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+Gets a travel buyer proposal bid by its ID.
 
 ### Example Usage
 
@@ -551,7 +551,7 @@ var res = await sdk.TravelRFPs.GetTravelBuyerProposalBidAsync(req);
 
 ## ListTravelProposalStaticContent
 
-Gets a paginated list of proposal static content across multiple proposals.
+Gets a paginated list of the static content of travel proposals.
 
 ### Example Usage
 
@@ -607,7 +607,7 @@ while(res != null)
 
 ## GetTravelProposal
 
-Gets a travel proposal for the given travel proposal ID.
+Gets a travel proposal by its ID.
 
 ### Example Usage
 
@@ -654,7 +654,7 @@ var res = await sdk.TravelRFPs.GetTravelProposalAsync(req);
 
 ## GetTravelProposalStaticContent
 
-Retrieves static content for a specific proposal as a list of field-value pairs with sequence ordering.
+Gets the static content of a travel proposal. The static content is a list of field-value pairs in sequence order.
 
 ### Example Usage
 

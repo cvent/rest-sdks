@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Model representing a distribution list info. Only required if the contact group type is DISTRIBUTION_LIST.
+    /// Distribution list settings for a contact group, including its security type, internal note, and status. This object is required only when the contact group type is `DISTRIBUTION_LIST`.
     /// </summary>
     public class DistributionListInfo
     {

@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * ID of the property's room.
+ * The accepted property room.
  */
 export type TravelBidDispositionAcceptedRoomPropertyRoom = {
   /**
@@ -18,19 +18,19 @@ export type TravelBidDispositionAcceptedRoomPropertyRoom = {
 };
 
 /**
- * Represents bid disposition's accepted room.
+ * A room that the bid disposition accepts.
  */
 export type TravelBidDispositionAcceptedRoom = {
   /**
-   * ID of the property's room.
+   * The accepted property room.
    */
   propertyRoom?: TravelBidDispositionAcceptedRoomPropertyRoom | undefined;
   /**
-   * Indicates whether the LRA rates are accepted.
+   * True indicates the last room availability (LRA) rates are accepted.
    */
   lraRateAccepted?: boolean | undefined;
   /**
-   * Indicates whether the NLRA rates are accepted.
+   * True indicates the non-last room availability (NLRA) rates are accepted.
    */
   nlraRateAccepted?: boolean | undefined;
 };

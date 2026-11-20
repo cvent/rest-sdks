@@ -24,3 +24,7 @@ export type PackagePricingPreference = ClosedEnum<
 export const PackagePricingPreference$inboundSchema: z.ZodNativeEnum<
   typeof PackagePricingPreference
 > = z.nativeEnum(PackagePricingPreference);
+/** @internal */
+export const PackagePricingPreference$outboundSchema: z.ZodNativeEnum<
+  typeof PackagePricingPreference
+> = PackagePricingPreference$inboundSchema;

@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 
 export type GetTravelBuyerProposalBidRequest = {
   /**
-   * Unique ID of a travel proposal bid.
+   * The ID of the travel proposal bid.
    */
   travelProposalBidId: string;
 };

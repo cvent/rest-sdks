@@ -1,6 +1,6 @@
 # RateReviewStatusType
 
-The rate review status of the proposal
+The rate review status of the proposal.
 
 ## Example Usage
 

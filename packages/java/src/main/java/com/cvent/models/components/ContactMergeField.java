@@ -14,7 +14,7 @@ import java.util.Optional;
 /**
  * ContactMergeField
  *
- * <p>A pair of a contact field name and a contact id.
+ * <p>A contact field name and contact ID pair.
  */
 public class ContactMergeField {
     /**

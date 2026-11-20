@@ -21,13 +21,13 @@ namespace Cvent.SDK.Models.Components
     public class EventBudgetTotals
     {
         /// <summary>
-        /// The identifier of the Event.
+        /// Event ID.
         /// </summary>
         [JsonProperty("event")]
         public EventBudgetTotalsEvent? Event { get; set; }
 
         /// <summary>
-        /// The identifier of the Budget version for an event.
+        /// Budget version details for the event.
         /// </summary>
         [JsonProperty("version")]
         public Models.Components.Version? Version { get; set; }

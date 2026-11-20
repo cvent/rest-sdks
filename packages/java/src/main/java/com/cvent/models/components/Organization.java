@@ -20,7 +20,9 @@ import java.util.Optional;
  */
 public class Organization {
     /**
-     * Unique identifier for the organization.
+     * ID of one of the account's organization profiles. Omit it or send the nil UUID
+     * (00000000-0000-0000-0000-000000000000) to describe a new organization in the parent
+     * rfpEventOrganization object. Responses return the nil UUID for a new organization.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -36,7 +38,9 @@ public class Organization {
     }
 
     /**
-     * Unique identifier for the organization.
+     * ID of one of the account's organization profiles. Omit it or send the nil UUID
+     * (00000000-0000-0000-0000-000000000000) to describe a new organization in the parent
+     * rfpEventOrganization object. Responses return the nil UUID for a new organization.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -47,7 +51,9 @@ public class Organization {
     }
 
     /**
-     * Unique identifier for the organization.
+     * ID of one of the account's organization profiles. Omit it or send the nil UUID
+     * (00000000-0000-0000-0000-000000000000) to describe a new organization in the parent
+     * rfpEventOrganization object. Responses return the nil UUID for a new organization.
      */
     public Organization withId(@Nullable String id) {
         this.id = id;
@@ -86,7 +92,9 @@ public class Organization {
         }
 
         /**
-         * Unique identifier for the organization.
+         * ID of one of the account's organization profiles. Omit it or send the nil UUID
+         * (00000000-0000-0000-0000-000000000000) to describe a new organization in the parent
+         * rfpEventOrganization object. Responses return the nil UUID for a new organization.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

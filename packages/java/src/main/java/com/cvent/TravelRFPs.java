@@ -67,7 +67,7 @@ import jakarta.annotation.Nullable;
  * represents a request for proposal (RFP) that defines the specific travel needs and
  * requirements of a travel account. The travel account solicits hotels and other travel
  * suppliers to respond to the program with proposals, which provide detailed
- * information on rates and amenities.'
+ * information on rates and amenities.
  */
 public class TravelRFPs {
     private static final Headers _headers = Headers.EMPTY;
@@ -298,7 +298,7 @@ public class TravelRFPs {
     /**
      * List Travel Proposals
      *
-     * <p>Get a paginated list of travel proposal details.
+     * <p>Gets a paginated list of travel proposals.
      *
      * @return The call builder
      */
@@ -309,7 +309,7 @@ public class TravelRFPs {
     /**
      * List Travel Proposals
      *
-     * <p>Get a paginated list of travel proposal details.
+     * <p>Gets a paginated list of travel proposals.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -322,7 +322,7 @@ public class TravelRFPs {
     /**
      * List Travel Proposals
      *
-     * <p>Get a paginated list of travel proposal details.
+     * <p>Gets a paginated list of travel proposals.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -339,7 +339,7 @@ public class TravelRFPs {
     /**
      * List Travel Proposal Bids
      *
-     * <p>Get a paginated list of travel proposal bids.
+     * <p>Gets a paginated list of travel proposal bids.
      *
      * @return The call builder
      */
@@ -350,7 +350,7 @@ public class TravelRFPs {
     /**
      * List Travel Proposal Bids
      *
-     * <p>Get a paginated list of travel proposal bids.
+     * <p>Gets a paginated list of travel proposal bids.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -363,7 +363,7 @@ public class TravelRFPs {
     /**
      * List Travel Proposal Bids
      *
-     * <p>Get a paginated list of travel proposal bids.
+     * <p>Gets a paginated list of travel proposal bids.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -380,7 +380,7 @@ public class TravelRFPs {
     /**
      * Get Travel Proposal Bid
      *
-     * <p>Gets a travel proposal bid for the given travel proposal bid ID.
+     * <p>Gets a travel proposal bid by its ID.
      *
      * @return The call builder
      */
@@ -391,7 +391,7 @@ public class TravelRFPs {
     /**
      * Get Travel Proposal Bid
      *
-     * <p>Gets a travel proposal bid for the given travel proposal bid ID.
+     * <p>Gets a travel proposal bid by its ID.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -404,7 +404,7 @@ public class TravelRFPs {
     /**
      * Get Travel Proposal Bid
      *
-     * <p>Gets a travel proposal bid for the given travel proposal bid ID.
+     * <p>Gets a travel proposal bid by its ID.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -421,7 +421,7 @@ public class TravelRFPs {
     /**
      * List Buyer Proposal Bids
      *
-     * <p>Get a paginated list of travel buyer proposal bids.
+     * <p>Gets a paginated list of travel buyer proposal bids.
      *
      * @return The call builder
      */
@@ -432,7 +432,7 @@ public class TravelRFPs {
     /**
      * List Buyer Proposal Bids
      *
-     * <p>Get a paginated list of travel buyer proposal bids.
+     * <p>Gets a paginated list of travel buyer proposal bids.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -446,7 +446,7 @@ public class TravelRFPs {
     /**
      * List Buyer Proposal Bids
      *
-     * <p>Get a paginated list of travel buyer proposal bids.
+     * <p>Gets a paginated list of travel buyer proposal bids.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -463,7 +463,7 @@ public class TravelRFPs {
     /**
      * Get Buyer Proposal Bid
      *
-     * <p>Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+     * <p>Gets a travel buyer proposal bid by its ID.
      *
      * @return The call builder
      */
@@ -474,7 +474,7 @@ public class TravelRFPs {
     /**
      * Get Buyer Proposal Bid
      *
-     * <p>Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+     * <p>Gets a travel buyer proposal bid by its ID.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -488,7 +488,7 @@ public class TravelRFPs {
     /**
      * Get Buyer Proposal Bid
      *
-     * <p>Gets a travel buyer proposal bid for the given travel buyer proposal bid ID.
+     * <p>Gets a travel buyer proposal bid by its ID.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -505,7 +505,7 @@ public class TravelRFPs {
     /**
      * List Static Contents
      *
-     * <p>Gets a paginated list of proposal static content across multiple proposals.
+     * <p>Gets a paginated list of the static content of travel proposals.
      *
      * @return The call builder
      */
@@ -516,7 +516,7 @@ public class TravelRFPs {
     /**
      * List Static Contents
      *
-     * <p>Gets a paginated list of proposal static content across multiple proposals.
+     * <p>Gets a paginated list of the static content of travel proposals.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -530,7 +530,7 @@ public class TravelRFPs {
     /**
      * List Static Contents
      *
-     * <p>Gets a paginated list of proposal static content across multiple proposals.
+     * <p>Gets a paginated list of the static content of travel proposals.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -547,7 +547,7 @@ public class TravelRFPs {
     /**
      * Get Travel Proposal
      *
-     * <p>Gets a travel proposal for the given travel proposal ID.
+     * <p>Gets a travel proposal by its ID.
      *
      * @return The call builder
      */
@@ -558,7 +558,7 @@ public class TravelRFPs {
     /**
      * Get Travel Proposal
      *
-     * <p>Gets a travel proposal for the given travel proposal ID.
+     * <p>Gets a travel proposal by its ID.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -571,7 +571,7 @@ public class TravelRFPs {
     /**
      * Get Travel Proposal
      *
-     * <p>Gets a travel proposal for the given travel proposal ID.
+     * <p>Gets a travel proposal by its ID.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -588,8 +588,8 @@ public class TravelRFPs {
     /**
      * Get Static Content
      *
-     * <p>Retrieves static content for a specific proposal as a list of field-value pairs with sequence
-     * ordering.
+     * <p>Gets the static content of a travel proposal. The static content is a list of field-value pairs in
+     * sequence order.
      *
      * @return The call builder
      */
@@ -600,8 +600,8 @@ public class TravelRFPs {
     /**
      * Get Static Content
      *
-     * <p>Retrieves static content for a specific proposal as a list of field-value pairs with sequence
-     * ordering.
+     * <p>Gets the static content of a travel proposal. The static content is a list of field-value pairs in
+     * sequence order.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -615,8 +615,8 @@ public class TravelRFPs {
     /**
      * Get Static Content
      *
-     * <p>Retrieves static content for a specific proposal as a list of field-value pairs with sequence
-     * ordering.
+     * <p>Gets the static content of a travel proposal. The static content is a list of field-value pairs in
+     * sequence order.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options

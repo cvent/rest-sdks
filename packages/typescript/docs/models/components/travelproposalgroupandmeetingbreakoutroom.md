@@ -1,6 +1,6 @@
 # TravelProposalGroupAndMeetingBreakOutRoom
 
-Break-out room information.
+The break-out room information of the proposal.
 
 ## Example Usage
 
@@ -15,10 +15,10 @@ let value: TravelProposalGroupAndMeetingBreakOutRoom = {
 
 ## Fields
 
-| Field                                                  | Type                                                   | Required                                               | Description                                            | Example                                                |
-| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| `tenPersonRoomIncluded`                                | *boolean*                                              | :heavy_minus_sign:                                     | True indicates a 10 person room is included.           |                                                        |
-| `price10PersonRoom`                                    | *number*                                               | :heavy_minus_sign:                                     | Price for 10 person room.                              | 100                                                    |
-| `twentyFivePersonRoomIncluded`                         | *boolean*                                              | :heavy_minus_sign:                                     | True indicates a 25 person room included.              |                                                        |
-| `price25PersonRoom`                                    | *number*                                               | :heavy_minus_sign:                                     | Price for 25 person room.                              | 100                                                    |
-| `permanentBoardRoomSetUp`                              | *boolean*                                              | :heavy_minus_sign:                                     | True indicates there is a permanent board room set up. |                                                        |
+| Field                                                     | Type                                                      | Required                                                  | Description                                               | Example                                                   |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| `tenPersonRoomIncluded`                                   | *boolean*                                                 | :heavy_minus_sign:                                        | True indicates a 10-person room is included.              |                                                           |
+| `price10PersonRoom`                                       | *number*                                                  | :heavy_minus_sign:                                        | The price of a 10-person room.                            | 100                                                       |
+| `twentyFivePersonRoomIncluded`                            | *boolean*                                                 | :heavy_minus_sign:                                        | True indicates a 25-person room is included.              |                                                           |
+| `price25PersonRoom`                                       | *number*                                                  | :heavy_minus_sign:                                        | The price of a 25-person room.                            | 100                                                       |
+| `permanentBoardRoomSetUp`                                 | *boolean*                                                 | :heavy_minus_sign:                                        | True indicates a permanent board room setup is available. |                                                           |

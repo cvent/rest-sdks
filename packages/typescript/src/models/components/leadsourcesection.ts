@@ -25,7 +25,27 @@ export const LeadSourceSection$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string().optional(),
 });
+/** @internal */
+export type LeadSourceSection$Outbound = {
+  id?: string | undefined;
+};
 
+/** @internal */
+export const LeadSourceSection$outboundSchema: z.ZodType<
+  LeadSourceSection$Outbound,
+  z.ZodTypeDef,
+  LeadSourceSection
+> = z.object({
+  id: z.string().optional(),
+});
+
+export function leadSourceSectionToJSON(
+  leadSourceSection: LeadSourceSection,
+): string {
+  return JSON.stringify(
+    LeadSourceSection$outboundSchema.parse(leadSourceSection),
+  );
+}
 export function leadSourceSectionFromJSON(
   jsonString: string,
 ): SafeParseResult<LeadSourceSection, SDKValidationError> {

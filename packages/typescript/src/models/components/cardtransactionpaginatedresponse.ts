@@ -21,7 +21,7 @@ export type CardTransactionPaginatedResponse = {
    */
   paging: Paging;
   /**
-   * Collection of virtual card transaction.
+   * Collection of virtual card transactions.
    */
   data: Array<CardTransaction>;
 };

@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetPaymentsRequest = {
   /**
-   * Unique ID of an event.
+   * Event ID.
    */
   id: string;
   /**

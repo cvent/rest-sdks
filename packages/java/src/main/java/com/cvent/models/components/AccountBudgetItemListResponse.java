@@ -51,7 +51,7 @@ public class AccountBudgetItemListResponse {
     private String lastModifiedBy;
 
     /**
-     * Event ID Information.
+     * Contains the ID of the event associated with the budget item.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
@@ -65,15 +65,15 @@ public class AccountBudgetItemListResponse {
     private Rfp1 rfp;
 
     /**
-     * Budget version ID information. Defaults to the account's default budget version when creating or
-     * updating budget items.
+     * Budget version of a budget item in the account-wide list, including whether it's a default budget
+     * version.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("budgetVersion")
-    private BudgetVersion budgetVersion;
+    private AccountBudgetVersion budgetVersion;
 
     /**
-     * The identifier of the budget item.
+     * Budget item ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -101,7 +101,7 @@ public class AccountBudgetItemListResponse {
     private BudgetCategory category;
 
     /**
-     * This is used to denote the sub category for a budget.
+     * Subcategory assigned to a budget item.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("subCategory")
@@ -122,7 +122,7 @@ public class AccountBudgetItemListResponse {
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("event") @Nullable Event1 event,
             @JsonProperty("rfp") @Nullable Rfp1 rfp,
-            @JsonProperty("budgetVersion") @Nullable BudgetVersion budgetVersion,
+            @JsonProperty("budgetVersion") @Nullable AccountBudgetVersion budgetVersion,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("code") @Nullable String code,
@@ -177,7 +177,7 @@ public class AccountBudgetItemListResponse {
     }
 
     /**
-     * Event ID Information.
+     * Contains the ID of the event associated with the budget item.
      */
     public Optional<Event1> event() {
         return Optional.ofNullable(this.event);
@@ -191,15 +191,15 @@ public class AccountBudgetItemListResponse {
     }
 
     /**
-     * Budget version ID information. Defaults to the account's default budget version when creating or
-     * updating budget items.
+     * Budget version of a budget item in the account-wide list, including whether it's a default budget
+     * version.
      */
-    public Optional<BudgetVersion> budgetVersion() {
+    public Optional<AccountBudgetVersion> budgetVersion() {
         return Optional.ofNullable(this.budgetVersion);
     }
 
     /**
-     * The identifier of the budget item.
+     * Budget item ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -227,7 +227,7 @@ public class AccountBudgetItemListResponse {
     }
 
     /**
-     * This is used to denote the sub category for a budget.
+     * Subcategory assigned to a budget item.
      */
     public Optional<BudgetSubCategory> subCategory() {
         return Optional.ofNullable(this.subCategory);
@@ -277,7 +277,7 @@ public class AccountBudgetItemListResponse {
     }
 
     /**
-     * Event ID Information.
+     * Contains the ID of the event associated with the budget item.
      */
     public AccountBudgetItemListResponse withEvent(@Nullable Event1 event) {
         this.event = event;
@@ -293,16 +293,16 @@ public class AccountBudgetItemListResponse {
     }
 
     /**
-     * Budget version ID information. Defaults to the account's default budget version when creating or
-     * updating budget items.
+     * Budget version of a budget item in the account-wide list, including whether it's a default budget
+     * version.
      */
-    public AccountBudgetItemListResponse withBudgetVersion(@Nullable BudgetVersion budgetVersion) {
+    public AccountBudgetItemListResponse withBudgetVersion(@Nullable AccountBudgetVersion budgetVersion) {
         this.budgetVersion = budgetVersion;
         return this;
     }
 
     /**
-     * The identifier of the budget item.
+     * Budget item ID.
      */
     public AccountBudgetItemListResponse withId(@Nullable String id) {
         this.id = id;
@@ -334,7 +334,7 @@ public class AccountBudgetItemListResponse {
     }
 
     /**
-     * This is used to denote the sub category for a budget.
+     * Subcategory assigned to a budget item.
      */
     public AccountBudgetItemListResponse withSubCategory(@Nullable BudgetSubCategory subCategory) {
         this.subCategory = subCategory;
@@ -438,7 +438,7 @@ public class AccountBudgetItemListResponse {
 
         private Rfp1 rfp;
 
-        private BudgetVersion budgetVersion;
+        private AccountBudgetVersion budgetVersion;
 
         private String id;
 
@@ -489,7 +489,7 @@ public class AccountBudgetItemListResponse {
         }
 
         /**
-         * Event ID Information.
+         * Contains the ID of the event associated with the budget item.
          */
         public Builder event(@Nullable Event1 event) {
             this.event = event;
@@ -505,16 +505,16 @@ public class AccountBudgetItemListResponse {
         }
 
         /**
-         * Budget version ID information. Defaults to the account's default budget version when creating or
-         * updating budget items.
+         * Budget version of a budget item in the account-wide list, including whether it's a default budget
+         * version.
          */
-        public Builder budgetVersion(@Nullable BudgetVersion budgetVersion) {
+        public Builder budgetVersion(@Nullable AccountBudgetVersion budgetVersion) {
             this.budgetVersion = budgetVersion;
             return this;
         }
 
         /**
-         * The identifier of the budget item.
+         * Budget item ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -546,7 +546,7 @@ public class AccountBudgetItemListResponse {
         }
 
         /**
-         * This is used to denote the sub category for a budget.
+         * Subcategory assigned to a budget item.
          */
         public Builder subCategory(@Nullable BudgetSubCategory subCategory) {
             this.subCategory = subCategory;

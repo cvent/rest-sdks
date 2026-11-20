@@ -9,8 +9,13 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   GuestRoomOccupancy,
   GuestRoomOccupancy$inboundSchema,
+  GuestRoomOccupancy$outboundSchema,
 } from "./guestroomoccupancy.js";
-import { GuestRoomType, GuestRoomType$inboundSchema } from "./guestroomtype.js";
+import {
+  GuestRoomType,
+  GuestRoomType$inboundSchema,
+  GuestRoomType$outboundSchema,
+} from "./guestroomtype.js";
 
 /**
  * Room occupancy for a room type.
@@ -35,7 +40,31 @@ export const GuestRoomOccupancyPerRoomType$inboundSchema: z.ZodType<
   occupancy: GuestRoomOccupancy$inboundSchema.optional(),
   type: GuestRoomType$inboundSchema,
 });
+/** @internal */
+export type GuestRoomOccupancyPerRoomType$Outbound = {
+  occupancy?: string | undefined;
+  type: string;
+};
 
+/** @internal */
+export const GuestRoomOccupancyPerRoomType$outboundSchema: z.ZodType<
+  GuestRoomOccupancyPerRoomType$Outbound,
+  z.ZodTypeDef,
+  GuestRoomOccupancyPerRoomType
+> = z.object({
+  occupancy: GuestRoomOccupancy$outboundSchema.optional(),
+  type: GuestRoomType$outboundSchema,
+});
+
+export function guestRoomOccupancyPerRoomTypeToJSON(
+  guestRoomOccupancyPerRoomType: GuestRoomOccupancyPerRoomType,
+): string {
+  return JSON.stringify(
+    GuestRoomOccupancyPerRoomType$outboundSchema.parse(
+      guestRoomOccupancyPerRoomType,
+    ),
+  );
+}
 export function guestRoomOccupancyPerRoomTypeFromJSON(
   jsonString: string,
 ): SafeParseResult<GuestRoomOccupancyPerRoomType, SDKValidationError> {

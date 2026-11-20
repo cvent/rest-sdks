@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * RateReviewStatusType
  *
- * <p>The rate review status of the proposal
+ * <p>The rate review status of the proposal.
  */
 public enum RateReviewStatusType {
     REQUESTED("requested"),

@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// This is used to denote the sub category for a budget.
+    /// Subcategory assigned to a budget item.
     /// </summary>
     public class BudgetSubCategoryInput
     {

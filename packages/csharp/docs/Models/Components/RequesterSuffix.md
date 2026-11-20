@@ -1,6 +1,6 @@
 # RequesterSuffix
 
-Suffix of the flight requester.
+Suffix of the requester.
 
 ## Example Usage
 

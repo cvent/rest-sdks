@@ -5,12 +5,24 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.RequestOperation;
 
+import com.cvent.models.operations.AssociateRfpSupplierRequest;
+import com.cvent.models.operations.AssociateRfpSupplierRequestBuilder;
+import com.cvent.models.operations.AssociateRfpSupplierResponse;
+import com.cvent.models.operations.DisassociateRfpSupplierRequest;
+import com.cvent.models.operations.DisassociateRfpSupplierRequestBuilder;
+import com.cvent.models.operations.DisassociateRfpSupplierResponse;
+import com.cvent.models.operations.GetRfpSupplierRequest;
+import com.cvent.models.operations.GetRfpSupplierRequestBuilder;
+import com.cvent.models.operations.GetRfpSupplierResponse;
 import com.cvent.models.operations.GetRfpSuppliersRequest;
 import com.cvent.models.operations.GetRfpSuppliersRequestBuilder;
 import com.cvent.models.operations.GetRfpSuppliersResponse;
 import com.cvent.models.operations.ListRfpRecipientsHistoryRequest;
 import com.cvent.models.operations.ListRfpRecipientsHistoryRequestBuilder;
 import com.cvent.models.operations.ListRfpRecipientsHistoryResponse;
+import com.cvent.operations.AssociateRfpSupplier;
+import com.cvent.operations.DisassociateRfpSupplier;
+import com.cvent.operations.GetRfpSupplier;
 import com.cvent.operations.GetRfpSuppliers;
 import com.cvent.operations.ListRfpRecipientsHistory;
 import com.cvent.utils.Headers;
@@ -119,6 +131,152 @@ public class RFPSuppliers {
     public GetRfpSuppliersResponse getRfpSuppliers(@Nonnull GetRfpSuppliersRequest request, @Nullable Options options) {
         RequestOperation<GetRfpSuppliersRequest, GetRfpSuppliersResponse> operation =
                 new GetRfpSuppliers.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Get RFP Supplier
+     *
+     * <p>Returns details of a specific supplier associated with an RFP.
+     *
+     * @return The call builder
+     */
+    public GetRfpSupplierRequestBuilder getRfpSupplier() {
+        return new GetRfpSupplierRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Get RFP Supplier
+     *
+     * <p>Returns details of a specific supplier associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetRfpSupplierResponse getRfpSupplier(@Nonnull GetRfpSupplierRequest request) {
+        return getRfpSupplier(request, null);
+    }
+
+    /**
+     * Get RFP Supplier
+     *
+     * <p>Returns details of a specific supplier associated with an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetRfpSupplierResponse getRfpSupplier(@Nonnull GetRfpSupplierRequest request, @Nullable Options options) {
+        RequestOperation<GetRfpSupplierRequest, GetRfpSupplierResponse> operation =
+                new GetRfpSupplier.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Associate Supplier to RFP
+     *
+     * <p>Associates a given supplier to an RFP.
+     *
+     * <p>Lead source: only `leadSource.section.id` is used; `leadSource.id` is ignored. If you omit the
+     * section, Cvent sets the default section. A caller can send only the default section.
+     *
+     * <p>Another section is rejected with 400.
+     *
+     * <p>If the supplier is already associated with the RFP, only the `promotion` in the request is applied.
+     * The rest of the existing association, including its lead source, is left unchanged.
+     *
+     * @return The call builder
+     */
+    public AssociateRfpSupplierRequestBuilder associateRfpSupplier() {
+        return new AssociateRfpSupplierRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Associate Supplier to RFP
+     *
+     * <p>Associates a given supplier to an RFP.
+     *
+     * <p>Lead source: only `leadSource.section.id` is used; `leadSource.id` is ignored. If you omit the
+     * section, Cvent sets the default section. A caller can send only the default section.
+     *
+     * <p>Another section is rejected with 400.
+     *
+     * <p>If the supplier is already associated with the RFP, only the `promotion` in the request is applied.
+     * The rest of the existing association, including its lead source, is left unchanged.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AssociateRfpSupplierResponse associateRfpSupplier(@Nonnull AssociateRfpSupplierRequest request) {
+        return associateRfpSupplier(request, null);
+    }
+
+    /**
+     * Associate Supplier to RFP
+     *
+     * <p>Associates a given supplier to an RFP.
+     *
+     * <p>Lead source: only `leadSource.section.id` is used; `leadSource.id` is ignored. If you omit the
+     * section, Cvent sets the default section. A caller can send only the default section.
+     *
+     * <p>Another section is rejected with 400.
+     *
+     * <p>If the supplier is already associated with the RFP, only the `promotion` in the request is applied.
+     * The rest of the existing association, including its lead source, is left unchanged.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AssociateRfpSupplierResponse associateRfpSupplier(
+            @Nonnull AssociateRfpSupplierRequest request, @Nullable Options options) {
+        RequestOperation<AssociateRfpSupplierRequest, AssociateRfpSupplierResponse> operation =
+                new AssociateRfpSupplier.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Disassociate RFP Supplier
+     *
+     * <p>Disassociates the specified supplier from an RFP.
+     *
+     * @return The call builder
+     */
+    public DisassociateRfpSupplierRequestBuilder disassociateRfpSupplier() {
+        return new DisassociateRfpSupplierRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Disassociate RFP Supplier
+     *
+     * <p>Disassociates the specified supplier from an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DisassociateRfpSupplierResponse disassociateRfpSupplier(@Nonnull DisassociateRfpSupplierRequest request) {
+        return disassociateRfpSupplier(request, null);
+    }
+
+    /**
+     * Disassociate RFP Supplier
+     *
+     * <p>Disassociates the specified supplier from an RFP.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DisassociateRfpSupplierResponse disassociateRfpSupplier(
+            @Nonnull DisassociateRfpSupplierRequest request, @Nullable Options options) {
+        RequestOperation<DisassociateRfpSupplierRequest, DisassociateRfpSupplierResponse> operation =
+                new DisassociateRfpSupplier.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

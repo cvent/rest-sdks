@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Assign Contact Profile Picture
  *
  * @remarks
- * Assign a profile picture to a contact with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current profile picture if one is assigned.
+ * Assign a profile picture to a contact with a file UUID from [file upload](#operation/uploadFile) endpoint. This will replace the current profile picture if one is assigned.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

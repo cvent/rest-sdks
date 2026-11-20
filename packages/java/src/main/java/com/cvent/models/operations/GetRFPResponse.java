@@ -32,7 +32,7 @@ public class GetRFPResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully returns the basic details of the RFP.
+     * Successfully retrieved the basic details of the RFP.
      */
     private Rfp2 rfp;
 
@@ -76,7 +76,7 @@ public class GetRFPResponse implements Response {
     }
 
     /**
-     * Successfully returns the basic details of the RFP.
+     * Successfully retrieved the basic details of the RFP.
      */
     public Optional<Rfp2> rfp() {
         return Optional.ofNullable(this.rfp);
@@ -111,7 +111,7 @@ public class GetRFPResponse implements Response {
     }
 
     /**
-     * Successfully returns the basic details of the RFP.
+     * Successfully retrieved the basic details of the RFP.
      */
     public GetRFPResponse withRfp(@Nullable Rfp2 rfp) {
         this.rfp = rfp;
@@ -192,7 +192,7 @@ public class GetRFPResponse implements Response {
         }
 
         /**
-         * Successfully returns the basic details of the RFP.
+         * Successfully retrieved the basic details of the RFP.
          */
         public Builder rfp(@Nullable Rfp2 rfp) {
             this.rfp = rfp;

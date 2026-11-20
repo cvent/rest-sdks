@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * TaxType1
  *
- * <p>Bid tax type.
+ * <p>The type of the tax or fee.
  */
 public enum TaxType1 {
     CITY_TAX("city_tax"),

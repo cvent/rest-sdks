@@ -36,7 +36,7 @@ export type ContactEvent = {
 };
 
 /**
- * Represents a contact that has been created and has an id.
+ * A contact that has been created and assigned an ID.
  */
 export type Contact = {
   /**
@@ -136,7 +136,7 @@ export type Contact = {
    */
   customFields?: Array<CustomField> | undefined;
   /**
-   * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
+   * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
    */
   sourceId?: string | undefined;
   /**
@@ -144,7 +144,7 @@ export type Contact = {
    */
   mobilePhone?: string | undefined;
   /**
-   * Detail related to compliance with the contact's privacy rights under various legislation.
+   * Collection of compliance details about the contact's privacy rights under applicable legislation.
    */
   compliance?: Array<Compliance> | undefined;
   /**
@@ -176,11 +176,11 @@ export type Contact = {
    */
   links?: ContactLinks | undefined;
   /**
-   * The date of birth of the contact.
+   * The contact's date of birth, in ISO 8601 date format.
    *
    * @remarks
    *
-   *  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively.
+   *  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes, respectively.
    */
   dateOfBirth?: RFCDate | undefined;
   /**

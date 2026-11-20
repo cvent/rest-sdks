@@ -22,3 +22,7 @@ export type EventFormatType = ClosedEnum<typeof EventFormatType>;
 export const EventFormatType$inboundSchema: z.ZodNativeEnum<
   typeof EventFormatType
 > = z.nativeEnum(EventFormatType);
+/** @internal */
+export const EventFormatType$outboundSchema: z.ZodNativeEnum<
+  typeof EventFormatType
+> = EventFormatType$inboundSchema;

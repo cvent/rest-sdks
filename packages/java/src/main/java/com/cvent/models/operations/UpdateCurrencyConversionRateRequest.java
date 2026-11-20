@@ -20,7 +20,7 @@ public class UpdateCurrencyConversionRateRequest {
     private String currency;
 
     /**
-     * Unique ID of currency conversion rate.
+     * Currency conversion rate ID.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=conversionRateId")
     private String conversionRateId;
@@ -52,7 +52,7 @@ public class UpdateCurrencyConversionRateRequest {
     }
 
     /**
-     * Unique ID of currency conversion rate.
+     * Currency conversion rate ID.
      */
     public String conversionRateId() {
         return this.conversionRateId;
@@ -78,7 +78,7 @@ public class UpdateCurrencyConversionRateRequest {
     }
 
     /**
-     * Unique ID of currency conversion rate.
+     * Currency conversion rate ID.
      */
     public UpdateCurrencyConversionRateRequest withConversionRateId(@Nonnull String conversionRateId) {
         this.conversionRateId = Utils.checkNotNull(conversionRateId, "conversionRateId");
@@ -148,7 +148,7 @@ public class UpdateCurrencyConversionRateRequest {
         }
 
         /**
-         * Unique ID of currency conversion rate.
+         * Currency conversion rate ID.
          */
         public Builder conversionRateId(@Nonnull String conversionRateId) {
             this.conversionRateId = Utils.checkNotNull(conversionRateId, "conversionRateId");

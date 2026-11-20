@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// This entity is used to represent a single item that is posted for a contact create.
+    /// Field values used to create a contact.
     /// </summary>
     public class ContactCreate
     {
@@ -128,7 +128,7 @@ namespace Cvent.SDK.Models.Components
         public string? WorkFax { get; set; }
 
         /// <summary>
-        /// This is a ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
+        /// This is an ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
         /// </summary>
         [JsonProperty("sourceId")]
         public string? SourceId { get; set; }
@@ -170,9 +170,9 @@ namespace Cvent.SDK.Models.Components
         public ContactLinksInput? Links { get; set; }
 
         /// <summary>
-        /// The date of birth of the contact.<br/>
+        /// The contact's date of birth, in ISO 8601 date format.<br/>
         /// <br/>
-        ///  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes respectively.
+        ///  Reading and writing of this field require the `event/contacts:read-sensitive` and `event/contacts:write-sensitive` scopes, respectively.
         /// </summary>
         [JsonProperty("dateOfBirth")]
         public DateOnly? DateOfBirth { get; set; }
@@ -233,7 +233,7 @@ namespace Cvent.SDK.Models.Components
         public string? Pronouns { get; set; }
 
         /// <summary>
-        /// ID of the parent contact, applicable with contact snapshot. This field has been deprecated. If the event has contact snapshot enabled, snapshot will be automatically created through the Add attendees API.
+        /// ID of the parent contact, applicable with contact snapshot. This field has been deprecated. If the event has contact snapshot enabled, snapshot will be automatically created through the Add Attendees API.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("parentId")]

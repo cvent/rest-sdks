@@ -20,3 +20,6 @@ export type RfpDateMode = ClosedEnum<typeof RfpDateMode>;
 /** @internal */
 export const RfpDateMode$inboundSchema: z.ZodNativeEnum<typeof RfpDateMode> = z
   .nativeEnum(RfpDateMode);
+/** @internal */
+export const RfpDateMode$outboundSchema: z.ZodNativeEnum<typeof RfpDateMode> =
+  RfpDateMode$inboundSchema;

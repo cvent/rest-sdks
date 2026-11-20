@@ -23,11 +23,11 @@ export const VideoSourceStatus = {
 export type VideoSourceStatus = ClosedEnum<typeof VideoSourceStatus>;
 
 /**
- * Source of video.
+ * Information about the video's external source, including its ID and status.
  */
 export type VideoSource = {
   /**
-   * The id of a video in the external system
+   * The ID of a video in the external system.
    */
   id?: string | undefined;
   /**

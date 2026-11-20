@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully updated the budget allocations in the budget item.
+        /// Successfully updated budget allocations in the budget item.
         /// </summary>
         public BudgetAllocationsList? BudgetAllocationsList { get; set; }
     }

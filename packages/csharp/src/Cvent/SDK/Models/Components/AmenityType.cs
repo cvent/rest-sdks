@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Amenity type.
+    /// The type of the amenity.
     /// </summary>
     public enum AmenityType
     {

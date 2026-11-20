@@ -112,62 +112,62 @@ public final class OAuth2Scopes {
         AttendeeInsightsStatsRead("attendee-insights/stats:read"),
 
         /**
-         * Allows the deletion of budget items
+         * Allows the deletion of budget items.
          */
         BudgetBudgetItemsDelete("budget/budget-items:delete"),
 
         /**
-         * Allows the reading of all budget items
+         * Allows the reading of all budget items.
          */
         BudgetBudgetItemsRead("budget/budget-items:read"),
 
         /**
-         * Allows creation/updation of budget item
+         * Allows the creation and update of budget items.
          */
         BudgetBudgetItemsWrite("budget/budget-items:write"),
 
         /**
-         * Allows the reading of all event budget totals
+         * Allows the reading of all event budget totals.
          */
         BudgetBudgetTotalsRead("budget/budget-totals:read"),
 
         /**
-         * Allows reading of account-level budget vendors.
+         * Allows the reading of account-level budget vendors.
          */
         BudgetBudgetVendorsRead("budget/budget-vendors:read"),
 
         /**
-         * Allows the reading of cards
+         * Allows the reading of cards.
          */
         BudgetCardsRead("budget/cards:read"),
 
         /**
-         * Allows deletion of currency conversion rate for currency.
+         * Allows the deletion of currency conversion rates.
          */
         BudgetCurrencyConversionRateDelete("budget/currency-conversion-rate:delete"),
 
         /**
-         * Allows reading of currency conversion rate for currency.
+         * Allows the reading of currency conversion rates.
          */
         BudgetCurrencyConversionRateRead("budget/currency-conversion-rate:read"),
 
         /**
-         * Allows creation/update of currency conversion rate for currency.
+         * Allows the creation and update of currency conversion rates.
          */
         BudgetCurrencyConversionRateWrite("budget/currency-conversion-rate:write"),
 
         /**
-         * Allows deletion of payments.
+         * Allows the deletion of payments.
          */
         BudgetPaymentsDelete("budget/payments:delete"),
 
         /**
-         * Allows reading of payment for budget item.
+         * Allows the reading of payments for budget items.
          */
         BudgetPaymentsRead("budget/payments:read"),
 
         /**
-         * Allows creation of payment in a budget item.
+         * Allows the creation and update of payments for budget items.
          */
         BudgetPaymentsWrite("budget/payments:write"),
 
@@ -177,12 +177,12 @@ public final class OAuth2Scopes {
         BudgetTransactionsDelete("budget/transactions:delete"),
 
         /**
-         * Allows the reading of all card's transactions
+         * Allows the reading of all card transactions.
          */
         BudgetTransactionsRead("budget/transactions:read"),
 
         /**
-         * Allows creation of card transactions.
+         * Allows the creation and update of card transactions.
          */
         BudgetTransactionsWrite("budget/transactions:write"),
 
@@ -857,9 +857,24 @@ public final class OAuth2Scopes {
         RemotePrintingBadgePrinterPoolsRead("remote-printing/badge-printer-pools:read"),
 
         /**
+         * Allows the deletion of RFP agenda items.
+         */
+        RfpRfpAgendaItemsDelete("rfp/rfp-agenda-items:delete"),
+
+        /**
          * Allows the reading of RFP agenda items.
          */
         RfpRfpAgendaItemsRead("rfp/rfp-agenda-items:read"),
+
+        /**
+         * Allows the creation and modification of RFP agenda items.
+         */
+        RfpRfpAgendaItemsWrite("rfp/rfp-agenda-items:write"),
+
+        /**
+         * Allows the disassociation of Attachments from an RFP.
+         */
+        RfpRfpAttachmentsDelete("rfp/rfp-attachments:delete"),
 
         /**
          * Allows the reading of RFP attachments.
@@ -867,9 +882,19 @@ public final class OAuth2Scopes {
         RfpRfpAttachmentsRead("rfp/rfp-attachments:read"),
 
         /**
+         * Allows the association of Attachments with an RFP.
+         */
+        RfpRfpAttachmentsWrite("rfp/rfp-attachments:write"),
+
+        /**
          * Allows the reading of RFP custom fields.
          */
         RfpRfpCustomFieldsRead("rfp/rfp-custom-fields:read"),
+
+        /**
+         * Allows add/update answers to custom fields associated with an RFP.
+         */
+        RfpRfpCustomFieldsWrite("rfp/rfp-custom-fields:write"),
 
         /**
          * Allows the reading of RFP guest rooms.
@@ -877,9 +902,24 @@ public final class OAuth2Scopes {
         RfpRfpGuestRoomsRead("rfp/rfp-guest-rooms:read"),
 
         /**
+         * Allows the creation and modification of RFP guest rooms.
+         */
+        RfpRfpGuestRoomsWrite("rfp/rfp-guest-rooms:write"),
+
+        /**
+         * Allows the disassociation of internal documents from an RFP.
+         */
+        RfpRfpInternalDocumentsDelete("rfp/rfp-internal-documents:delete"),
+
+        /**
          * Allows the reading of RFP internal documents.
          */
         RfpRfpInternalDocumentsRead("rfp/rfp-internal-documents:read"),
+
+        /**
+         * Allows the writing of RFP internal documents.
+         */
+        RfpRfpInternalDocumentsWrite("rfp/rfp-internal-documents:write"),
 
         /**
          * Allows the reading of RFP lead sources.
@@ -887,9 +927,24 @@ public final class OAuth2Scopes {
         RfpRfpLeadSourcesRead("rfp/rfp-lead-sources:read"),
 
         /**
+         * Allows the deletion of RFP past events.
+         */
+        RfpRfpPastEventsDelete("rfp/rfp-past-events:delete"),
+
+        /**
          * Allows the reading of past events similar to rfp event.
          */
         RfpRfpPastEventsRead("rfp/rfp-past-events:read"),
+
+        /**
+         * Allows the creation and modification of RFP past events.
+         */
+        RfpRfpPastEventsWrite("rfp/rfp-past-events:write"),
+
+        /**
+         * Allows the deletion of RFP questions.
+         */
+        RfpRfpQuestionsDelete("rfp/rfp-questions:delete"),
 
         /**
          * Allows the reading of RFP questions.
@@ -897,9 +952,19 @@ public final class OAuth2Scopes {
         RfpRfpQuestionsRead("rfp/rfp-questions:read"),
 
         /**
+         * Allows the creation and modification of RFP questions.
+         */
+        RfpRfpQuestionsWrite("rfp/rfp-questions:write"),
+
+        /**
          * Allows the reading of RFP recipients history.
          */
         RfpRfpRecipientsHistoryRead("rfp/rfp-recipients-history:read"),
+
+        /**
+         * Allows the disassociation of suppliers from an RFP.
+         */
+        RfpRfpSuppliersDelete("rfp/rfp-suppliers:delete"),
 
         /**
          * Allows the reading of RFP suppliers.
@@ -907,9 +972,19 @@ public final class OAuth2Scopes {
         RfpRfpSuppliersRead("rfp/rfp-suppliers:read"),
 
         /**
+         * Allows the association of suppliers with an RFP.
+         */
+        RfpRfpSuppliersWrite("rfp/rfp-suppliers:write"),
+
+        /**
          * Allows the reading of basic details of RFP.
          */
         RfpRfpsRead("rfp/rfps:read"),
+
+        /**
+         * Allows the creation and modification of RFP.
+         */
+        RfpRfpsWrite("rfp/rfps:write"),
 
         /**
          * Allows to read attendee seat assignment information.
@@ -1284,62 +1359,62 @@ public final class OAuth2Scopes {
         AttendeeInsightsStatsRead("attendee-insights/stats:read"),
 
         /**
-         * Allows the deletion of budget items
+         * Allows the deletion of budget items.
          */
         BudgetBudgetItemsDelete("budget/budget-items:delete"),
 
         /**
-         * Allows the reading of all budget items
+         * Allows the reading of all budget items.
          */
         BudgetBudgetItemsRead("budget/budget-items:read"),
 
         /**
-         * Allows creation/updation of budget item
+         * Allows the creation and update of budget items.
          */
         BudgetBudgetItemsWrite("budget/budget-items:write"),
 
         /**
-         * Allows the reading of all event budget totals
+         * Allows the reading of all event budget totals.
          */
         BudgetBudgetTotalsRead("budget/budget-totals:read"),
 
         /**
-         * Allows reading of account-level budget vendors.
+         * Allows the reading of account-level budget vendors.
          */
         BudgetBudgetVendorsRead("budget/budget-vendors:read"),
 
         /**
-         * Allows the reading of cards
+         * Allows the reading of cards.
          */
         BudgetCardsRead("budget/cards:read"),
 
         /**
-         * Allows deletion of currency conversion rate for currency.
+         * Allows the deletion of currency conversion rates.
          */
         BudgetCurrencyConversionRateDelete("budget/currency-conversion-rate:delete"),
 
         /**
-         * Allows reading of currency conversion rate for currency.
+         * Allows the reading of currency conversion rates.
          */
         BudgetCurrencyConversionRateRead("budget/currency-conversion-rate:read"),
 
         /**
-         * Allows creation/update of currency conversion rate for currency.
+         * Allows the creation and update of currency conversion rates.
          */
         BudgetCurrencyConversionRateWrite("budget/currency-conversion-rate:write"),
 
         /**
-         * Allows deletion of payments.
+         * Allows the deletion of payments.
          */
         BudgetPaymentsDelete("budget/payments:delete"),
 
         /**
-         * Allows reading of payment for budget item.
+         * Allows the reading of payments for budget items.
          */
         BudgetPaymentsRead("budget/payments:read"),
 
         /**
-         * Allows creation of payment in a budget item.
+         * Allows the creation and update of payments for budget items.
          */
         BudgetPaymentsWrite("budget/payments:write"),
 
@@ -1349,12 +1424,12 @@ public final class OAuth2Scopes {
         BudgetTransactionsDelete("budget/transactions:delete"),
 
         /**
-         * Allows the reading of all card's transactions
+         * Allows the reading of all card transactions.
          */
         BudgetTransactionsRead("budget/transactions:read"),
 
         /**
-         * Allows creation of card transactions.
+         * Allows the creation and update of card transactions.
          */
         BudgetTransactionsWrite("budget/transactions:write"),
 
@@ -2179,9 +2254,24 @@ public final class OAuth2Scopes {
         RemotePrintingBadgePrinterPoolsRead("remote-printing/badge-printer-pools:read"),
 
         /**
+         * Allows the deletion of RFP agenda items.
+         */
+        RfpRfpAgendaItemsDelete("rfp/rfp-agenda-items:delete"),
+
+        /**
          * Allows the reading of RFP agenda items.
          */
         RfpRfpAgendaItemsRead("rfp/rfp-agenda-items:read"),
+
+        /**
+         * Allows the creation and modification of RFP agenda items.
+         */
+        RfpRfpAgendaItemsWrite("rfp/rfp-agenda-items:write"),
+
+        /**
+         * Allows the disassociation of Attachments from an RFP.
+         */
+        RfpRfpAttachmentsDelete("rfp/rfp-attachments:delete"),
 
         /**
          * Allows the reading of RFP attachments.
@@ -2189,9 +2279,19 @@ public final class OAuth2Scopes {
         RfpRfpAttachmentsRead("rfp/rfp-attachments:read"),
 
         /**
+         * Allows the association of Attachments with an RFP.
+         */
+        RfpRfpAttachmentsWrite("rfp/rfp-attachments:write"),
+
+        /**
          * Allows the reading of RFP custom fields.
          */
         RfpRfpCustomFieldsRead("rfp/rfp-custom-fields:read"),
+
+        /**
+         * Allows add/update answers to custom fields associated with an RFP.
+         */
+        RfpRfpCustomFieldsWrite("rfp/rfp-custom-fields:write"),
 
         /**
          * Allows the reading of RFP guest rooms.
@@ -2199,9 +2299,24 @@ public final class OAuth2Scopes {
         RfpRfpGuestRoomsRead("rfp/rfp-guest-rooms:read"),
 
         /**
+         * Allows the creation and modification of RFP guest rooms.
+         */
+        RfpRfpGuestRoomsWrite("rfp/rfp-guest-rooms:write"),
+
+        /**
+         * Allows the disassociation of internal documents from an RFP.
+         */
+        RfpRfpInternalDocumentsDelete("rfp/rfp-internal-documents:delete"),
+
+        /**
          * Allows the reading of RFP internal documents.
          */
         RfpRfpInternalDocumentsRead("rfp/rfp-internal-documents:read"),
+
+        /**
+         * Allows the writing of RFP internal documents.
+         */
+        RfpRfpInternalDocumentsWrite("rfp/rfp-internal-documents:write"),
 
         /**
          * Allows the reading of RFP lead sources.
@@ -2209,9 +2324,24 @@ public final class OAuth2Scopes {
         RfpRfpLeadSourcesRead("rfp/rfp-lead-sources:read"),
 
         /**
+         * Allows the deletion of RFP past events.
+         */
+        RfpRfpPastEventsDelete("rfp/rfp-past-events:delete"),
+
+        /**
          * Allows the reading of past events similar to rfp event.
          */
         RfpRfpPastEventsRead("rfp/rfp-past-events:read"),
+
+        /**
+         * Allows the creation and modification of RFP past events.
+         */
+        RfpRfpPastEventsWrite("rfp/rfp-past-events:write"),
+
+        /**
+         * Allows the deletion of RFP questions.
+         */
+        RfpRfpQuestionsDelete("rfp/rfp-questions:delete"),
 
         /**
          * Allows the reading of RFP questions.
@@ -2219,9 +2349,19 @@ public final class OAuth2Scopes {
         RfpRfpQuestionsRead("rfp/rfp-questions:read"),
 
         /**
+         * Allows the creation and modification of RFP questions.
+         */
+        RfpRfpQuestionsWrite("rfp/rfp-questions:write"),
+
+        /**
          * Allows the reading of RFP recipients history.
          */
         RfpRfpRecipientsHistoryRead("rfp/rfp-recipients-history:read"),
+
+        /**
+         * Allows the disassociation of suppliers from an RFP.
+         */
+        RfpRfpSuppliersDelete("rfp/rfp-suppliers:delete"),
 
         /**
          * Allows the reading of RFP suppliers.
@@ -2229,9 +2369,19 @@ public final class OAuth2Scopes {
         RfpRfpSuppliersRead("rfp/rfp-suppliers:read"),
 
         /**
+         * Allows the association of suppliers with an RFP.
+         */
+        RfpRfpSuppliersWrite("rfp/rfp-suppliers:write"),
+
+        /**
          * Allows the reading of basic details of RFP.
          */
         RfpRfpsRead("rfp/rfps:read"),
+
+        /**
+         * Allows the creation and modification of RFP.
+         */
+        RfpRfpsWrite("rfp/rfps:write"),
 
         /**
          * Allows to read attendee seat assignment information.

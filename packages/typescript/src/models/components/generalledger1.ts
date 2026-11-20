@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * This is used to denote the general ledger code associated with budget.
+ * General ledger code and details associated with a budget item.
  */
 export type GeneralLedger1 = {
   /**

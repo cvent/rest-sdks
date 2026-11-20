@@ -8,19 +8,19 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Represents a single static content field with its value and sequence order
+ * A static content field with its value and its sequence order.
  */
 export type StaticContentItem = {
   /**
-   * The name of the static content field (e.g., propertyName, numberOfRooms, extendedStay)
+   * The name of the static content field, for example `propertyName`, `numberOfRooms`, or `extendedStay`.
    */
   fieldName: string;
   /**
-   * Sequence number for ordering the static content items
+   * The position of the item in the order of the static content items.
    */
   sequence: number;
   /**
-   * The value of the static content field
+   * The value of the static content field.
    */
   value?: string | null | undefined;
 };

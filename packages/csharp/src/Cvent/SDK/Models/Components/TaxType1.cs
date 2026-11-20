@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Bid tax type.
+    /// The type of the tax or fee.
     /// </summary>
     public enum TaxType1
     {

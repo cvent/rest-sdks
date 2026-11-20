@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved list of past events.
+        /// Successfully retrieved a list of RFP past events.
         /// </summary>
         public RfpPastEvents? RfpPastEvents { get; set; }
     }

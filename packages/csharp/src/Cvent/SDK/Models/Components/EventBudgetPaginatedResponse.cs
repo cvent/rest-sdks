@@ -26,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public Paging Paging { get; set; } = default!;
 
         /// <summary>
-        /// Collection of Event Budget Totals Information.
+        /// Collection of event budget totals.
         /// </summary>
         [JsonProperty("data")]
         public List<EventBudgetTotals> Data { get; set; } = default!;

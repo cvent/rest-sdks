@@ -13,11 +13,11 @@ import {
 } from "./travelproposalstaticcontentresponse.js";
 
 /**
- * Paginated response containing a list of proposal static content across multiple proposals
+ * A paginated list of the static content of travel proposals.
  */
 export type TravelProposalStaticContentListResponse = {
   /**
-   * Array of proposal static content responses
+   * The static content of each travel proposal on the page.
    */
   data: Array<TravelProposalStaticContentResponse>;
   /**

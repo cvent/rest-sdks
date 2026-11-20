@@ -1,6 +1,6 @@
 # VideoRendition
 
-Video rendition
+A video rendition with its type, location, and dimensions.
 
 ## Example Usage
 

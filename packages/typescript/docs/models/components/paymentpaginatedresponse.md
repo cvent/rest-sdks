@@ -37,12 +37,12 @@ let value: PaymentPaginatedResponse = {
       note: "This payment is for admission.",
       type: "CB",
       lastModified: new Date("2020-02-07T00:00:00.000Z"),
-      id: "9463c74e-18c6-401a-a710-ae0f485bf959",
+      id: "a64b457b-19d9-484e-bb86-effc63f7a889",
       budgetVersion: {
-        id: "9463c74e-18c6-401a-a710-ae0f485bf959",
+        id: "b52e44a0-f3bb-4757-a45c-5a875c4b0946",
       },
       budgetItem: {
-        id: "9463c74e-18c6-401a-a710-ae0f485bf959",
+        id: "a4863748-d8df-4873-a81e-288cd7df9d14",
       },
     },
   ],

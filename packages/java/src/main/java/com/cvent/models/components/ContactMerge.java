@@ -22,7 +22,7 @@ import java.util.Optional;
  */
 public class ContactMerge {
     /**
-     * Id of the contact(s) to be merged to the main contact.
+     * IDs of the contacts to merge into the main contact.
      */
     @JsonProperty("secondaryContacts")
     private List<String> secondaryContacts;
@@ -49,7 +49,7 @@ public class ContactMerge {
     }
 
     /**
-     * Id of the contact(s) to be merged to the main contact.
+     * IDs of the contacts to merge into the main contact.
      */
     public List<String> secondaryContacts() {
         return this.secondaryContacts;
@@ -68,7 +68,7 @@ public class ContactMerge {
     }
 
     /**
-     * Id of the contact(s) to be merged to the main contact.
+     * IDs of the contacts to merge into the main contact.
      */
     public ContactMerge withSecondaryContacts(@Nonnull List<String> secondaryContacts) {
         this.secondaryContacts = Utils.checkNotNull(secondaryContacts, "secondaryContacts");
@@ -120,7 +120,7 @@ public class ContactMerge {
         }
 
         /**
-         * Id of the contact(s) to be merged to the main contact.
+         * IDs of the contacts to merge into the main contact.
          */
         public Builder secondaryContacts(@Nonnull List<String> secondaryContacts) {
             this.secondaryContacts = Utils.checkNotNull(secondaryContacts, "secondaryContacts");

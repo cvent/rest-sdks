@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// This is used to denote the card type for a card.
+    /// Form of payment card: Virtual or Plastic.
     /// </summary>
     public enum CardType1
     {

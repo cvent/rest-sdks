@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * TravelBidSeasonRatePropertyRoom
  *
- * <p>ID of the property's room.
+ * <p>The property room that the rates apply to.
  */
 public class TravelBidSeasonRatePropertyRoom {
     /**

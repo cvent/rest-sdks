@@ -28,7 +28,7 @@ export type UpdateContactCustomFieldAnswersRequest = {
    *   - Currency (Positive decimal value, 10.5). Denoted by *Currency* in the response payload.
    *   - Decimal (-20.5). Denoted by *Decimal* in the response payload.
    *   - US Phone Number (123-456-7890). Denoted by *USPhoneNumber* in the response payload.
-   *   - Email Address (h.potterfield@test.com). Denoted by *Email* in the response payload.
+   *   - Email Address (h.potterfield@example.com). Denoted by *Email* in the response payload.
    * * **Open Ended Text - Comment Box**. Answer format is free-text (any value). Denoted by *FreeText* in the
    *     response payload.
    * * **Choice - Single Answer (Drop-Down, Vertical, Horizontal).** Answer format is exactly one response to a

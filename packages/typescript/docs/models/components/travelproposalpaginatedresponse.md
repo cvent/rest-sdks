@@ -94,7 +94,7 @@ let value: TravelProposalPaginatedResponse = {
           lcdPrice: 100,
           screenPrice: 100,
           hsiaPrice: 100,
-          whatCompanyProvidesAVEquipment: "Some company",
+          whatCompanyProvidesAVEquipment: "Example AV Services",
         },
         breakOutRoom: {
           price10PersonRoom: 100,
@@ -130,4 +130,4 @@ let value: TravelProposalPaginatedResponse = {
 | Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              |
 | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
 | `paging`                                                                 | [components.Paging](../../models/components/paging.md)                   | :heavy_minus_sign:                                                       | Represents pagination information for a collection of resources.         |
-| `data`                                                                   | [components.TravelProposal](../../models/components/travelproposal.md)[] | :heavy_minus_sign:                                                       | Paginated list of business transient proposals.                          |
+| `data`                                                                   | [components.TravelProposal](../../models/components/travelproposal.md)[] | :heavy_minus_sign:                                                       | The travel proposals on the page.                                        |

@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * TravelBidRoomPropertyRoom
  *
- * <p>ID of the property's room.
+ * <p>The property room in the bid.
  */
 public class TravelBidRoomPropertyRoom {
     /**

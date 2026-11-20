@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Representation of the housing reservation details.
+    /// A housing reservation request with its bridge ID and booking-site link.
     /// </summary>
     public class HousingReservation
     {
@@ -25,7 +25,7 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// Represents a link to a related resource.
+        /// Link to the booking site for this reservation request.
         /// </summary>
         [JsonProperty("bookingSite")]
         public HousingReservationLink? BookingSite { get; set; }

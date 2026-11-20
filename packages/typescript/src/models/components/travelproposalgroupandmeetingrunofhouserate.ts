@@ -8,47 +8,47 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Run of house rate information.
+ * The run of house rates of the proposal.
  */
 export type TravelProposalGroupAndMeetingRunOfHouseRate = {
   /**
-   * Season one run of house rate for 10-50 people.
+   * The season one run of house rate for 10 to 50 people.
    */
   seasonOne10To50People?: number | undefined;
   /**
-   * Season one run of house rate for 51-100 people.
+   * The season one run of house rate for 51 to 100 people.
    */
   seasonOne51To100People?: number | undefined;
   /**
-   * Season two run of house rate for 10-50 people.
+   * The season two run of house rate for 10 to 50 people.
    */
   seasonTwo10To50People?: number | undefined;
   /**
-   * Season two run of house rate for 51-100 people.
+   * The season two run of house rate for 51 to 100 people.
    */
   seasonTwo51To100People?: number | undefined;
   /**
-   * Season three run of house rate for 10-50 people.
+   * The season three run of house rate for 10 to 50 people.
    */
   seasonThree10To50People?: number | undefined;
   /**
-   * Season three run of house rate for 51-100 people.
+   * The season three run of house rate for 51 to 100 people.
    */
   seasonThree51To100People?: number | undefined;
   /**
-   * Season four run of house rate for 10-50 people.
+   * The season four run of house rate for 10 to 50 people.
    */
   seasonFour10To50People?: number | undefined;
   /**
-   * Season four run of house rate for 51-100 people.
+   * The season four run of house rate for 51 to 100 people.
    */
   seasonFour51To100People?: number | undefined;
   /**
-   * Season five run of house rate for 10-50 people.
+   * The season five run of house rate for 10 to 50 people.
    */
   seasonFive10To50People?: number | undefined;
   /**
-   * Season five run of house rate for 51-100 people.
+   * The season five run of house rate for 51 to 100 people.
    */
   seasonFive51To100People?: number | undefined;
 };

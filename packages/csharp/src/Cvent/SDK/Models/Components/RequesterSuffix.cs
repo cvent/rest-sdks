@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Suffix of the flight requester.
+    /// Suffix of the requester.
     /// </summary>
     public enum RequesterSuffix
     {

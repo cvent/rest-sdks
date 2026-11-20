@@ -63,6 +63,13 @@ public class Contact1 {
     private Boolean commissionable;
 
     /**
+     * The hotel or venue service categories to which the commission applies.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("commissionApplicableTypes")
+    private List<CommissionApplicable1> commissionApplicableTypes;
+
+    /**
      * Phone number of the planner.
      */
     @JsonProperty("phone")
@@ -96,6 +103,7 @@ public class Contact1 {
             @JsonProperty("address") @Nullable Address1 address,
             @JsonProperty("commissionRate") @Nullable Double commissionRate,
             @JsonProperty("commissionable") @Nullable Boolean commissionable,
+            @JsonProperty("commissionApplicableTypes") @Nullable List<CommissionApplicable1> commissionApplicableTypes,
             @JsonProperty("phone") @Nonnull String phone,
             @JsonProperty("organizationName") @Nonnull String organizationName,
             @JsonProperty("thirdPartyPlanner") @Nullable Boolean thirdPartyPlanner,
@@ -108,6 +116,7 @@ public class Contact1 {
         this.address = address;
         this.commissionRate = commissionRate;
         this.commissionable = commissionable;
+        this.commissionApplicableTypes = commissionApplicableTypes;
         this.phone = Optional.ofNullable(phone).orElseThrow(() -> new IllegalArgumentException("phone cannot be null"));
         this.organizationName = Optional.ofNullable(organizationName)
                 .orElseThrow(() -> new IllegalArgumentException("organizationName cannot be null"));
@@ -121,7 +130,7 @@ public class Contact1 {
             @Nonnull String email,
             @Nonnull String phone,
             @Nonnull String organizationName) {
-        this(firstName, lastName, email, null, null, null, phone, organizationName, null, null);
+        this(firstName, lastName, email, null, null, null, null, phone, organizationName, null, null);
     }
 
     /**
@@ -164,6 +173,13 @@ public class Contact1 {
      */
     public Optional<Boolean> commissionable() {
         return Optional.ofNullable(this.commissionable);
+    }
+
+    /**
+     * The hotel or venue service categories to which the commission applies.
+     */
+    public Optional<List<CommissionApplicable1>> commissionApplicableTypes() {
+        return Optional.ofNullable(this.commissionApplicableTypes);
     }
 
     /**
@@ -247,6 +263,14 @@ public class Contact1 {
     }
 
     /**
+     * The hotel or venue service categories to which the commission applies.
+     */
+    public Contact1 withCommissionApplicableTypes(@Nullable List<CommissionApplicable1> commissionApplicableTypes) {
+        this.commissionApplicableTypes = commissionApplicableTypes;
+        return this;
+    }
+
+    /**
      * Phone number of the planner.
      */
     public Contact1 withPhone(@Nonnull String phone) {
@@ -293,6 +317,7 @@ public class Contact1 {
                 && Utils.enhancedDeepEquals(this.address, other.address)
                 && Utils.enhancedDeepEquals(this.commissionRate, other.commissionRate)
                 && Utils.enhancedDeepEquals(this.commissionable, other.commissionable)
+                && Utils.enhancedDeepEquals(this.commissionApplicableTypes, other.commissionApplicableTypes)
                 && Utils.enhancedDeepEquals(this.phone, other.phone)
                 && Utils.enhancedDeepEquals(this.organizationName, other.organizationName)
                 && Utils.enhancedDeepEquals(this.thirdPartyPlanner, other.thirdPartyPlanner)
@@ -308,6 +333,7 @@ public class Contact1 {
                 address,
                 commissionRate,
                 commissionable,
+                commissionApplicableTypes,
                 phone,
                 organizationName,
                 thirdPartyPlanner,
@@ -330,6 +356,8 @@ public class Contact1 {
                 commissionRate,
                 "commissionable",
                 commissionable,
+                "commissionApplicableTypes",
+                commissionApplicableTypes,
                 "phone",
                 phone,
                 "organizationName",
@@ -354,6 +382,8 @@ public class Contact1 {
         private Double commissionRate;
 
         private Boolean commissionable;
+
+        private List<CommissionApplicable1> commissionApplicableTypes;
 
         private String phone;
 
@@ -416,6 +446,14 @@ public class Contact1 {
         }
 
         /**
+         * The hotel or venue service categories to which the commission applies.
+         */
+        public Builder commissionApplicableTypes(@Nullable List<CommissionApplicable1> commissionApplicableTypes) {
+            this.commissionApplicableTypes = commissionApplicableTypes;
+            return this;
+        }
+
+        /**
          * Phone number of the planner.
          */
         public Builder phone(@Nonnull String phone) {
@@ -455,6 +493,7 @@ public class Contact1 {
                     address,
                     commissionRate,
                     commissionable,
+                    commissionApplicableTypes,
                     phone,
                     organizationName,
                     thirdPartyPlanner,

@@ -93,7 +93,7 @@ let value: ListTravelProposalsResponse = {
             lcdPrice: 100,
             screenPrice: 100,
             hsiaPrice: 100,
-            whatCompanyProvidesAVEquipment: "Some company",
+            whatCompanyProvidesAVEquipment: "Example AV Services",
           },
           breakOutRoom: {
             price10PersonRoom: 100,

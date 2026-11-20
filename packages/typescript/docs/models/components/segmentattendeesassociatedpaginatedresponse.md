@@ -1,6 +1,6 @@
 # SegmentAttendeesAssociatedPaginatedResponse
 
-The response from a request to get the paginated list of attendees associated/disassociated to/from an audience segment.
+A paginated collection of attendees associated with or disassociated from an audience segment.
 
 ## Example Usage
 
@@ -33,9 +33,9 @@ let value: SegmentAttendeesAssociatedPaginatedResponse = {
       lastModified: new Date("2019-02-12T03:00:00Z"),
       lastModifiedBy: "hporter",
       segment: {
-        id: "b13497ea-c117-4d62-a17b-e6c14d7e49d4",
+        id: "27c6bdc0-58c4-4d3c-b4be-4f57dbaa77b3",
       },
-      id: "103097a4-143d-11e5-9f99-d0a637ee0032",
+      id: "4f519009-7247-4dcc-8a28-e0b155756617",
       disassociated: false,
     },
   ],
@@ -44,7 +44,7 @@ let value: SegmentAttendeesAssociatedPaginatedResponse = {
 
 ## Fields
 
-| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `paging`                                                                              | [components.Paging](../../models/components/paging.md)                                | :heavy_check_mark:                                                                    | Represents pagination information for a collection of resources.                      |
-| `data`                                                                                | [components.SegmentAttendee](../../models/components/segmentattendee.md)[]            | :heavy_check_mark:                                                                    | Collection of list of attendees associated/disassociated to/from an audience segment. |
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `paging`                                                                           | [components.Paging](../../models/components/paging.md)                             | :heavy_check_mark:                                                                 | Represents pagination information for a collection of resources.                   |
+| `data`                                                                             | [components.SegmentAttendee](../../models/components/segmentattendee.md)[]         | :heavy_check_mark:                                                                 | Collection of attendees associated with or disassociated from an audience segment. |

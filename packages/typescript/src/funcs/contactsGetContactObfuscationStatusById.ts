@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Get Obfuscation Status
  *
  * @remarks
- * Get the obfuscation status of a contact by the Obfuscate ID provided.
+ * Gets the status of the obfuscation request identified by `obfuscateId`.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

@@ -38,3 +38,7 @@ export type AgendaItemType = ClosedEnum<typeof AgendaItemType>;
 export const AgendaItemType$inboundSchema: z.ZodNativeEnum<
   typeof AgendaItemType
 > = z.nativeEnum(AgendaItemType);
+/** @internal */
+export const AgendaItemType$outboundSchema: z.ZodNativeEnum<
+  typeof AgendaItemType
+> = AgendaItemType$inboundSchema;

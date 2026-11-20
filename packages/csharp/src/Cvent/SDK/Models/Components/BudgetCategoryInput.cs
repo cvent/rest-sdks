@@ -18,7 +18,7 @@ namespace Cvent.SDK.Models.Components
     public class BudgetCategoryInput
     {
         /// <summary>
-        /// Unique identifier of the budget category.
+        /// Budget category ID.
         /// </summary>
         [JsonProperty("id")]
         public long Id { get; set; } = default!;

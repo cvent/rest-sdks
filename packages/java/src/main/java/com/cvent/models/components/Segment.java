@@ -14,11 +14,11 @@ import java.util.Optional;
 /**
  * Segment
  *
- * <p>Segment details
+ * <p>Represents a segment by its ID.
  */
 public class Segment {
     /**
-     * Segment Id
+     * Segment ID.
      */
     @JsonProperty("id")
     private String id;
@@ -29,7 +29,7 @@ public class Segment {
     }
 
     /**
-     * Segment Id
+     * Segment ID.
      */
     public String id() {
         return this.id;
@@ -40,7 +40,7 @@ public class Segment {
     }
 
     /**
-     * Segment Id
+     * Segment ID.
      */
     public Segment withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -79,7 +79,7 @@ public class Segment {
         }
 
         /**
-         * Segment Id
+         * Segment ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

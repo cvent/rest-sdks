@@ -16,7 +16,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Representation of an air request.
+    /// An air travel request with requester details, itinerary, preferences, and answers.
     /// </summary>
     public class AirRequest
     {
@@ -81,7 +81,7 @@ namespace Cvent.SDK.Models.Components
         public string? RequesterLastName { get; set; }
 
         /// <summary>
-        /// Suffix of the flight requester.
+        /// Suffix of the requester.
         /// </summary>
         [JsonProperty("requesterSuffix")]
         public RequesterSuffix? RequesterSuffix { get; set; }
@@ -105,13 +105,13 @@ namespace Cvent.SDK.Models.Components
         public string? KnownTravelerNumber { get; set; }
 
         /// <summary>
-        /// Representation of a leg detail in air request.
+        /// One air request itinerary leg with an origin, destination, date, and time.
         /// </summary>
         [JsonProperty("outgoingLeg")]
         public LegDetail? OutgoingLeg { get; set; }
 
         /// <summary>
-        /// Representation of a leg detail in air request.
+        /// One air request itinerary leg with an origin, destination, date, and time.
         /// </summary>
         [JsonProperty("incomingLeg")]
         public LegDetail? IncomingLeg { get; set; }

@@ -35,7 +35,7 @@ import { Result } from "../types/fp.js";
  * To update a field, pass the value to be updated. To delete a field, set the field to null. Fields not passed in the request body will remain unchanged.
  *
  * For information on updating secure contact fields, see the description of
- * <a href="#operation/updateContactById">PUT Contact</a>.
+ * [PUT Contact](#operation/updateContactById).
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

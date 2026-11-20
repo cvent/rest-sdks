@@ -1,6 +1,6 @@
 # AirReservationDetail1
 
-Representation of an air reservation detail response.
+Air request details for an attendee and any guest.
 
 ## Example Usage
 
@@ -73,5 +73,5 @@ let value: AirReservationDetail1 = {
 
 | Field                                                            | Type                                                             | Required                                                         | Description                                                      |
 | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `attendee`                                                       | [components.Attendee3](../../models/components/attendee3.md)     | :heavy_minus_sign:                                               | Representation of the attendee                                   |
+| `attendee`                                                       | [components.Attendee3](../../models/components/attendee3.md)     | :heavy_minus_sign:                                               | An attendee identified by an ID.                                 |
 | `airRequestDetails`                                              | [components.AirRequest](../../models/components/airrequest.md)[] | :heavy_minus_sign:                                               | List of all air request by attendee and its guest.               |

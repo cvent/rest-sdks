@@ -26,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public Paging? Paging { get; set; }
 
         /// <summary>
-        /// Paginated list of business transient proposals.
+        /// The travel proposals on the page.
         /// </summary>
         [JsonProperty("data")]
         public List<TravelProposal>? Data { get; set; }

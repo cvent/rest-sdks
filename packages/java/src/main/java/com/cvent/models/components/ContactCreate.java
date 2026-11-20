@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  * ContactCreate
  *
- * <p>This entity is used to represent a single item that is posted for a contact create
+ * <p>Field values used to create a contact
  */
 public class ContactCreate {
     /**
@@ -148,7 +148,7 @@ public class ContactCreate {
     private String workFax;
 
     /**
-     * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
+     * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -199,10 +199,10 @@ public class ContactCreate {
     private ContactLinksInput links;
 
     /**
-     * The date of birth of the contact.
+     * The contact's date of birth, in ISO 8601 date format.
      *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
-     * `event/contacts:write-sensitive` scopes respectively.
+     * `event/contacts:write-sensitive` scopes, respectively.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("dateOfBirth")
@@ -279,7 +279,7 @@ public class ContactCreate {
 
     /**
      * ID of the parent contact, applicable with contact snapshot. This field has been deprecated. If the
-     * event has contact snapshot enabled, snapshot will be automatically created through the Add attendees
+     * event has contact snapshot enabled, snapshot will be automatically created through the Add Attendees
      * API.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -542,7 +542,7 @@ public class ContactCreate {
     }
 
     /**
-     * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
+     * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
      */
     public Optional<String> sourceId() {
@@ -593,10 +593,10 @@ public class ContactCreate {
     }
 
     /**
-     * The date of birth of the contact.
+     * The contact's date of birth, in ISO 8601 date format.
      *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
-     * `event/contacts:write-sensitive` scopes respectively.
+     * `event/contacts:write-sensitive` scopes, respectively.
      */
     public Optional<LocalDate> dateOfBirth() {
         return Optional.ofNullable(this.dateOfBirth);
@@ -673,7 +673,7 @@ public class ContactCreate {
 
     /**
      * ID of the parent contact, applicable with contact snapshot. This field has been deprecated. If the
-     * event has contact snapshot enabled, snapshot will be automatically created through the Add attendees
+     * event has contact snapshot enabled, snapshot will be automatically created through the Add Attendees
      * API.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -842,7 +842,7 @@ public class ContactCreate {
     }
 
     /**
-     * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
+     * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
      */
     public ContactCreate withSourceId(@Nullable String sourceId) {
@@ -900,10 +900,10 @@ public class ContactCreate {
     }
 
     /**
-     * The date of birth of the contact.
+     * The contact's date of birth, in ISO 8601 date format.
      *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
-     * `event/contacts:write-sensitive` scopes respectively.
+     * `event/contacts:write-sensitive` scopes, respectively.
      */
     public ContactCreate withDateOfBirth(@Nullable LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
@@ -989,7 +989,7 @@ public class ContactCreate {
 
     /**
      * ID of the parent contact, applicable with contact snapshot. This field has been deprecated. If the
-     * event has contact snapshot enabled, snapshot will be automatically created through the Add attendees
+     * event has contact snapshot enabled, snapshot will be automatically created through the Add Attendees
      * API.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -1404,7 +1404,7 @@ public class ContactCreate {
         }
 
         /**
-         * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for
+         * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
          * each contact within an account. Consider adding the external system name as part of the ID.
          */
         public Builder sourceId(@Nullable String sourceId) {
@@ -1462,10 +1462,10 @@ public class ContactCreate {
         }
 
         /**
-         * The date of birth of the contact.
+         * The contact's date of birth, in ISO 8601 date format.
          *
          * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
-         * `event/contacts:write-sensitive` scopes respectively.
+         * `event/contacts:write-sensitive` scopes, respectively.
          */
         public Builder dateOfBirth(@Nullable LocalDate dateOfBirth) {
             this.dateOfBirth = dateOfBirth;
@@ -1551,7 +1551,7 @@ public class ContactCreate {
 
         /**
          * ID of the parent contact, applicable with contact snapshot. This field has been deprecated. If the
-         * event has contact snapshot enabled, snapshot will be automatically created through the Add attendees
+         * event has contact snapshot enabled, snapshot will be automatically created through the Add Attendees
          * API.
          *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.

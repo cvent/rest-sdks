@@ -4,9 +4,9 @@
 
 import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { AgeCategory, AgeCategory$inboundSchema } from "./agecategory.js";
 import {
   AirlinePreference,
   AirlinePreference$inboundSchema,
@@ -21,6 +21,10 @@ import {
 } from "./attendeeanswer1.js";
 import { Gender1, Gender1$inboundSchema } from "./gender1.js";
 import { LegDetail, LegDetail$inboundSchema } from "./legdetail.js";
+import {
+  RequesterSuffix,
+  RequesterSuffix$inboundSchema,
+} from "./requestersuffix.js";
 import { SeatType, SeatType$inboundSchema } from "./seattype.js";
 import { TicketType, TicketType$inboundSchema } from "./tickettype.js";
 import {
@@ -29,37 +33,7 @@ import {
 } from "./travelrequeststatus.js";
 
 /**
- * Suffix of the flight requester.
- */
-export const RequesterSuffix = {
-  Ii: "II",
-  Iii: "III",
-  Iv: "IV",
-  V: "V",
-  Sr: "Sr.",
-  Jr: "Jr.",
-} as const;
-/**
- * Suffix of the flight requester.
- */
-export type RequesterSuffix = ClosedEnum<typeof RequesterSuffix>;
-
-/**
- * Age category of the requester.
- */
-export const AgeCategory = {
-  Adult: "Adult",
-  Senior: "Senior",
-  Child: "Child",
-  Infant: "Infant",
-} as const;
-/**
- * Age category of the requester.
- */
-export type AgeCategory = ClosedEnum<typeof AgeCategory>;
-
-/**
- * Representation of an air request.
+ * An air travel request with requester details, itinerary, preferences, and answers.
  */
 export type AirRequest = {
   /**
@@ -103,7 +77,7 @@ export type AirRequest = {
    */
   requesterLastName?: string | undefined;
   /**
-   * Suffix of the flight requester.
+   * Suffix of the requester.
    */
   requesterSuffix?: RequesterSuffix | undefined;
   /**
@@ -119,11 +93,11 @@ export type AirRequest = {
    */
   knownTravelerNumber?: string | undefined;
   /**
-   * Representation of a leg detail in air request.
+   * One air request itinerary leg with an origin, destination, date, and time.
    */
   outgoingLeg?: LegDetail | undefined;
   /**
-   * Representation of a leg detail in air request.
+   * One air request itinerary leg with an origin, destination, date, and time.
    */
   incomingLeg?: LegDetail | undefined;
   /**
@@ -171,15 +145,6 @@ export type AirRequest = {
    */
   airRequestAnswers?: Array<AttendeeAnswer1> | undefined;
 };
-
-/** @internal */
-export const RequesterSuffix$inboundSchema: z.ZodNativeEnum<
-  typeof RequesterSuffix
-> = z.nativeEnum(RequesterSuffix);
-
-/** @internal */
-export const AgeCategory$inboundSchema: z.ZodNativeEnum<typeof AgeCategory> = z
-  .nativeEnum(AgeCategory);
 
 /** @internal */
 export const AirRequest$inboundSchema: z.ZodType<

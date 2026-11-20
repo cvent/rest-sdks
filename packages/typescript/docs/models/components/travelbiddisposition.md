@@ -1,6 +1,6 @@
 # TravelBidDisposition
 
-Represents bid disposition details.
+The disposition of a bid.
 
 ## Example Usage
 
@@ -28,5 +28,5 @@ let value: TravelBidDisposition = {
 | Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
 | `bid`                                                                                                        | [components.TravelProposalBid1](../../models/components/travelproposalbid1.md)                               | :heavy_minus_sign:                                                                                           | A travel proposal bid.                                                                                       |
-| `acceptedBidRooms`                                                                                           | [components.TravelBidDispositionAcceptedRoom](../../models/components/travelbiddispositionacceptedroom.md)[] | :heavy_minus_sign:                                                                                           | List of accepted bid rooms.                                                                                  |
+| `acceptedBidRooms`                                                                                           | [components.TravelBidDispositionAcceptedRoom](../../models/components/travelbiddispositionacceptedroom.md)[] | :heavy_minus_sign:                                                                                           | The accepted rooms of the bid.                                                                               |
 | `rateType`                                                                                                   | [components.RateType](../../models/components/ratetype.md)                                                   | :heavy_minus_sign:                                                                                           | Rate type.                                                                                                   |

@@ -16,47 +16,47 @@ import java.util.Optional;
 /**
  * TravelProposalGroupAndMeeting
  *
- * <p>Group and meeting information.
+ * <p>The group and meeting information of the proposal.
  */
 public class TravelProposalGroupAndMeeting {
     /**
-     * Run of house rate information.
+     * The run of house rates of the proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("runOfHouseRate")
     private TravelProposalGroupAndMeetingRunOfHouseRate runOfHouseRate;
 
     /**
-     * Day delegate rate information. This represents the costs for hosting meeting at the venue for a half
-     * or full day.
+     * The day delegate rates of the proposal. A day delegate rate is the cost to host a meeting at the
+     * venue for a half day or a full day.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("dayDelegateRate")
     private TravelProposalGroupAndMeetingDayDelegateRate dayDelegateRate;
 
     /**
-     * Tax and service charge information.
+     * The tax and service charge information of the proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("taxAndServiceCharge")
     private TravelProposalGroupAndMeetingTaxAndServiceCharge taxAndServiceCharge;
 
     /**
-     * Meeting room basic information.
+     * The basic information about the meeting rooms of the property.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("meetingRoomBasicInformation")
     private TravelProposalGroupAndMeetingMeetingRoomBasicInformation meetingRoomBasicInformation;
 
     /**
-     * Group and meeting amenity info.
+     * The group and meeting amenities of the proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("amenity")
     private TravelProposalGroupAndMeetingAmenity amenity;
 
     /**
-     * Break-out room information.
+     * The break-out room information of the proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("breakOutRoom")
@@ -85,43 +85,43 @@ public class TravelProposalGroupAndMeeting {
     }
 
     /**
-     * Run of house rate information.
+     * The run of house rates of the proposal.
      */
     public Optional<TravelProposalGroupAndMeetingRunOfHouseRate> runOfHouseRate() {
         return Optional.ofNullable(this.runOfHouseRate);
     }
 
     /**
-     * Day delegate rate information. This represents the costs for hosting meeting at the venue for a half
-     * or full day.
+     * The day delegate rates of the proposal. A day delegate rate is the cost to host a meeting at the
+     * venue for a half day or a full day.
      */
     public Optional<TravelProposalGroupAndMeetingDayDelegateRate> dayDelegateRate() {
         return Optional.ofNullable(this.dayDelegateRate);
     }
 
     /**
-     * Tax and service charge information.
+     * The tax and service charge information of the proposal.
      */
     public Optional<TravelProposalGroupAndMeetingTaxAndServiceCharge> taxAndServiceCharge() {
         return Optional.ofNullable(this.taxAndServiceCharge);
     }
 
     /**
-     * Meeting room basic information.
+     * The basic information about the meeting rooms of the property.
      */
     public Optional<TravelProposalGroupAndMeetingMeetingRoomBasicInformation> meetingRoomBasicInformation() {
         return Optional.ofNullable(this.meetingRoomBasicInformation);
     }
 
     /**
-     * Group and meeting amenity info.
+     * The group and meeting amenities of the proposal.
      */
     public Optional<TravelProposalGroupAndMeetingAmenity> amenity() {
         return Optional.ofNullable(this.amenity);
     }
 
     /**
-     * Break-out room information.
+     * The break-out room information of the proposal.
      */
     public Optional<TravelProposalGroupAndMeetingBreakOutRoom> breakOutRoom() {
         return Optional.ofNullable(this.breakOutRoom);
@@ -132,7 +132,7 @@ public class TravelProposalGroupAndMeeting {
     }
 
     /**
-     * Run of house rate information.
+     * The run of house rates of the proposal.
      */
     public TravelProposalGroupAndMeeting withRunOfHouseRate(
             @Nullable TravelProposalGroupAndMeetingRunOfHouseRate runOfHouseRate) {
@@ -141,8 +141,8 @@ public class TravelProposalGroupAndMeeting {
     }
 
     /**
-     * Day delegate rate information. This represents the costs for hosting meeting at the venue for a half
-     * or full day.
+     * The day delegate rates of the proposal. A day delegate rate is the cost to host a meeting at the
+     * venue for a half day or a full day.
      */
     public TravelProposalGroupAndMeeting withDayDelegateRate(
             @Nullable TravelProposalGroupAndMeetingDayDelegateRate dayDelegateRate) {
@@ -151,7 +151,7 @@ public class TravelProposalGroupAndMeeting {
     }
 
     /**
-     * Tax and service charge information.
+     * The tax and service charge information of the proposal.
      */
     public TravelProposalGroupAndMeeting withTaxAndServiceCharge(
             @Nullable TravelProposalGroupAndMeetingTaxAndServiceCharge taxAndServiceCharge) {
@@ -160,7 +160,7 @@ public class TravelProposalGroupAndMeeting {
     }
 
     /**
-     * Meeting room basic information.
+     * The basic information about the meeting rooms of the property.
      */
     public TravelProposalGroupAndMeeting withMeetingRoomBasicInformation(
             @Nullable TravelProposalGroupAndMeetingMeetingRoomBasicInformation meetingRoomBasicInformation) {
@@ -169,7 +169,7 @@ public class TravelProposalGroupAndMeeting {
     }
 
     /**
-     * Group and meeting amenity info.
+     * The group and meeting amenities of the proposal.
      */
     public TravelProposalGroupAndMeeting withAmenity(@Nullable TravelProposalGroupAndMeetingAmenity amenity) {
         this.amenity = amenity;
@@ -177,7 +177,7 @@ public class TravelProposalGroupAndMeeting {
     }
 
     /**
-     * Break-out room information.
+     * The break-out room information of the proposal.
      */
     public TravelProposalGroupAndMeeting withBreakOutRoom(
             @Nullable TravelProposalGroupAndMeetingBreakOutRoom breakOutRoom) {
@@ -251,7 +251,7 @@ public class TravelProposalGroupAndMeeting {
         }
 
         /**
-         * Run of house rate information.
+         * The run of house rates of the proposal.
          */
         public Builder runOfHouseRate(@Nullable TravelProposalGroupAndMeetingRunOfHouseRate runOfHouseRate) {
             this.runOfHouseRate = runOfHouseRate;
@@ -259,8 +259,8 @@ public class TravelProposalGroupAndMeeting {
         }
 
         /**
-         * Day delegate rate information. This represents the costs for hosting meeting at the venue for a half
-         * or full day.
+         * The day delegate rates of the proposal. A day delegate rate is the cost to host a meeting at the
+         * venue for a half day or a full day.
          */
         public Builder dayDelegateRate(@Nullable TravelProposalGroupAndMeetingDayDelegateRate dayDelegateRate) {
             this.dayDelegateRate = dayDelegateRate;
@@ -268,7 +268,7 @@ public class TravelProposalGroupAndMeeting {
         }
 
         /**
-         * Tax and service charge information.
+         * The tax and service charge information of the proposal.
          */
         public Builder taxAndServiceCharge(
                 @Nullable TravelProposalGroupAndMeetingTaxAndServiceCharge taxAndServiceCharge) {
@@ -277,7 +277,7 @@ public class TravelProposalGroupAndMeeting {
         }
 
         /**
-         * Meeting room basic information.
+         * The basic information about the meeting rooms of the property.
          */
         public Builder meetingRoomBasicInformation(
                 @Nullable TravelProposalGroupAndMeetingMeetingRoomBasicInformation meetingRoomBasicInformation) {
@@ -286,7 +286,7 @@ public class TravelProposalGroupAndMeeting {
         }
 
         /**
-         * Group and meeting amenity info.
+         * The group and meeting amenities of the proposal.
          */
         public Builder amenity(@Nullable TravelProposalGroupAndMeetingAmenity amenity) {
             this.amenity = amenity;
@@ -294,7 +294,7 @@ public class TravelProposalGroupAndMeeting {
         }
 
         /**
-         * Break-out room information.
+         * The break-out room information of the proposal.
          */
         public Builder breakOutRoom(@Nullable TravelProposalGroupAndMeetingBreakOutRoom breakOutRoom) {
             this.breakOutRoom = breakOutRoom;

@@ -15,8 +15,7 @@ import java.util.Optional;
 /**
  * SegmentAttendeesAssociatedPaginatedResponse
  *
- * <p>The response from a request to get the paginated list of attendees associated/disassociated to/from
- * an audience segment.
+ * <p>A paginated collection of attendees associated with or disassociated from an audience segment.
  */
 public class SegmentAttendeesAssociatedPaginatedResponse {
     /**
@@ -26,7 +25,7 @@ public class SegmentAttendeesAssociatedPaginatedResponse {
     private Paging paging;
 
     /**
-     * Collection of list of attendees associated/disassociated to/from an audience segment.
+     * Collection of attendees associated with or disassociated from an audience segment.
      */
     @JsonProperty("data")
     private List<SegmentAttendee> data;
@@ -47,7 +46,7 @@ public class SegmentAttendeesAssociatedPaginatedResponse {
     }
 
     /**
-     * Collection of list of attendees associated/disassociated to/from an audience segment.
+     * Collection of attendees associated with or disassociated from an audience segment.
      */
     public List<SegmentAttendee> data() {
         return this.data;
@@ -66,7 +65,7 @@ public class SegmentAttendeesAssociatedPaginatedResponse {
     }
 
     /**
-     * Collection of list of attendees associated/disassociated to/from an audience segment.
+     * Collection of attendees associated with or disassociated from an audience segment.
      */
     public SegmentAttendeesAssociatedPaginatedResponse withData(@Nonnull List<SegmentAttendee> data) {
         this.data = Utils.checkNotNull(data, "data");
@@ -115,7 +114,7 @@ public class SegmentAttendeesAssociatedPaginatedResponse {
         }
 
         /**
-         * Collection of list of attendees associated/disassociated to/from an audience segment.
+         * Collection of attendees associated with or disassociated from an audience segment.
          */
         public Builder data(@Nonnull List<SegmentAttendee> data) {
             this.data = Utils.checkNotNull(data, "data");

@@ -32,7 +32,7 @@ public class AssignContactProfileImageResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully added the profile picture to the contact.
+     * Successfully assigned the profile picture to the contact.
      */
     private ContactFile contactFile;
 
@@ -77,7 +77,7 @@ public class AssignContactProfileImageResponse implements Response {
     }
 
     /**
-     * Successfully added the profile picture to the contact.
+     * Successfully assigned the profile picture to the contact.
      */
     public Optional<ContactFile> contactFile() {
         return Optional.ofNullable(this.contactFile);
@@ -112,7 +112,7 @@ public class AssignContactProfileImageResponse implements Response {
     }
 
     /**
-     * Successfully added the profile picture to the contact.
+     * Successfully assigned the profile picture to the contact.
      */
     public AssignContactProfileImageResponse withContactFile(@Nullable ContactFile contactFile) {
         this.contactFile = contactFile;
@@ -193,7 +193,7 @@ public class AssignContactProfileImageResponse implements Response {
         }
 
         /**
-         * Successfully added the profile picture to the contact.
+         * Successfully assigned the profile picture to the contact.
          */
         public Builder contactFile(@Nullable ContactFile contactFile) {
             this.contactFile = contactFile;

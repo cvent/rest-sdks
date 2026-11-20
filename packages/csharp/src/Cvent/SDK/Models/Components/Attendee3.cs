@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Representation of the attendee.
+    /// An attendee identified by an ID.
     /// </summary>
     public class Attendee3
     {

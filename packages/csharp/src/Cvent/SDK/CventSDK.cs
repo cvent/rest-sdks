@@ -106,9 +106,9 @@ namespace Cvent.SDK
         public IEmails Emails { get; }
 
         /// <summary>
-        /// Budget is an event feature used to organize spending and track <a href="https://support.cvent.com/s/communityarticle/Setting-Up-Budget-Allocations">allocations</a>. Use this API to view budget items, cards and card transactions related to the budget module.
+        /// Budget items and related configuration include planned expenses, <a href="https://support.cvent.com/s/communityarticle/Setting-Up-Budget-Allocations">allocations</a>, totals, custom fields, vendors, and currency conversion rates. Use these APIs to manage budget planning data and related account information.
         /// </summary>
-        public IBudget Budget { get; }
+        public IBudgets Budgets { get; }
 
         /// <summary>
         /// The Bulk API provides a simple interface to upload large amounts of data into Cvent.  The API processes the uploaded data asynchronously making API calls on behalf of the caller.<br/>
@@ -142,6 +142,11 @@ namespace Cvent.SDK
         /// The token can be used in place of the actual credit card data when making API calls, providing an extra layer of security.
         /// </summary>
         public ICardTokens CardTokens { get; }
+
+        /// <summary>
+        /// Budget cards and their transactions support payment activity associated with an account. Use these APIs to retrieve budget cards and create, retrieve, update, and delete card transactions.
+        /// </summary>
+        public IBudgetCards BudgetCards { get; }
 
         /// <summary>
         /// RegLink APIs allow you to exchange data with Cvent Passkey events and hotel reservation-booking engines.<br/>
@@ -215,6 +220,11 @@ namespace Cvent.SDK
         /// Badge printer pools are set up from Cvent UI. You can use this API to retrieve badge printer pools.
         /// </summary>
         public IBadgePrinterPools BadgePrinterPools { get; }
+
+        /// <summary>
+        /// Budget payments record payments associated with budget items. Use these APIs to create, retrieve, update, and delete budget payments and assign invoices to payments.
+        /// </summary>
+        public IBudgetPayments BudgetPayments { get; }
 
         /// <summary>
         /// Discounts provide a way to reduce the cost of event registration items. Use these APIs to manage event discounts, including creating, updating, and linking discounts to agenda items.
@@ -379,7 +389,7 @@ namespace Cvent.SDK
         /// represents a request for proposal (RFP) that defines the specific travel needs and<br/>
         /// requirements of a travel account. The travel account solicits hotels and other travel<br/>
         /// suppliers to respond to the program with proposals, which provide detailed<br/>
-        /// information on rates and amenities.'
+        /// information on rates and amenities.
         /// </summary>
         public ITravelRFPs TravelRFPs { get; }
 
@@ -478,9 +488,9 @@ namespace Cvent.SDK
         /// </summary>
         public IEmails Emails { get; private set; }
         /// <summary>
-        /// The Budget sub-SDK.
+        /// The Budgets sub-SDK.
         /// </summary>
-        public IBudget Budget { get; private set; }
+        public IBudgets Budgets { get; private set; }
         /// <summary>
         /// The Bulk sub-SDK.
         /// </summary>
@@ -493,6 +503,10 @@ namespace Cvent.SDK
         /// The CardTokens sub-SDK.
         /// </summary>
         public ICardTokens CardTokens { get; private set; }
+        /// <summary>
+        /// The BudgetCards sub-SDK.
+        /// </summary>
+        public IBudgetCards BudgetCards { get; private set; }
         /// <summary>
         /// The Housing sub-SDK.
         /// </summary>
@@ -533,6 +547,10 @@ namespace Cvent.SDK
         /// The BadgePrinterPools sub-SDK.
         /// </summary>
         public IBadgePrinterPools BadgePrinterPools { get; private set; }
+        /// <summary>
+        /// The BudgetPayments sub-SDK.
+        /// </summary>
+        public IBudgetPayments BudgetPayments { get; private set; }
         /// <summary>
         /// The Discounts sub-SDK.
         /// </summary>
@@ -705,13 +723,15 @@ namespace Cvent.SDK
 
             Emails = new Emails(SDKConfiguration);
 
-            Budget = new Budget(SDKConfiguration);
+            Budgets = new Budgets(SDKConfiguration);
 
             Bulk = new Bulk(SDKConfiguration);
 
             Campaigns = new Campaigns(SDKConfiguration);
 
             CardTokens = new CardTokens(SDKConfiguration);
+
+            BudgetCards = new BudgetCards(SDKConfiguration);
 
             Housing = new Housing(SDKConfiguration);
 
@@ -732,6 +752,8 @@ namespace Cvent.SDK
             BadgePrintJob = new BadgePrintJob(SDKConfiguration);
 
             BadgePrinterPools = new BadgePrinterPools(SDKConfiguration);
+
+            BudgetPayments = new BudgetPayments(SDKConfiguration);
 
             Discounts = new Discounts(SDKConfiguration);
 
@@ -880,13 +902,15 @@ namespace Cvent.SDK
 
             Emails = new Emails(SDKConfiguration);
 
-            Budget = new Budget(SDKConfiguration);
+            Budgets = new Budgets(SDKConfiguration);
 
             Bulk = new Bulk(SDKConfiguration);
 
             Campaigns = new Campaigns(SDKConfiguration);
 
             CardTokens = new CardTokens(SDKConfiguration);
+
+            BudgetCards = new BudgetCards(SDKConfiguration);
 
             Housing = new Housing(SDKConfiguration);
 
@@ -907,6 +931,8 @@ namespace Cvent.SDK
             BadgePrintJob = new BadgePrintJob(SDKConfiguration);
 
             BadgePrinterPools = new BadgePrinterPools(SDKConfiguration);
+
+            BudgetPayments = new BudgetPayments(SDKConfiguration);
 
             Discounts = new Discounts(SDKConfiguration);
 

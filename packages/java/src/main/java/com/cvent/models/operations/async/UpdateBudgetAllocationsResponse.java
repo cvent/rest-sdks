@@ -33,7 +33,7 @@ public class UpdateBudgetAllocationsResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully updated the budget allocations in the budget item.
+     * Successfully updated budget allocations in the budget item.
      */
     private BudgetAllocationsList budgetAllocationsList;
 
@@ -78,7 +78,7 @@ public class UpdateBudgetAllocationsResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully updated the budget allocations in the budget item.
+     * Successfully updated budget allocations in the budget item.
      */
     public Optional<BudgetAllocationsList> budgetAllocationsList() {
         return Optional.ofNullable(this.budgetAllocationsList);
@@ -113,7 +113,7 @@ public class UpdateBudgetAllocationsResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully updated the budget allocations in the budget item.
+     * Successfully updated budget allocations in the budget item.
      */
     public UpdateBudgetAllocationsResponse withBudgetAllocationsList(
             @Nullable BudgetAllocationsList budgetAllocationsList) {
@@ -195,7 +195,7 @@ public class UpdateBudgetAllocationsResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully updated the budget allocations in the budget item.
+         * Successfully updated budget allocations in the budget item.
          */
         public Builder budgetAllocationsList(@Nullable BudgetAllocationsList budgetAllocationsList) {
             this.budgetAllocationsList = budgetAllocationsList;

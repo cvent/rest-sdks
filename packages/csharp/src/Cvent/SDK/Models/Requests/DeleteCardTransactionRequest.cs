@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Requests
     public class DeleteCardTransactionRequest
     {
         /// <summary>
-        /// Unique ID of a transaction.
+        /// Transaction ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=transactionId")]
         public string TransactionId { get; set; } = default!;

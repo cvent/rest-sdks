@@ -14,7 +14,7 @@ import java.util.Optional;
 /**
  * SurveyContactId
  *
- * <p>A pair of survey and contact id.
+ * <p>A survey ID and a contact ID pair.
  */
 public class SurveyContactId {
     /**

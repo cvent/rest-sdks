@@ -102,7 +102,10 @@ public class Rfp2 {
     private Contact1 contact;
 
     /**
-     * Details of organization which is hosting the event.
+     * Details of the organization hosting the event. When organization.id identifies one of the account's
+     * organization profiles, the organization details come from that profile and the other fields in this
+     * object are ignored on input. When organization.id is omitted or is the nil UUID, the fields in this
+     * object describe a new organization for this RFP, and name and type are required for an active RFP.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rfpEventOrganization")
@@ -218,14 +221,6 @@ public class Rfp2 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("shareAwardDetails")
     private Boolean shareAwardDetails;
-
-    /**
-     * If you omit `leadSource`, Cvent sets the default lead source. A caller can send only the default
-     * lead source. Any other `leadSource.id` or `leadSource.section.id` returns 400.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("leadSource")
-    private RfpLeadSource1 leadSource;
 
     /**
      * Unique identifier for RFPs originating from outside Cvent network provided by source system where
@@ -418,6 +413,13 @@ public class Rfp2 {
     @JsonProperty("aiRfpGenerationSource")
     private String aiRfpGenerationSource;
 
+    /**
+     * Lead source of the RFP. This field is set during RFP creation and cannot be modified afterwards.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("leadSource")
+    private RfpLeadSource1 leadSource;
+
     @JsonCreator
     public Rfp2(
             @JsonProperty("created") @Nullable OffsetDateTime created,
@@ -447,7 +449,6 @@ public class Rfp2 {
             @JsonProperty("allowEmailNotifications") @Nullable Boolean allowEmailNotifications,
             @JsonProperty("notificationRecipients") @Nullable List<RecipientInfo> notificationRecipients,
             @JsonProperty("shareAwardDetails") @Nullable Boolean shareAwardDetails,
-            @JsonProperty("leadSource") @Nullable RfpLeadSource1 leadSource,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("showcaseEnabled") @Nullable Boolean showcaseEnabled,
             @JsonProperty("autoAddToShowcaseEnabled") @Nullable Boolean autoAddToShowcaseEnabled,
@@ -474,7 +475,8 @@ public class Rfp2 {
             @JsonProperty("archivalDate") @Nullable OffsetDateTime archivalDate,
             @JsonProperty("awardedExternally") @Nullable Boolean awardedExternally,
             @JsonProperty("finishedAwarding") @Nullable Boolean finishedAwarding,
-            @JsonProperty("aiRfpGenerationSource") @Nullable String aiRfpGenerationSource) {
+            @JsonProperty("aiRfpGenerationSource") @Nullable String aiRfpGenerationSource,
+            @JsonProperty("leadSource") @Nullable RfpLeadSource1 leadSource) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -504,7 +506,6 @@ public class Rfp2 {
         this.allowEmailNotifications = allowEmailNotifications;
         this.notificationRecipients = notificationRecipients;
         this.shareAwardDetails = shareAwardDetails;
-        this.leadSource = leadSource;
         this.sourceId = sourceId;
         this.showcaseEnabled = showcaseEnabled;
         this.autoAddToShowcaseEnabled = autoAddToShowcaseEnabled;
@@ -535,6 +536,7 @@ public class Rfp2 {
         this.finishedAwarding =
                 Optional.ofNullable(finishedAwarding).orElse(Builder._SINGLETON_VALUE_FinishedAwarding.value());
         this.aiRfpGenerationSource = aiRfpGenerationSource;
+        this.leadSource = leadSource;
     }
 
     public Rfp2(
@@ -581,8 +583,8 @@ public class Rfp2 {
                 null,
                 null,
                 null,
-                null,
                 id,
+                null,
                 null,
                 null,
                 null,
@@ -678,7 +680,10 @@ public class Rfp2 {
     }
 
     /**
-     * Details of organization which is hosting the event.
+     * Details of the organization hosting the event. When organization.id identifies one of the account's
+     * organization profiles, the organization details come from that profile and the other fields in this
+     * object are ignored on input. When organization.id is omitted or is the nil UUID, the fields in this
+     * object describe a new organization for this RFP, and name and type are required for an active RFP.
      */
     public Optional<EventOrganization1> rfpEventOrganization() {
         return Optional.ofNullable(this.rfpEventOrganization);
@@ -793,14 +798,6 @@ public class Rfp2 {
      */
     public Optional<Boolean> shareAwardDetails() {
         return Optional.ofNullable(this.shareAwardDetails);
-    }
-
-    /**
-     * If you omit `leadSource`, Cvent sets the default lead source. A caller can send only the default
-     * lead source. Any other `leadSource.id` or `leadSource.section.id` returns 400.
-     */
-    public Optional<RfpLeadSource1> leadSource() {
-        return Optional.ofNullable(this.leadSource);
     }
 
     /**
@@ -995,6 +992,13 @@ public class Rfp2 {
         return Optional.ofNullable(this.aiRfpGenerationSource);
     }
 
+    /**
+     * Lead source of the RFP. This field is set during RFP creation and cannot be modified afterwards.
+     */
+    public Optional<RfpLeadSource1> leadSource() {
+        return Optional.ofNullable(this.leadSource);
+    }
+
     public static Builder builder() {
         return new Builder();
     }
@@ -1088,7 +1092,10 @@ public class Rfp2 {
     }
 
     /**
-     * Details of organization which is hosting the event.
+     * Details of the organization hosting the event. When organization.id identifies one of the account's
+     * organization profiles, the organization details come from that profile and the other fields in this
+     * object are ignored on input. When organization.id is omitted or is the nil UUID, the fields in this
+     * object describe a new organization for this RFP, and name and type are required for an active RFP.
      */
     public Rfp2 withRfpEventOrganization(@Nullable EventOrganization1 rfpEventOrganization) {
         this.rfpEventOrganization = rfpEventOrganization;
@@ -1218,15 +1225,6 @@ public class Rfp2 {
      */
     public Rfp2 withShareAwardDetails(@Nullable Boolean shareAwardDetails) {
         this.shareAwardDetails = shareAwardDetails;
-        return this;
-    }
-
-    /**
-     * If you omit `leadSource`, Cvent sets the default lead source. A caller can send only the default
-     * lead source. Any other `leadSource.id` or `leadSource.section.id` returns 400.
-     */
-    public Rfp2 withLeadSource(@Nullable RfpLeadSource1 leadSource) {
-        this.leadSource = leadSource;
         return this;
     }
 
@@ -1448,6 +1446,14 @@ public class Rfp2 {
         return this;
     }
 
+    /**
+     * Lead source of the RFP. This field is set during RFP creation and cannot be modified afterwards.
+     */
+    public Rfp2 withLeadSource(@Nullable RfpLeadSource1 leadSource) {
+        this.leadSource = leadSource;
+        return this;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -1484,7 +1490,6 @@ public class Rfp2 {
                 && Utils.enhancedDeepEquals(this.allowEmailNotifications, other.allowEmailNotifications)
                 && Utils.enhancedDeepEquals(this.notificationRecipients, other.notificationRecipients)
                 && Utils.enhancedDeepEquals(this.shareAwardDetails, other.shareAwardDetails)
-                && Utils.enhancedDeepEquals(this.leadSource, other.leadSource)
                 && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
                 && Utils.enhancedDeepEquals(this.showcaseEnabled, other.showcaseEnabled)
                 && Utils.enhancedDeepEquals(this.autoAddToShowcaseEnabled, other.autoAddToShowcaseEnabled)
@@ -1510,7 +1515,8 @@ public class Rfp2 {
                 && Utils.enhancedDeepEquals(this.archivalDate, other.archivalDate)
                 && Utils.enhancedDeepEquals(this.awardedExternally, other.awardedExternally)
                 && Utils.enhancedDeepEquals(this.finishedAwarding, other.finishedAwarding)
-                && Utils.enhancedDeepEquals(this.aiRfpGenerationSource, other.aiRfpGenerationSource);
+                && Utils.enhancedDeepEquals(this.aiRfpGenerationSource, other.aiRfpGenerationSource)
+                && Utils.enhancedDeepEquals(this.leadSource, other.leadSource);
     }
 
     @Override
@@ -1543,7 +1549,6 @@ public class Rfp2 {
                 allowEmailNotifications,
                 notificationRecipients,
                 shareAwardDetails,
-                leadSource,
                 sourceId,
                 showcaseEnabled,
                 autoAddToShowcaseEnabled,
@@ -1569,7 +1574,8 @@ public class Rfp2 {
                 archivalDate,
                 awardedExternally,
                 finishedAwarding,
-                aiRfpGenerationSource);
+                aiRfpGenerationSource,
+                leadSource);
     }
 
     @Override
@@ -1630,8 +1636,6 @@ public class Rfp2 {
                 notificationRecipients,
                 "shareAwardDetails",
                 shareAwardDetails,
-                "leadSource",
-                leadSource,
                 "sourceId",
                 sourceId,
                 "showcaseEnabled",
@@ -1683,7 +1687,9 @@ public class Rfp2 {
                 "finishedAwarding",
                 finishedAwarding,
                 "aiRfpGenerationSource",
-                aiRfpGenerationSource);
+                aiRfpGenerationSource,
+                "leadSource",
+                leadSource);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -1743,8 +1749,6 @@ public class Rfp2 {
 
         private Boolean shareAwardDetails;
 
-        private RfpLeadSource1 leadSource;
-
         private String sourceId;
 
         private Boolean showcaseEnabled;
@@ -1797,6 +1801,8 @@ public class Rfp2 {
         private Boolean finishedAwarding;
 
         private String aiRfpGenerationSource;
+
+        private RfpLeadSource1 leadSource;
 
         private Builder() {
             // force use of static builder() method
@@ -1891,7 +1897,10 @@ public class Rfp2 {
         }
 
         /**
-         * Details of organization which is hosting the event.
+         * Details of the organization hosting the event. When organization.id identifies one of the account's
+         * organization profiles, the organization details come from that profile and the other fields in this
+         * object are ignored on input. When organization.id is omitted or is the nil UUID, the fields in this
+         * object describe a new organization for this RFP, and name and type are required for an active RFP.
          */
         public Builder rfpEventOrganization(@Nullable EventOrganization1 rfpEventOrganization) {
             this.rfpEventOrganization = rfpEventOrganization;
@@ -2021,15 +2030,6 @@ public class Rfp2 {
          */
         public Builder shareAwardDetails(@Nullable Boolean shareAwardDetails) {
             this.shareAwardDetails = shareAwardDetails;
-            return this;
-        }
-
-        /**
-         * If you omit `leadSource`, Cvent sets the default lead source. A caller can send only the default
-         * lead source. Any other `leadSource.id` or `leadSource.section.id` returns 400.
-         */
-        public Builder leadSource(@Nullable RfpLeadSource1 leadSource) {
-            this.leadSource = leadSource;
             return this;
         }
 
@@ -2251,6 +2251,14 @@ public class Rfp2 {
             return this;
         }
 
+        /**
+         * Lead source of the RFP. This field is set during RFP creation and cannot be modified afterwards.
+         */
+        public Builder leadSource(@Nullable RfpLeadSource1 leadSource) {
+            this.leadSource = leadSource;
+            return this;
+        }
+
         public Rfp2 build() {
             return new Rfp2(
                     created,
@@ -2280,7 +2288,6 @@ public class Rfp2 {
                     allowEmailNotifications,
                     notificationRecipients,
                     shareAwardDetails,
-                    leadSource,
                     sourceId,
                     showcaseEnabled,
                     autoAddToShowcaseEnabled,
@@ -2306,7 +2313,8 @@ public class Rfp2 {
                     archivalDate,
                     awardedExternally,
                     finishedAwarding,
-                    aiRfpGenerationSource);
+                    aiRfpGenerationSource,
+                    leadSource);
         }
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_NeedsCatering =

@@ -15,8 +15,7 @@ import java.util.Optional;
 /**
  * TravelProposalStaticContentResponse
  *
- * <p>Response containing static content for a specific proposal as a list of field-value pairs with
- * sequence ordering
+ * <p>The static content of a travel proposal, as a list of field-value pairs in sequence order.
  */
 public class TravelProposalStaticContentResponse {
     /**
@@ -26,7 +25,7 @@ public class TravelProposalStaticContentResponse {
     private TravelProposalStaticContentResponseTravelProposal travelProposal;
 
     /**
-     * List of static content items for the proposal
+     * The static content items of the travel proposal.
      */
     @JsonProperty("staticContents")
     private List<StaticContentItem> staticContents;
@@ -49,7 +48,7 @@ public class TravelProposalStaticContentResponse {
     }
 
     /**
-     * List of static content items for the proposal
+     * The static content items of the travel proposal.
      */
     public List<StaticContentItem> staticContents() {
         return this.staticContents;
@@ -69,7 +68,7 @@ public class TravelProposalStaticContentResponse {
     }
 
     /**
-     * List of static content items for the proposal
+     * The static content items of the travel proposal.
      */
     public TravelProposalStaticContentResponse withStaticContents(@Nonnull List<StaticContentItem> staticContents) {
         this.staticContents = Utils.checkNotNull(staticContents, "staticContents");
@@ -124,7 +123,7 @@ public class TravelProposalStaticContentResponse {
         }
 
         /**
-         * List of static content items for the proposal
+         * The static content items of the travel proposal.
          */
         public Builder staticContents(@Nonnull List<StaticContentItem> staticContents) {
             this.staticContents = Utils.checkNotNull(staticContents, "staticContents");

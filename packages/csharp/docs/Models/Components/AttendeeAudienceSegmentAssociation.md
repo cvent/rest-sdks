@@ -7,4 +7,4 @@ Represents an audience segment associated with an attendee.
 
 | Field                                         | Type                                          | Required                                      | Description                                   |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| `Segment`                                     | [Segment](../../Models/Components/Segment.md) | :heavy_check_mark:                            | Segment details                               |
+| `Segment`                                     | [Segment](../../Models/Components/Segment.md) | :heavy_check_mark:                            | Represents a segment by its ID.               |

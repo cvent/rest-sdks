@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * CardStatus
  *
- * <p>This is used to denote the card status for a card.
+ * <p>Status of a payment card.
  */
 public enum CardStatus {
     PENDING("Pending"),

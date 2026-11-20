@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type AllocationSubCategory = {
   /**
-   * Identifier of a particular subcategory.
+   * Allocation Subcategory ID.
    */
   id?: string | undefined;
 };

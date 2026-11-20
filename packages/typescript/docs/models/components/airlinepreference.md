@@ -1,6 +1,6 @@
 # AirlinePreference
 
-Representation of airlines based on preference
+A preferred airline and its associated rewards code.
 
 ## Example Usage
 

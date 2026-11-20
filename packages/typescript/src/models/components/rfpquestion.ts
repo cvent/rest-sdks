@@ -10,39 +10,84 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AdditionalChoice,
   AdditionalChoice$inboundSchema,
+  AdditionalChoice$Outbound,
+  AdditionalChoice$outboundSchema,
 } from "./additionalchoice.js";
 import { Category, Category$inboundSchema } from "./category.js";
+import {
+  CategoryInput,
+  CategoryInput$Outbound,
+  CategoryInput$outboundSchema,
+} from "./categoryinput.js";
 import { Choice, Choice$inboundSchema } from "./choice.js";
+import {
+  ChoiceInput,
+  ChoiceInput$Outbound,
+  ChoiceInput$outboundSchema,
+} from "./choiceinput.js";
 import {
   ChoiceSortOrder,
   ChoiceSortOrder$inboundSchema,
+  ChoiceSortOrder$outboundSchema,
 } from "./choicesortorder.js";
 import {
   DateAnswerFormat,
   DateAnswerFormat$inboundSchema,
+  DateAnswerFormat$outboundSchema,
 } from "./dateanswerformat.js";
-import { DisplayType, DisplayType$inboundSchema } from "./displaytype.js";
+import {
+  DisplayType,
+  DisplayType$inboundSchema,
+  DisplayType$outboundSchema,
+} from "./displaytype.js";
 import { Field, Field$inboundSchema } from "./field.js";
+import {
+  FieldInput,
+  FieldInput$Outbound,
+  FieldInput$outboundSchema,
+} from "./fieldinput.js";
 import {
   NumericAnswerFormat,
   NumericAnswerFormat$inboundSchema,
+  NumericAnswerFormat$outboundSchema,
 } from "./numericanswerformat.js";
 import {
   QuestionClassificationType,
   QuestionClassificationType$inboundSchema,
+  QuestionClassificationType$outboundSchema,
 } from "./questionclassificationtype.js";
-import { QuestionType, QuestionType$inboundSchema } from "./questiontype.js";
+import {
+  QuestionType,
+  QuestionType$inboundSchema,
+  QuestionType$outboundSchema,
+} from "./questiontype.js";
 import {
   StandardQuestion,
   StandardQuestion$inboundSchema,
+  StandardQuestion$Outbound,
+  StandardQuestion$outboundSchema,
 } from "./standardquestion.js";
-import { SupplierType, SupplierType$inboundSchema } from "./suppliertype.js";
+import {
+  SupplierType,
+  SupplierType$inboundSchema,
+  SupplierType$outboundSchema,
+} from "./suppliertype.js";
 import {
   TextAnswerFormat,
   TextAnswerFormat$inboundSchema,
+  TextAnswerFormat$outboundSchema,
 } from "./textanswerformat.js";
 import { TextField, TextField$inboundSchema } from "./textfield.js";
-import { UnitPosition, UnitPosition$inboundSchema } from "./unitposition.js";
+import {
+  TextFieldInput,
+  TextFieldInput$Outbound,
+  TextFieldInput$outboundSchema,
+} from "./textfieldinput.js";
+import {
+  UnitPosition,
+  UnitPosition$inboundSchema,
+  UnitPosition$outboundSchema,
+} from "./unitposition.js";
 
 /**
  * An object that contains custom answer format data.
@@ -224,6 +269,152 @@ export type RfpQuestion = {
   aiQuestionGenerationSource?: string | undefined;
 };
 
+/**
+ * Question associated with an RFP.
+ */
+export type RfpQuestionInput = {
+  /**
+   * Text value of the question field. Displays to users in the UI.
+   */
+  text?: string | undefined;
+  /**
+   * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of the question in reports.
+   */
+  shortText?: string | undefined;
+  /**
+   * Html of the question.
+   */
+  htmlText?: string | undefined;
+  /**
+   * Question code is unique identifier for every questions within a survey (can be same across surveys). This code is used in reporting and in question and answer data tags for emails. With every new question a random question code is generated.
+   */
+  code?: string | undefined;
+  /**
+   * The type of question. See [this article](https://support.cvent.com/s/communityarticle/Survey-Adding-Questions) for details on each enum.
+   */
+  type?: QuestionType | undefined;
+  /**
+   * List of choices for the question.
+   */
+  choices?: Array<ChoiceInput> | undefined;
+  /**
+   * List of categories for the question.
+   */
+  categories?: Array<CategoryInput> | undefined;
+  /**
+   * List of sub categories for matrix side-by-side questions.
+   */
+  subCategories?: Array<TextFieldInput> | undefined;
+  /**
+   * Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
+   */
+  notApplicableAnswer?: AdditionalChoice | undefined;
+  /**
+   * Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
+   */
+  otherAnswer?: AdditionalChoice | undefined;
+  /**
+   * Text Value of Comments Input box placeholder.
+   */
+  comments?: string | undefined;
+  /**
+   * True indicates this is a mandatory question field.
+   */
+  required?: boolean | undefined;
+  /**
+   * List of fields for form/matrix questions.
+   */
+  fields?: Array<FieldInput> | undefined;
+  /**
+   * Max possible score.
+   */
+  maxScore?: number | undefined;
+  /**
+   * Total configured sum of all choices for number allocation question.
+   */
+  totalSum?: number | undefined;
+  /**
+   * The sort order for the choices. `AToZ`: sorted alphabetically in ascending order. `AsEntered`: Sorted in the order they were added, oldest choices first. `Random`: Random sort.
+   */
+  choiceSortOrder?: ChoiceSortOrder | undefined;
+  /**
+   * The type of display for the field. `Bar`: It is associated with choice questions type. `DropDown`: It is associated with drop down type questions. `Horizontal`: It is associated with horizontal type questions. `List`: It is associated with list type questions. `MultiSelectBox`: It is associated with multi select box type questions. `Vertical`: It is associated with vertical type questions.
+   */
+  displayType?: DisplayType | undefined;
+  /**
+   * Minimum number of choices that must be selected.
+   */
+  minSelection?: number | undefined;
+  /**
+   * Maximum number of choices that can be selected.
+   */
+  maxSelection?: number | undefined;
+  /**
+   * The earliest date that can be selected, starting from or after this date.
+   */
+  minDate?: RFCDate | undefined;
+  /**
+   * The latest date that can be selected, up to or before this date.
+   */
+  maxDate?: RFCDate | undefined;
+  /**
+   * Indicates if this is a date range question.
+   */
+  showDateSelector?: boolean | undefined;
+  /**
+   * Indicates if the current date should be shown.
+   */
+  showCurrentDate?: boolean | undefined;
+  /**
+   * The answer format that a given date is stored in. `Date`: Answer format is stored in Date format. `DateTime`: Answer format is stored in DateTime format. `Time`: Answer format is stored in Time format.
+   */
+  dateAnswerFormat?: DateAnswerFormat | undefined;
+  /**
+   * The answer format that a given number is stored in.
+   */
+  numericAnswerFormat?: NumericAnswerFormat | undefined;
+  /**
+   * Label to add before or after textbox.
+   */
+  unitLabel?: string | undefined;
+  /**
+   * Unit position used for text box question type.
+   */
+  unitPosition?: UnitPosition | undefined;
+  /**
+   * Minimum number of characters that must be entered.
+   */
+  minLength?: number | undefined;
+  /**
+   * Maximum number of characters that can be entered.
+   */
+  maxLength?: number | undefined;
+  /**
+   * Text answer format. Used for `OpenEndedTextOneLine` question types.`CustomFormat`: Answers must follow a planner defined custom format. `EmailAddress`: Answers must follow the pattern of an email address. `General`: Answers can be any string. `USPhoneNumber`: Answers must be formatted as a phone number.
+   */
+  textAnswerFormat?: TextAnswerFormat | undefined;
+  /**
+   * An object that contains custom answer format data.
+   */
+  customAnswerFormat?: CustomAnswerFormat | undefined;
+  /**
+   * List of supplier types that can view the question on the RFP.
+   */
+  supplierTypes: Array<SupplierType>;
+  /**
+   * Indicates the types of RFP that can be assigned this custom question. `MEETING_ROOM`: Meeting room type RFPs can be assigned this custom question. `GUEST_ROOM`: Guest room type RFPs can be assigned this custom question. `ALL_RFPS`:  All RFPs can be assigned this custom question.
+   */
+  classificationType: QuestionClassificationType;
+  /**
+   * Determines the display order for questions on the RFP. Questions with smaller values appear first.
+   */
+  order?: number | undefined;
+  /**
+   * Standard questions are selected from a predefined list of Cvent questions that can be used in an RFP.
+   */
+  standardQuestion?: StandardQuestion | undefined;
+};
+
 /** @internal */
 export const CustomAnswerFormat$inboundSchema: z.ZodType<
   CustomAnswerFormat,
@@ -232,7 +423,27 @@ export const CustomAnswerFormat$inboundSchema: z.ZodType<
 > = z.object({
   id: z.number().int().optional(),
 });
+/** @internal */
+export type CustomAnswerFormat$Outbound = {
+  id?: number | undefined;
+};
 
+/** @internal */
+export const CustomAnswerFormat$outboundSchema: z.ZodType<
+  CustomAnswerFormat$Outbound,
+  z.ZodTypeDef,
+  CustomAnswerFormat
+> = z.object({
+  id: z.number().int().optional(),
+});
+
+export function customAnswerFormatToJSON(
+  customAnswerFormat: CustomAnswerFormat,
+): string {
+  return JSON.stringify(
+    CustomAnswerFormat$outboundSchema.parse(customAnswerFormat),
+  );
+}
 export function customAnswerFormatFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomAnswerFormat, SDKValidationError> {
@@ -302,5 +513,96 @@ export function rfpQuestionFromJSON(
     jsonString,
     (x) => RfpQuestion$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'RfpQuestion' from JSON`,
+  );
+}
+
+/** @internal */
+export type RfpQuestionInput$Outbound = {
+  text?: string | undefined;
+  shortText?: string | undefined;
+  htmlText?: string | undefined;
+  code?: string | undefined;
+  type?: string | undefined;
+  choices?: Array<ChoiceInput$Outbound> | undefined;
+  categories?: Array<CategoryInput$Outbound> | undefined;
+  subCategories?: Array<TextFieldInput$Outbound> | undefined;
+  notApplicableAnswer?: AdditionalChoice$Outbound | undefined;
+  otherAnswer?: AdditionalChoice$Outbound | undefined;
+  comments?: string | undefined;
+  required: boolean;
+  fields?: Array<FieldInput$Outbound> | undefined;
+  maxScore?: number | undefined;
+  totalSum?: number | undefined;
+  choiceSortOrder?: string | undefined;
+  displayType?: string | undefined;
+  minSelection: number;
+  maxSelection: number;
+  minDate?: string | undefined;
+  maxDate?: string | undefined;
+  showDateSelector?: boolean | undefined;
+  showCurrentDate?: boolean | undefined;
+  dateAnswerFormat: string;
+  numericAnswerFormat?: string | undefined;
+  unitLabel?: string | undefined;
+  unitPosition?: string | undefined;
+  minLength: number;
+  maxLength: number;
+  textAnswerFormat?: string | undefined;
+  customAnswerFormat?: CustomAnswerFormat$Outbound | undefined;
+  supplierTypes: Array<string>;
+  classificationType: string;
+  order?: number | undefined;
+  standardQuestion?: StandardQuestion$Outbound | undefined;
+};
+
+/** @internal */
+export const RfpQuestionInput$outboundSchema: z.ZodType<
+  RfpQuestionInput$Outbound,
+  z.ZodTypeDef,
+  RfpQuestionInput
+> = z.object({
+  text: z.string().optional(),
+  shortText: z.string().optional(),
+  htmlText: z.string().optional(),
+  code: z.string().optional(),
+  type: QuestionType$outboundSchema.optional(),
+  choices: z.array(ChoiceInput$outboundSchema).optional(),
+  categories: z.array(CategoryInput$outboundSchema).optional(),
+  subCategories: z.array(TextFieldInput$outboundSchema).optional(),
+  notApplicableAnswer: AdditionalChoice$outboundSchema.optional(),
+  otherAnswer: AdditionalChoice$outboundSchema.optional(),
+  comments: z.string().optional(),
+  required: z.boolean().default(false),
+  fields: z.array(FieldInput$outboundSchema).optional(),
+  maxScore: z.number().optional(),
+  totalSum: z.number().int().optional(),
+  choiceSortOrder: ChoiceSortOrder$outboundSchema.optional(),
+  displayType: DisplayType$outboundSchema.optional(),
+  minSelection: z.number().int().default(0),
+  maxSelection: z.number().int().default(0),
+  minDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
+  maxDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
+  showDateSelector: z.boolean().optional(),
+  showCurrentDate: z.boolean().optional(),
+  dateAnswerFormat: DateAnswerFormat$outboundSchema.default("DateTime"),
+  numericAnswerFormat: NumericAnswerFormat$outboundSchema.optional(),
+  unitLabel: z.string().optional(),
+  unitPosition: UnitPosition$outboundSchema.optional(),
+  minLength: z.number().int().default(0),
+  maxLength: z.number().int().default(500),
+  textAnswerFormat: TextAnswerFormat$outboundSchema.optional(),
+  customAnswerFormat: z.lazy(() => CustomAnswerFormat$outboundSchema)
+    .optional(),
+  supplierTypes: z.array(SupplierType$outboundSchema),
+  classificationType: QuestionClassificationType$outboundSchema,
+  order: z.number().int().optional(),
+  standardQuestion: StandardQuestion$outboundSchema.optional(),
+});
+
+export function rfpQuestionInputToJSON(
+  rfpQuestionInput: RfpQuestionInput,
+): string {
+  return JSON.stringify(
+    RfpQuestionInput$outboundSchema.parse(rfpQuestionInput),
   );
 }

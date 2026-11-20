@@ -10,11 +10,11 @@ import { AirActual, AirActual$inboundSchema } from "./airactual.js";
 import { Attendee3, Attendee3$inboundSchema } from "./attendee3.js";
 
 /**
- * Representation of an air actual detail response.
+ * Air actual details for an attendee and any guest.
  */
 export type AirActualDetail1 = {
   /**
-   * Representation of the attendee
+   * An attendee identified by an ID.
    */
   attendee?: Attendee3 | undefined;
   /**

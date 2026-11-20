@@ -29,3 +29,7 @@ export type CancelledReason1 = ClosedEnum<typeof CancelledReason1>;
 export const CancelledReason1$inboundSchema: z.ZodNativeEnum<
   typeof CancelledReason1
 > = z.nativeEnum(CancelledReason1);
+/** @internal */
+export const CancelledReason1$outboundSchema: z.ZodNativeEnum<
+  typeof CancelledReason1
+> = CancelledReason1$inboundSchema;

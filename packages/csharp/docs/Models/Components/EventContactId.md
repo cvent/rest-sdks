@@ -1,6 +1,6 @@
 # EventContactId
 
-A pair of event and contact id.
+An event ID and a contact ID pair.
 
 
 ## Fields

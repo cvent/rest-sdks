@@ -37,3 +37,6 @@ export type Industry1 = ClosedEnum<typeof Industry1>;
 /** @internal */
 export const Industry1$inboundSchema: z.ZodNativeEnum<typeof Industry1> = z
   .nativeEnum(Industry1);
+/** @internal */
+export const Industry1$outboundSchema: z.ZodNativeEnum<typeof Industry1> =
+  Industry1$inboundSchema;

@@ -1,6 +1,6 @@
 # AmenityType
 
-Amenity type
+The type of the amenity.
 
 ## Example Usage
 

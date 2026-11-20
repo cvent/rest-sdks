@@ -28,3 +28,7 @@ export type OrganizationType1 = ClosedEnum<typeof OrganizationType1>;
 export const OrganizationType1$inboundSchema: z.ZodNativeEnum<
   typeof OrganizationType1
 > = z.nativeEnum(OrganizationType1);
+/** @internal */
+export const OrganizationType1$outboundSchema: z.ZodNativeEnum<
+  typeof OrganizationType1
+> = OrganizationType1$inboundSchema;

@@ -1,6 +1,6 @@
 # SurveyContactId
 
-A pair of survey and contact id.
+A survey ID and a contact ID pair.
 
 ## Example Usage
 

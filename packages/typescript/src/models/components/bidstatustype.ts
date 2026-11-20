@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Bid status type.
+ * The status of the bid.
  */
 export const BidStatusType = {
   InProgress: "in_progress",
@@ -15,7 +15,7 @@ export const BidStatusType = {
   DeleteRequested: "delete_requested",
 } as const;
 /**
- * Bid status type.
+ * The status of the bid.
  */
 export type BidStatusType = ClosedEnum<typeof BidStatusType>;
 

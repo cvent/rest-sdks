@@ -14,11 +14,11 @@ import java.util.Optional;
 /**
  * Event3
  *
- * <p>ID of the event.
+ * <p>Represents an event by its ID.
  */
 public class Event3 {
     /**
-     * UUID of the event.
+     * Event ID.
      */
     @JsonProperty("id")
     private String id;
@@ -29,7 +29,7 @@ public class Event3 {
     }
 
     /**
-     * UUID of the event.
+     * Event ID.
      */
     public String id() {
         return this.id;
@@ -40,7 +40,7 @@ public class Event3 {
     }
 
     /**
-     * UUID of the event.
+     * Event ID.
      */
     public Event3 withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -79,7 +79,7 @@ public class Event3 {
         }
 
         /**
-         * UUID of the event.
+         * Event ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

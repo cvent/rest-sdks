@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Segment details
+ * Represents a segment by its ID.
  */
 export type Segment = {
   /**
-   * Segment Id
+   * Segment ID.
    */
   id: string;
 };

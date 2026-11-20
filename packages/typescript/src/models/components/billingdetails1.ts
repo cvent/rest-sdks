@@ -6,7 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { RebateType, RebateType$inboundSchema } from "./rebatetype.js";
+import {
+  RebateType,
+  RebateType$inboundSchema,
+  RebateType$outboundSchema,
+} from "./rebatetype.js";
 
 /**
  * Billing details for RFP.
@@ -27,7 +31,7 @@ export type BillingDetails1 = {
   /**
    * True indicates that rebates and incentives are accepted, applicable only for citywide RFPs.
    */
-  acceptingRebatesAndIncentives: boolean;
+  acceptingRebatesAndIncentives?: boolean | undefined;
   /**
    * The value of the rebate. The impact of this value on the price is determined by `RebateType`.
    */
@@ -46,7 +50,33 @@ export const BillingDetails1$inboundSchema: z.ZodType<
   acceptingRebatesAndIncentives: z.boolean().default(true),
   rebateValue: z.number().optional(),
 });
+/** @internal */
+export type BillingDetails1$Outbound = {
+  additionalInformation?: string | undefined;
+  concessionsContractualInfo?: string | undefined;
+  rebateType?: string | undefined;
+  acceptingRebatesAndIncentives: boolean;
+  rebateValue?: number | undefined;
+};
 
+/** @internal */
+export const BillingDetails1$outboundSchema: z.ZodType<
+  BillingDetails1$Outbound,
+  z.ZodTypeDef,
+  BillingDetails1
+> = z.object({
+  additionalInformation: z.string().optional(),
+  concessionsContractualInfo: z.string().optional(),
+  rebateType: RebateType$outboundSchema.optional(),
+  acceptingRebatesAndIncentives: z.boolean().default(true),
+  rebateValue: z.number().optional(),
+});
+
+export function billingDetails1ToJSON(
+  billingDetails1: BillingDetails1,
+): string {
+  return JSON.stringify(BillingDetails1$outboundSchema.parse(billingDetails1));
+}
 export function billingDetails1FromJSON(
   jsonString: string,
 ): SafeParseResult<BillingDetails1, SDKValidationError> {

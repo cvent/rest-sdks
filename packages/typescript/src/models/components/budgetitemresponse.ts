@@ -49,7 +49,7 @@ import {
 } from "./generalledger1.js";
 
 /**
- * The identifier of the Event.
+ * Event ID.
  */
 export type BudgetItemResponseEvent = {
   /**
@@ -63,11 +63,11 @@ export type BudgetItemResponseEvent = {
  */
 export type BudgetItemResponse = {
   /**
-   * The identifier of the Event.
+   * Event ID.
    */
   event?: BudgetItemResponseEvent | undefined;
   /**
-   * The identifier of the budget item.
+   * Budget item ID.
    */
   id?: string | undefined;
   /**
@@ -87,7 +87,7 @@ export type BudgetItemResponse = {
    */
   category: BudgetCategory;
   /**
-   * This is used to denote the sub category for a budget.
+   * Subcategory assigned to a budget item.
    */
   subCategory?: BudgetSubCategory | undefined;
   /**
@@ -111,7 +111,7 @@ export type BudgetItemResponse = {
    */
   lastModifiedDate?: Date | undefined;
   /**
-   * This is used to denote the general ledger code associated with budget.
+   * General ledger code and details associated with a budget item.
    */
   generalLedger?: GeneralLedger1 | undefined;
   /**
@@ -143,7 +143,7 @@ export type BudgetItemResponse = {
    */
   conversionRateLocked?: boolean | undefined;
   /**
-   * Conversion rate for converting an amount into a different currency. Value must be greater than 0.000001
+   * Rate used to convert an amount into another currency. The value must be greater than 0.000001.
    */
   conversionRate: number;
   /**

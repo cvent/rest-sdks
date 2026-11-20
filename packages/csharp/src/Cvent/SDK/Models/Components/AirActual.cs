@@ -16,7 +16,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Representation of an air actual.
+    /// Flight booking details for a passenger, including flight segments and answers to air actual questions.
     /// </summary>
     public class AirActual
     {
@@ -69,7 +69,7 @@ namespace Cvent.SDK.Models.Components
         public AirRequesterType? RequesterType { get; set; }
 
         /// <summary>
-        /// Name of the attendee booked for the flight.
+        /// Name of the passenger booked for the flight.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
@@ -81,7 +81,7 @@ namespace Cvent.SDK.Models.Components
         public string? ConfirmationNumber { get; set; }
 
         /// <summary>
-        /// Total cost of the flight.
+        /// Total cost of the flight in the currency specified by currencyCode.
         /// </summary>
         [JsonProperty("totalAmount")]
         public double? TotalAmount { get; set; }

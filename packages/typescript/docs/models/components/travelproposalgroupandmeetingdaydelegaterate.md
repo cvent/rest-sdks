@@ -1,6 +1,6 @@
 # TravelProposalGroupAndMeetingDayDelegateRate
 
-Day delegate rate information. This represents the costs for hosting meeting at the venue for a half or full day.
+The day delegate rates of the proposal. A day delegate rate is the cost to host a meeting at the venue for a half day or a full day.
 
 ## Example Usage
 

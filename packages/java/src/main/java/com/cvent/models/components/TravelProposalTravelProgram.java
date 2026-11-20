@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * TravelProposalTravelProgram
  *
- * <p>Travel program that the proposal is in response to.
+ * <p>The travel program that the proposal responds to.
  */
 public class TravelProposalTravelProgram {
     /**

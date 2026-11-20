@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  * HotelRoomRate
  *
- * <p>Representation of a hotel room rate
+ * <p>A hotel room rate for a specific night.
  */
 public class HotelRoomRate {
     /**

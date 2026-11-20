@@ -1010,7 +1010,7 @@ namespace Cvent.SDK
         /// present on the event's registration path. See the following<br/>
         /// <a href="https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown">article</a> for<br/>
         /// more information.<br/>
-        /// The request is processed asynchronously after the downstream registration call returns. A successful response means that the enrollment request was accepted for processing; it does not guarantee that the attendee is already enrolled or immediately queryable.
+        /// The API returns `204` when the registration system accepts the enrollment request. The registration system then enrolls the attendee asynchronously. A read of the session registrations can omit the attendee until the enrollment completes. To confirm the enrollment, wait, and then repeat the read.
         /// </remarks>
         /// <param name="request">A <see cref="CreateSessionEnrollmentRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -6860,7 +6860,8 @@ namespace Cvent.SDK
                     Id = request.Id,
                     Limit = request.Limit,
                     Token = nextCursor,
-                    Locale = request.Locale
+                    Locale = request.Locale,
+                    Filter = request.Filter
                 };
 
                 return await ListRegistrationPathsAsync(
@@ -10434,7 +10435,7 @@ namespace Cvent.SDK
         /// present on the event's registration path. See the following<br/>
         /// <a href="https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown">article</a> for<br/>
         /// more information.<br/>
-        /// The request is processed asynchronously after the downstream registration call returns. A successful response means that the enrollment request was accepted for processing; it does not guarantee that the attendee is already enrolled or immediately queryable.
+        /// The API returns `204` when the registration system accepts the enrollment request. The registration system then enrolls the attendee asynchronously. A read of the session registrations can omit the attendee until the enrollment completes. To confirm the enrollment, wait, and then repeat the read.
         /// </remarks>
         /// <param name="request">A <see cref="CreateSessionEnrollmentRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

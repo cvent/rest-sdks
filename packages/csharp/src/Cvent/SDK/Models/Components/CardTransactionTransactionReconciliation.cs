@@ -21,13 +21,13 @@ namespace Cvent.SDK.Models.Components
     public class CardTransactionTransactionReconciliation
     {
         /// <summary>
-        /// The identifier of reconciled budget item.
+        /// Reconciled budget item ID.
         /// </summary>
         [JsonProperty("budgetItem")]
         public CardTransactionBudgetItem? BudgetItem { get; set; }
 
         /// <summary>
-        /// This is used to denote the reconciliation status for a transaction.
+        /// Reconciliation status of the transaction: Reconciled or Not Reconciled.
         /// </summary>
         [JsonProperty("status")]
         public ReconciliationStatus? Status { get; set; }

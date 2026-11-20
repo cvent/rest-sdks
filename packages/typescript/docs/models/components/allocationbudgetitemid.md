@@ -8,12 +8,12 @@ Represents the budget item where the allocation was made.
 import { AllocationBudgetItemId } from "@cvent/sdk/models/components";
 
 let value: AllocationBudgetItemId = {
-  id: "49037583-aec5-4ca7-8f2a-0afd499b10da",
+  id: "569f22e0-1070-4434-884e-5e422ee3354e",
 };
 ```
 
 ## Fields
 
-| Field                                   | Type                                    | Required                                | Description                             | Example                                 |
-| --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| `id`                                    | *string*                                | :heavy_minus_sign:                      | Identifier of a particular budget item. | 49037583-aec5-4ca7-8f2a-0afd499b10da    |
+| Field                                | Type                                 | Required                             | Description                          | Example                              |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| `id`                                 | *string*                             | :heavy_minus_sign:                   | Budget item ID.                      | 569f22e0-1070-4434-884e-5e422ee3354e |

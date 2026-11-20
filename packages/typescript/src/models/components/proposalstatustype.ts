@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * The status of the proposal
+ * The status of the proposal.
  */
 export const ProposalStatusType = {
   ParticipationRequested: "participation_requested",
@@ -27,7 +27,7 @@ export const ProposalStatusType = {
   Deleted: "deleted",
 } as const;
 /**
- * The status of the proposal
+ * The status of the proposal.
  */
 export type ProposalStatusType = ClosedEnum<typeof ProposalStatusType>;
 

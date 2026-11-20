@@ -24,3 +24,6 @@ export type DisplayType = ClosedEnum<typeof DisplayType>;
 /** @internal */
 export const DisplayType$inboundSchema: z.ZodNativeEnum<typeof DisplayType> = z
   .nativeEnum(DisplayType);
+/** @internal */
+export const DisplayType$outboundSchema: z.ZodNativeEnum<typeof DisplayType> =
+  DisplayType$inboundSchema;

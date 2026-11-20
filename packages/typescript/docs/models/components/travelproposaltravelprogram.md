@@ -1,6 +1,6 @@
 # TravelProposalTravelProgram
 
-Travel program that the proposal is in response to.
+The travel program that the proposal responds to.
 
 ## Example Usage
 

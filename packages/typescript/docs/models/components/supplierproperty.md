@@ -1,6 +1,6 @@
 # SupplierProperty
 
-Supplier property that the proposal is tied to.
+The supplier property of the proposal.
 
 ## Example Usage
 

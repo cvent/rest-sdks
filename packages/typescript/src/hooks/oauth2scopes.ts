@@ -86,51 +86,51 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "attendee-insights/stats:read"
   /**
-   * Allows the deletion of budget items
+   * Allows the deletion of budget items.
    */
   | "budget/budget-items:delete"
   /**
-   * Allows the reading of all budget items
+   * Allows the reading of all budget items.
    */
   | "budget/budget-items:read"
   /**
-   * Allows creation/updation of budget item
+   * Allows the creation and update of budget items.
    */
   | "budget/budget-items:write"
   /**
-   * Allows the reading of all event budget totals
+   * Allows the reading of all event budget totals.
    */
   | "budget/budget-totals:read"
   /**
-   * Allows reading of account-level budget vendors.
+   * Allows the reading of account-level budget vendors.
    */
   | "budget/budget-vendors:read"
   /**
-   * Allows the reading of cards
+   * Allows the reading of cards.
    */
   | "budget/cards:read"
   /**
-   * Allows deletion of currency conversion rate for currency.
+   * Allows the deletion of currency conversion rates.
    */
   | "budget/currency-conversion-rate:delete"
   /**
-   * Allows reading of currency conversion rate for currency.
+   * Allows the reading of currency conversion rates.
    */
   | "budget/currency-conversion-rate:read"
   /**
-   * Allows creation/update of currency conversion rate for currency.
+   * Allows the creation and update of currency conversion rates.
    */
   | "budget/currency-conversion-rate:write"
   /**
-   * Allows deletion of payments.
+   * Allows the deletion of payments.
    */
   | "budget/payments:delete"
   /**
-   * Allows reading of payment for budget item.
+   * Allows the reading of payments for budget items.
    */
   | "budget/payments:read"
   /**
-   * Allows creation of payment in a budget item.
+   * Allows the creation and update of payments for budget items.
    */
   | "budget/payments:write"
   /**
@@ -138,11 +138,11 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "budget/transactions:delete"
   /**
-   * Allows the reading of all card's transactions
+   * Allows the reading of all card transactions.
    */
   | "budget/transactions:read"
   /**
-   * Allows creation of card transactions.
+   * Allows the creation and update of card transactions.
    */
   | "budget/transactions:write"
   /**
@@ -682,49 +682,109 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "remote-printing/badge-printer-pools:read"
   /**
+   * Allows the deletion of RFP agenda items.
+   */
+  | "rfp/rfp-agenda-items:delete"
+  /**
    * Allows the reading of RFP agenda items.
    */
   | "rfp/rfp-agenda-items:read"
+  /**
+   * Allows the creation and modification of RFP agenda items.
+   */
+  | "rfp/rfp-agenda-items:write"
+  /**
+   * Allows the disassociation of Attachments from an RFP.
+   */
+  | "rfp/rfp-attachments:delete"
   /**
    * Allows the reading of RFP attachments.
    */
   | "rfp/rfp-attachments:read"
   /**
+   * Allows the association of Attachments with an RFP.
+   */
+  | "rfp/rfp-attachments:write"
+  /**
    * Allows the reading of RFP custom fields.
    */
   | "rfp/rfp-custom-fields:read"
+  /**
+   * Allows add/update answers to custom fields associated with an RFP.
+   */
+  | "rfp/rfp-custom-fields:write"
   /**
    * Allows the reading of RFP guest rooms.
    */
   | "rfp/rfp-guest-rooms:read"
   /**
+   * Allows the creation and modification of RFP guest rooms.
+   */
+  | "rfp/rfp-guest-rooms:write"
+  /**
+   * Allows the disassociation of internal documents from an RFP.
+   */
+  | "rfp/rfp-internal-documents:delete"
+  /**
    * Allows the reading of RFP internal documents.
    */
   | "rfp/rfp-internal-documents:read"
+  /**
+   * Allows the writing of RFP internal documents.
+   */
+  | "rfp/rfp-internal-documents:write"
   /**
    * Allows the reading of RFP lead sources.
    */
   | "rfp/rfp-lead-sources:read"
   /**
+   * Allows the deletion of RFP past events.
+   */
+  | "rfp/rfp-past-events:delete"
+  /**
    * Allows the reading of past events similar to rfp event.
    */
   | "rfp/rfp-past-events:read"
+  /**
+   * Allows the creation and modification of RFP past events.
+   */
+  | "rfp/rfp-past-events:write"
+  /**
+   * Allows the deletion of RFP questions.
+   */
+  | "rfp/rfp-questions:delete"
   /**
    * Allows the reading of RFP questions.
    */
   | "rfp/rfp-questions:read"
   /**
+   * Allows the creation and modification of RFP questions.
+   */
+  | "rfp/rfp-questions:write"
+  /**
    * Allows the reading of RFP recipients history.
    */
   | "rfp/rfp-recipients-history:read"
+  /**
+   * Allows the disassociation of suppliers from an RFP.
+   */
+  | "rfp/rfp-suppliers:delete"
   /**
    * Allows the reading of RFP suppliers.
    */
   | "rfp/rfp-suppliers:read"
   /**
+   * Allows the association of suppliers with an RFP.
+   */
+  | "rfp/rfp-suppliers:write"
+  /**
    * Allows the reading of basic details of RFP.
    */
   | "rfp/rfps:read"
+  /**
+   * Allows the creation and modification of RFP.
+   */
+  | "rfp/rfps:write"
   /**
    * Allows to read attendee seat assignment information.
    */
@@ -1010,51 +1070,51 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    */
   | "attendee-insights/stats:read"
   /**
-   * Allows the deletion of budget items
+   * Allows the deletion of budget items.
    */
   | "budget/budget-items:delete"
   /**
-   * Allows the reading of all budget items
+   * Allows the reading of all budget items.
    */
   | "budget/budget-items:read"
   /**
-   * Allows creation/updation of budget item
+   * Allows the creation and update of budget items.
    */
   | "budget/budget-items:write"
   /**
-   * Allows the reading of all event budget totals
+   * Allows the reading of all event budget totals.
    */
   | "budget/budget-totals:read"
   /**
-   * Allows reading of account-level budget vendors.
+   * Allows the reading of account-level budget vendors.
    */
   | "budget/budget-vendors:read"
   /**
-   * Allows the reading of cards
+   * Allows the reading of cards.
    */
   | "budget/cards:read"
   /**
-   * Allows deletion of currency conversion rate for currency.
+   * Allows the deletion of currency conversion rates.
    */
   | "budget/currency-conversion-rate:delete"
   /**
-   * Allows reading of currency conversion rate for currency.
+   * Allows the reading of currency conversion rates.
    */
   | "budget/currency-conversion-rate:read"
   /**
-   * Allows creation/update of currency conversion rate for currency.
+   * Allows the creation and update of currency conversion rates.
    */
   | "budget/currency-conversion-rate:write"
   /**
-   * Allows deletion of payments.
+   * Allows the deletion of payments.
    */
   | "budget/payments:delete"
   /**
-   * Allows reading of payment for budget item.
+   * Allows the reading of payments for budget items.
    */
   | "budget/payments:read"
   /**
-   * Allows creation of payment in a budget item.
+   * Allows the creation and update of payments for budget items.
    */
   | "budget/payments:write"
   /**
@@ -1062,11 +1122,11 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    */
   | "budget/transactions:delete"
   /**
-   * Allows the reading of all card's transactions
+   * Allows the reading of all card transactions.
    */
   | "budget/transactions:read"
   /**
-   * Allows creation of card transactions.
+   * Allows the creation and update of card transactions.
    */
   | "budget/transactions:write"
   /**
@@ -1726,49 +1786,109 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    */
   | "remote-printing/badge-printer-pools:read"
   /**
+   * Allows the deletion of RFP agenda items.
+   */
+  | "rfp/rfp-agenda-items:delete"
+  /**
    * Allows the reading of RFP agenda items.
    */
   | "rfp/rfp-agenda-items:read"
+  /**
+   * Allows the creation and modification of RFP agenda items.
+   */
+  | "rfp/rfp-agenda-items:write"
+  /**
+   * Allows the disassociation of Attachments from an RFP.
+   */
+  | "rfp/rfp-attachments:delete"
   /**
    * Allows the reading of RFP attachments.
    */
   | "rfp/rfp-attachments:read"
   /**
+   * Allows the association of Attachments with an RFP.
+   */
+  | "rfp/rfp-attachments:write"
+  /**
    * Allows the reading of RFP custom fields.
    */
   | "rfp/rfp-custom-fields:read"
+  /**
+   * Allows add/update answers to custom fields associated with an RFP.
+   */
+  | "rfp/rfp-custom-fields:write"
   /**
    * Allows the reading of RFP guest rooms.
    */
   | "rfp/rfp-guest-rooms:read"
   /**
+   * Allows the creation and modification of RFP guest rooms.
+   */
+  | "rfp/rfp-guest-rooms:write"
+  /**
+   * Allows the disassociation of internal documents from an RFP.
+   */
+  | "rfp/rfp-internal-documents:delete"
+  /**
    * Allows the reading of RFP internal documents.
    */
   | "rfp/rfp-internal-documents:read"
+  /**
+   * Allows the writing of RFP internal documents.
+   */
+  | "rfp/rfp-internal-documents:write"
   /**
    * Allows the reading of RFP lead sources.
    */
   | "rfp/rfp-lead-sources:read"
   /**
+   * Allows the deletion of RFP past events.
+   */
+  | "rfp/rfp-past-events:delete"
+  /**
    * Allows the reading of past events similar to rfp event.
    */
   | "rfp/rfp-past-events:read"
+  /**
+   * Allows the creation and modification of RFP past events.
+   */
+  | "rfp/rfp-past-events:write"
+  /**
+   * Allows the deletion of RFP questions.
+   */
+  | "rfp/rfp-questions:delete"
   /**
    * Allows the reading of RFP questions.
    */
   | "rfp/rfp-questions:read"
   /**
+   * Allows the creation and modification of RFP questions.
+   */
+  | "rfp/rfp-questions:write"
+  /**
    * Allows the reading of RFP recipients history.
    */
   | "rfp/rfp-recipients-history:read"
+  /**
+   * Allows the disassociation of suppliers from an RFP.
+   */
+  | "rfp/rfp-suppliers:delete"
   /**
    * Allows the reading of RFP suppliers.
    */
   | "rfp/rfp-suppliers:read"
   /**
+   * Allows the association of suppliers with an RFP.
+   */
+  | "rfp/rfp-suppliers:write"
+  /**
    * Allows the reading of basic details of RFP.
    */
   | "rfp/rfps:read"
+  /**
+   * Allows the creation and modification of RFP.
+   */
+  | "rfp/rfps:write"
   /**
    * Allows to read attendee seat assignment information.
    */

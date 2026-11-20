@@ -33,7 +33,7 @@ public class CreateBudgetItemResponse implements AsyncResponse {
     private HttpResponse<Blob> rawResponse;
 
     /**
-     * Successfully created a Budget Item.
+     * Successfully created a budget item.
      */
     private BudgetItemResponse budgetItemResponse;
 
@@ -78,7 +78,7 @@ public class CreateBudgetItemResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully created a Budget Item.
+     * Successfully created a budget item.
      */
     public Optional<BudgetItemResponse> budgetItemResponse() {
         return Optional.ofNullable(this.budgetItemResponse);
@@ -113,7 +113,7 @@ public class CreateBudgetItemResponse implements AsyncResponse {
     }
 
     /**
-     * Successfully created a Budget Item.
+     * Successfully created a budget item.
      */
     public CreateBudgetItemResponse withBudgetItemResponse(@Nullable BudgetItemResponse budgetItemResponse) {
         this.budgetItemResponse = budgetItemResponse;
@@ -194,7 +194,7 @@ public class CreateBudgetItemResponse implements AsyncResponse {
         }
 
         /**
-         * Successfully created a Budget Item.
+         * Successfully created a budget item.
          */
         public Builder budgetItemResponse(@Nullable BudgetItemResponse budgetItemResponse) {
             this.budgetItemResponse = budgetItemResponse;

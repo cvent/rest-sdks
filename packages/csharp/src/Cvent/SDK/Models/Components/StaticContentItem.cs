@@ -13,18 +13,18 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Represents a single static content field with its value and sequence order.
+    /// A static content field with its value and its sequence order.
     /// </summary>
     public class StaticContentItem
     {
         /// <summary>
-        /// The name of the static content field (e.g., propertyName, numberOfRooms, extendedStay).
+        /// The name of the static content field, for example `propertyName`, `numberOfRooms`, or `extendedStay`.
         /// </summary>
         [JsonProperty("fieldName")]
         public string FieldName { get; set; } = default!;
 
         /// <summary>
-        /// Sequence number for ordering the static content items.
+        /// The position of the item in the order of the static content items.
         /// </summary>
         [JsonProperty("sequence")]
         public long Sequence { get; set; } = default!;

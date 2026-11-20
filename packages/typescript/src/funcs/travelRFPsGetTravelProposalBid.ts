@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Get Travel Proposal Bid
  *
  * @remarks
- * Gets a travel proposal bid for the given travel proposal bid ID.
+ * Gets a travel proposal bid by its ID.
  */
 export function travelRFPsGetTravelProposalBid(
   client: CventSDKCore,

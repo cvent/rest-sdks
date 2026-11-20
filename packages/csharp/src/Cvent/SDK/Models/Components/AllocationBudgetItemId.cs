@@ -18,7 +18,7 @@ namespace Cvent.SDK.Models.Components
     public class AllocationBudgetItemId
     {
         /// <summary>
-        /// Identifier of a particular budget item.
+        /// Budget item ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

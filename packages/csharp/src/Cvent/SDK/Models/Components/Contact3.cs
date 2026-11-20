@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The contact details who watched a video.
+    /// A contact ID associated with a video view.
     /// </summary>
     public class Contact3
     {

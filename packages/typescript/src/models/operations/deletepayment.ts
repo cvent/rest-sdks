@@ -6,15 +6,15 @@ import * as z from "zod/v3";
 
 export type DeletePaymentRequest = {
   /**
-   * Unique ID of an event.
+   * Event ID.
    */
   id: string;
   /**
-   * Unique ID of a budget item.
+   * Budget item ID.
    */
   budgetItemId: string;
   /**
-   * Unique ID of a payment.
+   * Payment ID.
    */
   paymentId: string;
 };

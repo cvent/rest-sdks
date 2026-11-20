@@ -1876,6 +1876,7 @@ ListRegistrationPathsRequest req = new ListRegistrationPathsRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Locale = "en-US",
+    Filter = "waitlistEnabled eq 'true'",
 };
 
 ListRegistrationPathsResponse? res = await sdk.Events.ListRegistrationPathsAsync(req);
@@ -3006,7 +3007,7 @@ Submit an enrollment request for an attendee in the given session. Requires the 
 present on the event's registration path. See the following
 [article](https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown) for
 more information.
-The request is processed asynchronously after the downstream registration call returns. A successful response means that the enrollment request was accepted for processing; it does not guarantee that the attendee is already enrolled or immediately queryable.
+The API returns `204` when the registration system accepts the enrollment request. The registration system then enrolls the attendee asynchronously. A read of the session registrations can omit the attendee until the enrollment completes. To confirm the enrollment, wait, and then repeat the read.
 
 
 More about OAuth2 authorization code support for administrators

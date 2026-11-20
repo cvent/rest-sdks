@@ -29,6 +29,38 @@ export type ListRegistrationPathsRequest = {
    * Locale code in IETF Language tag format. Indicates desired locale of return values.
    */
   locale?: string | undefined;
+  /**
+   * Use filter query parameters to limit results
+   *
+   * @remarks
+   * to data that matches your criteria. See
+   * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
+   *
+   * The filter adheres to the pattern filter='field' comparisonType
+   * 'value'.
+   *
+   * Only the equal (`eq`) comparison type can be used in filter
+   * expressions.
+   *
+   * No logical operators are supported.
+   *
+   * The following field is filterable:
+   *   * waitlistEnabled (eq)
+   *
+   * The `waitlistEnabled` field accepts `'true'` or `'false'`:
+   *   * `waitlistEnabled eq 'true'` returns only registration paths that have a waitlist enabled.
+   *   * `waitlistEnabled eq 'false'` returns only registration paths that don't have a waitlist enabled.
+   *
+   * When no filter is provided, all registration paths for the event are returned.
+   *
+   * The request fails with a `400 Bad Request` error if the filter:
+   *   * Uses a field other than `waitlistEnabled`. Field names are case-sensitive.
+   *   * Uses an operator other than `eq`, such as `waitlistEnabled ne 'true'`.
+   *   * Uses a value other than `'true'` or `'false'`, such as `waitlistEnabled eq 'yes'` or the unquoted `waitlistEnabled eq true`.
+   *   * Combines expressions with `and` or `or`.
+   *   * Is malformed.
+   */
+  filter?: string | undefined;
 };
 
 export type ListRegistrationPathsResponse = {
@@ -41,6 +73,7 @@ export type ListRegistrationPathsRequest$Outbound = {
   limit: number;
   token?: string | undefined;
   locale?: string | undefined;
+  filter?: string | undefined;
 };
 
 /** @internal */
@@ -53,6 +86,7 @@ export const ListRegistrationPathsRequest$outboundSchema: z.ZodType<
   limit: z.number().int().default(100),
   token: z.string().optional(),
   locale: z.string().optional(),
+  filter: z.string().optional(),
 });
 
 export function listRegistrationPathsRequestToJSON(

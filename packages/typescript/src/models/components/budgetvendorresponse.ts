@@ -17,7 +17,7 @@ import {
  */
 export type BudgetVendorResponse = {
   /**
-   * The unique identifier for the budget vendor.
+   * Budget vendor ID.
    */
   id: string;
   /**

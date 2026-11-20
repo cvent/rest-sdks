@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * CardDetailsEvent
  *
- * <p>The identifier of the Event.
+ * <p>Event ID.
  */
 public class CardDetailsEvent {
     /**

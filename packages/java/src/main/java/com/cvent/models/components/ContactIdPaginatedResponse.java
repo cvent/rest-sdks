@@ -15,8 +15,8 @@ import java.util.Optional;
 /**
  * ContactIdPaginatedResponse
  *
- * <p>The response from a request to get the ids of contacts in a contact group or relationship. This
- * includes the paging object as well as the collection of contact ids.
+ * <p>The response from a request to get the IDs of contacts in a contact group or relationship. This
+ * includes the paging object as well as the collection of contact IDs.
  */
 public class ContactIdPaginatedResponse {
     /**
@@ -26,7 +26,7 @@ public class ContactIdPaginatedResponse {
     private Paging paging;
 
     /**
-     * Collection of contact ids.
+     * Collection of contact IDs.
      */
     @JsonProperty("data")
     private List<IdOnlyEntity> data;
@@ -47,7 +47,7 @@ public class ContactIdPaginatedResponse {
     }
 
     /**
-     * Collection of contact ids.
+     * Collection of contact IDs.
      */
     public List<IdOnlyEntity> data() {
         return this.data;
@@ -66,7 +66,7 @@ public class ContactIdPaginatedResponse {
     }
 
     /**
-     * Collection of contact ids.
+     * Collection of contact IDs.
      */
     public ContactIdPaginatedResponse withData(@Nonnull List<IdOnlyEntity> data) {
         this.data = Utils.checkNotNull(data, "data");
@@ -115,7 +115,7 @@ public class ContactIdPaginatedResponse {
         }
 
         /**
-         * Collection of contact ids.
+         * Collection of contact IDs.
          */
         public Builder data(@Nonnull List<IdOnlyEntity> data) {
             this.data = Utils.checkNotNull(data, "data");

@@ -15,19 +15,19 @@ namespace Cvent.SDK.Models.Requests
     public class UpdateBudgetAllocationsRequest
     {
         /// <summary>
-        /// Unique ID of an event.
+        /// Event ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Unique ID of a budget item.
+        /// Budget item ID.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=budgetItemId")]
         public string BudgetItemId { get; set; } = default!;
 
         /// <summary>
-        /// The budget allocations to upsert.
+        /// Budget allocations to create or update.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public BudgetAllocationsList BudgetAllocationsList { get; set; } = default!;

@@ -860,6 +860,9 @@ workflows:
           - name: locale
             in: query
             value: en-US
+          - name: filter
+            in: query
+            value: waitlistEnabled eq 'true'
         successCriteria:
           - condition: $statusCode == 200
           - condition: $response.header.Content-Type == application/json
@@ -2445,9 +2448,9 @@ workflows:
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","event":{"id":"3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329"},"rfp":{"id":"3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329"},"budgetVersion":{"id":"3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329"},"id":"9463c74e-18c6-401a-a710-ae0f485bf959","name":"Airport Transportation","code":"AIRTRP","category":{"id":3,"name":"Travel"},"subCategory":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","name":"utilities"},"deleted":false}]}
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","event":{"id":"3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329"},"rfp":{"id":"3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329"},"budgetVersion":{"id":"3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329","default":true},"id":"9463c74e-18c6-401a-a710-ae0f485bf959","name":"Airport Transportation","code":"AIRTRP","category":{"id":3,"name":"Travel"},"subCategory":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","name":"utilities"},"deleted":false}]}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budgets
     x-speakeasy-test-rebuild: true
   - workflowId: getCards
     steps:
@@ -2470,7 +2473,7 @@ workflows:
             condition: |
               {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[]}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budget Cards
     x-speakeasy-test-rebuild: true
   - workflowId: getCardTransactions
     steps:
@@ -2499,7 +2502,7 @@ workflows:
             condition: |
               {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[]}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budget Cards
     x-speakeasy-test-rebuild: true
   - workflowId: createCardTransaction
     steps:
@@ -2522,7 +2525,7 @@ workflows:
             condition: |
               {"id":"1VCAPITRAN18012023","eventId":"9463c74e-18c6-401a-a710-ae0f485bf959","cardDescription":"API Card Transaction","transactionAmount":1000.87,"transactionDate":"2020-02-07T00:00:00.00Z","transactionCurrency":"USD","transactionMerchant":"API Merchant"}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budget Cards
     x-speakeasy-test-rebuild: true
   - workflowId: updateCardTransaction
     steps:
@@ -2549,7 +2552,7 @@ workflows:
             condition: |
               {"id":"1VCAPITRAN18012023","eventId":"9463c74e-18c6-401a-a710-ae0f485bf959","cardDescription":"API Card Transaction","transactionAmount":1000.87,"transactionDate":"2020-02-07T00:00:00.00Z","transactionCurrency":"USD","transactionMerchant":"API Merchant"}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budget Cards
     x-speakeasy-test-rebuild: true
   - workflowId: getCurrencyConversionRate
     steps:
@@ -2581,7 +2584,7 @@ workflows:
             condition: |
               {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[]}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budgets
     x-speakeasy-test-rebuild: true
   - workflowId: createCurrencyConversionRate
     steps:
@@ -2604,7 +2607,7 @@ workflows:
             condition: |
               {"conversionRate":5.2,"startDate":"2020-02-07","endDate":"2020-02-08","id":"9463c74e-18c6-401a-a710-ae0f485bf959","baseCurrency":"USD","currency":"EUR","lastModified":"2020-02-07T00:00:00.00Z"}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budgets
     x-speakeasy-test-rebuild: true
   - workflowId: updateCurrencyConversionRate
     steps:
@@ -2631,7 +2634,7 @@ workflows:
             condition: |
               {"conversionRate":5.2,"startDate":"2020-02-07","endDate":"2020-02-08","id":"9463c74e-18c6-401a-a710-ae0f485bf959","baseCurrency":"USD","currency":"EUR","lastModified":"2020-02-07T00:00:00.00Z"}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budgets
     x-speakeasy-test-rebuild: true
   - workflowId: getBudgetItems
     steps:
@@ -2663,7 +2666,7 @@ workflows:
             condition: |
               {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[]}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budgets
     x-speakeasy-test-rebuild: true
   - workflowId: createBudgetItem
     steps:
@@ -2720,7 +2723,7 @@ workflows:
             condition: |
               {"event":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"},"id":"9463c74e-18c6-401a-a710-ae0f485bf959","costType":"FIXED","name":"Airport Transportation","code":"AIRTRP","category":{"id":3,"name":"Travel"},"subCategory":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","name":"utilities"},"status":"ESTIMATED","vendor":{"id":"d64380fd-3631-43e9-aac7-bd6bb6eccf6b","name":"Best Rest Hotels","type":"CSN"},"rfp":{"id":"79b975b9-07e2-4d78-b7bc-941eb1bf894b"},"date":"2020-02-07T00:00:00.00Z","lastModifiedDate":"2020-02-07T00:00:00.00Z","generalLedger":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","code":"MU","name":"Meet up"},"costAvoidance":{"amount":99.5,"description":"Discounted Cost"},"costIncludesTaxGratuity":true,"calculateTaxOnGratuity":false,"gratuityType":"PERCENTAGE","internalNote":"This item is inclusive of taxes.","currency":"USD","conversionRateLocked":true,"conversionRate":5.2,"costDetail":[{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","name":"Budgeted","units":5.2,"cost":100.5,"gratuityDetail":{"gratuity":5.2,"appliedGratuityValue":25.2},"taxDetail":[{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","name":"Applicable Tax","taxType":"PERCENTAGE","tax":5.2,"appliedTaxValue":5.2}],"totalCost":100.5}],"savings":[{"id":1,"name":"Budgeted - Actual","value":15.8}],"associatedRegistrants":[{"firstName":"Amit","lastName":"Kumar","hcpStatus":true,"inviteeId":"7cc5304a-9323-452f-8ae8-111cae0047b0","contactId":"0c478ddc-cf11-4026-a8e5-e6a59ae1c902"}],"associatedSession":"9463c74e-18c6-401a-a710-ae0f485bf959","budgetVersion":{"id":"3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329"},"customFields":[{"id":"baf666c9-44af-4c42-b51d-b7572dabc06f","name":"What is a your favorite color?","type":"General","value":["Choice C","Choice A"],"order":1}]}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budgets
     x-speakeasy-test-rebuild: true
   - workflowId: getBudgetAllocations
     steps:
@@ -2752,7 +2755,7 @@ workflows:
             condition: |
               {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"budgetVersion":{"id":"3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329"},"budgetItem":{"id":"49037583-aec5-4ca7-8f2a-0afd499b10da"},"category":{"id":"e9ee2669-65db-46f8-872c-dbafbf9b0e92"},"subcategory":{"id":"b2f194bd-a62c-4e27-a713-48b08196b8a7"},"generalLedger":{"id":"ff28f935-3670-43d2-98f6-5247a18f686c"},"method":"AMOUNT","value":200.5,"note":"This will be handled by manager."}]}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budgets
     x-speakeasy-test-rebuild: true
   - workflowId: updateBudgetItem
     steps:
@@ -2812,7 +2815,7 @@ workflows:
             condition: |
               {"event":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"},"id":"9463c74e-18c6-401a-a710-ae0f485bf959","costType":"FIXED","name":"Airport Transportation","code":"AIRTRP","category":{"id":3,"name":"Travel"},"subCategory":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","name":"utilities"},"status":"ESTIMATED","vendor":{"id":"d64380fd-3631-43e9-aac7-bd6bb6eccf6b","name":"Best Rest Hotels","type":"CSN"},"rfp":{"id":"79b975b9-07e2-4d78-b7bc-941eb1bf894b"},"date":"2020-02-07T00:00:00.00Z","lastModifiedDate":"2020-02-07T00:00:00.00Z","generalLedger":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","code":"MU","name":"Meet up"},"costAvoidance":{"amount":99.5,"description":"Discounted Cost"},"costIncludesTaxGratuity":true,"calculateTaxOnGratuity":false,"gratuityType":"PERCENTAGE","internalNote":"This item is inclusive of taxes.","currency":"USD","conversionRateLocked":true,"conversionRate":5.2,"costDetail":[{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","name":"Budgeted","units":5.2,"cost":100.5,"gratuityDetail":{"gratuity":5.2,"appliedGratuityValue":25.2},"taxDetail":[{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3","name":"Applicable Tax","taxType":"PERCENTAGE","tax":5.2,"appliedTaxValue":5.2}],"totalCost":100.5}],"savings":[{"id":1,"name":"Budgeted - Actual","value":15.8}],"associatedRegistrants":[{"firstName":"Amit","lastName":"Kumar","hcpStatus":true,"inviteeId":"7cc5304a-9323-452f-8ae8-111cae0047b0","contactId":"0c478ddc-cf11-4026-a8e5-e6a59ae1c902"}],"associatedSession":"9463c74e-18c6-401a-a710-ae0f485bf959","budgetVersion":{"id":"3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329"},"customFields":[{"id":"5beae47d-d243-4140-b097-c05d655145b8","name":"What is a your favorite color?","type":"General","value":["Choice C","Choice A"],"order":1}]}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budgets
     x-speakeasy-test-rebuild: true
   - workflowId: updateBudgetAllocations
     steps:
@@ -2837,7 +2840,7 @@ workflows:
             condition: |
               {"allocateBy":"AMOUNT","allocations":[]}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budgets
     x-speakeasy-test-rebuild: true
   - workflowId: createPayment
     steps:
@@ -2867,7 +2870,7 @@ workflows:
             condition: |
               {"name":"Check Payment","referenceNumber":"abc12bde","currency":"USD","amount":5.2,"date":"2020-02-07","note":"This payment is for admission.","type":"VISA_ELECTRON","lastModified":"2020-02-07T00:00:00.00Z","id":"9463c74e-18c6-401a-a710-ae0f485bf959","budgetVersion":{"id":"9463c74e-18c6-401a-a710-ae0f485bf959"},"budgetItem":{"id":"9463c74e-18c6-401a-a710-ae0f485bf959"}}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budget Payments
     x-speakeasy-test-rebuild: true
   - workflowId: updatePayment
     steps:
@@ -2901,7 +2904,7 @@ workflows:
             condition: |
               {"name":"Check Payment","referenceNumber":"abc12bde","currency":"USD","amount":5.2,"date":"2020-02-07","note":"This payment is for admission.","type":"WPM","lastModified":"2020-02-07T00:00:00.00Z","id":"9463c74e-18c6-401a-a710-ae0f485bf959","budgetVersion":{"id":"9463c74e-18c6-401a-a710-ae0f485bf959"},"budgetItem":{"id":"9463c74e-18c6-401a-a710-ae0f485bf959"}}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budget Payments
     x-speakeasy-test-rebuild: true
   - workflowId: answerBudgetCustomField
     steps:
@@ -2932,7 +2935,7 @@ workflows:
             condition: |
               {"id":"1c53ca5c-89b1-4f66-81d0-443a97c7ea38","name":"What is a your favorite color?","value":["Choice C","Choice A"],"order":1,"type":"General"}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budgets
     x-speakeasy-test-rebuild: true
   - workflowId: getPayments
     steps:
@@ -2964,7 +2967,7 @@ workflows:
             condition: |
               {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[]}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budget Payments
     x-speakeasy-test-rebuild: true
   - workflowId: attachInvoiceToPayment
     steps:
@@ -2987,7 +2990,7 @@ workflows:
             condition: |
               {"file":{},"href":"https://custom.cvent.com/a5154f85f71a4cf2464e037feb75b308/00000000000000000000000000000000/files/universal-file/tmp/e209d73d845746b7a6deda4da9d91b2c.png"}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budget Payments
     x-speakeasy-test-rebuild: true
   - workflowId: getEventBudgetTotals
     steps:
@@ -3019,7 +3022,7 @@ workflows:
             condition: |
               {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[]}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budgets
     x-speakeasy-test-rebuild: true
   - workflowId: createBulkJob
     steps:
@@ -10362,7 +10365,7 @@ workflows:
             condition: |
               {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[]}
             type: simple
-    x-speakeasy-test-group: Budget
+    x-speakeasy-test-group: Budgets
     x-speakeasy-test-rebuild: true
   - workflowId: getRfpLeadSource
     steps:
@@ -10419,7 +10422,7 @@ workflows:
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","needsMeetingSpace":true,"needsGuestRooms":true,"description":"Planning to host company's annual event in an outdoor location.","dateRequirements":{"mode":"DATE_PATTERN","alternateDates":[{"preferred":true,"id":"50dc08af-24a9-4d01-84be-3d43133dc945","endDate":"2016-10-13","startDate":"2016-10-15","note":"Flexible dates"}],"pattern":{"note":"Flexible dates on weekends.","endDate":"2016-10-15","startDate":"2016-10-13","durationDays":3,"startDays":[],"generatedDates":[{"preferred":true,"id":"50dc08af-24a9-4d01-84be-3d43133dc945","endDate":"2016-10-13","startDate":"2016-10-15","note":"Flexible dates"}]},"availabilityRangeRequired":false},"rfpEvent":{"event":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"name":"friday event","contractSignatureLocation":"Atlanta","destinationsUnderConsideration":"New York","externalMeetingRequest":true,"audioVisualNeeds":"Need a projector in each meeting room.","peakMeetingRooms":14,"repeat":true,"attendeesPerDay":500,"referenceNumber":"XVYMP8970S","meetingRequestId":"50dc08af-24a9-4d01-84be-3d43133dc945","formatType":"HYBRID","virtualAttendeesPerDay":2000,"budget":10000,"roomRateBudget":200,"foodBeverageBudget":1000},"agendaStartDate":"2025-10-13","contact":{"firstName":"James","lastName":"West","email":"jwest@example.com","address":{"countryCode":"US","city":"Austin","regionCode":"US-AL"},"commissionRate":10.75,"phone":"555-555-5555","organizationName":"Five Star Planners Inc.","preferredContactMethods":["CVENT"]},"rfpEventOrganization":{"organization":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"name":"Cvent Inc.","type":"OTHER","address":{"countryCode":"US","city":"Austin","regionCode":"US-AL"},"eventsPerYear":450},"decisionFactors":"Price, location, and quality of service.","responseDueDate":"2016-10-13","decisionDate":"2016-10-13","billingDetails":{"additionalInformation":"Guest rooms will be a mix of IPO and RM&TX to master. Will submit rooming list with billing specified. Credit card will be provided as guarantee.","concessionsContractualInfo":"Request use of LOI or Express Agreement.","acceptingRebatesAndIncentives":true,"rebateValue":10},"internalNote":"Don't award this RFP to the same venue as last year.","currencyCode":"USD","requiredCostItems":["BREAK_AM","BREAK_PM"],"hiddenCostItems":["BREAK_DRINKS_ONLY","BREAK_SNACKS_AND_DRINKS"],"cvbForwardLimit":5,"notificationRecipients":[{"order":1,"type":"EMAIL","value":"johnDoe@example.com"}, {"order":2,"type":"ACCOUNT_USER","value":"50dc08af-24a9-4d01-84be-3d43133dc945"}, {"order":3,"type":"ACCOUNT_USER_GROUP","value":"70de07af-24a9-4d01-84be-3d43133dc932"}],"leadSource":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945","section":{"id":"40dc08af-24a9-4d01-84be-3d43133dc945"}},"sourceId":"123456","weddingDetails":{"firstPartner":{"name":"John Doe"},"secondPartner":{"name":"John Doe"}},"needsCatering":false,"packagePricingPreference":"OPTIONAL","feeTransparencyEnabled":false,"venueIntegrationPreference":{"type":"PASSKEY","optIn":true},"id":"50dc08af-24a9-4d01-84be-3d43133dc945","code":"JBNJN7BGJ5J","approvedBy":"approver@example.com","approvedDateTime":"2021-01-13T14:06:20.080Z","approved":true,"cancellationDetails":{"dateTime":"2021-01-13T14:06:20.080Z","comments":"I am cancelling my event, postponing to Q4."},"lastSentDateTime":"2021-01-13T14:06:20.080Z","originalSentDateTime":"2021-01-13T14:06:20.080Z","sentVenueCount":5,"archived":false,"archivalDate":"2021-01-13T14:06:20.080Z","awardedExternally":false,"finishedAwarding":false,"aiRfpGenerationSource":"MCP-Visual Studio Code/1.107.1"}
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","needsMeetingSpace":true,"needsGuestRooms":true,"description":"Planning to host company's annual event in an outdoor location.","dateRequirements":{"mode":"DATE_PATTERN","alternateDates":[{"preferred":true,"id":"50dc08af-24a9-4d01-84be-3d43133dc945","endDate":"2016-10-13","startDate":"2016-10-15","note":"Flexible dates"}],"pattern":{"note":"Flexible dates on weekends.","endDate":"2016-10-15","startDate":"2016-10-13","durationDays":3,"startDays":[],"generatedDates":[{"preferred":true,"id":"50dc08af-24a9-4d01-84be-3d43133dc945","endDate":"2016-10-13","startDate":"2016-10-15","note":"Flexible dates"}]},"availabilityRangeRequired":false},"rfpEvent":{"event":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"name":"friday event","contractSignatureLocation":"Atlanta","destinationsUnderConsideration":"New York","externalMeetingRequest":true,"audioVisualNeeds":"Need a projector in each meeting room.","peakMeetingRooms":14,"repeat":true,"attendeesPerDay":500,"referenceNumber":"XVYMP8970S","meetingRequestId":"50dc08af-24a9-4d01-84be-3d43133dc945","formatType":"HYBRID","virtualAttendeesPerDay":2000,"budget":10000,"roomRateBudget":200,"foodBeverageBudget":1000},"agendaStartDate":"2025-10-13","contact":{"firstName":"James","lastName":"West","email":"jwest@example.com","address":{"countryCode":"US","city":"Austin","regionCode":"US-AL"},"commissionRate":10.75,"commissionApplicableTypes":[{"type":"FOOD_AND_BEVERAGE","value":"Food and Beverage"}, {"type":"OTHER","value":"Spa services"}],"phone":"555-555-5555","organizationName":"Five Star Planners Inc.","preferredContactMethods":["CVENT"]},"rfpEventOrganization":{"organization":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"name":"Cvent Inc.","address":{"countryCode":"US","city":"Austin","regionCode":"US-AL"},"eventsPerYear":450},"decisionFactors":"Price, location, and quality of service.","responseDueDate":"2016-10-13","decisionDate":"2016-10-13","billingDetails":{"additionalInformation":"Guest rooms will be a mix of IPO and RM&TX to master. Will submit rooming list with billing specified. Credit card will be provided as guarantee.","concessionsContractualInfo":"Request use of LOI or Express Agreement.","acceptingRebatesAndIncentives":true,"rebateValue":10},"internalNote":"Don't award this RFP to the same venue as last year.","currencyCode":"USD","requiredCostItems":["BREAK_AM","BREAK_PM"],"hiddenCostItems":["BREAK_DRINKS_ONLY","BREAK_SNACKS_AND_DRINKS"],"cvbForwardLimit":5,"notificationRecipients":[{"order":1,"type":"EMAIL","value":"johnDoe@example.com"}, {"order":2,"type":"ACCOUNT_USER","value":"50dc08af-24a9-4d01-84be-3d43133dc945"}, {"order":3,"type":"ACCOUNT_USER_GROUP","value":"70de07af-24a9-4d01-84be-3d43133dc932"}],"sourceId":"123456","weddingDetails":{"firstPartner":{"name":"John Doe"},"secondPartner":{"name":"John Doe"}},"needsCatering":false,"packagePricingPreference":"OPTIONAL","feeTransparencyEnabled":false,"venueIntegrationPreference":{"type":"PASSKEY","optIn":true},"id":"50dc08af-24a9-4d01-84be-3d43133dc945","code":"JBNJN7BGJ5J","approvedBy":"approver@example.com","approvedDateTime":"2021-01-13T14:06:20.080Z","approved":true,"cancellationDetails":{"dateTime":"2021-01-13T14:06:20.080Z","comments":"I am cancelling my event, postponing to Q4."},"lastSentDateTime":"2021-01-13T14:06:20.080Z","originalSentDateTime":"2021-01-13T14:06:20.080Z","sentVenueCount":5,"archived":false,"archivalDate":"2021-01-13T14:06:20.080Z","awardedExternally":false,"finishedAwarding":false,"aiRfpGenerationSource":"MCP-Visual Studio Code/1.107.1","leadSource":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945","section":{"id":"40dc08af-24a9-4d01-84be-3d43133dc945"}}}
             type: simple
     x-speakeasy-test-group: RFP Management
     x-speakeasy-test-rebuild: true
@@ -12712,4 +12715,842 @@ workflows:
               {"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3::2b1a3bba-84b2-46f4-bddb-4b4a44442dcc::6807e044-993b-428c-aec8-7316f13c1b95","event":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"},"user":{"id":"6807e044-993b-428c-aec8-7316f13c1b95","type":"ACCOUNT_USER"},"eventRole":{"id":"2b1a3bba-84b2-46f4-bddb-4b4a44442dcc"},"assigned":"2017-01-02T02:00:00Z","assignedBy":"mlopez"}
             type: simple
     x-speakeasy-test-group: Event Role
+    x-speakeasy-test-rebuild: true
+  - workflowId: createRFP
+    steps:
+      - stepId: test
+        operationId: createRFP
+        requestBody:
+          contentType: application/json
+          payload:
+            agendaStartDate: "2025-10-13"
+            billingDetails:
+              acceptingRebatesAndIncentives: true
+              additionalInformation: Guest rooms will be a mix of IPO and RM&TX to master. Will submit rooming list with billing specified. Credit card will be provided as guarantee.
+              concessionsContractualInfo: Request use of LOI or Express Agreement.
+              rebateValue: 10
+            contact:
+              address:
+                city: Austin
+                countryCode: US
+                regionCode: US-AL
+              commissionApplicableTypes:
+                - type: FOOD_AND_BEVERAGE
+                  value: Food and Beverage
+                - type: OTHER
+                  value: Spa services
+              commissionRate: 10.75
+              email: jwest@example.com
+              firstName: James
+              lastName: West
+              organizationName: Five Star Planners Inc.
+              phone: 555-555-5555
+              preferredContactMethods:
+                - CVENT
+            currencyCode: USD
+            cvbForwardLimit: 5
+            dateRequirements:
+              alternateDates:
+                - endDate: "2016-10-15"
+                  id: 50dc08af-24a9-4d01-84be-3d43133dc945
+                  note: Flexible dates
+                  preferred: true
+                  startDate: "2016-10-13"
+              availabilityRangeRequired: false
+              mode: DATE_PATTERN
+              pattern:
+                durationDays: 3
+                endDate: "2016-10-15"
+                note: Flexible dates on weekends.
+                startDate: "2016-10-13"
+                startDays: []
+            decisionDate: "2016-10-13"
+            decisionFactors: Price, location, and quality of service.
+            description: Planning to host company's annual event in an outdoor location.
+            feeTransparencyEnabled: false
+            hiddenCostItems:
+              - BREAK_DRINKS_ONLY
+              - BREAK_SNACKS_AND_DRINKS
+            internalNote: Don't award this RFP to the same venue as last year.
+            leadSource:
+              id: 50dc08af-24a9-4d01-84be-3d43133dc945
+              section:
+                id: 40dc08af-24a9-4d01-84be-3d43133dc945
+            needsCatering: false
+            needsGuestRooms: false
+            needsMeetingSpace: true
+            notificationRecipients:
+              - order: 1
+                type: EMAIL
+                value: johnDoe@example.com
+              - order: 2
+                type: ACCOUNT_USER
+                value: de0af126-2ec2-4a61-a4ba-bc82c73604c9
+              - order: 3
+                type: ACCOUNT_USER_GROUP
+                value: 70de07af-24a9-4d01-84be-3d43133dc932
+            packagePricingPreference: OPTIONAL
+            requiredCostItems:
+              - BREAK_AM
+              - BREAK_PM
+            responseDueDate: "2016-10-13"
+            rfpEvent:
+              attendeesPerDay: 500
+              audioVisualNeeds: Need a projector in each meeting room.
+              budget: 10000
+              contractSignatureLocation: Atlanta
+              destinationsUnderConsideration: New York
+              event:
+                id: 50dc08af-24a9-4d01-84be-3d43133dc945
+              externalMeetingRequest: true
+              foodBeverageBudget: 1000
+              formatType: IN_PERSON
+              meetingRequestId: 50dc08af-24a9-4d01-84be-3d43133dc945
+              name: friday event
+              peakMeetingRooms: 14
+              referenceNumber: XVYMP8970S
+              roomRateBudget: 200
+              virtualAttendeesPerDay: 2000
+            rfpEventOrganization:
+              address:
+                city: Austin
+                countryCode: US
+                regionCode: US-AL
+              name: Cvent Inc.
+              organization:
+                id: 50dc08af-24a9-4d01-84be-3d43133dc945
+            sourceId: "123456"
+            venueIntegrationPreference:
+              optIn: true
+              type: PASSKEY
+            weddingDetails:
+              firstPartner:
+                name: John Doe
+              secondPartner:
+                name: John Doe
+        successCriteria:
+          - condition: $statusCode == 201
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","needsMeetingSpace":false,"needsGuestRooms":false,"description":"Planning to host company's annual event in an outdoor location.","dateRequirements":{"mode":"ALTERNATE_DATE","alternateDates":[{"preferred":true,"id":"50dc08af-24a9-4d01-84be-3d43133dc945","endDate":"2016-10-15","startDate":"2016-10-13","note":"Flexible dates"}],"pattern":{"note":"Flexible dates on weekends.","endDate":"2016-10-15","startDate":"2016-10-13","durationDays":3,"startDays":["WEDNESDAY"],"generatedDates":[{"preferred":true,"id":"50dc08af-24a9-4d01-84be-3d43133dc945","endDate":"2016-10-15","startDate":"2016-10-13","note":"Flexible dates"}]},"availabilityRangeRequired":false},"rfpEvent":{"event":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"name":"friday event","contractSignatureLocation":"Atlanta","destinationsUnderConsideration":"New York","externalMeetingRequest":true,"audioVisualNeeds":"Need a projector in each meeting room.","peakMeetingRooms":14,"repeat":true,"attendeesPerDay":500,"referenceNumber":"XVYMP8970S","meetingRequestId":"50dc08af-24a9-4d01-84be-3d43133dc945","formatType":"HYBRID","virtualAttendeesPerDay":2000,"budget":10000,"roomRateBudget":200,"foodBeverageBudget":1000},"agendaStartDate":"2025-10-13","contact":{"firstName":"James","lastName":"West","email":"jwest@example.com","address":{"countryCode":"US","city":"Austin","regionCode":"US-AL"},"commissionRate":10.75,"commissionApplicableTypes":[{"type":"FOOD_AND_BEVERAGE","value":"Food and Beverage"}, {"type":"OTHER","value":"Spa services"}],"phone":"555-555-5555","organizationName":"Five Star Planners Inc.","preferredContactMethods":["CVENT"]},"rfpEventOrganization":{"organization":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"name":"Cvent Inc.","address":{"countryCode":"US","city":"Austin","regionCode":"US-AL"},"eventsPerYear":450},"decisionFactors":"Price, location, and quality of service.","responseDueDate":"2016-10-13","decisionDate":"2016-10-13","billingDetails":{"additionalInformation":"Guest rooms will be a mix of IPO and RM&TX to master. Will submit rooming list with billing specified. Credit card will be provided as guarantee.","concessionsContractualInfo":"Request use of LOI or Express Agreement.","acceptingRebatesAndIncentives":true,"rebateValue":10},"internalNote":"Don't award this RFP to the same venue as last year.","currencyCode":"USD","requiredCostItems":["BREAK_AM","BREAK_PM"],"hiddenCostItems":["BREAK_DRINKS_ONLY","BREAK_SNACKS_AND_DRINKS"],"cvbForwardLimit":5,"notificationRecipients":[{"order":1,"type":"EMAIL","value":"johnDoe@example.com"}, {"order":2,"type":"ACCOUNT_USER","value":"de0af126-2ec2-4a61-a4ba-bc82c73604c9"}, {"order":3,"type":"ACCOUNT_USER_GROUP","value":"70de07af-24a9-4d01-84be-3d43133dc932"}],"sourceId":"123456","weddingDetails":{"firstPartner":{"name":"John Doe"},"secondPartner":{"name":"John Doe"}},"needsCatering":false,"packagePricingPreference":"OPTIONAL","feeTransparencyEnabled":false,"venueIntegrationPreference":{"type":"PASSKEY","optIn":true},"id":"a3edf581-b80c-4a0b-bdcf-ab8bf5fdcd1b","code":"JBNJN7BGJ5J","approvedBy":"approver@example.com","approvedDateTime":"2021-01-13T14:06:20.080Z","approved":true,"cancellationDetails":{"dateTime":"2021-01-13T14:06:20.080Z","comments":"I am cancelling my event, postponing to Q4."},"lastSentDateTime":"2021-01-13T14:06:20.080Z","originalSentDateTime":"2021-01-13T14:06:20.080Z","sentVenueCount":5,"archived":false,"archivalDate":"2021-01-13T14:06:20.080Z","awardedExternally":false,"finishedAwarding":false,"aiRfpGenerationSource":"MCP-Visual Studio Code/1.107.1","leadSource":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945","section":{"id":"40dc08af-24a9-4d01-84be-3d43133dc945"}}}
+            type: simple
+    x-speakeasy-test-group: RFP Management
+    x-speakeasy-test-rebuild: true
+  - workflowId: updateRFP
+    steps:
+      - stepId: test
+        operationId: updateRFP
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        requestBody:
+          contentType: application/json
+          payload:
+            agendaStartDate: "2025-10-13"
+            archivalDate: "2021-01-13T14:06:20.080Z"
+            archived: false
+            billingDetails:
+              acceptingRebatesAndIncentives: true
+              additionalInformation: Guest rooms will be a mix of IPO and RM&TX to master. Will submit rooming list with billing specified. Credit card will be provided as guarantee.
+              concessionsContractualInfo: Request use of LOI or Express Agreement.
+              rebateValue: 10
+            cancellationDetails:
+              comments: I am cancelling my event, postponing to Q4.
+              dateTime: "2021-01-13T14:06:20.080Z"
+            contact:
+              address:
+                city: Austin
+                countryCode: US
+                regionCode: US-AL
+              commissionApplicableTypes:
+                - type: FOOD_AND_BEVERAGE
+                  value: Food and Beverage
+                - type: OTHER
+                  value: Spa services
+              commissionRate: 10.75
+              email: jwest@example.com
+              firstName: James
+              lastName: West
+              organizationName: Five Star Planners Inc.
+              phone: 555-555-5555
+              preferredContactMethods:
+                - CVENT
+            currencyCode: USD
+            cvbForwardLimit: 5
+            dateRequirements:
+              alternateDates:
+                - endDate: "2016-10-15"
+                  id: 50dc08af-24a9-4d01-84be-3d43133dc945
+                  note: Flexible dates
+                  preferred: true
+                  startDate: "2016-10-13"
+              availabilityRangeRequired: false
+              mode: DATE_PATTERN
+              pattern:
+                durationDays: 3
+                endDate: "2016-10-15"
+                note: Flexible dates on weekends.
+                startDate: "2016-10-13"
+                startDays:
+                  - MONDAY
+            decisionDate: "2016-10-13"
+            decisionFactors: Price, location, and quality of service.
+            description: Planning to host company's annual event in an outdoor location.
+            feeTransparencyEnabled: false
+            hiddenCostItems:
+              - BREAK_DRINKS_ONLY
+              - BREAK_SNACKS_AND_DRINKS
+            id: a3edf581-b80c-4a0b-bdcf-ab8bf5fdcd1b
+            internalNote: Don't award this RFP to the same venue as last year.
+            needsCatering: false
+            needsGuestRooms: false
+            needsMeetingSpace: true
+            notificationRecipients:
+              - order: 1
+                type: EMAIL
+                value: johnDoe@example.com
+              - order: 2
+                type: ACCOUNT_USER
+                value: de0af126-2ec2-4a61-a4ba-bc82c73604c9
+              - order: 3
+                type: ACCOUNT_USER_GROUP
+                value: 70de07af-24a9-4d01-84be-3d43133dc932
+            packagePricingPreference: OPTIONAL
+            requiredCostItems:
+              - BREAK_AM
+              - BREAK_PM
+            responseDueDate: "2016-10-13"
+            rfpEvent:
+              attendeesPerDay: 500
+              audioVisualNeeds: Need a projector in each meeting room.
+              budget: 10000
+              contractSignatureLocation: Atlanta
+              destinationsUnderConsideration: New York
+              event:
+                id: 50dc08af-24a9-4d01-84be-3d43133dc945
+              externalMeetingRequest: true
+              foodBeverageBudget: 1000
+              formatType: IN_PERSON
+              meetingRequestId: 50dc08af-24a9-4d01-84be-3d43133dc945
+              name: friday event
+              peakMeetingRooms: 14
+              referenceNumber: XVYMP8970S
+              roomRateBudget: 200
+              virtualAttendeesPerDay: 2000
+            rfpEventOrganization:
+              address:
+                city: Austin
+                countryCode: US
+                regionCode: US-AL
+              name: Cvent Inc.
+              organization:
+                id: 50dc08af-24a9-4d01-84be-3d43133dc945
+            sourceId: "123456"
+            venueIntegrationPreference:
+              optIn: true
+              type: PASSKEY
+            weddingDetails:
+              firstPartner:
+                name: John Doe
+              secondPartner:
+                name: John Doe
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","needsMeetingSpace":false,"needsGuestRooms":true,"description":"Planning to host company's annual event in an outdoor location.","dateRequirements":{"mode":"DATE_PATTERN","alternateDates":null,"pattern":{"note":"Flexible dates on weekends.","endDate":"2016-10-15","startDate":"2016-10-13","durationDays":3,"startDays":["TUESDAY"],"generatedDates":[{"preferred":true,"id":"50dc08af-24a9-4d01-84be-3d43133dc945","endDate":"2016-10-15","startDate":"2016-10-13","note":"Flexible dates"}]},"availabilityRangeRequired":false},"rfpEvent":{"event":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"name":"friday event","contractSignatureLocation":"Atlanta","destinationsUnderConsideration":"New York","externalMeetingRequest":true,"audioVisualNeeds":"Need a projector in each meeting room.","peakMeetingRooms":14,"repeat":true,"attendeesPerDay":500,"referenceNumber":"XVYMP8970S","meetingRequestId":"50dc08af-24a9-4d01-84be-3d43133dc945","formatType":"HYBRID","virtualAttendeesPerDay":2000,"budget":10000,"roomRateBudget":200,"foodBeverageBudget":1000},"agendaStartDate":"2025-10-13","contact":{"firstName":"James","lastName":"West","email":"jwest@example.com","address":{"countryCode":"US","city":"Austin","regionCode":"US-AL"},"commissionRate":10.75,"commissionApplicableTypes":[{"type":"FOOD_AND_BEVERAGE","value":"Food and Beverage"}, {"type":"OTHER","value":"Spa services"}],"phone":"555-555-5555","organizationName":"Five Star Planners Inc.","preferredContactMethods":["CVENT"]},"rfpEventOrganization":{"organization":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"name":"Cvent Inc.","address":{"countryCode":"US","city":"Austin","regionCode":"US-AL"},"eventsPerYear":450},"decisionFactors":"Price, location, and quality of service.","responseDueDate":"2016-10-13","decisionDate":"2016-10-13","billingDetails":{"additionalInformation":"Guest rooms will be a mix of IPO and RM&TX to master. Will submit rooming list with billing specified. Credit card will be provided as guarantee.","concessionsContractualInfo":"Request use of LOI or Express Agreement.","acceptingRebatesAndIncentives":true,"rebateValue":10},"internalNote":"Don't award this RFP to the same venue as last year.","currencyCode":"USD","requiredCostItems":["BREAK_AM","BREAK_PM"],"hiddenCostItems":["BREAK_DRINKS_ONLY","BREAK_SNACKS_AND_DRINKS"],"cvbForwardLimit":5,"notificationRecipients":[{"order":1,"type":"EMAIL","value":"johnDoe@example.com"}, {"order":2,"type":"ACCOUNT_USER","value":"de0af126-2ec2-4a61-a4ba-bc82c73604c9"}, {"order":3,"type":"ACCOUNT_USER_GROUP","value":"70de07af-24a9-4d01-84be-3d43133dc932"}],"sourceId":"123456","weddingDetails":{"firstPartner":{"name":"John Doe"},"secondPartner":{"name":"John Doe"}},"needsCatering":false,"packagePricingPreference":"OPTIONAL","feeTransparencyEnabled":false,"venueIntegrationPreference":{"type":"PASSKEY","optIn":true},"id":"a3edf581-b80c-4a0b-bdcf-ab8bf5fdcd1b","code":"JBNJN7BGJ5J","approvedBy":"approver@example.com","approvedDateTime":"2021-01-13T14:06:20.080Z","approved":true,"cancellationDetails":{"dateTime":"2021-01-13T14:06:20.080Z","comments":"I am cancelling my event, postponing to Q4."},"lastSentDateTime":"2021-01-13T14:06:20.080Z","originalSentDateTime":"2021-01-13T14:06:20.080Z","sentVenueCount":5,"archived":false,"archivalDate":"2021-01-13T14:06:20.080Z","awardedExternally":false,"finishedAwarding":false,"aiRfpGenerationSource":"MCP-Visual Studio Code/1.107.1","leadSource":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945","section":{"id":"40dc08af-24a9-4d01-84be-3d43133dc945"}}}
+            type: simple
+    x-speakeasy-test-group: RFP Management
+    x-speakeasy-test-rebuild: true
+  - workflowId: submitRFP
+    steps:
+      - stepId: test
+        operationId: submitRFP
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"id":"a0f3116a-4dd8-4923-b778-188cbe00a68f","status":"ACTIVE"}
+            type: simple
+    x-speakeasy-test-group: RFP Management
+    x-speakeasy-test-rebuild: true
+  - workflowId: createRfpAgendaItem
+    steps:
+      - stepId: test
+        operationId: createRfpAgendaItem
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        requestBody:
+          contentType: application/json
+          payload:
+            attendeeCount: 10000
+            endTime: "10:30:00"
+            locatedAtPrimaryEventVenue: false
+            name: Agenda Item 1
+            note: This is a sample comment for this agenda item.
+            number: 5
+            roomInfoRequired: false
+            roomSize: 1000
+            schedules:
+              - dayNumber: 1
+            startTime: "10:00:00"
+            twentyFourHourHold: true
+        successCriteria:
+          - condition: $statusCode == 201
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","name":"Agenda Item 1","note":"This is a sample comment for this agenda item.","startTime":"10:00:00","endTime":"10:30:00","roomSize":1000,"attendeeCount":10000,"roomInfoRequired":false,"twentyFourHourHold":true,"locatedAtPrimaryEventVenue":false,"number":5,"schedules":[{"dayNumber":1,"date":"2021-07-03"}],"id":"9290ddfb-cc91-4cc3-9b3f-5ee5caba486b","agendaBuilderAttachment":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"}}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: getRfpAgendaItem
+    steps:
+      - stepId: test
+        operationId: getRfpAgendaItem
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: agendaItemId
+            in: path
+            value: f56a51a4-84b0-46c9-a612-716dc95a1c96
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","name":"Agenda Item 1","note":"This is a sample comment for this agenda item.","startTime":"10:00:00","endTime":"10:30:00","roomSize":1000,"attendeeCount":10000,"roomInfoRequired":false,"twentyFourHourHold":true,"locatedAtPrimaryEventVenue":false,"number":5,"schedules":[{"dayNumber":1,"date":"2021-07-03"}],"id":"9290ddfb-cc91-4cc3-9b3f-5ee5caba486b","agendaBuilderAttachment":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"}}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: updateRfpAgendaItem
+    steps:
+      - stepId: test
+        operationId: updateRfpAgendaItem
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: agendaItemId
+            in: path
+            value: f56a51a4-84b0-46c9-a612-716dc95a1c96
+        requestBody:
+          contentType: application/json
+          payload:
+            attendeeCount: 10000
+            endTime: "10:30:00"
+            id: 9290ddfb-cc91-4cc3-9b3f-5ee5caba486b
+            locatedAtPrimaryEventVenue: false
+            name: Agenda Item 1
+            note: This is a sample comment for this agenda item.
+            number: 5
+            roomInfoRequired: false
+            roomSize: 1000
+            schedules:
+              - dayNumber: 1
+            startTime: "10:00:00"
+            twentyFourHourHold: true
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","name":"Agenda Item 1","note":"This is a sample comment for this agenda item.","startTime":"10:00:00","endTime":"10:30:00","roomSize":1000,"attendeeCount":10000,"roomInfoRequired":false,"twentyFourHourHold":true,"locatedAtPrimaryEventVenue":false,"number":5,"schedules":[],"id":"9290ddfb-cc91-4cc3-9b3f-5ee5caba486b","agendaBuilderAttachment":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"}}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: createRfpAttachment
+    steps:
+      - stepId: test
+        operationId: createRfpAttachment
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        requestBody:
+          contentType: application/json
+          payload:
+            file:
+              id: 94a18afa-30ad-407e-87c2-526e1e871a82
+        successCriteria:
+          - condition: $statusCode == 201
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"id":"1a8bf4fe-6996-4f3d-833d-8edb04197195","created":"2021-01-13T14:06:20.080Z","size":777835,"secure":true,"name":"BudgetCostSavings","uniqueName":"183f9efaa4c14070985782ee31abbf3c.jpg","mimeType":"image/jpeg","relativePath":"0B7DEF22676A4434982BDAD2D6EC591F/files/supplier/0713cef78d4e4d818899d4522022d5ad/73ab2e3054fd4321a5e0f846a7adb0d7.jpg","deletionAllowed":true,"url":"https://custom.t2.cvent.com/0B7DEF22676A4434982BDAD2D6EC591F/files/supplier/0713cef78d4e4d818899d4522022d5ad/73ab2e3054fd4321a5e0f846a7adb0d7.jpg","supplierSpecific":true}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: getRfpAttachment
+    steps:
+      - stepId: test
+        operationId: getRfpAttachment
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: attachmentId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"id":"1a8bf4fe-6996-4f3d-833d-8edb04197195","created":"2021-01-13T14:06:20.080Z","size":777835,"secure":true,"name":"BudgetCostSavings","uniqueName":"183f9efaa4c14070985782ee31abbf3c.jpg","mimeType":"image/jpeg","relativePath":"0B7DEF22676A4434982BDAD2D6EC591F/files/supplier/0713cef78d4e4d818899d4522022d5ad/73ab2e3054fd4321a5e0f846a7adb0d7.jpg","deletionAllowed":true,"url":"https://custom.t2.cvent.com/0B7DEF22676A4434982BDAD2D6EC591F/files/supplier/0713cef78d4e4d818899d4522022d5ad/73ab2e3054fd4321a5e0f846a7adb0d7.jpg","supplierSpecific":true}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: getRfpCustomFieldAnswers
+    steps:
+      - stepId: test
+        operationId: getRfpCustomFieldAnswers
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: customFieldId
+            in: path
+            value: 8cbcdb70-e2d0-46c2-8b3f-006e545394a7
+          - name: expand
+            in: query
+            value:
+              - customField
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"customField":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"answers":["Choice 1"]}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: updateRfpCustomFieldAnswers
+    steps:
+      - stepId: test
+        operationId: updateRfpCustomFieldAnswers
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: customFieldId
+            in: path
+            value: 8cbcdb70-e2d0-46c2-8b3f-006e545394a7
+          - name: expand
+            in: query
+            value:
+              - customField
+        requestBody:
+          contentType: application/json
+          payload:
+            answers:
+              - Choice 1
+            customField:
+              id: 50dc08af-24a9-4d01-84be-3d43133dc945
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"customField":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"answers":["Choice 1"]}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: updateRfpGuestRooms
+    steps:
+      - stepId: test
+        operationId: updateRfpGuestRooms
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        requestBody:
+          contentType: application/json
+          payload:
+            additionalInformation: 2 Executive suites are mandatory.
+            checkInDate: "2025-10-13"
+            occupancies:
+              - occupancy: SINGLE
+                type: DOUBLE
+            roomBlocks:
+              - dayNumber: 3
+                details:
+                  - quantity: 24
+                    type: DOUBLE
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"totalRooms":24,"peakRooms":24,"occupancies":[{"occupancy":"SINGLE","type":"DOUBLE"}],"checkInDate":"2025-10-13","roomBlocks":[{"id":"1f6193da-e12b-4638-b1e2-13dd60d0adeb","date":"2025-10-13","dayNumber":3,"totalRooms":24,"details":[{"quantity":24,"type":"DOUBLE"}]}],"additionalInformation":"2 Executive suites are mandatory."}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: getRfpInternalDocument
+    steps:
+      - stepId: test
+        operationId: getRfpInternalDocument
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: documentId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"id":"f56a51a4-84b0-46c9-a612-716dc95a1c96","created":"2021-01-13T14:06:20.080Z","name":"BudgetCostSavings","uniqueName":"183f9efaa4c14070985782ee31abbf3c.jpg","size":777835,"url":"https://custom.cvent.com/0B7DEF22676A4434982BDAD2D6EC591F/files/supplier/0713cef78d4e4d818899d4522022d5ad/73ab2e3054fd4321a5e0f846a7adb0d7.jpg","mimeType":"image/jpeg"}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: associateRfpInternalDocument
+    steps:
+      - stepId: test
+        operationId: associateRfpInternalDocument
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: documentId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"id":"f56a51a4-84b0-46c9-a612-716dc95a1c96","created":"2021-01-13T14:06:20.080Z","name":"BudgetCostSavings","uniqueName":"183f9efaa4c14070985782ee31abbf3c.jpg","size":777835,"url":"https://custom.cvent.com/0B7DEF22676A4434982BDAD2D6EC591F/files/supplier/0713cef78d4e4d818899d4522022d5ad/73ab2e3054fd4321a5e0f846a7adb0d7.jpg","mimeType":"image/jpeg"}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: createRfpQuestion
+    steps:
+      - stepId: test
+        operationId: createRfpQuestion
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        requestBody:
+          contentType: application/json
+          payload:
+            categories:
+              - required: true
+                shortText: Needs offsite transportation?
+                text: Are you spending any significant time offsite and need transportation?
+            choices:
+              - label: Choice A
+                shortText: Needs offsite transportation?
+                text: Are you spending any significant time offsite and need transportation?
+            classificationType: GUEST_ROOM
+            code: 4l6x
+            comments: Comments Text
+            customAnswerFormat:
+              id: 104
+            dateAnswerFormat: DateTime
+            fields:
+              - choices:
+                  - label: Choice A
+                    shortText: Needs offsite transportation?
+                    text: Are you spending any significant time offsite and need transportation?
+                notApplicableAnswer:
+                  shortText: Dietary Preference - Other Allergies
+                  text: Dietary Restriction - Other
+                otherAnswer:
+                  shortText: Dietary Preference - Other Allergies
+                  text: Dietary Restriction - Other
+                required: true
+                shortText: Needs offsite transportation?
+                text: Are you spending any significant time offsite and need transportation?
+            htmlText: Question Html
+            maxDate: "2020-12-31"
+            maxLength: 100
+            maxScore: 20
+            maxSelection: 3
+            minDate: "2020-01-01"
+            minLength: 5
+            minSelection: 1
+            notApplicableAnswer:
+              shortText: Dietary Preference - Other Allergies
+              text: Dietary Restriction - Other
+            order: 1
+            otherAnswer:
+              shortText: Dietary Preference - Other Allergies
+              text: Dietary Restriction - Other
+            required: true
+            shortText: Needs offsite transportation?
+            showCurrentDate: true
+            showDateSelector: true
+            standardQuestion:
+              id: 50dc08af-24a9-4d01-84be-3d43133dc945
+            subCategories:
+              - shortText: Needs offsite transportation?
+                text: Are you spending any significant time offsite and need transportation?
+            supplierTypes:
+              - CVB
+              - HOTEL
+            text: Are you spending any significant time offsite and need transportation?
+            totalSum: 45
+            type: SingleChoice
+            unitLabel: miles
+        successCriteria:
+          - condition: $statusCode == 201
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","htmlText":"Question Html","code":"4l6x","type":"SingleChoice","choices":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","label":"Choice A"}],"categories":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","required":true}],"subCategories":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?"}],"notApplicableAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"otherAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"comments":"Comments Text","required":true,"fields":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","choices":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","label":"Choice A"}],"notApplicableAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"otherAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"required":true}],"maxScore":20,"totalSum":45,"minSelection":1,"maxSelection":3,"minDate":"2020-01-01","maxDate":"2020-12-31","showDateSelector":true,"showCurrentDate":true,"dateAnswerFormat":"DateTime","unitLabel":"miles","minLength":5,"maxLength":100,"customAnswerFormat":{"id":104},"supplierTypes":["CVB","HOTEL"],"classificationType":"GUEST_ROOM","order":1,"standardQuestion":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"aiQuestionGenerationSource":"MCP-Visual Studio Code/1.107.1"}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: getRfpQuestion
+    steps:
+      - stepId: test
+        operationId: getRfpQuestion
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: questionId
+            in: path
+            value: a4ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","htmlText":"Question Html","code":"4l6x","type":"SingleChoice","choices":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","label":"Choice A"}],"categories":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","required":true}],"subCategories":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?"}],"notApplicableAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"otherAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"comments":"Comments Text","required":true,"fields":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","choices":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","label":"Choice A"}],"notApplicableAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"otherAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"required":true}],"maxScore":20,"totalSum":45,"minSelection":1,"maxSelection":3,"minDate":"2020-01-01","maxDate":"2020-12-31","showDateSelector":true,"showCurrentDate":true,"dateAnswerFormat":"DateTime","unitLabel":"miles","minLength":5,"maxLength":100,"customAnswerFormat":{"id":104},"supplierTypes":["CVB","HOTEL"],"classificationType":"ALL_RFPS","order":1,"standardQuestion":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"aiQuestionGenerationSource":"MCP-Visual Studio Code/1.107.1"}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: updateRfpQuestion
+    steps:
+      - stepId: test
+        operationId: updateRfpQuestion
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: questionId
+            in: path
+            value: a4ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        requestBody:
+          contentType: application/json
+          payload:
+            categories:
+              - required: true
+                shortText: Needs offsite transportation?
+                text: Are you spending any significant time offsite and need transportation?
+            choices:
+              - label: Choice A
+                shortText: Needs offsite transportation?
+                text: Are you spending any significant time offsite and need transportation?
+            classificationType: MEETING_ROOM
+            code: 4l6x
+            comments: Comments Text
+            customAnswerFormat:
+              id: 104
+            dateAnswerFormat: DateTime
+            fields:
+              - choices:
+                  - label: Choice A
+                    shortText: Needs offsite transportation?
+                    text: Are you spending any significant time offsite and need transportation?
+                notApplicableAnswer:
+                  shortText: Dietary Preference - Other Allergies
+                  text: Dietary Restriction - Other
+                otherAnswer:
+                  shortText: Dietary Preference - Other Allergies
+                  text: Dietary Restriction - Other
+                required: true
+                shortText: Needs offsite transportation?
+                text: Are you spending any significant time offsite and need transportation?
+            htmlText: Question Html
+            maxDate: "2020-12-31"
+            maxLength: 100
+            maxScore: 20
+            maxSelection: 3
+            minDate: "2020-01-01"
+            minLength: 5
+            minSelection: 1
+            notApplicableAnswer:
+              shortText: Dietary Preference - Other Allergies
+              text: Dietary Restriction - Other
+            order: 1
+            otherAnswer:
+              shortText: Dietary Preference - Other Allergies
+              text: Dietary Restriction - Other
+            required: true
+            shortText: Needs offsite transportation?
+            showCurrentDate: true
+            showDateSelector: true
+            standardQuestion:
+              id: 50dc08af-24a9-4d01-84be-3d43133dc945
+            subCategories:
+              - shortText: Needs offsite transportation?
+                text: Are you spending any significant time offsite and need transportation?
+            supplierTypes:
+              - CVB
+              - HOTEL
+            text: Are you spending any significant time offsite and need transportation?
+            totalSum: 45
+            type: SingleChoice
+            unitLabel: miles
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","htmlText":"Question Html","code":"4l6x","type":"SingleChoice","choices":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","label":"Choice A"}],"categories":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","required":true}],"subCategories":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?"}],"notApplicableAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"otherAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"comments":"Comments Text","required":true,"fields":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","choices":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","label":"Choice A"}],"notApplicableAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"otherAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"required":true}],"maxScore":20,"totalSum":45,"minSelection":1,"maxSelection":3,"minDate":"2020-01-01","maxDate":"2020-12-31","showDateSelector":true,"showCurrentDate":true,"dateAnswerFormat":"DateTime","unitLabel":"miles","minLength":5,"maxLength":100,"customAnswerFormat":{"id":104},"supplierTypes":["CVB","HOTEL"],"classificationType":"GUEST_ROOM","order":1,"standardQuestion":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"aiQuestionGenerationSource":"MCP-Visual Studio Code/1.107.1"}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: createRfpPastEvent
+    steps:
+      - stepId: test
+        operationId: createRfpPastEvent
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        requestBody:
+          contentType: application/json
+          payload:
+            attendeeCount: 500
+            city: New Delhi
+            date: First week of January 2024
+            foodBeverageSpend: 3,000 dollars
+            guestRoomsBlocked: 500
+            guestRoomsPickedUp: 500
+            notes: This was the 25th event hosted by Alpha Planners.
+            stateProvince: US-AL
+            venueName: Delta Inn by Supreme Hotels
+        successCriteria:
+          - condition: $statusCode == 201
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"venueName":"Delta Inn by Supreme Hotels","city":"New Delhi","stateProvince":"US-AL","date":"First week of January 2024","attendeeCount":500,"guestRoomsPickedUp":500,"guestRoomsBlocked":500,"foodBeverageSpend":"3,000 dollars","notes":"This was the 25th event hosted by Alpha Planners.","id":"db6a6dd9-3284-4936-bd7d-5242494acb03"}
+            type: simple
+    x-speakeasy-test-group: RFP Additional Details
+    x-speakeasy-test-rebuild: true
+  - workflowId: getRfpPastEvent
+    steps:
+      - stepId: test
+        operationId: getRfpPastEvent
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: pastEventId
+            in: path
+            value: f56a51a4-84b0-46c9-a612-716dc95a1c96
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"venueName":"Delta Inn by Supreme Hotels","city":"New Delhi","stateProvince":"US-AL","date":"First week of January 2024","attendeeCount":500,"guestRoomsPickedUp":500,"guestRoomsBlocked":500,"foodBeverageSpend":"3,000 dollars","notes":"This was the 25th event hosted by Alpha Planners.","id":"db6a6dd9-3284-4936-bd7d-5242494acb03"}
+            type: simple
+    x-speakeasy-test-group: RFP Additional Details
+    x-speakeasy-test-rebuild: true
+  - workflowId: updateRfpPastEvent
+    steps:
+      - stepId: test
+        operationId: updateRfpPastEvent
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: pastEventId
+            in: path
+            value: f56a51a4-84b0-46c9-a612-716dc95a1c96
+        requestBody:
+          contentType: application/json
+          payload:
+            attendeeCount: 500
+            city: New Delhi
+            date: First week of January 2024
+            foodBeverageSpend: 3,000 dollars
+            guestRoomsBlocked: 500
+            guestRoomsPickedUp: 500
+            id: db6a6dd9-3284-4936-bd7d-5242494acb03
+            notes: This was the 25th event hosted by Alpha Planners.
+            stateProvince: US-AL
+            venueName: Delta Inn by Supreme Hotels
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"venueName":"Delta Inn by Supreme Hotels","city":"New Delhi","stateProvince":"US-AL","date":"First week of January 2024","attendeeCount":500,"guestRoomsPickedUp":500,"guestRoomsBlocked":500,"foodBeverageSpend":"3,000 dollars","notes":"This was the 25th event hosted by Alpha Planners.","id":"db6a6dd9-3284-4936-bd7d-5242494acb03"}
+            type: simple
+    x-speakeasy-test-group: RFP Additional Details
+    x-speakeasy-test-rebuild: true
+  - workflowId: getRfpSupplier
+    steps:
+      - stepId: test
+        operationId: getRfpSupplier
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: supplierId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: expand
+            in: query
+            value:
+              - leadSource
+              - leadSource.section
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","supplier":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"rfp":{"id":"a0f3116a-4dd8-4923-b778-188cbe00a68f"},"externalSupplier":{"name":"ABC Corp"},"associatedAdvertisements":{"firstClicked":{"code":"RXBMLPSP"},"lastClicked":{"code":"RXBMLPSP"}},"proposalInProgress":true,"internalNote":"Don't award this RFP to the same venue as last year.","leadSource":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945","section":{"id":"40dc08af-24a9-4d01-84be-3d43133dc945"}},"largestMeetingRoomMet":true,"numberOfGuestRoomsMet":true,"totalMeetingSpaceMet":true,"promotion":{"id":"41cc09af-61a0-5e21-942e-2d41232dc923"},"recommendationNote":"The staff should be courteous.","shortlistOrder":45,"showcase":true,"starred":false,"status":"AWAITING_PROPOSAL","statusChangedDateTime":"2017-01-02T02:59:59.999Z","responder":"John Doe","response":{"dateTime":"2017-02-02T03:19:19.991Z","reason":"GUEST_ROOMS_NO_LONGER_AVAILABLE","comment":"We are unable to accommodate the request on the required dates. Please let us know if we can help with any other dates."},"externalProposalId":"143227","externalId":"234123","forwardId":"d024cc04-adf1-443c-854a-97ab9f5a14b2","lastSentDateTime":"2017-01-02T02:59:59.999Z","lastViewedDateTime":"2017-01-02T02:59:59.999Z","sentDateTime":"2017-01-02T02:59:59.999Z","sentToNso":false}
+            type: simple
+    x-speakeasy-test-group: RFP Suppliers
+    x-speakeasy-test-rebuild: true
+  - workflowId: associateRfpSupplier
+    steps:
+      - stepId: test
+        operationId: associateRfpSupplier
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: supplierId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        requestBody:
+          contentType: application/json
+          payload:
+            leadSource:
+              id: 50dc08af-24a9-4d01-84be-3d43133dc945
+              section:
+                id: 40dc08af-24a9-4d01-84be-3d43133dc945
+            promotion:
+              id: 41cc09af-61a0-5e21-942e-2d41232dc923
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","supplier":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"rfp":{"id":"a0f3116a-4dd8-4923-b778-188cbe00a68f"},"externalSupplier":{"name":"ABC Corp"},"associatedAdvertisements":{"firstClicked":{"code":"RXBMLPSP"},"lastClicked":{"code":"RXBMLPSP"}},"proposalInProgress":true,"internalNote":"Don't award this RFP to the same venue as last year.","leadSource":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945","section":{"id":"40dc08af-24a9-4d01-84be-3d43133dc945"}},"largestMeetingRoomMet":true,"numberOfGuestRoomsMet":true,"totalMeetingSpaceMet":true,"promotion":{"id":"41cc09af-61a0-5e21-942e-2d41232dc923"},"recommendationNote":"The staff should be courteous.","shortlistOrder":45,"showcase":true,"starred":false,"status":"AWAITING_PROPOSAL","statusChangedDateTime":"2017-01-02T02:59:59.999Z","responder":"John Doe","response":{"dateTime":"2017-02-02T03:19:19.991Z","reason":"GUEST_ROOMS_NO_LONGER_AVAILABLE","comment":"We are unable to accommodate the request on the required dates. Please let us know if we can help with any other dates."},"externalProposalId":"143227","externalId":"234123","forwardId":"d024cc04-adf1-443c-854a-97ab9f5a14b2","lastSentDateTime":"2017-01-02T02:59:59.999Z","lastViewedDateTime":"2017-01-02T02:59:59.999Z","sentDateTime":"2017-01-02T02:59:59.999Z","sentToNso":false}
+            type: simple
+    x-speakeasy-test-group: RFP Suppliers
     x-speakeasy-test-rebuild: true

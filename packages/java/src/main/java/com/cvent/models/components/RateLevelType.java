@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * RateLevelType
  *
- * <p>Rate level
+ * <p>The rate level.
  */
 public enum RateLevelType {
     CORPORATE("corporate"),

@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type BudgetRFP = {
   /**
-   * The identifier of the related RFP. If an ID is present, the budget item originates from an RFP. You can use this ID to get more details on the related RFP via the [CSN APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/rfp-objects).
+   * Related RFP ID. If present, the budget item originates from an RFP. Use this ID to get more details on the related RFP via the [CSN APIs](https://developers.cvent.com/docs/legacy-api/csn/planner-guide/rfp-objects).
    */
   id?: string | undefined;
 };

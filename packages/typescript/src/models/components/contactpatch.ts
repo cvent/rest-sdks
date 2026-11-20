@@ -40,7 +40,7 @@ export type ContactPatchLinks = {
 };
 
 /**
- * This entity is used to represent a single item that is requested for a contact patch.
+ * Field values used to patch an existing contact.
  */
 export type ContactPatch = {
   /**
@@ -101,7 +101,7 @@ export type ContactPatch = {
    */
   workFax?: string | undefined;
   /**
-   * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
+   * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
    */
   sourceId?: string | undefined;
   /**

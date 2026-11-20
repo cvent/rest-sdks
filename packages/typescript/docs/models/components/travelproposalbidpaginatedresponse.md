@@ -1,6 +1,6 @@
 # TravelProposalBidPaginatedResponse
 
-A paginated list of travel proposals.
+A paginated list of travel proposal bids.
 
 ## Example Usage
 
@@ -44,7 +44,7 @@ let value: TravelProposalBidPaginatedResponse = {
       weekendDays: [
         "Sunday",
       ],
-      internalNote: "",
+      internalNote: "Rates include breakfast.",
       comments: [
         {
           commentType: "promotions",
@@ -65,7 +65,7 @@ let value: TravelProposalBidPaginatedResponse = {
         {
           name: "Season 1",
           startDate: new RFCDate("2021-07-13"),
-          endDate: new RFCDate("2021-07-13"),
+          endDate: new RFCDate("2021-09-30"),
           releasePeriod: 1,
           weekendReleasePeriod: 2,
           rates: [
@@ -114,7 +114,7 @@ let value: TravelProposalBidPaginatedResponse = {
         {
           name: "Fair season 1",
           startDate: new RFCDate("2021-07-13"),
-          endDate: new RFCDate("2021-07-13"),
+          endDate: new RFCDate("2021-09-30"),
           minLengthOfStay: 1,
           releasePeriod: 1,
           rates: [
@@ -158,7 +158,7 @@ let value: TravelProposalBidPaginatedResponse = {
         {
           code: "city_tax",
           amount: 20,
-          notes: "This is a tax",
+          notes: "Applies to each room night.",
           status: "requested",
         },
       ],
@@ -172,4 +172,4 @@ let value: TravelProposalBidPaginatedResponse = {
 | Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
 | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
 | `paging`                                                                         | [components.Paging](../../models/components/paging.md)                           | :heavy_minus_sign:                                                               | Represents pagination information for a collection of resources.                 |
-| `data`                                                                           | [components.TravelProposalBid2](../../models/components/travelproposalbid2.md)[] | :heavy_minus_sign:                                                               | Paginated list of business transient proposal bids.                              |
+| `data`                                                                           | [components.TravelProposalBid2](../../models/components/travelproposalbid2.md)[] | :heavy_minus_sign:                                                               | The travel proposal bids on the page.                                            |

@@ -9,7 +9,7 @@ import * as z from "zod/v3";
  */
 export type BudgetCategoryInput = {
   /**
-   * Unique identifier of the budget category.
+   * Budget category ID.
    */
   id: number;
 };

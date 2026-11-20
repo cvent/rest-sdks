@@ -15,12 +15,12 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Representation of an air actual detail response.
+    /// Air actual details for an attendee and any guest.
     /// </summary>
     public class AirActualDetail1
     {
         /// <summary>
-        /// Representation of the attendee.
+        /// An attendee identified by an ID.
         /// </summary>
         [JsonProperty("attendee")]
         public Attendee3? Attendee { get; set; }

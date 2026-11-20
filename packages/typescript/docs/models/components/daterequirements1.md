@@ -14,8 +14,8 @@ let value: DateRequirements1 = {
     {
       preferred: true,
       id: "50dc08af-24a9-4d01-84be-3d43133dc945",
-      endDate: new RFCDate("2016-10-13"),
-      startDate: new RFCDate("2016-10-15"),
+      endDate: new RFCDate("2016-10-15"),
+      startDate: new RFCDate("2016-10-13"),
       note: "Flexible dates",
     },
   ],
@@ -29,8 +29,8 @@ let value: DateRequirements1 = {
       {
         preferred: true,
         id: "50dc08af-24a9-4d01-84be-3d43133dc945",
-        endDate: new RFCDate("2016-10-13"),
-        startDate: new RFCDate("2016-10-15"),
+        endDate: new RFCDate("2016-10-15"),
+        startDate: new RFCDate("2016-10-13"),
         note: "Flexible dates",
       },
     ],

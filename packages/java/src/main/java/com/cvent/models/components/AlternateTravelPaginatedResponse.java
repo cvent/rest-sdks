@@ -15,8 +15,8 @@ import java.util.Optional;
 /**
  * AlternateTravelPaginatedResponse
  *
- * <p>Paginated response containing alternate travel answers submitted by attendees who opt out of air or
- * hotel bookings.
+ * <p>Paginated response containing alternate travel answers submitted by attendees who opt out of air,
+ * hotel, or train bookings.
  */
 public class AlternateTravelPaginatedResponse {
     /**

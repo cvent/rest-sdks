@@ -44,7 +44,7 @@ namespace Cvent.SDK.Models.Components
         public string? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// Representation of the attendee.
+        /// An attendee identified by an ID.
         /// </summary>
         [JsonProperty("attendee")]
         public Attendee3? Attendee { get; set; }
@@ -56,10 +56,10 @@ namespace Cvent.SDK.Models.Components
         public string? RequesterId { get; set; }
 
         /// <summary>
-        /// Attendee type of the entity this alternate travel belongs to. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
+        /// Attendee type of the requester. Contact means the requester is an independent attendee. Guest means the attendee is accompanying another attendee.
         /// </summary>
         [JsonProperty("requesterType")]
-        public AlternateTravelDetailRequesterType? RequesterType { get; set; }
+        public RequesterType? RequesterType { get; set; }
 
         /// <summary>
         /// Type of travel alternate question. Supported values: AirRequest = attendee requested air travel; HotelRequest = attendee requested hotel travel; AirActual = actual air travel booked; GroupFlight = group flight booking; TrainRequest = attendee requested train travel; AirAndTrainRequest = attendee did not want air or train travel and submitted an alternate response.

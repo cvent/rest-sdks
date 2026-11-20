@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// Represents bid disposition details.
+    /// The disposition of a bid.
     /// </summary>
     public class TravelBidDisposition
     {
@@ -26,7 +26,7 @@ namespace Cvent.SDK.Models.Components
         public TravelProposalBid1? Bid { get; set; }
 
         /// <summary>
-        /// List of accepted bid rooms.
+        /// The accepted rooms of the bid.
         /// </summary>
         [JsonProperty("acceptedBidRooms")]
         public List<TravelBidDispositionAcceptedRoom>? AcceptedBidRooms { get; set; }

@@ -8,7 +8,7 @@ import * as components from "../components/index.js";
 
 export type CreateBudgetItemRequest = {
   /**
-   * Unique ID of an event.
+   * Event ID.
    */
   id: string;
   /**

@@ -8,7 +8,7 @@ import * as components from "../components/index.js";
 
 export type UpdateCardTransactionRequest = {
   /**
-   * Unique ID of a transaction.
+   * Transaction ID.
    */
   transactionId: string;
   /**

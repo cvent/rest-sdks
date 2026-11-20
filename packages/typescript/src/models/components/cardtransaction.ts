@@ -20,7 +20,7 @@ import {
 } from "./transactiontype1.js";
 
 /**
- * The identifier of the Event.
+ * Event ID.
  */
 export type CardTransactionEvent = {
   /**
@@ -30,7 +30,7 @@ export type CardTransactionEvent = {
 };
 
 /**
- * The identifier of the Card.
+ * Card ID.
  */
 export type Card = {
   /**
@@ -40,7 +40,7 @@ export type Card = {
 };
 
 /**
- * The identifier of reconciled budget item.
+ * Reconciled budget item ID.
  */
 export type CardTransactionBudgetItem = {
   /**
@@ -56,11 +56,11 @@ export type CardTransactionBudgetItem = {
  */
 export type CardTransactionTransactionReconciliation = {
   /**
-   * The identifier of reconciled budget item.
+   * Reconciled budget item ID.
    */
   budgetItem?: CardTransactionBudgetItem | undefined;
   /**
-   * This is used to denote the reconciliation status for a transaction.
+   * Reconciliation status of the transaction: Reconciled or Not Reconciled.
    */
   status?: ReconciliationStatus | undefined;
   /**
@@ -82,11 +82,11 @@ export type CardTransactionTransactionReconciliation = {
  */
 export type CardTransaction = {
   /**
-   * The identifier of the Event.
+   * Event ID.
    */
   event?: CardTransactionEvent | undefined;
   /**
-   * The identifier of the Card.
+   * Card ID.
    */
   card?: Card | undefined;
   /**
@@ -115,11 +115,11 @@ export type CardTransaction = {
   merchant?: string | undefined;
   reconciliation?: CardTransactionTransactionReconciliation | undefined;
   /**
-   * The list of reconciled item.
+   * List of reconciliation records.
    */
   reconciliations?: Array<TransactionReconciliation> | undefined;
   /**
-   * The list of transaction description.
+   * List of transaction descriptions.
    */
   descriptions?: Array<string> | undefined;
 };

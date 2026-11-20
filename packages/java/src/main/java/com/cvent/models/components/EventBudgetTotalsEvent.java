@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * EventBudgetTotalsEvent
  *
- * <p>The identifier of the Event.
+ * <p>Event ID.
  */
 public class EventBudgetTotalsEvent {
     /**

@@ -24,3 +24,7 @@ export type ContactMethods = ClosedEnum<typeof ContactMethods>;
 export const ContactMethods$inboundSchema: z.ZodNativeEnum<
   typeof ContactMethods
 > = z.nativeEnum(ContactMethods);
+/** @internal */
+export const ContactMethods$outboundSchema: z.ZodNativeEnum<
+  typeof ContactMethods
+> = ContactMethods$inboundSchema;

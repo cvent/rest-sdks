@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * The details of a video
+ * A video ID associated with a video view.
  */
 export type Video1 = {
   /**

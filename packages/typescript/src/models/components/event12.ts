@@ -22,7 +22,23 @@ export const Event12$inboundSchema: z.ZodType<Event12, z.ZodTypeDef, unknown> =
   z.object({
     id: z.string().optional(),
   });
+/** @internal */
+export type Event12$Outbound = {
+  id?: string | undefined;
+};
 
+/** @internal */
+export const Event12$outboundSchema: z.ZodType<
+  Event12$Outbound,
+  z.ZodTypeDef,
+  Event12
+> = z.object({
+  id: z.string().optional(),
+});
+
+export function event12ToJSON(event12: Event12): string {
+  return JSON.stringify(Event12$outboundSchema.parse(event12));
+}
 export function event12FromJSON(
   jsonString: string,
 ): SafeParseResult<Event12, SDKValidationError> {

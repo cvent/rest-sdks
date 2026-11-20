@@ -1,6 +1,6 @@
 # CommentType
 
-Bid comment type
+The type of the bid comment.
 
 ## Example Usage
 

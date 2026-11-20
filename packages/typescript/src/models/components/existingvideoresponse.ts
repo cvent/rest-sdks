@@ -80,7 +80,7 @@ export type ExistingVideoResponse = {
    */
   filename?: string | undefined;
   /**
-   * A list of events associated with this video asset
+   * A list of event IDs associated with this video asset.
    */
   events?: Array<string> | undefined;
   /**
@@ -88,11 +88,11 @@ export type ExistingVideoResponse = {
    */
   duration?: number | undefined;
   /**
-   * Video thumbnail
+   * Video thumbnail metadata, including its URL, size, dimensions, type, and status.
    */
   thumbnail?: VideoThumbnail | undefined;
   /**
-   * Video thumbnail
+   * Video thumbnail metadata, including its URL, size, dimensions, type, and status.
    */
   generatedThumbnail?: VideoThumbnail | undefined;
   /**
@@ -100,11 +100,11 @@ export type ExistingVideoResponse = {
    */
   status?: VideoStatus | undefined;
   /**
-   * Source of video.
+   * Information about the video's external source, including its ID and status.
    */
   source?: VideoSource | undefined;
   /**
-   * A list of tags associated with this video.  This feature is a developer extensability framework to add data to videos.
+   * A list of tags associated with this video.  This feature is a developer extensibility framework to add data to videos.
    */
   tags?: Array<string> | undefined;
   /**
@@ -148,15 +148,15 @@ export type ExistingVideoResponse = {
    */
   size?: number | undefined;
   /**
-   * Sessions associated with the video asset.
+   * Session IDs associated with the video asset.
    */
   sessions?: Array<string> | undefined;
   /**
-   * Exhibitors associated with the video asset.
+   * Exhibitor IDs associated with the video asset.
    */
   exhibitors?: Array<string> | undefined;
   /**
-   * Speakers associated with the video asset.
+   * Speaker IDs associated with the video asset.
    */
   speakers?: Array<string> | undefined;
   /**
@@ -164,7 +164,7 @@ export type ExistingVideoResponse = {
    */
   uploadStarted?: Date | undefined;
   /**
-   * The ISO 8601 zoned date time when the uploaded ended.
+   * The ISO 8601 zoned date time when the upload ended.
    */
   uploadCompleted?: Date | undefined;
   /**

@@ -20,3 +20,6 @@ export type UnitPosition = ClosedEnum<typeof UnitPosition>;
 /** @internal */
 export const UnitPosition$inboundSchema: z.ZodNativeEnum<typeof UnitPosition> =
   z.nativeEnum(UnitPosition);
+/** @internal */
+export const UnitPosition$outboundSchema: z.ZodNativeEnum<typeof UnitPosition> =
+  UnitPosition$inboundSchema;

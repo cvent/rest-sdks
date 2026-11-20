@@ -60,7 +60,7 @@ let value: UpdateBudgetItemRequest = {
         contactId: "0c478ddc-cf11-4026-a8e5-e6a59ae1c902",
       },
     ],
-    associatedSession: "9463c74e-18c6-401a-a710-ae0f485bf959",
+    associatedSession: "9b21167c-6d2b-473d-8a56-662fbddabafb",
   },
 };
 ```
@@ -69,6 +69,6 @@ let value: UpdateBudgetItemRequest = {
 
 | Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              | Example                                                                  |
 | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `id`                                                                     | *string*                                                                 | :heavy_check_mark:                                                       | Unique ID of an event.                                                   | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                     |
-| `budgetItemId`                                                           | *string*                                                                 | :heavy_check_mark:                                                       | Unique ID of a budget item.                                              | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                     |
+| `id`                                                                     | *string*                                                                 | :heavy_check_mark:                                                       | Event ID.                                                                | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                     |
+| `budgetItemId`                                                           | *string*                                                                 | :heavy_check_mark:                                                       | Budget item ID.                                                          | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                     |
 | `budgetItem`                                                             | [components.BudgetItemInput](../../models/components/budgetiteminput.md) | :heavy_check_mark:                                                       | Budget Item to be updated                                                |                                                                          |

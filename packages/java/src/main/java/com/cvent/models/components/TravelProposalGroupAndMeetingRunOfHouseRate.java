@@ -17,74 +17,74 @@ import java.util.Optional;
 /**
  * TravelProposalGroupAndMeetingRunOfHouseRate
  *
- * <p>Run of house rate information.
+ * <p>The run of house rates of the proposal.
  */
 public class TravelProposalGroupAndMeetingRunOfHouseRate {
     /**
-     * Season one run of house rate for 10-50 people.
+     * The season one run of house rate for 10 to 50 people.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("seasonOne10To50People")
     private Double seasonOne10To50People;
 
     /**
-     * Season one run of house rate for 51-100 people.
+     * The season one run of house rate for 51 to 100 people.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("seasonOne51To100People")
     private Double seasonOne51To100People;
 
     /**
-     * Season two run of house rate for 10-50 people.
+     * The season two run of house rate for 10 to 50 people.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("seasonTwo10To50People")
     private Double seasonTwo10To50People;
 
     /**
-     * Season two run of house rate for 51-100 people.
+     * The season two run of house rate for 51 to 100 people.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("seasonTwo51To100People")
     private Double seasonTwo51To100People;
 
     /**
-     * Season three run of house rate for 10-50 people.
+     * The season three run of house rate for 10 to 50 people.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("seasonThree10To50People")
     private Double seasonThree10To50People;
 
     /**
-     * Season three run of house rate for 51-100 people.
+     * The season three run of house rate for 51 to 100 people.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("seasonThree51To100People")
     private Double seasonThree51To100People;
 
     /**
-     * Season four run of house rate for 10-50 people.
+     * The season four run of house rate for 10 to 50 people.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("seasonFour10To50People")
     private Double seasonFour10To50People;
 
     /**
-     * Season four run of house rate for 51-100 people.
+     * The season four run of house rate for 51 to 100 people.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("seasonFour51To100People")
     private Double seasonFour51To100People;
 
     /**
-     * Season five run of house rate for 10-50 people.
+     * The season five run of house rate for 10 to 50 people.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("seasonFive10To50People")
     private Double seasonFive10To50People;
 
     /**
-     * Season five run of house rate for 51-100 people.
+     * The season five run of house rate for 51 to 100 people.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("seasonFive51To100People")
@@ -119,70 +119,70 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
     }
 
     /**
-     * Season one run of house rate for 10-50 people.
+     * The season one run of house rate for 10 to 50 people.
      */
     public Optional<Double> seasonOne10To50People() {
         return Optional.ofNullable(this.seasonOne10To50People);
     }
 
     /**
-     * Season one run of house rate for 51-100 people.
+     * The season one run of house rate for 51 to 100 people.
      */
     public Optional<Double> seasonOne51To100People() {
         return Optional.ofNullable(this.seasonOne51To100People);
     }
 
     /**
-     * Season two run of house rate for 10-50 people.
+     * The season two run of house rate for 10 to 50 people.
      */
     public Optional<Double> seasonTwo10To50People() {
         return Optional.ofNullable(this.seasonTwo10To50People);
     }
 
     /**
-     * Season two run of house rate for 51-100 people.
+     * The season two run of house rate for 51 to 100 people.
      */
     public Optional<Double> seasonTwo51To100People() {
         return Optional.ofNullable(this.seasonTwo51To100People);
     }
 
     /**
-     * Season three run of house rate for 10-50 people.
+     * The season three run of house rate for 10 to 50 people.
      */
     public Optional<Double> seasonThree10To50People() {
         return Optional.ofNullable(this.seasonThree10To50People);
     }
 
     /**
-     * Season three run of house rate for 51-100 people.
+     * The season three run of house rate for 51 to 100 people.
      */
     public Optional<Double> seasonThree51To100People() {
         return Optional.ofNullable(this.seasonThree51To100People);
     }
 
     /**
-     * Season four run of house rate for 10-50 people.
+     * The season four run of house rate for 10 to 50 people.
      */
     public Optional<Double> seasonFour10To50People() {
         return Optional.ofNullable(this.seasonFour10To50People);
     }
 
     /**
-     * Season four run of house rate for 51-100 people.
+     * The season four run of house rate for 51 to 100 people.
      */
     public Optional<Double> seasonFour51To100People() {
         return Optional.ofNullable(this.seasonFour51To100People);
     }
 
     /**
-     * Season five run of house rate for 10-50 people.
+     * The season five run of house rate for 10 to 50 people.
      */
     public Optional<Double> seasonFive10To50People() {
         return Optional.ofNullable(this.seasonFive10To50People);
     }
 
     /**
-     * Season five run of house rate for 51-100 people.
+     * The season five run of house rate for 51 to 100 people.
      */
     public Optional<Double> seasonFive51To100People() {
         return Optional.ofNullable(this.seasonFive51To100People);
@@ -193,7 +193,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
     }
 
     /**
-     * Season one run of house rate for 10-50 people.
+     * The season one run of house rate for 10 to 50 people.
      */
     public TravelProposalGroupAndMeetingRunOfHouseRate withSeasonOne10To50People(
             @Nullable Double seasonOne10To50People) {
@@ -202,7 +202,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
     }
 
     /**
-     * Season one run of house rate for 51-100 people.
+     * The season one run of house rate for 51 to 100 people.
      */
     public TravelProposalGroupAndMeetingRunOfHouseRate withSeasonOne51To100People(
             @Nullable Double seasonOne51To100People) {
@@ -211,7 +211,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
     }
 
     /**
-     * Season two run of house rate for 10-50 people.
+     * The season two run of house rate for 10 to 50 people.
      */
     public TravelProposalGroupAndMeetingRunOfHouseRate withSeasonTwo10To50People(
             @Nullable Double seasonTwo10To50People) {
@@ -220,7 +220,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
     }
 
     /**
-     * Season two run of house rate for 51-100 people.
+     * The season two run of house rate for 51 to 100 people.
      */
     public TravelProposalGroupAndMeetingRunOfHouseRate withSeasonTwo51To100People(
             @Nullable Double seasonTwo51To100People) {
@@ -229,7 +229,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
     }
 
     /**
-     * Season three run of house rate for 10-50 people.
+     * The season three run of house rate for 10 to 50 people.
      */
     public TravelProposalGroupAndMeetingRunOfHouseRate withSeasonThree10To50People(
             @Nullable Double seasonThree10To50People) {
@@ -238,7 +238,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
     }
 
     /**
-     * Season three run of house rate for 51-100 people.
+     * The season three run of house rate for 51 to 100 people.
      */
     public TravelProposalGroupAndMeetingRunOfHouseRate withSeasonThree51To100People(
             @Nullable Double seasonThree51To100People) {
@@ -247,7 +247,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
     }
 
     /**
-     * Season four run of house rate for 10-50 people.
+     * The season four run of house rate for 10 to 50 people.
      */
     public TravelProposalGroupAndMeetingRunOfHouseRate withSeasonFour10To50People(
             @Nullable Double seasonFour10To50People) {
@@ -256,7 +256,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
     }
 
     /**
-     * Season four run of house rate for 51-100 people.
+     * The season four run of house rate for 51 to 100 people.
      */
     public TravelProposalGroupAndMeetingRunOfHouseRate withSeasonFour51To100People(
             @Nullable Double seasonFour51To100People) {
@@ -265,7 +265,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
     }
 
     /**
-     * Season five run of house rate for 10-50 people.
+     * The season five run of house rate for 10 to 50 people.
      */
     public TravelProposalGroupAndMeetingRunOfHouseRate withSeasonFive10To50People(
             @Nullable Double seasonFive10To50People) {
@@ -274,7 +274,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
     }
 
     /**
-     * Season five run of house rate for 51-100 people.
+     * The season five run of house rate for 51 to 100 people.
      */
     public TravelProposalGroupAndMeetingRunOfHouseRate withSeasonFive51To100People(
             @Nullable Double seasonFive51To100People) {
@@ -372,7 +372,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
         }
 
         /**
-         * Season one run of house rate for 10-50 people.
+         * The season one run of house rate for 10 to 50 people.
          */
         public Builder seasonOne10To50People(@Nullable Double seasonOne10To50People) {
             this.seasonOne10To50People = seasonOne10To50People;
@@ -380,7 +380,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
         }
 
         /**
-         * Season one run of house rate for 51-100 people.
+         * The season one run of house rate for 51 to 100 people.
          */
         public Builder seasonOne51To100People(@Nullable Double seasonOne51To100People) {
             this.seasonOne51To100People = seasonOne51To100People;
@@ -388,7 +388,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
         }
 
         /**
-         * Season two run of house rate for 10-50 people.
+         * The season two run of house rate for 10 to 50 people.
          */
         public Builder seasonTwo10To50People(@Nullable Double seasonTwo10To50People) {
             this.seasonTwo10To50People = seasonTwo10To50People;
@@ -396,7 +396,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
         }
 
         /**
-         * Season two run of house rate for 51-100 people.
+         * The season two run of house rate for 51 to 100 people.
          */
         public Builder seasonTwo51To100People(@Nullable Double seasonTwo51To100People) {
             this.seasonTwo51To100People = seasonTwo51To100People;
@@ -404,7 +404,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
         }
 
         /**
-         * Season three run of house rate for 10-50 people.
+         * The season three run of house rate for 10 to 50 people.
          */
         public Builder seasonThree10To50People(@Nullable Double seasonThree10To50People) {
             this.seasonThree10To50People = seasonThree10To50People;
@@ -412,7 +412,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
         }
 
         /**
-         * Season three run of house rate for 51-100 people.
+         * The season three run of house rate for 51 to 100 people.
          */
         public Builder seasonThree51To100People(@Nullable Double seasonThree51To100People) {
             this.seasonThree51To100People = seasonThree51To100People;
@@ -420,7 +420,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
         }
 
         /**
-         * Season four run of house rate for 10-50 people.
+         * The season four run of house rate for 10 to 50 people.
          */
         public Builder seasonFour10To50People(@Nullable Double seasonFour10To50People) {
             this.seasonFour10To50People = seasonFour10To50People;
@@ -428,7 +428,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
         }
 
         /**
-         * Season four run of house rate for 51-100 people.
+         * The season four run of house rate for 51 to 100 people.
          */
         public Builder seasonFour51To100People(@Nullable Double seasonFour51To100People) {
             this.seasonFour51To100People = seasonFour51To100People;
@@ -436,7 +436,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
         }
 
         /**
-         * Season five run of house rate for 10-50 people.
+         * The season five run of house rate for 10 to 50 people.
          */
         public Builder seasonFive10To50People(@Nullable Double seasonFive10To50People) {
             this.seasonFive10To50People = seasonFive10To50People;
@@ -444,7 +444,7 @@ public class TravelProposalGroupAndMeetingRunOfHouseRate {
         }
 
         /**
-         * Season five run of house rate for 51-100 people.
+         * The season five run of house rate for 51 to 100 people.
          */
         public Builder seasonFive51To100People(@Nullable Double seasonFive51To100People) {
             this.seasonFive51To100People = seasonFive51To100People;

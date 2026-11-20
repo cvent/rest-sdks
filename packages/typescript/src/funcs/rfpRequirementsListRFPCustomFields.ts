@@ -33,7 +33,7 @@ import {
 } from "../types/operations.js";
 
 /**
- * List RFP Custom Fields Answers
+ * List RFP Custom Field Answers
  *
  * @remarks
  * Returns a paginated list of answers for each custom field associated with a given RFP.

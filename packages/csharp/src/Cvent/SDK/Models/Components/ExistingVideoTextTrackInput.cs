@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// An existing video text track.
+    /// A video text track with its ID, status, associated URL, and processing error message, if any.
     /// </summary>
     public class ExistingVideoTextTrackInput
     {

@@ -13,7 +13,7 @@ import {
 } from "./travelbuyerproposalbid.js";
 
 /**
- * A paginated list of travel buyer proposals.
+ * A paginated list of travel buyer proposal bids.
  */
 export type TravelBuyerProposalBidPaginatedResponse = {
   /**
@@ -21,7 +21,7 @@ export type TravelBuyerProposalBidPaginatedResponse = {
    */
   paging?: Paging | undefined;
   /**
-   * Paginated list of business transient buyer proposal bids.
+   * The travel buyer proposal bids on the page.
    */
   data?: Array<TravelBuyerProposalBid> | undefined;
 };

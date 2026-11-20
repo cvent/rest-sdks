@@ -1,0 +1,936 @@
+# Budgets
+
+## Overview
+
+Budget items and related configuration include planned expenses, [allocations](https://support.cvent.com/s/communityarticle/Setting-Up-Budget-Allocations), totals, custom fields, vendors, and currency conversion rates. Use these APIs to manage budget planning data and related account information.
+
+### Available Operations
+
+* [GetAccountBudgetItems](#getaccountbudgetitems) - List Budget Items
+* [GetAccountVendors](#getaccountvendors) - List Account Vendors
+* [GetCurrencyConversionRate](#getcurrencyconversionrate) - List Currency Conversion Rates
+* [CreateCurrencyConversionRate](#createcurrencyconversionrate) - Create Conversion Rate
+* [UpdateCurrencyConversionRate](#updatecurrencyconversionrate) - Update Conversion Rate
+* [DeleteCurrencyConversionRate](#deletecurrencyconversionrate) - Delete Conversion Rate
+* [GetBudgetItems](#getbudgetitems) - List Event Budget Items
+* [CreateBudgetItem](#createbudgetitem) - Create Budget Item
+* [GetBudgetAllocations](#getbudgetallocations) - List Budget Allocations
+* [UpdateBudgetItem](#updatebudgetitem) - Update Budget Item
+* [UpdateBudgetAllocations](#updatebudgetallocations) - Update Budget Allocations
+* [DeleteBudgetAllocations](#deletebudgetallocations) - Delete Budget Allocations
+* [AnswerBudgetCustomField](#answerbudgetcustomfield) - Update Custom Field Answers
+* [GetEventBudgetTotals](#geteventbudgettotals) - List Budget Totals
+
+## GetAccountBudgetItems
+
+Retrieves a paginated list of budget items across all events in your account. You can filter the data by the specified after and before date parameters, based on the last modified date, for a maximum duration of one year per request.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="getAccountBudgetItems" method="get" path="/budget-items" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+GetAccountBudgetItemsRequest req = new GetAccountBudgetItemsRequest() {
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    Filter = "event.id eq 'e7120b27-ca4c-46c1-b5de-cbe5ea0e26d5' and budgetVersion.id ne 'e7120b27-ca4c-46c1-b5de-cbe5ea0e26d5'",
+};
+
+GetAccountBudgetItemsResponse? res = await sdk.Budgets.GetAccountBudgetItemsAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+
+### Parameters
+
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [GetAccountBudgetItemsRequest](../../Models/Requests/GetAccountBudgetItemsRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+
+### Response
+
+**[GetAccountBudgetItemsResponse](../../Models/Requests/GetAccountBudgetItemsResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## GetAccountVendors
+
+Retrieves a paginated list of account-level budget vendors configured in Admin > Budget > Vendors for your account. Event-scoped vendors and CSN-only vendors are not included.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="getAccountVendors" method="get" path="/budget-vendors" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+GetAccountVendorsRequest req = new GetAccountVendorsRequest() {
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    Filter = "active eq true and id eq '5b5a6e5c-1234-4af5-9d1f-9bcb9e7c1234' and lastModified ge '2025-01-01T00:00:00Z'",
+};
+
+GetAccountVendorsResponse? res = await sdk.Budgets.GetAccountVendorsAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+
+### Parameters
+
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `request`                                                                     | [GetAccountVendorsRequest](../../Models/Requests/GetAccountVendorsRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+
+### Response
+
+**[GetAccountVendorsResponse](../../Models/Requests/GetAccountVendorsResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## GetCurrencyConversionRate
+
+Retrieves a paginated list of conversion rates for a currency in an account.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="getCurrencyConversionRate" method="get" path="/currencies/{currency}/conversion-rates" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+GetCurrencyConversionRateRequest req = new GetCurrencyConversionRateRequest() {
+    Currency = "USD",
+    Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Filter = "startDate eq '2020-02-07' ",
+};
+
+GetCurrencyConversionRateResponse? res = await sdk.Budgets.GetCurrencyConversionRateAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [GetCurrencyConversionRateRequest](../../Models/Requests/GetCurrencyConversionRateRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+
+### Response
+
+**[GetCurrencyConversionRateResponse](../../Models/Requests/GetCurrencyConversionRateResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## CreateCurrencyConversionRate
+
+Creates a conversion rate for a currency in an account using the values provided in the request body.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="createCurrencyConversionRate" method="post" path="/currencies/{currency}/conversion-rates" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+CreateCurrencyConversionRateRequest req = new CreateCurrencyConversionRateRequest() {
+    Currency = "USD",
+    CurrencyConversionRate = new CurrencyConversionRate() {
+        ConversionRate = 5.2D,
+        StartDate = DateOnly.Parse("2020-02-07"),
+        EndDate = DateOnly.Parse("2020-02-08"),
+    },
+};
+
+var res = await sdk.Budgets.CreateCurrencyConversionRateAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [CreateCurrencyConversionRateRequest](../../Models/Requests/CreateCurrencyConversionRateRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+
+### Response
+
+**[CreateCurrencyConversionRateResponse](../../Models/Requests/CreateCurrencyConversionRateResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## UpdateCurrencyConversionRate
+
+Updates a conversion rate for a currency in an account using the details provided in the body of the request.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="updateCurrencyConversionRate" method="put" path="/currencies/{currency}/conversion-rates/{conversionRateId}" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+UpdateCurrencyConversionRateRequest req = new UpdateCurrencyConversionRateRequest() {
+    Currency = "USD",
+    ConversionRateId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    CurrencyConversionRateRequest = new CurrencyConversionRateRequest() {
+        ConversionRate = 5.2D,
+        StartDate = DateOnly.Parse("2020-02-07"),
+        EndDate = DateOnly.Parse("2020-02-08"),
+        Id = "9463c74e-18c6-401a-a710-ae0f485bf959",
+    },
+};
+
+var res = await sdk.Budgets.UpdateCurrencyConversionRateAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [UpdateCurrencyConversionRateRequest](../../Models/Requests/UpdateCurrencyConversionRateRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+
+### Response
+
+**[UpdateCurrencyConversionRateResponse](../../Models/Requests/UpdateCurrencyConversionRateResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## DeleteCurrencyConversionRate
+
+Deletes a conversion rate defined for a currency.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="deleteCurrencyConversionRate" method="delete" path="/currencies/{currency}/conversion-rates/{conversionRateId}" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+DeleteCurrencyConversionRateRequest req = new DeleteCurrencyConversionRateRequest() {
+    Currency = "USD",
+    ConversionRateId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+};
+
+var res = await sdk.Budgets.DeleteCurrencyConversionRateAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [DeleteCurrencyConversionRateRequest](../../Models/Requests/DeleteCurrencyConversionRateRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+
+### Response
+
+**[DeleteCurrencyConversionRateResponse](../../Models/Requests/DeleteCurrencyConversionRateResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 401, 403, 404, 429                      | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## GetBudgetItems
+
+Retrieves a paginated list of budget items for an event in your account.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="getBudgetItems" method="get" path="/events/{id}/budget-items" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+GetBudgetItemsRequest req = new GetBudgetItemsRequest() {
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    Filter = "category.name eq 'Accommodation' and status ne 'Estimated'",
+};
+
+GetBudgetItemsResponse? res = await sdk.Budgets.GetBudgetItemsAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+
+### Parameters
+
+| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `request`                                                               | [GetBudgetItemsRequest](../../Models/Requests/GetBudgetItemsRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+
+### Response
+
+**[GetBudgetItemsResponse](../../Models/Requests/GetBudgetItemsResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## CreateBudgetItem
+
+Creates a single budget item using the values provided in the request body.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="createBudgetItem" method="post" path="/events/{id}/budget-items" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System;
+using System.Collections.Generic;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+CreateBudgetItemRequest req = new CreateBudgetItemRequest() {
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    BudgetItem = new BudgetItemInput() {
+        CostType = BudgetCostType.Fixed,
+        Name = "Airport Transportation",
+        Code = "AIRTRP",
+        Category = new BudgetCategoryInput() {
+            Id = 3,
+        },
+        SubCategory = new BudgetSubCategoryInput() {
+            Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+        },
+        Status = BudgetStatus.Estimated,
+        Vendor = new BudgetVendorInput() {
+            Id = "d64380fd-3631-43e9-aac7-bd6bb6eccf6b",
+        },
+        Date = System.DateTime.Parse("2020-02-07T00:00:00.00Z").ToUniversalTime(),
+        GeneralLedger = new GeneralLedger1Input() {
+            Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+        },
+        CostAvoidance = new BudgetCostAvoidance() {
+            Amount = 99.5D,
+            Description = "Discounted Cost",
+        },
+        CostIncludesTaxGratuity = true,
+        CalculateTaxOnGratuity = false,
+        GratuityType = BudgetTaxGratuityType.Percentage,
+        InternalNote = "This item is inclusive of taxes.",
+        Currency = "USD",
+        ConversionRateLocked = true,
+        ConversionRate = 5.2D,
+        CostDetail = new List<BudgetCostDetail1Input>() {
+            new BudgetCostDetail1Input() {
+                Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+                Units = 5.2D,
+                Cost = 100.5D,
+                GratuityDetail = new BudgetGratuityInput() {
+                    Gratuity = 5.2D,
+                },
+                TaxDetail = new List<BudgetTaxInput>() {
+                    new BudgetTaxInput() {
+                        Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+                        TaxType = BudgetTaxGratuityType.Percentage,
+                        Tax = 5.2D,
+                    },
+                },
+            },
+        },
+        AssociatedRegistrants = new List<BudgetAssociatedRegistrantInput>() {
+            new BudgetAssociatedRegistrantInput() {
+                InviteeId = "7cc5304a-9323-452f-8ae8-111cae0047b0",
+                ContactId = "0c478ddc-cf11-4026-a8e5-e6a59ae1c902",
+            },
+        },
+        AssociatedSession = "9463c74e-18c6-401a-a710-ae0f485bf959",
+    },
+};
+
+var res = await sdk.Budgets.CreateBudgetItemAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `request`                                                                   | [CreateBudgetItemRequest](../../Models/Requests/CreateBudgetItemRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
+
+### Response
+
+**[CreateBudgetItemResponse](../../Models/Requests/CreateBudgetItemResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## GetBudgetAllocations
+
+Retrieves a paginated list of budget allocations for all budget items within an event.
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="getBudgetAllocations" method="get" path="/events/{id}/budget-items/allocations" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+GetBudgetAllocationsRequest req = new GetBudgetAllocationsRequest() {
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    Filter = "category.id eq 'e9ee2669-65db-46f8-872c-dbafbf9b0e92' or value lt 1000",
+};
+
+GetBudgetAllocationsResponse? res = await sdk.Budgets.GetBudgetAllocationsAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+
+### Parameters
+
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [GetBudgetAllocationsRequest](../../Models/Requests/GetBudgetAllocationsRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+
+### Response
+
+**[GetBudgetAllocationsResponse](../../Models/Requests/GetBudgetAllocationsResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## UpdateBudgetItem
+
+Updates a single budget item using the details provided in the body of the request.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="updateBudgetItem" method="put" path="/events/{id}/budget-items/{budgetItemId}" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System;
+using System.Collections.Generic;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+UpdateBudgetItemRequest req = new UpdateBudgetItemRequest() {
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    BudgetItemId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    BudgetItem = new BudgetItemInput() {
+        CostType = BudgetCostType.Fixed,
+        Name = "Airport Transportation",
+        Code = "AIRTRP",
+        Category = new BudgetCategoryInput() {
+            Id = 3,
+        },
+        SubCategory = new BudgetSubCategoryInput() {
+            Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+        },
+        Status = BudgetStatus.Estimated,
+        Vendor = new BudgetVendorInput() {
+            Id = "d64380fd-3631-43e9-aac7-bd6bb6eccf6b",
+        },
+        Date = System.DateTime.Parse("2020-02-07T00:00:00.00Z").ToUniversalTime(),
+        GeneralLedger = new GeneralLedger1Input() {
+            Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+        },
+        CostAvoidance = new BudgetCostAvoidance() {
+            Amount = 99.5D,
+            Description = "Discounted Cost",
+        },
+        CostIncludesTaxGratuity = true,
+        CalculateTaxOnGratuity = false,
+        GratuityType = BudgetTaxGratuityType.Percentage,
+        InternalNote = "This item is inclusive of taxes.",
+        Currency = "USD",
+        ConversionRateLocked = true,
+        ConversionRate = 5.2D,
+        CostDetail = new List<BudgetCostDetail1Input>() {
+            new BudgetCostDetail1Input() {
+                Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+                Units = 5.2D,
+                Cost = 100.5D,
+                GratuityDetail = new BudgetGratuityInput() {
+                    Gratuity = 5.2D,
+                },
+                TaxDetail = new List<BudgetTaxInput>() {
+                    new BudgetTaxInput() {
+                        Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+                        TaxType = BudgetTaxGratuityType.Percentage,
+                        Tax = 5.2D,
+                    },
+                },
+            },
+        },
+        AssociatedRegistrants = new List<BudgetAssociatedRegistrantInput>() {
+            new BudgetAssociatedRegistrantInput() {
+                InviteeId = "7cc5304a-9323-452f-8ae8-111cae0047b0",
+                ContactId = "0c478ddc-cf11-4026-a8e5-e6a59ae1c902",
+            },
+        },
+        AssociatedSession = "9463c74e-18c6-401a-a710-ae0f485bf959",
+    },
+};
+
+var res = await sdk.Budgets.UpdateBudgetItemAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `request`                                                                   | [UpdateBudgetItemRequest](../../Models/Requests/UpdateBudgetItemRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
+
+### Response
+
+**[UpdateBudgetItemResponse](../../Models/Requests/UpdateBudgetItemResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## UpdateBudgetAllocations
+
+Bulk add or update budget allocations in a budget item. If budget allocations already exist for the budget item, they will be updated.
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="updateBudgetAllocations" method="put" path="/events/{id}/budget-items/{budgetItemId}/allocations" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System.Collections.Generic;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+UpdateBudgetAllocationsRequest req = new UpdateBudgetAllocationsRequest() {
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    BudgetItemId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    BudgetAllocationsList = new BudgetAllocationsList() {
+        AllocateBy = AllocateBy.Amount,
+        Allocations = new List<BudgetAllocation>() {},
+    },
+};
+
+var res = await sdk.Budgets.UpdateBudgetAllocationsAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [UpdateBudgetAllocationsRequest](../../Models/Requests/UpdateBudgetAllocationsRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+
+### Response
+
+**[UpdateBudgetAllocationsResponse](../../Models/Requests/UpdateBudgetAllocationsResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## DeleteBudgetAllocations
+
+Deletes all budget allocations for a budget item.
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="deleteBudgetAllocations" method="delete" path="/events/{id}/budget-items/{budgetItemId}/allocations" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+DeleteBudgetAllocationsRequest req = new DeleteBudgetAllocationsRequest() {
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    BudgetItemId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+};
+
+var res = await sdk.Budgets.DeleteBudgetAllocationsAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [DeleteBudgetAllocationsRequest](../../Models/Requests/DeleteBudgetAllocationsRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+
+### Response
+
+**[DeleteBudgetAllocationsResponse](../../Models/Requests/DeleteBudgetAllocationsResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 401, 403, 404, 409, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## AnswerBudgetCustomField
+
+Updates answers to a budget custom field using the details you provided in the body of the request. Answers must be formatted correctly according to the specific type of custom field. The available fields and their formats are listed below:
+* **Open Ended Text - Date/Time**. This field type has several possible user-selected answer formats:
+  - Date/Time (2022-01-01T12:00:00.000Z). Denoted by *DateTime* in the response payload.
+  - Date (2022-01-01). Denoted by *Date* in the response payload.
+* **Open Ended Text - One Line**. This field type has several possible user-selected answer formats:
+  - General (Text). Denoted by *General* in the response payload.
+  - Number (Whole numbers, 10, -10). Denoted by *Number* in the response payload.
+  - Currency (Positive decimal value, 10.5). Denoted by *Currency* in the response payload.
+  - Decimal (-20.5). Denoted by *Decimal* in the response payload.
+  - US Phone Number (123-456-7890). Denoted by *USPhoneNumber* in the response payload.
+  - Email Address (h.potterfield@example.com). Denoted by *Email* in the response payload.
+* **Open Ended Text - Comment Box**. Answer format is free-text (any value). Denoted by *FreeText* in the
+    response payload.
+* **Choice - Single Answer (Drop-Down, Vertical, Horizontal).** Answer format is exactly one response to a
+    list of user-defined choices. Denoted by *SingleSelect* in the response payload.
+* **Choice - Multiple Answers (Multi-Select Box, Vertical, Horizontal).** Answer format is one or more
+    responses from a list of user-defined choices. Denoted by *MultiSelect* in the response payload.
+
+To delete a custom field answer, either omit the `value` parameter or provide an empty list of answers for the specified custom field ID.
+
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="answerBudgetCustomField" method="put" path="/events/{id}/budget-items/{budgetItemId}/custom-fields/{customFieldId}/answers" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System.Collections.Generic;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+AnswerBudgetCustomFieldRequest req = new AnswerBudgetCustomFieldRequest() {
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    BudgetItemId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    CustomFieldId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    CustomField = new CustomFieldInput() {
+        Id = "a8f94915-b3db-4fb7-8ac8-2da89a9ce3f6",
+        Value = new List<string>() {
+            "Choice C",
+            "Choice A",
+        },
+        Type = CustomFieldCustomFieldType.General,
+    },
+};
+
+var res = await sdk.Budgets.AnswerBudgetCustomFieldAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [AnswerBudgetCustomFieldRequest](../../Models/Requests/AnswerBudgetCustomFieldRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+
+### Response
+
+**[AnswerBudgetCustomFieldResponse](../../Models/Requests/AnswerBudgetCustomFieldResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |
+
+## GetEventBudgetTotals
+
+Retrieves a paginated list of budget totals for an event in your account.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="getEventBudgetTotals" method="get" path="/events/{id}/budget-totals" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+GetEventBudgetTotalsRequest req = new GetEventBudgetTotalsRequest() {
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    Filter = "version.name eq 'Test version' and version.id eq '1b3a755a-d440-498d-baab-30f45dae3cf5'",
+};
+
+GetEventBudgetTotalsResponse? res = await sdk.Budgets.GetEventBudgetTotalsAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+
+### Parameters
+
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [GetEventBudgetTotalsRequest](../../Models/Requests/GetEventBudgetTotalsRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+
+### Response
+
+**[GetEventBudgetTotalsResponse](../../Models/Requests/GetEventBudgetTotalsResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse12 | 400, 401, 403, 404, 429                 | application/json                        |
+| Cvent.SDK.Models.Errors.APIException    | 4XX, 5XX                                | \*/\*                                   |

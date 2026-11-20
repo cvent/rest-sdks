@@ -39,7 +39,7 @@ import {
  * Gets a paginated list of Contacts.
  *
  * For information on reading secure contact fields, see the description of
- * <a href="#operation/getContactById">GET Contact</a>.
+ * [GET Contact](#operation/getContactById).
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

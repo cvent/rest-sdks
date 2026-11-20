@@ -1,6 +1,6 @@
 # BidStatusType
 
-Bid status type.
+The status of the bid.
 
 ## Example Usage
 

@@ -8,15 +8,15 @@ import * as components from "../components/index.js";
 
 export type UpdateBudgetAllocationsRequest = {
   /**
-   * Unique ID of an event.
+   * Event ID.
    */
   id: string;
   /**
-   * Unique ID of a budget item.
+   * Budget item ID.
    */
   budgetItemId: string;
   /**
-   * The budget allocations to upsert.
+   * Budget allocations to create or update.
    */
   budgetAllocationsList: components.BudgetAllocationsList;
 };

@@ -33,11 +33,11 @@ let value: AudienceSegmentsPaginatedResponse = {
       lastModified: new Date("2019-02-12T03:00:00Z"),
       lastModifiedBy: "hporter",
       event: {
-        id: "103097a4-143d-11e5-9f99-d0a637ee0032",
+        id: "f8a930fa-1f3e-4d75-93d3-597aa6a321ea",
       },
       name: "VIP Attendees",
       description: "A group of VIP attendees.",
-      id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+      id: "27c6bdc0-58c4-4d3c-b4be-4f57dbaa77b3",
       deleted: true,
     },
   ],

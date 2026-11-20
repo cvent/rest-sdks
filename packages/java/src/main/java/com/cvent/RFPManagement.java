@@ -5,6 +5,9 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.RequestOperation;
 
+import com.cvent.models.components.RfpRequest;
+import com.cvent.models.operations.CreateRFPRequestBuilder;
+import com.cvent.models.operations.CreateRFPResponse;
 import com.cvent.models.operations.GetRFPRequest;
 import com.cvent.models.operations.GetRFPRequestBuilder;
 import com.cvent.models.operations.GetRFPResponse;
@@ -14,9 +17,18 @@ import com.cvent.models.operations.GetRfpLeadSourceResponse;
 import com.cvent.models.operations.GetRfpLeadSourceSectionRequest;
 import com.cvent.models.operations.GetRfpLeadSourceSectionRequestBuilder;
 import com.cvent.models.operations.GetRfpLeadSourceSectionResponse;
+import com.cvent.models.operations.SubmitRFPRequest;
+import com.cvent.models.operations.SubmitRFPRequestBuilder;
+import com.cvent.models.operations.SubmitRFPResponse;
+import com.cvent.models.operations.UpdateRFPRequest;
+import com.cvent.models.operations.UpdateRFPRequestBuilder;
+import com.cvent.models.operations.UpdateRFPResponse;
+import com.cvent.operations.CreateRFP;
 import com.cvent.operations.GetRFP;
 import com.cvent.operations.GetRfpLeadSource;
 import com.cvent.operations.GetRfpLeadSourceSection;
+import com.cvent.operations.SubmitRFP;
+import com.cvent.operations.UpdateRFP;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
@@ -43,6 +55,46 @@ public class RFPManagement {
      */
     public AsyncRFPManagement async() {
         return asyncSDK;
+    }
+
+    /**
+     * Create RFP
+     *
+     * <p>Creates a new RFP with the provided details.
+     *
+     * @return The call builder
+     */
+    public CreateRFPRequestBuilder createRFP() {
+        return new CreateRFPRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Create RFP
+     *
+     * <p>Creates a new RFP with the provided details.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateRFPResponse createRFP(@Nonnull RfpRequest request) {
+        return createRFP(request, null);
+    }
+
+    /**
+     * Create RFP
+     *
+     * <p>Creates a new RFP with the provided details.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateRFPResponse createRFP(@Nonnull RfpRequest request, @Nullable Options options) {
+        RequestOperation<RfpRequest, CreateRFPResponse> operation =
+                new CreateRFP.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
@@ -151,7 +203,7 @@ public class RFPManagement {
     /**
      * Get RFP
      *
-     * <p>Returns basic details of the given RFP.
+     * <p>Returns the basic details of an RFP.
      *
      * @return The call builder
      */
@@ -162,7 +214,7 @@ public class RFPManagement {
     /**
      * Get RFP
      *
-     * <p>Returns basic details of the given RFP.
+     * <p>Returns the basic details of an RFP.
      *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
@@ -175,7 +227,7 @@ public class RFPManagement {
     /**
      * Get RFP
      *
-     * <p>Returns basic details of the given RFP.
+     * <p>Returns the basic details of an RFP.
      *
      * @param request The request object containing all the parameters for the API call.
      * @param options additional options
@@ -185,6 +237,89 @@ public class RFPManagement {
     public GetRFPResponse getRFP(@Nonnull GetRFPRequest request, @Nullable Options options) {
         RequestOperation<GetRFPRequest, GetRFPResponse> operation =
                 new GetRFP.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Update RFP
+     *
+     * <p>Updates an existing RFP with the provided details.
+     *
+     * @return The call builder
+     */
+    public UpdateRFPRequestBuilder updateRFP() {
+        return new UpdateRFPRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Update RFP
+     *
+     * <p>Updates an existing RFP with the provided details.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateRFPResponse updateRFP(@Nonnull UpdateRFPRequest request) {
+        return updateRFP(request, null);
+    }
+
+    /**
+     * Update RFP
+     *
+     * <p>Updates an existing RFP with the provided details.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateRFPResponse updateRFP(@Nonnull UpdateRFPRequest request, @Nullable Options options) {
+        RequestOperation<UpdateRFPRequest, UpdateRFPResponse> operation =
+                new UpdateRFP.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * Submit RFP
+     *
+     * <p>Submits an existing RFP. Transitions the RFP from draft status to active or pending status based on
+     * whether the RFP approval process is enabled.
+     *
+     * @return The call builder
+     */
+    public SubmitRFPRequestBuilder submitRFP() {
+        return new SubmitRFPRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * Submit RFP
+     *
+     * <p>Submits an existing RFP. Transitions the RFP from draft status to active or pending status based on
+     * whether the RFP approval process is enabled.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public SubmitRFPResponse submitRFP(@Nonnull SubmitRFPRequest request) {
+        return submitRFP(request, null);
+    }
+
+    /**
+     * Submit RFP
+     *
+     * <p>Submits an existing RFP. Transitions the RFP from draft status to active or pending status based on
+     * whether the RFP approval process is enabled.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public SubmitRFPResponse submitRFP(@Nonnull SubmitRFPRequest request, @Nullable Options options) {
+        RequestOperation<SubmitRFPRequest, SubmitRFPResponse> operation =
+                new SubmitRFP.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

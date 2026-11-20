@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Components
     public class AttendeeAudienceSegmentAssociation
     {
         /// <summary>
-        /// Segment details.
+        /// Represents a segment by its ID.
         /// </summary>
         [JsonProperty("segment")]
         public Segment Segment { get; set; } = default!;

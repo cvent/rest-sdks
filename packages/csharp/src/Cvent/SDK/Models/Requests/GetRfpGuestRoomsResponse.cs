@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully returns the guest room requirements associated with an RFP.
+        /// Successfully retrieved the guest room requirements of the RFP.
         /// </summary>
         public RfpGuestRooms? RfpGuestRooms { get; set; }
     }

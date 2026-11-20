@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
 import java.lang.Long;
@@ -19,7 +18,10 @@ import java.util.Optional;
 /**
  * EventOrganization1
  *
- * <p>Details of organization which is hosting the event.
+ * <p>Details of the organization hosting the event. When organization.id identifies one of the account's
+ * organization profiles, the organization details come from that profile and the other fields in this
+ * object are ignored on input. When organization.id is omitted or is the nil UUID, the fields in this
+ * object describe a new organization for this RFP, and name and type are required for an active RFP.
  */
 public class EventOrganization1 {
     /**
@@ -46,12 +48,14 @@ public class EventOrganization1 {
     /**
      * Name of the organization hosting the event.
      */
+    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("name")
     private String name;
 
     /**
      * Organization type.
      */
+    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
     private OrganizationType1 type;
 
@@ -63,7 +67,7 @@ public class EventOrganization1 {
     private Address1 address;
 
     /**
-     * Number of events per year.
+     * Number of events the organization hosts per year.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("eventsPerYear")
@@ -74,21 +78,21 @@ public class EventOrganization1 {
             @JsonProperty("organization") @Nullable Organization organization,
             @JsonProperty("confidentialProfile") @Nullable Boolean confidentialProfile,
             @JsonProperty("industry") @Nullable Industry1 industry,
-            @JsonProperty("name") @Nonnull String name,
-            @JsonProperty("type") @Nonnull OrganizationType1 type,
+            @JsonProperty("name") @Nullable String name,
+            @JsonProperty("type") @Nullable OrganizationType1 type,
             @JsonProperty("address") @Nullable Address1 address,
             @JsonProperty("eventsPerYear") @Nullable Long eventsPerYear) {
         this.organization = organization;
         this.confidentialProfile = confidentialProfile;
         this.industry = industry;
-        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.name = name;
+        this.type = type;
         this.address = address;
         this.eventsPerYear = eventsPerYear;
     }
 
-    public EventOrganization1(@Nonnull String name, @Nonnull OrganizationType1 type) {
-        this(null, null, null, name, type, null, null);
+    public EventOrganization1() {
+        this(null, null, null, null, null, null, null);
     }
 
     /**
@@ -115,15 +119,15 @@ public class EventOrganization1 {
     /**
      * Name of the organization hosting the event.
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
      * Organization type.
      */
-    public OrganizationType1 type() {
-        return this.type;
+    public Optional<OrganizationType1> type() {
+        return Optional.ofNullable(this.type);
     }
 
     /**
@@ -134,7 +138,7 @@ public class EventOrganization1 {
     }
 
     /**
-     * Number of events per year.
+     * Number of events the organization hosts per year.
      */
     public Optional<Long> eventsPerYear() {
         return Optional.ofNullable(this.eventsPerYear);
@@ -171,16 +175,16 @@ public class EventOrganization1 {
     /**
      * Name of the organization hosting the event.
      */
-    public EventOrganization1 withName(@Nonnull String name) {
-        this.name = Utils.checkNotNull(name, "name");
+    public EventOrganization1 withName(@Nullable String name) {
+        this.name = name;
         return this;
     }
 
     /**
      * Organization type.
      */
-    public EventOrganization1 withType(@Nonnull OrganizationType1 type) {
-        this.type = Utils.checkNotNull(type, "type");
+    public EventOrganization1 withType(@Nullable OrganizationType1 type) {
+        this.type = type;
         return this;
     }
 
@@ -193,7 +197,7 @@ public class EventOrganization1 {
     }
 
     /**
-     * Number of events per year.
+     * Number of events the organization hosts per year.
      */
     public EventOrganization1 withEventsPerYear(@Nullable Long eventsPerYear) {
         this.eventsPerYear = eventsPerYear;
@@ -291,16 +295,16 @@ public class EventOrganization1 {
         /**
          * Name of the organization hosting the event.
          */
-        public Builder name(@Nonnull String name) {
-            this.name = Utils.checkNotNull(name, "name");
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
 
         /**
          * Organization type.
          */
-        public Builder type(@Nonnull OrganizationType1 type) {
-            this.type = Utils.checkNotNull(type, "type");
+        public Builder type(@Nullable OrganizationType1 type) {
+            this.type = type;
             return this;
         }
 
@@ -313,7 +317,7 @@ public class EventOrganization1 {
         }
 
         /**
-         * Number of events per year.
+         * Number of events the organization hosts per year.
          */
         public Builder eventsPerYear(@Nullable Long eventsPerYear) {
             this.eventsPerYear = eventsPerYear;

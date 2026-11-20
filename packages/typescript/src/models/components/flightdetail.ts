@@ -4,25 +4,15 @@
 
 import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  JourneySegment,
+  JourneySegment$inboundSchema,
+} from "./journeysegment.js";
 
 /**
- * Journey Segment
- */
-export const JourneySegment = {
-  LeavingEvent: "LeavingEvent",
-  GoingToEvent: "GoingToEvent",
-  NotApplicable: "NotApplicable",
-} as const;
-/**
- * Journey Segment
- */
-export type JourneySegment = ClosedEnum<typeof JourneySegment>;
-
-/**
- * Representation of a flight's details.
+ * Details for one flight segment, including its airline, route, times, seat, and ticket class.
  */
 export type FlightDetail = {
   /**
@@ -78,11 +68,6 @@ export type FlightDetail = {
    */
   journeySegment?: JourneySegment | undefined;
 };
-
-/** @internal */
-export const JourneySegment$inboundSchema: z.ZodNativeEnum<
-  typeof JourneySegment
-> = z.nativeEnum(JourneySegment);
 
 /** @internal */
 export const FlightDetail$inboundSchema: z.ZodType<

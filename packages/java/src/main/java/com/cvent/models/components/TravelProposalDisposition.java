@@ -18,18 +18,18 @@ import java.util.Optional;
 /**
  * TravelProposalDisposition
  *
- * <p>Represent proposal disposition details.
+ * <p>The disposition of the travel proposal.
  */
 public class TravelProposalDisposition {
     /**
-     * List of bid dispositions.
+     * The dispositions of the bids in the proposal.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bidDispositions")
     private List<TravelBidDisposition> bidDispositions;
 
     /**
-     * Indicates if the group and meeting is accepted.
+     * True indicates the group and meeting information is accepted.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("groupAndMeetingAccepted")
@@ -48,14 +48,14 @@ public class TravelProposalDisposition {
     }
 
     /**
-     * List of bid dispositions.
+     * The dispositions of the bids in the proposal.
      */
     public Optional<List<TravelBidDisposition>> bidDispositions() {
         return Optional.ofNullable(this.bidDispositions);
     }
 
     /**
-     * Indicates if the group and meeting is accepted.
+     * True indicates the group and meeting information is accepted.
      */
     public Optional<Boolean> groupAndMeetingAccepted() {
         return Optional.ofNullable(this.groupAndMeetingAccepted);
@@ -66,7 +66,7 @@ public class TravelProposalDisposition {
     }
 
     /**
-     * List of bid dispositions.
+     * The dispositions of the bids in the proposal.
      */
     public TravelProposalDisposition withBidDispositions(@Nullable List<TravelBidDisposition> bidDispositions) {
         this.bidDispositions = bidDispositions;
@@ -74,7 +74,7 @@ public class TravelProposalDisposition {
     }
 
     /**
-     * Indicates if the group and meeting is accepted.
+     * True indicates the group and meeting information is accepted.
      */
     public TravelProposalDisposition withGroupAndMeetingAccepted(@Nullable Boolean groupAndMeetingAccepted) {
         this.groupAndMeetingAccepted = groupAndMeetingAccepted;
@@ -121,7 +121,7 @@ public class TravelProposalDisposition {
         }
 
         /**
-         * List of bid dispositions.
+         * The dispositions of the bids in the proposal.
          */
         public Builder bidDispositions(@Nullable List<TravelBidDisposition> bidDispositions) {
             this.bidDispositions = bidDispositions;
@@ -129,7 +129,7 @@ public class TravelProposalDisposition {
         }
 
         /**
-         * Indicates if the group and meeting is accepted.
+         * True indicates the group and meeting information is accepted.
          */
         public Builder groupAndMeetingAccepted(@Nullable Boolean groupAndMeetingAccepted) {
             this.groupAndMeetingAccepted = groupAndMeetingAccepted;

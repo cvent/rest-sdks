@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type BudgetCategory = {
   /**
-   * Unique identifier of the budget category.
+   * Budget category ID.
    */
   id: number;
   /**

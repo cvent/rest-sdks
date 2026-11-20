@@ -1,6 +1,6 @@
 # Video1
 
-The details of a video
+A video ID associated with a video view.
 
 ## Example Usage
 

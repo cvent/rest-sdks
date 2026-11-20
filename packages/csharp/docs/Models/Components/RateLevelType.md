@@ -1,6 +1,6 @@
 # RateLevelType
 
-Rate level
+The rate level.
 
 ## Example Usage
 

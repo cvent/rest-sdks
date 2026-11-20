@@ -6,7 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { RecipientType, RecipientType$inboundSchema } from "./recipienttype.js";
+import {
+  RecipientType,
+  RecipientType$inboundSchema,
+  RecipientType$outboundSchema,
+} from "./recipienttype.js";
 
 /**
  * Represents the details of the RFP recipient.
@@ -36,7 +40,27 @@ export const RecipientInfo$inboundSchema: z.ZodType<
   type: RecipientType$inboundSchema.optional(),
   value: z.string().optional(),
 });
+/** @internal */
+export type RecipientInfo$Outbound = {
+  order?: number | undefined;
+  type?: string | undefined;
+  value?: string | undefined;
+};
 
+/** @internal */
+export const RecipientInfo$outboundSchema: z.ZodType<
+  RecipientInfo$Outbound,
+  z.ZodTypeDef,
+  RecipientInfo
+> = z.object({
+  order: z.number().int().optional(),
+  type: RecipientType$outboundSchema.optional(),
+  value: z.string().optional(),
+});
+
+export function recipientInfoToJSON(recipientInfo: RecipientInfo): string {
+  return JSON.stringify(RecipientInfo$outboundSchema.parse(recipientInfo));
+}
 export function recipientInfoFromJSON(
   jsonString: string,
 ): SafeParseResult<RecipientInfo, SDKValidationError> {

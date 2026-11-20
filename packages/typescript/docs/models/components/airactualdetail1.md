@@ -1,6 +1,6 @@
 # AirActualDetail1
 
-Representation of an air actual detail response.
+Air actual details for an attendee and any guest.
 
 ## Example Usage
 
@@ -65,5 +65,5 @@ let value: AirActualDetail1 = {
 
 | Field                                                          | Type                                                           | Required                                                       | Description                                                    |
 | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| `attendee`                                                     | [components.Attendee3](../../models/components/attendee3.md)   | :heavy_minus_sign:                                             | Representation of the attendee                                 |
+| `attendee`                                                     | [components.Attendee3](../../models/components/attendee3.md)   | :heavy_minus_sign:                                             | An attendee identified by an ID.                               |
 | `airActualDetails`                                             | [components.AirActual](../../models/components/airactual.md)[] | :heavy_minus_sign:                                             | List of air actual details for the attendee and its guest.     |

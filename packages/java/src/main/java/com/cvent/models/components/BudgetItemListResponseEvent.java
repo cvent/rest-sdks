@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * BudgetItemListResponseEvent
  *
- * <p>The identifier of the Event.
+ * <p>Event ID.
  */
 public class BudgetItemListResponseEvent {
     /**

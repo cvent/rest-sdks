@@ -32,7 +32,7 @@ public class GetTravelProposalStaticContentResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully retrieved proposal static content.
+     * Successfully retrieved the static content of a travel proposal.
      */
     private TravelProposalStaticContentResponse travelProposalStaticContentResponse;
 
@@ -77,7 +77,7 @@ public class GetTravelProposalStaticContentResponse implements Response {
     }
 
     /**
-     * Successfully retrieved proposal static content.
+     * Successfully retrieved the static content of a travel proposal.
      */
     public Optional<TravelProposalStaticContentResponse> travelProposalStaticContentResponse() {
         return Optional.ofNullable(this.travelProposalStaticContentResponse);
@@ -112,7 +112,7 @@ public class GetTravelProposalStaticContentResponse implements Response {
     }
 
     /**
-     * Successfully retrieved proposal static content.
+     * Successfully retrieved the static content of a travel proposal.
      */
     public GetTravelProposalStaticContentResponse withTravelProposalStaticContentResponse(
             @Nullable TravelProposalStaticContentResponse travelProposalStaticContentResponse) {
@@ -194,7 +194,7 @@ public class GetTravelProposalStaticContentResponse implements Response {
         }
 
         /**
-         * Successfully retrieved proposal static content.
+         * Successfully retrieved the static content of a travel proposal.
          */
         public Builder travelProposalStaticContentResponse(
                 @Nullable TravelProposalStaticContentResponse travelProposalStaticContentResponse) {

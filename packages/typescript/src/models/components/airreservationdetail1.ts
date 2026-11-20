@@ -10,11 +10,11 @@ import { AirRequest, AirRequest$inboundSchema } from "./airrequest.js";
 import { Attendee3, Attendee3$inboundSchema } from "./attendee3.js";
 
 /**
- * Representation of an air reservation detail response.
+ * Air request details for an attendee and any guest.
  */
 export type AirReservationDetail1 = {
   /**
-   * Representation of the attendee
+   * An attendee identified by an ID.
    */
   attendee?: Attendee3 | undefined;
   /**

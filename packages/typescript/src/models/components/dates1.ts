@@ -43,7 +43,31 @@ export const Dates1$inboundSchema: z.ZodType<Dates1, z.ZodTypeDef, unknown> = z
     startDate: z.string().transform(v => new RFCDate(v)).optional(),
     note: z.string().optional(),
   });
+/** @internal */
+export type Dates1$Outbound = {
+  preferred?: boolean | undefined;
+  id?: string | undefined;
+  endDate?: string | undefined;
+  startDate?: string | undefined;
+  note?: string | undefined;
+};
 
+/** @internal */
+export const Dates1$outboundSchema: z.ZodType<
+  Dates1$Outbound,
+  z.ZodTypeDef,
+  Dates1
+> = z.object({
+  preferred: z.boolean().optional(),
+  id: z.string().optional(),
+  endDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
+  startDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
+  note: z.string().optional(),
+});
+
+export function dates1ToJSON(dates1: Dates1): string {
+  return JSON.stringify(Dates1$outboundSchema.parse(dates1));
+}
 export function dates1FromJSON(
   jsonString: string,
 ): SafeParseResult<Dates1, SDKValidationError> {

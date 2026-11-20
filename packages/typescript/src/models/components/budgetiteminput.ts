@@ -69,7 +69,7 @@ export type BudgetItemInput = {
    */
   category: BudgetCategoryInput;
   /**
-   * This is used to denote the sub category for a budget.
+   * Subcategory assigned to a budget item.
    */
   subCategory?: BudgetSubCategoryInput | undefined;
   /**
@@ -85,7 +85,7 @@ export type BudgetItemInput = {
    */
   date: Date;
   /**
-   * This is used to denote the general ledger code associated with budget.
+   * General ledger code and details associated with a budget item.
    */
   generalLedger?: GeneralLedger1Input | undefined;
   /**
@@ -117,7 +117,7 @@ export type BudgetItemInput = {
    */
   conversionRateLocked?: boolean | undefined;
   /**
-   * Conversion rate for converting an amount into a different currency. Value must be greater than 0.000001
+   * Rate used to convert an amount into another currency. The value must be greater than 0.000001.
    */
   conversionRate: number;
   /**

@@ -41,7 +41,7 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// See the request body of <a href="#operation/listContacts">GET List Contacts</a> for full filtering information.
+        /// See the `filter` query parameter description of <a href="#operation/listContacts">List Contacts</a> for full filtering information.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Filter? Filter { get; set; }

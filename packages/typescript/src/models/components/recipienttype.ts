@@ -22,3 +22,7 @@ export type RecipientType = ClosedEnum<typeof RecipientType>;
 export const RecipientType$inboundSchema: z.ZodNativeEnum<
   typeof RecipientType
 > = z.nativeEnum(RecipientType);
+/** @internal */
+export const RecipientType$outboundSchema: z.ZodNativeEnum<
+  typeof RecipientType
+> = RecipientType$inboundSchema;
