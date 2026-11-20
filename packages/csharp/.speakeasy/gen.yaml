@@ -34,7 +34,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 csharp:
-  version: 1.7.1
+  version: 1.8.0
   additionalDependencies: []
   author: Cvent
   baseErrorName: CventSDKException
